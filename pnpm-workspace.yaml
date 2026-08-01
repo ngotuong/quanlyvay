@@ -1,0 +1,11 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+
+engineStrict: true
+nodeVersion: 24.15.0
+savePrefix: ""

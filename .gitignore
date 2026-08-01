@@ -1,0 +1,36 @@
+# Dependencies and package managers
+node_modules/
+.pnpm-store/
+
+# Next.js and build outputs
+.next/
+.vercel/
+out/
+dist/
+build/
+coverage/
+playwright-report/
+test-results/
+
+# Supabase local state
+supabase/.branches/
+supabase/.temp/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+**/.clasp.json
+*.pem
+*.key
+
+# Logs and caches
+*.log
+.cache/
+.turbo/
+
+# Editors and operating system
+.DS_Store
+.idea/
+.vscode/
+*.swp

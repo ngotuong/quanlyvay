@@ -1,0 +1,18 @@
+{
+  "name": "quan-ly-vay-ca-nhan",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=24.0.0 <25",
+    "pnpm": ">=11.9.0 <12"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @quan-ly-vay-ca-nhan/web dev",
+    "lint": "pnpm --filter @quan-ly-vay-ca-nhan/web lint",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "test": "pnpm --filter @quan-ly-vay-ca-nhan/domain-contract test",
+    "test:auth": "pnpm --filter @quan-ly-vay-ca-nhan/web test:auth",
+    "build": "pnpm --filter @quan-ly-vay-ca-nhan/web build"
+  }
+}

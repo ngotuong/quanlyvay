@@ -1,0 +1,2 @@
+-- Intentionally empty. C3 database tests create isolated fixture data and roll it back.
+-- Production seed data must never contain real financial or account information.

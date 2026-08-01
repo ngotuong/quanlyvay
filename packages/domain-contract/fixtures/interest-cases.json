@@ -1,0 +1,654 @@
+{
+  "schemaVersion": 1,
+  "currency": "VND",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "rounding": "HALF_UP_AT_PERIOD_END",
+  "cases": [
+    {
+      "id": "base_15_day_cycle",
+      "description": "Chu kỳ 15 ngày, không thanh toán, ngày giải ngân được tính lãi.",
+      "input": {
+        "direction": "LENDING",
+        "originalPrincipalVnd": "100000000",
+        "disbursementDate": "2026-08-01",
+        "termDays": 30,
+        "interestCycleDays": 15,
+        "initialDailyRatePercent": "0.1",
+        "asOfDate": "2026-08-30",
+        "events": []
+      },
+      "expected": {
+        "maturityDate": "2026-08-30",
+        "status": "ACTIVE",
+        "principalOutstandingVnd": "100000000",
+        "interestBalanceVnd": "3000000",
+        "periods": [
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-01",
+            "endDate": "2026-08-15",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-01",
+                "endDate": "2026-08-15",
+                "dayCount": 15,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.1"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "1500000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "1500000"
+          },
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-16",
+            "endDate": "2026-08-30",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-16",
+                "endDate": "2026-08-30",
+                "dayCount": 15,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.1"
+              }
+            ],
+            "openingInterestBalanceVnd": "1500000",
+            "accruedInterestVnd": "1500000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "3000000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "base_30_day_cycle_short_final",
+      "description": "Chu kỳ 30 ngày với kỳ cuối chỉ có 15 ngày.",
+      "input": {
+        "direction": "BORROWING",
+        "originalPrincipalVnd": "200000000",
+        "disbursementDate": "2026-08-01",
+        "termDays": 45,
+        "interestCycleDays": 30,
+        "initialDailyRatePercent": "0.05",
+        "asOfDate": "2026-09-14",
+        "events": []
+      },
+      "expected": {
+        "maturityDate": "2026-09-14",
+        "status": "ACTIVE",
+        "principalOutstandingVnd": "200000000",
+        "interestBalanceVnd": "4500000",
+        "periods": [
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-01",
+            "endDate": "2026-08-30",
+            "dayCount": 30,
+            "segments": [
+              {
+                "startDate": "2026-08-01",
+                "endDate": "2026-08-30",
+                "dayCount": 30,
+                "principalVnd": "200000000",
+                "dailyRatePercent": "0.05"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "3000000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "3000000"
+          },
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-31",
+            "endDate": "2026-09-14",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-31",
+                "endDate": "2026-09-14",
+                "dayCount": 15,
+                "principalVnd": "200000000",
+                "dailyRatePercent": "0.05"
+              }
+            ],
+            "openingInterestBalanceVnd": "3000000",
+            "accruedInterestVnd": "1500000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "4500000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "partial_principal_mid_period",
+      "description": "Trả 40 triệu gốc ngày 10; dư nợ mới có hiệu lực từ ngày 11.",
+      "input": {
+        "direction": "LENDING",
+        "originalPrincipalVnd": "100000000",
+        "disbursementDate": "2026-08-01",
+        "termDays": 30,
+        "interestCycleDays": 15,
+        "initialDailyRatePercent": "0.1",
+        "asOfDate": "2026-08-30",
+        "events": [
+          {
+            "id": "partial-p-1",
+            "date": "2026-08-10",
+            "type": "PRINCIPAL_PAYMENT",
+            "amountVnd": "40000000",
+            "note": "Trả gốc một phần"
+          }
+        ]
+      },
+      "expected": {
+        "maturityDate": "2026-08-30",
+        "status": "ACTIVE",
+        "principalOutstandingVnd": "60000000",
+        "interestBalanceVnd": "2200000",
+        "periods": [
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-01",
+            "endDate": "2026-08-15",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-01",
+                "endDate": "2026-08-10",
+                "dayCount": 10,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.1"
+              },
+              {
+                "startDate": "2026-08-11",
+                "endDate": "2026-08-15",
+                "dayCount": 5,
+                "principalVnd": "60000000",
+                "dailyRatePercent": "0.1"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "1300000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "1300000"
+          },
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-16",
+            "endDate": "2026-08-30",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-16",
+                "endDate": "2026-08-30",
+                "dayCount": 15,
+                "principalVnd": "60000000",
+                "dailyRatePercent": "0.1"
+              }
+            ],
+            "openingInterestBalanceVnd": "1300000",
+            "accruedInterestVnd": "900000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "2200000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "rate_change_effective_date",
+      "description": "Lãi suất mới 0,2% áp dụng từ đầu ngày 08/08.",
+      "input": {
+        "direction": "LENDING",
+        "originalPrincipalVnd": "100000000",
+        "disbursementDate": "2026-08-01",
+        "termDays": 15,
+        "interestCycleDays": 15,
+        "initialDailyRatePercent": "0.1",
+        "asOfDate": "2026-08-15",
+        "events": [
+          {
+            "id": "rate-1",
+            "date": "2026-08-08",
+            "type": "RATE_CHANGE",
+            "dailyRatePercent": "0.2"
+          }
+        ]
+      },
+      "expected": {
+        "maturityDate": "2026-08-15",
+        "status": "ACTIVE",
+        "principalOutstandingVnd": "100000000",
+        "interestBalanceVnd": "2300000",
+        "periods": [
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-01",
+            "endDate": "2026-08-15",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-01",
+                "endDate": "2026-08-07",
+                "dayCount": 7,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.1"
+              },
+              {
+                "startDate": "2026-08-08",
+                "endDate": "2026-08-15",
+                "dayCount": 8,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.2"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "2300000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "2300000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "interest_under_over_carry",
+      "description": "Kỳ đầu thiếu 500 nghìn; kỳ sau trả thừa tạo carry âm 200 nghìn.",
+      "input": {
+        "direction": "LENDING",
+        "originalPrincipalVnd": "100000000",
+        "disbursementDate": "2026-08-01",
+        "termDays": 30,
+        "interestCycleDays": 15,
+        "initialDailyRatePercent": "0.1",
+        "asOfDate": "2026-08-30",
+        "events": [
+          {
+            "id": "interest-pay-1",
+            "date": "2026-08-15",
+            "type": "INTEREST_PAYMENT",
+            "amountVnd": "1000000",
+            "note": "Thanh toán thiếu"
+          },
+          {
+            "id": "interest-pay-2",
+            "date": "2026-08-30",
+            "type": "INTEREST_PAYMENT",
+            "amountVnd": "2200000",
+            "note": "Thanh toán thừa"
+          }
+        ]
+      },
+      "expected": {
+        "maturityDate": "2026-08-30",
+        "status": "ACTIVE",
+        "principalOutstandingVnd": "100000000",
+        "interestBalanceVnd": "-200000",
+        "periods": [
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-01",
+            "endDate": "2026-08-15",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-01",
+                "endDate": "2026-08-15",
+                "dayCount": 15,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.1"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "1500000",
+            "interestPaymentsVnd": "1000000",
+            "closingInterestBalanceVnd": "500000"
+          },
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-16",
+            "endDate": "2026-08-30",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-16",
+                "endDate": "2026-08-30",
+                "dayCount": 15,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.1"
+              }
+            ],
+            "openingInterestBalanceVnd": "500000",
+            "accruedInterestVnd": "1500000",
+            "interestPaymentsVnd": "2200000",
+            "closingInterestBalanceVnd": "-200000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "early_settlement",
+      "description": "Tất toán ngày 22, tính đủ lãi từ kỳ gần nhất đến hết ngày tất toán.",
+      "input": {
+        "direction": "LENDING",
+        "originalPrincipalVnd": "80000000",
+        "disbursementDate": "2026-08-01",
+        "termDays": 60,
+        "interestCycleDays": 15,
+        "initialDailyRatePercent": "0.075",
+        "asOfDate": "2026-08-22",
+        "events": [
+          {
+            "id": "settlement-interest-1",
+            "date": "2026-08-15",
+            "type": "INTEREST_PAYMENT",
+            "amountVnd": "900000"
+          },
+          {
+            "id": "settlement-1",
+            "date": "2026-08-22",
+            "type": "SETTLEMENT",
+            "principalAmountVnd": "80000000",
+            "interestAmountVnd": "420000"
+          }
+        ]
+      },
+      "expected": {
+        "maturityDate": "2026-09-29",
+        "status": "SETTLED",
+        "principalOutstandingVnd": "0",
+        "interestBalanceVnd": "0",
+        "periods": [
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-01",
+            "endDate": "2026-08-15",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-01",
+                "endDate": "2026-08-15",
+                "dayCount": 15,
+                "principalVnd": "80000000",
+                "dailyRatePercent": "0.075"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "900000",
+            "interestPaymentsVnd": "900000",
+            "closingInterestBalanceVnd": "0"
+          },
+          {
+            "kind": "SETTLEMENT",
+            "startDate": "2026-08-16",
+            "endDate": "2026-08-22",
+            "dayCount": 7,
+            "segments": [
+              {
+                "startDate": "2026-08-16",
+                "endDate": "2026-08-22",
+                "dayCount": 7,
+                "principalVnd": "80000000",
+                "dailyRatePercent": "0.075"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "420000",
+            "interestPaymentsVnd": "420000",
+            "closingInterestBalanceVnd": "0"
+          }
+        ]
+      }
+    },
+    {
+      "id": "overdue_without_penalty",
+      "description": "Sau đáo hạn vẫn tính mức cũ, không thêm lãi phạt.",
+      "input": {
+        "direction": "BORROWING",
+        "originalPrincipalVnd": "50000000",
+        "disbursementDate": "2026-08-01",
+        "termDays": 10,
+        "interestCycleDays": 15,
+        "initialDailyRatePercent": "0.08",
+        "asOfDate": "2026-08-15",
+        "events": []
+      },
+      "expected": {
+        "maturityDate": "2026-08-10",
+        "status": "OVERDUE",
+        "principalOutstandingVnd": "50000000",
+        "interestBalanceVnd": "600000",
+        "periods": [
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-01",
+            "endDate": "2026-08-10",
+            "dayCount": 10,
+            "segments": [
+              {
+                "startDate": "2026-08-01",
+                "endDate": "2026-08-10",
+                "dayCount": 10,
+                "principalVnd": "50000000",
+                "dailyRatePercent": "0.08"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "400000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "400000"
+          },
+          {
+            "kind": "OVERDUE",
+            "startDate": "2026-08-11",
+            "endDate": "2026-08-15",
+            "dayCount": 5,
+            "segments": [
+              {
+                "startDate": "2026-08-11",
+                "endDate": "2026-08-15",
+                "dayCount": 5,
+                "principalVnd": "50000000",
+                "dailyRatePercent": "0.08"
+              }
+            ],
+            "openingInterestBalanceVnd": "400000",
+            "accruedInterestVnd": "200000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "600000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bad_debt_pause_resume",
+      "description": "Tính hết ngày chuyển nợ xấu, dừng 10 ngày và bật lại bằng lãi suất mới.",
+      "input": {
+        "direction": "LENDING",
+        "originalPrincipalVnd": "100000000",
+        "disbursementDate": "2026-08-01",
+        "termDays": 60,
+        "interestCycleDays": 15,
+        "initialDailyRatePercent": "0.1",
+        "asOfDate": "2026-08-30",
+        "events": [
+          {
+            "id": "bad-debt-1",
+            "date": "2026-08-10",
+            "type": "BAD_DEBT_START"
+          },
+          {
+            "id": "resume-1",
+            "date": "2026-08-21",
+            "type": "INTEREST_RESUME",
+            "dailyRatePercent": "0.05"
+          }
+        ]
+      },
+      "expected": {
+        "maturityDate": "2026-09-29",
+        "status": "ACTIVE",
+        "principalOutstandingVnd": "100000000",
+        "interestBalanceVnd": "1500000",
+        "periods": [
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-01",
+            "endDate": "2026-08-15",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-01",
+                "endDate": "2026-08-10",
+                "dayCount": 10,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.1"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "1000000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "1000000"
+          },
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-16",
+            "endDate": "2026-08-30",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-21",
+                "endDate": "2026-08-30",
+                "dayCount": 10,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.05"
+              }
+            ],
+            "openingInterestBalanceVnd": "1000000",
+            "accruedInterestVnd": "500000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "1500000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "round_half_up_at_period_end",
+      "description": "Lãi thô 1.000,5 VND được làm tròn một lần ở cuối kỳ thành 1.001 VND.",
+      "input": {
+        "direction": "LENDING",
+        "originalPrincipalVnd": "100050",
+        "disbursementDate": "2026-08-01",
+        "termDays": 10,
+        "interestCycleDays": 15,
+        "initialDailyRatePercent": "0.1",
+        "asOfDate": "2026-08-10",
+        "events": []
+      },
+      "expected": {
+        "maturityDate": "2026-08-10",
+        "status": "ACTIVE",
+        "principalOutstandingVnd": "100050",
+        "interestBalanceVnd": "1001",
+        "periods": [
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-01",
+            "endDate": "2026-08-10",
+            "dayCount": 10,
+            "segments": [
+              {
+                "startDate": "2026-08-01",
+                "endDate": "2026-08-10",
+                "dayCount": 10,
+                "principalVnd": "100050",
+                "dailyRatePercent": "0.1"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "1001",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "1001"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reversed_principal_payment",
+      "description": "Đảo giao dịch trả gốc và tính lại như giao dịch gốc chưa từng có.",
+      "input": {
+        "direction": "LENDING",
+        "originalPrincipalVnd": "100000000",
+        "disbursementDate": "2026-08-01",
+        "termDays": 30,
+        "interestCycleDays": 15,
+        "initialDailyRatePercent": "0.1",
+        "asOfDate": "2026-08-30",
+        "events": [
+          {
+            "id": "reversed-p-1",
+            "date": "2026-08-10",
+            "type": "PRINCIPAL_PAYMENT",
+            "amountVnd": "40000000"
+          },
+          {
+            "id": "reversal-1",
+            "date": "2026-08-12",
+            "type": "REVERSAL",
+            "reversesTransactionId": "reversed-p-1",
+            "note": "Nhập nhầm giao dịch trả gốc"
+          }
+        ]
+      },
+      "expected": {
+        "maturityDate": "2026-08-30",
+        "status": "ACTIVE",
+        "principalOutstandingVnd": "100000000",
+        "interestBalanceVnd": "3000000",
+        "periods": [
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-01",
+            "endDate": "2026-08-15",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-01",
+                "endDate": "2026-08-15",
+                "dayCount": 15,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.1"
+              }
+            ],
+            "openingInterestBalanceVnd": "0",
+            "accruedInterestVnd": "1500000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "1500000"
+          },
+          {
+            "kind": "SCHEDULED",
+            "startDate": "2026-08-16",
+            "endDate": "2026-08-30",
+            "dayCount": 15,
+            "segments": [
+              {
+                "startDate": "2026-08-16",
+                "endDate": "2026-08-30",
+                "dayCount": 15,
+                "principalVnd": "100000000",
+                "dailyRatePercent": "0.1"
+              }
+            ],
+            "openingInterestBalanceVnd": "1500000",
+            "accruedInterestVnd": "1500000",
+            "interestPaymentsVnd": "0",
+            "closingInterestBalanceVnd": "3000000"
+          }
+        ]
+      }
+    }
+  ]
+}
