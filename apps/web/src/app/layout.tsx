@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { PwaRegister } from "@/components/pwa-register";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Quản lý vay cá nhân",
   description: "Quản lý khoản đi vay, cho vay và dòng tiền cá nhân.",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: { capable: true, statusBarStyle: "default", title: "Quản Lý Vay" },
+  icons: { icon: "/icons/app-icon-192.png", apple: "/icons/app-icon-192.png" },
 };
+
+export const viewport: Viewport = { themeColor: [
+  { media: "(prefers-color-scheme: light)", color: "#f4f7fb" },
+  { media: "(prefers-color-scheme: dark)", color: "#08111f" },
+] };
 
 export default function RootLayout({
   children,
@@ -31,6 +40,7 @@ export default function RootLayout({
         <a className="skip-link" href="#main-content">
           Bỏ qua đến nội dung chính
         </a>
+        <PwaRegister />
         {children}
       </body>
     </html>

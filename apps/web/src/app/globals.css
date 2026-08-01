@@ -488,7 +488,8 @@ button {
 .app-content { width: min(100%, 1280px); margin: 0 auto; padding: 24px 16px 48px; }
 .mobile-nav-wrap { position: fixed; right: 0; bottom: 0; left: 0; z-index: 30; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 96%, transparent); padding-bottom: env(safe-area-inset-bottom); backdrop-filter: blur(16px); }
 .app-nav { display: flex; justify-content: space-around; gap: 4px; padding: 6px 8px; }
-.nav-link { display: flex; min-width: 72px; min-height: 52px; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border-radius: 12px; color: var(--foreground-muted); font-size: .75rem; font-weight: 650; text-decoration: none; transition: color 180ms ease, background 180ms ease; }
+.nav-link { position: relative; display: flex; min-width: 64px; min-height: 52px; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border-radius: 12px; color: var(--foreground-muted); font-size: .7rem; font-weight: 650; text-decoration: none; transition: color 180ms ease, background 180ms ease; }
+.nav-badge { position: absolute; top: 3px; left: calc(50% + 8px); display: grid; min-width: 18px; height: 18px; place-items: center; border: 2px solid var(--surface); border-radius: 999px; background: var(--error); padding: 0 4px; color: #fff; font-size: .6rem; line-height: 1; }
 .nav-link[data-active="true"] { background: var(--primary-soft); color: var(--primary); }
 .nav-link:hover { color: var(--primary); }
 .page-heading-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
@@ -659,6 +660,39 @@ summary { cursor: pointer; font-weight: 700; }
   .mobile-header, .mobile-nav-wrap { display: none; }
   .app-main-column { padding-bottom: 0; }
   .app-content { padding: 48px 40px 72px; }
+}
+
+/* C8 PWA and notification center */
+.push-settings { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 12px; margin-bottom: 18px; }
+.push-settings-icon { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 14px; background: var(--surface-muted); color: var(--foreground-muted); }
+.push-settings-icon[data-enabled="true"] { background: var(--primary-soft); color: var(--primary); }
+.push-settings-copy { min-width: 0; }
+.push-settings-copy .eyebrow { margin: 0 0 4px; }
+.push-settings-copy h2 { margin: 0 0 6px; font-size: 1.1rem; }
+.push-settings-copy p:not(.eyebrow), .push-config-note, .push-feedback { margin: 0; color: var(--foreground-muted); font-size: .82rem; line-height: 1.5; }
+.push-settings > button { grid-column: 1 / -1; width: 100%; }
+.push-config-note, .push-feedback { grid-column: 1 / -1; }
+.push-config-note { border-radius: 10px; background: var(--surface-muted); padding: 10px 12px; }
+.push-feedback:empty { display: none; }
+.spinner-icon { animation: spin 700ms linear infinite; }
+.notification-read-all { white-space: nowrap; }
+.notification-list { display: grid; gap: 10px; }
+.notification-item { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; border: 1px solid var(--border); border-radius: 15px; background: var(--surface); padding: 14px; color: var(--foreground); text-decoration: none; box-shadow: 0 4px 16px color-mix(in srgb, var(--foreground) 4%, transparent); }
+.notification-item[data-read="false"] { border-left: 4px solid var(--primary); padding-left: 11px; }
+.notification-item:hover { border-color: color-mix(in srgb, var(--primary) 55%, var(--border)); }
+.notification-icon { display: grid; width: 44px; height: 44px; place-items: center; border-radius: 12px; background: var(--primary-soft); color: var(--primary); }
+.notification-icon[data-overdue="true"] { background: var(--error-surface); color: var(--error); }
+.notification-main { display: grid; min-width: 0; gap: 5px; color: var(--foreground-muted); font-size: .875rem; line-height: 1.5; }
+.notification-title-row { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; color: var(--foreground); }
+.unread-label { border-radius: 999px; background: var(--primary-soft); padding: 2px 7px; color: var(--primary); font-size: .68rem; font-weight: 800; }
+.notification-main small { font-size: .75rem; }
+.notification-empty { margin-top: 18px; }
+
+@media (min-width: 600px) {
+  .push-settings { grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; padding: 20px; }
+  .push-settings > button { grid-column: auto; width: auto; }
+  .push-config-note, .push-feedback { grid-column: 2 / -1; }
+  .notification-item { padding: 16px 18px; }
 }
 
 /* C7 dashboard */

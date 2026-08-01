@@ -2,11 +2,12 @@ import Link from "next/link";
 import { LogOut, Plus } from "lucide-react";
 import { logoutAction } from "@/app/actions/auth";
 import type { AppProfile } from "@/lib/auth/types";
+import { getUnreadNotificationCount } from "@/lib/business/queries";
 import { AppNav, BrandIcon } from "./app-nav";
 
 const roleLabels = { OWNER: "Chủ tài khoản", EDITOR: "Biên tập", VIEWER: "Chỉ xem" } as const;
 
-export function AppShell({
+export async function AppShell({
   profile,
   children,
   showCreateLoan = false,
@@ -15,6 +16,7 @@ export function AppShell({
   children: React.ReactNode;
   showCreateLoan?: boolean;
 }) {
+  const unreadCount = await getUnreadNotificationCount();
   return (
     <div className="app-frame">
       <aside className="app-sidebar">
@@ -22,7 +24,7 @@ export function AppShell({
           <span className="app-brand-icon"><BrandIcon /></span>
           <span><strong>Quản Lý Vay</strong><small>Cá nhân</small></span>
         </Link>
-        <AppNav isOwner={profile.role === "OWNER"} />
+        <AppNav isOwner={profile.role === "OWNER"} unreadCount={unreadCount} />
         <div className="sidebar-profile">
           <span className="profile-avatar" aria-hidden="true">{profile.display_name.slice(0, 1).toUpperCase()}</span>
           <span className="profile-copy"><strong>{profile.display_name}</strong><small>{roleLabels[profile.role]}</small></span>
@@ -40,7 +42,7 @@ export function AppShell({
           ) : null}
         </header>
         <main className="app-content" id="main-content">{children}</main>
-        <div className="mobile-nav-wrap"><AppNav isOwner={profile.role === "OWNER"} /></div>
+        <div className="mobile-nav-wrap"><AppNav isOwner={profile.role === "OWNER"} unreadCount={unreadCount} /></div>
       </div>
     </div>
   );

@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Quản Lý Vay">
+  <rect width="512" height="512" rx="112" fill="#164e63"/>
+  <path d="M128 164h256M164 128v256M348 128v256M128 348h256" fill="none" stroke="#dff3f5" stroke-width="38" stroke-linecap="round"/>
+  <path d="m218 286 48-88 34 62 28-40" fill="none" stroke="#5eead4" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

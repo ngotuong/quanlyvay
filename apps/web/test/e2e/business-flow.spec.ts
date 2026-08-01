@@ -81,3 +81,25 @@ test("dashboard is responsive and readable in light and dark modes", async ({ pa
   const background = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--background").trim());
   expect(background).toBe("#08111f");
 });
+
+test("PWA manifest, service worker and notification center are available", async ({ page }) => {
+  await page.goto("/login");
+  await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
+  await page.getByLabel("Mật khẩu", { exact: true }).fill("OwnerE2eFinal123");
+  await page.getByRole("button", { name: "Đăng nhập" }).click();
+  await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
+
+  const manifest = await page.request.get("/manifest.webmanifest");
+  expect(manifest.ok()).toBe(true);
+  expect((await manifest.json()).display).toBe("standalone");
+  const worker = await page.request.get("/sw.js");
+  expect(worker.ok()).toBe(true);
+  expect(await worker.text()).toContain('addEventListener("push"');
+
+  await page.getByRole("link", { name: /Thông báo/ }).first().click();
+  await expect(page.getByRole("heading", { name: "Thông báo", exact: true })).toBeVisible();
+  await expect(page.getByText("Khoản vay đã quá hạn", { exact: true })).toBeVisible();
+  await expect(page.getByText("Mọi tài khoản đều nhận cùng lịch nhắc", { exact: false })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+  expect(await page.evaluate(async () => Boolean(await navigator.serviceWorker.ready))).toBe(true);
+});

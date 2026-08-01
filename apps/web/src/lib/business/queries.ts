@@ -12,7 +12,33 @@ import type {
   LifecycleEvent,
   Loan,
   LoanTransaction,
+  AppNotification,
 } from "./types";
+
+export async function getNotificationCenter() {
+  const supabase = await createClient();
+  const [{ data, error }, { count, error: subscriptionError }] = await Promise.all([
+    supabase
+      .from("notifications")
+      .select("id, loan_id, type, notification_date, title, body, read_at, created_at, loans(name)")
+      .order("notification_date", { ascending: false })
+      .order("created_at", { ascending: false })
+      .limit(100),
+    supabase.from("push_subscriptions").select("id", { count: "exact", head: true }),
+  ]);
+  if (error || subscriptionError) throw new Error("Không thể tải trung tâm thông báo.");
+  return { notifications: (data ?? []) as unknown as AppNotification[], subscriptionCount: count ?? 0 };
+}
+
+export async function getUnreadNotificationCount() {
+  const supabase = await createClient();
+  const { count, error } = await supabase
+    .from("notifications")
+    .select("id", { count: "exact", head: true })
+    .is("read_at", null);
+  if (error) return 0;
+  return count ?? 0;
+}
 
 export async function getDashboard(months = 6) {
   const supabase = await createClient();

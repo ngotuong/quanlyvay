@@ -114,3 +114,15 @@ export type DashboardData = {
   overdue: DashboardDueLoan[];
   cashFlow: DashboardCashFlow[];
 };
+
+export type AppNotification = {
+  id: string;
+  loan_id: string | null;
+  type: "INTEREST_DUE" | "LOAN_OVERDUE";
+  notification_date: string;
+  title: string;
+  body: string;
+  read_at: string | null;
+  created_at: string;
+  loans: { name: string } | null;
+};
