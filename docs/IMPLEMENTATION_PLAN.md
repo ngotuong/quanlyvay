@@ -19,7 +19,8 @@
 | C4 | Bộ máy tài chính | Database functions tính kỳ lãi, chia đoạn dư nợ, đổi lãi suất, đảo giao dịch và tính lại lịch sử; test tiền đạt | Duyệt checkpoint | `COMPLETED` |
 | C5 | Auth và phân quyền local | Username/password ánh xạ Supabase Auth; owner/editor/viewer; không tự đăng ký; RLS tests đạt | Duyệt checkpoint | `COMPLETED` |
 | C6 | Nghiệp vụ web | CRUD đối tác/khoản vay; nhập lãi/gốc/chi phí; tất toán, nợ xấu, timeline, audit; Playwright flow đạt | Duyệt checkpoint | `COMPLETED` |
-| C7 | Dashboard và UX | KPI tiền mặt/dồn tích, dư nợ, lãi dự kiến, đến hạn/quá hạn, biểu đồ dòng tiền; responsive 375–1440px, dark mode | Duyệt checkpoint | `AWAITING_APPROVAL` |
+| C7 | Dashboard và UX | KPI tiền mặt/dồn tích, dư nợ, lãi dự kiến, đến hạn/quá hạn, biểu đồ dòng tiền; responsive 375–1440px, dark mode | Duyệt checkpoint | `COMPLETED` |
+| C7G | GitHub remote | Xác nhận tài khoản/tên/visibility; tạo repository, thêm `origin`, push branch `main`; không chứa secret | Xác nhận tài khoản + tạo remote + push | `AWAITING_APPROVAL` |
 | C8 | PWA và thông báo local | Manifest, service worker, installable PWA, notification center, Web Push, idempotency và nhắc quá hạn hằng ngày | Duyệt checkpoint | `NOT_STARTED` |
 | C9 | Google Sync local | Apps Script đồng bộ một chiều, cấu trúc Sheet, snapshot tuần, retention 12 tuần; test bằng mock; chưa `clasp login` | Duyệt checkpoint | `NOT_STARTED` |
 | C10 | Supabase remote | Dùng tài khoản Supabase mới để tạo project `quan-ly-vay-ca-nhan` tại Singapore, link CLI, cấu hình secret và áp migration | Xác nhận tài khoản và thao tác remote | `NOT_STARTED` |
@@ -62,6 +63,7 @@ Các test tài chính bắt buộc bao phủ: kỳ 15/30 ngày, kỳ cuối rút
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.7 | 2026-08-01 | Hoàn tất C7 với dashboard authoritative, 178 pgTAP assertions và 3 Playwright flows; thêm C7G chờ xác nhận GitHub remote. |
 | 1.0.6 | 2026-08-01 | Hoàn tất C6 với web workflows, 163 pgTAP assertions và 2 Playwright flows; C7 chờ phê duyệt. |
 | 1.0.5 | 2026-08-01 | Hoàn tất C5 với Auth/RBAC local, 146 pgTAP assertions và 5 Auth integration tests; C6 chờ phê duyệt. |
 | 1.0.4 | 2026-08-01 | Hoàn tất C4 với financial engine/RPC, 10/10 fixture và 123 pgTAP assertions; C5 chờ phê duyệt. |

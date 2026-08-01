@@ -1,9 +1,9 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.6
-last_updated: 2026-08-01 16:44:37 +07
+roadmap_version: 1.0.7
+last_updated: 2026-08-01 17:03:00 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C7
+current_checkpoint: C7G
 current_status: AWAITING_APPROVAL
 ---
 
@@ -27,13 +27,15 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `apps/web` dùng Next.js 16.2.12, React 19.2.4, TypeScript 5.9.3, Tailwind CSS 4.3.3 và ESLint 9.39.5.
 - `packages/domain-contract` chứa type contract và test fixture độc lập với production engine.
 - `docs/DOMAIN_SPEC.md` là đặc tả nghiệp vụ v1 đã khóa cho C3–C4.
-- Supabase local đã được khởi tạo với PostgreSQL 17, migration schema nền, RLS và 146 pgTAP assertions.
+- Supabase local đã được khởi tạo với PostgreSQL 17, migration schema, RLS và 178 pgTAP assertions.
 - Bộ máy tài chính authoritative nằm trong PostgreSQL, có RPC tính/rebuild, ghi thanh toán, lifecycle, reversal và tất toán nguyên tử.
 - `docs/FINANCIAL_ENGINE.md` mô tả contract C4; engine đã được giữ nguyên qua regression C5.
 - Local Auth dùng username/password ánh xạ sang email nội bộ, session SSR, bắt đổi mật khẩu và vai trò `OWNER`/`EDITOR`/`VIEWER`; public signup bị tắt.
 - `docs/AUTH.md` mô tả contract Auth/RBAC; bootstrap OWNER thật đã được chuẩn bị nhưng chưa chạy.
 - Web C6 đã có CRUD đối tác/khoản vay, ghi giao dịch gốc/lãi/chi phí, lifecycle, tất toán, reversal, timeline và audit.
 - `docs/WEB_WORKFLOWS.md` mô tả contract web; giao diện responsive dùng sidebar desktop và bottom navigation mobile.
+- Dashboard C7 dùng RPC PostgreSQL authoritative cho KPI, lợi nhuận tiền mặt/dồn tích, dòng tiền và lịch đến hạn; `/dashboard` là trang sau đăng nhập.
+- `docs/DASHBOARD.md` mô tả định nghĩa chỉ số và quy ước dòng tiền; UI đã kiểm tra responsive 375/768/1440px và light/dark mode.
 - Chưa có mã nguồn Apps Script.
 - Chưa đăng nhập hay liên kết Google, Supabase, Vercel hoặc `clasp`.
 
@@ -50,27 +52,28 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C7 — Dashboard và UX |
+| Checkpoint | C7G — GitHub remote |
 | Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi được duyệt | Chưa có; C7 chưa được phép triển khai |
-| Mục tiêu dự kiến | KPI, dòng tiền, lợi nhuận, đến hạn/quá hạn, biểu đồ và hoàn thiện responsive/dark mode |
+| Phạm vi được duyệt | Chưa duyệt thao tác remote; đang chờ tài khoản GitHub, tên repository và visibility |
+| Mục tiêu | Tạo repository đúng tài khoản, thêm `origin` và push `main` sau xác nhận riêng |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
-### C6 — Nghiệp vụ web
+### C7 — Dashboard và UX
 
 - Trạng thái: `COMPLETED`.
-- Đầu ra: workflow database nguyên tử, Server Actions/Zod, CRUD đối tác/khoản vay, thanh toán, chi phí, lifecycle, tất toán, reversal, timeline, audit và app shell responsive.
-- Commit evidence: C0–C5 tại `dd03703`; C6 tại `2ea2849`.
-- Verification: database lint không lỗi; 163/163 pgTAP assertions, 5/5 Auth integration tests, 11/11 domain tests và 2/2 Playwright flows đạt; lint, typecheck và production build đạt; database đã reset để xóa dữ liệu test; không có Git remote.
+- Đầu ra: RPC dashboard authoritative, KPI dư nợ/lãi/lợi nhuận, dòng tiền 6 tháng, danh sách đến hạn/quá hạn, trang mặc định mới và UX responsive/light/dark.
+- Commit evidence: C7 tại `f76ada1` (`C7: xây dựng dashboard và hoàn thiện UX`).
+- Verification: database lint không lỗi; 178/178 pgTAP assertions, 5/5 Auth integration tests, 11/11 domain tests và 3/3 Playwright flows đạt; lint, typecheck và production build đạt; database đã reset để xóa dữ liệu test; không có Git remote.
 
 ## 5. Checkpoint tiếp theo
 
-C7 chỉ được bắt đầu sau phê duyệt rõ của người dùng. C7 dự kiến:
+C7G đang chờ người dùng xác nhận riêng:
 
-- Dashboard KPI dư nợ, lãi thực thu/dự kiến và lợi nhuận ròng.
-- Danh sách khoản sắp đến hạn, quá hạn và biểu đồ dòng tiền theo tháng.
-- Hoàn thiện UX responsive 375–1440px và kiểm tra light/dark mode.
+- GitHub username/tài khoản sẽ sở hữu repository.
+- Tên repository, đề xuất `quan-ly-vay-ca-nhan`.
+- Visibility, đề xuất `private`.
+- Sau khi xác nhận: chọn cách xác thực do máy chưa có GitHub CLI, tạo repository, thêm `origin` và push `main`.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -106,9 +109,10 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C6 đã hoàn tất; C7 đang chờ người dùng phê duyệt.
+- C7 đã hoàn tất ở local; C7G chờ xác nhận tài khoản/repository/visibility và quyền tạo remote + push.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
 - Git identity local đã cấu hình là `Ngo Tuong <vipmoschino@gmail.com>`; không có Git remote.
+- GitHub CLI chưa được cài; chưa đăng nhập hoặc thay đổi tài nguyên GitHub.
 - Supabase local đang chạy bằng Docker; có thể dừng bằng `supabase stop` khi không sử dụng.
 - Chưa tạo tài khoản OWNER thật. Trước khi chạy bootstrap với thông tin đăng nhập thật phải hỏi người dùng xác nhận riêng.
 - Tới C10/C11/C12 phải nhắc người dùng xác nhận riêng trước khi truy cập Supabase, Google/clasp hoặc Vercel.
@@ -131,8 +135,8 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — Hoàn tất C6: nghiệp vụ web, 163 database assertions và 2 Playwright flows đạt.
-2. `2026-08-01` — Hoàn tất C5: Auth/RBAC local, 146 database assertions và 5 Auth integration tests đạt.
-3. `2026-08-01` — Hoàn tất C4: engine/RPC tài chính và 123/123 database assertions đạt.
-4. `2026-08-01` — Hoàn tất C3: migration schema/RLS và 72/72 database assertions đạt.
-5. `2026-08-01` — Hoàn tất C2: khóa domain spec và 10 fixture với 11/11 tests đạt.
+1. `2026-08-01` — Hoàn tất C7: dashboard authoritative, 178 database assertions và 3 Playwright flows responsive/dark đạt.
+2. `2026-08-01` — Hoàn tất C6: nghiệp vụ web, 163 database assertions và 2 Playwright flows đạt.
+3. `2026-08-01` — Hoàn tất C5: Auth/RBAC local, 146 database assertions và 5 Auth integration tests đạt.
+4. `2026-08-01` — Hoàn tất C4: engine/RPC tài chính và 123/123 database assertions đạt.
+5. `2026-08-01` — Hoàn tất C3: migration schema/RLS và 72/72 database assertions đạt.
