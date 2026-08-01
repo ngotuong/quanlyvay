@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.10
-last_updated: 2026-08-01 18:50:13 +07
+last_updated: 2026-08-01 18:51:31 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C10
 current_status: IN_PROGRESS
@@ -104,7 +104,7 @@ C10 đã được phê duyệt; hiện chờ xác nhận riêng cho tài khoản
 | Dịch vụ | Trạng thái |
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
-| Supabase | CLI profile `quanlyvay` đã đăng nhập tài khoản `tuongnt2105@gmail.com`; chưa tạo/link project |
+| Supabase | Profile `quanlyvay`; org `wdjcthekulcbiccikhmr`; có project mặc định `osqegglpdmumsueegyam` tại Sydney, chưa link |
 | Vercel | Chưa truy cập; dự kiến kiểm tra và dùng tài khoản cũ ở C12 |
 | Google Apps Script / `clasp` | Chưa đăng nhập; dự kiến dùng tài khoản Google cũ với named user |
 | Google Sheets / Drive | Chưa tạo tài nguyên |
@@ -113,7 +113,7 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C9 đã hoàn tất local; C10 đã đăng nhập profile Supabase riêng và đang chờ xác nhận truy cập danh sách organization/project.
+- C9 đã hoàn tất local; C10 phát hiện project mặc định Sydney và đang chờ quyết định giữ/xóa trước khi tạo project Singapore.
 - VAPID/cron mới có contract và `.env.example`; chưa tạo hoặc cấu hình secret remote. Việc chạy lịch thật thuộc checkpoint remote sau xác nhận.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
 - Git identity local là `Ngo Tuong <vipmoschino@gmail.com>`; remote `origin` trỏ tới repository private `ngotuong/quanlyvay`.
