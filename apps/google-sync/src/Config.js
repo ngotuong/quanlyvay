@@ -15,3 +15,5 @@ const SYNC_SHEETS = [
 const SYNC_TIME_ZONE = "Asia/Ho_Chi_Minh";
 const SNAPSHOT_PREFIX = "QLV_Snapshot_";
 const SNAPSHOT_RETENTION = 12;
+const BACKUP_FOLDER_NAME = "QuanLyVayCaNhan_Backups";
+const MANAGED_TRIGGER_HANDLERS = ["runGoogleSheetSync", "runWeeklySnapshot"];

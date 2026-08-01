@@ -5,6 +5,44 @@ function onOpen() {
     .addToUi();
 }
 
+/**
+ * One-time, idempotent setup for the bound reconciliation workbook.
+ * Creates only local Google resources; it never writes to Supabase.
+ */
+function installGoogleSyncInfrastructure() {
+  const spreadsheet = SpreadsheetApp.getActive();
+  const initialSheets = spreadsheet.getSheets();
+  const placeholder = initialSheets.length === 1 &&
+    SYNC_SHEETS.every(function (definition) { return definition.name !== initialSheets[0].getName(); }) &&
+    initialSheets[0].getName() !== "Tổng quan" && initialSheets[0].getDataRange().isBlank()
+    ? initialSheets[0] : null;
+
+  applyPayloadToSpreadsheet_(spreadsheet, {
+    schemaVersion: 1,
+    generatedAt: new Date().toISOString(),
+    sourceVersion: "not-synced",
+    unchanged: false,
+    tables: {},
+  });
+  if (placeholder) spreadsheet.deleteSheet(placeholder);
+
+  const properties = PropertiesService.getScriptProperties();
+  let folderId = properties.getProperty("BACKUP_FOLDER_ID");
+  if (!folderId) {
+    const folder = DriveApp.createFolder(BACKUP_FOLDER_NAME);
+    folderId = folder.getId();
+    properties.setProperty("BACKUP_FOLDER_ID", folderId);
+  }
+
+  ScriptApp.getProjectTriggers().forEach(function (trigger) {
+    if (MANAGED_TRIGGER_HANDLERS.indexOf(trigger.getHandlerFunction()) !== -1) ScriptApp.deleteTrigger(trigger);
+  });
+  ScriptApp.newTrigger("runGoogleSheetSync").timeBased().everyHours(1).create();
+  ScriptApp.newTrigger("runWeeklySnapshot").timeBased().onWeekDay(ScriptApp.WeekDay.SUNDAY).atHour(2).create();
+
+  return { spreadsheetId: spreadsheet.getId(), backupFolderId: folderId, triggerCount: 2 };
+}
+
 function runGoogleSheetSync() {
   const lock = LockService.getScriptLock();
   lock.waitLock(30000);

@@ -11,6 +11,7 @@ class MockRange {
   constructor(sheet, row = 1, column = 1, rows = 1, columns = 1) { this.sheet = sheet; this.row = row; this.column = column; this.rows = rows; this.columns = columns; }
   setValues(values) { values.forEach((line, r) => line.forEach((value, c) => { this.sheet.cells[`${this.row + r},${this.column + c}`] = value; })); return this; }
   getValues() { return this.sheet.dataValues; }
+  isBlank() { return this.sheet.dataValues.flat().every((value) => value === "" || value === null); }
   setBackground() { return this; } setFontColor() { return this; } setFontWeight() { return this; } setWrap() { return this; }
   setNumberFormat() { return this; } createFilter() { this.sheet.filterCount += 1; return this; } merge() { return this; } setFontSize() { return this; }
 }
@@ -27,6 +28,7 @@ class MockSpreadsheet {
   getId() { return this.id; } getSheets() { return this.sheets; }
   getSheetByName(name) { return this.sheets.find((sheet) => sheet.name === name) || null; }
   insertSheet(name, index) { const sheet = new MockSheet(name); if (index === 0) this.sheets.unshift(sheet); else this.sheets.push(sheet); return sheet; }
+  deleteSheet(sheet) { this.sheets = this.sheets.filter((candidate) => candidate !== sheet); }
 }
 
 function makeContext(overrides = {}) {
@@ -102,4 +104,26 @@ test("restore copies snapshot values without any Supabase write path", () => {
   const context = makeContext({ SpreadsheetApp: { openById: (id) => { assert.equal(id, "snapshot"); return sourceBook; }, getActive: () => targetBook } });
   const result = call(context, `restoreSnapshotById("snapshot")`);
   assert.equal(result.sheetCount, 1); assert.equal(targetBook.getSheetByName("Đối tác").cells["2,2"], "Bản sao");
+});
+
+test("infrastructure setup is idempotent for folders and managed triggers", () => {
+  const spreadsheet = new MockSpreadsheet("bound-sheet"); spreadsheet.sheets.push(new MockSheet("Sheet1"));
+  const values = new Map(); let folderCreates = 0; let triggers = [];
+  const triggerBuilder = (handler) => ({
+    timeBased() { return this; }, everyHours() { return this; }, onWeekDay() { return this; }, atHour() { return this; },
+    create() { const trigger = { getHandlerFunction: () => handler }; triggers.push(trigger); return trigger; },
+  });
+  const context = makeContext({
+    SpreadsheetApp: { getActive: () => spreadsheet },
+    PropertiesService: { getScriptProperties: () => ({ getProperty: (key) => values.get(key) || "", setProperty: (key, value) => values.set(key, value) }) },
+    DriveApp: { createFolder: (name) => { assert.equal(name, "QuanLyVayCaNhan_Backups"); folderCreates += 1; return { getId: () => "folder-1" }; } },
+    ScriptApp: {
+      WeekDay: { SUNDAY: "SUNDAY" }, getProjectTriggers: () => triggers.slice(),
+      deleteTrigger: (trigger) => { triggers = triggers.filter((candidate) => candidate !== trigger); }, newTrigger: triggerBuilder,
+    },
+  });
+  assert.equal(call(context, "installGoogleSyncInfrastructure()").triggerCount, 2);
+  assert.equal(call(context, "installGoogleSyncInfrastructure()").backupFolderId, "folder-1");
+  assert.equal(folderCreates, 1); assert.equal(triggers.length, 2); assert.equal(spreadsheet.sheets.length, 9);
+  assert.equal(spreadsheet.getSheetByName("Sheet1"), null);
 });
