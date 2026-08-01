@@ -14,8 +14,9 @@ Webapp/PWA quản lý các khoản đi vay và cho vay cá nhân, sử dụng Ne
 - C7 — Dashboard và UX: hoàn tất.
 - C8 — PWA và thông báo local: hoàn tất.
 - C9 — Google Sync local: hoàn tất.
-- C10 — Supabase remote: chờ phê duyệt và xác nhận tài khoản riêng.
-- GitHub private đã được liên kết; chưa kết nối Supabase, Vercel, Google hoặc `clasp` remote.
+- C10 — Supabase remote: hoàn tất.
+- C11 — Google/Clasp remote: chờ phê duyệt và xác nhận tài khoản riêng.
+- GitHub private và Supabase Singapore đã liên kết; chưa kết nối Vercel, Google hoặc `clasp` remote.
 
 Trạng thái hiện tại luôn được lấy từ `PROJECT_CONTEXT.md`; roadmap nằm trong `docs/IMPLEMENTATION_PLAN.md`.
 

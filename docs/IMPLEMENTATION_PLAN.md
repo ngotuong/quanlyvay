@@ -23,8 +23,8 @@
 | C7G | GitHub remote | Xác nhận tài khoản/tên/visibility; tạo repository, thêm `origin`, push branch `main`; không chứa secret | Xác nhận tài khoản + tạo remote + push | `COMPLETED` |
 | C8 | PWA và thông báo local | Manifest, service worker, installable PWA, notification center, Web Push, idempotency và nhắc quá hạn hằng ngày | Duyệt checkpoint | `COMPLETED` |
 | C9 | Google Sync local | Apps Script đồng bộ một chiều, cấu trúc Sheet, snapshot tuần, retention 12 tuần; test bằng mock; chưa `clasp login` | Duyệt checkpoint | `COMPLETED` |
-| C10 | Supabase remote | Dùng tài khoản Supabase mới để tạo project `quan-ly-vay-ca-nhan` tại Singapore, link CLI, cấu hình secret và áp migration | Xác nhận tài khoản và thao tác remote | `IN_PROGRESS` |
-| C11 | Google/Clasp remote | Xác nhận Google account; tạo Apps Script `QuanLyVayCaNhanSync`, Sheet đối chiếu, Drive backup; push/deploy trigger | Xác nhận tài khoản và từng tài nguyên | `NOT_STARTED` |
+| C10 | Supabase remote | Dùng tài khoản Supabase mới để tạo project `quan-ly-vay-ca-nhan` tại Singapore, link CLI, cấu hình secret và áp migration | Xác nhận tài khoản và thao tác remote | `COMPLETED` |
+| C11 | Google/Clasp remote | Xác nhận Google account; tạo Apps Script `QuanLyVayCaNhanSync`, Sheet đối chiếu, Drive backup; push/deploy trigger | Xác nhận tài khoản và từng tài nguyên | `AWAITING_APPROVAL` |
 | C12 | Vercel Preview | Kiểm tra usage tài khoản Vercel cũ, tạo/link project `quan-ly-vay-ca-nhan` với root `apps/web`, cấu hình env và deploy Preview | Xác nhận tài khoản và deploy | `NOT_STARTED` |
 | C13 | Production/UAT | Kiểm thử dữ liệu mẫu, quyền, Push, sync, backup/restore; xóa seed; production deploy và checklist vận hành | Xác nhận production riêng | `NOT_STARTED` |
 
@@ -63,6 +63,7 @@ Các test tài chính bắt buộc bao phủ: kỳ 15/30 ngày, kỳ cuối rút
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.11 | 2026-08-01 | Hoàn tất C10 với project Supabase Singapore, 6/6 migration remote không seed, credentials ở Keychain, public signup tắt và RLS smoke đạt; C11 chờ phê duyệt. |
 | 1.0.10 | 2026-08-01 | Hoàn tất C9 với export API bảo vệ bằng secret, Apps Script đồng bộ một chiều, 8 tab đối chiếu, snapshot tuần giữ 12 bản và 9 mock tests; C10 chờ xác nhận Supabase remote. |
 | 1.0.9 | 2026-08-01 | Hoàn tất C8 với PWA, notification center, Web Push idempotent, 196 pgTAP assertions và 4 Playwright flows; C9 chờ phê duyệt. |
 | 1.0.8 | 2026-08-01 | Hoàn tất C7G: GitHub private `ngotuong/quanlyvay`, GitHub CLI 2.97.0 và push `origin/main`; C8 chờ phê duyệt. |

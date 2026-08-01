@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.10
-last_updated: 2026-08-01 19:11:28 +07
+roadmap_version: 1.0.11
+last_updated: 2026-08-01 19:33:01 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C10
-current_status: IN_PROGRESS
+current_checkpoint: C11
+current_status: AWAITING_APPROVAL
 ---
 
 # Project Context
@@ -41,8 +41,9 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - Google Sync C9 có endpoint export Next.js bảo vệ bằng secret, Apps Script đồng bộ một chiều,
   tám tab đối chiếu, cursor nguồn, snapshot tuần giữ 12 bản và phục hồi chỉ trong workbook.
 - `docs/GOOGLE_SYNC.md` mô tả contract Sheet, Script Properties và ranh giới cấu hình remote C11.
-- Supabase CLI đã đăng nhập tài khoản mới `tuongnt2105@gmail.com` bằng profile riêng `quanlyvay`;
-  chưa tạo hoặc liên kết project remote. Google, Vercel và `clasp` vẫn chưa đăng nhập/liên kết.
+- Supabase remote C10 đã hoàn tất: profile riêng `quanlyvay`, project Singapore đã link, 6/6 migration
+  đã áp không seed, API credentials ở Keychain và public signup đã tắt. Google, Vercel và `clasp`
+  vẫn chưa đăng nhập/liên kết.
 
 Kiến trúc đích:
 
@@ -57,27 +58,27 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C10 — Supabase remote |
-| Trạng thái | `IN_PROGRESS` |
-| Phạm vi được duyệt | C10 đã được phê duyệt trong hội thoại; mọi thao tác tài khoản/remote vẫn cần xác nhận riêng |
-| Mục tiêu | Tạo project Singapore, link CLI, cấu hình secret và áp migration sau từng xác nhận |
+| Checkpoint | C11 — Google/Clasp remote |
+| Trạng thái | `AWAITING_APPROVAL` |
+| Phạm vi được duyệt | Chưa có; cần phê duyệt checkpoint và xác nhận tài khoản/từng tài nguyên Google |
+| Mục tiêu | Tạo Apps Script, Sheet đối chiếu, Drive backup và trigger sau từng xác nhận |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
-### C9 — Google Sync local
+### C10 — Supabase remote
 
 - Trạng thái: `COMPLETED`.
-- Đầu ra: export API chỉ đọc bảo vệ bằng secret; Apps Script đồng bộ Supabase → Sheet, tám tab dữ liệu có kiểu/định dạng; cursor tránh ghi lại; snapshot tuần giữ 12 bản và restore không ghi Supabase.
-- Commit evidence: `489d771` (`C9: xây dựng Google Sync local`).
-- Verification: lint, typecheck và production build đạt; 9/9 Google Sync mock tests, 11/11 domain tests, 5/5 Auth tests, 5/5 Playwright flows và 196/196 pgTAP assertions đạt; database lint không lỗi và đã reset sau E2E.
+- Đầu ra: tài khoản/profile CLI riêng, project Singapore đã link, 6 migration remote không seed, Auth config khóa signup, database/API keys lưu trong macOS Keychain.
+- Commit evidence: `f388061` (project Singapore), `aaa5eab` (migration remote), `41cff55` (API credentials).
+- Verification: project `ACTIVE_HEALTHY`; dry-run đúng 6 migration và không seed; migration history local/remote khớp 6/6; Auth trả `disable_signup=true`; anonymous đọc `loans` bị từ chối HTTP 401/RLS.
 
 ## 5. Checkpoint tiếp theo
 
-C10 đã được phê duyệt; hiện chờ xác nhận riêng cho tài khoản Supabase mới cùng từng thao tác remote:
+C11 chưa được phê duyệt. Phạm vi dự kiến, mỗi thao tác remote vẫn cần xác nhận riêng:
 
-- Tạo project Supabase `quan-ly-vay-ca-nhan` tại Singapore.
-- Đăng nhập/link CLI, cấu hình secret và áp migration lên remote.
-- Không thực hiện bất kỳ bước nào ở trên nếu người dùng chưa xác nhận rõ.
+- Xác nhận tài khoản Google cũ và đăng nhập `clasp` bằng named user.
+- Tạo Apps Script `QuanLyVayCaNhanSync`, Sheet đối chiếu và thư mục Drive backup.
+- Push mã Apps Script, tạo trigger sync/snapshot và kiểm tra phục hồi.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -95,7 +96,7 @@ C10 đã được phê duyệt; hiện chờ xác nhận riêng cho tài khoản
 - Đổi lãi suất có hiệu lực đầu ngày; trả gốc có hiệu lực từ ngày kế tiếp; ngày ngừng lãi vẫn được tính.
 - Sau đáo hạn, lãi mức cũ tiếp tục trong kỳ `OVERDUE` mở, không có lãi phạt.
 - Reversal giữ lịch sử nhưng tính lại kết quả từ ngày hiệu lực của giao dịch gốc.
-- Supabase production dự kiến dùng tài khoản mới; chỉ tạo ở C10 sau xác nhận.
+- Supabase production dùng tài khoản mới và project Singapore đã tạo/link ở C10.
 - Vercel dự kiến dùng tài khoản cũ; kiểm tra usage 30 ngày trước khi link ở C12.
 - Google Sheets và Apps Script tiếp tục dùng tài khoản Google cũ với named `clasp --user`.
 
@@ -109,22 +110,22 @@ C10 đã được phê duyệt; hiện chờ xác nhận riêng cho tài khoản
 | Google Apps Script / `clasp` | Chưa đăng nhập; dự kiến dùng tài khoản Google cũ với named user |
 | Google Sheets / Drive | Chưa tạo tài nguyên |
 
-Không có secret hoặc ID remote nào được lưu trong repository.
+Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; không lưu secret.
 
 ## 8. Blocker và cổng xác nhận
 
-- C9 đã hoàn tất local; C10 đã link, áp đủ 6/6 migration không seed và lưu API credentials vào Keychain; đang chờ xác nhận khóa public signup remote.
+- C10 đã hoàn tất; C11 đang chờ phê duyệt và chưa được phép truy cập Google/Clasp.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
-- Remote Auth smoke test đạt nhưng cho thấy `disable_signup=false`; phải khóa public signup trước khi hoàn tất C10.
+- Remote Auth smoke test đạt với `disable_signup=true`; anonymous đọc `loans` bị RLS từ chối HTTP 401.
 - VAPID/cron mới có contract và `.env.example`; chưa tạo hoặc cấu hình secret remote. Việc chạy lịch thật thuộc checkpoint remote sau xác nhận.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
 - Git identity local là `Ngo Tuong <vipmoschino@gmail.com>`; remote `origin` trỏ tới repository private `ngotuong/quanlyvay`.
 - GitHub CLI 2.97.0 đã đăng nhập active account `ngotuong`; credential nằm trong macOS keyring, không nằm trong repository.
 - Supabase local đang chạy bằng Docker; có thể dừng bằng `supabase stop` khi không sử dụng.
 - Chưa tạo tài khoản OWNER thật. Trước khi chạy bootstrap với thông tin đăng nhập thật phải hỏi người dùng xác nhận riêng.
-- Tới C10/C11/C12 phải nhắc người dùng xác nhận riêng trước khi truy cập Supabase, Google/clasp hoặc Vercel.
+- Tới C11/C12 phải nhắc người dùng xác nhận riêng trước khi truy cập Google/clasp hoặc Vercel.
 
 ## 9. Lệnh kiểm tra chuẩn
 
@@ -144,8 +145,8 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — Hoàn tất C9: Google Sync một chiều, tám tab Sheet, snapshot/restore và 9 mock tests đạt.
-2. `2026-08-01` — Hoàn tất C8: PWA, notification center, Web Push queue, 196 database assertions và 4 Playwright flows đạt.
-3. `2026-08-01` — Hoàn tất C7G: tạo GitHub private, cài/xác thực GitHub CLI, thêm `origin` và push `main`.
-4. `2026-08-01` — Hoàn tất C7: dashboard authoritative, 178 database assertions và 3 Playwright flows responsive/dark đạt.
-5. `2026-08-01` — Hoàn tất C6: nghiệp vụ web, 163 database assertions và 2 Playwright flows đạt.
+1. `2026-08-01` — Hoàn tất C10: Supabase Singapore, 6 migration remote, Keychain credentials, Auth signup off và RLS smoke đạt.
+2. `2026-08-01` — Hoàn tất C9: Google Sync một chiều, tám tab Sheet, snapshot/restore và 9 mock tests đạt.
+3. `2026-08-01` — Hoàn tất C8: PWA, notification center, Web Push queue, 196 database assertions và 4 Playwright flows đạt.
+4. `2026-08-01` — Hoàn tất C7G: tạo GitHub private, cài/xác thực GitHub CLI, thêm `origin` và push `main`.
+5. `2026-08-01` — Hoàn tất C7: dashboard authoritative, 178 database assertions và 3 Playwright flows responsive/dark đạt.
