@@ -25,7 +25,7 @@
 | C9 | Google Sync local | Apps Script đồng bộ một chiều, cấu trúc Sheet, snapshot tuần, retention 12 tuần; test bằng mock; chưa `clasp login` | Duyệt checkpoint | `COMPLETED` |
 | C10 | Supabase remote | Dùng tài khoản Supabase mới để tạo project `quan-ly-vay-ca-nhan` tại Singapore, link CLI, cấu hình secret và áp migration | Xác nhận tài khoản và thao tác remote | `COMPLETED` |
 | C11 | Google/Clasp remote | Xác nhận Google account; tạo Apps Script `QuanLyVayCaNhanSync`, Sheet đối chiếu, Drive backup; push mã và trigger snapshot tuần | Xác nhận tài khoản và từng tài nguyên | `COMPLETED` |
-| C12 | Vercel Preview | Kiểm tra usage tài khoản Vercel cũ, tạo/link project `quan-ly-vay-ca-nhan` với root `apps/web`, cấu hình env, deploy Preview và kích hoạt trigger Google Sync theo giờ | Xác nhận tài khoản và deploy | `AWAITING_APPROVAL` |
+| C12 | Vercel Preview | Kiểm tra usage tài khoản Vercel cũ, tạo/link project `quan-ly-vay-ca-nhan` với root `apps/web`, cấu hình env, deploy Preview và kích hoạt trigger Google Sync theo giờ | Xác nhận tài khoản và deploy | `IN_PROGRESS` |
 | C13 | Production/UAT | Kiểm thử dữ liệu mẫu, quyền, Push, sync, backup/restore; xóa seed; production deploy và checklist vận hành | Xác nhận production riêng | `NOT_STARTED` |
 
 ## 3. Contract cốt lõi
@@ -63,6 +63,7 @@ Các test tài chính bắt buộc bao phủ: kỳ 15/30 ngày, kỳ cuối rút
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.14 | 2026-08-01 | Người dùng phê duyệt C12; chuyển sang `IN_PROGRESS`, vẫn giữ cổng xác nhận riêng cho truy cập tài khoản, link project, secret, deploy và trigger. |
 | 1.0.13 | 2026-08-01 | Hoàn tất C11 với bound Sheet/Apps Script, Drive backup, snapshot tuần remote, installer có điều kiện và toàn bộ gate lint/typecheck/test/build; C12 chờ phê duyệt. |
 | 1.0.12 | 2026-08-01 | Điều chỉnh thứ tự C11–C12 đã được người dùng duyệt: C11 cài snapshot tuần; trigger sync theo giờ chỉ được tạo khi C12 đã cấu hình đủ Vercel URL/secret, tránh lỗi định kỳ. |
 | 1.0.11 | 2026-08-01 | Hoàn tất C10 với project Supabase Singapore, 6/6 migration remote không seed, credentials ở Keychain, public signup tắt và RLS smoke đạt; C11 chờ phê duyệt. |

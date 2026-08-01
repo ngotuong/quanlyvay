@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.13
-last_updated: 2026-08-01 22:27:44 +07
+roadmap_version: 1.0.14
+last_updated: 2026-08-01 22:48:19 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C12
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 ---
 
 # Project Context
@@ -61,8 +61,8 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Trường | Giá trị |
 |---|---|
 | Checkpoint | C12 — Vercel Preview |
-| Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi được duyệt | Chưa được duyệt; không truy cập tài khoản Vercel, link project, cấu hình secret hoặc deploy |
+| Trạng thái | `IN_PROGRESS` |
+| Phạm vi được duyệt | C12 đã được duyệt; truy cập tài khoản, link project, cấu hình secret và deploy vẫn cần xác nhận riêng |
 | Mục tiêu | Kiểm tra usage tài khoản Vercel cũ, tạo Preview và kích hoạt Google Sync sau từng xác nhận |
 
 ## 4. Checkpoint hoàn tất gần nhất
@@ -78,7 +78,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-C12 chưa được phê duyệt. Sau khi được duyệt, từng thao tác remote vẫn cần xác nhận riêng:
+C12 đã được phê duyệt. Từng thao tác remote vẫn cần xác nhận riêng:
 
 - Kiểm tra usage tài khoản Vercel cũ trước khi quyết định dùng tài khoản đó.
 - Tạo/link project Preview với root `apps/web`, cấu hình env/secret và deploy.
@@ -122,8 +122,8 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 - Google Drive connector hiện đăng nhập tài khoản khác nên không đọc được Sheet ID của dự án; đây
   không phải lỗi runtime. `clasp logs` cũng không khả dụng vì Apps Script chưa liên kết GCP project;
   không tạo thêm GCP project chỉ để đọc log.
-- C12 chưa được phê duyệt. Không truy cập Vercel hoặc thay đổi Script Properties/trigger sync cho đến
-  khi có xác nhận checkpoint và xác nhận riêng cho từng thao tác remote.
+- C12 đã được phê duyệt; Vercel CLI 54.20.0 có sẵn. Không truy cập tài khoản, link project, thay đổi
+  secret, deploy hoặc kích hoạt trigger sync cho đến khi có xác nhận riêng cho thao tác tương ứng.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
