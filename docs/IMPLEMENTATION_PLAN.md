@@ -20,7 +20,7 @@
 | C5 | Auth và phân quyền local | Username/password ánh xạ Supabase Auth; owner/editor/viewer; không tự đăng ký; RLS tests đạt | Duyệt checkpoint | `COMPLETED` |
 | C6 | Nghiệp vụ web | CRUD đối tác/khoản vay; nhập lãi/gốc/chi phí; tất toán, nợ xấu, timeline, audit; Playwright flow đạt | Duyệt checkpoint | `COMPLETED` |
 | C7 | Dashboard và UX | KPI tiền mặt/dồn tích, dư nợ, lãi dự kiến, đến hạn/quá hạn, biểu đồ dòng tiền; responsive 375–1440px, dark mode | Duyệt checkpoint | `COMPLETED` |
-| C7G | GitHub remote | Xác nhận tài khoản/tên/visibility; tạo repository, thêm `origin`, push branch `main`; không chứa secret | Xác nhận tài khoản + tạo remote + push | `AWAITING_APPROVAL` |
+| C7G | GitHub remote | Xác nhận tài khoản/tên/visibility; tạo repository, thêm `origin`, push branch `main`; không chứa secret | Xác nhận tài khoản + tạo remote + push | `IN_PROGRESS` |
 | C8 | PWA và thông báo local | Manifest, service worker, installable PWA, notification center, Web Push, idempotency và nhắc quá hạn hằng ngày | Duyệt checkpoint | `NOT_STARTED` |
 | C9 | Google Sync local | Apps Script đồng bộ một chiều, cấu trúc Sheet, snapshot tuần, retention 12 tuần; test bằng mock; chưa `clasp login` | Duyệt checkpoint | `NOT_STARTED` |
 | C10 | Supabase remote | Dùng tài khoản Supabase mới để tạo project `quan-ly-vay-ca-nhan` tại Singapore, link CLI, cấu hình secret và áp migration | Xác nhận tài khoản và thao tác remote | `NOT_STARTED` |

@@ -4,7 +4,7 @@ roadmap_version: 1.0.7
 last_updated: 2026-08-01 17:03:00 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C7G
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 ---
 
 # Project Context
@@ -53,8 +53,8 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Trường | Giá trị |
 |---|---|
 | Checkpoint | C7G — GitHub remote |
-| Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi được duyệt | Chưa duyệt thao tác remote; đang chờ tài khoản GitHub, tên repository và visibility |
+| Trạng thái | `IN_PROGRESS` |
+| Phạm vi được duyệt | Tạo repository `ngotuong/quanlyvay` ở chế độ private, thêm `origin` và push `main` |
 | Mục tiêu | Tạo repository đúng tài khoản, thêm `origin` và push `main` sau xác nhận riêng |
 
 ## 4. Checkpoint hoàn tất gần nhất
@@ -68,12 +68,12 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-C7G đang chờ người dùng xác nhận riêng:
+C7G đã được người dùng phê duyệt và đang thực hiện:
 
-- GitHub username/tài khoản sẽ sở hữu repository.
-- Tên repository, đề xuất `quan-ly-vay-ca-nhan`.
-- Visibility, đề xuất `private`.
-- Sau khi xác nhận: chọn cách xác thực do máy chưa có GitHub CLI, tạo repository, thêm `origin` và push `main`.
+- Tài khoản sở hữu: `ngotuong`.
+- Repository: `quanlyvay`, chế độ `private`.
+- Dùng phiên trình duyệt để tạo repository vì máy chưa có GitHub CLI.
+- Sau khi tạo: thêm `origin`, push nhánh `main` và xác minh remote.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -109,7 +109,7 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C7 đã hoàn tất ở local; C7G chờ xác nhận tài khoản/repository/visibility và quyền tạo remote + push.
+- C7 đã hoàn tất ở local; C7G đã được duyệt cho `ngotuong/quanlyvay` private và đang thực hiện.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
 - Git identity local đã cấu hình là `Ngo Tuong <vipmoschino@gmail.com>`; không có Git remote.
 - GitHub CLI chưa được cài; chưa đăng nhập hoặc thay đổi tài nguyên GitHub.
