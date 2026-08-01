@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.14
-last_updated: 2026-08-01 23:37:22 +07
+last_updated: 2026-08-02 00:03:53 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C12
 current_status: IN_PROGRESS
@@ -80,7 +80,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 C12 đã được phê duyệt. Từng thao tác remote vẫn cần xác nhận riêng:
 
-- Gỡ deployment Production ngoài ý muốn sau xác nhận khôi phục, rồi deploy lại với target Preview tường minh.
+- Deploy lại bằng `--target=preview` tường minh sau xác nhận riêng và chạy smoke test read-only.
 - Cấu hình Google Sync theo URL Preview sau khi deployment đạt.
 - Cấu hình Script Properties rồi chạy lại installer để kích hoạt trigger Google Sync theo giờ.
 
@@ -110,7 +110,7 @@ C12 đã được phê duyệt. Từng thao tác remote vẫn cần xác nhận 
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; CLI đã link |
-| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; 8 biến Preview đã cấu hình. Deployment `dpl_FwHD1YJfUQhiv9o7GGh1CqhgsR2H` bị CLI đặt nhầm target Production, đang chờ xác nhận gỡ |
+| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; 8 biến Preview đã cấu hình; hiện không có deployment hoặc cron |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; installer có điều kiện đã push và chạy lại thành công; hiện chỉ có trigger snapshot tuần theo cấu hình C11 |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook tabs, thư mục `QuanLyVayCaNhan_Backups` và snapshot tuần đã tạo thành công theo xác nhận runtime |
 
@@ -135,9 +135,9 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 - Endpoint notification hỗ trợ `GET|POST`; `apps/web/vercel.json` đăng ký cron `0 0 * * *`, phù hợp
   giới hạn Hobby một lần/ngày. Lint/typecheck/test/build đều đạt sau thay đổi.
 - Lệnh `vercel deploy --yes` không có `--prod` vẫn tạo deployment đầu tiên với target Production,
-  gán alias public và đăng ký một cron. Production không có env nên app/cron chưa hoạt động đúng.
-  Không có dữ liệu người dùng; cần xác nhận riêng trước khi xóa deployment ngoài ý muốn và deploy
-  lại bằng `--target=preview` tường minh.
+  gán alias public và đăng ký một cron. Deployment `dpl_FwHD1YJfUQhiv9o7GGh1CqhgsR2H` đã được
+  xóa sau xác nhận; kiểm tra lại cho thấy không còn deployment hoặc cron. Lần deploy kế tiếp bắt
+  buộc dùng `--target=preview` tường minh.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
@@ -168,8 +168,8 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — C12: ghi nhận CLI tạo nhầm target Production; chờ xác nhận gỡ và deploy lại Preview.
-2. `2026-08-01` — C12: cấu hình 8 biến Preview, Keychain secrets và daily notification cron tương thích Hobby.
-3. `2026-08-01` — C12: cấu hình Vercel remote root `apps/web`, framework Next.js và Node.js 24.x.
-4. `2026-08-01` — C12: link repository local với Vercel project; metadata/secret local đều được Git bỏ qua.
-5. `2026-08-01` — C12: tạo Vercel project `quan-ly-vay-ca-nhan` sau khi xác nhận Hobby còn dư địa.
+1. `2026-08-02` — C12: xóa deployment Production ngoài ý muốn; xác minh project không còn deployment/cron.
+2. `2026-08-01` — C12: ghi nhận CLI tạo nhầm target Production; chờ xác nhận gỡ và deploy lại Preview.
+3. `2026-08-01` — C12: cấu hình 8 biến Preview, Keychain secrets và daily notification cron tương thích Hobby.
+4. `2026-08-01` — C12: cấu hình Vercel remote root `apps/web`, framework Next.js và Node.js 24.x.
+5. `2026-08-01` — C12: link repository local với Vercel project; metadata/secret local đều được Git bỏ qua.
