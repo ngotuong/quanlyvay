@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.11
-last_updated: 2026-08-01 20:04:06 +07
+last_updated: 2026-08-01 20:06:33 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C11
 current_status: IN_PROGRESS
@@ -107,14 +107,14 @@ C11 đã được phê duyệt. Mỗi thao tác remote vẫn cần xác nhận r
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; CLI đã link |
 | Vercel | Chưa truy cập; dự kiến kiểm tra và dùng tài khoản cũ ở C12 |
-| Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; bốn file C9 đã push; installer C11 đang chờ push |
+| Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; bốn file cùng installer C11 đã push |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; chưa tạo thư mục backup |
 
 Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; không lưu secret.
 
 ## 8. Blocker và cổng xác nhận
 
-- C10 đã hoàn tất; C11 đã push mã nền, thêm installer idempotent đạt 10/10 mock tests và đang chờ xác nhận push bản cập nhật.
+- C10 đã hoàn tất; C11 đã push installer idempotent đạt 10/10 mock tests và đang chờ xác nhận chạy runtime setup.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
