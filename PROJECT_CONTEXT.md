@@ -1,9 +1,9 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.5
-last_updated: 2026-08-01 16:16:45 +07
+roadmap_version: 1.0.6
+last_updated: 2026-08-01 16:44:37 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C6
+current_checkpoint: C7
 current_status: AWAITING_APPROVAL
 ---
 
@@ -32,6 +32,8 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `docs/FINANCIAL_ENGINE.md` mô tả contract C4; engine đã được giữ nguyên qua regression C5.
 - Local Auth dùng username/password ánh xạ sang email nội bộ, session SSR, bắt đổi mật khẩu và vai trò `OWNER`/`EDITOR`/`VIEWER`; public signup bị tắt.
 - `docs/AUTH.md` mô tả contract Auth/RBAC; bootstrap OWNER thật đã được chuẩn bị nhưng chưa chạy.
+- Web C6 đã có CRUD đối tác/khoản vay, ghi giao dịch gốc/lãi/chi phí, lifecycle, tất toán, reversal, timeline và audit.
+- `docs/WEB_WORKFLOWS.md` mô tả contract web; giao diện responsive dùng sidebar desktop và bottom navigation mobile.
 - Chưa có mã nguồn Apps Script.
 - Chưa đăng nhập hay liên kết Google, Supabase, Vercel hoặc `clasp`.
 
@@ -48,28 +50,27 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C6 — Nghiệp vụ web |
+| Checkpoint | C7 — Dashboard và UX |
 | Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi được duyệt | Chưa có; C6 chưa được phép triển khai |
-| Mục tiêu dự kiến | CRUD đối tác/khoản vay, giao dịch gốc/lãi/chi phí, tất toán, nợ xấu, timeline và audit |
+| Phạm vi được duyệt | Chưa có; C7 chưa được phép triển khai |
+| Mục tiêu dự kiến | KPI, dòng tiền, lợi nhuận, đến hạn/quá hạn, biểu đồ và hoàn thiện responsive/dark mode |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
-### C5 — Auth và phân quyền local
+### C6 — Nghiệp vụ web
 
 - Trạng thái: `COMPLETED`.
-- Đầu ra: Auth username/password không cần email người dùng, session SSR, bootstrap OWNER, quản lý tài khoản thứ hai, bắt đổi mật khẩu, vai trò OWNER/EDITOR/VIEWER và giao diện đăng nhập responsive.
-- Commit evidence: chưa tạo local commit vì repository chưa được cấu hình `user.name`/`user.email`; không tự đặt Git identity khi chưa có xác nhận.
-- Verification: database lint không lỗi; 146/146 pgTAP assertions, 5/5 Auth integration tests và 11/11 domain tests đạt; lint, typecheck và production build đạt; database đã reset để xóa tài khoản test; không có Git remote.
+- Đầu ra: workflow database nguyên tử, Server Actions/Zod, CRUD đối tác/khoản vay, thanh toán, chi phí, lifecycle, tất toán, reversal, timeline, audit và app shell responsive.
+- Commit evidence: C0–C5 đã commit tại `dd03703`; commit C6 được tạo sau khi cập nhật evidence cuối.
+- Verification: database lint không lỗi; 163/163 pgTAP assertions, 5/5 Auth integration tests, 11/11 domain tests và 2/2 Playwright flows đạt; lint, typecheck và production build đạt; database đã reset để xóa dữ liệu test; không có Git remote.
 
 ## 5. Checkpoint tiếp theo
 
-C6 chỉ được bắt đầu sau phê duyệt rõ của người dùng. C6 dự kiến:
+C7 chỉ được bắt đầu sau phê duyệt rõ của người dùng. C7 dự kiến:
 
-- Xây dựng CRUD đối tác và khoản vay trên giao diện web.
-- Ghi nhận giao dịch lãi, gốc và chi phí qua Server Actions/RPC đã validate.
-- Thêm luồng tất toán, nợ xấu, timeline và audit theo quyền người dùng.
-- Tạo Playwright flow cho các nghiệp vụ cốt lõi.
+- Dashboard KPI dư nợ, lãi thực thu/dự kiến và lợi nhuận ròng.
+- Danh sách khoản sắp đến hạn, quá hạn và biểu đồ dòng tiền theo tháng.
+- Hoàn thiện UX responsive 375–1440px và kiểm tra light/dark mode.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -105,9 +106,9 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C5 đã hoàn tất; C6 đang chờ người dùng phê duyệt.
+- C6 đã hoàn tất; C7 đang chờ người dùng phê duyệt.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
-- Local commit đang chờ cấu hình Git identity; đây không phải blocker cho mã nguồn local.
+- Git identity local đã cấu hình là `Ngo Tuong <vipmoschino@gmail.com>`; không có Git remote.
 - Supabase local đang chạy bằng Docker; có thể dừng bằng `supabase stop` khi không sử dụng.
 - Chưa tạo tài khoản OWNER thật. Trước khi chạy bootstrap với thông tin đăng nhập thật phải hỏi người dùng xác nhận riêng.
 - Tới C10/C11/C12 phải nhắc người dùng xác nhận riêng trước khi truy cập Supabase, Google/clasp hoặc Vercel.
@@ -130,8 +131,8 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — Hoàn tất C5: Auth/RBAC local, 146 database assertions và 5 Auth integration tests đạt.
-2. `2026-08-01` — Hoàn tất C4: engine/RPC tài chính và 123/123 database assertions đạt.
-3. `2026-08-01` — Hoàn tất C3: migration schema/RLS và 72/72 database assertions đạt.
-4. `2026-08-01` — Hoàn tất C2: khóa domain spec và 10 fixture với 11/11 tests đạt.
-5. `2026-08-01` — Hoàn tất C1: pnpm monorepo và Next.js local vượt qua lint/typecheck/build.
+1. `2026-08-01` — Hoàn tất C6: nghiệp vụ web, 163 database assertions và 2 Playwright flows đạt.
+2. `2026-08-01` — Hoàn tất C5: Auth/RBAC local, 146 database assertions và 5 Auth integration tests đạt.
+3. `2026-08-01` — Hoàn tất C4: engine/RPC tài chính và 123/123 database assertions đạt.
+4. `2026-08-01` — Hoàn tất C3: migration schema/RLS và 72/72 database assertions đạt.
+5. `2026-08-01` — Hoàn tất C2: khóa domain spec và 10 fixture với 11/11 tests đạt.

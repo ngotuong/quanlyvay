@@ -51,3 +51,13 @@ export async function requireOwnerProfile() {
 
   return profile;
 }
+
+export async function requireWriterProfile() {
+  const profile = await requireAuthenticatedProfile();
+
+  if (profile.role === "VIEWER") {
+    throw new Error("Tài khoản chỉ xem không thể thay đổi dữ liệu.");
+  }
+
+  return profile;
+}
