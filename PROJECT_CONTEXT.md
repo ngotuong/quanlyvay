@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.10
-last_updated: 2026-08-01 18:55:53 +07
+last_updated: 2026-08-01 19:04:05 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C10
 current_status: IN_PROGRESS
@@ -113,8 +113,9 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C9 đã hoàn tất local; C10 đã link project Singapore và đang chờ xác nhận áp migration remote.
+- C9 đã hoàn tất local; C10 đã link và áp đủ 6/6 migration lên project Singapore, không chạy seed; đang chờ xác nhận đọc/lưu API credentials.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
+- Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - VAPID/cron mới có contract và `.env.example`; chưa tạo hoặc cấu hình secret remote. Việc chạy lịch thật thuộc checkpoint remote sau xác nhận.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
 - Git identity local là `Ngo Tuong <vipmoschino@gmail.com>`; remote `origin` trỏ tới repository private `ngotuong/quanlyvay`.
