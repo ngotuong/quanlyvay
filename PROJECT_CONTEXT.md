@@ -61,7 +61,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 - Trạng thái: `COMPLETED`.
 - Đầu ra: workflow database nguyên tử, Server Actions/Zod, CRUD đối tác/khoản vay, thanh toán, chi phí, lifecycle, tất toán, reversal, timeline, audit và app shell responsive.
-- Commit evidence: C0–C5 đã commit tại `dd03703`; commit C6 được tạo sau khi cập nhật evidence cuối.
+- Commit evidence: C0–C5 tại `dd03703`; C6 tại `2ea2849`.
 - Verification: database lint không lỗi; 163/163 pgTAP assertions, 5/5 Auth integration tests, 11/11 domain tests và 2/2 Playwright flows đạt; lint, typecheck và production build đạt; database đã reset để xóa dữ liệu test; không có Git remote.
 
 ## 5. Checkpoint tiếp theo
