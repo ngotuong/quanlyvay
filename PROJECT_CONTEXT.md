@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.7
-last_updated: 2026-08-01 17:03:00 +07
+roadmap_version: 1.0.8
+last_updated: 2026-08-01 17:24:09 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C7G
-current_status: IN_PROGRESS
+current_checkpoint: C8
+current_status: AWAITING_APPROVAL
 ---
 
 # Project Context
@@ -19,7 +19,7 @@ Supabase là nguồn dữ liệu chuẩn. Google Sheets và Google Drive chỉ d
 
 Repository đã có lớp quản trị dự án và nền tảng web local:
 
-- Git repository local, branch `main`, chưa có remote.
+- Git repository branch `main` đã liên kết và theo dõi `origin/main` trên GitHub private.
 - `AGENTS.md` là quy tắc làm việc ổn định.
 - `PROJECT_CONTEXT.md` là handoff trạng thái hiện tại.
 - `docs/IMPLEMENTATION_PLAN.md` là roadmap chuẩn.
@@ -52,28 +52,27 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C7G — GitHub remote |
-| Trạng thái | `IN_PROGRESS` |
-| Phạm vi được duyệt | Tạo repository `ngotuong/quanlyvay` ở chế độ private, thêm `origin` và push `main` |
-| Mục tiêu | Tạo repository đúng tài khoản, thêm `origin` và push `main` sau xác nhận riêng |
+| Checkpoint | C8 — PWA và thông báo local |
+| Trạng thái | `AWAITING_APPROVAL` |
+| Phạm vi được duyệt | Chưa có; C8 chưa được phép triển khai |
+| Mục tiêu dự kiến | Manifest, service worker, PWA installable, notification center, Web Push idempotent và nhắc quá hạn hằng ngày |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
-### C7 — Dashboard và UX
+### C7G — GitHub remote
 
 - Trạng thái: `COMPLETED`.
-- Đầu ra: RPC dashboard authoritative, KPI dư nợ/lãi/lợi nhuận, dòng tiền 6 tháng, danh sách đến hạn/quá hạn, trang mặc định mới và UX responsive/light/dark.
-- Commit evidence: C7 tại `f76ada1` (`C7: xây dựng dashboard và hoàn thiện UX`).
-- Verification: database lint không lỗi; 178/178 pgTAP assertions, 5/5 Auth integration tests, 11/11 domain tests và 3/3 Playwright flows đạt; lint, typecheck và production build đạt; database đã reset để xóa dữ liệu test; không có Git remote.
+- Đầu ra: repository private `ngotuong/quanlyvay`, `origin` HTTPS, nhánh `main` theo dõi `origin/main`; GitHub CLI 2.97.0 được cài và đăng nhập qua macOS keyring.
+- Commit evidence: `70c3efe` (`docs: phê duyệt GitHub remote`) đã push lên `origin/main` cùng toàn bộ lịch sử C0–C7.
+- Verification: `gh auth status` xác nhận active account `ngotuong`; `gh repo view` xác nhận `PRIVATE`; push `main -> main` thành công.
 
 ## 5. Checkpoint tiếp theo
 
-C7G đã được người dùng phê duyệt và đang thực hiện:
+C8 chỉ được bắt đầu sau phê duyệt rõ của người dùng. Phạm vi dự kiến:
 
-- Tài khoản sở hữu: `ngotuong`.
-- Repository: `quanlyvay`, chế độ `private`.
-- Dùng phiên trình duyệt để tạo repository vì máy chưa có GitHub CLI.
-- Sau khi tạo: thêm `origin`, push nhánh `main` và xác minh remote.
+- Manifest, service worker và kiểm tra cài đặt PWA.
+- Notification center và Web Push cho tất cả tài khoản.
+- Nhắc đúng ngày đóng lãi, lặp hằng ngày khi quá hạn và chống gửi trùng.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -99,7 +98,7 @@ C7G đã được người dùng phê duyệt và đang thực hiện:
 
 | Dịch vụ | Trạng thái |
 |---|---|
-| Git remote | Chưa tạo |
+| Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Chưa đăng nhập; dự kiến tạo project bằng tài khoản mới ở C10 |
 | Vercel | Chưa truy cập; dự kiến kiểm tra và dùng tài khoản cũ ở C12 |
 | Google Apps Script / `clasp` | Chưa đăng nhập; dự kiến dùng tài khoản Google cũ với named user |
@@ -109,10 +108,10 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C7 đã hoàn tất ở local; C7G đã được duyệt cho `ngotuong/quanlyvay` private và đang thực hiện.
+- C7G đã hoàn tất; C8 đang chờ người dùng phê duyệt.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
-- Git identity local đã cấu hình là `Ngo Tuong <vipmoschino@gmail.com>`; không có Git remote.
-- GitHub CLI chưa được cài; chưa đăng nhập hoặc thay đổi tài nguyên GitHub.
+- Git identity local là `Ngo Tuong <vipmoschino@gmail.com>`; remote `origin` trỏ tới repository private `ngotuong/quanlyvay`.
+- GitHub CLI 2.97.0 đã đăng nhập active account `ngotuong`; credential nằm trong macOS keyring, không nằm trong repository.
 - Supabase local đang chạy bằng Docker; có thể dừng bằng `supabase stop` khi không sử dụng.
 - Chưa tạo tài khoản OWNER thật. Trước khi chạy bootstrap với thông tin đăng nhập thật phải hỏi người dùng xác nhận riêng.
 - Tới C10/C11/C12 phải nhắc người dùng xác nhận riêng trước khi truy cập Supabase, Google/clasp hoặc Vercel.
@@ -135,8 +134,8 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — Hoàn tất C7: dashboard authoritative, 178 database assertions và 3 Playwright flows responsive/dark đạt.
-2. `2026-08-01` — Hoàn tất C6: nghiệp vụ web, 163 database assertions và 2 Playwright flows đạt.
-3. `2026-08-01` — Hoàn tất C5: Auth/RBAC local, 146 database assertions và 5 Auth integration tests đạt.
-4. `2026-08-01` — Hoàn tất C4: engine/RPC tài chính và 123/123 database assertions đạt.
-5. `2026-08-01` — Hoàn tất C3: migration schema/RLS và 72/72 database assertions đạt.
+1. `2026-08-01` — Hoàn tất C7G: tạo GitHub private, cài/xác thực GitHub CLI, thêm `origin` và push `main`.
+2. `2026-08-01` — Hoàn tất C7: dashboard authoritative, 178 database assertions và 3 Playwright flows responsive/dark đạt.
+3. `2026-08-01` — Hoàn tất C6: nghiệp vụ web, 163 database assertions và 2 Playwright flows đạt.
+4. `2026-08-01` — Hoàn tất C5: Auth/RBAC local, 146 database assertions và 5 Auth integration tests đạt.
+5. `2026-08-01` — Hoàn tất C4: engine/RPC tài chính và 123/123 database assertions đạt.
