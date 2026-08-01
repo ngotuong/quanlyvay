@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.10
-last_updated: 2026-08-01 18:53:47 +07
+last_updated: 2026-08-01 18:54:46 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C10
 current_status: IN_PROGRESS
@@ -104,7 +104,7 @@ C10 đã được phê duyệt; hiện chờ xác nhận riêng cho tài khoản
 | Dịch vụ | Trạng thái |
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
-| Supabase | Profile `quanlyvay`; org `wdjcthekulcbiccikhmr`; project mặc định Sydney đã xóa theo xác nhận; chưa có project mới |
+| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; chưa link |
 | Vercel | Chưa truy cập; dự kiến kiểm tra và dùng tài khoản cũ ở C12 |
 | Google Apps Script / `clasp` | Chưa đăng nhập; dự kiến dùng tài khoản Google cũ với named user |
 | Google Sheets / Drive | Chưa tạo tài nguyên |
@@ -113,7 +113,8 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C9 đã hoàn tất local; C10 đã xóa project Sydney theo xác nhận và đang chờ phương án lưu mật khẩu trước khi tạo Singapore.
+- C9 đã hoàn tất local; C10 đã tạo project Singapore và đang chờ xác nhận `supabase link`.
+- Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - VAPID/cron mới có contract và `.env.example`; chưa tạo hoặc cấu hình secret remote. Việc chạy lịch thật thuộc checkpoint remote sau xác nhận.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
 - Git identity local là `Ngo Tuong <vipmoschino@gmail.com>`; remote `origin` trỏ tới repository private `ngotuong/quanlyvay`.
