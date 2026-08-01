@@ -1,0 +1,14 @@
+{
+  "name": "@quan-ly-vay-ca-nhan/google-sync",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/google-apps-script": "2.0.8",
+    "typescript": "5.9.3"
+  }
+}

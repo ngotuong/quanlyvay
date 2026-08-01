@@ -11,9 +11,9 @@
     "dev": "pnpm --filter @quan-ly-vay-ca-nhan/web dev",
     "lint": "pnpm --filter @quan-ly-vay-ca-nhan/web lint",
     "typecheck": "pnpm -r --if-present typecheck",
-    "test": "pnpm --filter @quan-ly-vay-ca-nhan/domain-contract test",
+    "test": "pnpm -r --if-present test",
     "test:auth": "pnpm --filter @quan-ly-vay-ca-nhan/web test:auth",
     "test:e2e": "pnpm --filter @quan-ly-vay-ca-nhan/web test:e2e",
-    "build": "pnpm --filter @quan-ly-vay-ca-nhan/web build"
+    "build": "pnpm -r --if-present build"
   }
 }

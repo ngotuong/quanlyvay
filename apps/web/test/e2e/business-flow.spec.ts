@@ -103,3 +103,36 @@ test("PWA manifest, service worker and notification center are available", async
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   expect(await page.evaluate(async () => Boolean(await navigator.serviceWorker.ready))).toBe(true);
 });
+
+test("Google Sync export requires its secret and supports an unchanged cursor", async ({ request }) => {
+  const unauthorized = await request.get("/api/google-sync/export");
+  expect(unauthorized.status()).toBe(401);
+
+  const exported = await request.get("/api/google-sync/export", {
+    headers: { "x-sync-secret": "e2e-sync-secret" },
+  });
+  expect(exported.ok()).toBe(true);
+  const payload = await exported.json();
+  expect(payload).toMatchObject({ schemaVersion: 1, unchanged: false });
+  expect(Object.keys(payload.tables).sort()).toEqual([
+    "auditLogs",
+    "counterparties",
+    "expenses",
+    "interestPeriods",
+    "lifecycleEvents",
+    "loans",
+    "notifications",
+    "transactions",
+  ]);
+
+  const unchanged = await request.get(
+    `/api/google-sync/export?cursor=${encodeURIComponent(payload.sourceVersion)}`,
+    { headers: { "x-sync-secret": "e2e-sync-secret" } },
+  );
+  expect(unchanged.ok()).toBe(true);
+  expect(await unchanged.json()).toEqual({
+    schemaVersion: 1,
+    sourceVersion: payload.sourceVersion,
+    unchanged: true,
+  });
+});
