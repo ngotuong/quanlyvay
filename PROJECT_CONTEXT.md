@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.12
-last_updated: 2026-08-01 22:14:35 +07
+roadmap_version: 1.0.13
+last_updated: 2026-08-01 22:27:44 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C11
-current_status: IN_PROGRESS
+current_checkpoint: C12
+current_status: AWAITING_APPROVAL
 ---
 
 # Project Context
@@ -60,27 +60,29 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C11 — Google/Clasp remote |
-| Trạng thái | `IN_PROGRESS` |
-| Phạm vi được duyệt | C11 đã được phê duyệt; đăng nhập và từng thao tác Google/Clasp vẫn cần xác nhận riêng |
-| Mục tiêu | Tạo Apps Script, Sheet đối chiếu, Drive backup và trigger sau từng xác nhận |
+| Checkpoint | C12 — Vercel Preview |
+| Trạng thái | `AWAITING_APPROVAL` |
+| Phạm vi được duyệt | Chưa được duyệt; không truy cập tài khoản Vercel, link project, cấu hình secret hoặc deploy |
+| Mục tiêu | Kiểm tra usage tài khoản Vercel cũ, tạo Preview và kích hoạt Google Sync sau từng xác nhận |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
-### C10 — Supabase remote
+### C11 — Google/Clasp remote
 
 - Trạng thái: `COMPLETED`.
-- Đầu ra: tài khoản/profile CLI riêng, project Singapore đã link, 6 migration remote không seed, Auth config khóa signup, database/API keys lưu trong macOS Keychain.
-- Commit evidence: `f388061` (project Singapore), `aaa5eab` (migration remote), `41cff55` (API credentials).
-- Verification: project `ACTIVE_HEALTHY`; dry-run đúng 6 migration và không seed; migration history local/remote khớp 6/6; Auth trả `disable_signup=true`; anonymous đọc `loans` bị từ chối HTTP 401/RLS.
+- Đầu ra: named `clasp` user, bound Sheet/Apps Script, chín tab workbook, thư mục Drive backup,
+  mã remote và trigger snapshot tuần; trigger sync theo giờ được hoãn an toàn đến C12.
+- Commit evidence: `e10523d` (installer), `e487f12` (trigger có điều kiện), `d7f77f7` (push remote), `819cbc8` (runtime setup).
+- Verification: người dùng xác nhận installer và `runWeeklySnapshot` chạy thành công; `clasp push`
+  cập nhật 4 file; lint/typecheck/test/build đạt, gồm Google Sync 10/10 và domain contract 11/11.
 
 ## 5. Checkpoint tiếp theo
 
-C11 đang thực hiện. Các việc còn lại vẫn cần xác nhận remote riêng:
+C12 chưa được phê duyệt. Sau khi được duyệt, từng thao tác remote vẫn cần xác nhận riêng:
 
-- Chạy thử snapshot tuần và xác nhận bản sao được tạo trong Drive.
-- Chốt C11 sau test gate; kiểm thử phục hồi toàn trình được giữ cho UAT ở C13.
-- Trigger sync được kích hoạt ở C12 sau khi có Vercel URL/secret.
+- Kiểm tra usage tài khoản Vercel cũ trước khi quyết định dùng tài khoản đó.
+- Tạo/link project Preview với root `apps/web`, cấu hình env/secret và deploy.
+- Cấu hình Script Properties rồi chạy lại installer để kích hoạt trigger Google Sync theo giờ.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -110,18 +112,18 @@ C11 đang thực hiện. Các việc còn lại vẫn cần xác nhận remote r
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; CLI đã link |
 | Vercel | Chưa truy cập; dự kiến kiểm tra và dùng tài khoản cũ ở C12 |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; installer có điều kiện đã push và chạy lại thành công; hiện chỉ có trigger snapshot tuần theo cấu hình C11 |
-| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; installer đã tạo workbook tabs và thư mục `QuanLyVayCaNhan_Backups` theo xác nhận runtime |
+| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook tabs, thư mục `QuanLyVayCaNhan_Backups` và snapshot tuần đã tạo thành công theo xác nhận runtime |
 
 Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; không lưu secret.
 
 ## 8. Blocker và cổng xác nhận
 
-- Bản sửa installer đạt 10/10 mock tests, typecheck và build; `clasp push --force` đã cập nhật đúng 4 file remote.
+- C11 hoàn tất; kiểm thử phục hồi snapshot toàn trình được giữ cho UAT ở C13.
 - Google Drive connector hiện đăng nhập tài khoản khác nên không đọc được Sheet ID của dự án; đây
   không phải lỗi runtime. `clasp logs` cũng không khả dụng vì Apps Script chưa liên kết GCP project;
   không tạo thêm GCP project chỉ để đọc log.
-- Installer đã được người dùng chạy lại thành công, vì vậy trigger sync thiếu cấu hình đã được gỡ;
-  trigger snapshot tuần được giữ. Chạy thử snapshot remote vẫn cần xác nhận riêng.
+- C12 chưa được phê duyệt. Không truy cập Vercel hoặc thay đổi Script Properties/trigger sync cho đến
+  khi có xác nhận checkpoint và xác nhận riêng cho từng thao tác remote.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
@@ -152,7 +154,7 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — C11: tạo bound Sheet/Apps Script, chạy installer và push bản sửa hoãn trigger sync đến C12.
+1. `2026-08-01` — Hoàn tất C11: bound Sheet/Apps Script, Drive backup, snapshot tuần và trigger có điều kiện.
 2. `2026-08-01` — Hoàn tất C10: Supabase Singapore, 6 migration remote, Keychain credentials, Auth signup off và RLS smoke đạt.
 3. `2026-08-01` — Hoàn tất C9: Google Sync một chiều, tám tab Sheet, snapshot/restore và 9 mock tests đạt.
 4. `2026-08-01` — Hoàn tất C8: PWA, notification center, Web Push queue, 196 database assertions và 4 Playwright flows đạt.
