@@ -1,9 +1,9 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.8
-last_updated: 2026-08-01 17:24:09 +07
+roadmap_version: 1.0.9
+last_updated: 2026-08-01 17:45:43 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C8
+current_checkpoint: C9
 current_status: AWAITING_APPROVAL
 ---
 
@@ -27,7 +27,7 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `apps/web` dùng Next.js 16.2.12, React 19.2.4, TypeScript 5.9.3, Tailwind CSS 4.3.3 và ESLint 9.39.5.
 - `packages/domain-contract` chứa type contract và test fixture độc lập với production engine.
 - `docs/DOMAIN_SPEC.md` là đặc tả nghiệp vụ v1 đã khóa cho C3–C4.
-- Supabase local đã được khởi tạo với PostgreSQL 17, migration schema, RLS và 178 pgTAP assertions.
+- Supabase local đã được khởi tạo với PostgreSQL 17, migration schema, RLS và 196 pgTAP assertions.
 - Bộ máy tài chính authoritative nằm trong PostgreSQL, có RPC tính/rebuild, ghi thanh toán, lifecycle, reversal và tất toán nguyên tử.
 - `docs/FINANCIAL_ENGINE.md` mô tả contract C4; engine đã được giữ nguyên qua regression C5.
 - Local Auth dùng username/password ánh xạ sang email nội bộ, session SSR, bắt đổi mật khẩu và vai trò `OWNER`/`EDITOR`/`VIEWER`; public signup bị tắt.
@@ -36,6 +36,8 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `docs/WEB_WORKFLOWS.md` mô tả contract web; giao diện responsive dùng sidebar desktop và bottom navigation mobile.
 - Dashboard C7 dùng RPC PostgreSQL authoritative cho KPI, lợi nhuận tiền mặt/dồn tích, dòng tiền và lịch đến hạn; `/dashboard` là trang sau đăng nhập.
 - `docs/DASHBOARD.md` mô tả định nghĩa chỉ số và quy ước dòng tiền; UI đã kiểm tra responsive 375/768/1440px và light/dark mode.
+- PWA C8 có manifest, icon, service worker không cache dữ liệu tài chính, notification center và Web Push queue idempotent.
+- `docs/PWA_NOTIFICATIONS.md` mô tả quy tắc nhắc hạn, retry, VAPID local và ranh giới cấu hình cron remote.
 - Chưa có mã nguồn Apps Script.
 - Chưa đăng nhập hay liên kết Google, Supabase, Vercel hoặc `clasp`.
 
@@ -52,27 +54,27 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C8 — PWA và thông báo local |
+| Checkpoint | C9 — Google Sync local |
 | Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi được duyệt | Chưa có; C8 chưa được phép triển khai |
-| Mục tiêu dự kiến | Manifest, service worker, PWA installable, notification center, Web Push idempotent và nhắc quá hạn hằng ngày |
+| Phạm vi được duyệt | Chưa có; C9 chưa được phép triển khai |
+| Mục tiêu dự kiến | Apps Script đồng bộ một chiều, cấu trúc Sheet, snapshot tuần và retention 12 tuần bằng mock local |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
-### C7G — GitHub remote
+### C8 — PWA và thông báo local
 
 - Trạng thái: `COMPLETED`.
-- Đầu ra: repository private `ngotuong/quanlyvay`, `origin` HTTPS, nhánh `main` theo dõi `origin/main`; GitHub CLI 2.97.0 được cài và đăng nhập qua macOS keyring.
-- Commit evidence: `70c3efe` (`docs: phê duyệt GitHub remote`) đã push lên `origin/main` cùng toàn bộ lịch sử C0–C7.
-- Verification: `gh auth status` xác nhận active account `ngotuong`; `gh repo view` xác nhận `PRIVATE`; push `main -> main` thành công.
+- Đầu ra: PWA installable, service worker Push, notification center theo user, lịch đúng hạn/quá hạn, đăng ký subscription, delivery lease/retry và API worker được bảo vệ bằng secret.
+- Commit evidence: `79ca6e5` (`C8: xây dựng PWA và thông báo local`).
+- Verification: database lint không lỗi; 196/196 pgTAP assertions, 5/5 Auth tests, 11/11 domain tests và 4/4 Playwright flows đạt; lint, typecheck và production build đạt; database đã reset sau E2E.
 
 ## 5. Checkpoint tiếp theo
 
-C8 chỉ được bắt đầu sau phê duyệt rõ của người dùng. Phạm vi dự kiến:
+C9 chỉ được bắt đầu sau phê duyệt rõ của người dùng. Phạm vi dự kiến:
 
-- Manifest, service worker và kiểm tra cài đặt PWA.
-- Notification center và Web Push cho tất cả tài khoản.
-- Nhắc đúng ngày đóng lãi, lặp hằng ngày khi quá hạn và chống gửi trùng.
+- Apps Script đồng bộ Supabase → Google Sheets một chiều bằng mock local.
+- Khóa cấu trúc Sheet đối chiếu và checkpoint incremental.
+- Snapshot tuần, giữ 12 tuần và kiểm thử phục hồi; chưa đăng nhập hoặc `clasp push`.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -108,7 +110,8 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C7G đã hoàn tất; C8 đang chờ người dùng phê duyệt.
+- C8 đã hoàn tất local; C9 đang chờ người dùng phê duyệt.
+- VAPID/cron mới có contract và `.env.example`; chưa tạo hoặc cấu hình secret remote. Việc chạy lịch thật thuộc checkpoint remote sau xác nhận.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
 - Git identity local là `Ngo Tuong <vipmoschino@gmail.com>`; remote `origin` trỏ tới repository private `ngotuong/quanlyvay`.
 - GitHub CLI 2.97.0 đã đăng nhập active account `ngotuong`; credential nằm trong macOS keyring, không nằm trong repository.
@@ -134,8 +137,8 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — Hoàn tất C7G: tạo GitHub private, cài/xác thực GitHub CLI, thêm `origin` và push `main`.
-2. `2026-08-01` — Hoàn tất C7: dashboard authoritative, 178 database assertions và 3 Playwright flows responsive/dark đạt.
-3. `2026-08-01` — Hoàn tất C6: nghiệp vụ web, 163 database assertions và 2 Playwright flows đạt.
-4. `2026-08-01` — Hoàn tất C5: Auth/RBAC local, 146 database assertions và 5 Auth integration tests đạt.
-5. `2026-08-01` — Hoàn tất C4: engine/RPC tài chính và 123/123 database assertions đạt.
+1. `2026-08-01` — Hoàn tất C8: PWA, notification center, Web Push queue, 196 database assertions và 4 Playwright flows đạt.
+2. `2026-08-01` — Hoàn tất C7G: tạo GitHub private, cài/xác thực GitHub CLI, thêm `origin` và push `main`.
+3. `2026-08-01` — Hoàn tất C7: dashboard authoritative, 178 database assertions và 3 Playwright flows responsive/dark đạt.
+4. `2026-08-01` — Hoàn tất C6: nghiệp vụ web, 163 database assertions và 2 Playwright flows đạt.
+5. `2026-08-01` — Hoàn tất C5: Auth/RBAC local, 146 database assertions và 5 Auth integration tests đạt.

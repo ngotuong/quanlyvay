@@ -21,8 +21,8 @@
 | C6 | Nghiệp vụ web | CRUD đối tác/khoản vay; nhập lãi/gốc/chi phí; tất toán, nợ xấu, timeline, audit; Playwright flow đạt | Duyệt checkpoint | `COMPLETED` |
 | C7 | Dashboard và UX | KPI tiền mặt/dồn tích, dư nợ, lãi dự kiến, đến hạn/quá hạn, biểu đồ dòng tiền; responsive 375–1440px, dark mode | Duyệt checkpoint | `COMPLETED` |
 | C7G | GitHub remote | Xác nhận tài khoản/tên/visibility; tạo repository, thêm `origin`, push branch `main`; không chứa secret | Xác nhận tài khoản + tạo remote + push | `COMPLETED` |
-| C8 | PWA và thông báo local | Manifest, service worker, installable PWA, notification center, Web Push, idempotency và nhắc quá hạn hằng ngày | Duyệt checkpoint | `AWAITING_APPROVAL` |
-| C9 | Google Sync local | Apps Script đồng bộ một chiều, cấu trúc Sheet, snapshot tuần, retention 12 tuần; test bằng mock; chưa `clasp login` | Duyệt checkpoint | `NOT_STARTED` |
+| C8 | PWA và thông báo local | Manifest, service worker, installable PWA, notification center, Web Push, idempotency và nhắc quá hạn hằng ngày | Duyệt checkpoint | `COMPLETED` |
+| C9 | Google Sync local | Apps Script đồng bộ một chiều, cấu trúc Sheet, snapshot tuần, retention 12 tuần; test bằng mock; chưa `clasp login` | Duyệt checkpoint | `AWAITING_APPROVAL` |
 | C10 | Supabase remote | Dùng tài khoản Supabase mới để tạo project `quan-ly-vay-ca-nhan` tại Singapore, link CLI, cấu hình secret và áp migration | Xác nhận tài khoản và thao tác remote | `NOT_STARTED` |
 | C11 | Google/Clasp remote | Xác nhận Google account; tạo Apps Script `QuanLyVayCaNhanSync`, Sheet đối chiếu, Drive backup; push/deploy trigger | Xác nhận tài khoản và từng tài nguyên | `NOT_STARTED` |
 | C12 | Vercel Preview | Kiểm tra usage tài khoản Vercel cũ, tạo/link project `quan-ly-vay-ca-nhan` với root `apps/web`, cấu hình env và deploy Preview | Xác nhận tài khoản và deploy | `NOT_STARTED` |
@@ -63,6 +63,7 @@ Các test tài chính bắt buộc bao phủ: kỳ 15/30 ngày, kỳ cuối rút
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.9 | 2026-08-01 | Hoàn tất C8 với PWA, notification center, Web Push idempotent, 196 pgTAP assertions và 4 Playwright flows; C9 chờ phê duyệt. |
 | 1.0.8 | 2026-08-01 | Hoàn tất C7G: GitHub private `ngotuong/quanlyvay`, GitHub CLI 2.97.0 và push `origin/main`; C8 chờ phê duyệt. |
 | 1.0.7 | 2026-08-01 | Hoàn tất C7 với dashboard authoritative, 178 pgTAP assertions và 3 Playwright flows; thêm C7G chờ xác nhận GitHub remote. |
 | 1.0.6 | 2026-08-01 | Hoàn tất C6 với web workflows, 163 pgTAP assertions và 2 Playwright flows; C7 chờ phê duyệt. |
