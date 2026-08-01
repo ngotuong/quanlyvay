@@ -37,10 +37,16 @@ function installGoogleSyncInfrastructure() {
   ScriptApp.getProjectTriggers().forEach(function (trigger) {
     if (MANAGED_TRIGGER_HANDLERS.indexOf(trigger.getHandlerFunction()) !== -1) ScriptApp.deleteTrigger(trigger);
   });
-  ScriptApp.newTrigger("runGoogleSheetSync").timeBased().everyHours(1).create();
+  const syncReady = Boolean(properties.getProperty("SYNC_API_URL") && properties.getProperty("SYNC_API_SECRET"));
+  if (syncReady) ScriptApp.newTrigger("runGoogleSheetSync").timeBased().everyHours(1).create();
   ScriptApp.newTrigger("runWeeklySnapshot").timeBased().onWeekDay(ScriptApp.WeekDay.SUNDAY).atHour(2).create();
 
-  return { spreadsheetId: spreadsheet.getId(), backupFolderId: folderId, triggerCount: 2 };
+  return {
+    spreadsheetId: spreadsheet.getId(),
+    backupFolderId: folderId,
+    triggerCount: syncReady ? 2 : 1,
+    syncTriggerInstalled: syncReady,
+  };
 }
 
 function runGoogleSheetSync() {

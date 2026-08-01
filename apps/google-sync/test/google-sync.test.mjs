@@ -106,7 +106,7 @@ test("restore copies snapshot values without any Supabase write path", () => {
   assert.equal(result.sheetCount, 1); assert.equal(targetBook.getSheetByName("Đối tác").cells["2,2"], "Bản sao");
 });
 
-test("infrastructure setup is idempotent for folders and managed triggers", () => {
+test("infrastructure setup defers hourly sync until API configuration exists", () => {
   const spreadsheet = new MockSpreadsheet("bound-sheet"); spreadsheet.sheets.push(new MockSheet("Sheet1"));
   const values = new Map(); let folderCreates = 0; let triggers = [];
   const triggerBuilder = (handler) => ({
@@ -122,8 +122,17 @@ test("infrastructure setup is idempotent for folders and managed triggers", () =
       deleteTrigger: (trigger) => { triggers = triggers.filter((candidate) => candidate !== trigger); }, newTrigger: triggerBuilder,
     },
   });
-  assert.equal(call(context, "installGoogleSyncInfrastructure()").triggerCount, 2);
-  assert.equal(call(context, "installGoogleSyncInfrastructure()").backupFolderId, "folder-1");
+  const initialResult = call(context, "installGoogleSyncInfrastructure()");
+  assert.equal(initialResult.triggerCount, 1);
+  assert.equal(initialResult.syncTriggerInstalled, false);
+  assert.equal(initialResult.backupFolderId, "folder-1");
+  assert.equal(triggers.length, 1);
+
+  values.set("SYNC_API_URL", "https://sync.test");
+  values.set("SYNC_API_SECRET", "secret");
+  const configuredResult = call(context, "installGoogleSyncInfrastructure()");
+  assert.equal(configuredResult.triggerCount, 2);
+  assert.equal(configuredResult.syncTriggerInstalled, true);
   assert.equal(folderCreates, 1); assert.equal(triggers.length, 2); assert.equal(spreadsheet.sheets.length, 9);
   assert.equal(spreadsheet.getSheetByName("Sheet1"), null);
 });

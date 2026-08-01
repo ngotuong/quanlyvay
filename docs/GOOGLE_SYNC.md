@@ -81,12 +81,16 @@ chiếu đang mở. Phục hồi này không gọi endpoint mutate và tuyệt �
 Supabase. Sau khi phục hồi để kiểm tra, một lần sync mới có thể đưa workbook về trạng thái nguồn
 chuẩn hiện tại.
 
-## Cấu hình trigger dự kiến
+## Cấu hình trigger
 
 Ở C11, sau từng xác nhận riêng, mới thực hiện `clasp login`, tạo/link Apps Script, Sheet, thư mục
-Drive, `clasp push` và trigger:
+Drive, `clasp push` và trigger. Installer luôn tạo:
 
-- sync định kỳ gọi `runGoogleSheetSync`;
 - snapshot tuần gọi `runWeeklySnapshot`.
+
+Trigger đồng bộ định kỳ gọi `runGoogleSheetSync` chỉ được tạo khi cả `SYNC_API_URL` và
+`SYNC_API_SECRET` đã tồn tại. Hai property này phụ thuộc Vercel Preview nên được cấu hình ở C12;
+chạy lại installer sau cấu hình sẽ kích hoạt trigger đồng bộ theo giờ. Trước thời điểm đó installer
+xóa trigger đồng bộ được quản lý để tránh phát sinh lỗi định kỳ vì thiếu cấu hình.
 
 C9 không truy cập tài khoản Google, không tạo tài nguyên remote và không chạy `clasp`.

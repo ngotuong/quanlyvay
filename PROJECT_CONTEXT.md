@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.11
-last_updated: 2026-08-01 20:06:33 +07
+roadmap_version: 1.0.12
+last_updated: 2026-08-01 21:07:28 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C11
 current_status: IN_PROGRESS
@@ -40,10 +40,12 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `docs/PWA_NOTIFICATIONS.md` mô tả quy tắc nhắc hạn, retry, VAPID local và ranh giới cấu hình cron remote.
 - Google Sync C9 có endpoint export Next.js bảo vệ bằng secret, Apps Script đồng bộ một chiều,
   tám tab đối chiếu, cursor nguồn, snapshot tuần giữ 12 bản và phục hồi chỉ trong workbook.
-- `docs/GOOGLE_SYNC.md` mô tả contract Sheet, Script Properties và ranh giới cấu hình remote C11.
+- `docs/GOOGLE_SYNC.md` mô tả contract Sheet, Script Properties và ranh giới cấu hình remote C11–C12.
 - Supabase remote C10 đã hoàn tất: profile riêng `quanlyvay`, project Singapore đã link, 6/6 migration
-  đã áp không seed, API credentials ở Keychain và public signup đã tắt. Google, Vercel và `clasp`
-  vẫn chưa đăng nhập/liên kết.
+  đã áp không seed, API credentials ở Keychain và public signup đã tắt.
+- Google/Clasp C11 đã đăng nhập bằng named user, tạo bound Sheet/Apps Script, push mã lần đầu và
+  chạy installer. Snapshot tuần hoạt động độc lập; trigger sync theo giờ được hoãn đến khi C12 có
+  Vercel URL/secret để không tạo lỗi định kỳ.
 
 Kiến trúc đích:
 
@@ -74,11 +76,11 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-C11 đã được phê duyệt. Mỗi thao tác remote vẫn cần xác nhận riêng:
+C11 đang thực hiện. Các việc còn lại vẫn cần xác nhận remote riêng:
 
-- Xác nhận tài khoản Google cũ và đăng nhập `clasp` bằng named user.
-- Tạo Apps Script `QuanLyVayCaNhanSync`, Sheet đối chiếu và thư mục Drive backup.
-- Push mã Apps Script, tạo trigger sync/snapshot và kiểm tra phục hồi.
+- Push bản installer có điều kiện lên Apps Script.
+- Chạy lại installer để gỡ trigger sync chưa cấu hình, giữ trigger snapshot tuần.
+- Kiểm tra snapshot/phục hồi; trigger sync được kích hoạt ở C12 sau khi có URL/secret.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -107,14 +109,19 @@ C11 đã được phê duyệt. Mỗi thao tác remote vẫn cần xác nhận r
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; CLI đã link |
 | Vercel | Chưa truy cập; dự kiến kiểm tra và dùng tài khoản cũ ở C12 |
-| Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; bốn file cùng installer C11 đã push |
-| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; chưa tạo thư mục backup |
+| Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; installer ban đầu đã push và chạy thành công theo xác nhận của người dùng |
+| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; installer đã tạo workbook tabs và thư mục `QuanLyVayCaNhan_Backups` theo xác nhận runtime |
 
 Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; không lưu secret.
 
 ## 8. Blocker và cổng xác nhận
 
-- C10 đã hoàn tất; C11 đã push installer idempotent đạt 10/10 mock tests và đang chờ xác nhận chạy runtime setup.
+- Bản sửa installer local đạt 10/10 mock tests, typecheck và build; đang chờ xác nhận riêng để `clasp push`.
+- Google Drive connector hiện đăng nhập tài khoản khác nên không đọc được Sheet ID của dự án; đây
+  không phải lỗi runtime. `clasp logs` cũng không khả dụng vì Apps Script chưa liên kết GCP project;
+  không tạo thêm GCP project chỉ để đọc log.
+- Installer remote hiện vẫn có trigger sync theo giờ thiếu cấu hình. Sau khi push bản sửa, cần người
+  dùng chạy lại installer để gỡ trigger này và giữ trigger snapshot tuần.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
