@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.12
-last_updated: 2026-08-01 21:54:57 +07
+last_updated: 2026-08-01 22:14:35 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C11
 current_status: IN_PROGRESS
@@ -78,9 +78,9 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 C11 đang thực hiện. Các việc còn lại vẫn cần xác nhận remote riêng:
 
-- Push bản installer có điều kiện lên Apps Script.
-- Chạy lại installer để gỡ trigger sync chưa cấu hình, giữ trigger snapshot tuần.
-- Kiểm tra snapshot/phục hồi; trigger sync được kích hoạt ở C12 sau khi có URL/secret.
+- Chạy thử snapshot tuần và xác nhận bản sao được tạo trong Drive.
+- Chốt C11 sau test gate; kiểm thử phục hồi toàn trình được giữ cho UAT ở C13.
+- Trigger sync được kích hoạt ở C12 sau khi có Vercel URL/secret.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -109,7 +109,7 @@ C11 đang thực hiện. Các việc còn lại vẫn cần xác nhận remote r
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; CLI đã link |
 | Vercel | Chưa truy cập; dự kiến kiểm tra và dùng tài khoản cũ ở C12 |
-| Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; bản installer có điều kiện đã push thành công lúc 21:54:52 +07 |
+| Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; installer có điều kiện đã push và chạy lại thành công; hiện chỉ có trigger snapshot tuần theo cấu hình C11 |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; installer đã tạo workbook tabs và thư mục `QuanLyVayCaNhan_Backups` theo xác nhận runtime |
 
 Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; không lưu secret.
@@ -120,8 +120,8 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 - Google Drive connector hiện đăng nhập tài khoản khác nên không đọc được Sheet ID của dự án; đây
   không phải lỗi runtime. `clasp logs` cũng không khả dụng vì Apps Script chưa liên kết GCP project;
   không tạo thêm GCP project chỉ để đọc log.
-- Trigger sync theo giờ từ lần cài đầu vẫn tồn tại. Cần người dùng chạy lại installer đã cập nhật để
-  gỡ trigger này và giữ trigger snapshot tuần; thao tác runtime vẫn chờ xác nhận riêng.
+- Installer đã được người dùng chạy lại thành công, vì vậy trigger sync thiếu cấu hình đã được gỡ;
+  trigger snapshot tuần được giữ. Chạy thử snapshot remote vẫn cần xác nhận riêng.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
