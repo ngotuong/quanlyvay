@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.10
-last_updated: 2026-08-01 18:01:39 +07
+last_updated: 2026-08-01 18:39:12 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C10
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 ---
 
 # Project Context
@@ -57,9 +57,9 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Trường | Giá trị |
 |---|---|
 | Checkpoint | C10 — Supabase remote |
-| Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi được duyệt | Chưa có; cần xác nhận tài khoản và từng thao tác remote trước khi bắt đầu |
-| Mục tiêu | Sau phê duyệt: tạo project Singapore, link CLI, cấu hình secret và áp migration |
+| Trạng thái | `IN_PROGRESS` |
+| Phạm vi được duyệt | C10 đã được phê duyệt trong hội thoại; mọi thao tác tài khoản/remote vẫn cần xác nhận riêng |
+| Mục tiêu | Tạo project Singapore, link CLI, cấu hình secret và áp migration sau từng xác nhận |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -72,7 +72,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-C10 chưa được phê duyệt và cần xác nhận riêng cho tài khoản Supabase mới cùng từng thao tác remote:
+C10 đã được phê duyệt; hiện chờ xác nhận riêng cho tài khoản Supabase mới cùng từng thao tác remote:
 
 - Tạo project Supabase `quan-ly-vay-ca-nhan` tại Singapore.
 - Đăng nhập/link CLI, cấu hình secret và áp migration lên remote.
@@ -112,7 +112,7 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C9 đã hoàn tất local; C10 đang chờ phê duyệt và xác nhận tài khoản Supabase remote.
+- C9 đã hoàn tất local; C10 đã được phê duyệt và đang chờ xác nhận đăng nhập Supabase remote.
 - VAPID/cron mới có contract và `.env.example`; chưa tạo hoặc cấu hình secret remote. Việc chạy lịch thật thuộc checkpoint remote sau xác nhận.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
 - Git identity local là `Ngo Tuong <vipmoschino@gmail.com>`; remote `origin` trỏ tới repository private `ngotuong/quanlyvay`.
