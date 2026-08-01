@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.14
-last_updated: 2026-08-01 22:48:19 +07
+last_updated: 2026-08-01 22:59:11 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C12
 current_status: IN_PROGRESS
@@ -110,7 +110,7 @@ C12 đã được phê duyệt. Từng thao tác remote vẫn cần xác nhận 
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; CLI đã link |
-| Vercel | Chưa truy cập; dự kiến kiểm tra và dùng tài khoản cũ ở C12 |
+| Vercel | CLI account `ngotuong`, scope `ngotuong2105`, billing email `vipmoschino@gmail.com`; Hobby active, 2 project hiện hữu, usage 30 ngày thấp; chưa tạo project C12 |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; installer có điều kiện đã push và chạy lại thành công; hiện chỉ có trigger snapshot tuần theo cấu hình C11 |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook tabs, thư mục `QuanLyVayCaNhan_Backups` và snapshot tuần đã tạo thành công theo xác nhận runtime |
 
@@ -124,6 +124,9 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
   không tạo thêm GCP project chỉ để đọc log.
 - C12 đã được phê duyệt; Vercel CLI 54.20.0 có sẵn. Không truy cập tài khoản, link project, thay đổi
   secret, deploy hoặc kích hoạt trigger sync cho đến khi có xác nhận riêng cho thao tác tương ứng.
+- Usage Vercel 30 ngày (02/07–01/08) đã kiểm tra chỉ-đọc: Fast Data Transfer 215,67 MB/100 GB,
+  Fast Origin Transfer 45,09 MB/10 GB, Edge Requests 19.887/1.000.000, Function Invocations
+  9.482/1.000.000 và Build Time 3/100 giờ. Tài khoản Hobby đủ dư địa cho project mới.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
@@ -154,8 +157,8 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — Hoàn tất C11: bound Sheet/Apps Script, Drive backup, snapshot tuần và trigger có điều kiện.
-2. `2026-08-01` — Hoàn tất C10: Supabase Singapore, 6 migration remote, Keychain credentials, Auth signup off và RLS smoke đạt.
-3. `2026-08-01` — Hoàn tất C9: Google Sync một chiều, tám tab Sheet, snapshot/restore và 9 mock tests đạt.
-4. `2026-08-01` — Hoàn tất C8: PWA, notification center, Web Push queue, 196 database assertions và 4 Playwright flows đạt.
-5. `2026-08-01` — Hoàn tất C7G: tạo GitHub private, cài/xác thực GitHub CLI, thêm `origin` và push `main`.
+1. `2026-08-01` — C12: xác nhận Vercel Hobby active và usage 30 ngày còn nhiều dư địa.
+2. `2026-08-01` — Hoàn tất C11: bound Sheet/Apps Script, Drive backup, snapshot tuần và trigger có điều kiện.
+3. `2026-08-01` — Hoàn tất C10: Supabase Singapore, 6 migration remote, Keychain credentials, Auth signup off và RLS smoke đạt.
+4. `2026-08-01` — Hoàn tất C9: Google Sync một chiều, tám tab Sheet, snapshot/restore và 9 mock tests đạt.
+5. `2026-08-01` — Hoàn tất C8: PWA, notification center, Web Push queue, 196 database assertions và 4 Playwright flows đạt.
