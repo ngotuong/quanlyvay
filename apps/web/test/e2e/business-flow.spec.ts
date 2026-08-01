@@ -10,7 +10,7 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await page.getByLabel("Mật khẩu mới", { exact: true }).fill("OwnerE2eFinal123");
   await page.getByLabel("Nhập lại mật khẩu mới").fill("OwnerE2eFinal123");
   await page.getByRole("button", { name: "Lưu mật khẩu mới" }).click();
-  await expect(page.getByRole("heading", { name: "Các khoản vay" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
 
   await page.getByRole("link", { name: "Đối tác" }).first().click();
   await page.getByLabel("Tên đối tác").first().fill("Anh Nam E2E");
@@ -52,7 +52,32 @@ test("business pages remain usable at 375px", async ({ page }) => {
   await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
   await page.getByLabel("Mật khẩu", { exact: true }).fill("OwnerE2eFinal123");
   await page.getByRole("button", { name: "Đăng nhập" }).click();
-  await expect(page.getByRole("heading", { name: "Các khoản vay" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Điều hướng chính" })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+});
+
+test("dashboard is responsive and readable in light and dark modes", async ({ page }) => {
+  await page.goto("/login");
+  await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
+  await page.getByLabel("Mật khẩu", { exact: true }).fill("OwnerE2eFinal123");
+  await page.getByRole("button", { name: "Đăng nhập" }).click();
+  await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
+
+  for (const width of [375, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    await page.goto("/dashboard");
+    await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
+    await expect(page.getByText("Lợi nhuận tiền mặt", { exact: true })).toBeVisible();
+    await expect(page.getByRole("img", { name: /Biểu đồ cột/ })).toBeVisible();
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+  }
+
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.reload();
+  await expect(page.getByRole("heading", { name: "Dòng tiền theo tháng" })).toBeVisible();
+  await page.getByText("Xem bảng số liệu").click();
+  await expect(page.getByRole("columnheader", { name: "Tiền vào" })).toBeVisible();
+  const background = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--background").trim());
+  expect(background).toBe("#08111f");
 });

@@ -29,7 +29,7 @@ export default async function LoanDetailPage({ params }: { params: Promise<{ id:
 
   return (
     <AppShell profile={profile}>
-      <Link className="back-link" href="/"><ArrowLeft size={18} />Quay lại danh sách</Link>
+      <Link className="back-link" href="/loans"><ArrowLeft size={18} />Quay lại danh sách</Link>
       <div className="loan-detail-heading">
         <div><div className="heading-badges"><span className="direction-badge" data-direction={loan.direction}>{loan.direction === "LENDING" ? "Cho vay" : "Đi vay"}</span><span className="status-badge" data-status={status}>{statusLabels[status]}</span></div><h1>{loan.name}</h1><p>{loan.counterparties?.name} · Giải ngân {formatDate(loan.disbursement_date)}</p></div>
       </div>

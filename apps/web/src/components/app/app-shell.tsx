@@ -18,7 +18,7 @@ export function AppShell({
   return (
     <div className="app-frame">
       <aside className="app-sidebar">
-        <Link className="app-brand" href="/" aria-label="Quản Lý Vay Cá Nhân - Trang khoản vay">
+        <Link className="app-brand" href="/dashboard" aria-label="Quản Lý Vay Cá Nhân - Trang tổng quan">
           <span className="app-brand-icon"><BrandIcon /></span>
           <span><strong>Quản Lý Vay</strong><small>Cá nhân</small></span>
         </Link>
@@ -34,7 +34,7 @@ export function AppShell({
 
       <div className="app-main-column">
         <header className="mobile-header">
-          <Link className="mobile-brand" href="/"><BrandIcon /><strong>Quản Lý Vay</strong></Link>
+          <Link className="mobile-brand" href="/dashboard"><BrandIcon /><strong>Quản Lý Vay</strong></Link>
           {showCreateLoan && profile.role !== "VIEWER" ? (
             <Link className="header-create-link" href="/loans/new"><Plus size={18} /> Tạo khoản vay</Link>
           ) : null}

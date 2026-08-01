@@ -55,7 +55,8 @@ export async function saveCounterpartyAction(
 
   if (error) return databaseFailure("Không thể lưu đối tác. Tên có thể đã tồn tại hoặc dữ liệu không hợp lệ.");
   revalidatePath("/counterparties");
-  revalidatePath("/");
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
   return { ok: true, message: parsed.data.id ? "Đã cập nhật đối tác." : "Đã thêm đối tác." };
 }
 
@@ -89,7 +90,8 @@ export async function createLoanAction(
     p_notes: parsed.data.notes,
   });
   if (error || !data) return databaseFailure("Không thể tạo khoản vay. Hãy kiểm tra ngày, số tiền và đối tác.");
-  revalidatePath("/");
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
   redirect(`/loans/${data}`);
 }
 
@@ -109,7 +111,8 @@ export async function updateLoanAction(
   });
   if (error) return databaseFailure("Không thể cập nhật thông tin khoản vay.");
   revalidatePath(`/loans/${parsed.data.loanId}`);
-  revalidatePath("/");
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
   return { ok: true, message: "Đã cập nhật khoản vay." };
 }
 
@@ -131,7 +134,8 @@ export async function recordPaymentAction(
   });
   if (error) return databaseFailure("Không thể ghi nhận thanh toán. Số tiền gốc có thể vượt dư nợ.");
   revalidatePath(`/loans/${parsed.data.loanId}`);
-  revalidatePath("/");
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
   return { ok: true, message: "Đã ghi nhận thanh toán." };
 }
 
@@ -153,7 +157,8 @@ export async function recordExpenseAction(
   });
   if (error) return databaseFailure("Không thể ghi nhận chi phí.");
   if (parsed.data.loanId) revalidatePath(`/loans/${parsed.data.loanId}`);
-  revalidatePath("/");
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
   return { ok: true, message: "Đã ghi nhận chi phí." };
 }
 
@@ -175,7 +180,8 @@ export async function recordLifecycleAction(
   });
   if (error) return databaseFailure("Không thể cập nhật trạng thái hoặc lãi suất tại ngày đã chọn.");
   revalidatePath(`/loans/${parsed.data.loanId}`);
-  revalidatePath("/");
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
   return { ok: true, message: "Đã cập nhật lịch sử khoản vay." };
 }
 
@@ -195,7 +201,8 @@ export async function settleLoanAction(
   });
   if (error) return databaseFailure("Không thể tất toán. Hãy kiểm tra số dư lãi trả thừa và ngày tất toán.");
   revalidatePath(`/loans/${parsed.data.loanId}`);
-  revalidatePath("/");
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
   return { ok: true, message: "Khoản vay đã được tất toán." };
 }
 
@@ -215,6 +222,7 @@ export async function reverseTransactionAction(
   });
   if (error) return databaseFailure("Không thể đảo giao dịch này. Giao dịch có thể đã được đảo trước đó.");
   revalidatePath(`/loans/${parsed.data.loanId}`);
-  revalidatePath("/");
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
   return { ok: true, message: "Đã tạo giao dịch đảo." };
 }

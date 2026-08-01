@@ -49,7 +49,7 @@ export async function loginAction(
     };
   }
 
-  redirect(profile.must_change_password ? "/change-password" : "/");
+  redirect(profile.must_change_password ? "/change-password" : "/dashboard");
 }
 
 export async function changePasswordAction(
@@ -98,7 +98,7 @@ export async function changePasswordAction(
     };
   }
 
-  redirect("/");
+  redirect("/dashboard");
 }
 
 export async function logoutAction() {

@@ -81,3 +81,36 @@ export type AuditLog = {
   new_data: Record<string, unknown> | null;
   profiles: { display_name: string } | null;
 };
+
+export type DashboardDueLoan = {
+  id: string;
+  name: string;
+  direction: LoanDirection;
+  status: "ACTIVE" | "OVERDUE";
+  dueDate: string;
+  principalVnd: string;
+  interestVnd: string;
+};
+
+export type DashboardCashFlow = {
+  month: string;
+  inflowVnd: string;
+  outflowVnd: string;
+  netVnd: string;
+};
+
+export type DashboardData = {
+  asOfDate: string;
+  lendingOutstandingVnd: string;
+  borrowingOutstandingVnd: string;
+  interestCollectedVnd: string;
+  interestPaidVnd: string;
+  expensesPaidVnd: string;
+  cashProfitVnd: string;
+  accrualProfitVnd: string;
+  projectedLendingInterestVnd: string;
+  projectedBorrowingInterestVnd: string;
+  upcoming: DashboardDueLoan[];
+  overdue: DashboardDueLoan[];
+  cashFlow: DashboardCashFlow[];
+};

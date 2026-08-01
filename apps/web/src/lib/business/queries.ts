@@ -7,11 +7,22 @@ import type {
   AuditLog,
   CalculationSnapshot,
   Counterparty,
+  DashboardData,
   InterestPeriod,
   LifecycleEvent,
   Loan,
   LoanTransaction,
 } from "./types";
+
+export async function getDashboard(months = 6) {
+  const supabase = await createClient();
+  const { data, error } = await supabase.rpc("get_dashboard", {
+    p_as_of_date: todayInVietnam(),
+    p_months: months,
+  });
+  if (error || !data) throw new Error("Không thể tải số liệu tổng quan.");
+  return data as DashboardData;
+}
 
 export async function listCounterparties() {
   const supabase = await createClient();
