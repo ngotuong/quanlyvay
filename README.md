@@ -11,8 +11,11 @@ Webapp/PWA quản lý các khoản đi vay và cho vay cá nhân, sử dụng Ne
 - C4 — Bộ máy tài chính: hoàn tất.
 - C5 — Auth và phân quyền local: hoàn tất.
 - C6 — Nghiệp vụ web: hoàn tất.
-- C7 — Dashboard và UX: chờ phê duyệt.
-- Chưa kết nối bất kỳ tài khoản hoặc tài nguyên remote nào.
+- C7 — Dashboard và UX: hoàn tất.
+- C8 — PWA và thông báo local: hoàn tất.
+- C9 — Google Sync local: hoàn tất.
+- C10 — Supabase remote: chờ phê duyệt và xác nhận tài khoản riêng.
+- GitHub private đã được liên kết; chưa kết nối Supabase, Vercel, Google hoặc `clasp` remote.
 
 Trạng thái hiện tại luôn được lấy từ `PROJECT_CONTEXT.md`; roadmap nằm trong `docs/IMPLEMENTATION_PLAN.md`.
 
@@ -33,6 +36,9 @@ trong `docs/FINANCIAL_ENGINE.md`; fixture dùng lại cho database engine nằm 
 
 Luồng Auth/RBAC nằm trong `docs/AUTH.md`; các màn hình và workflow nghiệp vụ web nằm trong
 `docs/WEB_WORKFLOWS.md`.
+
+Quy tắc PWA/Web Push nằm trong `docs/PWA_NOTIFICATIONS.md`; contract đồng bộ Sheet một chiều,
+snapshot và phục hồi nằm trong `docs/GOOGLE_SYNC.md`.
 
 ## Phát triển local
 

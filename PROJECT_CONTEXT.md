@@ -1,9 +1,9 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.9
-last_updated: 2026-08-01 17:45:43 +07
+roadmap_version: 1.0.10
+last_updated: 2026-08-01 18:01:39 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C9
+current_checkpoint: C10
 current_status: AWAITING_APPROVAL
 ---
 
@@ -38,7 +38,9 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `docs/DASHBOARD.md` mô tả định nghĩa chỉ số và quy ước dòng tiền; UI đã kiểm tra responsive 375/768/1440px và light/dark mode.
 - PWA C8 có manifest, icon, service worker không cache dữ liệu tài chính, notification center và Web Push queue idempotent.
 - `docs/PWA_NOTIFICATIONS.md` mô tả quy tắc nhắc hạn, retry, VAPID local và ranh giới cấu hình cron remote.
-- Chưa có mã nguồn Apps Script.
+- Google Sync C9 có endpoint export Next.js bảo vệ bằng secret, Apps Script đồng bộ một chiều,
+  tám tab đối chiếu, cursor nguồn, snapshot tuần giữ 12 bản và phục hồi chỉ trong workbook.
+- `docs/GOOGLE_SYNC.md` mô tả contract Sheet, Script Properties và ranh giới cấu hình remote C11.
 - Chưa đăng nhập hay liên kết Google, Supabase, Vercel hoặc `clasp`.
 
 Kiến trúc đích:
@@ -54,27 +56,27 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C9 — Google Sync local |
+| Checkpoint | C10 — Supabase remote |
 | Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi được duyệt | Chưa có; C9 chưa được phép triển khai |
-| Mục tiêu dự kiến | Apps Script đồng bộ một chiều, cấu trúc Sheet, snapshot tuần và retention 12 tuần bằng mock local |
+| Phạm vi được duyệt | Chưa có; cần xác nhận tài khoản và từng thao tác remote trước khi bắt đầu |
+| Mục tiêu | Sau phê duyệt: tạo project Singapore, link CLI, cấu hình secret và áp migration |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
-### C8 — PWA và thông báo local
+### C9 — Google Sync local
 
 - Trạng thái: `COMPLETED`.
-- Đầu ra: PWA installable, service worker Push, notification center theo user, lịch đúng hạn/quá hạn, đăng ký subscription, delivery lease/retry và API worker được bảo vệ bằng secret.
-- Commit evidence: `79ca6e5` (`C8: xây dựng PWA và thông báo local`).
-- Verification: database lint không lỗi; 196/196 pgTAP assertions, 5/5 Auth tests, 11/11 domain tests và 4/4 Playwright flows đạt; lint, typecheck và production build đạt; database đã reset sau E2E.
+- Đầu ra: export API chỉ đọc bảo vệ bằng secret; Apps Script đồng bộ Supabase → Sheet, tám tab dữ liệu có kiểu/định dạng; cursor tránh ghi lại; snapshot tuần giữ 12 bản và restore không ghi Supabase.
+- Commit evidence: `489d771` (`C9: xây dựng Google Sync local`).
+- Verification: lint, typecheck và production build đạt; 9/9 Google Sync mock tests, 11/11 domain tests, 5/5 Auth tests, 5/5 Playwright flows và 196/196 pgTAP assertions đạt; database lint không lỗi và đã reset sau E2E.
 
 ## 5. Checkpoint tiếp theo
 
-C9 chỉ được bắt đầu sau phê duyệt rõ của người dùng. Phạm vi dự kiến:
+C10 chưa được phê duyệt và cần xác nhận riêng cho tài khoản Supabase mới cùng từng thao tác remote:
 
-- Apps Script đồng bộ Supabase → Google Sheets một chiều bằng mock local.
-- Khóa cấu trúc Sheet đối chiếu và checkpoint incremental.
-- Snapshot tuần, giữ 12 tuần và kiểm thử phục hồi; chưa đăng nhập hoặc `clasp push`.
+- Tạo project Supabase `quan-ly-vay-ca-nhan` tại Singapore.
+- Đăng nhập/link CLI, cấu hình secret và áp migration lên remote.
+- Không thực hiện bất kỳ bước nào ở trên nếu người dùng chưa xác nhận rõ.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -110,7 +112,7 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C8 đã hoàn tất local; C9 đang chờ người dùng phê duyệt.
+- C9 đã hoàn tất local; C10 đang chờ phê duyệt và xác nhận tài khoản Supabase remote.
 - VAPID/cron mới có contract và `.env.example`; chưa tạo hoặc cấu hình secret remote. Việc chạy lịch thật thuộc checkpoint remote sau xác nhận.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
 - Git identity local là `Ngo Tuong <vipmoschino@gmail.com>`; remote `origin` trỏ tới repository private `ngotuong/quanlyvay`.
@@ -137,8 +139,8 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — Hoàn tất C8: PWA, notification center, Web Push queue, 196 database assertions và 4 Playwright flows đạt.
-2. `2026-08-01` — Hoàn tất C7G: tạo GitHub private, cài/xác thực GitHub CLI, thêm `origin` và push `main`.
-3. `2026-08-01` — Hoàn tất C7: dashboard authoritative, 178 database assertions và 3 Playwright flows responsive/dark đạt.
-4. `2026-08-01` — Hoàn tất C6: nghiệp vụ web, 163 database assertions và 2 Playwright flows đạt.
-5. `2026-08-01` — Hoàn tất C5: Auth/RBAC local, 146 database assertions và 5 Auth integration tests đạt.
+1. `2026-08-01` — Hoàn tất C9: Google Sync một chiều, tám tab Sheet, snapshot/restore và 9 mock tests đạt.
+2. `2026-08-01` — Hoàn tất C8: PWA, notification center, Web Push queue, 196 database assertions và 4 Playwright flows đạt.
+3. `2026-08-01` — Hoàn tất C7G: tạo GitHub private, cài/xác thực GitHub CLI, thêm `origin` và push `main`.
+4. `2026-08-01` — Hoàn tất C7: dashboard authoritative, 178 database assertions và 3 Playwright flows responsive/dark đạt.
+5. `2026-08-01` — Hoàn tất C6: nghiệp vụ web, 163 database assertions và 2 Playwright flows đạt.
