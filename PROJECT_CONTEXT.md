@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.10
-last_updated: 2026-08-01 18:39:12 +07
+last_updated: 2026-08-01 18:50:13 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C10
 current_status: IN_PROGRESS
@@ -41,7 +41,8 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - Google Sync C9 có endpoint export Next.js bảo vệ bằng secret, Apps Script đồng bộ một chiều,
   tám tab đối chiếu, cursor nguồn, snapshot tuần giữ 12 bản và phục hồi chỉ trong workbook.
 - `docs/GOOGLE_SYNC.md` mô tả contract Sheet, Script Properties và ranh giới cấu hình remote C11.
-- Chưa đăng nhập hay liên kết Google, Supabase, Vercel hoặc `clasp`.
+- Supabase CLI đã đăng nhập tài khoản mới `tuongnt2105@gmail.com` bằng profile riêng `quanlyvay`;
+  chưa tạo hoặc liên kết project remote. Google, Vercel và `clasp` vẫn chưa đăng nhập/liên kết.
 
 Kiến trúc đích:
 
@@ -103,7 +104,7 @@ C10 đã được phê duyệt; hiện chờ xác nhận riêng cho tài khoản
 | Dịch vụ | Trạng thái |
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
-| Supabase | Chưa đăng nhập; dự kiến tạo project bằng tài khoản mới ở C10 |
+| Supabase | CLI profile `quanlyvay` đã đăng nhập tài khoản `tuongnt2105@gmail.com`; chưa tạo/link project |
 | Vercel | Chưa truy cập; dự kiến kiểm tra và dùng tài khoản cũ ở C12 |
 | Google Apps Script / `clasp` | Chưa đăng nhập; dự kiến dùng tài khoản Google cũ với named user |
 | Google Sheets / Drive | Chưa tạo tài nguyên |
@@ -112,7 +113,7 @@ Không có secret hoặc ID remote nào được lưu trong repository.
 
 ## 8. Blocker và cổng xác nhận
 
-- C9 đã hoàn tất local; C10 đã được phê duyệt và đang chờ xác nhận đăng nhập Supabase remote.
+- C9 đã hoàn tất local; C10 đã đăng nhập profile Supabase riêng và đang chờ xác nhận truy cập danh sách organization/project.
 - VAPID/cron mới có contract và `.env.example`; chưa tạo hoặc cấu hình secret remote. Việc chạy lịch thật thuộc checkpoint remote sau xác nhận.
 - Mọi thao tác tài khoản/remote tiếp tục bị khóa theo `AGENTS.md`.
 - Git identity local là `Ngo Tuong <vipmoschino@gmail.com>`; remote `origin` trỏ tới repository private `ngotuong/quanlyvay`.
