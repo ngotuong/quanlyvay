@@ -18,7 +18,9 @@
 
 ## Web Push và retry
 
-`POST /api/notifications/run` yêu cầu header `Authorization: Bearer <CRON_SECRET>`. Endpoint tạo lịch ngày hiện tại theo `Asia/Ho_Chi_Minh`, claim tối đa 100 delivery rồi gửi bằng VAPID.
+`GET|POST /api/notifications/run` yêu cầu header `Authorization: Bearer <CRON_SECRET>`. `GET` dùng
+cho Vercel Cron, còn `POST` giữ cho kiểm thử thủ công. Endpoint tạo lịch ngày hiện tại theo
+`Asia/Ho_Chi_Minh`, claim tối đa 100 delivery rồi gửi bằng VAPID.
 
 Mỗi cặp notification/subscription có duy nhất một delivery. Worker dùng lease 5 phút và tối đa 5 lần thử. Delivery `SENT` không được claim lại; payload dùng cùng idempotency key làm `tag` để service worker không hiển thị nhiều notification khi có retry sau sự cố mạng.
 
@@ -42,6 +44,13 @@ CRON_SECRET=...
 ```
 
 Sau khi chạy web local, người dùng mở `/notifications` và chủ động bấm **Bật thông báo**. Trình duyệt chỉ hiển thị hộp xin quyền tại thời điểm đó. Việc cấu hình cron remote và remote secret thuộc C10/C12, không thực hiện ở C8.
+
+## Lịch Vercel Hobby
+
+`apps/web/vercel.json` đăng ký một cron mỗi ngày lúc `00:00 UTC`. Trên Hobby, Vercel có thể gọi
+trong khoảng `00:00–00:59 UTC`, tương ứng khoảng `07:00–07:59` tại Việt Nam. Lịch không chạy
+nhiều hơn một lần/ngày để tuân thủ giới hạn Hobby; idempotency trong database bảo vệ trường hợp
+Vercel gửi trùng.
 
 ## Kiểm thử
 

@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.14
-last_updated: 2026-08-01 23:21:28 +07
+last_updated: 2026-08-01 23:30:57 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C12
 current_status: IN_PROGRESS
@@ -80,8 +80,8 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 C12 đã được phê duyệt. Từng thao tác remote vẫn cần xác nhận riêng:
 
-- Chuẩn bị và cấu hình tám biến môi trường/secret Preview.
-- Deploy Preview, smoke test rồi cấu hình Google Sync theo URL Preview.
+- Deploy Preview sau xác nhận riêng và chạy smoke test read-only.
+- Cấu hình Google Sync theo URL Preview sau khi deployment đạt.
 - Cấu hình Script Properties rồi chạy lại installer để kích hoạt trigger Google Sync theo giờ.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
@@ -110,7 +110,7 @@ C12 đã được phê duyệt. Từng thao tác remote vẫn cần xác nhận 
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; CLI đã link |
-| Vercel | CLI account `ngotuong`, scope `ngotuong2105`, Hobby active; project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F` đã link local; remote root `apps/web`, framework Next.js, Node.js 24.x |
+| Vercel | CLI account `ngotuong`, scope `ngotuong2105`, Hobby active; project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F` đã link; root `apps/web`, Next.js, Node.js 24.x; 8 biến Preview đã cấu hình, chưa deploy |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; installer có điều kiện đã push và chạy lại thành công; hiện chỉ có trigger snapshot tuần theo cấu hình C11 |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook tabs, thư mục `QuanLyVayCaNhan_Backups` và snapshot tuần đã tạo thành công theo xác nhận runtime |
 
@@ -128,7 +128,12 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
   Fast Origin Transfer 45,09 MB/10 GB, Edge Requests 19.887/1.000.000, Function Invocations
   9.482/1.000.000 và Build Time 3/100 giờ. Tài khoản Hobby đủ dư địa cho project mới.
 - Project Vercel đã link local; `.vercel/` và `.env.local` có OIDC token đều được Git bỏ qua. Remote
-  settings đã cập nhật đúng Next.js, root `apps/web`, Node.js 24.x. Chưa có env/secret remote và chưa deploy.
+  settings đã cập nhật đúng Next.js, root `apps/web`, Node.js 24.x.
+- Tám biến Preview đã cấu hình và xác minh metadata; Supabase keys lấy từ Keychain. Cặp VAPID,
+  `CRON_SECRET` và `SYNC_SECRET` sinh mới được lưu trong Keychain theo account project ID; không
+  hiển thị hoặc commit giá trị. Preview deploy vẫn chờ xác nhận riêng.
+- Endpoint notification hỗ trợ `GET|POST`; `apps/web/vercel.json` đăng ký cron `0 0 * * *`, phù hợp
+  giới hạn Hobby một lần/ngày. Lint/typecheck/test/build đều đạt sau thay đổi.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
@@ -159,8 +164,8 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — C12: cấu hình Vercel remote root `apps/web`, framework Next.js và Node.js 24.x.
-2. `2026-08-01` — C12: link repository local với Vercel project; metadata/secret local đều được Git bỏ qua.
-3. `2026-08-01` — C12: tạo Vercel project `quan-ly-vay-ca-nhan` sau khi xác nhận Hobby còn dư địa.
-4. `2026-08-01` — C12: xác nhận Vercel Hobby active và usage 30 ngày còn nhiều dư địa.
-5. `2026-08-01` — Hoàn tất C11: bound Sheet/Apps Script, Drive backup, snapshot tuần và trigger có điều kiện.
+1. `2026-08-01` — C12: cấu hình 8 biến Preview, Keychain secrets và daily notification cron tương thích Hobby.
+2. `2026-08-01` — C12: cấu hình Vercel remote root `apps/web`, framework Next.js và Node.js 24.x.
+3. `2026-08-01` — C12: link repository local với Vercel project; metadata/secret local đều được Git bỏ qua.
+4. `2026-08-01` — C12: tạo Vercel project `quan-ly-vay-ca-nhan` sau khi xác nhận Hobby còn dư địa.
+5. `2026-08-01` — C12: xác nhận Vercel Hobby active và usage 30 ngày còn nhiều dư địa.

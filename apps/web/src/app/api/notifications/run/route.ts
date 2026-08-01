@@ -21,7 +21,7 @@ function required(name: string) {
   return value;
 }
 
-export async function POST(request: NextRequest) {
+async function runNotifications(request: NextRequest) {
   const cronSecret = required("CRON_SECRET");
   if (request.headers.get("authorization") !== `Bearer ${cronSecret}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -59,3 +59,6 @@ export async function POST(request: NextRequest) {
 
   return NextResponse.json({ date, generated: Number(generated ?? 0), claimed: data?.length ?? 0, sent, failed });
 }
+
+export const GET = runNotifications;
+export const POST = runNotifications;
