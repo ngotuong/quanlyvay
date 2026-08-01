@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.12
-last_updated: 2026-08-01 21:07:28 +07
+last_updated: 2026-08-01 21:54:57 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C11
 current_status: IN_PROGRESS
@@ -109,19 +109,19 @@ C11 đang thực hiện. Các việc còn lại vẫn cần xác nhận remote r
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; CLI đã link |
 | Vercel | Chưa truy cập; dự kiến kiểm tra và dùng tài khoản cũ ở C12 |
-| Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; installer ban đầu đã push và chạy thành công theo xác nhận của người dùng |
+| Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; bản installer có điều kiện đã push thành công lúc 21:54:52 +07 |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; installer đã tạo workbook tabs và thư mục `QuanLyVayCaNhan_Backups` theo xác nhận runtime |
 
 Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; không lưu secret.
 
 ## 8. Blocker và cổng xác nhận
 
-- Bản sửa installer local đạt 10/10 mock tests, typecheck và build; đang chờ xác nhận riêng để `clasp push`.
+- Bản sửa installer đạt 10/10 mock tests, typecheck và build; `clasp push --force` đã cập nhật đúng 4 file remote.
 - Google Drive connector hiện đăng nhập tài khoản khác nên không đọc được Sheet ID của dự án; đây
   không phải lỗi runtime. `clasp logs` cũng không khả dụng vì Apps Script chưa liên kết GCP project;
   không tạo thêm GCP project chỉ để đọc log.
-- Installer remote hiện vẫn có trigger sync theo giờ thiếu cấu hình. Sau khi push bản sửa, cần người
-  dùng chạy lại installer để gỡ trigger này và giữ trigger snapshot tuần.
+- Trigger sync theo giờ từ lần cài đầu vẫn tồn tại. Cần người dùng chạy lại installer đã cập nhật để
+  gỡ trigger này và giữ trigger snapshot tuần; thao tác runtime vẫn chờ xác nhận riêng.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
@@ -152,8 +152,8 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-01` — Hoàn tất C10: Supabase Singapore, 6 migration remote, Keychain credentials, Auth signup off và RLS smoke đạt.
-2. `2026-08-01` — Hoàn tất C9: Google Sync một chiều, tám tab Sheet, snapshot/restore và 9 mock tests đạt.
-3. `2026-08-01` — Hoàn tất C8: PWA, notification center, Web Push queue, 196 database assertions và 4 Playwright flows đạt.
-4. `2026-08-01` — Hoàn tất C7G: tạo GitHub private, cài/xác thực GitHub CLI, thêm `origin` và push `main`.
-5. `2026-08-01` — Hoàn tất C7: dashboard authoritative, 178 database assertions và 3 Playwright flows responsive/dark đạt.
+1. `2026-08-01` — C11: tạo bound Sheet/Apps Script, chạy installer và push bản sửa hoãn trigger sync đến C12.
+2. `2026-08-01` — Hoàn tất C10: Supabase Singapore, 6 migration remote, Keychain credentials, Auth signup off và RLS smoke đạt.
+3. `2026-08-01` — Hoàn tất C9: Google Sync một chiều, tám tab Sheet, snapshot/restore và 9 mock tests đạt.
+4. `2026-08-01` — Hoàn tất C8: PWA, notification center, Web Push queue, 196 database assertions và 4 Playwright flows đạt.
+5. `2026-08-01` — Hoàn tất C7G: tạo GitHub private, cài/xác thực GitHub CLI, thêm `origin` và push `main`.
