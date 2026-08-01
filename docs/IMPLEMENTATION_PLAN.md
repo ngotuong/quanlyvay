@@ -24,7 +24,7 @@
 | C8 | PWA và thông báo local | Manifest, service worker, installable PWA, notification center, Web Push, idempotency và nhắc quá hạn hằng ngày | Duyệt checkpoint | `COMPLETED` |
 | C9 | Google Sync local | Apps Script đồng bộ một chiều, cấu trúc Sheet, snapshot tuần, retention 12 tuần; test bằng mock; chưa `clasp login` | Duyệt checkpoint | `COMPLETED` |
 | C10 | Supabase remote | Dùng tài khoản Supabase mới để tạo project `quan-ly-vay-ca-nhan` tại Singapore, link CLI, cấu hình secret và áp migration | Xác nhận tài khoản và thao tác remote | `COMPLETED` |
-| C11 | Google/Clasp remote | Xác nhận Google account; tạo Apps Script `QuanLyVayCaNhanSync`, Sheet đối chiếu, Drive backup; push/deploy trigger | Xác nhận tài khoản và từng tài nguyên | `AWAITING_APPROVAL` |
+| C11 | Google/Clasp remote | Xác nhận Google account; tạo Apps Script `QuanLyVayCaNhanSync`, Sheet đối chiếu, Drive backup; push/deploy trigger | Xác nhận tài khoản và từng tài nguyên | `IN_PROGRESS` |
 | C12 | Vercel Preview | Kiểm tra usage tài khoản Vercel cũ, tạo/link project `quan-ly-vay-ca-nhan` với root `apps/web`, cấu hình env và deploy Preview | Xác nhận tài khoản và deploy | `NOT_STARTED` |
 | C13 | Production/UAT | Kiểm thử dữ liệu mẫu, quyền, Push, sync, backup/restore; xóa seed; production deploy và checklist vận hành | Xác nhận production riêng | `NOT_STARTED` |
 

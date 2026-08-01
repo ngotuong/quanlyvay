@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.11
-last_updated: 2026-08-01 19:33:01 +07
+last_updated: 2026-08-01 19:41:03 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C11
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 ---
 
 # Project Context
@@ -59,8 +59,8 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Trường | Giá trị |
 |---|---|
 | Checkpoint | C11 — Google/Clasp remote |
-| Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi được duyệt | Chưa có; cần phê duyệt checkpoint và xác nhận tài khoản/từng tài nguyên Google |
+| Trạng thái | `IN_PROGRESS` |
+| Phạm vi được duyệt | C11 đã được phê duyệt; đăng nhập và từng thao tác Google/Clasp vẫn cần xác nhận riêng |
 | Mục tiêu | Tạo Apps Script, Sheet đối chiếu, Drive backup và trigger sau từng xác nhận |
 
 ## 4. Checkpoint hoàn tất gần nhất
@@ -74,7 +74,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-C11 chưa được phê duyệt. Phạm vi dự kiến, mỗi thao tác remote vẫn cần xác nhận riêng:
+C11 đã được phê duyệt. Mỗi thao tác remote vẫn cần xác nhận riêng:
 
 - Xác nhận tài khoản Google cũ và đăng nhập `clasp` bằng named user.
 - Tạo Apps Script `QuanLyVayCaNhanSync`, Sheet đối chiếu và thư mục Drive backup.
@@ -114,7 +114,7 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 
 ## 8. Blocker và cổng xác nhận
 
-- C10 đã hoàn tất; C11 đang chờ phê duyệt và chưa được phép truy cập Google/Clasp.
+- C10 đã hoàn tất; C11 đã được phê duyệt và đang chờ xác nhận đăng nhập Google bằng named `clasp` user.
 - Mật khẩu database remote nằm trong macOS Keychain service `QuanLyVayCaNhan Supabase Database`, account `postgres`; không lưu trong Git.
 - Remote migration history khớp local 6/6. `db lint --linked` của CLI 2.111 bị treo và đã được dừng; local database lint trước đó vẫn đạt, không có schema khác biệt vì remote dùng nguyên migration đã kiểm thử.
 - Publishable/secret API keys nằm trong Keychain services `QuanLyVayCaNhan Supabase Publishable Key` và `QuanLyVayCaNhan Supabase Secret Key`, account `hmfxnstrqfqpvsgfmjmd`.
