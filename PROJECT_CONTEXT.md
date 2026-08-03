@@ -1,9 +1,9 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.42
-last_updated: 2026-08-03 15:35:03 +07
+roadmap_version: 1.0.45
+last_updated: 2026-08-03 20:05:39 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C13
+current_checkpoint: C14
 current_status: COMPLETED
 ---
 
@@ -75,10 +75,10 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C13 — Production/UAT |
+| Checkpoint | C14 — Hiệu năng và độ mượt UX |
 | Trạng thái | `COMPLETED` |
-| Phạm vi được duyệt | Kiểm thử dữ liệu mẫu, quyền, Push, sync, backup/restore; xóa seed; chuẩn bị Production và checklist vận hành |
-| Kết quả | Production Ready; UAT quyền/nghiệp vụ/Push/sync/backup-restore đạt; dữ liệu UAT và notification test đã xóa |
+| Phạm vi được duyệt | Đồng vùng Vercel Functions với Supabase Singapore; giảm waterfall Auth/dữ liệu/thông báo; bổ sung phản hồi chuyển trang/loading ổn định; đo trước/sau và rà responsive/accessibility |
+| Kết quả | Production chạy Function tại `sin1`; median TTFB nóng `/login` giảm khoảng 424→247 ms (~42%); Auth/E2E/database, responsive 375 px và browser smoke đều đạt |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -93,10 +93,31 @@ docs                 Kế hoạch và tài liệu kỹ thuật
   cron/export thiếu secret 401 và có secret 200. Web Push test `claimed=1`, `sent=1`, `failed=0` được
   người dùng nhìn thấy; notification/delivery test đã xóa, subscription OWNER vẫn còn.
 
+### C14 — Hiệu năng và độ mượt UX
+
+- Trạng thái: `COMPLETED`.
+
+- Baseline Production: header `x-vercel-id` xác nhận Function ở `iad1` trong khi Supabase ở Singapore;
+  năm lần tải `/login` có TTFB 401–529 ms, median khoảng 424 ms từ máy kiểm thử.
+- Bản local đặt Vercel Function tại `sin1`; dữ liệu trang và unread count chạy song song sau cổng
+  Auth; RPC calculation của workspace khoản vay chạy song song với bốn truy vấn lịch sử; profile
+  được dedupe trong cùng request bằng React cache.
+- Điều hướng có prefetch, progress bar/dấu pending phản hồi ngay khi bấm, `aria-busy`/live status cho
+  screen reader và tự tắt chuyển động theo `prefers-reduced-motion` hiện có.
+- Production `dpl_Eq1pHfEm95k3shoKEtwy2oP5N1kB` Ready và canonical alias đúng; header/inspect xác
+  nhận toàn bộ Function tại `sin1`. Mười hai mẫu nóng `/login` có median TTFB 247 ms, giảm khoảng
+  42% so với baseline 424 ms; cold start đầu tiên vẫn có thể cao hơn.
+- Gate cuối đạt: lint, typecheck, 28/28 unit/domain/mock tests, Next.js/Vercel build, Auth 6/6, E2E
+  6/6, pgTAP 201/201 và `git diff --check`. Production browser xác minh OWNER session, Dashboard,
+  chuyển module, responsive 375 px không tràn ngang/touch target 52 px và không có console error.
+- Lỗi CLI local được xử lý không phá hủy bằng biến lệnh `SUPABASE_PROFILE=supabase`; profile toàn
+  cục `quanlyvay` và đăng nhập Production không bị sửa. Dùng cùng prefix khi chạy `supabase start`,
+  `pnpm test:auth`, `pnpm test:e2e` hoặc `supabase test db` trên máy này.
+
 ## 5. Checkpoint tiếp theo
 
-Không còn checkpoint nào sau C13 trong roadmap hiện tại. Dự án chờ yêu cầu vận hành, bảo trì hoặc
-roadmap mới từ người dùng; không tự phát sinh C14.
+Không còn checkpoint nào sau C14 trong roadmap hiện tại. Dự án sẵn sàng để người dùng nhập số liệu
+đầu tiên và kiểm thử nghiệp vụ; mọi phạm vi mới vẫn cần checkpoint hoặc xác nhận riêng.
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -124,7 +145,7 @@ roadmap mới từ người dùng; không tự phát sinh C14.
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; 7/7 migration gồm audit remediation đã áp |
-| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; Production `dpl_5hhHjcJeod8atQYMsLXEsQB1vwdk` Ready tại `https://quan-ly-vay-ca-nhan.vercel.app`, đủ 8 env và cron `/api/notifications/run` lúc `0 0 * * *`; Preview C13 `dpl_FmoZL1DvYnesrafCNVCSMExTPaPd` vẫn Ready tại URL deployment trực tiếp |
+| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; C14 Production `dpl_Eq1pHfEm95k3shoKEtwy2oP5N1kB` Ready tại `https://quan-ly-vay-ca-nhan.vercel.app`, Functions ở `sin1`, đủ 8 env và cron `/api/notifications/run` lúc `0 0 * * *`; Preview C13 vẫn Ready |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; 4 file đã push, `SYNC_API_URL` dùng Production canonical, restore xóa cursor để lần sync kế tiếp tải lại nguồn, hai trigger `runWeeklySnapshot` và `runGoogleSheetSync` cùng hoạt động |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; restore snapshot `QLV_Snapshot_2026-08-02` và sync lại đã đạt, workbook hiện phản ánh nguồn `empty`; thư mục `QuanLyVayCaNhan_Backups` cùng hai snapshot giữ nguyên |
 
@@ -166,9 +187,10 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 - Gate revision đạt: lint, typecheck, 24 unit/domain tests, build production, dependency audit không
   còn lỗ hổng đã biết, database lint và 201/201 pgTAP trên database hiện tại. Toàn bộ 7 migration cũng
   được dựng lại và đạt 201/201 pgTAP trên database tạm độc lập; database tạm đã xóa sau kiểm thử.
-- `pnpm test:e2e` và `pnpm test:auth` chưa chạy lại trong revision vì Supabase CLI 2.109.0 hiện lỗi
-  đọc profile `Unsupported Config Type` ở các lệnh `status`/`db reset`; không sửa profile ngoài
-  repository hoặc reset database đang dùng. Build, unit và database integration vẫn đạt.
+- Supabase CLI 2.109.0 đọc active profile tùy chỉnh `quanlyvay` thành một đường dẫn không có phần mở
+  rộng nên báo `Unsupported Config Type ""`. Workaround không phá hủy là đặt
+  `SUPABASE_PROFILE=supabase` cho lệnh local; stack đã start và Auth 6/6, E2E 6/6, pgTAP 201/201 đạt.
+  Không cần sửa/xóa profile toàn cục hoặc đăng nhập lại Supabase Production.
 - Lệnh `vercel deploy --yes` không có `--prod` vẫn tạo deployment đầu tiên với target Production,
   gán alias public và đăng ký một cron. Deployment `dpl_FwHD1YJfUQhiv9o7GGh1CqhgsR2H` đã được
   xóa sau xác nhận; kiểm tra lại cho thấy không còn deployment hoặc cron. Lần deploy kế tiếp bắt
@@ -339,7 +361,10 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-03` — C13 hoàn tất. Người dùng xác nhận Web Push delivery; notification/delivery test đã
+1. `2026-08-03` — C14 Production `dpl_Eq1pHfEm95k3shoKEtwy2oP5N1kB` Ready ở `sin1`; median TTFB nóng
+   `/login` giảm 424→247 ms (~42%). Workaround profile Supabase local hoạt động; Auth 6/6, E2E 6/6,
+   pgTAP 201/201, responsive/browser smoke và diff-check đạt. C14 chuyển `COMPLETED`.
+2. `2026-08-03` — C13 hoàn tất. Người dùng xác nhận Web Push delivery; notification/delivery test đã
    xóa đúng phạm vi, subscription giữ nguyên. Gate cuối lint/typecheck/28 tests/build/diff-check và
    Production smoke đạt; roadmap hiện không có checkpoint sau C13.
 2. `2026-08-03` — Apps Script owner xác minh đúng (UI hiển thị alias `ngotuong077@gmail.com` của

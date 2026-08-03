@@ -27,6 +27,7 @@
 | C11 | Google/Clasp remote | Xác nhận Google account; tạo Apps Script `QuanLyVayCaNhanSync`, Sheet đối chiếu, Drive backup; push mã và trigger snapshot tuần | Xác nhận tài khoản và từng tài nguyên | `COMPLETED` |
 | C12 | Vercel Preview | Khắc phục revision audit local; kiểm tra usage tài khoản Vercel cũ, tạo/link project `quan-ly-vay-ca-nhan` với root `apps/web`, cấu hình env, deploy Preview và kích hoạt trigger Google Sync theo giờ | Xác nhận tài khoản và deploy | `COMPLETED` |
 | C13 | Production/UAT | Kiểm thử dữ liệu mẫu, quyền, Push, sync, backup/restore; xóa seed; production deploy và checklist vận hành | Xác nhận production riêng | `COMPLETED` |
+| C14 | Hiệu năng và độ mượt UX | Đồng vùng Vercel Functions với Supabase Singapore; giảm waterfall truy vấn Auth/dữ liệu/thông báo; phản hồi chuyển trang tức thời, loading ổn định; đo trước/sau và kiểm tra responsive/accessibility | Duyệt checkpoint; deploy Production xác nhận riêng | `COMPLETED` |
 
 ## 3. Contract cốt lõi
 
@@ -63,6 +64,9 @@ Các test tài chính bắt buộc bao phủ: kỳ 15/30 ngày, kỳ cuối rút
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.45 | 2026-08-03 | Deploy C14 Production `dpl_Eq1pHfEm95k3shoKEtwy2oP5N1kB` Ready tại `sin1`; TTFB nóng `/login` giảm median 424→247 ms (~42%). Workaround `SUPABASE_PROFILE=supabase` gỡ lỗi profile local; Auth 6/6, E2E 6/6, pgTAP 201/201 và Production browser/smoke đạt. C14 chuyển `COMPLETED`. |
+| 1.0.44 | 2026-08-03 | C14 local: đặt Vercel Function tại `sin1`; chạy dữ liệu module và unread count song song sau Auth; song song hóa calculation workspace khoản vay; dedupe profile trong request; thêm prefetch và phản hồi chuyển module có reduced-motion/ARIA. Lint/typecheck/28 tests/build/Vercel build đạt; E2E chờ Supabase local do CLI profile lỗi. |
+| 1.0.43 | 2026-08-03 | Người dùng phê duyệt C14; chuyển sang `IN_PROGRESS`. Baseline xác nhận Vercel Function chạy `iad1` trong khi Supabase ở Singapore, các trang còn waterfall Auth → dữ liệu → unread; giữ cổng xác nhận riêng cho deploy. |
 | 1.0.42 | 2026-08-03 | Xóa notification/delivery test sau xác nhận, giữ nguyên OWNER subscription; gate cuối và Production smoke đạt. C13 chuyển `COMPLETED`; roadmap không có checkpoint kế tiếp. |
 | 1.0.41 | 2026-08-03 | Người dùng xác nhận đã thấy Web Push test trên thiết bị; delivery acceptance đạt. Notification test chờ xác nhận xóa riêng trước khi đóng C13. |
 | 1.0.40 | 2026-08-03 | Web Push Production có một OWNER subscription; notification test C13 gửi thành công `claimed=1/sent=1/failed=0`. Sửa Keychain về legacy anon/service-role runtime keys; chờ người dùng xác nhận delivery rồi xóa test item. |

@@ -4,7 +4,7 @@ import { ArrowDownLeft, ArrowUpRight, Banknote, CalendarClock, CircleAlert, Land
 import { AppShell } from "@/components/app/app-shell";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatVnd } from "@/lib/business/format";
-import { getDashboard } from "@/lib/business/queries";
+import { getDashboard, getUnreadNotificationCount } from "@/lib/business/queries";
 import type { DashboardCashFlow, DashboardDueLoan } from "@/lib/business/types";
 
 function monthLabel(value: string) {
@@ -65,7 +65,10 @@ function DueList({ title, eyebrow, loans, overdue = false }: { title: string; ey
 
 export default async function DashboardPage() {
   const profile = await requireAuthenticatedProfile();
-  const dashboard = await getDashboard();
+  const [dashboard, unreadCount] = await Promise.all([
+    getDashboard(),
+    getUnreadNotificationCount(),
+  ]);
   const metrics = [
     { label: "Dư nợ cho vay", value: dashboard.lendingOutstandingVnd, icon: ArrowUpRight, tone: "lending" },
     { label: "Dư nợ đi vay", value: dashboard.borrowingOutstandingVnd, icon: ArrowDownLeft, tone: "borrowing" },
@@ -74,7 +77,7 @@ export default async function DashboardPage() {
   ];
 
   return (
-    <AppShell profile={profile}>
+    <AppShell profile={profile} unreadCount={unreadCount}>
       <div className="page-heading-row dashboard-heading"><div><p className="eyebrow">Tổng quan tài chính</p><h1>Dashboard</h1><p className="page-description">Số liệu đến ngày {formatDate(dashboard.asOfDate)}, tính trực tiếp từ sổ giao dịch.</p></div></div>
 
       <section className="dashboard-metrics" aria-label="Các chỉ số chính">{metrics.map(({ label, value, icon: Icon, tone, hint }) => <article className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong>{formatVnd(value)}</strong>{hint ? <small>{hint}</small> : null}</div></article>)}</section>

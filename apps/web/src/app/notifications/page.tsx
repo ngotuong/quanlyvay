@@ -13,7 +13,7 @@ export default async function NotificationsPage() {
   const unread = notifications.filter((item) => !item.read_at);
   const publicKey = process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY?.trim() ?? "";
 
-  return <AppShell profile={profile}>
+  return <AppShell profile={profile} unreadCount={unread.length}>
     <div className="page-heading-row"><div><p className="eyebrow">Nhắc hạn</p><h1>Thông báo</h1><p className="page-description">Mọi tài khoản đều nhận cùng lịch nhắc, nhưng trạng thái đã đọc được lưu riêng.</p></div>
       {unread.length ? <form action={markNotificationsReadAction.bind(null, undefined)}><button className="secondary-button notification-read-all" type="submit"><CheckCheck size={18} />Đánh dấu đã đọc</button></form> : null}
     </div>

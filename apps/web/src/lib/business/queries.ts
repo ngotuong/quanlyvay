@@ -107,7 +107,7 @@ export async function listLoans() {
 
 export async function getLoanWorkspace(id: string) {
   const supabase = await createClient();
-  const [loanResult, transactionsResult, eventsResult, periodsResult] = await Promise.all([
+  const [loanResult, transactionsResult, eventsResult, periodsResult, calculationResult] = await Promise.all([
     supabase
       .from("loans")
       .select("id, counterparty_id, name, direction, status, original_principal_vnd, disbursement_date, term_days, maturity_date, interest_cycle_days, initial_daily_rate_percent, settled_on, notes, created_at, counterparties(name)")
@@ -129,20 +129,20 @@ export async function getLoanWorkspace(id: string) {
       .select("id, kind, start_date, end_date, day_count, opening_principal_vnd, closing_principal_vnd, accrued_interest_vnd, interest_payments_vnd, closing_interest_balance_vnd")
       .eq("loan_id", id)
       .order("start_date", { ascending: false }),
+    supabase.rpc("calculate_loan", {
+      p_loan_id: id,
+      p_as_of_date: todayInVietnam(),
+    }),
   ]);
 
   if (loanResult.error || !loanResult.data) notFound();
   if (transactionsResult.error || eventsResult.error || periodsResult.error) {
     throw new Error("Không thể tải đầy đủ lịch sử khoản vay.");
   }
-  const { data: calculation, error: calculationError } = await supabase.rpc("calculate_loan", {
-    p_loan_id: id,
-    p_as_of_date: todayInVietnam(),
-  });
-  if (calculationError) throw new Error("Không thể tính trạng thái khoản vay.");
+  if (calculationResult.error) throw new Error("Không thể tính trạng thái khoản vay.");
 
   return {
-    loan: { ...(loanResult.data as unknown as Loan), calculation: calculation as CalculationSnapshot },
+    loan: { ...(loanResult.data as unknown as Loan), calculation: calculationResult.data as CalculationSnapshot },
     transactions: (transactionsResult.data ?? []) as unknown as LoanTransaction[],
     events: (eventsResult.data ?? []) as LifecycleEvent[],
     periods: (periodsResult.data ?? []) as InterestPeriod[],

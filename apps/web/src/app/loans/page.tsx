@@ -3,17 +3,20 @@ import { ArrowDownLeft, ArrowUpRight, CircleAlert, Plus } from "lucide-react";
 import { AppShell } from "@/components/app/app-shell";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatVnd } from "@/lib/business/format";
-import { listLoans } from "@/lib/business/queries";
+import { getUnreadNotificationCount, listLoans } from "@/lib/business/queries";
 import type { LoanStatus } from "@/lib/business/types";
 
 const statusLabels: Record<LoanStatus, string> = { ACTIVE: "Đang hoạt động", OVERDUE: "Quá hạn", BAD_DEBT: "Nợ xấu", SETTLED: "Đã tất toán" };
 
 export default async function LoansPage() {
   const profile = await requireAuthenticatedProfile();
-  const loans = await listLoans();
+  const [loans, unreadCount] = await Promise.all([
+    listLoans(),
+    getUnreadNotificationCount(),
+  ]);
 
   return (
-    <AppShell profile={profile} showCreateLoan>
+    <AppShell profile={profile} showCreateLoan unreadCount={unreadCount}>
       <div className="page-heading-row">
         <div><p className="eyebrow">Danh mục tài chính</p><h1>Các khoản vay</h1><p className="page-description">Theo dõi cả khoản cho vay và khoản bạn đang đi vay.</p></div>
         {profile.role !== "VIEWER" ? <Link className="primary-link desktop-only" href="/loans/new"><Plus size={18} />Tạo khoản vay</Link> : null}

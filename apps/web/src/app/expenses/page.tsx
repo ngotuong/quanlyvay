@@ -5,17 +5,20 @@ import { GeneralExpenseForm } from "@/components/business/general-expense-form";
 import { ReversalForm } from "@/components/business/reversal-form";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatVnd } from "@/lib/business/format";
-import { listGeneralExpenses } from "@/lib/business/queries";
+import { getUnreadNotificationCount, listGeneralExpenses } from "@/lib/business/queries";
 
 export default async function ExpensesPage() {
   const profile = await requireAuthenticatedProfile();
-  const expenses = await listGeneralExpenses();
+  const [expenses, unreadCount] = await Promise.all([
+    listGeneralExpenses(),
+    getUnreadNotificationCount(),
+  ]);
   const canWrite = profile.role !== "VIEWER";
   const reversedIds = new Set(expenses.filter((item) => item.type === "REVERSAL").map((item) => item.reversal_of_id));
   const expenseRows = expenses.filter((item) => item.type === "EXPENSE");
 
   return (
-    <AppShell profile={profile}>
+    <AppShell profile={profile} unreadCount={unreadCount}>
       <div className="page-heading-row">
         <div><p className="eyebrow">Dòng tiền vận hành</p><h1>Chi phí chung</h1><p className="page-description">Các khoản chi không gắn riêng với một khoản vay.</p></div>
       </div>

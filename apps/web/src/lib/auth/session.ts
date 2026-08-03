@@ -1,10 +1,11 @@
 import "server-only";
 
+import { cache } from "react";
 import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import type { AppProfile } from "./types";
 
-export async function getAuthenticatedProfile(): Promise<AppProfile | null> {
+export const getAuthenticatedProfile = cache(async (): Promise<AppProfile | null> => {
   const supabase = await createClient();
   const {
     data: { user },
@@ -26,7 +27,7 @@ export async function getAuthenticatedProfile(): Promise<AppProfile | null> {
   }
 
   return data as AppProfile;
-}
+});
 
 export async function requireAuthenticatedProfile(options?: { allowPasswordChange?: boolean }) {
   const profile = await getAuthenticatedProfile();

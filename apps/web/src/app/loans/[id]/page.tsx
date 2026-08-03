@@ -7,7 +7,7 @@ import { LoanForm } from "@/components/business/loan-form";
 import { ReversalForm } from "@/components/business/reversal-form";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatRate, formatVnd } from "@/lib/business/format";
-import { getLoanWorkspace, listCounterparties } from "@/lib/business/queries";
+import { getLoanWorkspace, getUnreadNotificationCount, listCounterparties } from "@/lib/business/queries";
 import type { LoanStatus } from "@/lib/business/types";
 
 const statusLabels: Record<LoanStatus, string> = { ACTIVE: "Đang hoạt động", OVERDUE: "Quá hạn", BAD_DEBT: "Nợ xấu", SETTLED: "Đã tất toán" };
@@ -15,9 +15,13 @@ const transactionLabels = { DISBURSEMENT: "Giải ngân", INTEREST_PAYMENT: "Tha
 const eventLabels = { RATE_CHANGE: "Đổi lãi suất", BAD_DEBT_START: "Chuyển nợ xấu", INTEREST_RESUME: "Bật lại tính lãi", SETTLEMENT: "Tất toán" } as const;
 
 export default async function LoanDetailPage({ params }: { params: Promise<{ id: string }> }) {
-  const profile = await requireAuthenticatedProfile();
   const { id } = await params;
-  const [{ loan, transactions, events, periods }, counterparties] = await Promise.all([getLoanWorkspace(id), listCounterparties()]);
+  const profile = await requireAuthenticatedProfile();
+  const [{ loan, transactions, events, periods }, counterparties, unreadCount] = await Promise.all([
+    getLoanWorkspace(id),
+    listCounterparties(),
+    getUnreadNotificationCount(),
+  ]);
   const calculation = loan.calculation!;
   const status = calculation.status;
   const canWrite = profile.role !== "VIEWER";
@@ -28,7 +32,7 @@ export default async function LoanDetailPage({ params }: { params: Promise<{ id:
   ].sort((a, b) => b.date.localeCompare(a.date) || b.createdAt.localeCompare(a.createdAt));
 
   return (
-    <AppShell profile={profile}>
+    <AppShell profile={profile} unreadCount={unreadCount}>
       <Link className="back-link" href="/loans"><ArrowLeft size={18} />Quay lại danh sách</Link>
       <div className="loan-detail-heading">
         <div><div className="heading-badges"><span className="direction-badge" data-direction={loan.direction}>{loan.direction === "LENDING" ? "Cho vay" : "Đi vay"}</span><span className="status-badge" data-status={status}>{statusLabels[status]}</span></div><h1>{loan.name}</h1><p>{loan.counterparties?.name} · Giải ngân {formatDate(loan.disbursement_date)}</p></div>

@@ -2,21 +2,21 @@ import Link from "next/link";
 import { LogOut, Plus } from "lucide-react";
 import { logoutAction } from "@/app/actions/auth";
 import type { AppProfile } from "@/lib/auth/types";
-import { getUnreadNotificationCount } from "@/lib/business/queries";
 import { AppNav, BrandIcon } from "./app-nav";
 
 const roleLabels = { OWNER: "Chủ tài khoản", EDITOR: "Biên tập", VIEWER: "Chỉ xem" } as const;
 
-export async function AppShell({
+export function AppShell({
   profile,
   children,
   showCreateLoan = false,
+  unreadCount = 0,
 }: {
   profile: AppProfile;
   children: React.ReactNode;
   showCreateLoan?: boolean;
+  unreadCount?: number;
 }) {
-  const unreadCount = await getUnreadNotificationCount();
   return (
     <div className="app-frame">
       <aside className="app-sidebar">
