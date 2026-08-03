@@ -49,7 +49,12 @@ Mỗi lần nguồn thay đổi, dữ liệu trong các tab đối chiếu đư�
 liệu thủ công vào những tab này vì lần sync tiếp theo sẽ ghi đè. Header được cố định, có filter;
 VND là số nguyên có định dạng phân tách hàng nghìn, ngày dùng múi giờ `Asia/Ho_Chi_Minh`.
 Giá trị VND vượt giới hạn số nguyên an toàn của JavaScript được ghi dưới dạng text để không mất
-độ chính xác.
+độ chính xác. Mọi giá trị text bắt đầu bằng `=`, `+`, `-` hoặc `@` được thêm dấu nháy đơn trước
+khi ghi để không bị Google Sheets diễn giải thành công thức.
+
+Export API đọc từng bảng theo các trang 1.000 dòng cho tới khi hết dữ liệu. Giới hạn `max_rows`
+của PostgREST vì vậy không thể làm snapshot bị cắt ngầm; nếu bất kỳ trang nào lỗi, endpoint không
+trả snapshot một phần.
 
 Endpoint trả `sourceVersion`. Apps Script lưu giá trị này vào `SYNC_CURSOR`; khi nguồn không đổi,
 endpoint trả `unchanged: true` và workbook không bị ghi lại. Đây là checkpoint incremental ở cấp
@@ -63,12 +68,19 @@ Các property sau chỉ cấu hình sau khi người dùng xác nhận tài kho�
 |---|---|
 | `SYNC_API_URL` | URL deployment Vercel, không kèm dấu `/` cuối |
 | `SYNC_API_SECRET` | Secret riêng khớp với `SYNC_SECRET` trên Vercel |
+| `VERCEL_PROTECTION_BYPASS_SECRET` | Tùy chọn: automation bypass secret khi Apps Script gọi Preview đang bật Vercel Authentication; Production công khai không cần property này |
 | `BACKUP_FOLDER_ID` | ID thư mục Drive chứa snapshot tuần |
 | `SYNC_CURSOR` | Cursor do script tự quản lý |
 | `LAST_SYNC_AT` | Thời điểm sync thành công gần nhất, do script tự quản lý |
 | `LAST_SNAPSHOT_WEEK` | Tuần đã snapshot gần nhất, do script tự quản lý |
 
-Không đưa giá trị thật của các property vào Git.
+Không đưa giá trị thật của các property vào Git. Khi có cấu hình,
+`VERCEL_PROTECTION_BYPASS_SECRET` chỉ gửi qua header `x-vercel-protection-bypass`; truyền chuỗi
+rỗng vào `configureGoogleSync` sẽ xóa property cũ, phù hợp với Production không bật Vercel
+Authentication. Entry point quản trị này chỉ trả trạng thái boolean và URL, không trả lại secret.
+`getGoogleSyncStatus` chỉ trả cursor, thời điểm sync và tên trigger để hậu kiểm.
+Manifest giới hạn API executable ở `MYSELF`; chỉ tài khoản chủ sở hữu Apps Script mới có thể gọi
+các entry point quản trị từ CLI.
 
 ## Snapshot và phục hồi
 
@@ -78,8 +90,8 @@ Các file có prefix `QLV_Snapshot_` được sắp theo ngày tạo; chỉ gi�
 
 `restoreSnapshotById(snapshotSpreadsheetId)` sao chép các giá trị từ snapshot vào workbook đối
 chiếu đang mở. Phục hồi này không gọi endpoint mutate và tuyệt đối không phục hồi ngược vào
-Supabase. Sau khi phục hồi để kiểm tra, một lần sync mới có thể đưa workbook về trạng thái nguồn
-chuẩn hiện tại.
+Supabase. Hàm xóa `SYNC_CURSOR` sau khi sao chép để lần sync kế tiếp bắt buộc tải lại snapshot nguồn
+đầy đủ, đưa workbook về trạng thái Supabase chuẩn hiện tại thay vì bỏ qua vì cursor cũ.
 
 ## Cấu hình trigger
 

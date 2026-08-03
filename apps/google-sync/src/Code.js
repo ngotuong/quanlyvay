@@ -6,6 +6,44 @@ function onOpen() {
 }
 
 /**
+ * Owner-only remote setup entry point. Secrets are stored in Script Properties and never returned.
+ * @param {string} apiUrl
+ * @param {string} apiSecret
+ * @param {string} protectionBypassSecret
+ */
+function configureGoogleSync(apiUrl, apiSecret, protectionBypassSecret) {
+  const normalizedUrl = String(apiUrl || "").trim().replace(/\/+$/, "");
+  const normalizedBypassSecret = String(protectionBypassSecret || "").trim();
+  if (!/^https:\/\/[a-z0-9.-]+$/i.test(normalizedUrl)) throw new Error("SYNC_API_URL phải là HTTPS origin hợp lệ.");
+  if (String(apiSecret || "").length < 16) throw new Error("SYNC_API_SECRET không hợp lệ.");
+  if (normalizedBypassSecret && normalizedBypassSecret.length < 16) throw new Error("VERCEL_PROTECTION_BYPASS_SECRET không hợp lệ.");
+  const properties = PropertiesService.getScriptProperties();
+  properties.setProperties({
+    SYNC_API_URL: normalizedUrl,
+    SYNC_API_SECRET: String(apiSecret),
+  });
+  if (normalizedBypassSecret) properties.setProperty("VERCEL_PROTECTION_BYPASS_SECRET", normalizedBypassSecret);
+  else properties.deleteProperty("VERCEL_PROTECTION_BYPASS_SECRET");
+  return {
+    syncApiUrl: normalizedUrl,
+    syncApiSecretConfigured: true,
+    protectionBypassConfigured: Boolean(normalizedBypassSecret),
+  };
+}
+
+function getGoogleSyncStatus() {
+  const properties = PropertiesService.getScriptProperties();
+  return {
+    syncApiUrl: properties.getProperty("SYNC_API_URL") || "",
+    syncApiSecretConfigured: Boolean(properties.getProperty("SYNC_API_SECRET")),
+    protectionBypassConfigured: Boolean(properties.getProperty("VERCEL_PROTECTION_BYPASS_SECRET")),
+    syncCursor: properties.getProperty("SYNC_CURSOR") || "",
+    lastSyncAt: properties.getProperty("LAST_SYNC_AT") || "",
+    triggerHandlers: ScriptApp.getProjectTriggers().map(function (trigger) { return trigger.getHandlerFunction(); }).sort(),
+  };
+}
+
+/**
  * One-time, idempotent setup for the bound reconciliation workbook.
  * Creates only local Google resources; it never writes to Supabase.
  */
@@ -56,11 +94,15 @@ function runGoogleSheetSync() {
     const properties = PropertiesService.getScriptProperties();
     const baseUrl = properties.getProperty("SYNC_API_URL");
     const secret = properties.getProperty("SYNC_API_SECRET");
+    const protectionBypass = properties.getProperty("VERCEL_PROTECTION_BYPASS_SECRET");
     if (!baseUrl || !secret) throw new Error("Thiếu SYNC_API_URL hoặc SYNC_API_SECRET trong Script Properties.");
     const cursor = properties.getProperty("SYNC_CURSOR") || "";
+    /** @type {Record<string, string>} */
+    const headers = { "x-sync-secret": secret };
+    if (protectionBypass) headers["x-vercel-protection-bypass"] = protectionBypass;
     const response = UrlFetchApp.fetch(buildExportUrl_(baseUrl, cursor), {
       method: "get",
-      headers: { "x-sync-secret": secret },
+      headers: headers,
       muteHttpExceptions: true,
     });
     if (response.getResponseCode() !== 200) throw new Error("Export API trả về HTTP " + response.getResponseCode() + ".");
@@ -160,5 +202,6 @@ function restoreSnapshotById(snapshotSpreadsheetId) {
     targetSheet.clear();
     if (values.length && values[0].length) targetSheet.getRange(1, 1, values.length, values[0].length).setValues(values);
   });
+  PropertiesService.getScriptProperties().deleteProperty("SYNC_CURSOR");
   return { restoredFrom: snapshotSpreadsheetId, sheetCount: source.getSheets().length };
 }

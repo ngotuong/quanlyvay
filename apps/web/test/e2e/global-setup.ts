@@ -20,6 +20,18 @@ export default async function globalSetup() {
   });
   if (error) throw error;
   if (!data.user) throw new Error("E2E owner was not created.");
+  const { error: editorError } = await admin.auth.admin.createUser({
+    email: "c13_editor_e2e@auth.local",
+    password: "EditorE2eTemp123",
+    email_confirm: true,
+    user_metadata: {
+      provisioned_by_app: "true",
+      username: "c13_editor_e2e",
+      display_name: "C13 Editor E2E",
+      app_role: "EDITOR",
+    },
+  });
+  if (editorError) throw editorError;
   const { error: notificationError } = await admin.from("notifications").insert({
     user_id: data.user.id,
     type: "LOAN_OVERDUE",

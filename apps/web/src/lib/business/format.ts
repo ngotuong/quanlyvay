@@ -1,5 +1,7 @@
 export function formatVnd(value: number | string | null | undefined) {
-  const amount = typeof value === "string" ? Number(value) : (value ?? 0);
+  const amount: number | bigint = typeof value === "string"
+    ? (/^-?\d+$/.test(value) ? BigInt(value) : 0)
+    : (value ?? 0);
   return new Intl.NumberFormat("vi-VN", {
     style: "currency",
     currency: "VND",
@@ -34,5 +36,9 @@ export function todayInVietnam() {
 
 export function formatRate(value: number | string | null) {
   if (value === null) return "—";
-  return `${new Intl.NumberFormat("vi-VN", { maximumFractionDigits: 10 }).format(Number(value))}%/ngày`;
+  const normalized = String(value)
+    .replace(/(\.\d*?[1-9])0+$/, "$1")
+    .replace(/\.0+$/, "")
+    .replace(".", ",");
+  return `${normalized}%/ngày`;
 }

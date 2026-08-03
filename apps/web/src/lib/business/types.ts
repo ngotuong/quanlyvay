@@ -25,12 +25,12 @@ export type Loan = {
   name: string;
   direction: LoanDirection;
   status: LoanStatus;
-  original_principal_vnd: number;
+  original_principal_vnd: string;
   disbursement_date: string;
   term_days: number;
   maturity_date: string;
   interest_cycle_days: 15 | 30;
-  initial_daily_rate_percent: number;
+  initial_daily_rate_percent: string;
   settled_on: string | null;
   notes: string | null;
   created_at: string;
@@ -42,18 +42,18 @@ export type LoanTransaction = {
   id: string;
   type: "DISBURSEMENT" | "INTEREST_PAYMENT" | "PRINCIPAL_PAYMENT" | "EXPENSE" | "REVERSAL";
   transaction_date: string;
-  amount_vnd: number;
+  amount_vnd: string;
   note: string | null;
   reversal_of_id: string | null;
   created_at: string;
-  expenses: { category: string }[] | null;
+  expenses: { category: string } | null;
 };
 
 export type LifecycleEvent = {
   id: string;
   event_type: "RATE_CHANGE" | "BAD_DEBT_START" | "INTEREST_RESUME" | "SETTLEMENT";
   effective_date: string;
-  daily_rate_percent: number | null;
+  daily_rate_percent: string | null;
   note: string | null;
   created_at: string;
 };
@@ -64,11 +64,11 @@ export type InterestPeriod = {
   start_date: string;
   end_date: string;
   day_count: number;
-  opening_principal_vnd: number;
-  closing_principal_vnd: number;
-  accrued_interest_vnd: number;
-  interest_payments_vnd: number;
-  closing_interest_balance_vnd: number;
+  opening_principal_vnd: string;
+  closing_principal_vnd: string;
+  accrued_interest_vnd: string;
+  interest_payments_vnd: string;
+  closing_interest_balance_vnd: string;
 };
 
 export type AuditLog = {
@@ -125,4 +125,15 @@ export type AppNotification = {
   read_at: string | null;
   created_at: string;
   loans: { name: string } | null;
+};
+
+export type GeneralExpense = {
+  id: string;
+  type: "EXPENSE" | "REVERSAL";
+  transaction_date: string;
+  amount_vnd: string;
+  note: string | null;
+  reversal_of_id: string | null;
+  created_at: string;
+  expenses: { category: string } | null;
 };

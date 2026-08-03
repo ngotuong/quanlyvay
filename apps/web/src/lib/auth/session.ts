@@ -46,7 +46,7 @@ export async function requireOwnerProfile() {
   const profile = await requireAuthenticatedProfile();
 
   if (profile.role !== "OWNER") {
-    throw new Error("Bạn không có quyền quản lý tài khoản.");
+    redirect("/dashboard");
   }
 
   return profile;

@@ -54,6 +54,13 @@ test("unsafe VND integers remain text to avoid JavaScript precision loss", () =>
   assert.equal(call(context, `normalizeCell_("9007199254740993", "money")`), "9007199254740993");
 });
 
+test("user text that resembles a formula is escaped before writing to Sheets", () => {
+  const context = makeContext();
+  context.formulaText = '=IMPORTXML("https://example.test")';
+  assert.equal(call(context, `normalizeCell_(formulaText, "text")`), "'=IMPORTXML(\"https://example.test\")");
+  assert.equal(call(context, `normalizeCell_("Ghi chú bình thường", "text")`), "Ghi chú bình thường");
+});
+
 test("export URL carries encoded incremental cursor", () => {
   const context = makeContext();
   assert.equal(call(context, `buildExportUrl_("https://example.test/", "2026-08-01T10:00:00+00:00")`), "https://example.test/api/google-sync/export?cursor=2026-08-01T10%3A00%3A00%2B00%3A00");
@@ -62,6 +69,21 @@ test("export URL carries encoded incremental cursor", () => {
 test("payload validation rejects wrong schema", () => {
   const context = makeContext();
   assert.throws(() => call(context, `validatePayload_({schemaVersion:2,sourceVersion:"x"})`), /không hợp lệ/);
+});
+
+test("production sync configuration removes an obsolete Vercel protection bypass", () => {
+  const values = new Map([["VERCEL_PROTECTION_BYPASS_SECRET", "old-preview-bypass"]]);
+  const properties = {
+    setProperties: (entries) => Object.entries(entries).forEach(([key, value]) => values.set(key, value)),
+    setProperty: (key, value) => values.set(key, value),
+    deleteProperty: (key) => values.delete(key),
+  };
+  const context = makeContext({ PropertiesService: { getScriptProperties: () => properties } });
+  const result = call(context, `configureGoogleSync("https://quan-ly-vay-ca-nhan.vercel.app/", "1234567890abcdef", "")`);
+  assert.equal(result.syncApiUrl, "https://quan-ly-vay-ca-nhan.vercel.app");
+  assert.equal(result.protectionBypassConfigured, false);
+  assert.equal(values.get("SYNC_API_SECRET"), "1234567890abcdef");
+  assert.equal(values.has("VERCEL_PROTECTION_BYPASS_SECRET"), false);
 });
 
 test("retention keeps newest 12 weekly snapshots", () => {
@@ -90,8 +112,8 @@ test("sync stores source cursor then skips unchanged payload", () => {
   ];
   const context = makeContext({
     SpreadsheetApp: { getActive: () => spreadsheet }, LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
-    PropertiesService: { getScriptProperties: () => ({ getProperty: (key) => values.get(key) || (key === "SYNC_API_URL" ? "https://sync.test" : key === "SYNC_API_SECRET" ? "secret" : ""), setProperty: (key, value) => values.set(key, value) }) },
-    UrlFetchApp: { fetch: (_url, options) => { assert.equal(options.headers["x-sync-secret"], "secret"); const body = payloads[fetchCount++]; return { getResponseCode: () => 200, getContentText: () => JSON.stringify(body) }; } },
+    PropertiesService: { getScriptProperties: () => ({ getProperty: (key) => values.get(key) || (key === "SYNC_API_URL" ? "https://sync.test" : key === "SYNC_API_SECRET" ? "secret" : key === "VERCEL_PROTECTION_BYPASS_SECRET" ? "bypass-secret" : ""), setProperty: (key, value) => values.set(key, value) }) },
+    UrlFetchApp: { fetch: (_url, options) => { assert.equal(options.headers["x-sync-secret"], "secret"); assert.equal(options.headers["x-vercel-protection-bypass"], "bypass-secret"); const body = payloads[fetchCount++]; return { getResponseCode: () => 200, getContentText: () => JSON.stringify(body) }; } },
   });
   assert.equal(call(context, "runGoogleSheetSync()").unchanged, false);
   assert.equal(values.get("SYNC_CURSOR"), "v1");
@@ -101,9 +123,14 @@ test("sync stores source cursor then skips unchanged payload", () => {
 test("restore copies snapshot values without any Supabase write path", () => {
   const sourceBook = new MockSpreadsheet("snapshot"); sourceBook.sheets.push(new MockSheet("Đối tác", [["ID", "Tên"], ["c1", "Bản sao"]]));
   const targetBook = new MockSpreadsheet("live");
-  const context = makeContext({ SpreadsheetApp: { openById: (id) => { assert.equal(id, "snapshot"); return sourceBook; }, getActive: () => targetBook } });
+  const values = new Map([["SYNC_CURSOR", "current-source-version"]]);
+  const context = makeContext({
+    SpreadsheetApp: { openById: (id) => { assert.equal(id, "snapshot"); return sourceBook; }, getActive: () => targetBook },
+    PropertiesService: { getScriptProperties: () => ({ deleteProperty: (key) => values.delete(key) }) },
+  });
   const result = call(context, `restoreSnapshotById("snapshot")`);
   assert.equal(result.sheetCount, 1); assert.equal(targetBook.getSheetByName("Đối tác").cells["2,2"], "Bản sao");
+  assert.equal(values.has("SYNC_CURSOR"), false);
 });
 
 test("infrastructure setup defers hourly sync until API configuration exists", () => {

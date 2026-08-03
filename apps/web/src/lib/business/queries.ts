@@ -2,12 +2,14 @@ import "server-only";
 
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
+import type { AppProfile } from "@/lib/auth/types";
 import { todayInVietnam } from "./format";
 import type {
   AuditLog,
   CalculationSnapshot,
   Counterparty,
   DashboardData,
+  GeneralExpense,
   InterestPeriod,
   LifecycleEvent,
   Loan,
@@ -15,19 +17,39 @@ import type {
   AppNotification,
 } from "./types";
 
+export async function listManagedProfiles() {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("profiles")
+    .select("user_id,username,display_name,role,must_change_password,is_active,created_at")
+    .order("created_at");
+  if (error) throw new Error("Không thể tải danh sách tài khoản.");
+  return (data ?? []) as AppProfile[];
+}
+
+export async function listGeneralExpenses() {
+  const supabase = await createClient();
+  const { data, error } = await supabase
+    .from("transactions")
+    .select("id,type,transaction_date,amount_vnd,note,reversal_of_id,created_at,expenses(category)")
+    .in("type", ["EXPENSE", "REVERSAL"])
+    .is("loan_id", null)
+    .order("transaction_date", { ascending: false })
+    .order("created_at", { ascending: false });
+  if (error) throw new Error("Không thể tải danh sách chi phí chung.");
+  return (data ?? []) as unknown as GeneralExpense[];
+}
+
 export async function getNotificationCenter() {
   const supabase = await createClient();
-  const [{ data, error }, { count, error: subscriptionError }] = await Promise.all([
-    supabase
-      .from("notifications")
-      .select("id, loan_id, type, notification_date, title, body, read_at, created_at, loans(name)")
-      .order("notification_date", { ascending: false })
-      .order("created_at", { ascending: false })
-      .limit(100),
-    supabase.from("push_subscriptions").select("id", { count: "exact", head: true }),
-  ]);
-  if (error || subscriptionError) throw new Error("Không thể tải trung tâm thông báo.");
-  return { notifications: (data ?? []) as unknown as AppNotification[], subscriptionCount: count ?? 0 };
+  const { data, error } = await supabase
+    .from("notifications")
+    .select("id, loan_id, type, notification_date, title, body, read_at, created_at, loans(name)")
+    .order("notification_date", { ascending: false })
+    .order("created_at", { ascending: false })
+    .limit(100);
+  if (error) throw new Error("Không thể tải trung tâm thông báo.");
+  return (data ?? []) as unknown as AppNotification[];
 }
 
 export async function getUnreadNotificationCount() {
@@ -71,10 +93,13 @@ export async function listLoans() {
   const asOfDate = todayInVietnam();
   return Promise.all(
     (data as unknown as Loan[]).map(async (loan) => {
-      const { data: calculation } = await supabase.rpc("calculate_loan", {
+      const { data: calculation, error: calculationError } = await supabase.rpc("calculate_loan", {
         p_loan_id: loan.id,
         p_as_of_date: asOfDate,
       });
+      if (calculationError || !calculation) {
+        throw new Error(`Không thể tính số liệu khoản vay ${loan.name}.`);
+      }
       return { ...loan, calculation: calculation as CalculationSnapshot | null };
     }),
   );
@@ -107,6 +132,9 @@ export async function getLoanWorkspace(id: string) {
   ]);
 
   if (loanResult.error || !loanResult.data) notFound();
+  if (transactionsResult.error || eventsResult.error || periodsResult.error) {
+    throw new Error("Không thể tải đầy đủ lịch sử khoản vay.");
+  }
   const { data: calculation, error: calculationError } = await supabase.rpc("calculate_loan", {
     p_loan_id: id,
     p_as_of_date: todayInVietnam(),

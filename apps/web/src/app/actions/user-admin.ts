@@ -45,16 +45,19 @@ export async function createManagedUser(input: unknown): Promise<UserAdminResult
     };
   }
 
-  revalidatePath("/");
+  revalidatePath("/settings");
   return { ok: true, userId: data.user.id };
 }
 
 export async function manageUserProfile(input: unknown): Promise<UserAdminResult> {
-  await requireOwnerProfile();
+  const owner = await requireOwnerProfile();
   const parsed = manageProfileSchema.safeParse(input);
 
   if (!parsed.success) {
     return { ok: false, message: "Thông tin phân quyền chưa hợp lệ." };
+  }
+  if (parsed.data.userId === owner.user_id) {
+    return { ok: false, message: "Màn hình này chỉ quản lý tài khoản thứ hai." };
   }
 
   const supabase = await createClient();
@@ -69,16 +72,39 @@ export async function manageUserProfile(input: unknown): Promise<UserAdminResult
     return { ok: false, message: "Không thể cập nhật tài khoản này." };
   }
 
-  revalidatePath("/");
+  revalidatePath("/settings");
   return { ok: true, userId: parsed.data.userId };
 }
 
 export async function resetManagedUserPassword(input: unknown): Promise<UserAdminResult> {
-  await requireOwnerProfile();
+  const owner = await requireOwnerProfile();
   const parsed = resetManagedUserPasswordSchema.safeParse(input);
 
   if (!parsed.success) {
     return { ok: false, message: "Yêu cầu đặt lại mật khẩu chưa hợp lệ." };
+  }
+  if (parsed.data.userId === owner.user_id) {
+    return { ok: false, message: "Hãy dùng chức năng đổi mật khẩu của chính bạn." };
+  }
+
+  const supabase = await createClient();
+  const { data: managedProfile, error: managedProfileError } = await supabase
+    .from("profiles")
+    .select("user_id")
+    .eq("user_id", parsed.data.userId)
+    .neq("role", "OWNER")
+    .single();
+
+  if (managedProfileError || !managedProfile) {
+    return { ok: false, message: "Không tìm thấy tài khoản thứ hai cần đặt lại mật khẩu." };
+  }
+
+  const { error: profileError } = await supabase.rpc("mark_password_reset_required", {
+    p_user_id: parsed.data.userId,
+  });
+
+  if (profileError) {
+    return { ok: false, message: "Không thể đánh dấu yêu cầu đổi mật khẩu." };
   }
 
   const admin = createAdminClient();
@@ -87,17 +113,9 @@ export async function resetManagedUserPassword(input: unknown): Promise<UserAdmi
   });
 
   if (passwordError) {
-    return { ok: false, message: "Không thể đặt lại mật khẩu tạm thời." };
+    return { ok: false, message: "Không thể đặt lại mật khẩu tạm thời; tài khoản vẫn bị yêu cầu đổi mật khẩu vì an toàn." };
   }
 
-  const supabase = await createClient();
-  const { error: profileError } = await supabase.rpc("mark_password_reset_required", {
-    p_user_id: parsed.data.userId,
-  });
-
-  if (profileError) {
-    return { ok: false, message: "Mật khẩu đã đổi nhưng chưa cập nhật được trạng thái hồ sơ." };
-  }
-
+  revalidatePath("/settings");
   return { ok: true, userId: parsed.data.userId };
 }

@@ -3,6 +3,11 @@
 import { useActionState } from "react";
 import { changePasswordAction } from "@/app/actions/auth";
 import type { AuthActionState } from "@/lib/auth/types";
+import {
+  PASSWORD_MIN_LENGTH,
+  PASSWORD_PATTERN,
+  PASSWORD_REQUIREMENTS,
+} from "@/lib/auth/password-policy.mjs";
 import { PasswordField } from "./password-field";
 import { SubmitButton } from "./submit-button";
 
@@ -18,6 +23,8 @@ export function ChangePasswordForm() {
         name="password"
         label="Mật khẩu mới"
         autoComplete="new-password"
+        minLength={PASSWORD_MIN_LENGTH}
+        pattern={PASSWORD_PATTERN}
         error={state.fieldErrors?.password?.[0]}
       />
       <PasswordField
@@ -25,11 +32,13 @@ export function ChangePasswordForm() {
         name="confirmPassword"
         label="Nhập lại mật khẩu mới"
         autoComplete="new-password"
+        minLength={PASSWORD_MIN_LENGTH}
+        pattern={PASSWORD_PATTERN}
         error={state.fieldErrors?.confirmPassword?.[0]}
       />
 
       <p className="password-requirements">
-        Dùng ít nhất 10 ký tự, có chữ hoa, chữ thường và chữ số.
+        {PASSWORD_REQUIREMENTS}
       </p>
 
       {state.message ? (

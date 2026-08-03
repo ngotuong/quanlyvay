@@ -7,10 +7,20 @@ type PasswordFieldProps = {
   name: string;
   label: string;
   autoComplete: "current-password" | "new-password";
+  minLength?: number;
+  pattern?: string;
   error?: string;
 };
 
-export function PasswordField({ id, name, label, autoComplete, error }: PasswordFieldProps) {
+export function PasswordField({
+  id,
+  name,
+  label,
+  autoComplete,
+  minLength,
+  pattern,
+  error,
+}: PasswordFieldProps) {
   const [visible, setVisible] = useState(false);
   const errorId = `${id}-error`;
 
@@ -23,6 +33,8 @@ export function PasswordField({ id, name, label, autoComplete, error }: Password
           name={name}
           type={visible ? "text" : "password"}
           autoComplete={autoComplete}
+          minLength={minLength}
+          pattern={pattern}
           required
           aria-invalid={Boolean(error)}
           aria-describedby={error ? errorId : undefined}

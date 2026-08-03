@@ -1,4 +1,8 @@
 import { z } from "zod";
+import {
+  PASSWORD_MIN_LENGTH,
+  PASSWORD_PATTERN,
+} from "@/lib/auth/password-policy.mjs";
 
 const username = z
   .string()
@@ -17,16 +21,14 @@ export const loginSchema = z.object({
   password: z.string().min(1, "Vui lòng nhập mật khẩu."),
 });
 
-const strongPassword = z
+const accountPassword = z
   .string()
-  .min(10, "Mật khẩu cần ít nhất 10 ký tự.")
-  .regex(/[a-z]/, "Mật khẩu cần có chữ thường.")
-  .regex(/[A-Z]/, "Mật khẩu cần có chữ hoa.")
-  .regex(/[0-9]/, "Mật khẩu cần có chữ số.");
+  .min(PASSWORD_MIN_LENGTH, `Mật khẩu cần ít nhất ${PASSWORD_MIN_LENGTH} ký tự.`)
+  .regex(new RegExp(`^${PASSWORD_PATTERN}$`), "Mật khẩu chỉ được gồm chữ hoặc số.");
 
 export const changePasswordSchema = z
   .object({
-    password: strongPassword,
+    password: accountPassword,
     confirmPassword: z.string(),
   })
   .refine((value) => value.password === value.confirmPassword, {
@@ -38,7 +40,7 @@ export const createManagedUserSchema = z.object({
   username,
   displayName: z.string().trim().min(1).max(80),
   role: z.enum(["EDITOR", "VIEWER"]),
-  temporaryPassword: strongPassword,
+  temporaryPassword: accountPassword,
 });
 
 export const manageProfileSchema = z.object({
@@ -50,5 +52,5 @@ export const manageProfileSchema = z.object({
 
 export const resetManagedUserPasswordSchema = z.object({
   userId: z.uuid(),
-  temporaryPassword: strongPassword,
+  temporaryPassword: accountPassword,
 });

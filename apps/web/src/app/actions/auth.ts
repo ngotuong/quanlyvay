@@ -24,12 +24,15 @@ export async function loginAction(
   }
 
   const supabase = await createClient();
-  const { error: signInError } = await supabase.auth.signInWithPassword({
+  const {
+    data: { user },
+    error: signInError,
+  } = await supabase.auth.signInWithPassword({
     email: internalEmailForUsername(parsed.data.username),
     password: parsed.data.password,
   });
 
-  if (signInError) {
+  if (signInError || !user) {
     return {
       status: "error",
       message: "Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại.",
@@ -39,6 +42,7 @@ export async function loginAction(
   const { data: profile, error: profileError } = await supabase
     .from("profiles")
     .select("must_change_password, is_active")
+    .eq("user_id", user.id)
     .single();
 
   if (profileError || !profile?.is_active) {
@@ -83,9 +87,15 @@ export async function changePasswordAction(
   });
 
   if (passwordError) {
+    console.error("auth.update_password_failed", {
+      code: passwordError.code,
+      status: passwordError.status,
+    });
     return {
       status: "error",
-      message: "Chưa thể đổi mật khẩu. Vui lòng kiểm tra kết nối và thử lại.",
+      message: passwordError.code === "weak_password"
+        ? "Mật khẩu bị máy chủ từ chối do chính sách bảo mật. Vui lòng thử mật khẩu khác."
+        : "Chưa thể đổi mật khẩu. Vui lòng kiểm tra kết nối và thử lại.",
     };
   }
 

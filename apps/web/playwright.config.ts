@@ -1,16 +1,7 @@
-import { execFileSync } from "node:child_process";
-import path from "node:path";
 import { defineConfig, devices } from "@playwright/test";
+import { localSupabaseEnvironment } from "./test/e2e/helpers";
 
-const repositoryRoot = path.resolve(__dirname, "../..");
-const output = execFileSync("supabase", ["status", "-o", "env"], {
-  cwd: repositoryRoot,
-  encoding: "utf8",
-  stdio: ["ignore", "pipe", "pipe"],
-});
-const local = Object.fromEntries(
-  output.split("\n").map((line) => line.match(/^([A-Z_]+)="?(.*?)"?$/)).filter(Boolean).map((match) => [match![1], match![2]]),
-);
+const local = localSupabaseEnvironment();
 
 export default defineConfig({
   testDir: "./test/e2e",

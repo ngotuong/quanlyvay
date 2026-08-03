@@ -8,7 +8,8 @@ function normalizeCell_(value, type) {
   }
   if (type === "date") return new Date(String(value).slice(0, 10) + "T00:00:00+07:00");
   if (type === "datetime") return new Date(String(value));
-  return String(value);
+  const text = String(value);
+  return type === "text" && /^[=+\-@]/.test(text) ? "'" + text : text;
 }
 
 /** @param {SyncSheetDefinition} definition @param {Record<string, *>[]} records */

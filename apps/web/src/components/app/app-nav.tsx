@@ -2,14 +2,16 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bell, HandCoins, History, LayoutDashboard, Users } from "lucide-react";
+import { Bell, HandCoins, History, LayoutDashboard, ReceiptText, Settings, Users } from "lucide-react";
 
 const items = [
   { href: "/dashboard", label: "Tổng quan", icon: LayoutDashboard },
   { href: "/loans", label: "Khoản vay", icon: HandCoins },
   { href: "/counterparties", label: "Đối tác", icon: Users },
+  { href: "/expenses", label: "Chi phí", icon: ReceiptText },
   { href: "/notifications", label: "Thông báo", icon: Bell, notificationItem: true },
   { href: "/audit", label: "Lịch sử", icon: History, ownerOnly: true },
+  { href: "/settings", label: "Cài đặt", icon: Settings, ownerOnly: true },
 ];
 
 export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadCount?: number }) {

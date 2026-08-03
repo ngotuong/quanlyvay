@@ -1,4 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
+import {
+  isValidPassword,
+  PASSWORD_REQUIREMENTS,
+} from "../src/lib/auth/password-policy.mjs";
 
 const username = process.env.BOOTSTRAP_USERNAME?.trim().toLowerCase();
 const displayName = process.env.BOOTSTRAP_DISPLAY_NAME?.trim();
@@ -14,14 +18,8 @@ if (!displayName) {
   throw new Error("Thiếu BOOTSTRAP_DISPLAY_NAME.");
 }
 
-if (
-  !password ||
-  password.length < 10 ||
-  !/[a-z]/.test(password) ||
-  !/[A-Z]/.test(password) ||
-  !/[0-9]/.test(password)
-) {
-  throw new Error("BOOTSTRAP_PASSWORD cần ít nhất 10 ký tự, có chữ hoa, chữ thường và chữ số.");
+if (!isValidPassword(password)) {
+  throw new Error(`BOOTSTRAP_PASSWORD không hợp lệ. ${PASSWORD_REQUIREMENTS}`);
 }
 
 if (!url || !secretKey) {
@@ -48,4 +46,4 @@ if (error || !data.user) {
   throw new Error(error?.message || "Không thể bootstrap OWNER.");
 }
 
-process.stdout.write(`Đã bootstrap OWNER local: ${username}\n`);
+process.stdout.write(`Đã bootstrap OWNER: ${username}\n`);

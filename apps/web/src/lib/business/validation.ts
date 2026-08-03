@@ -11,22 +11,29 @@ const optionalText = z
 
 const uuid = z.uuid("Mã dữ liệu không hợp lệ.");
 const businessDate = z.iso.date("Ngày không hợp lệ.");
+const MAX_BIGINT_VND = BigInt("9223372036854775807");
+
+function dailyRateWithinLimit(value: string) {
+  if (!/^\d+(\.\d{1,10})?$/.test(value)) return false;
+  const [whole, fraction = ""] = value.split(".");
+  const integer = BigInt(whole);
+  return integer < BigInt(100) || (integer === BigInt(100) && !/[1-9]/.test(fraction));
+}
 
 const vndAmount = z
   .string()
   .trim()
-  .transform((value) => value.replace(/[.\s]/g, "").replace(",", ""))
+  .transform((value) => value.replace(/[.,\s]/g, ""))
   .refine((value) => /^\d+$/.test(value), "Số tiền phải là số nguyên VND.")
-  .transform(Number)
-  .refine((value) => Number.isSafeInteger(value) && value > 0, "Số tiền phải lớn hơn 0.");
+  .refine((value) => /^\d+$/.test(value) && BigInt(value) > BigInt(0), "Số tiền phải lớn hơn 0.")
+  .refine((value) => /^\d+$/.test(value) && BigInt(value) <= MAX_BIGINT_VND, "Số tiền vượt giới hạn lưu trữ VND.");
 
 const dailyRate = z
   .string()
   .trim()
   .transform((value) => value.replace(",", "."))
   .refine((value) => /^\d+(\.\d{1,10})?$/.test(value), "Lãi suất không hợp lệ.")
-  .transform(Number)
-  .refine((value) => value >= 0 && value <= 100, "Lãi suất phải từ 0 đến 100%/ngày.");
+  .refine(dailyRateWithinLimit, "Lãi suất phải từ 0 đến 100%/ngày.");
 
 export const counterpartySchema = z.object({
   id: z.union([uuid, z.literal("")]).optional(),
@@ -97,7 +104,7 @@ export const settlementSchema = z.object({
 });
 
 export const reversalSchema = z.object({
-  loanId: uuid,
+  loanId: z.union([uuid, z.literal("")]).transform((value) => value || null),
   transactionId: uuid,
   reversalDate: businessDate,
   note: requiredText("Lý do đảo giao dịch", 500),

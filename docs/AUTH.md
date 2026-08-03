@@ -19,6 +19,12 @@
 - Profile được tạo bởi trigger cùng transaction với `auth.users`; username và user ID bất biến.
 - Profile không xóa vật lý. OWNER có thể vô hiệu hóa tài khoản thứ hai.
 - Chỉ có một OWNER hoạt động và OWNER không thể tự hạ quyền hoặc tự vô hiệu hóa.
+- OWNER quản lý tài khoản thứ hai tại `/settings`: tạo tài khoản, đổi tên hiển thị/vai trò/trạng
+  thái hoạt động và cấp lại mật khẩu tạm. Mật khẩu tạm luôn buộc đổi ở lần đăng nhập kế tiếp.
+- Mật khẩu cần tối thiểu 6 ký tự và chỉ gồm chữ cái ASCII hoặc chữ số; không bắt buộc chữ hoa,
+  chữ thường hay phối hợp cả chữ và số.
+- Supabase Auth local/remote phải đặt minimum length bằng 6 và không cấu hình required-character
+  groups; validation ứng dụng tiếp tục giới hạn tập ký tự chữ/số.
 
 Không chạy bootstrap với username/mật khẩu thật nếu người dùng chưa xác nhận. Script chuẩn bị sẵn:
 

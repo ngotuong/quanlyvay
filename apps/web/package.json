@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
+    "test": "node --test test/unit/*.test.mjs",
     "test:auth": "node --test test/auth.integration.test.mjs",
     "test:e2e": "playwright test",
     "push:keys": "web-push generate-vapid-keys --json",

@@ -9,7 +9,7 @@ import { getNotificationCenter } from "@/lib/business/queries";
 
 export default async function NotificationsPage() {
   const profile = await requireAuthenticatedProfile();
-  const { notifications, subscriptionCount } = await getNotificationCenter();
+  const notifications = await getNotificationCenter();
   const unread = notifications.filter((item) => !item.read_at);
   const publicKey = process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY?.trim() ?? "";
 
@@ -17,7 +17,7 @@ export default async function NotificationsPage() {
     <div className="page-heading-row"><div><p className="eyebrow">Nhắc hạn</p><h1>Thông báo</h1><p className="page-description">Mọi tài khoản đều nhận cùng lịch nhắc, nhưng trạng thái đã đọc được lưu riêng.</p></div>
       {unread.length ? <form action={markNotificationsReadAction.bind(null, undefined)}><button className="secondary-button notification-read-all" type="submit"><CheckCheck size={18} />Đánh dấu đã đọc</button></form> : null}
     </div>
-    <PushManager publicKey={publicKey} initialEnabled={subscriptionCount > 0} />
+    <PushManager publicKey={publicKey} />
     {notifications.length === 0 ? <section className="empty-state notification-empty"><span className="empty-icon"><Bell size={28} /></span><h2>Chưa có thông báo</h2><p>Thông báo đóng lãi và quá hạn sẽ xuất hiện tại đây khi bộ nhắc lịch chạy.</p></section> :
       <section className="notification-list" aria-label="Danh sách thông báo">{notifications.map((item) => {
         const overdue = item.type === "LOAN_OVERDUE";

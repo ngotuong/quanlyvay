@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(18);
+select plan(20);
 
 insert into auth.users (id, email, email_confirmed_at, raw_user_meta_data)
 values
@@ -48,7 +48,11 @@ select is(public.mark_notifications_read(array[(select id from public.notificati
 select is((select count(*) from public.notifications where read_at is not null), 1::bigint, 'read state is persisted');
 
 reset role;
+update public.notifications set created_at = now() - interval '2 seconds';
+update public.push_subscriptions set created_at = now() - interval '1 second';
 set local role service_role;
+select is((select count(*) from public.claim_push_deliveries(100)), 0::bigint, 'new subscription does not receive historical notifications');
+select is(public.generate_due_notifications('2026-08-05'), 2, 'a new overdue reminder is generated after subscription registration');
 create temporary table claimed_delivery as select * from public.claim_push_deliveries(1);
 select is((select count(*) from claimed_delivery), 1::bigint, 'delivery worker claims one queued target');
 select is((select idempotency_key is not null from claimed_delivery), true, 'delivery includes a stable notification idempotency key');

@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(17);
+select plan(20);
 
 insert into auth.users (id, email, email_confirmed_at, raw_user_meta_data)
 values (
@@ -92,6 +92,26 @@ select is(
   )),
   'Đi lại',
   'expense category is persisted'
+);
+select throws_ok(
+  $$select public.record_expense(
+    (select id from public.loans where name = 'Khoản vay C6 cập nhật'),
+    '2026-01-05', 5000, 'Danh mục khác', 'web-test-expense', 'Chi phí gặp khách'
+  )$$,
+  '23505',
+  null,
+  'expense idempotency rejects a different category'
+);
+select lives_ok(
+  $$select public.record_expense(null, '2026-01-05', 7000, 'Vận hành', 'web-test-general-expense', 'Chi phí chung')$$,
+  'writer can record an expense without a loan'
+);
+select lives_ok(
+  $$select public.reverse_transaction(
+    (select id from public.transactions where idempotency_key = 'web-test-general-expense'),
+    '2026-01-06', 'Đảo chi phí chung', 'web-test-general-expense-reversal', '2026-01-06'
+  )$$,
+  'writer can reverse a general expense without rebuilding a loan'
 );
 
 select lives_ok(

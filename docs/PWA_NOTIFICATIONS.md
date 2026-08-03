@@ -24,6 +24,11 @@ cho Vercel Cron, còn `POST` giữ cho kiểm thử thủ công. Endpoint tạo 
 
 Mỗi cặp notification/subscription có duy nhất một delivery. Worker dùng lease 5 phút và tối đa 5 lần thử. Delivery `SENT` không được claim lại; payload dùng cùng idempotency key làm `tag` để service worker không hiển thị nhiều notification khi có retry sau sự cố mạng.
 
+Subscription chỉ nhận các notification chưa đọc được tạo từ thời điểm subscription tồn tại; bật
+Push trên thiết bị mới không phát lại toàn bộ lịch sử. Nút bật/tắt trên giao diện lấy trạng thái từ
+subscription thật của trình duyệt hiện tại, không suy ra từ subscription của tài khoản trên thiết bị
+khác.
+
 Subscription trả về HTTP 404/410 sẽ bị xóa. Secret và khóa riêng không được lưu trong Git.
 
 ## Cấu hình local
@@ -54,5 +59,7 @@ Vercel gửi trùng.
 
 ## Kiểm thử
 
-- pgTAP kiểm tra đúng ngày đến hạn, nhắc quá hạn hằng ngày, mọi active user, idempotency, subscription upsert, đánh dấu đã đọc và delivery không được claim lại sau khi `SENT`.
+- pgTAP kiểm tra đúng ngày đến hạn, nhắc quá hạn hằng ngày, mọi active user, idempotency,
+  subscription upsert, không phát lịch sử cho subscription mới, đánh dấu đã đọc và delivery không
+  được claim lại sau khi `SENT`.
 - Playwright kiểm tra manifest, service worker, notification center và không tràn ngang trên mobile.

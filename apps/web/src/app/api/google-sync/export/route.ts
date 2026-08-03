@@ -1,6 +1,16 @@
 import { timingSafeEqual } from "node:crypto";
 import { NextResponse, type NextRequest } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { GOOGLE_SYNC_SELECTS } from "@/lib/export/columns.mjs";
+import { fetchAllRows } from "@/lib/export/pagination.mjs";
+
+type ExportRow = Record<string, unknown>;
+
+function timestampValues(rows: ExportRow[], field: string) {
+  return rows
+    .map((row) => row[field])
+    .filter((value): value is string => typeof value === "string" && value.length > 0);
+}
 
 function authorized(request: NextRequest) {
   const expected = process.env.SYNC_SECRET?.trim();
@@ -13,14 +23,14 @@ export async function GET(request: NextRequest) {
   if (!authorized(request)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const supabase = createAdminClient();
   const queries = await Promise.all([
-    supabase.from("counterparties").select("id,name,notes,created_at,updated_at").order("id"),
-    supabase.from("loans").select("id,counterparty_id,name,direction,status,original_principal_vnd,disbursement_date,term_days,maturity_date,interest_cycle_days,initial_daily_rate_percent,settled_on,notes,created_at,updated_at").order("id"),
-    supabase.from("transactions").select("id,loan_id,type,transaction_date,amount_vnd,note,reversal_of_id,idempotency_key,created_at").order("id"),
-    supabase.from("loan_lifecycle_events").select("id,loan_id,event_type,effective_date,daily_rate_percent,note,created_at").order("id"),
-    supabase.from("interest_periods").select("id,loan_id,kind,start_date,end_date,day_count,opening_principal_vnd,closing_principal_vnd,accrued_interest_vnd,interest_payments_vnd,closing_interest_balance_vnd,calculated_at").order("id"),
-    supabase.from("expenses").select("transaction_id,category").order("transaction_id"),
-    supabase.from("notifications").select("id,user_id,loan_id,type,notification_date,title,body,read_at,created_at").order("id"),
-    supabase.from("audit_logs").select("id,actor_user_id,table_name,record_id,action,changed_at,request_id").order("id"),
+    fetchAllRows((from, to) => supabase.from("counterparties").select(GOOGLE_SYNC_SELECTS.counterparties).order("id").range(from, to)),
+    fetchAllRows((from, to) => supabase.from("loans").select(GOOGLE_SYNC_SELECTS.loans).order("id").range(from, to)),
+    fetchAllRows((from, to) => supabase.from("transactions").select(GOOGLE_SYNC_SELECTS.transactions).order("id").range(from, to)),
+    fetchAllRows((from, to) => supabase.from("loan_lifecycle_events").select(GOOGLE_SYNC_SELECTS.lifecycleEvents).order("id").range(from, to)),
+    fetchAllRows((from, to) => supabase.from("interest_periods").select(GOOGLE_SYNC_SELECTS.interestPeriods).order("id").range(from, to)),
+    fetchAllRows((from, to) => supabase.from("expenses").select(GOOGLE_SYNC_SELECTS.expenses).order("transaction_id").range(from, to)),
+    fetchAllRows((from, to) => supabase.from("notifications").select(GOOGLE_SYNC_SELECTS.notifications).order("id").range(from, to)),
+    fetchAllRows((from, to) => supabase.from("audit_logs").select(GOOGLE_SYNC_SELECTS.auditLogs).order("id").range(from, to)),
   ]);
   const failed = queries.find((query) => query.error);
   if (failed?.error) return NextResponse.json({ error: "Export query failed" }, { status: 500 });
@@ -35,11 +45,11 @@ export async function GET(request: NextRequest) {
   const notifications = notificationsQuery.data ?? [];
   const auditLogs = auditLogsQuery.data ?? [];
   const timestamps = [
-    ...counterparties.map((row) => row.updated_at), ...loans.map((row) => row.updated_at),
-    ...transactions.map((row) => row.created_at), ...lifecycleEvents.map((row) => row.created_at),
-    ...interestPeriods.map((row) => row.calculated_at), ...notifications.map((row) => row.created_at),
-    ...auditLogs.map((row) => row.changed_at),
-  ].filter(Boolean) as string[];
+    ...timestampValues(counterparties, "updated_at"), ...timestampValues(loans, "updated_at"),
+    ...timestampValues(transactions, "created_at"), ...timestampValues(lifecycleEvents, "created_at"),
+    ...timestampValues(interestPeriods, "calculated_at"), ...timestampValues(notifications, "created_at"),
+    ...timestampValues(auditLogs, "changed_at"),
+  ];
   const sourceVersion = timestamps.sort().at(-1) ?? "empty";
   if (request.nextUrl.searchParams.get("cursor") === sourceVersion) {
     return NextResponse.json({ schemaVersion: 1, sourceVersion, unchanged: true });

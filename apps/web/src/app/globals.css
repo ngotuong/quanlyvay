@@ -487,8 +487,8 @@ button {
 .header-create-link { display: inline-flex; min-height: 44px; align-items: center; gap: 7px; color: var(--primary); font-size: .875rem; font-weight: 700; text-decoration: none; }
 .app-content { width: min(100%, 1280px); margin: 0 auto; padding: 24px 16px 48px; }
 .mobile-nav-wrap { position: fixed; right: 0; bottom: 0; left: 0; z-index: 30; border-top: 1px solid var(--border); background: color-mix(in srgb, var(--surface) 96%, transparent); padding-bottom: env(safe-area-inset-bottom); backdrop-filter: blur(16px); }
-.app-nav { display: flex; justify-content: space-around; gap: 4px; padding: 6px 8px; }
-.nav-link { position: relative; display: flex; min-width: 64px; min-height: 52px; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border-radius: 12px; color: var(--foreground-muted); font-size: .7rem; font-weight: 650; text-decoration: none; transition: color 180ms ease, background 180ms ease; }
+.app-nav { display: flex; justify-content: space-around; gap: 3px; padding: 6px 8px; }
+.nav-link { position: relative; display: flex; min-width: 0; min-height: 52px; flex: 1 1 0; flex-direction: column; align-items: center; justify-content: center; gap: 3px; border-radius: 12px; color: var(--foreground-muted); font-size: clamp(.58rem, 2.35vw, .7rem); font-weight: 650; text-decoration: none; white-space: nowrap; transition: color 180ms ease, background 180ms ease; }
 .nav-badge { position: absolute; top: 3px; left: calc(50% + 8px); display: grid; min-width: 18px; height: 18px; place-items: center; border: 2px solid var(--surface); border-radius: 999px; background: var(--error); padding: 0 4px; color: #fff; font-size: .6rem; line-height: 1; }
 .nav-link[data-active="true"] { background: var(--primary-soft); color: var(--primary); }
 .nav-link:hover { color: var(--primary); }
@@ -650,7 +650,7 @@ summary { cursor: pointer; font-weight: 700; }
   .app-brand span:last-child { display: grid; }
   .app-brand small { margin-top: 2px; color: var(--foreground-muted); }
   .app-sidebar .app-nav { display: grid; justify-content: initial; gap: 5px; margin-top: 32px; padding: 0; }
-  .app-sidebar .nav-link { min-height: 48px; flex-direction: row; justify-content: flex-start; gap: 12px; padding: 0 13px; font-size: .9rem; }
+  .app-sidebar .nav-link { min-height: 48px; flex: initial; flex-direction: row; justify-content: flex-start; gap: 12px; padding: 0 13px; font-size: .9rem; }
   .sidebar-profile { display: grid; grid-template-columns: 40px minmax(0, 1fr) 44px; align-items: center; gap: 9px; margin-top: auto; border-top: 1px solid var(--border); padding: 16px 2px 0; }
   .profile-avatar { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 12px; background: var(--primary-soft); color: var(--primary); font-weight: 800; }
   .profile-copy { display: grid; min-width: 0; }

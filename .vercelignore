@@ -1,0 +1,13 @@
+# Only the Next.js workspace and root package-manager metadata are needed by Vercel.
+/apps/google-sync/
+/packages/
+/supabase/
+/docs/
+
+/AGENTS.md
+/PROJECT_CONTEXT.md
+/README.md
+
+# Defense in depth for local-only identifiers and build caches.
+**/.clasp.json
+**/*.tsbuildinfo

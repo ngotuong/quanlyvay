@@ -157,6 +157,7 @@ export async function recordExpenseAction(
   });
   if (error) return databaseFailure("Không thể ghi nhận chi phí.");
   if (parsed.data.loanId) revalidatePath(`/loans/${parsed.data.loanId}`);
+  revalidatePath("/expenses");
   revalidatePath("/loans");
   revalidatePath("/dashboard");
   return { ok: true, message: "Đã ghi nhận chi phí." };
@@ -221,7 +222,8 @@ export async function reverseTransactionAction(
     p_idempotency_key: parsed.data.idempotencyKey,
   });
   if (error) return databaseFailure("Không thể đảo giao dịch này. Giao dịch có thể đã được đảo trước đó.");
-  revalidatePath(`/loans/${parsed.data.loanId}`);
+  if (parsed.data.loanId) revalidatePath(`/loans/${parsed.data.loanId}`);
+  revalidatePath("/expenses");
   revalidatePath("/loans");
   revalidatePath("/dashboard");
   return { ok: true, message: "Đã tạo giao dịch đảo." };

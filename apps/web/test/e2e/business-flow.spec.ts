@@ -7,8 +7,8 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await page.getByRole("button", { name: "Đăng nhập" }).click();
 
   await expect(page).toHaveURL(/change-password/);
-  await page.getByLabel("Mật khẩu mới", { exact: true }).fill("OwnerE2eFinal123");
-  await page.getByLabel("Nhập lại mật khẩu mới").fill("OwnerE2eFinal123");
+  await page.getByLabel("Mật khẩu mới", { exact: true }).fill("123456");
+  await page.getByLabel("Nhập lại mật khẩu mới").fill("123456");
   await page.getByRole("button", { name: "Lưu mật khẩu mới" }).click();
   await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
 
@@ -44,23 +44,47 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await page.getByRole("link", { name: "Lịch sử" }).first().click();
   await expect(page.getByRole("heading", { name: "Lịch sử chỉnh sửa" })).toBeVisible();
   await expect(page.getByText(/Thực hiện bởi C6 Owner E2E/).first()).toBeVisible();
+
+  await page.goto("/expenses");
+  await page.getByLabel("Số tiền (VND)").fill("150000");
+  await page.getByLabel("Nhóm chi phí").fill("Vận hành E2E");
+  await page.getByLabel("Ghi chú").fill("Chi phí chung E2E");
+  await page.getByRole("button", { name: "Ghi chi phí chung" }).click();
+  await expect(page.getByRole("heading", { name: "Vận hành E2E" })).toBeVisible();
 });
 
 test("business pages remain usable at 375px", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/login");
   await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
-  await page.getByLabel("Mật khẩu", { exact: true }).fill("OwnerE2eFinal123");
+  await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
   await page.getByRole("button", { name: "Đăng nhập" }).click();
   await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
   await expect(page.getByRole("navigation", { name: "Điều hướng chính" })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
 });
 
+test("editor is redirected away from owner-only pages", async ({ page }) => {
+  await page.goto("/login");
+  await page.getByLabel("Tên đăng nhập").fill("c13_editor_e2e");
+  await page.getByLabel("Mật khẩu", { exact: true }).fill("EditorE2eTemp123");
+  await page.getByRole("button", { name: "Đăng nhập" }).click();
+  await expect(page).toHaveURL(/change-password/);
+  await page.getByLabel("Mật khẩu mới", { exact: true }).fill("abcdef");
+  await page.getByLabel("Nhập lại mật khẩu mới").fill("abcdef");
+  await page.getByRole("button", { name: "Lưu mật khẩu mới" }).click();
+  await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
+
+  await page.goto("/settings");
+  await expect(page).toHaveURL(/dashboard/);
+  await page.goto("/audit");
+  await expect(page).toHaveURL(/dashboard/);
+});
+
 test("dashboard is responsive and readable in light and dark modes", async ({ page }) => {
   await page.goto("/login");
   await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
-  await page.getByLabel("Mật khẩu", { exact: true }).fill("OwnerE2eFinal123");
+  await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
   await page.getByRole("button", { name: "Đăng nhập" }).click();
   await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
 
@@ -85,7 +109,7 @@ test("dashboard is responsive and readable in light and dark modes", async ({ pa
 test("PWA manifest, service worker and notification center are available", async ({ page }) => {
   await page.goto("/login");
   await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
-  await page.getByLabel("Mật khẩu", { exact: true }).fill("OwnerE2eFinal123");
+  await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
   await page.getByRole("button", { name: "Đăng nhập" }).click();
   await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
 

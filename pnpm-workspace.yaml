@@ -9,3 +9,7 @@ allowBuilds:
 engineStrict: true
 nodeVersion: 24.15.0
 savePrefix: ""
+
+overrides:
+  postcss: 8.5.25
+  sharp: 0.35.0

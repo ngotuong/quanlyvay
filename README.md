@@ -15,8 +15,11 @@ Webapp/PWA quản lý các khoản đi vay và cho vay cá nhân, sử dụng Ne
 - C8 — PWA và thông báo local: hoàn tất.
 - C9 — Google Sync local: hoàn tất.
 - C10 — Supabase remote: hoàn tất.
-- C11 — Google/Clasp remote: chờ phê duyệt và xác nhận tài khoản riêng.
-- GitHub private và Supabase Singapore đã liên kết; chưa kết nối Vercel, Google hoặc `clasp` remote.
+- C11 — Google/Clasp remote: hoàn tất.
+- C12 — Vercel Preview: hoàn tất.
+- C13 — Production/UAT: restore, cleanup UAT, Production deploy, chính sách mật khẩu mới và bootstrap
+  OWNER thật đã đạt; còn Web Push delivery trên thiết bị.
+- GitHub private, Supabase Singapore, Google/Clasp và Vercel Production đã liên kết; Production chạy tại `https://quan-ly-vay-ca-nhan.vercel.app`.
 
 Trạng thái hiện tại luôn được lấy từ `PROJECT_CONTEXT.md`; roadmap nằm trong `docs/IMPLEMENTATION_PLAN.md`.
 
