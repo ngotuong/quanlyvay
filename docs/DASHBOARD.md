@@ -11,8 +11,10 @@ Ngày chốt số liệu dùng ngày nghiệp vụ `Asia/Ho_Chi_Minh`. Giao dị
 - Dư nợ cho vay/đi vay: tổng dư nợ gốc tại ngày chốt theo từng hướng.
 - Lãi đã thu: tổng giao dịch lãi của các khoản `LENDING`.
 - Lãi đã trả: tổng giao dịch lãi của các khoản `BORROWING`.
-- Lợi nhuận tiền mặt: lãi đã thu − lãi đã trả − chi phí khác.
-- Lợi nhuận dồn tích: lãi phát sinh cho vay − lãi phát sinh đi vay − chi phí khác.
+- Lãi ròng đã thu/chi (cơ sở tiền mặt): lãi đã thu − lãi đã trả − chi phí khác.
+- Lãi ròng phát sinh đến hôm nay (cơ sở dồn tích): lãi phát sinh cho vay − lãi phát sinh đi vay −
+  chi phí khác, gồm cả phần lãi chưa thanh toán. Giá trị thay đổi theo ngày là đúng bản chất phát
+  sinh; đây không phải số tiền đã thực thu/thực chi.
 - Lãi dự kiến kỳ tới: số dư lãi dương tại ngày đóng lãi kế tiếp của các khoản đang hoạt động.
 - Sắp đến hạn: khoản đang hoạt động có ngày đóng lãi kế tiếp trong 30 ngày tính từ ngày chốt.
 - Quá hạn: khoản có trạng thái tính toán `OVERDUE`; không áp dụng lãi phạt.

@@ -17,8 +17,13 @@ Mọi input từ web được validate bằng Zod trong Server Actions. Các tha
 PostgreSQL; frontend không tự tính dư nợ hoặc lãi. Migration C6 bổ sung các RPC:
 
 - `create_counterparty`, `update_counterparty`, `delete_counterparty`
-- `create_loan`: tạo khoản vay và giao dịch giải ngân trong cùng transaction, có idempotency key
-- `update_loan_details`: chỉ sửa tên, đối tác và ghi chú; không sửa hồi tố điều khoản tài chính
+- `create_loan_v2`: tạo khoản vay và giao dịch giải ngân trong cùng transaction, nhận lãi suất của
+  cả chu kỳ, tự sinh nhãn khi người dùng để trống và có idempotency key
+- `update_loan_details`: sửa nhãn tùy chọn, đối tác và ghi chú; nhãn trống được tự sinh lại
+- `correct_loan_terms`: luồng chuyên biệt để sửa dữ liệu khởi tạo nhập sai. RPC khóa khoản vay, cập
+  nhật điều khoản có audit, đảo giải ngân cũ, thêm giải ngân thay thế và rebuild lãi trong cùng
+  transaction; lý do và idempotency key là bắt buộc
+- `get_loan_term_summary`: trả lãi suất cả kỳ và tiền lãi của một kỳ đầu đủ ngày từ PostgreSQL
 - `record_expense`: tạo transaction và category chi phí nguyên tử; khóa idempotency kiểm tra cả
   khoản vay, ngày, số tiền, nhóm chi phí và ghi chú
 
@@ -31,6 +36,8 @@ Các RPC tài chính C4 tiếp tục xử lý thanh toán, lifecycle, reversal v
 - Form có label hiển thị, thông báo lỗi gần trường, loading state và touch target tối thiểu 44px.
 - Trạng thái không chỉ biểu diễn bằng màu mà luôn có nhãn chữ.
 - Giao dịch đảo (kể cả chi phí chung), xóa đối tác và tất toán đều yêu cầu xác nhận.
+- Sửa dữ liệu ban đầu nằm trong vùng mở rộng riêng, hiển thị cảnh báo, bắt buộc lý do và checkbox
+  xác nhận. Khoản đã tất toán không hiển thị thao tác này.
 - `loading.tsx` cung cấp skeleton khi route đang tải; reduced-motion được tôn trọng.
 
 ## Kiểm thử

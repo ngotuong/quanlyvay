@@ -24,8 +24,9 @@ export function LoanForm({
       {loan ? <input name="loanId" type="hidden" value={loan.id} /> : <input name="idempotencyKey" type="hidden" value={idempotencyKey} />}
       <div className="form-grid two-columns">
         <div className="field-group form-span-2">
-          <label htmlFor={`loan-name-${suffix}`}>Tên khoản vay <span aria-hidden="true">*</span></label>
-          <input id={`loan-name-${suffix}`} name="name" defaultValue={loan?.name} required maxLength={120} placeholder="Ví dụ: Khoản vay anh Nam tháng 8" />
+          <label htmlFor={`loan-name-${suffix}`}>Nhãn phân biệt (không bắt buộc)</label>
+          <input id={`loan-name-${suffix}`} name="name" defaultValue={loan?.name} maxLength={120} placeholder="Để trống để hệ thống tự đặt" />
+          <p className="field-hint">Chỉ cần nhập khi bạn muốn một tên dễ nhớ; hệ thống vẫn phân biệt các khoản vay bằng mã riêng.</p>
           <FieldError state={state} name="name" />
         </div>
         <div className="field-group">
@@ -67,9 +68,10 @@ export function LoanForm({
               <FieldError state={state} name="interestCycleDays" />
             </div>
             <div className="field-group">
-              <label htmlFor="initialDailyRatePercent">Lãi suất (%/ngày) <span aria-hidden="true">*</span></label>
-              <input id="initialDailyRatePercent" name="initialDailyRatePercent" inputMode="decimal" defaultValue="0.1" required />
-              <FieldError state={state} name="initialDailyRatePercent" />
+              <label htmlFor="initialPeriodRatePercent">Lãi suất mỗi kỳ (%) <span aria-hidden="true">*</span></label>
+              <input id="initialPeriodRatePercent" name="initialPeriodRatePercent" inputMode="decimal" defaultValue="3" required aria-describedby="initial-period-rate-hint" />
+              <p className="field-hint" id="initial-period-rate-hint">Ví dụ nhập 3 nghĩa là 3% cho chu kỳ đã chọn. Hệ thống tự quy đổi để tính chính xác theo ngày.</p>
+              <FieldError state={state} name="initialPeriodRatePercent" />
             </div>
           </>
         ) : null}

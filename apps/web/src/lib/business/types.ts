@@ -38,6 +38,12 @@ export type Loan = {
   calculation?: CalculationSnapshot | null;
 };
 
+export type LoanTermSummary = {
+  cycleDays: 15 | 30;
+  periodRatePercent: string;
+  fullPeriodInterestVnd: string;
+};
+
 export type LoanTransaction = {
   id: string;
   type: "DISBURSEMENT" | "INTEREST_PAYMENT" | "PRINCIPAL_PAYMENT" | "EXPENSE" | "REVERSAL";

@@ -72,8 +72,8 @@ export default async function DashboardPage() {
   const metrics = [
     { label: "Dư nợ cho vay", value: dashboard.lendingOutstandingVnd, icon: ArrowUpRight, tone: "lending" },
     { label: "Dư nợ đi vay", value: dashboard.borrowingOutstandingVnd, icon: ArrowDownLeft, tone: "borrowing" },
-    { label: "Lợi nhuận tiền mặt", value: dashboard.cashProfitVnd, icon: WalletCards, tone: "profit", hint: "Lãi đã thu − lãi đã trả − chi phí" },
-    { label: "Lợi nhuận dồn tích", value: dashboard.accrualProfitVnd, icon: TrendingUp, tone: "accrual", hint: "Lãi phát sinh cho vay − đi vay − chi phí" },
+    { label: "Lãi ròng đã thu/chi", value: dashboard.cashProfitVnd, icon: WalletCards, tone: "profit", hint: "Chỉ tính lãi đã thu − lãi đã trả − chi phí" },
+    { label: "Lãi ròng phát sinh đến hôm nay", value: dashboard.accrualProfitVnd, icon: TrendingUp, tone: "accrual", hint: "Gồm cả lãi chưa thanh toán đã phát sinh đến hôm nay" },
   ];
 
   return (

@@ -20,14 +20,26 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
 
   await page.getByRole("link", { name: "Khoản vay" }).first().click();
   await page.getByRole("link", { name: "Tạo khoản vay" }).first().click();
-  await page.getByLabel("Tên khoản vay").fill("Khoản vay E2E");
   await page.getByLabel("Đối tác").selectOption({ label: "Anh Nam E2E" });
   await page.getByLabel("Số tiền gốc (VND)").fill("10000000");
   await page.getByLabel("Số ngày vay").fill("30");
-  await page.getByLabel("Lãi suất (%/ngày)").fill("0.1");
+  await page.getByLabel("Lãi suất mỗi kỳ (%)").fill("3");
   await page.getByRole("button", { name: "Tạo khoản vay" }).click();
 
-  await expect(page.getByRole("heading", { name: "Khoản vay E2E" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Anh Nam E2E · Cho vay · 10\.000\.000 ₫/ })).toBeVisible();
+  await expect(page.getByText("3%/30 ngày", { exact: true }).first()).toBeVisible();
+  await expect(page.getByText("Kỳ đầu đủ ngày: 300.000 ₫", { exact: true })).toBeVisible();
+
+  await page.getByText("Sửa dữ liệu ban đầu đã nhập sai").click();
+  await page.getByLabel("Số tiền gốc ban đầu (VND)").fill("12000000");
+  await page.getByLabel("Số ngày vay").last().fill("45");
+  await page.getByLabel("Lãi suất mỗi kỳ (%)").last().fill("3.6");
+  await page.getByLabel("Lý do điều chỉnh").fill("Nhập nhầm dữ liệu khi tạo khoản vay E2E");
+  await page.getByLabel(/Tôi đã kiểm tra lại dữ liệu/).check();
+  await page.getByRole("button", { name: "Áp dụng điều chỉnh" }).click();
+  await expect(page.getByText("Đã điều chỉnh dữ liệu ban đầu và lưu đầy đủ lịch sử.")).toBeVisible();
+  await expect(page.getByRole("heading", { name: /Anh Nam E2E · Cho vay · 12\.000\.000 ₫/ })).toBeVisible();
+  await expect(page.getByText("Điều chỉnh dữ liệu ban đầu: Nhập nhầm dữ liệu khi tạo khoản vay E2E")).toBeVisible();
   await page.getByLabel("Số tiền (VND)").first().fill("300000");
   await page.getByLabel("Ghi chú").first().fill("Thu lãi kỳ đầu");
   await page.getByRole("button", { name: "Ghi nhận", exact: true }).click();
@@ -92,7 +104,8 @@ test("dashboard is responsive and readable in light and dark modes", async ({ pa
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/dashboard");
     await expect(page.getByRole("heading", { name: "Dashboard" })).toBeVisible();
-    await expect(page.getByText("Lợi nhuận tiền mặt", { exact: true })).toBeVisible();
+    await expect(page.getByText("Lãi ròng đã thu/chi", { exact: true })).toBeVisible();
+    await expect(page.getByText("Lãi ròng phát sinh đến hôm nay", { exact: true })).toBeVisible();
     await expect(page.getByRole("img", { name: /Biểu đồ cột/ })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   }

@@ -5,6 +5,7 @@ import { redirect } from "next/navigation";
 import { requireOwnerProfile, requireWriterProfile } from "@/lib/auth/session";
 import {
   counterpartySchema,
+  correctLoanTermsSchema,
   createLoanSchema,
   deleteCounterpartySchema,
   expenseSchema,
@@ -77,7 +78,7 @@ export async function createLoanAction(
   const parsed = createLoanSchema.safeParse(values(formData));
   if (!parsed.success) return validationFailure(parsed.error);
   const supabase = await createClient();
-  const { data, error } = await supabase.rpc("create_loan", {
+  const { data, error } = await supabase.rpc("create_loan_v2", {
     p_counterparty_id: parsed.data.counterpartyId,
     p_name: parsed.data.name,
     p_direction: parsed.data.direction,
@@ -85,7 +86,7 @@ export async function createLoanAction(
     p_disbursement_date: parsed.data.disbursementDate,
     p_term_days: parsed.data.termDays,
     p_interest_cycle_days: parsed.data.interestCycleDays,
-    p_initial_daily_rate_percent: parsed.data.initialDailyRatePercent,
+    p_initial_period_rate_percent: parsed.data.initialPeriodRatePercent,
     p_idempotency_key: parsed.data.idempotencyKey,
     p_notes: parsed.data.notes,
   });
@@ -114,6 +115,43 @@ export async function updateLoanAction(
   revalidatePath("/loans");
   revalidatePath("/dashboard");
   return { ok: true, message: "Đã cập nhật khoản vay." };
+}
+
+export async function correctLoanTermsAction(
+  _state: BusinessActionState,
+  formData: FormData,
+): Promise<BusinessActionState> {
+  await requireWriterProfile();
+  const parsed = correctLoanTermsSchema.safeParse(values(formData));
+  if (!parsed.success) return validationFailure(parsed.error);
+  const supabase = await createClient();
+  const { error } = await supabase.rpc("correct_loan_terms", {
+    p_loan_id: parsed.data.loanId,
+    p_direction: parsed.data.direction,
+    p_original_principal_vnd: parsed.data.originalPrincipalVnd,
+    p_disbursement_date: parsed.data.disbursementDate,
+    p_term_days: parsed.data.termDays,
+    p_interest_cycle_days: parsed.data.interestCycleDays,
+    p_initial_period_rate_percent: parsed.data.initialPeriodRatePercent,
+    p_reason: parsed.data.reason,
+    p_idempotency_key: parsed.data.idempotencyKey,
+  });
+  if (error) {
+    if (error.message.includes("existing loan activity")) {
+      return databaseFailure("Ngày giải ngân mới không thể sau một giao dịch hoặc sự kiện đã ghi. Hãy chọn ngày sớm hơn.");
+    }
+    if (error.message.includes("principal already paid")) {
+      return databaseFailure("Số tiền gốc mới không thể thấp hơn tổng tiền gốc đã thanh toán.");
+    }
+    if (error.message.includes("settled loan")) {
+      return databaseFailure("Khoản vay đã tất toán nên không thể sửa dữ liệu ban đầu.");
+    }
+    return databaseFailure("Không thể áp dụng điều chỉnh. Hãy kiểm tra lại ngày, số tiền và lãi suất.");
+  }
+  revalidatePath(`/loans/${parsed.data.loanId}`);
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
+  return { ok: true, message: "Đã điều chỉnh dữ liệu ban đầu và lưu đầy đủ lịch sử." };
 }
 
 export async function recordPaymentAction(
@@ -171,12 +209,12 @@ export async function recordLifecycleAction(
   const parsed = lifecycleSchema.safeParse(values(formData));
   if (!parsed.success) return validationFailure(parsed.error);
   const supabase = await createClient();
-  const { error } = await supabase.rpc("record_lifecycle_event", {
+  const { error } = await supabase.rpc("record_lifecycle_event_v2", {
     p_loan_id: parsed.data.loanId,
     p_event_type: parsed.data.eventType,
     p_effective_date: parsed.data.effectiveDate,
     p_idempotency_key: parsed.data.idempotencyKey,
-    p_daily_rate_percent: parsed.data.dailyRatePercent,
+    p_period_rate_percent: parsed.data.periodRatePercent,
     p_note: parsed.data.note,
   });
   if (error) return databaseFailure("Không thể cập nhật trạng thái hoặc lãi suất tại ngày đã chọn.");

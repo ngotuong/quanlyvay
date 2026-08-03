@@ -13,6 +13,7 @@ import type {
   InterestPeriod,
   LifecycleEvent,
   Loan,
+  LoanTermSummary,
   LoanTransaction,
   AppNotification,
 } from "./types";
@@ -107,7 +108,7 @@ export async function listLoans() {
 
 export async function getLoanWorkspace(id: string) {
   const supabase = await createClient();
-  const [loanResult, transactionsResult, eventsResult, periodsResult, calculationResult] = await Promise.all([
+  const [loanResult, transactionsResult, eventsResult, periodsResult, calculationResult, termSummaryResult] = await Promise.all([
     supabase
       .from("loans")
       .select("id, counterparty_id, name, direction, status, original_principal_vnd, disbursement_date, term_days, maturity_date, interest_cycle_days, initial_daily_rate_percent, settled_on, notes, created_at, counterparties(name)")
@@ -133,19 +134,21 @@ export async function getLoanWorkspace(id: string) {
       p_loan_id: id,
       p_as_of_date: todayInVietnam(),
     }),
+    supabase.rpc("get_loan_term_summary", { p_loan_id: id }),
   ]);
 
   if (loanResult.error || !loanResult.data) notFound();
   if (transactionsResult.error || eventsResult.error || periodsResult.error) {
     throw new Error("Không thể tải đầy đủ lịch sử khoản vay.");
   }
-  if (calculationResult.error) throw new Error("Không thể tính trạng thái khoản vay.");
+  if (calculationResult.error || termSummaryResult.error) throw new Error("Không thể tính trạng thái khoản vay.");
 
   return {
     loan: { ...(loanResult.data as unknown as Loan), calculation: calculationResult.data as CalculationSnapshot },
     transactions: (transactionsResult.data ?? []) as unknown as LoanTransaction[],
     events: (eventsResult.data ?? []) as LifecycleEvent[],
     periods: (periodsResult.data ?? []) as InterestPeriod[],
+    termSummary: termSummaryResult.data as LoanTermSummary,
   };
 }
 

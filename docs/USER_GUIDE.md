@@ -36,14 +36,19 @@ Chỉ OWNER có thể xóa đối tác và chỉ xóa được đối tác chưa
 
 1. Mở **Khoản vay** → **Tạo khoản vay**.
 2. Chọn đối tác đã tạo.
-3. Chọn loại:
+3. Có thể để trống **Nhãn phân biệt**. Hệ thống tự đặt nhãn từ đối tác, loại vay, số tiền và ngày
+   giải ngân; mỗi khoản vẫn có ID riêng nên một đối tác có thể có nhiều khoản vay.
+4. Chọn loại:
    - **Cho vay**: bạn giao tiền cho người khác.
    - **Đi vay**: bạn nhận tiền từ người khác.
-4. Nhập số tiền gốc, ngày giải ngân, số ngày vay, chu kỳ đóng lãi 15/30 ngày và lãi suất `%/ngày`.
-5. Kiểm tra kỹ rồi lưu.
+5. Nhập số tiền gốc, ngày giải ngân, số ngày vay, chu kỳ đóng lãi 15/30 ngày và lãi suất `%` của
+   **cả kỳ**. Ví dụ chu kỳ 30 ngày với lãi 3% thì nhập `3`, không nhập `0,1`.
+6. Kiểm tra kỹ rồi lưu. Trang chi tiết hiển thị cả lãi suất mỗi kỳ và số tiền lãi của kỳ đầu đủ ngày.
 
-Thông tin tài chính gốc được khóa sau khi tạo. Không nên tạo lại cùng một khoản nếu trình duyệt phản
-hồi chậm; hệ thống có khóa idempotency để hạn chế ghi trùng.
+Nếu dữ liệu khởi tạo bị nhập sai, mở chi tiết → **Sửa dữ liệu ban đầu đã nhập sai**, nhập lại dữ
+liệu, lý do và xác nhận. Hệ thống không xóa lịch sử: giải ngân cũ được đảo, giải ngân thay thế được
+thêm và toàn bộ lịch lãi được tính lại. Khoản đã tất toán không cho sửa theo cách này. Không nên tạo
+lại cùng một khoản nếu trình duyệt phản hồi chậm; hệ thống có khóa idempotency để hạn chế ghi trùng.
 
 ### Bước 3 — Ghi nhận phát sinh
 
@@ -67,8 +72,9 @@ hành. Chi phí nhập sai cũng được sửa bằng thao tác đảo.
 Dashboard lấy số liệu trực tiếp từ sổ giao dịch và hiển thị:
 
 - Dư nợ cho vay và dư nợ đi vay.
-- Lợi nhuận tiền mặt: lãi đã thu trừ lãi đã trả và chi phí.
-- Lợi nhuận dồn tích: lãi đã phát sinh trừ lãi phải trả và chi phí.
+- **Lãi ròng đã thu/chi**: chỉ tính tiền lãi đã thực thu trừ lãi đã thực trả và chi phí.
+- **Lãi ròng phát sinh đến hôm nay**: gồm cả lãi đã phát sinh nhưng chưa thanh toán, nên có thể thay
+  đổi mỗi ngày.
 - Lãi đã thu, lãi đã trả, chi phí khác và lãi dự kiến kỳ tới.
 - Dòng tiền vào/ra sáu tháng gần nhất.
 - Khoản sắp đến hạn trong 30 ngày và khoản đã quá hạn.

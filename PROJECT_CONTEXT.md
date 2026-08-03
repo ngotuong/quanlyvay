@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.45
-last_updated: 2026-08-03 20:05:39 +07
+roadmap_version: 1.0.48
+last_updated: 2026-08-03 21:16:45 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C14
-current_status: COMPLETED
+current_checkpoint: C16
+current_status: AWAITING_APPROVAL
 ---
 
 # Project Context
@@ -37,7 +37,7 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `apps/web` dùng Next.js 16.2.12, React 19.2.4, TypeScript 5.9.3, Tailwind CSS 4.3.3 và ESLint 9.39.5.
 - `packages/domain-contract` chứa type contract và test fixture độc lập với production engine.
 - `docs/DOMAIN_SPEC.md` là đặc tả nghiệp vụ v1 đã khóa cho C3–C4.
-- Supabase local đã được khởi tạo với PostgreSQL 17, 7 migration, RLS và 201 pgTAP assertions.
+- Supabase local đã được khởi tạo với PostgreSQL 17, 8 migration, RLS và 222 pgTAP assertions.
 - Bộ máy tài chính authoritative nằm trong PostgreSQL, có RPC tính/rebuild, ghi thanh toán, lifecycle, reversal và tất toán nguyên tử.
 - `docs/FINANCIAL_ENGINE.md` mô tả contract C4; engine đã được giữ nguyên qua regression C5.
 - Local Auth dùng username/password ánh xạ sang email nội bộ, session SSR, bắt đổi mật khẩu và vai trò `OWNER`/`EDITOR`/`VIEWER`; public signup bị tắt.
@@ -75,12 +75,26 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C14 — Hiệu năng và độ mượt UX |
-| Trạng thái | `COMPLETED` |
-| Phạm vi được duyệt | Đồng vùng Vercel Functions với Supabase Singapore; giảm waterfall Auth/dữ liệu/thông báo; bổ sung phản hồi chuyển trang/loading ổn định; đo trước/sau và rà responsive/accessibility |
-| Kết quả | Production chạy Function tại `sin1`; median TTFB nóng `/login` giảm khoảng 424→247 ms (~42%); Auth/E2E/database, responsive 375 px và browser smoke đều đạt |
+| Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
+| Trạng thái | `AWAITING_APPROVAL` |
+| Phạm vi đề xuất | Người dùng nhập các khoản vay hiện hữu; đối chiếu hợp đồng, lịch lãi, dòng tiền và Dashboard với ghi chép thủ công; mọi sửa dữ liệu Production xác nhận riêng |
+| Kết quả | Chưa bắt đầu |
 
 ## 4. Checkpoint hoàn tất gần nhất
+
+### C15 — Sửa dữ liệu khoản vay và trình bày lãi theo kỳ
+
+- Trạng thái: `COMPLETED`.
+- Đầu ra: correction có reversal/replacement/audit/idempotency, nhập-hiển thị lãi theo kỳ, tiền lãi
+  kỳ đầu authoritative, nhãn vay tự sinh và tên chỉ số Dashboard rõ nghĩa.
+- Verification: lint/typecheck/28 tests/build, Auth 6/6, E2E 6/6, pgTAP 222/222; Supabase remote
+  8/8; deployment Production Ready tại `sin1`; browser, HTTP smoke và cron đạt.
+- Migration `20260803204500_c15_loan_corrections.sql` đã áp lên Production sau xác nhận. Bốn RPC C15
+  hiện diện, bảng correction rỗng và dữ liệu hiện hữu vẫn là 1 khoản vay/1 giao dịch; RPC term
+  summary đọc được khoản hiện tại mà không sửa dữ liệu.
+- Vercel Production `dpl_8LugJRs4T3YB3R9u4gUhkfqZnENr` Ready, canonical alias đúng. Browser OWNER
+  xác nhận Dashboard/chi tiết/form correction C15, console không lỗi. Login, manifest, service
+  worker trả 200; endpoint cron/export thiếu secret trả 401; cron hằng ngày còn đủ.
 
 ### C13 — Production/UAT
 
@@ -116,8 +130,10 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-Không còn checkpoint nào sau C14 trong roadmap hiện tại. Dự án sẵn sàng để người dùng nhập số liệu
-đầu tiên và kiểm thử nghiệp vụ; mọi phạm vi mới vẫn cần checkpoint hoặc xác nhận riêng.
+| Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
+|---|---|
+| Trạng thái | `AWAITING_APPROVAL` |
+| Phạm vi đề xuất | Nhập các khoản vay hiện hữu, đối chiếu từng hợp đồng/lịch lãi/dòng tiền/Dashboard với ghi chép thủ công; mọi sửa dữ liệu Production cần xác nhận riêng |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -144,8 +160,8 @@ Không còn checkpoint nào sau C14 trong roadmap hiện tại. Dự án sẵn s
 | Dịch vụ | Trạng thái |
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
-| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; 7/7 migration gồm audit remediation đã áp |
-| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; C14 Production `dpl_Eq1pHfEm95k3shoKEtwy2oP5N1kB` Ready tại `https://quan-ly-vay-ca-nhan.vercel.app`, Functions ở `sin1`, đủ 8 env và cron `/api/notifications/run` lúc `0 0 * * *`; Preview C13 vẫn Ready |
+| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; 8/8 migration gồm C15 correction đã áp |
+| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; C15 Production `dpl_8LugJRs4T3YB3R9u4gUhkfqZnENr` Ready tại `https://quan-ly-vay-ca-nhan.vercel.app`, Functions ở `sin1`, đủ 8 env và cron `/api/notifications/run` lúc `0 0 * * *`; Preview C13 vẫn Ready |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; 4 file đã push, `SYNC_API_URL` dùng Production canonical, restore xóa cursor để lần sync kế tiếp tải lại nguồn, hai trigger `runWeeklySnapshot` và `runGoogleSheetSync` cùng hoạt động |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; restore snapshot `QLV_Snapshot_2026-08-02` và sync lại đã đạt, workbook hiện phản ánh nguồn `empty`; thư mục `QuanLyVayCaNhan_Backups` cùng hai snapshot giữ nguyên |
 
@@ -153,6 +169,8 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 
 ## 8. Blocker và cổng xác nhận
 
+- C15 không còn blocker. C16 đang chờ người dùng phê duyệt; không tự nhập, sửa hoặc đối chiếu dữ
+  liệu Production nếu chưa có phạm vi/xác nhận tương ứng.
 - C11 hoàn tất; kiểm thử phục hồi snapshot toàn trình được giữ cho UAT ở C13.
 - Google Drive connector hiện đăng nhập tài khoản khác nên không đọc được Sheet ID của dự án; đây
   không phải lỗi runtime. `clasp logs` cũng không khả dụng vì Apps Script chưa liên kết GCP project;
@@ -361,10 +379,19 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-03` — C14 Production `dpl_Eq1pHfEm95k3shoKEtwy2oP5N1kB` Ready ở `sin1`; median TTFB nóng
+1. `2026-08-03` — Sau xác nhận riêng, áp migration C15 remote và xác minh history 8/8, bốn RPC cùng
+   dữ liệu hiện hữu không đổi; deploy Production `dpl_8LugJRs4T3YB3R9u4gUhkfqZnENr` Ready tại
+   `sin1`, canonical/browser/smoke/cron đạt. C15 `COMPLETED`, C16 `AWAITING_APPROVAL`.
+2. `2026-08-03` — C15 local sẵn sàng: correction nguyên tử có reversal/replacement/audit, input lãi
+   theo kỳ, tiền lãi kỳ đầu authoritative, tên tùy chọn/tự sinh và nhãn Dashboard rõ nghĩa. Gate đạt
+   lint/typecheck/28 tests/build, Auth 6/6, E2E 6/6, pgTAP 222/222; chờ migration/deploy remote.
+3. `2026-08-03` — Người dùng phê duyệt C15; chuyển `IN_PROGRESS`. Khóa phạm vi sửa dữ liệu khởi tạo
+   bằng reversal/audit, nhập-hiển thị lãi theo kỳ, tên khoản vay tùy chọn/tự sinh và đổi nhãn lợi
+   nhuận; migration remote/deploy Production vẫn cần xác nhận riêng.
+4. `2026-08-03` — C14 Production `dpl_Eq1pHfEm95k3shoKEtwy2oP5N1kB` Ready ở `sin1`; median TTFB nóng
    `/login` giảm 424→247 ms (~42%). Workaround profile Supabase local hoạt động; Auth 6/6, E2E 6/6,
    pgTAP 201/201, responsive/browser smoke và diff-check đạt. C14 chuyển `COMPLETED`.
-2. `2026-08-03` — C13 hoàn tất. Người dùng xác nhận Web Push delivery; notification/delivery test đã
+5. `2026-08-03` — C13 hoàn tất. Người dùng xác nhận Web Push delivery; notification/delivery test đã
    xóa đúng phạm vi, subscription giữ nguyên. Gate cuối lint/typecheck/28 tests/build/diff-check và
    Production smoke đạt; roadmap hiện không có checkpoint sau C13.
 2. `2026-08-03` — Apps Script owner xác minh đúng (UI hiển thị alias `ngotuong077@gmail.com` của

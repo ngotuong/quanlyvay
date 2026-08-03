@@ -13,7 +13,7 @@ const uuid = z.uuid("Mã dữ liệu không hợp lệ.");
 const businessDate = z.iso.date("Ngày không hợp lệ.");
 const MAX_BIGINT_VND = BigInt("9223372036854775807");
 
-function dailyRateWithinLimit(value: string) {
+function percentageWithinLimit(value: string) {
   if (!/^\d+(\.\d{1,10})?$/.test(value)) return false;
   const [whole, fraction = ""] = value.split(".");
   const integer = BigInt(whole);
@@ -28,12 +28,18 @@ const vndAmount = z
   .refine((value) => /^\d+$/.test(value) && BigInt(value) > BigInt(0), "Số tiền phải lớn hơn 0.")
   .refine((value) => /^\d+$/.test(value) && BigInt(value) <= MAX_BIGINT_VND, "Số tiền vượt giới hạn lưu trữ VND.");
 
-const dailyRate = z
+const periodRate = z
   .string()
   .trim()
   .transform((value) => value.replace(",", "."))
   .refine((value) => /^\d+(\.\d{1,10})?$/.test(value), "Lãi suất không hợp lệ.")
-  .refine(dailyRateWithinLimit, "Lãi suất phải từ 0 đến 100%/ngày.");
+  .refine(percentageWithinLimit, "Lãi suất phải từ 0 đến 100%/kỳ.");
+
+const optionalLoanName = z
+  .string()
+  .trim()
+  .max(120, "Nhãn phân biệt tối đa 120 ký tự.")
+  .transform((value) => value || null);
 
 export const counterpartySchema = z.object({
   id: z.union([uuid, z.literal("")]).optional(),
@@ -45,13 +51,13 @@ export const deleteCounterpartySchema = z.object({ id: uuid });
 
 export const createLoanSchema = z.object({
   counterpartyId: uuid,
-  name: requiredText("Tên khoản vay", 120),
+  name: optionalLoanName,
   direction: z.enum(["LENDING", "BORROWING"]),
   originalPrincipalVnd: vndAmount,
   disbursementDate: businessDate,
   termDays: z.coerce.number().int().min(1).max(36500),
   interestCycleDays: z.coerce.number().pipe(z.union([z.literal(15), z.literal(30)])),
-  initialDailyRatePercent: dailyRate,
+  initialPeriodRatePercent: periodRate,
   notes: optionalText,
   idempotencyKey: uuid,
 });
@@ -59,8 +65,21 @@ export const createLoanSchema = z.object({
 export const updateLoanSchema = z.object({
   loanId: uuid,
   counterpartyId: uuid,
-  name: requiredText("Tên khoản vay", 120),
+  name: optionalLoanName,
   notes: optionalText,
+});
+
+export const correctLoanTermsSchema = z.object({
+  loanId: uuid,
+  direction: z.enum(["LENDING", "BORROWING"]),
+  originalPrincipalVnd: vndAmount,
+  disbursementDate: businessDate,
+  termDays: z.coerce.number().int().min(1).max(36500),
+  interestCycleDays: z.coerce.number().pipe(z.union([z.literal(15), z.literal(30)])),
+  initialPeriodRatePercent: periodRate,
+  reason: requiredText("Lý do điều chỉnh", 500),
+  confirmation: z.literal("confirmed", { error: "Bạn cần xác nhận đã kiểm tra dữ liệu." }),
+  idempotencyKey: uuid,
 });
 
 export const paymentSchema = z.object({
@@ -85,14 +104,14 @@ export const lifecycleSchema = z.object({
   loanId: uuid,
   eventType: z.enum(["RATE_CHANGE", "BAD_DEBT_START", "INTEREST_RESUME"]),
   effectiveDate: businessDate,
-  dailyRatePercent: z
-    .union([dailyRate, z.literal("")])
+  periodRatePercent: z
+    .union([periodRate, z.literal("")])
     .transform((value) => (value === "" ? null : value)),
   note: optionalText,
   idempotencyKey: uuid,
 }).superRefine((value, context) => {
-  if (value.eventType === "RATE_CHANGE" && value.dailyRatePercent === null) {
-    context.addIssue({ code: "custom", path: ["dailyRatePercent"], message: "Đổi lãi suất cần nhập mức lãi mới." });
+  if (value.eventType === "RATE_CHANGE" && value.periodRatePercent === null) {
+    context.addIssue({ code: "custom", path: ["periodRatePercent"], message: "Đổi lãi suất cần nhập mức lãi mới." });
   }
 });
 

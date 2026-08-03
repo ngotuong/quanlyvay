@@ -14,7 +14,7 @@ import { ActionMessage, FieldError, FormSubmit } from "./form-parts";
 
 type Keys = { payment: string; expense: string; lifecycle: string; settlement: string };
 
-export function LoanActions({ loanId, status, keys }: { loanId: string; status: LoanStatus; keys: Keys }) {
+export function LoanActions({ loanId, status, interestCycleDays, keys }: { loanId: string; status: LoanStatus; interestCycleDays: 15 | 30; keys: Keys }) {
   const [paymentState, paymentAction] = useActionState(recordPaymentAction, initialBusinessActionState);
   const [expenseState, expenseAction] = useActionState(recordExpenseAction, initialBusinessActionState);
   const [lifecycleState, lifecycleAction] = useActionState(recordLifecycleAction, initialBusinessActionState);
@@ -59,7 +59,7 @@ export function LoanActions({ loanId, status, keys }: { loanId: string; status: 
           <input name="idempotencyKey" type="hidden" value={keys.lifecycle} />
           <div className="field-group"><label htmlFor="eventType">Thao tác</label><select id="eventType" name="eventType" defaultValue={status === "BAD_DEBT" ? "INTEREST_RESUME" : "RATE_CHANGE"}>{status !== "BAD_DEBT" ? <><option value="RATE_CHANGE">Đổi lãi suất</option><option value="BAD_DEBT_START">Chuyển nợ xấu, ngừng lãi</option></> : <option value="INTEREST_RESUME">Bật lại tính lãi</option>}</select></div>
           <div className="field-group"><label htmlFor="effectiveDate">Ngày hiệu lực</label><input id="effectiveDate" name="effectiveDate" type="date" defaultValue={today} required /></div>
-          <div className="field-group"><label htmlFor="newRate">Lãi suất mới (%/ngày)</label><input id="newRate" name="dailyRatePercent" inputMode="decimal" placeholder="Để trống khi chuyển nợ xấu" /><FieldError state={lifecycleState} name="dailyRatePercent" /></div>
+          <div className="field-group"><label htmlFor="newRate">Lãi suất mới (%/{interestCycleDays} ngày)</label><input id="newRate" name="periodRatePercent" inputMode="decimal" placeholder="Để trống khi chuyển nợ xấu" aria-describedby="new-rate-hint" /><p className="field-hint" id="new-rate-hint">Nhập phần trăm của cả kỳ {interestCycleDays} ngày.</p><FieldError state={lifecycleState} name="periodRatePercent" /></div>
           <div className="field-group"><label htmlFor="eventNote">Ghi chú</label><input id="eventNote" name="note" maxLength={500} /></div>
           <ActionMessage state={lifecycleState} /><FormSubmit>Cập nhật</FormSubmit>
         </form>

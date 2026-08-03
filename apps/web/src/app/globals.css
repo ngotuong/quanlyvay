@@ -580,6 +580,7 @@ summary { cursor: pointer; font-weight: 700; }
 .metric-card > span { display: grid; width: 38px; height: 38px; place-items: center; margin-bottom: 10px; border-radius: 10px; background: var(--primary-soft); color: var(--primary); }
 .metric-card p { margin: 0 0 4px; color: var(--foreground-muted); font-size: .75rem; }
 .metric-card strong { display: block; overflow-wrap: anywhere; font-size: .92rem; font-variant-numeric: tabular-nums; }
+.metric-card small { display: block; margin-top: 5px; color: var(--foreground-muted); font-size: .7rem; line-height: 1.4; }
 .action-drawer-grid { display: grid; gap: 10px; margin: 16px 0; }
 .action-drawer { border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
 .action-drawer > summary { display: flex; min-height: 50px; align-items: center; padding: 10px 14px; list-style-position: inside; }
@@ -612,6 +613,11 @@ summary { cursor: pointer; font-weight: 700; }
 .loan-settings { margin-top: 16px; }
 .loan-settings details { margin: 0; border: 0; padding: 0; }
 .loan-settings details > summary { min-height: 44px; }
+.loan-settings .correction-details { margin-top: 18px; border-top: 1px solid var(--border); padding-top: 14px; }
+.correction-form { margin-top: 14px; }
+.correction-notice { border: 1px solid color-mix(in srgb, var(--error) 35%, var(--border)); border-radius: 11px; background: var(--error-surface); padding: 12px 14px; color: var(--foreground); font-size: .84rem; line-height: 1.55; }
+.confirmation-field { display: grid; grid-template-columns: 22px minmax(0, 1fr); align-items: start; gap: 10px; color: var(--foreground); font-size: .85rem; line-height: 1.5; cursor: pointer; }
+.confirmation-field input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--primary); }
 .loan-terms { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 14px 0 22px; }
 .loan-terms dt { color: var(--foreground-muted); font-size: .78rem; }
 .loan-terms dd { margin: 4px 0 0; font-weight: 650; }

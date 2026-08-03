@@ -15,13 +15,17 @@ InterestPeriodKind: SCHEDULED | SETTLEMENT | OVERDUE
 
 - Tiền VND là số nguyên, không có phần thập phân.
 - Tại API và fixture, tiền được truyền bằng chuỗi thập phân để tránh mất chính xác trong JavaScript.
-- Lãi suất là chuỗi decimal biểu diễn `%/ngày`; ví dụ `0.1` nghĩa là 0,1% mỗi ngày.
+- Bộ máy tài chính lưu lãi suất bằng decimal `%/ngày`; ví dụ `0.1` nghĩa là 0,1% mỗi ngày. Giao diện
+  nhận và hiển thị `%/kỳ` 15/30 ngày, còn phép chia về mức ngày được thực hiện trong PostgreSQL.
 - Ngày nghiệp vụ là `YYYY-MM-DD` theo `Asia/Ho_Chi_Minh`, không mang timezone offset.
 - Audit timestamp lưu UTC và không được dùng thay cho ngày nghiệp vụ.
 
 ## 2. Khoản vay và lịch kỳ lãi
 
-Một khoản vay có một đối tác, một chiều `LENDING` hoặc `BORROWING`, số gốc ban đầu, ngày giải ngân, số ngày vay, chu kỳ 15/30 ngày và lãi suất ban đầu.
+Một khoản vay có một đối tác, một chiều `LENDING` hoặc `BORROWING`, số gốc ban đầu, ngày giải ngân,
+số ngày vay, chu kỳ 15/30 ngày và lãi suất ban đầu. Tên hiển thị là nhãn tùy chọn; nếu để trống,
+hệ thống tự sinh từ đối tác, chiều vay, số tiền và ngày giải ngân. ID khoản vay mới là định danh
+duy nhất, nên một đối tác có thể có nhiều khoản vay mà không cần tự đặt tên khác nhau.
 
 ```text
 maturity_date = disbursement_date + term_days - 1
@@ -104,13 +108,18 @@ closing_interest_balance =
 - Reversal được ghi nhận tại thời điểm thực hiện nhưng hiệu lực tính lại đặt tại ngày hiệu lực của giao dịch gốc.
 - Hệ thống tính lại mọi kỳ từ ngày sớm nhất bị ảnh hưởng; audit log giữ cả bản gốc và reversal.
 - Reversal của giao dịch gốc khiến kết quả tương đương trường hợp giao dịch gốc chưa từng có, nhưng lịch sử vẫn tồn tại.
+- Riêng giải ngân ban đầu chỉ được reversal bên trong RPC `correct_loan_terms`. Luồng này bắt buộc lý
+  do, tạo giải ngân thay thế, lưu audit và rebuild lịch lãi nguyên tử; người dùng không thể đảo giải
+  ngân bằng thao tác reversal thông thường.
 
 ## 9. Lợi nhuận và dashboard
 
 - Lãi đã thu/đã trả dùng cơ sở tiền mặt từ giao dịch thực tế.
 - Lãi phải thu/phải trả dùng cơ sở dồn tích từ kỳ lãi.
-- Lợi nhuận tiền mặt = lãi thực thu từ `LENDING` − lãi thực trả cho `BORROWING` − chi phí thực trả.
-- Lợi nhuận dồn tích = lãi đã phát sinh từ `LENDING` − lãi đã phát sinh cho `BORROWING` − chi phí.
+- “Lãi ròng đã thu/chi” (cơ sở tiền mặt) = lãi thực thu từ `LENDING` − lãi thực trả cho
+  `BORROWING` − chi phí thực trả.
+- “Lãi ròng phát sinh đến hôm nay” (cơ sở dồn tích) = lãi đã phát sinh từ `LENDING` − lãi đã phát
+  sinh cho `BORROWING` − chi phí, kể cả phần lãi chưa thanh toán.
 - Principal không được tính là doanh thu, chi phí hay lợi nhuận.
 - Chi phí có thể gắn một khoản vay hoặc để trống cho chi phí chung.
 
