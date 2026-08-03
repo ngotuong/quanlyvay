@@ -17,8 +17,8 @@ Webapp/PWA quản lý các khoản đi vay và cho vay cá nhân, sử dụng Ne
 - C10 — Supabase remote: hoàn tất.
 - C11 — Google/Clasp remote: hoàn tất.
 - C12 — Vercel Preview: hoàn tất.
-- C13 — Production/UAT: restore, cleanup UAT, Production deploy, chính sách mật khẩu mới và bootstrap
-  OWNER thật đã đạt; còn Web Push delivery trên thiết bị.
+- C13 — Production/UAT: hoàn tất; restore/cleanup, Production deploy, OWNER, Google Sync, snapshot và
+  Web Push delivery thật đều đã được kiểm thử.
 - GitHub private, Supabase Singapore, Google/Clasp và Vercel Production đã liên kết; Production chạy tại `https://quan-ly-vay-ca-nhan.vercel.app`.
 
 Trạng thái hiện tại luôn được lấy từ `PROJECT_CONTEXT.md`; roadmap nằm trong `docs/IMPLEMENTATION_PLAN.md`.
@@ -43,6 +43,8 @@ Luồng Auth/RBAC nằm trong `docs/AUTH.md`; các màn hình và workflow nghi�
 
 Quy tắc PWA/Web Push nằm trong `docs/PWA_NOTIFICATIONS.md`; contract đồng bộ Sheet một chiều,
 snapshot và phục hồi nằm trong `docs/GOOGLE_SYNC.md`.
+
+Hướng dẫn thao tác dành cho người dùng nằm trong `docs/USER_GUIDE.md`.
 
 ## Phát triển local
 
