@@ -258,7 +258,7 @@ test("dashboard is responsive and readable in light and dark modes", async ({ pa
   await page.emulateMedia({ colorScheme: "dark" });
   await page.reload();
   await expect(page.getByRole("heading", { name: "Xu hướng dòng tiền" })).toBeVisible();
-  await page.locator(".cash-flow-card .chart-data-details > summary").click();
+  await page.locator(".cash-flow-card .chart-data-details > summary").first().click();
   await expect(page.getByRole("columnheader", { name: "Tiền vào" })).toBeVisible();
   const background = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--background").trim());
   expect(background).toBe("#090d18");
