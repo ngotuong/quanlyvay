@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.91
-last_updated: 2026-08-11 19:07:45 +07
+roadmap_version: 1.0.92
+last_updated: 2026-08-11 19:27:05 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C16
 current_status: IN_PROGRESS
@@ -84,7 +84,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
 | Trạng thái | `IN_PROGRESS` |
 | Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX bốn giai đoạn theo `docs/C16_UI_UX_PLAN.md`; sau khi từng giai đoạn đạt gate, được phép áp migration Supabase Production và deploy Vercel Production ngay để người dùng kiểm tra; sửa dữ liệu tài chính, secret và tài nguyên remote khác vẫn cần xác nhận riêng |
-| Kết quả | Remediation R1–R7, audit follow-up, UI/UX follow-up A–E và hardening đã rollout. Revision local mới bỏ nút Áp dụng khỏi bộ lọc khoản vay/Dashboard, cập nhật tức thời và giữ URL; card khoản vay có điều khoản cùng ba chỉ số authoritative, icon cho vay xanh/đi vay đỏ; mobile header dùng tên module. Gate local đạt lint/typecheck/32 tests/build, E2E 9/9 và diff-check. Stable Preview vẫn là `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy`; revision này chưa deploy. Migration 20 chưa rollout Supabase remote. C16 tiếp tục `IN_PROGRESS` để chỉnh sửa/đối chiếu trên Preview |
+| Kết quả | Remediation R1–R7, audit follow-up, UI/UX follow-up A–E và hardening đã rollout. Revision bộ lọc/card/header đạt lại lint/typecheck/32 tests/build và E2E 9/9 trong runbook. Candidate `dpl_F6kXSWBSn3gTxWQpA5PXj6wi7S29` target Preview/Ready/`sin1`, immutable `https://quan-ly-vay-ca-nhan-j9b5n211g-ngotuong2105.vercel.app`, public smoke đạt và error log hiện sạch. Script dừng đúng cổng `awaiting_authenticated_smoke`; stable Preview vẫn là `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy` cho tới khi người dùng kiểm tra candidate. Migration 20 chưa rollout Supabase remote. C16 tiếp tục `IN_PROGRESS` |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -175,9 +175,11 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 
 ## 8. Blocker và cổng xác nhận
 
-- Revision UI bộ lọc/card/header ngày `2026-08-11` đã đạt full web gate local nhưng chưa deploy;
-  cần người dùng xác nhận riêng trước khi chạy candidate-first và chuyển stable Preview. Stable alias
-  hiện vẫn trỏ `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy`. Không có migration mới trong revision này.
+- Revision UI bộ lọc/card/header ngày `2026-08-11` có candidate
+  `dpl_F6kXSWBSn3gTxWQpA5PXj6wi7S29` target Preview/Ready/`sin1`; public smoke và error log sạch.
+  Không có browser session kết nối để tự chạy authenticated smoke, nên script dừng trước alias.
+  Chờ người dùng đăng nhập immutable URL, kiểm tra Dashboard và Khoản vay rồi xác nhận; stable alias
+  vẫn trỏ `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy`. Không có migration mới trong revision này.
 - Preview `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy` đã rollout stable alias sau authenticated smoke do
   người dùng xác nhận; không còn blocker Vercel Preview. Migration 20 vẫn chưa áp Supabase remote và
   cần xác nhận riêng trước khi kiểm thử actual generated Push/copy/badge end-to-end.
@@ -534,6 +536,12 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-11` — Sau xác nhận deploy Preview, runbook chạy lại lint/typecheck/32 tests/build và
+   E2E 9/9, tạo candidate `dpl_F6kXSWBSn3gTxWQpA5PXj6wi7S29` target Preview/Ready tại immutable
+   `https://quan-ly-vay-ca-nhan-j9b5n211g-ngotuong2105.vercel.app`; Functions ở `sin1`, public smoke
+   login/manifest 200 và export/cron thiếu secret 401, Vercel error log sạch. Không có browser session
+   kết nối để authenticated smoke, nên script giữ `awaiting_authenticated_smoke` và chưa chuyển
+   `tindung-preview.vercel.app`.
 1. `2026-08-11` — Hoàn tất local revision UI: tìm kiếm khoản vay debounce 300 ms, quick/select/date/
    sort cập nhật kết quả và URL ngay, bỏ nút `Áp dụng`; Dashboard tùy chỉnh ngày cũng cập nhật ngay.
    Card khoản vay đưa tên–gốc và tag lên hàng đầu, hiển thị giải ngân/lãi suất/ngày đóng lãi cùng ba
