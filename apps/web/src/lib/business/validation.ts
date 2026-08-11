@@ -28,6 +28,13 @@ const vndAmount = z
   .refine((value) => /^\d+$/.test(value) && BigInt(value) > BigInt(0), "Số tiền phải lớn hơn 0.")
   .refine((value) => /^\d+$/.test(value) && BigInt(value) <= MAX_BIGINT_VND, "Số tiền vượt giới hạn lưu trữ VND.");
 
+const vndNonnegative = z
+  .string()
+  .trim()
+  .transform((value) => value.replace(/[.,\s]/g, ""))
+  .refine((value) => /^\d+$/.test(value), "Số tiền phải là số nguyên VND.")
+  .refine((value) => /^\d+$/.test(value) && BigInt(value) <= MAX_BIGINT_VND, "Số tiền vượt giới hạn lưu trữ VND.");
+
 const periodRate = z
   .string()
   .trim()
@@ -40,6 +47,33 @@ const optionalLoanName = z
   .trim()
   .max(120, "Nhãn phân biệt tối đa 120 ký tự.")
   .transform((value) => value || null);
+
+const optionalTermDays = z
+  .union([z.literal(""), z.coerce.number().int().min(1, "Số ngày vay phải lớn hơn 0.").max(36500)])
+  .transform((value) => value === "" ? null : value);
+
+const maturityFields = {
+  maturityOption: z.enum(["none", "fixed"]),
+  termDays: optionalTermDays,
+};
+
+function requireFixedTerm(
+  value: { maturityOption: "none" | "fixed"; termDays: number | null },
+  context: z.RefinementCtx,
+) {
+  if (value.maturityOption === "fixed" && value.termDays === null) {
+    context.addIssue({ code: "custom", path: ["termDays"], message: "Hãy nhập số ngày vay khi có đáo hạn." });
+  }
+}
+
+function requireValidReminderOffset(
+  value: { interestCycleDays: 15 | 30; interestReminderOffsetDays: number },
+  context: z.RefinementCtx,
+) {
+  if (value.interestReminderOffsetDays >= value.interestCycleDays) {
+    context.addIssue({ code: "custom", path: ["interestReminderOffsetDays"], message: "Số ngày nhắc sớm phải nhỏ hơn chu kỳ lãi." });
+  }
+}
 
 export const counterpartySchema = z.object({
   id: z.union([uuid, z.literal("")]).optional(),
@@ -55,18 +89,23 @@ export const createLoanSchema = z.object({
   direction: z.enum(["LENDING", "BORROWING"]),
   originalPrincipalVnd: vndAmount,
   disbursementDate: businessDate,
-  termDays: z.coerce.number().int().min(1).max(36500),
+  ...maturityFields,
   interestCycleDays: z.coerce.number().pipe(z.union([z.literal(15), z.literal(30)])),
+  interestReminderOffsetDays: z.coerce.number().int().min(0).max(29),
   initialPeriodRatePercent: periodRate,
   notes: optionalText,
   idempotencyKey: uuid,
-});
+}).superRefine(requireFixedTerm).superRefine(requireValidReminderOffset).transform((value) => ({
+  ...value,
+  termDays: value.maturityOption === "fixed" ? value.termDays : null,
+}));
 
 export const updateLoanSchema = z.object({
   loanId: uuid,
   counterpartyId: uuid,
   name: optionalLoanName,
   notes: optionalText,
+  interestReminderOffsetDays: z.coerce.number().int().min(0).max(29),
 });
 
 export const correctLoanTermsSchema = z.object({
@@ -74,13 +113,16 @@ export const correctLoanTermsSchema = z.object({
   direction: z.enum(["LENDING", "BORROWING"]),
   originalPrincipalVnd: vndAmount,
   disbursementDate: businessDate,
-  termDays: z.coerce.number().int().min(1).max(36500),
+  ...maturityFields,
   interestCycleDays: z.coerce.number().pipe(z.union([z.literal(15), z.literal(30)])),
   initialPeriodRatePercent: periodRate,
   reason: requiredText("Lý do điều chỉnh", 500),
   confirmation: z.literal("confirmed", { error: "Bạn cần xác nhận đã kiểm tra dữ liệu." }),
   idempotencyKey: uuid,
-});
+}).superRefine(requireFixedTerm).transform((value) => ({
+  ...value,
+  termDays: value.maturityOption === "fixed" ? value.termDays : null,
+}));
 
 export const paymentSchema = z.object({
   loanId: uuid,
@@ -88,6 +130,17 @@ export const paymentSchema = z.object({
   transactionDate: businessDate,
   amountVnd: vndAmount,
   note: optionalText,
+  idempotencyKey: uuid,
+});
+
+export const legacyOnboardingSchema = z.object({
+  loanId: uuid,
+  asOfDate: businessDate,
+  principalOutstandingVnd: vndNonnegative,
+  interestCollectedVnd: vndNonnegative,
+  badDebtSince: z.union([businessDate, z.literal("")]).transform((value) => value || null),
+  note: optionalText,
+  confirmation: z.literal("confirmed", { error: "Bạn cần xác nhận số dư mở đầu." }),
   idempotencyKey: uuid,
 });
 
@@ -127,5 +180,13 @@ export const reversalSchema = z.object({
   transactionId: uuid,
   reversalDate: businessDate,
   note: requiredText("Lý do đảo giao dịch", 500),
+  idempotencyKey: uuid,
+});
+
+export const settlementReversalSchema = z.object({
+  loanId: uuid,
+  reversalDate: businessDate,
+  reason: requiredText("Lý do hoàn tác tất toán", 500),
+  confirmation: z.literal("confirmed", { error: "Bạn cần xác nhận hoàn tác toàn bộ tất toán." }),
   idempotencyKey: uuid,
 });

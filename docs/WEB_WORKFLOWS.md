@@ -1,14 +1,28 @@
-# Web Workflows v1
+# Web Workflows
 
-## Phạm vi C6
+## Phạm vi hiện hành
 
-- Trang danh sách khoản vay tại `/`, chi tiết tại `/loans/[id]` và tạo mới tại `/loans/new`.
+- `/dashboard` là trang mặc định sau đăng nhập; danh sách khoản vay ở `/loans`, chi tiết tại
+  `/loans/[id]` và tạo mới tại `/loans/new`.
+- Dashboard có bộ lọc kỳ báo cáo bằng URL; số dư chốt cuối kỳ, còn lãi/chi phí/dòng tiền giới hạn
+  trong kỳ. Dư nợ cho vay đang hoạt động, nợ xấu và tổng vốn chưa thu hồi được trình bày riêng.
+- `/loans` tìm theo tên khoản/đối tác; lọc hướng, trạng thái, ngày giải ngân; sắp xếp mới/cũ, dư nợ
+  và tên. Chỉ filter đang áp dụng hiện thành chip xóa nhanh; trạng thái nằm trong query string để hỗ
+  trợ quay lại và deep link. Row ưu tiên dư nợ cùng hạn/lãi kế tiếp.
+- Chi tiết khoản vay chia bốn tab URL: Tổng quan, Các kỳ lãi, Lịch sử, Thiết lập. Tổng quan có hero
+  dư nợ/việc kế tiếp/trạng thái và CTA; modal giao dịch lặp lại ngữ cảnh khoản vay. Dưới ba kỳ dùng
+  summary thay chart. Tab thiết lập tách rõ Thông tin khoản vay, Điều chỉnh và Kết thúc khoản vay.
 - Quản lý đối tác tại `/counterparties`; OWNER chỉ xóa được đối tác chưa có lịch sử khoản vay.
 - Ghi nhận tiền lãi, tiền gốc, chi phí, thay đổi lãi suất, nợ xấu, bật lại tính lãi và tất toán.
+- Mỗi card kỳ lãi có form điền nhanh số dư lãi còn phải đóng và ngày dự kiến thu. Người dùng được
+  sửa ngày/số tiền; ngày ngoài khoảng kỳ có cảnh báo và vẫn tuân theo quy tắc phân kỳ bằng ngày giao
+  dịch của engine.
+- Mọi ô tiền VND tự định dạng dấu chấm hàng nghìn nhưng Server Action vẫn chuẩn hóa về chuỗi số
+  nguyên trước RPC. Form tạo khoản không chọn sẵn hướng; `Cho vay`/`Đi vay` là lựa chọn bắt buộc.
 - Chi phí không gắn khoản vay được nhập, xem và đảo tại `/expenses`.
 - Giao dịch tài chính chỉ được sửa sai bằng thao tác đảo; giao dịch gốc vẫn còn trong timeline.
 - OWNER xem 100 audit log gần nhất tại `/audit`; EDITOR và VIEWER không truy cập được.
-- OWNER quản lý tài khoản thứ hai và mật khẩu tạm tại `/settings`.
+- OWNER quản lý các tài khoản EDITOR/VIEWER và mật khẩu tạm tại `/settings`.
 - VIEWER xem được toàn bộ nghiệp vụ nhưng không thấy các biểu mẫu thay đổi dữ liệu.
 
 ## Ranh giới dữ liệu
@@ -24,18 +38,29 @@ PostgreSQL; frontend không tự tính dư nợ hoặc lãi. Migration C6 bổ s
   nhật điều khoản có audit, đảo giải ngân cũ, thêm giải ngân thay thế và rebuild lãi trong cùng
   transaction; lý do và idempotency key là bắt buộc
 - `get_loan_term_summary`: trả lãi suất cả kỳ và tiền lãi của một kỳ đầu đủ ngày từ PostgreSQL
+- `get_loan_management_summary`: trả tổng lãi phát sinh, tổng lãi đã thu/trả và gốc đã hoàn trả,
+  gồm cả số lãi lịch sử từ onboarding khoản cũ nhưng loại giao dịch đã đảo
+- `get_management_analytics`: trả lãi phát sinh theo hướng và top 10 mức tập trung theo đối tác
 - `record_expense`: tạo transaction và category chi phí nguyên tử; khóa idempotency kiểm tra cả
   khoản vay, ngày, số tiền, nhóm chi phí và ghi chú
+- `reverse_settlement`: hoàn tác nguyên lần tất toán bằng các reversal đúng batch và một ledger
+  append-only; không cho đảo lẻ gốc/lãi do tất toán tạo ra
 
-Các RPC tài chính C4 tiếp tục xử lý thanh toán, lifecycle, reversal và settlement.
+Role `authenticated` chỉ có quyền đọc trực tiếp theo RLS. Mutation hồ sơ, đối tác, khoản vay,
+subscription và sổ tài chính phải đi qua RPC có validation; hai RPC v1 nhận lãi `%/ngày` không còn
+được cấp cho client.
 
 ## Trải nghiệm giao diện
 
 - Mobile dùng header và bottom navigation co giãn đủ năm mục thường hoặc bảy mục OWNER; desktop từ
   1024px dùng sidebar.
 - Form có label hiển thị, thông báo lỗi gần trường, loading state và touch target tối thiểu 44px.
+- Form nợ xấu gọi mốc hiệu lực là **Ngày cuối cùng còn tính lãi** và nói rõ ngừng lãi từ ngày kế tiếp,
+  tránh làm mất kỳ cuối chưa đóng.
 - Trạng thái không chỉ biểu diễn bằng màu mà luôn có nhãn chữ.
 - Giao dịch đảo (kể cả chi phí chung), xóa đối tác và tất toán đều yêu cầu xác nhận.
+- Khoản đã tất toán hiển thị thao tác nguy hiểm **Hoàn tác toàn bộ tất toán**, bắt buộc lý do và
+  checkbox xác nhận; lịch sử settlement cũ vẫn được giữ nguyên.
 - Sửa dữ liệu ban đầu nằm trong vùng mở rộng riêng, hiển thị cảnh báo, bắt buộc lý do và checkbox
   xác nhận. Khoản đã tất toán không hiển thị thao tác này.
 - `loading.tsx` cung cấp skeleton khi route đang tải; reduced-motion được tôn trọng.

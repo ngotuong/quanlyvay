@@ -11,5 +11,7 @@ nodeVersion: 24.15.0
 savePrefix: ""
 
 overrides:
+  js-yaml: 4.3.1
+  "nanoid@<3.3.17": 3.3.17
   postcss: 8.5.25
   sharp: 0.35.0

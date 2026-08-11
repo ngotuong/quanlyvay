@@ -1,14 +1,28 @@
 export type LoanDirection = "LENDING" | "BORROWING";
 export type LoanStatus = "ACTIVE" | "OVERDUE" | "BAD_DEBT" | "SETTLED";
 
+export type CalculatedInterestPeriod = {
+  kind: "SCHEDULED" | "SETTLEMENT" | "OVERDUE";
+  startDate: string;
+  endDate: string;
+  dayCount: number;
+  openingPrincipalVnd: string;
+  closingPrincipalVnd: string;
+  openingInterestBalanceVnd: string;
+  accruedInterestVnd: string;
+  interestPaymentsVnd: string;
+  closingInterestBalanceVnd: string;
+  segments: unknown[];
+};
+
 export type CalculationSnapshot = {
   loanId: string;
   asOfDate: string;
-  maturityDate: string;
+  maturityDate: string | null;
   status: LoanStatus;
   principalOutstandingVnd: string;
   interestBalanceVnd: string;
-  periods: unknown[];
+  periods: CalculatedInterestPeriod[];
 };
 
 export type Counterparty = {
@@ -27,9 +41,10 @@ export type Loan = {
   status: LoanStatus;
   original_principal_vnd: string;
   disbursement_date: string;
-  term_days: number;
-  maturity_date: string;
+  term_days: number | null;
+  maturity_date: string | null;
   interest_cycle_days: 15 | 30;
+  interest_reminder_offset_days: number;
   initial_daily_rate_percent: string;
   settled_on: string | null;
   notes: string | null;
@@ -44,6 +59,25 @@ export type LoanTermSummary = {
   fullPeriodInterestVnd: string;
 };
 
+export type LoanScheduleSummary = {
+  hasMaturity: boolean;
+  maturityDate: string | null;
+  nextInterestDueDate: string | null;
+  nextInterestPeriodEndDate: string | null;
+  interestReminderOffsetDays: number;
+};
+
+export type LegacyLoanOnboarding = {
+  id: string;
+  as_of_date: string;
+  principal_outstanding_vnd: string;
+  interest_collected_vnd: string;
+  bad_debt_since: string | null;
+  note: string | null;
+  idempotency_key: string;
+  created_at: string;
+};
+
 export type LoanTransaction = {
   id: string;
   type: "DISBURSEMENT" | "INTEREST_PAYMENT" | "PRINCIPAL_PAYMENT" | "EXPENSE" | "REVERSAL";
@@ -51,6 +85,7 @@ export type LoanTransaction = {
   amount_vnd: string;
   note: string | null;
   reversal_of_id: string | null;
+  idempotency_key: string | null;
   created_at: string;
   expenses: { category: string } | null;
 };
@@ -61,6 +96,15 @@ export type LifecycleEvent = {
   effective_date: string;
   daily_rate_percent: string | null;
   note: string | null;
+  idempotency_key: string | null;
+  created_at: string;
+};
+
+export type SettlementReversal = {
+  id: string;
+  settlement_event_id: string;
+  reversal_date: string;
+  reason: string;
   created_at: string;
 };
 
@@ -93,6 +137,9 @@ export type DashboardDueLoan = {
   name: string;
   direction: LoanDirection;
   status: "ACTIVE" | "OVERDUE";
+  attentionType: "INTEREST_DUE" | "PRINCIPAL_OVERDUE";
+  reminderDate: string | null;
+  periodEndDate: string;
   dueDate: string;
   principalVnd: string;
   interestVnd: string;
@@ -105,10 +152,37 @@ export type DashboardCashFlow = {
   netVnd: string;
 };
 
-export type DashboardData = {
+export type CounterpartyExposure = {
+  counterpartyId: string;
+  name: string;
+  lendingVnd: string;
+  badDebtVnd: string;
+  borrowingVnd: string;
+  totalVnd: string;
+};
+
+export type ManagementAnalytics = {
+  lendingAccruedVnd: string;
+  borrowingAccruedVnd: string;
+  counterpartyExposure: CounterpartyExposure[];
+};
+
+export type LoanManagementSummary = {
   asOfDate: string;
-  lendingOutstandingVnd: string;
-  borrowingOutstandingVnd: string;
+  totalAccruedInterestVnd: string;
+  interestRecordedVnd: string;
+  principalRepaidVnd: string;
+};
+
+export type DashboardData = {
+  periodStartDate: string;
+  periodEndDate: string;
+  activeLendingOutstandingVnd: string;
+  badDebtLendingOutstandingVnd: string;
+  totalLendingExposureVnd: string;
+  activeBorrowingOutstandingVnd: string;
+  badDebtBorrowingOutstandingVnd: string;
+  totalBorrowingExposureVnd: string;
   interestCollectedVnd: string;
   interestPaidVnd: string;
   expensesPaidVnd: string;

@@ -23,7 +23,7 @@ function buildSheetRows_(definition, records) {
 
 /** @param {*} payload */
 function validatePayload_(payload) {
-  if (!payload || payload.schemaVersion !== 1 || typeof payload.sourceVersion !== "string") throw new Error("Payload đồng bộ không hợp lệ.");
+  if (!payload || payload.schemaVersion !== 3 || typeof payload.sourceVersion !== "string") throw new Error("Payload đồng bộ không hợp lệ.");
   if (!payload.unchanged && (!payload.tables || typeof payload.tables !== "object")) throw new Error("Payload thiếu dữ liệu bảng.");
   return payload;
 }

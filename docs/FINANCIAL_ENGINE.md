@@ -52,10 +52,19 @@ idempotency.
 ### `settle_loan(...)`
 
 - Tính số gốc và lãi còn lại đến hết ngày tất toán.
-- Ghi nguyên tử lifecycle `SETTLEMENT`, giao dịch gốc và giao dịch lãi còn thiếu.
+- Ghi nguyên tử lifecycle `SETTLEMENT`, giao dịch gốc/lãi còn thiếu; bỏ qua thành phần đã bằng 0.
+- Cho phép đánh dấu tất toán khi gốc và lãi đã được thanh toán trước đó mà không tạo transaction 0 VND.
 - Retry cùng idempotency key không tạo dữ liệu trùng.
 - Nếu đang có số dư lãi trả trước âm, phải xử lý khoản trả trước trước khi tất toán vì schema chưa
   có loại giao dịch hoàn tiền riêng.
+
+### `reverse_settlement(...)`
+
+- Khóa dòng khoản vay, tìm settlement còn hiệu lực và đúng batch qua idempotency prefix.
+- Thêm `REVERSAL` cho từng component gốc/lãi của batch và một dòng append-only trong
+  `loan_settlement_reversals`; không sửa hoặc xóa lịch sử cũ.
+- Engine bỏ qua settlement đã có ledger reversal, rebuild lại trạng thái và cho phép retry cùng key.
+- `reverse_transaction` vẫn đảo được payment độc lập cùng ngày nhưng từ chối component settlement.
 
 ## 3. Quy tắc tính
 
@@ -65,7 +74,16 @@ period_interest = round_half_up(sum(raw_interest), 1 VND)
 closing_interest = opening_interest + accrued_interest - interest_payments
 ```
 
-- Kỳ chuẩn 15 hoặc 30 ngày; kỳ cuối được rút ngắn tại đáo hạn hoặc tất toán.
+- Kỳ chuẩn 15 hoặc 30 ngày. Khoản không đáo hạn tiếp tục mở kỳ mới đến khi tất toán; kỳ cuối chỉ rút ngắn tại tất toán.
+- `interest_reminder_offset_days` dịch ngày nhắc/notification sớm hơn ngày cuối kỳ nhưng engine vẫn
+  tính tới ngày cuối kỳ. Dashboard dự báo tiền lãi tại ngày kết thúc kỳ, không cắt lãi ở ngày nhắc.
+- `legacy_loan_onboardings` lưu snapshot bất biến cho khoản cũ. RPC onboarding tạo tối đa một khoản
+  trả gốc tổng hợp, một khoản trả lãi tổng hợp và một sự kiện nợ xấu; không được đảo riêng các thành phần.
+- Lãi mở đầu vẫn tham gia số lãi đã thu trọn đời và phép tính số dư, nhưng bị loại khỏi biểu đồ dòng
+  tiền tháng chốt vì đó là tổng lịch sử chứ không phải tiền vừa thu trong tháng.
+- `get_management_dashboard(period_start, period_end)` lấy số dư tại cuối kỳ, tính dòng tiền/lãi
+  trong kỳ, tách dư gốc `BAD_DEBT` khỏi dư nợ hoạt động nhưng vẫn giữ trong tổng vốn chưa thu hồi.
+- Ngày đáo hạn là tùy chọn. Chỉ khoản có đáo hạn mới rút ngắn kỳ tại đáo hạn và có thể chuyển `OVERDUE`.
 - Sau đáo hạn tạo một kỳ `OVERDUE` mở, giữ nguyên lãi suất và không có lãi phạt.
 - Segment mới bắt đầu khi dư nợ, lãi suất hoặc trạng thái tính lãi thay đổi.
 - Ngày không tính lãi không xuất hiện trong `segments` nhưng vẫn thuộc khoảng ngày của kỳ.
@@ -77,6 +95,7 @@ closing_interest = opening_interest + accrued_interest - interest_payments
 - Retry cùng key và cùng input trả lại kết quả hiện có.
 - Dùng lại key với input khác trả lỗi conflict.
 - `settle_loan` tạo các key con `:event`, `:principal` và `:interest` trong cùng transaction.
+- `reverse_settlement` tạo key con theo loại component và một key ledger riêng trong cùng transaction.
 
 ## 5. Kiểm thử chuẩn
 

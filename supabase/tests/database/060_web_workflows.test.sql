@@ -25,17 +25,17 @@ select is(
 );
 
 select lives_ok(
-  $$select public.create_loan(
+  $$select public.create_loan_v2(
     (select id from public.counterparties where name = 'Nguyễn Văn A'),
-    'Khoản vay C6', 'LENDING'::public.loan_direction, 1000000::bigint, '2026-01-01'::date, 30, 15::smallint, 0.1::numeric,
+    'Khoản vay C6', 'LENDING'::public.loan_direction, 1000000::bigint, '2026-01-01'::date, 30, 15::smallint, 1.5::numeric,
     'web-test-loan', 'Kiểm thử workflow'
   )$$,
   'writer can atomically create a loan and disbursement'
 );
 select lives_ok(
-  $$select public.create_loan(
+  $$select public.create_loan_v2(
     (select id from public.counterparties where name = 'Nguyễn Văn A'),
-    'Khoản vay C6', 'LENDING'::public.loan_direction, 1000000::bigint, '2026-01-01'::date, 30, 15::smallint, 0.1::numeric,
+    'Khoản vay C6', 'LENDING'::public.loan_direction, 1000000::bigint, '2026-01-01'::date, 30, 15::smallint, 1.5::numeric,
     'web-test-loan', 'Kiểm thử workflow'
   )$$,
   'create loan is idempotent'
@@ -115,7 +115,7 @@ select lives_ok(
 );
 
 select lives_ok(
-  $$select public.record_lifecycle_event(
+  $$select public.record_lifecycle_event_v2(
     (select id from public.loans where name = 'Khoản vay C6 cập nhật'),
     'BAD_DEBT_START', '2026-01-06', 'web-test-bad-debt', null, 'Tạm dừng lãi', '2026-01-06'
   )$$,
@@ -127,9 +127,9 @@ select is(
   'bad debt workflow updates loan status'
 );
 select lives_ok(
-  $$select public.record_lifecycle_event(
+  $$select public.record_lifecycle_event_v2(
     (select id from public.loans where name = 'Khoản vay C6 cập nhật'),
-    'INTEREST_RESUME', '2026-01-08', 'web-test-resume', 0.12, 'Tính lãi lại', '2026-01-08'
+    'INTEREST_RESUME', '2026-01-08', 'web-test-resume', 1.8, 'Tính lãi lại', '2026-01-08'
   )$$,
   'writer can resume interest with a chosen rate'
 );

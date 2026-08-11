@@ -10,8 +10,10 @@ import {
   deleteCounterpartySchema,
   expenseSchema,
   lifecycleSchema,
+  legacyOnboardingSchema,
   paymentSchema,
   reversalSchema,
+  settlementReversalSchema,
   settlementSchema,
   updateLoanSchema,
 } from "@/lib/business/validation";
@@ -78,7 +80,7 @@ export async function createLoanAction(
   const parsed = createLoanSchema.safeParse(values(formData));
   if (!parsed.success) return validationFailure(parsed.error);
   const supabase = await createClient();
-  const { data, error } = await supabase.rpc("create_loan_v2", {
+  const { data, error } = await supabase.rpc("create_loan_v3", {
     p_counterparty_id: parsed.data.counterpartyId,
     p_name: parsed.data.name,
     p_direction: parsed.data.direction,
@@ -87,6 +89,7 @@ export async function createLoanAction(
     p_term_days: parsed.data.termDays,
     p_interest_cycle_days: parsed.data.interestCycleDays,
     p_initial_period_rate_percent: parsed.data.initialPeriodRatePercent,
+    p_interest_reminder_offset_days: parsed.data.interestReminderOffsetDays,
     p_idempotency_key: parsed.data.idempotencyKey,
     p_notes: parsed.data.notes,
   });
@@ -104,17 +107,47 @@ export async function updateLoanAction(
   const parsed = updateLoanSchema.safeParse(values(formData));
   if (!parsed.success) return validationFailure(parsed.error);
   const supabase = await createClient();
-  const { error } = await supabase.rpc("update_loan_details", {
+  const { error } = await supabase.rpc("update_loan_details_v2", {
     p_loan_id: parsed.data.loanId,
     p_counterparty_id: parsed.data.counterpartyId,
     p_name: parsed.data.name,
     p_notes: parsed.data.notes,
+    p_interest_reminder_offset_days: parsed.data.interestReminderOffsetDays,
   });
   if (error) return databaseFailure("Không thể cập nhật thông tin khoản vay.");
   revalidatePath(`/loans/${parsed.data.loanId}`);
   revalidatePath("/loans");
   revalidatePath("/dashboard");
   return { ok: true, message: "Đã cập nhật khoản vay." };
+}
+
+export async function onboardLegacyLoanAction(
+  _state: BusinessActionState,
+  formData: FormData,
+): Promise<BusinessActionState> {
+  await requireWriterProfile();
+  const parsed = legacyOnboardingSchema.safeParse(values(formData));
+  if (!parsed.success) return validationFailure(parsed.error);
+  const supabase = await createClient();
+  const { error } = await supabase.rpc("onboard_legacy_loan", {
+    p_loan_id: parsed.data.loanId,
+    p_as_of_date: parsed.data.asOfDate,
+    p_principal_outstanding_vnd: parsed.data.principalOutstandingVnd,
+    p_interest_collected_vnd: parsed.data.interestCollectedVnd,
+    p_bad_debt_since: parsed.data.badDebtSince,
+    p_note: parsed.data.note,
+    p_idempotency_key: parsed.data.idempotencyKey,
+  });
+  if (error) {
+    if (error.message.includes("without recorded activity")) {
+      return databaseFailure("Khoản vay đã có giao dịch hoặc sự kiện nên không thể áp dụng số dư mở đầu tự động.");
+    }
+    return databaseFailure("Không thể khởi tạo số dư khoản vay cũ. Hãy kiểm tra ngày và số tiền.");
+  }
+  revalidatePath(`/loans/${parsed.data.loanId}`);
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
+  return { ok: true, message: "Đã ghi nhận số dư mở đầu và trạng thái khoản vay cũ." };
 }
 
 export async function correctLoanTermsAction(
@@ -265,4 +298,25 @@ export async function reverseTransactionAction(
   revalidatePath("/loans");
   revalidatePath("/dashboard");
   return { ok: true, message: "Đã tạo giao dịch đảo." };
+}
+
+export async function reverseSettlementAction(
+  _state: BusinessActionState,
+  formData: FormData,
+): Promise<BusinessActionState> {
+  await requireWriterProfile();
+  const parsed = settlementReversalSchema.safeParse(values(formData));
+  if (!parsed.success) return validationFailure(parsed.error);
+  const supabase = await createClient();
+  const { error } = await supabase.rpc("reverse_settlement", {
+    p_loan_id: parsed.data.loanId,
+    p_reversal_date: parsed.data.reversalDate,
+    p_reason: parsed.data.reason,
+    p_idempotency_key: parsed.data.idempotencyKey,
+  });
+  if (error) return databaseFailure("Không thể hoàn tác tất toán. Khoản vay có thể đã được hoàn tác hoặc ngày không hợp lệ.");
+  revalidatePath(`/loans/${parsed.data.loanId}`);
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
+  return { ok: true, message: "Đã hoàn tác toàn bộ tất toán và tính lại khoản vay." };
 }

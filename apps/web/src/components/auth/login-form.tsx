@@ -28,11 +28,8 @@ export function LoginForm() {
           minLength={3}
           maxLength={32}
           aria-invalid={Boolean(usernameError)}
-          aria-describedby={usernameError ? "username-error" : "username-help"}
+          aria-describedby={usernameError ? "username-error" : undefined}
         />
-        <p id="username-help" className="field-help">
-          Không cần sử dụng địa chỉ email.
-        </p>
         {usernameError ? (
           <p id="username-error" className="field-error" role="alert">
             {usernameError}

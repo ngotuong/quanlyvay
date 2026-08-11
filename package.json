@@ -14,6 +14,7 @@
     "test": "pnpm -r --if-present test",
     "test:auth": "pnpm --filter @quan-ly-vay-ca-nhan/web test:auth",
     "test:e2e": "pnpm --filter @quan-ly-vay-ca-nhan/web test:e2e",
-    "build": "pnpm -r --if-present build"
+    "build": "pnpm -r --if-present build",
+    "deploy:preview": "node scripts/deploy-preview.mjs"
   }
 }

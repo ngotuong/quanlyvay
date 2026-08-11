@@ -1,31 +1,54 @@
-# Dashboard C7
+# Dashboard C7/C16
 
 ## Nguồn số liệu
 
-Dashboard gọi duy nhất RPC `public.get_dashboard(as_of_date, months)`. Hàm yêu cầu người dùng đang hoạt động, nhưng cho phép cả `OWNER`, `EDITOR` và `VIEWER` đọc số liệu. Frontend chỉ định dạng và trực quan hóa kết quả; mọi phép tổng hợp tiền nằm trong PostgreSQL.
+Dashboard quản trị gọi một lần RPC
+`public.get_management_dashboard_bundle_v2(period_start, period_end, previous_start, previous_end)`.
+Bundle dùng một snapshot authoritative chung cho KPI và analytics kỳ hiện tại, cộng một snapshot
+cho kỳ liền trước; không gọi lại engine qua RPC analytics riêng. `get_management_analytics` được giữ
+làm projection tương thích ngược. Các hàm yêu cầu người dùng đang hoạt động, nhưng cho
+phép cả `OWNER`, `EDITOR` và `VIEWER` đọc số liệu. Frontend chỉ định dạng, tính chênh lệch hiển thị
+và trực quan hóa kết quả; mọi phép tổng hợp tiền nằm trong PostgreSQL. RPC C7
+`get_dashboard(as_of_date, months)` được giữ để tương thích, không còn là contract của giao diện chính.
 
-Ngày chốt số liệu dùng ngày nghiệp vụ `Asia/Ho_Chi_Minh`. Giao dịch đảo và giao dịch gốc đã bị đảo trước ngày chốt đều không tham gia tổng hợp.
+Khoảng báo cáo dùng ngày nghiệp vụ `Asia/Ho_Chi_Minh`. Số dư được chốt tại `period_end`; lãi, chi phí,
+lợi nhuận và dòng tiền chỉ lấy từ `period_start` đến `period_end`. Giao dịch gốc đã bị đảo trước ngày
+cuối kỳ và các giao dịch tổng hợp do onboarding khoản cũ không tham gia dòng tiền trong kỳ.
 
 ## Định nghĩa chỉ số
 
-- Dư nợ cho vay/đi vay: tổng dư nợ gốc tại ngày chốt theo từng hướng.
-- Lãi đã thu: tổng giao dịch lãi của các khoản `LENDING`.
-- Lãi đã trả: tổng giao dịch lãi của các khoản `BORROWING`.
-- Lãi ròng đã thu/chi (cơ sở tiền mặt): lãi đã thu − lãi đã trả − chi phí khác.
-- Lãi ròng phát sinh đến hôm nay (cơ sở dồn tích): lãi phát sinh cho vay − lãi phát sinh đi vay −
-  chi phí khác, gồm cả phần lãi chưa thanh toán. Giá trị thay đổi theo ngày là đúng bản chất phát
-  sinh; đây không phải số tiền đã thực thu/thực chi.
+- Cho vay đang hoạt động: dư gốc `ACTIVE`/`OVERDUE` tại ngày cuối kỳ, không gồm `BAD_DEBT`.
+- Nợ xấu phải thu: dư gốc `LENDING` có trạng thái `BAD_DEBT`, hiển thị riêng.
+- Tổng vốn cho vay chưa thu hồi: cho vay đang hoạt động + nợ xấu phải thu.
+- Dư nợ đi vay: dư gốc đi vay không phải nợ xấu tại ngày cuối kỳ; contract vẫn trả riêng nợ xấu và
+  tổng nghĩa vụ đi vay để không làm mất số liệu nếu phát sinh trường hợp này.
+- Lãi đã thu/trả và chi phí: chỉ gồm giao dịch thực tế trong khoảng được chọn.
+- Lãi ròng thực thu (cơ sở tiền mặt): lãi đã thu − lãi đã trả − chi phí khác.
+- Lãi ròng phát sinh (cơ sở dồn tích): chênh lệch tổng lãi tích lũy tại cuối kỳ và ngày
+  trước đầu kỳ, sau đó trừ chi phí trong kỳ. Cách lấy chênh lệch giữ đúng phần kỳ lãi bị cắt bởi bộ lọc.
 - Lãi dự kiến kỳ tới: số dư lãi dương tại ngày đóng lãi kế tiếp của các khoản đang hoạt động.
-- Sắp đến hạn: khoản đang hoạt động có ngày đóng lãi kế tiếp trong 30 ngày tính từ ngày chốt.
-- Quá hạn: khoản có trạng thái tính toán `OVERDUE`; không áp dụng lãi phạt.
+- Cần thu/trả lãi: khoản `ACTIVE` có ngày nhắc trong 30 ngày tính từ ngày chốt **và số dư lãi dự
+  kiến tại cuối kỳ tương ứng lớn hơn 0**. Đóng đủ hoặc ứng trước bị loại; đóng một phần chỉ trả số
+  dư còn lại. Ngày nhắc và ngày kết thúc kỳ là hai trường riêng.
+- Quá hạn gốc: khoản có trạng thái tính toán `OVERDUE`; vẫn hiện cho tới khi xử lý gốc, kể cả lãi
+  tại ngày chốt đã đóng đủ. Không áp dụng lãi phạt.
+- `SETTLED` và `BAD_DEBT` không tham gia nhắc lãi thường xuyên; nợ xấu nằm trong vùng rủi ro riêng.
 
 ## Quy ước dòng tiền
 
-Tiền vào gồm giải ngân của khoản đi vay và các khoản thu lãi/gốc từ cho vay. Tiền ra gồm giải ngân cho vay, thanh toán lãi/gốc của khoản đi vay và chi phí khác. Biểu đồ hiển thị sáu tháng gần nhất theo thứ tự thời gian và luôn có bảng số liệu đi kèm.
+Tiền vào gồm giải ngân của khoản đi vay và các khoản thu lãi/gốc từ cho vay. Tiền ra gồm giải ngân cho vay, thanh toán lãi/gốc của khoản đi vay và chi phí khác. Biểu đồ tạo các cột tháng nằm trong khoảng đã chọn và luôn có bảng số liệu đi kèm. Bộ lọc nhanh gồm tháng này, tháng trước, năm nay và sáu tháng; khoảng tùy chỉnh tối đa năm năm.
+
+Dashboard còn có ba biểu đồ quản trị: phát sinh so với thanh toán lãi trong kỳ, cơ cấu dư nợ tại
+ngày chốt và top 10 mức tập trung dư nợ theo đối tác. Nợ xấu luôn là chuỗi riêng, không bị gộp vào
+cho vay hoạt động. First fold giữ bốn KPI ở đầu (desktop một hàng, mobile 2×2), sau đó là danh sách
+`Cần xử lý` trước biểu đồ dòng tiền trong thứ tự đọc. Danh sách tách `Quá hạn gốc` và `Lãi sắp đến
+lịch`, tối đa năm item trước liên kết xem thêm và không tạo vùng cuộn lồng. Tổng vốn, nợ xấu và ba
+phân tích phụ nằm trong vùng `Phân tích chi tiết`.
 
 ## UX và khả năng truy cập
 
 - `/dashboard` là trang mặc định sau đăng nhập; danh sách khoản vay ở `/loans`.
+- Bộ lọc nằm trong URL để giữ trạng thái khi tải lại, quay lại hoặc chia sẻ đường dẫn.
 - Giao diện được kiểm tra ở 375px, 768px và 1440px, không phát sinh cuộn ngang toàn trang.
 - Light/dark mode theo thiết lập hệ điều hành.
 - Biểu đồ không chỉ dựa vào màu: hai chuỗi dùng kiểu tô khác nhau, có chú giải, tooltip và bảng số liệu.

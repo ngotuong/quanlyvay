@@ -12,15 +12,15 @@ export default defineConfig({
   globalSetup: "./test/e2e/global-setup.ts",
   globalTeardown: "./test/e2e/global-teardown.ts",
   use: {
-    baseURL: "http://127.0.0.1:3100",
+    baseURL: "http://127.0.0.1:3101",
     trace: "retain-on-failure",
     screenshot: "only-on-failure",
     ...devices["Desktop Chrome"],
     channel: "chrome",
   },
   webServer: {
-    command: "pnpm exec next dev -p 3100",
-    url: "http://127.0.0.1:3100/login",
+    command: "pnpm exec next dev -p 3101",
+    url: "http://127.0.0.1:3101/login",
     reuseExistingServer: false,
     timeout: 120_000,
     env: {

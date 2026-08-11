@@ -1,6 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { z } from "zod";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { createClient } from "@/lib/supabase/server";
@@ -14,14 +15,14 @@ const subscriptionSchema = z.object({
 export async function registerPushSubscriptionAction(input: unknown) {
   await requireAuthenticatedProfile();
   const parsed = subscriptionSchema.safeParse(input);
-  if (!parsed.success) return { ok: false, message: "Thông tin đăng ký Push không hợp lệ." };
+  if (!parsed.success) return { ok: false, message: "Thông tin đăng ký nhận thông báo không hợp lệ." };
   const supabase = await createClient();
   const { error } = await supabase.rpc("register_push_subscription", {
     p_endpoint: parsed.data.endpoint,
     p_p256dh: parsed.data.p256dh,
     p_auth_secret: parsed.data.auth,
   });
-  if (error) return { ok: false, message: "Chưa thể lưu đăng ký Push. Hãy thử lại." };
+  if (error) return { ok: false, message: "Chưa thể lưu đăng ký nhận thông báo. Hãy thử lại." };
   revalidatePath("/notifications");
   return { ok: true, message: "Đã bật thông báo trên thiết bị này." };
 }
@@ -29,7 +30,7 @@ export async function registerPushSubscriptionAction(input: unknown) {
 export async function removePushSubscriptionAction(endpoint: string) {
   await requireAuthenticatedProfile();
   const parsed = z.string().url().max(2048).safeParse(endpoint);
-  if (!parsed.success) return { ok: false, message: "Đăng ký Push không hợp lệ." };
+  if (!parsed.success) return { ok: false, message: "Đăng ký nhận thông báo không hợp lệ." };
   const supabase = await createClient();
   const { error } = await supabase.rpc("remove_push_subscription", { p_endpoint: parsed.data });
   if (error) return { ok: false, message: "Chưa thể tắt thông báo trên thiết bị này." };
@@ -44,4 +45,19 @@ export async function markNotificationsReadAction(ids?: string[]) {
   const supabase = await createClient();
   await supabase.rpc("mark_notifications_read", { p_notification_ids: parsed.data ?? null });
   revalidatePath("/notifications");
+  revalidatePath("/", "layout");
+}
+
+export async function openNotificationAction(notificationId: string) {
+  await requireAuthenticatedProfile();
+  const parsed = z.string().uuid().safeParse(notificationId);
+  if (!parsed.success) redirect("/notifications");
+
+  const supabase = await createClient();
+  const { data: notification, error } = await supabase.from("notifications").select("loan_id").eq("id", parsed.data).maybeSingle();
+  if (error || !notification?.loan_id) redirect("/notifications");
+  await supabase.rpc("mark_notifications_read", { p_notification_ids: [parsed.data] });
+  revalidatePath("/notifications");
+  revalidatePath("/", "layout");
+  redirect(`/loans/${notification.loan_id}`);
 }

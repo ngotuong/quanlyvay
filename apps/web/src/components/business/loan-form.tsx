@@ -6,6 +6,7 @@ import { initialBusinessActionState } from "@/lib/business/action-state";
 import type { Counterparty, Loan } from "@/lib/business/types";
 import { todayInVietnam } from "@/lib/business/format";
 import { ActionMessage, FieldError, FormSubmit } from "./form-parts";
+import { VndInput } from "./vnd-input";
 
 export function LoanForm({
   counterparties,
@@ -42,13 +43,13 @@ export function LoanForm({
             <fieldset className="field-group segmented-field">
               <legend>Loại khoản vay <span aria-hidden="true">*</span></legend>
               <div className="segmented-control">
-                <label><input defaultChecked name="direction" type="radio" value="LENDING" /><span>Cho vay</span></label>
-                <label><input name="direction" type="radio" value="BORROWING" /><span>Đi vay</span></label>
+                <label><input name="direction" required type="radio" value="LENDING" /><span>Cho vay</span></label>
+                <label><input name="direction" required type="radio" value="BORROWING" /><span>Đi vay</span></label>
               </div>
             </fieldset>
             <div className="field-group">
               <label htmlFor="originalPrincipalVnd">Số tiền gốc (VND) <span aria-hidden="true">*</span></label>
-              <input id="originalPrincipalVnd" name="originalPrincipalVnd" inputMode="numeric" placeholder="100000000" required />
+              <VndInput id="originalPrincipalVnd" name="originalPrincipalVnd" placeholder="100.000.000" required />
               <FieldError state={state} name="originalPrincipalVnd" />
             </div>
             <div className="field-group">
@@ -56,9 +57,17 @@ export function LoanForm({
               <input id="disbursementDate" name="disbursementDate" type="date" defaultValue={todayInVietnam()} required />
               <FieldError state={state} name="disbursementDate" />
             </div>
+            <fieldset className="field-group segmented-field form-span-2">
+              <legend>Thời hạn khoản vay</legend>
+              <div className="segmented-control">
+                <label><input defaultChecked name="maturityOption" type="radio" value="none" /><span>Không đáo hạn</span></label>
+                <label><input name="maturityOption" type="radio" value="fixed" /><span>Có đáo hạn</span></label>
+              </div>
+              <p className="field-hint">Khoản không đáo hạn tiếp tục tính kỳ lãi cho đến khi tất toán.</p>
+            </fieldset>
             <div className="field-group">
-              <label htmlFor="termDays">Số ngày vay <span aria-hidden="true">*</span></label>
-              <input id="termDays" name="termDays" type="number" inputMode="numeric" min={1} max={36500} defaultValue={30} required />
+              <label htmlFor="termDays">Số ngày vay (nếu có đáo hạn)</label>
+              <input id="termDays" name="termDays" type="number" inputMode="numeric" min={1} max={36500} placeholder="Ví dụ: 90" />
               <p className="field-hint">Ngày đáo hạn được tính gồm cả ngày giải ngân.</p>
               <FieldError state={state} name="termDays" />
             </div>
@@ -73,8 +82,19 @@ export function LoanForm({
               <p className="field-hint" id="initial-period-rate-hint">Ví dụ nhập 3 nghĩa là 3% cho chu kỳ đã chọn. Hệ thống tự quy đổi để tính chính xác theo ngày.</p>
               <FieldError state={state} name="initialPeriodRatePercent" />
             </div>
+            <div className="field-group form-span-2">
+              <label htmlFor="interestReminderOffsetDays">Nhắc thu lãi sớm hơn (ngày)</label>
+              <input id="interestReminderOffsetDays" name="interestReminderOffsetDays" type="number" min={0} max={29} defaultValue="0" required />
+              <p className="field-hint">Khoản mới để 0. Khoản theo sổ cũ có thể nhập 1; tiền lãi vẫn tính đủ chu kỳ.</p>
+              <FieldError state={state} name="interestReminderOffsetDays" />
+            </div>
           </>
-        ) : null}
+        ) : <div className="field-group form-span-2">
+          <label htmlFor={`loan-reminder-${suffix}`}>Nhắc thu lãi sớm hơn (ngày)</label>
+          <input id={`loan-reminder-${suffix}`} name="interestReminderOffsetDays" type="number" min={0} max={loan.interest_cycle_days - 1} defaultValue={loan.interest_reminder_offset_days} required />
+          <p className="field-hint">Chỉ thay đổi ngày nhắc thu; số ngày và tiền lãi của kỳ không đổi.</p>
+          <FieldError state={state} name="interestReminderOffsetDays" />
+        </div>}
         <div className="field-group form-span-2">
           <label htmlFor={`loan-notes-${suffix}`}>Ghi chú</label>
           <textarea id={`loan-notes-${suffix}`} name="notes" defaultValue={loan?.notes ?? ""} maxLength={500} rows={4} />

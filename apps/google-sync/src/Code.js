@@ -56,7 +56,7 @@ function installGoogleSyncInfrastructure() {
     ? initialSheets[0] : null;
 
   applyPayloadToSpreadsheet_(spreadsheet, {
-    schemaVersion: 1,
+    schemaVersion: 3,
     generatedAt: new Date().toISOString(),
     sourceVersion: "not-synced",
     unchanged: false,
@@ -107,18 +107,41 @@ function runGoogleSheetSync() {
     });
     if (response.getResponseCode() !== 200) throw new Error("Export API trả về HTTP " + response.getResponseCode() + ".");
     const payload = validatePayload_(JSON.parse(response.getContentText()));
-    if (payload.unchanged) return { unchanged: true, sourceVersion: payload.sourceVersion };
-    applyPayloadToSpreadsheet_(SpreadsheetApp.getActive(), payload);
-    properties.setProperty("SYNC_CURSOR", payload.sourceVersion);
+    const spreadsheet = SpreadsheetApp.getActive();
+    ensureSpreadsheetContract_(spreadsheet);
     properties.setProperty("LAST_SYNC_AT", new Date().toISOString());
+    if (payload.unchanged) return { unchanged: true, sourceVersion: payload.sourceVersion };
+    applyPayloadToSpreadsheet_(spreadsheet, payload);
+    properties.setProperty("SYNC_CURSOR", payload.sourceVersion);
     return { unchanged: false, sourceVersion: payload.sourceVersion };
   } finally {
     lock.releaseLock();
   }
 }
 
+/** @param {GoogleAppsScript.Spreadsheet.Spreadsheet} spreadsheet */
+function ensureSpreadsheetContract_(spreadsheet) {
+  spreadsheet.setSpreadsheetTimeZone(SYNC_TIME_ZONE);
+  SYNC_SHEETS.forEach(function (definition) {
+    const sheet = spreadsheet.getSheetByName(definition.name) || spreadsheet.insertSheet(definition.name);
+    sheet.getRange(1, 1, 1, definition.headers.length).setValues([definition.headers]);
+  });
+}
+
+function refreshGoogleSheetContract() {
+  const spreadsheet = SpreadsheetApp.getActive();
+  ensureSpreadsheetContract_(spreadsheet);
+  return { timeZone: spreadsheet.getSpreadsheetTimeZone(), sheetCount: SYNC_SHEETS.length };
+}
+
+function runGoogleSheetFullSync() {
+  PropertiesService.getScriptProperties().deleteProperty("SYNC_CURSOR");
+  return runGoogleSheetSync();
+}
+
 /** @param {GoogleAppsScript.Spreadsheet.Spreadsheet} spreadsheet @param {*} payload */
 function applyPayloadToSpreadsheet_(spreadsheet, payload) {
+  ensureSpreadsheetContract_(spreadsheet);
   SYNC_SHEETS.forEach(function (definition) {
     const sheet = spreadsheet.getSheetByName(definition.name) || spreadsheet.insertSheet(definition.name);
     const rows = buildSheetRows_(definition, payload.tables[definition.table] || []);

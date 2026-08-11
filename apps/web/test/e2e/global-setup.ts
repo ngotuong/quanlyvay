@@ -32,8 +32,33 @@ export default async function globalSetup() {
     },
   });
   if (editorError) throw editorError;
+  const owner = createClient(local.API_URL, local.PUBLISHABLE_KEY || local.ANON_KEY, {
+    auth: { autoRefreshToken: false, detectSessionInUrl: false, persistSession: false },
+  });
+  const { error: signInError } = await owner.auth.signInWithPassword({ email: "c6_owner_e2e@auth.local", password: "OwnerE2eTemp123" });
+  if (signInError) throw signInError;
+  const { data: counterpartyId, error: counterpartyError } = await owner.rpc("create_counterparty", {
+    p_name: "Đối tác thông báo E2E",
+    p_notes: null,
+  });
+  if (counterpartyError) throw counterpartyError;
+  const { data: loanId, error: loanError } = await owner.rpc("create_loan_v3", {
+    p_counterparty_id: counterpartyId,
+    p_name: "Khoản thông báo E2E",
+    p_direction: "LENDING",
+    p_original_principal_vnd: 1_000_000,
+    p_disbursement_date: "2026-08-01",
+    p_term_days: null,
+    p_interest_cycle_days: 30,
+    p_initial_period_rate_percent: 3,
+    p_interest_reminder_offset_days: 0,
+    p_idempotency_key: "e2e-notification-loan",
+    p_notes: null,
+  });
+  if (loanError) throw loanError;
   const { error: notificationError } = await admin.from("notifications").insert({
     user_id: data.user.id,
+    loan_id: loanId,
     type: "LOAN_OVERDUE",
     notification_date: "2026-08-01",
     title: "Khoản vay đã quá hạn",

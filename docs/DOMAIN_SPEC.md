@@ -23,20 +23,26 @@ InterestPeriodKind: SCHEDULED | SETTLEMENT | OVERDUE
 ## 2. Khoản vay và lịch kỳ lãi
 
 Một khoản vay có một đối tác, một chiều `LENDING` hoặc `BORROWING`, số gốc ban đầu, ngày giải ngân,
-số ngày vay, chu kỳ 15/30 ngày và lãi suất ban đầu. Tên hiển thị là nhãn tùy chọn; nếu để trống,
+chu kỳ 15/30 ngày, lãi suất ban đầu và ngày đáo hạn tùy chọn. Mặc định khoản vay không có đáo hạn.
+Tên hiển thị là nhãn tùy chọn; nếu để trống,
 hệ thống tự sinh từ đối tác, chiều vay, số tiền và ngày giải ngân. ID khoản vay mới là định danh
 duy nhất, nên một đối tác có thể có nhiều khoản vay mà không cần tự đặt tên khác nhau.
 
 ```text
-maturity_date = disbursement_date + term_days - 1
+maturity_date = term_days is null ? null : disbursement_date + term_days - 1
 period_1.start = disbursement_date
-period_n.end = min(period_n.start + cycle_days - 1, maturity_date)
+period_n.end = min(period_n.start + cycle_days - 1, maturity_date nếu có, ngày tính toán/tất toán)
 period_(n+1).start = period_n.end + 1
 ```
 
 - Ngày giải ngân được tính lãi.
 - Mỗi ngày chỉ thuộc tối đa một kỳ; không lặp ngày ở ranh giới kỳ.
-- Kỳ cuối ngắn hơn 15/30 ngày nếu gặp ngày đáo hạn.
+- Khoản không đáo hạn tiếp tục tạo kỳ 15/30 ngày cho đến khi tất toán; không tự chuyển `OVERDUE`.
+- Ngày nhắc thu có thể sớm hơn ngày kết thúc kỳ theo từng khoản. Đây chỉ là mốc vận hành; số ngày
+  tính lãi, lãi suất và tiền lãi đủ kỳ không thay đổi.
+- Khoản cũ chưa có hoạt động trên hệ thống có thể được khởi tạo một lần bằng ngày chốt, dư gốc,
+  tổng lãi đã thu và ngày chuyển nợ xấu. Bản ghi mở đầu là bất biến.
+- Khoản có đáo hạn có kỳ cuối ngắn hơn 15/30 ngày nếu gặp ngày đáo hạn.
 - Thanh toán trễ không làm dịch chuyển lịch kỳ lãi.
 - Sau ngày đáo hạn, nếu chưa tất toán/ngừng lãi, hệ thống tạo kỳ `OVERDUE` mở từ ngày kế tiếp đến ngày tính toán. Không có lãi phạt và không đổi lãi suất chỉ vì quá hạn.
 
@@ -89,13 +95,19 @@ closing_interest_balance =
 - Dư nợ gốc không bao giờ âm.
 - Khoản vay bình thường hoặc nợ xấu đều có thể trả gốc một phần.
 - Tất toán là thao tác nguyên tử gồm số gốc còn lại và số lãi cần thanh toán đến hết ngày tất toán.
+- Khi gốc hoặc lãi đã được trả đủ trước đó, tất toán chỉ tạo thành phần còn dương; vẫn ghi lifecycle
+  `SETTLEMENT` nếu cả hai số dư đều bằng 0 và không tạo giao dịch 0 VND.
 - Sau tất toán, trạng thái là `SETTLED`; không cho thêm giao dịch mới ngoài reversal/correction có kiểm soát.
+- Không đảo lẻ gốc/lãi do tất toán tạo. Hoàn tác tất toán là một workflow nguyên khối: giữ event và
+  transaction cũ, thêm reversal cho đúng batch, thêm ledger `loan_settlement_reversals`, rồi tính lại.
 
 ## 7. Nợ xấu, quá hạn và bật lại lãi
 
-- `OVERDUE` là trạng thái suy ra khi ngày hiện tại lớn hơn ngày đáo hạn và khoản vay chưa tất toán/nợ xấu.
+- `OVERDUE` chỉ là trạng thái suy ra khi khoản vay có ngày đáo hạn, ngày hiện tại đã qua ngày đó và khoản vay chưa tất toán/nợ xấu.
 - `BAD_DEBT` do người dùng chuyển thủ công.
-- Ngày chuyển nợ xấu vẫn tính lãi; các ngày sau không phát sinh lãi cho tới ngày resume.
+- Trên giao diện, mốc chuyển nợ xấu được gọi rõ là **ngày cuối cùng còn tính lãi**. Ngày này vẫn tính
+  lãi; các ngày sau không phát sinh lãi cho tới ngày resume. Nếu kỳ cuối chưa đóng nhưng vẫn phải thu
+  đủ lãi, mốc này là ngày kết thúc kỳ chưa đóng.
 - Lãi đã phát sinh trước khi dừng vẫn là số dư phải thu/phải trả.
 - Resume yêu cầu ngày bắt đầu và lãi suất: mặc định mức gần nhất hoặc một mức mới.
 - Sau resume, trạng thái trở về `ACTIVE` hoặc `OVERDUE` tùy ngày đáo hạn.
@@ -111,6 +123,8 @@ closing_interest_balance =
 - Riêng giải ngân ban đầu chỉ được reversal bên trong RPC `correct_loan_terms`. Luồng này bắt buộc lý
   do, tạo giải ngân thay thế, lưu audit và rebuild lịch lãi nguyên tử; người dùng không thể đảo giải
   ngân bằng thao tác reversal thông thường.
+- Thành phần tất toán chỉ được reversal bên trong RPC `reverse_settlement`; một giao dịch độc lập
+  trùng ngày tất toán vẫn dùng reversal thông thường.
 
 ## 9. Lợi nhuận và dashboard
 
@@ -122,12 +136,15 @@ closing_interest_balance =
   sinh cho `BORROWING` − chi phí, kể cả phần lãi chưa thanh toán.
 - Principal không được tính là doanh thu, chi phí hay lợi nhuận.
 - Chi phí có thể gắn một khoản vay hoặc để trống cho chi phí chung.
+- Dashboard theo khoảng ngày: số dư chốt tại ngày cuối khoảng; giao dịch và lãi phát sinh chỉ tính
+  trong khoảng. Dư gốc nợ xấu được tách khỏi dư nợ hoạt động nhưng vẫn thuộc tổng vốn chưa thu hồi.
 
 ## 10. Validation bắt buộc
 
-- `termDays` là số nguyên dương; `interestCycleDays` chỉ là 15 hoặc 30.
+- `termDays` là `null` đối với khoản không đáo hạn; nếu có đáo hạn thì là số nguyên từ 1 đến 36.500. `interestCycleDays` chỉ là 15 hoặc 30.
 - Principal và transaction amount là chuỗi số nguyên không âm; các khoản nhập tiền phải lớn hơn 0.
-- Daily rate là decimal không âm; không dùng số thực JavaScript để quyết toán.
+- Daily rate là decimal không âm và không được vượt 100% cho cả chu kỳ; không dùng số thực
+  JavaScript để quyết toán.
 - Event không được trước ngày giải ngân hoặc sau ngày tất toán, trừ reversal được ghi nhận sau đó.
 - Rate/status history không được có hai event mâu thuẫn cùng loại trong cùng ngày.
 - Idempotency key là bắt buộc cho mutation có thể retry, notification và sync.

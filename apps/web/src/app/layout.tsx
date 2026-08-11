@@ -1,11 +1,18 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Inter } from "next/font/google";
+import { Suspense } from "react";
 import "./globals.css";
 import { PwaRegister } from "@/components/pwa-register";
+import { NavigationFeedback } from "@/components/app/navigation-feedback";
+import { AppShell } from "@/components/app/app-shell";
+import { getAuthenticatedProfile } from "@/lib/auth/session";
+import { getUnreadNotificationCount } from "@/lib/business/queries";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
@@ -22,26 +29,35 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = { themeColor: [
-  { media: "(prefers-color-scheme: light)", color: "#f4f7fb" },
-  { media: "(prefers-color-scheme: dark)", color: "#08111f" },
+  { media: "(prefers-color-scheme: light)", color: "#f6f7fb" },
+  { media: "(prefers-color-scheme: dark)", color: "#090d18" },
 ] };
 
-export default function RootLayout({
+import { PrivacyProvider } from "@/components/app/privacy-provider";
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const profile = await getAuthenticatedProfile();
+  const showAppShell = Boolean(profile && !profile.must_change_password);
+  const unreadCount = showAppShell ? await getUnreadNotificationCount() : 0;
+
   return (
     <html
       lang="vi"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <a className="skip-link" href="#main-content">
-          Bỏ qua đến nội dung chính
-        </a>
-        <PwaRegister />
-        {children}
+        <PrivacyProvider>
+          <a className="skip-link" href="#main-content">
+            Bỏ qua đến nội dung chính
+          </a>
+          <PwaRegister />
+          <Suspense fallback={null}><NavigationFeedback /></Suspense>
+          {showAppShell && profile ? <AppShell profile={profile} showCreateLoan unreadCount={unreadCount}>{children}</AppShell> : children}
+        </PrivacyProvider>
       </body>
     </html>
   );

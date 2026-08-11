@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ChangePasswordForm } from "@/components/auth/change-password-form";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 
@@ -8,10 +9,7 @@ export default async function ChangePasswordPage() {
     <main className="auth-page" id="main-content">
       <section className="single-auth-card" aria-labelledby="change-password-title">
         <div className="brand-mark brand-mark-small" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none">
-            <path d="M12 3 5.5 5.8v5.5c0 4.4 2.7 7.9 6.5 9.7 3.8-1.8 6.5-5.3 6.5-9.7V5.8L12 3Z" />
-            <path d="M9.2 12.1 11 14l3.9-4.2" />
-          </svg>
+          <Image src="/icons/app-icon-192.png" alt="" width={48} height={48} priority />
         </div>
         <p className="eyebrow">Tài khoản {profile.username}</p>
         <h1 id="change-password-title">

@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { execFileSync, spawnSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import test from "node:test";
@@ -7,44 +7,24 @@ import { createClient } from "@supabase/supabase-js";
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const repositoryRoot = path.resolve(webRoot, "../..");
-const databaseContainer = "supabase_db_QuanLyVayCaNhan";
-const kongContainer = "supabase_kong_QuanLyVayCaNhan";
+const supabaseEnvironment = {
+  ...process.env,
+  SUPABASE_PROFILE: process.env.SUPABASE_PROFILE?.trim() || "supabase",
+};
 
-function cliWorks() {
-  return spawnSync("supabase", ["status", "-o", "env"], {
+function resetLocalDatabase() {
+  execFileSync("supabase", ["db", "reset"], {
     cwd: repositoryRoot,
-    encoding: "utf8",
-    stdio: ["ignore", "pipe", "pipe"],
-  }).status === 0;
-}
-
-function cleanLocalDatabase() {
-  execFileSync("docker", [
-    "exec", databaseContainer, "psql", "-U", "postgres", "-d", "postgres",
-    "-v", "ON_ERROR_STOP=1", "-c",
-    [
-      "truncate table public.audit_logs, public.push_subscriptions, public.notifications,",
-      "public.expenses, public.interest_periods, public.loan_lifecycle_events,",
-      "public.transactions, public.loans, public.counterparties, public.profiles",
-      "restart identity cascade; delete from auth.users;",
-    ].join(" "),
-  ], { cwd: repositoryRoot, stdio: "inherit" });
+    env: supabaseEnvironment,
+    stdio: "inherit",
+  });
 }
 
 function localSupabaseEnvironment() {
-  if (!cliWorks()) {
-    const kongConfig = execFileSync("docker", ["exec", kongContainer, "cat", "/home/kong/kong.yml"], {
-      cwd: repositoryRoot,
-      encoding: "utf8",
-      stdio: ["ignore", "pipe", "pipe"],
-    });
-    const publishableKey = kongConfig.match(/headers\.apikey == '(sb_publishable_[^']+)'/)?.[1];
-    const secretKey = kongConfig.match(/headers\.apikey == '(sb_secret_[^']+)'/)?.[1];
-    return { API_URL: "http://127.0.0.1:54321", PUBLISHABLE_KEY: publishableKey, SECRET_KEY: secretKey };
-  }
   const output = execFileSync("supabase", ["status", "-o", "env"], {
     cwd: repositoryRoot,
     encoding: "utf8",
+    env: supabaseEnvironment,
     stdio: ["ignore", "pipe", "pipe"],
   });
 
@@ -100,13 +80,13 @@ async function provisionUser(credentials, displayName, role) {
 }
 
 test("local Auth session and application roles", async (t) => {
-  cleanLocalDatabase();
-  t.after(cleanLocalDatabase);
+  resetLocalDatabase();
+  t.after(resetLocalDatabase);
   const { count, error: countError } = await admin
     .from("profiles")
     .select("*", { count: "exact", head: true });
   assert.ifError(countError);
-  assert.equal(count, 0, "Chạy `supabase db reset` trước test:auth để dùng database test sạch.");
+  assert.equal(count, 0, "Auth integration phải bắt đầu từ database đã reset đầy đủ migration.");
 
   const anonymous = createClient(apiUrl, publishableKey, {
     auth: { autoRefreshToken: false, detectSessionInUrl: false, persistSession: false },

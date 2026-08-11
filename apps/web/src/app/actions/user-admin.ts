@@ -41,7 +41,7 @@ export async function createManagedUser(input: unknown): Promise<UserAdminResult
       ok: false,
       message: error?.message.includes("already")
         ? "Tên đăng nhập đã tồn tại."
-        : "Không thể tạo tài khoản. Hệ thống chỉ hỗ trợ tối đa hai người dùng.",
+        : "Không thể tạo tài khoản. Vui lòng kiểm tra dữ liệu và thử lại.",
     };
   }
 
@@ -57,7 +57,7 @@ export async function manageUserProfile(input: unknown): Promise<UserAdminResult
     return { ok: false, message: "Thông tin phân quyền chưa hợp lệ." };
   }
   if (parsed.data.userId === owner.user_id) {
-    return { ok: false, message: "Màn hình này chỉ quản lý tài khoản thứ hai." };
+    return { ok: false, message: "Không thể quản lý tài khoản OWNER bằng biểu mẫu này." };
   }
 
   const supabase = await createClient();
@@ -96,7 +96,7 @@ export async function resetManagedUserPassword(input: unknown): Promise<UserAdmi
     .single();
 
   if (managedProfileError || !managedProfile) {
-    return { ok: false, message: "Không tìm thấy tài khoản thứ hai cần đặt lại mật khẩu." };
+    return { ok: false, message: "Không tìm thấy tài khoản cần đặt lại mật khẩu." };
   }
 
   const { error: profileError } = await supabase.rpc("mark_password_reset_required", {

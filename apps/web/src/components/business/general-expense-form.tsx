@@ -5,6 +5,7 @@ import { recordExpenseAction } from "@/app/actions/business";
 import { initialBusinessActionState } from "@/lib/business/action-state";
 import { todayInVietnam } from "@/lib/business/format";
 import { ActionMessage, FieldError, FormSubmit } from "./form-parts";
+import { VndInput } from "./vnd-input";
 
 export function GeneralExpenseForm({ idempotencyKey }: { idempotencyKey: string }) {
   const [state, action] = useActionState(recordExpenseAction, initialBusinessActionState);
@@ -20,7 +21,7 @@ export function GeneralExpenseForm({ idempotencyKey }: { idempotencyKey: string 
       </div>
       <div className="field-group">
         <label htmlFor="general-expense-amount">Số tiền (VND)</label>
-        <input id="general-expense-amount" name="amountVnd" inputMode="numeric" required />
+        <VndInput id="general-expense-amount" name="amountVnd" required />
         <FieldError state={state} name="amountVnd" />
       </div>
       <div className="field-group">

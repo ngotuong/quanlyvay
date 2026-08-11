@@ -34,11 +34,9 @@ select is(
   'VIEWER',
   'additional account receives the requested non-owner role'
 );
-select throws_ok(
+select lives_ok(
   $$insert into auth.users (id, email, email_confirmed_at, raw_user_meta_data) values ('10000000-0000-0000-0000-000000000053', 'third_local@auth.local', now(), '{"provisioned_by_app":"true","username":"third_local","display_name":"Third Local","app_role":"EDITOR"}'::jsonb)$$,
-  '23514',
-  null,
-  'provisioning enforces the two-account installation limit'
+  'provisioning allows more than two application accounts'
 );
 select throws_ok(
   $$delete from public.profiles where user_id = '10000000-0000-0000-0000-000000000052'$$,
@@ -104,9 +102,9 @@ select throws_ok(
 );
 select throws_ok(
   $$update public.profiles set username = 'renamed_owner' where user_id = '10000000-0000-0000-0000-000000000051'$$,
-  '55000',
+  '42501',
   null,
-  'username identity is immutable after provisioning'
+  'authenticated clients cannot mutate username identity directly'
 );
 select throws_ok(
   $$select public.manage_profile('10000000-0000-0000-0000-000000000052', 'Second Owner', 'OWNER', true)$$,
@@ -116,8 +114,8 @@ select throws_ok(
 );
 select is(
   (select count(*) from public.profiles),
-  2::bigint,
-  'provisioning leaves exactly two application profiles'
+  3::bigint,
+  'provisioning keeps every managed application profile'
 );
 
 reset role;

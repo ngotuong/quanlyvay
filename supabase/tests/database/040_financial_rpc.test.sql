@@ -94,7 +94,7 @@ select throws_ok(
 );
 
 select lives_ok(
-  $$select public.record_lifecycle_event('30000000-0000-0000-0000-000000000041', 'RATE_CHANGE', date '2026-08-20', 'rpc-rate', 0.2, 'Đổi lãi suất', date '2026-08-30')$$,
+  $$select public.record_lifecycle_event_v2('30000000-0000-0000-0000-000000000041', 'RATE_CHANGE', date '2026-08-20', 'rpc-rate', 3, 'Đổi lãi suất', date '2026-08-30')$$,
   'owner can record an effective-date rate change'
 );
 select is(
@@ -103,7 +103,7 @@ select is(
   'rate change and principal segments are recalculated together'
 );
 select lives_ok(
-  $$select public.record_lifecycle_event('30000000-0000-0000-0000-000000000041', 'RATE_CHANGE', date '2026-08-20', 'rpc-rate', 0.2, 'Đổi lãi suất', date '2026-08-30')$$,
+  $$select public.record_lifecycle_event_v2('30000000-0000-0000-0000-000000000041', 'RATE_CHANGE', date '2026-08-20', 'rpc-rate', 3, 'Đổi lãi suất', date '2026-08-30')$$,
   'retrying the same lifecycle event is idempotent'
 );
 select is(
@@ -112,7 +112,7 @@ select is(
   'lifecycle retry does not create a duplicate'
 );
 select throws_ok(
-  $$select public.record_lifecycle_event('30000000-0000-0000-0000-000000000041', 'RATE_CHANGE', date '2026-08-20', 'rpc-rate', 0.3, 'Khác dữ liệu', date '2026-08-30')$$,
+  $$select public.record_lifecycle_event_v2('30000000-0000-0000-0000-000000000041', 'RATE_CHANGE', date '2026-08-20', 'rpc-rate', 4.5, 'Khác dữ liệu', date '2026-08-30')$$,
   '23505',
   null,
   'same idempotency key rejects different lifecycle input'
@@ -149,17 +149,17 @@ select is(
 );
 
 select throws_ok(
-  $$select public.record_lifecycle_event('30000000-0000-0000-0000-000000000041', 'INTEREST_RESUME', date '2026-08-24', 'rpc-invalid-resume', null, null, date '2026-08-30')$$,
+  $$select public.record_lifecycle_event_v2('30000000-0000-0000-0000-000000000041', 'INTEREST_RESUME', date '2026-08-24', 'rpc-invalid-resume', null, null, date '2026-08-30')$$,
   '23514',
   null,
   'interest cannot resume before a bad-debt pause'
 );
 select lives_ok(
-  $$select public.record_lifecycle_event('30000000-0000-0000-0000-000000000041', 'BAD_DEBT_START', date '2026-08-25', 'rpc-bad-debt', null, 'Tạm dừng lãi', date '2026-08-30')$$,
+  $$select public.record_lifecycle_event_v2('30000000-0000-0000-0000-000000000041', 'BAD_DEBT_START', date '2026-08-25', 'rpc-bad-debt', null, 'Tạm dừng lãi', date '2026-08-30')$$,
   'bad debt can pause interest accrual manually'
 );
 select lives_ok(
-  $$select public.record_lifecycle_event('30000000-0000-0000-0000-000000000041', 'INTEREST_RESUME', date '2026-08-28', 'rpc-resume-old-rate', null, 'Dùng lại lãi suất cũ', date '2026-08-30')$$,
+  $$select public.record_lifecycle_event_v2('30000000-0000-0000-0000-000000000041', 'INTEREST_RESUME', date '2026-08-28', 'rpc-resume-old-rate', null, 'Dùng lại lãi suất cũ', date '2026-08-30')$$,
   'resume can omit a new rate and reuse the latest rate'
 );
 select is(

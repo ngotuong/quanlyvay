@@ -6,6 +6,7 @@ import { initialBusinessActionState } from "@/lib/business/action-state";
 import { periodRateInput } from "@/lib/business/format";
 import type { Loan } from "@/lib/business/types";
 import { ActionMessage, FieldError, FormSubmit } from "./form-parts";
+import { VndInput } from "./vnd-input";
 
 export function LoanCorrectionForm({ loan, idempotencyKey }: { loan: Loan; idempotencyKey: string }) {
   const [state, action] = useActionState(correctLoanTermsAction, initialBusinessActionState);
@@ -27,7 +28,7 @@ export function LoanCorrectionForm({ loan, idempotencyKey }: { loan: Loan; idemp
         </fieldset>
         <div className="field-group">
           <label htmlFor="correctionPrincipal">Số tiền gốc ban đầu (VND) <span aria-hidden="true">*</span></label>
-          <input id="correctionPrincipal" name="originalPrincipalVnd" inputMode="numeric" defaultValue={loan.original_principal_vnd} required />
+          <VndInput id="correctionPrincipal" name="originalPrincipalVnd" defaultValue={loan.original_principal_vnd} required />
           <FieldError state={state} name="originalPrincipalVnd" />
         </div>
         <div className="field-group">
@@ -35,9 +36,17 @@ export function LoanCorrectionForm({ loan, idempotencyKey }: { loan: Loan; idemp
           <input id="correctionDate" name="disbursementDate" type="date" defaultValue={loan.disbursement_date} required />
           <FieldError state={state} name="disbursementDate" />
         </div>
+        <fieldset className="field-group segmented-field form-span-2">
+          <legend>Thời hạn khoản vay</legend>
+          <div className="segmented-control">
+            <label><input defaultChecked={loan.term_days === null} name="maturityOption" type="radio" value="none" /><span>Không đáo hạn</span></label>
+            <label><input defaultChecked={loan.term_days !== null} name="maturityOption" type="radio" value="fixed" /><span>Có đáo hạn</span></label>
+          </div>
+          <p className="field-hint">Không đáo hạn: tiếp tục tính kỳ lãi theo chu kỳ cho đến khi tất toán.</p>
+        </fieldset>
         <div className="field-group">
-          <label htmlFor="correctionTerm">Số ngày vay <span aria-hidden="true">*</span></label>
-          <input id="correctionTerm" name="termDays" type="number" min={1} max={36500} defaultValue={loan.term_days} required />
+          <label htmlFor="correctionTerm">Số ngày vay (nếu có đáo hạn)</label>
+          <input id="correctionTerm" name="termDays" type="number" min={1} max={36500} defaultValue={loan.term_days ?? ""} placeholder="Ví dụ: 90" />
           <FieldError state={state} name="termDays" />
         </div>
         <div className="field-group">

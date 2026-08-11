@@ -19,7 +19,11 @@ Webapp/PWA quản lý các khoản đi vay và cho vay cá nhân, sử dụng Ne
 - C12 — Vercel Preview: hoàn tất.
 - C13 — Production/UAT: hoàn tất; restore/cleanup, Production deploy, OWNER, Google Sync, snapshot và
   Web Push delivery thật đều đã được kiểm thử.
-- GitHub private, Supabase Singapore, Google/Clasp và Vercel Production đã liên kết; Production chạy tại `https://quan-ly-vay-ca-nhan.vercel.app`.
+- C14 — Hiệu năng và độ mượt UX: hoàn tất.
+- C15 — Sửa dữ liệu khoản vay và trình bày lãi theo kỳ: hoàn tất.
+- C16 — Remediation audit và kiểm thử dữ liệu thực tế đầu tiên: đang thực hiện; các vòng trước đã
+  rollout Production, hiện tiếp tục hardening local và đối chiếu dữ liệu thật.
+- GitHub private, Supabase Singapore, Google/Clasp và Vercel Production đã liên kết; Production chạy tại `https://tindung.vercel.app`.
 
 Trạng thái hiện tại luôn được lấy từ `PROJECT_CONTEXT.md`; roadmap nằm trong `docs/IMPLEMENTATION_PLAN.md`.
 

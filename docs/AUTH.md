@@ -11,15 +11,14 @@
   `getClaims()` thay vì tin dữ liệu session chưa xác minh.
 - Public signup bị tắt ở cấu hình Auth toàn cục; email/password provider vẫn bật để các tài khoản do Admin API cấp có thể đăng nhập.
 
-## Provisioning và giới hạn tài khoản
+## Provisioning và quản trị tài khoản
 
 - Tài khoản đầu tiên được provision qua Admin API tự động trở thành `OWNER`.
-- Tài khoản thứ hai chỉ có thể là `EDITOR` hoặc `VIEWER`.
-- Hệ thống không provision tài khoản thứ ba.
+- Mọi tài khoản sau OWNER chỉ có thể là `EDITOR` hoặc `VIEWER`; không giới hạn số lượng ở tầng ứng dụng.
 - Profile được tạo bởi trigger cùng transaction với `auth.users`; username và user ID bất biến.
-- Profile không xóa vật lý. OWNER có thể vô hiệu hóa tài khoản thứ hai.
+- Profile không xóa vật lý. OWNER có thể vô hiệu hóa từng tài khoản được quản lý.
 - Chỉ có một OWNER hoạt động và OWNER không thể tự hạ quyền hoặc tự vô hiệu hóa.
-- OWNER quản lý tài khoản thứ hai tại `/settings`: tạo tài khoản, đổi tên hiển thị/vai trò/trạng
+- OWNER quản lý các tài khoản tại `/settings`: tạo tài khoản, đổi tên hiển thị/vai trò/trạng
   thái hoạt động và cấp lại mật khẩu tạm. Mật khẩu tạm luôn buộc đổi ở lần đăng nhập kế tiếp.
 - Mật khẩu cần tối thiểu 6 ký tự và chỉ gồm chữ cái ASCII hoặc chữ số; không bắt buộc chữ hoa,
   chữ thường hay phối hợp cả chữ và số.
@@ -42,7 +41,7 @@ Script yêu cầu các biến `BOOTSTRAP_USERNAME`, `BOOTSTRAP_DISPLAY_NAME`, `B
 | Xem dữ liệu tài chính | Có | Có | Có |
 | Ghi nghiệp vụ qua RPC | Có | Có | Không |
 | Xem audit log | Có | Không | Không |
-| Tạo/vô hiệu hóa tài khoản thứ hai | Có | Không | Không |
+| Tạo/vô hiệu hóa tài khoản | Có | Không | Không |
 | Đổi mật khẩu của chính mình | Có | Có | Có |
 
 Tài khoản bị vô hiệu hóa có thể còn token Auth chưa hết hạn, nhưng RLS và RPC đều từ chối truy cập
@@ -56,12 +55,10 @@ dữ liệu ngay lập tức. Màn hình đăng nhập cũng đăng xuất tài 
 
 ## Kiểm thử local
 
-Test Auth API tạo hai tài khoản giả và cần database sạch:
+Test Auth API tạo các tài khoản giả và tự reset đầy đủ migration trên database local:
 
 ```bash
-supabase db reset
 pnpm test:auth
-supabase db reset
 ```
 
 Lần reset cuối xóa toàn bộ tài khoản test giả. Không chạy quy trình này trên database có dữ liệu thật.

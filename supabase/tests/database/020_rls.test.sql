@@ -52,8 +52,8 @@ set local role authenticated;
 
 select is((select count(*) from public.profiles), 4::bigint, 'owner can read all profiles');
 select lives_ok(
-  $$insert into public.counterparties (name, created_by) values ('Owner tạo', auth.uid())$$,
-  'owner can create counterparties'
+  $$select public.create_counterparty('Owner tạo', null)$$,
+  'owner can create counterparties through the authoritative RPC'
 );
 
 reset role;
@@ -61,13 +61,17 @@ select set_config('request.jwt.claim.sub', '10000000-0000-0000-0000-000000000012
 set local role authenticated;
 
 select cmp_ok((select count(*) from public.counterparties), '>=', 2::bigint, 'editor can read shared counterparties');
-select lives_ok(
+select throws_ok(
   $$insert into public.counterparties (name, created_by) values ('Editor tạo', auth.uid())$$,
-  'editor can create counterparties'
+  '42501',
+  null,
+  'editor cannot bypass the counterparty RPC'
 );
-select lives_ok(
+select throws_ok(
   $$update public.profiles set role = 'OWNER' where user_id = '10000000-0000-0000-0000-000000000011'$$,
-  'profile update attempt does not expose protected rows to editor'
+  '42501',
+  null,
+  'editor has no direct profile mutation privilege'
 );
 select is(
   (select role::text from public.profiles where user_id = auth.uid()),
@@ -89,16 +93,18 @@ reset role;
 select set_config('request.jwt.claim.sub', '10000000-0000-0000-0000-000000000013', true);
 set local role authenticated;
 
-select cmp_ok((select count(*) from public.counterparties), '>=', 3::bigint, 'viewer can read shared counterparties');
+select cmp_ok((select count(*) from public.counterparties), '>=', 2::bigint, 'viewer can read shared counterparties');
 select throws_ok(
   $$insert into public.counterparties (name) values ('Viewer không được tạo')$$,
   '42501',
   null,
   'viewer cannot create counterparties'
 );
-select lives_ok(
+select throws_ok(
   $$update public.counterparties set name = 'Viewer sửa' where id = '20000000-0000-0000-0000-000000000011'$$,
-  'counterparty update attempt does not expose writable rows to viewer'
+  '42501',
+  null,
+  'viewer has no direct counterparty mutation privilege'
 );
 select is(
   (select name from public.counterparties where id = '20000000-0000-0000-0000-000000000011'),
@@ -109,8 +115,8 @@ select is((select count(*) from public.profiles), 1::bigint, 'viewer can only re
 select is((select count(*) from public.audit_logs), 0::bigint, 'viewer cannot read audit history');
 select is((select count(*) from public.notifications), 1::bigint, 'viewer only sees their own notifications');
 select lives_ok(
-  $$insert into public.push_subscriptions (user_id, endpoint, p256dh, auth_secret) values (auth.uid(), 'https://push.example.test/viewer', 'key', 'secret')$$,
-  'viewer can register their own push subscription'
+  $$select public.register_push_subscription('https://push.example.test/viewer', 'key', 'secret')$$,
+  'viewer can register their own push subscription through the RPC'
 );
 select throws_ok(
   $$insert into public.push_subscriptions (user_id, endpoint, p256dh, auth_secret) values ('10000000-0000-0000-0000-000000000011', 'https://push.example.test/other', 'key', 'secret')$$,

@@ -1,17 +1,17 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.48
-last_updated: 2026-08-03 21:16:45 +07
+roadmap_version: 1.0.86
+last_updated: 2026-08-11 15:08:16 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C16
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 ---
 
 # Project Context
 
 ## 1. Mục tiêu
 
-Xây dựng webapp/PWA Next.js cho tối đa hai người dùng để quản lý cả khoản đi vay và cho vay cá nhân, tính lãi theo ngày, theo dõi giao dịch gốc/lãi, nhắc hạn, dashboard tài chính, audit log và sao lưu định kỳ.
+Xây dựng webapp/PWA Next.js cho một OWNER và các tài khoản EDITOR/VIEWER được quản lý để theo dõi cả khoản đi vay và cho vay cá nhân, tính lãi theo ngày, giao dịch gốc/lãi, nhắc hạn, dashboard tài chính, audit log và sao lưu định kỳ.
 
 Supabase là nguồn dữ liệu chuẩn. Google Sheets và Google Drive chỉ dùng để đối chiếu và sao lưu một chiều thông qua Apps Script.
 
@@ -37,25 +37,30 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `apps/web` dùng Next.js 16.2.12, React 19.2.4, TypeScript 5.9.3, Tailwind CSS 4.3.3 và ESLint 9.39.5.
 - `packages/domain-contract` chứa type contract và test fixture độc lập với production engine.
 - `docs/DOMAIN_SPEC.md` là đặc tả nghiệp vụ v1 đã khóa cho C3–C4.
-- Supabase local đã được khởi tạo với PostgreSQL 17, 8 migration, RLS và 222 pgTAP assertions.
+- Supabase local đã được khởi tạo với PostgreSQL 17, 19 migration, RLS và 355 pgTAP assertions.
 - Bộ máy tài chính authoritative nằm trong PostgreSQL, có RPC tính/rebuild, ghi thanh toán, lifecycle, reversal và tất toán nguyên tử.
 - `docs/FINANCIAL_ENGINE.md` mô tả contract C4; engine đã được giữ nguyên qua regression C5.
 - Local Auth dùng username/password ánh xạ sang email nội bộ, session SSR, bắt đổi mật khẩu và vai trò `OWNER`/`EDITOR`/`VIEWER`; public signup bị tắt.
-- `docs/AUTH.md` mô tả contract Auth/RBAC; bootstrap OWNER thật đã được chuẩn bị nhưng chưa chạy.
+- `docs/AUTH.md` mô tả contract Auth/RBAC; OWNER Production thật đã được bootstrap và đổi mật khẩu.
 - Web đã có CRUD đối tác/khoản vay, ghi giao dịch gốc/lãi/chi phí, lifecycle, tất toán, reversal,
   timeline, audit, trang chi phí chung `/expenses` và quản trị tài khoản OWNER tại `/settings`.
 - `docs/WEB_WORKFLOWS.md` mô tả contract web; giao diện responsive dùng sidebar desktop và bottom navigation mobile.
+- `docs/DESIGN_SYSTEM.md` khóa token semantic, typography Inter, primitive, Lucide SVG và app icon banking hình học,
+  responsive và accessibility cho giao diện C16.
 - Dashboard C7 dùng RPC PostgreSQL authoritative cho KPI, lợi nhuận tiền mặt/dồn tích, dòng tiền và lịch đến hạn; `/dashboard` là trang sau đăng nhập.
-- `docs/DASHBOARD.md` mô tả định nghĩa chỉ số và quy ước dòng tiền; UI đã kiểm tra responsive 375/768/1440px và light/dark mode.
+- `docs/DASHBOARD.md` mô tả định nghĩa chỉ số và quy ước dòng tiền; bundle Dashboard local dùng một
+  snapshot hiện tại dùng chung cho KPI/analytics, UI đã kiểm tra responsive 375/768/1440px và light/dark mode.
 - PWA có manifest, icon, service worker không cache dữ liệu tài chính, notification center và Web
   Push queue idempotent; trạng thái Push theo đúng thiết bị và subscription mới không nhận lịch sử.
 - `docs/PWA_NOTIFICATIONS.md` mô tả quy tắc nhắc hạn, retry, VAPID local và ranh giới cấu hình cron remote.
-- Google Sync có endpoint export Next.js bảo vệ bằng secret và phân trang hết dữ liệu, Apps Script
-  chống formula injection, tám tab đối chiếu, cursor nguồn, snapshot tuần giữ 12 bản và phục hồi chỉ
-  trong workbook.
+- Google Sync local dùng schema v3, endpoint export Next.js bảo vệ bằng secret và phân trang hết dữ liệu;
+  Apps Script chống formula injection, mười một tab đối chiếu gồm correction/settlement reversal/onboarding, cursor
+  nguồn theo cả trạng thái đọc thông báo, giữ nguyên bigint audit dạng text, snapshot tuần giữ 12 bản và phục hồi chỉ trong workbook. Workbook cố định múi giờ
+  `Asia/Ho_Chi_Minh`; có hàm bảo trì refresh contract và full sync để sửa header/ngày cũ an toàn.
 - `docs/GOOGLE_SYNC.md` mô tả contract Sheet, Script Properties và ranh giới cấu hình remote C11–C12.
 - Supabase Production project Singapore `hmfxnstrqfqpvsgfmjmd`, thuộc tài khoản
-  `tuongnt2105@gmail.com`, đã áp 7/7 migration, không seed và public signup đã tắt. CLI đã đăng nhập
+  `tuongnt2105@gmail.com`, đã áp 18/18 migration gồm Dashboard/analytics quản trị và contract
+  `Cần xử lý` actionable, không seed và public signup đã tắt. CLI đã đăng nhập
   đúng tài khoản/profile `quanlyvay`; legacy `anon`/`service_role` runtime keys đã phục hồi vào hai
   Keychain services Publishable/Secret tương ứng.
 - Google/Clasp C11 đã đăng nhập bằng named user, tạo bound Sheet/Apps Script, push mã lần đầu và
@@ -76,9 +81,9 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Trường | Giá trị |
 |---|---|
 | Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
-| Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi đề xuất | Người dùng nhập các khoản vay hiện hữu; đối chiếu hợp đồng, lịch lãi, dòng tiền và Dashboard với ghi chép thủ công; mọi sửa dữ liệu Production xác nhận riêng |
-| Kết quả | Chưa bắt đầu |
+| Trạng thái | `IN_PROGRESS` |
+| Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX bốn giai đoạn theo `docs/C16_UI_UX_PLAN.md`; sau khi từng giai đoạn đạt gate, được phép áp migration Supabase Production và deploy Vercel Production ngay để người dùng kiểm tra; sửa dữ liệu tài chính, secret và tài nguyên remote khác vẫn cần xác nhận riêng |
+| Kết quả | Remediation R1–R7, audit follow-up và UI/UX follow-up A–E đã rollout. Hardening local tiếp theo đã khóa Preview trước authenticated smoke/runtime log, fail-closed E2E migration reset, kiểm tra lỗi hoàn tất Push và bỏ giới hạn số tài khoản quản lý. Gate mới đạt lint/typecheck/32 tests/build, Auth 6/6, E2E 9/9, DB lint và pgTAP 355/355. Production vẫn ở migration 18/19; C16 tiếp tục `IN_PROGRESS` để chờ xác nhận rollout và đối chiếu dữ liệu thật |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -132,15 +137,15 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
 |---|---|
-| Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi đề xuất | Nhập các khoản vay hiện hữu, đối chiếu từng hợp đồng/lịch lãi/dòng tiền/Dashboard với ghi chép thủ công; mọi sửa dữ liệu Production cần xác nhận riêng |
+| Trạng thái | `IN_PROGRESS` |
+| Phạm vi đã duyệt | Bổ sung khoản vay không đáo hạn mặc định, đáo hạn là tùy chọn; tiếp tục chu kỳ lãi và ngày đóng lãi tới khi tất toán; mọi migration/deploy/push và sửa dữ liệu Production cần xác nhận riêng |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
 - Quản lý cả `LENDING` và `BORROWING`, chỉ dùng VND.
 - Lãi = dư nợ gốc × lãi suất/ngày × số ngày thực tế; ngày giải ngân được tính.
-- Chu kỳ đóng lãi 15 hoặc 30 ngày; kỳ cuối rút ngắn đến ngày đáo hạn.
-- Ngày đáo hạn = ngày giải ngân + số ngày vay - 1.
+- Chu kỳ đóng lãi 15 hoặc 30 ngày; khoản không đáo hạn tiếp tục mở kỳ mới đến khi tất toán.
+- Khoản vay mặc định không có đáo hạn. Nếu bật tùy chọn đáo hạn thì ngày đáo hạn = ngày giải ngân + số ngày vay - 1 và kỳ cuối được rút ngắn tại mốc này.
 - Trả gốc giữa kỳ có hiệu lực trên dư nợ từ ngày kế tiếp.
 - Trả thiếu/thừa lãi được chuyển số dư sang kỳ sau; không tính lãi trên lãi.
 - Quá hạn không có lãi phạt.
@@ -149,7 +154,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 - Giao dịch đã ghi nhận chỉ được đảo, không xóa vật lý.
 - Lãi giữ decimal đầy đủ và làm tròn `HALF_UP` một lần ở cuối kỳ.
 - Đổi lãi suất có hiệu lực đầu ngày; trả gốc có hiệu lực từ ngày kế tiếp; ngày ngừng lãi vẫn được tính.
-- Sau đáo hạn, lãi mức cũ tiếp tục trong kỳ `OVERDUE` mở, không có lãi phạt.
+- Chỉ khoản có ngày đáo hạn mới chuyển `OVERDUE`; sau đáo hạn lãi mức cũ tiếp tục trong kỳ `OVERDUE` mở và không có lãi phạt.
 - Reversal giữ lịch sử nhưng tính lại kết quả từ ngày hiệu lực của giao dịch gốc.
 - Supabase production dùng tài khoản mới và project Singapore đã tạo/link ở C10.
 - Vercel dự kiến dùng tài khoản cũ; kiểm tra usage 30 ngày trước khi link ở C12.
@@ -160,17 +165,156 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Dịch vụ | Trạng thái |
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
-| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; 8/8 migration gồm C15 correction đã áp |
-| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; C15 Production `dpl_8LugJRs4T3YB3R9u4gUhkfqZnENr` Ready tại `https://quan-ly-vay-ca-nhan.vercel.app`, Functions ở `sin1`, đủ 8 env và cron `/api/notifications/run` lúc `0 0 * * *`; Preview C13 vẫn Ready |
-| Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; 4 file đã push, `SYNC_API_URL` dùng Production canonical, restore xóa cursor để lần sync kế tiếp tải lại nguồn, hai trigger `runWeeklySnapshot` và `runGoogleSheetSync` cùng hoạt động |
-| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; restore snapshot `QLV_Snapshot_2026-08-02` và sync lại đã đạt, workbook hiện phản ánh nguồn `empty`; thư mục `QuanLyVayCaNhan_Backups` cùng hai snapshot giữ nguyên |
+| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production đã áp 18/19 migration local. Migration 19 bỏ giới hạn số tài khoản quản lý và chưa áp remote; không có DML tài chính. Hậu kiểm gần nhất ghi nhận 22 khoản vay/209 giao dịch/208 kỳ lãi hiện có |
+| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; Production mới `dpl_A8PwKgcoyPnRkpoUzX811SrDua5e` Ready tại `https://tindung.vercel.app`, app/API Functions `sin1` (middleware phân phối edge toàn cầu), smoke login/manifest/dashboard 200 và export/cron thiếu secret 401. Preview giữ `dpl_9XzJ7353PG7rGxZoohrpDVXrhq1z` Ready tại `https://tindung-preview.vercel.app` |
+| Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; schema v3 và audit follow-up đã push đủ 4 file bằng named user `quanlyvay-google` lúc 16:52 ngày 10/08/2026; hai trigger giữ nguyên, chưa chạy full sync thủ công |
+| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook schema v3 có 11 tab dữ liệu cộng `Tổng quan`. Backup mới nhất `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260805T104926Z` gồm 5 ciphertext + manifest có bản tại `/Users/ngotuong/Backups/QuanLyVayCaNhan` và DriveFS `QuanLyVayCaNhan_Backups`; GCM tag và SHA-256 hai bản khớp, không lưu plaintext |
 
 Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; không lưu secret.
 
 ## 8. Blocker và cổng xác nhận
 
-- C15 không còn blocker. C16 đang chờ người dùng phê duyệt; không tự nhập, sửa hoặc đối chiếu dữ
-  liệu Production nếu chưa có phạm vi/xác nhận tương ứng.
+- Sau xác nhận ngày `2026-08-10`, source đã đạt Preview gate được deploy lại bằng Production
+  environment thành `dpl_A8PwKgcoyPnRkpoUzX811SrDua5e`; alias `https://tindung.vercel.app` đã
+  chuyển, app/API Functions ở `sin1`, smoke đạt và không có runtime error mới. Preview stable vẫn
+  giữ nguyên để đối chiếu; Production cũ không bị xóa và còn dùng được làm điểm rollback.
+- Preview lỗi ngày `2026-08-10` đã xử lý: `/loans` và Dashboard từng truyền event handler từ Server
+  Component nên chỉ lỗi runtime sau đăng nhập dù Vercel báo `Ready`. Đã bỏ handler sai ranh giới,
+  thêm điều khiển lọc thuần form/accessibility, E2E đạt 8/8 và chuyển stable alias sang deployment
+  `dpl_9XzJ7353PG7rGxZoohrpDVXrhq1z`. Quy trình mới bắt buộc `pnpm deploy:preview`, candidate-first,
+  đủ gate, smoke immutable URL, rồi mới gán alias và tự rollback nếu hậu kiểm thất bại.
+- Vòng audit follow-up ngày `2026-08-10` đã rollout đủ: Supabase Production 17/17, Vercel
+  `dpl_FiGJRF2QwFJHv4MVuQCmu4aZnV68` Ready/`sin1` và Apps Script push đủ 4 file. Dữ liệu tài chính
+  Production không bị sửa. Audit frontend sau rollout ghi nhận ưu/nhược điểm và đề xuất tại
+  `docs/audits/2026-08-10-frontend/AUDIT.md`.
+- UI/UX follow-up A–E đã rollout ngày `2026-08-10` sau xác nhận riêng: Supabase Production 18/18;
+  Vercel `dpl_8qr1E6uXb3j9PFGgagheFGJ98PS7` Ready/`sin1`, alias canonical và smoke đạt. Cảnh báo
+  cache catalog `pg-delta` của CLI xuất hiện sau khi push nhưng migration history đã hậu kiểm khớp
+  18/18. Apps Script không có thay đổi và không được push trong vòng này.
+- C16 đã được người dùng phê duyệt ngày `2026-08-03` và đang `IN_PROGRESS`. Phần bổ sung không đáo
+  hạn ngày `2026-08-04` đã rollout sau xác nhận riêng: backup mã hóa và restore rehearsal đạt;
+  migration thứ 10, Vercel deploy, Apps Script push/full sync hoàn tất; khoản `Test` được sửa qua RPC
+  correction có reversal/audit sang không đáo hạn. Production/browser/REST xác nhận `ACTIVE`, ngày
+  đóng lãi tiếp theo 27/08/2026, kỳ 29/06–28/07 vẫn có lãi 13,5 triệu và đã đóng đủ. Gate cuối sau
+  rollout đạt lint/typecheck/30 tests/build; Auth 6/6, E2E 7/7 và pgTAP 268/268 đã đạt với migration
+  optional-maturity. Remediation trước đó đạt database lint, concurrency hai
+  session và restore rehearsal logical stream (9 migration/9 bảng, SHA-256) trên database tạm đã
+  xóa. Production pre-C16 backup đã hoàn tất: AES-256-GCM, khóa trong macOS Keychain, bản chính tại
+  `/Users/ngotuong/Backups/QuanLyVayCaNhan`, bản sao DriveFS tại `QuanLyVayCaNhan_Backups`, SHA-256
+  và GCM tag khớp, restore đầy đủ auth + app cùng calculation/RLS smoke đạt; container/database tạm
+  đã xóa. Còn phải nhập và đối chiếu các khoản vay thực tế còn lại; mọi sửa sai lệch dữ liệu
+  Production tiếp tục cần xác nhận riêng.
+- Production hiện có 4 khoản vay. Bản đã rollout giữ kỳ Dũng Hùng 700 triệu kết thúc 18/08/2026 và
+  tiền lãi đủ kỳ 21 triệu, nhưng cho phép nhắc thu 17/08 bằng offset một ngày. Onboarding khoản cũ lưu một
+  snapshot bất biến gồm ngày chốt, dư gốc, tổng lãi đã thu và ngày nợ xấu; tạo giao dịch tổng hợp có
+  audit, không yêu cầu nhập từng kỳ và không cho đảo lẻ. Gate đạt lint/typecheck/30 tests/build,
+  Auth 6/6, E2E 7/7, pgTAP 293/293 và DB lint. Sau xác nhận riêng, backup mã hóa, migration 11,
+  Vercel Production và Apps Script/Sheet schema v3 đã rollout. Lần chạy full sync đầu tiên gặp một
+  HTTP 500 tạm thời từ Export API; retry ngay sau đó hoàn tất trong 24 giây và workbook đã hậu kiểm.
+  C16 tiếp tục `IN_PROGRESS` để người dùng thử offset/onboarding và đối chiếu từng khoản; mọi sửa dữ
+  liệu Production vẫn cần xác nhận riêng.
+- Sau xác nhận phạm vi, local đã thêm **Ghi nhận đóng lãi** trên từng card kỳ còn dư: số tiền điền
+  từ `closing_interest_balance_vnd`, ngày mặc định là ngày dự kiến thu sau offset, vẫn cho sửa và
+  cảnh báo nếu nằm ngoài khoảng kỳ. Kỳ đủ/ứng trước hiển thị **Đã đóng đủ**. Engine/RPC không đổi;
+  giao dịch vẫn thuộc kỳ chứa ngày thực tế và giữ idempotency. Gate đạt lint, typecheck, 30/30
+  unit/domain/mock tests, build và E2E 7/7 từ database sạch. Thay đổi chỉ ở local, cần xác nhận riêng
+  trước khi deploy Vercel Production để người dùng nhập dữ liệu thật. Sau xác nhận riêng, deployment
+  `dpl_3zr2dbAFnNR9txwVzsXAqqfM2fzg` đã Ready, alias `https://tindung.vercel.app`, login/manifest 200
+  và export thiếu secret 401; Functions hậu kiểm ở `sin1`.
+- Lần gọi deploy đầu tiên từ `apps/web` không đọc `.vercel/project.json` ở repository root nên CLI
+  tạo nhầm project `web` (`prj_Wi1AlfHl5N0ajzE1SJX4qxqAZubR`) và deployment
+  `dpl_4pzzFrFVw2QfFCKBZUTzLNpphQrh`. Project này tách biệt, không có Production env/secrets hoặc dữ
+  liệu. Sau xác nhận riêng, project và toàn bộ deployment/alias riêng của nó đã xóa; `project inspect web`
+  trả not found. Project chính vẫn đúng ID, deployment Ready và smoke 200/200/401. Các lần deploy
+  project thật phải chạy tại repository root.
+- Đối chiếu Production ngày 04/08 xác nhận `A.Phúc Hà · Cho vay · 200.000.000 ₫ · 16/03/2026`
+  đang có `direction=LENDING`, còn khoản 450 triệu cùng đối tác là `BORROWING`; vì vậy khoản 200 triệu
+  không xuất hiện trong số lượng/nhóm đi vay. Chưa sửa dữ liệu remote. Local bỏ mặc định `LENDING`,
+  bắt buộc chọn rõ hướng và dùng `VndInput` tự chèn dấu chấm cho toàn bộ trường tiền gốc, thanh toán,
+  chi phí, onboarding và đóng lãi nhanh; Server Action tiếp tục chuẩn hóa về số nguyên. Gate đạt
+  lint/typecheck/30 tests/build và E2E 7/7. Người dùng sau đó tự correction khoản này; hậu kiểm hiện
+  là `A.Phúc Hà · Đi vay · 200.000.000 ₫ · 16/03/2026`, `direction=BORROWING`, `ACTIVE`. Sau xác nhận
+  riêng, deploy `dpl_FyPUjxnZtf1KacCHehESA3NbKCoV` Ready/`sin1`; smoke 200/200/401 đạt.
+- Production hiện có 192 dòng `transactions`. Chính sách ledger append-only tiếp tục giữ nguyên:
+  giao dịch sai được đảo thay vì xóa. Với quy mô cá nhân, số dòng này rất nhỏ; ưu tiên khả năng đối
+  chiếu/audit hơn tiết kiệm dung lượng. Không tạo dữ liệu test trong Production; nếu tăng lớn bất
+  thường thì theo dõi kích thước bảng/index và cân nhắc archive lạnh, không xóa giao dịch tài chính.
+- Đối chiếu chỉ-đọc ngày 05/08 xác nhận Đạt Pha 50 triệu đang `BAD_DEBT`, đã đóng lãi đến kỳ
+  11/09–10/10/2024 và có `BAD_DEBT_START` ngày 09/11/2024. Engine giữ đúng toàn bộ kỳ chưa đóng
+  11/10–09/11 là 1,5 triệu lãi còn thiếu, dừng phát sinh từ 10/11, dư gốc 50 triệu. Không cần
+  correction/onboarding hoặc sửa dữ liệu Production.
+- Theo phê duyệt revision C16 ngày 05/08, local có migration thứ 12 tạo
+  `get_management_dashboard(period_start, period_end)`: số dư chốt cuối kỳ; lãi/chi phí/dòng tiền
+  chỉ trong kỳ; dư gốc nợ xấu tách khỏi hoạt động nhưng giữ trong tổng vốn. Dashboard có preset và
+  khoảng tùy chỉnh; `/loans` tìm tên khoản/đối tác, lọc hướng/trạng thái/ngày, sắp xếp và giữ trạng
+  thái trên URL. UI gọi mốc nợ xấu là “Ngày cuối cùng còn tính lãi”. DB lint, pgTAP 309/309, Auth
+  6/6 và E2E 8/8 đạt. Sau xác nhận cả ba bước, backup mã hóa
+  `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260805T104926Z` đã lưu local + DriveFS và xác minh; migration
+  12/12 đã áp; Vercel `dpl_2ZV4SEs6QHWAwYX1yqpHqwUS95Mu` Ready/`sin1`. RPC remote trả đúng
+  4,1 tỷ hoạt động + 50 triệu nợ xấu = 4,15 tỷ tổng; anonymous 401, số dòng dữ liệu không đổi và
+  HTTP smoke đạt. Không cần Apps Script push vì export/Sheet schema không đổi.
+- Theo phê duyệt UX quản trị ngày 05/08, migration thứ 13 tạo
+  `get_management_analytics` và `get_loan_management_summary`: biểu đồ/tổng lãi lấy số liệu
+  authoritative, gồm onboarding lịch sử và loại giao dịch đã đảo. Dashboard phân tầng bốn KPI chính
+  trước vốn/nợ xấu, giữ tên ngắn “Lãi ròng phát sinh” với công thức; thêm ba biểu đồ. `/loans` có sáu
+  chip lọc nhanh; chi tiết chia bốn tab URL, tách xem dữ liệu khỏi thao tác rủi ro và có biểu đồ 12 kỳ.
+  Gate local đạt lint/typecheck/30 tests/build, Auth 6/6, E2E 8/8, pgTAP 318/318; browser QA 375px
+  xác nhận touch target tab 48px, không tràn ngang. Dữ liệu QA local đã reset. Sau xác nhận riêng,
+  Production áp đủ 13/13 và giữ nguyên 20 khoản/192 giao dịch/201 kỳ; RPC mới trả đúng cấu trúc,
+  anonymous 401. Vercel `dpl_6tLW1RRqEhawJoRnnWDGytMPtdsL` Ready/`sin1`, canonical và smoke đạt.
+- UI/UX Giai đoạn 3 đã rollout ngày 06/08. Migration thứ 15 thêm
+  `get_management_dashboard_bundle_v2`, trả Dashboard/analytics kỳ hiện tại và Dashboard kỳ liền
+  trước cùng số ngày trong một round trip; không thay đổi engine hoặc dữ liệu. First fold giữ bốn
+  KPI có nhãn tăng/giảm, xu hướng dòng tiền có trục/tooltip focus-touch/bảng số liệu và danh sách
+  cần xử lý; vốn, nợ xấu và phân tích chi tiết nằm trong disclosure. Gate đạt lint/typecheck/30
+  tests/build, E2E 8/8, pgTAP 328/328 và diff-check. Production 15/15, giữ 20 khoản/192 giao
+  dịch/201 kỳ; Vercel `dpl_HCKarHQbgg3etjkJUgi1z37TQSwA` Ready/`sin1`, canonical và smoke
+  200/200/200/401/401 đạt. Giai đoạn 4 là bước tiếp theo; C16 vẫn `IN_PROGRESS`.
+- UI/UX Giai đoạn 4 đã rollout ngày 06/08 và không có migration mới. Design system dùng token
+  semantic, Be Vietnam Pro 16 px, nền canvas ấm/surface phân tầng, primitive form 48 px, custom
+  brand SVG và Lucide SVG; mọi input/select được ràng buộc theo container nên bộ lọc không tràn ở
+  mobile 375 px. Responsive QA đạt 375/768/1024/1440 px và mobile landscape, console sạch và dark
+  mode đúng token; gate
+  đạt lint/typecheck/30 tests/build, E2E 8/8, pgTAP 328/328 và diff-check. Production giữ 15/15,
+  20 khoản/192 giao dịch/201 kỳ; Vercel `dpl_5Hfm1zcftVbjoQBR3r4Y2J3pSxSx` Ready/`sin1`, canonical
+  và smoke 200/200/200/401/401 đạt. Bốn giai đoạn UI/UX đã hoàn tất; C16 vẫn `IN_PROGRESS` để người
+  dùng kiểm tra Production và tiếp tục đối chiếu dữ liệu thật.
+- Sau phản hồi Production cùng ngày 06/08, design system Giai đoạn 4 được tinh chỉnh: loại toàn bộ
+  sắc kem/vàng đồng và gradient trang trí khỏi shell/card/button/filter; chuyển sang canvas
+  cool-white `#f6f7fb`, cobalt `#4f46e5`, cyan accent và elevation thấp. Logo tự vẽ được thay bằng
+  ChartSpline; navigation và tiêu đề module dùng các Lucide hình học đồng nhất. Visual QA Dashboard
+  xác nhận 44 SVG, card không còn background gradient, không overflow và console không lỗi. Gate
+  đạt lint/typecheck/30 tests/build, E2E 8/8, pgTAP 328/328, diff-check; QA user local đã được xóa
+  bằng reset database local. Không migration; Production giữ 15/15, 20 khoản/192 giao dịch/201 kỳ.
+  Vercel `dpl_4arxAzUaVakmJf5dejeFwdB4ZNgP` Ready/`sin1`, canonical và smoke
+  200/200/200/401/401 đạt. C16 vẫn `IN_PROGRESS` để người dùng kiểm tra trực tiếp.
+- Vòng tinh chỉnh nhận diện ngày 06/08 dùng app icon chân dung tối giản dựa trên ảnh Ngô Tường
+  Banking, giữ cobalt nhưng bỏ chữ/crypto/chi tiết huy hiệu để đọc tốt ở 192/512 px và maskable.
+  Toàn bộ UI đổi Be Vietnam Pro sang Inter; bỏ mô tả lặp ở heading, KPI chính, trang đăng nhập và
+  hướng dẫn tab; đổi `Dashboard` thành `Tổng quan`. Thông báo đẩy và nhật ký hệ thống được Việt hóa;
+  audit hiển thị tên bảng, trường, enum/vai trò/trạng thái bằng tiếng Việt, có E2E chống lộ khóa
+  `direction`/giá trị `LENDING`. Gate đạt lint/typecheck/30 tests/build, E2E 8/8, pgTAP 328/328 và
+  diff-check. Không có migration hoặc ghi dữ liệu Production. Vercel
+  `dpl_9K7Q6KbxFcw7F9GKtK6uxqnt7wpi` Ready/`sin1`, canonical và smoke
+  login/manifest/icon/dashboard 200, export thiếu secret 401.
+- Phản hồi Production ngày 06/08 về khoản `Ngân · Đi vay · 100.000.000 ₫ · 09/04/2026` xác nhận
+  engine `calculate_loan` tính đúng kỳ 08/07–06/08 đủ 30 ngày và 2.100.000 ₫. UI Các kỳ lãi trước
+  đó đọc `interest_periods` materialize ngày 05/08 nên hiện kỳ mở 29 ngày/2.030.000 ₫. Web nay ánh
+  xạ trực tiếp các kỳ từ calculation snapshot theo ngày hiện tại, gồm số tiền điền sẵn khi đóng
+  lãi; không sửa schema, engine, giao dịch hay dữ liệu Production. App icon chân dung được thay bằng
+  biểu tượng banking hình học không chữ/người. Gate đạt lint/typecheck/30 tests/build, E2E 8/8,
+  pgTAP 328/328 và diff-check. Vercel `dpl_DqNjxmmdPt25ToknLtzh4pJSwfm7` Ready/`sin1`, alias chính
+  đúng; login/manifest/icon 200 và asset Production khớp SHA-256 local.
+- Vòng phản hồi tiếp theo xác nhận lỗi kỳ đang chạy có thể ảnh hưởng hiển thị mọi khoản không có
+  mutation mới, nhưng không ảnh hưởng calculation authoritative; bản 1.0.75 đã sửa chung. Badge
+  thông báo trước đó không giảm khi mở vì item chỉ điều hướng, không đánh dấu đã đọc, và layout
+  chưa được revalidate. Nay click notification đánh dấu đúng một item rồi mở khoản vay; đánh dấu
+  tất cả cũng làm mới badge toàn app. Production được kiểm tra chỉ-đọc có đúng 2 thông báo chưa đọc,
+  không tự đổi trạng thái của người dùng. Tab kết quả khoản vay thành một hàng trượt ngang; card có
+  ba cột Dư nợ/Lãi còn lại/Lãi đã thu hoặc trả. Migration 16 bổ sung tổng lãi effective đến ngày
+  hiện tại, loại reversal và cộng onboarding. Gate đạt lint/typecheck/30 tests/build, E2E 8/8,
+  pgTAP 329/329 và diff-check. Production 16/16; Vercel `dpl_B17L9WG5Az66dBXG6B8ZijF3XAwf`
+  Ready/`sin1`, canonical và smoke đạt.
 - C11 hoàn tất; kiểm thử phục hồi snapshot toàn trình được giữ cho UAT ở C13.
 - Google Drive connector hiện đăng nhập tài khoản khác nên không đọc được Sheet ID của dự án; đây
   không phải lỗi runtime. `clasp logs` cũng không khả dụng vì Apps Script chưa liên kết GCP project;
@@ -379,7 +523,208 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
-1. `2026-08-03` — Sau xác nhận riêng, áp migration C15 remote và xác minh history 8/8, bốn RPC cùng
+1. `2026-08-11` — Theo yêu cầu sửa các phát hiện audit, local hardening bốn nhóm: Preview candidate
+   dừng trước alias cho đến khi có xác nhận authenticated smoke và runtime log; Auth/E2E luôn dùng
+   profile `supabase` và `db reset` đầy đủ migration thay vì truncate schema có thể stale; runner
+   Push retry ba lần khi ghi trạng thái delivery, trả 500 và đếm `stateUpdateFailed` nếu vẫn lỗi;
+   migration 19 bỏ giới hạn hai tài khoản, giữ một OWNER và cho quản lý nhiều EDITOR/VIEWER tại
+   `/settings`. Gate đạt lint/typecheck/32 tests/build, Auth 6/6, E2E 9/9, DB lint, pgTAP 355/355
+   và diff-check. Chưa áp migration 19 hoặc deploy/push remote.
+1. `2026-08-10` — Theo xác nhận trực tiếp, deploy source đã qua Preview gate lên Vercel Production
+   bằng Production environment: `dpl_A8PwKgcoyPnRkpoUzX811SrDua5e` target Production/Ready,
+   immutable `https://quan-ly-vay-ca-nhan-aby8upnqh-ngotuong2105.vercel.app`, alias
+   `https://tindung.vercel.app`. App/API Functions ở `sin1`; middleware edge toàn cầu. Smoke
+   login/manifest/dashboard 200, export/cron thiếu secret 401; không có runtime error mới. Preview
+   `dpl_9XzJ7353PG7rGxZoohrpDVXrhq1z` và Production cũ được giữ nguyên làm điểm đối chiếu/rollback.
+1. `2026-08-10` — Khắc phục Preview không dùng được sau chỉnh UI/UX: Vercel runtime log xác nhận
+   `/loans` nhận hai `onChange` và Dashboard nhận một `onClick` từ Server Component. Đã chuyển bộ
+   lọc về form submit có label, bỏ handler cuộn không cần thiết và sửa regression E2E; gate đạt
+   lint/typecheck/32 tests/build/E2E 8/8. Preview `dpl_9XzJ7353PG7rGxZoohrpDVXrhq1z`
+   target Preview/Ready/`sin1`, alias `https://tindung-preview.vercel.app`; browser login sạch,
+   smoke 200/200/401/401 và không có runtime error mới. Thêm script fail-closed
+   `pnpm deploy:preview`, runbook và quy tắc bắt buộc candidate-first/rollback alias.
+1. `2026-08-10` — Sau xác nhận riêng cho đúng hai thao tác remote, áp migration actionable lên
+   Supabase Production và hậu kiểm history khớp 18/18; migration không có DML, REST chỉ-đọc ghi nhận
+   22 khoản vay/209 giao dịch/208 kỳ lãi hiện có. Deploy Vercel Production
+   `dpl_8qr1E6uXb3j9PFGgagheFGJ98PS7` Ready/`sin1`, alias `https://tindung.vercel.app`; smoke
+   login/manifest/dashboard 200 và export/cron thiếu secret 401. Không push Apps Script, không sửa
+   dữ liệu tài chính.
+1. `2026-08-10` — Hoàn tất local UI/UX follow-up C16 A–E: migration 18 sửa `Cần xử lý` thành
+   actionable contract có `PRINCIPAL_OVERDUE`/`INTEREST_DUE`, lọc số dư lãi dương và trả riêng ngày
+   nhắc/kỳ chốt. Dashboard giữ bốn KPI đầu và bỏ nested scroll; list bỏ shortcut lặp, ưu tiên dư nợ/
+   việc kế tiếp và có advanced bottom sheet; detail có hero, modal context, summary dưới ba kỳ và
+   nhóm settings rõ. Gate đạt lint/typecheck/32 tests/build, Auth 6/6, E2E 8/8 năm viewport, DB lint,
+   pgTAP 355/355 và diff-check. Chưa migration/deploy/push remote.
+1. `2026-08-10` — Người dùng phê duyệt toàn bộ kế hoạch UI/UX follow-up C16. Chuyển kế hoạch sang
+   `IN_PROGRESS`, triển khai local theo thứ tự contract `Cần xử lý`, Dashboard, danh sách, chi tiết,
+   responsive/accessibility; migration/deploy/push remote tiếp tục cần xác nhận riêng.
+1. `2026-08-10` — Lập kế hoạch UI/UX follow-up theo audit và phản hồi người dùng: giữ đủ bốn KPI ở
+   đầu Dashboard; xác định `Cần xử lý` hiện gộp quá hạn gốc với mọi lịch nhắc lãi trong 30 ngày mà
+   không lọc số dư dương. Contract đề xuất chỉ giữ item actionable, phân biệt hạn gốc/nhắc lãi và
+   loại khoản đã đóng đủ/ứng trước. Kế hoạch năm giai đoạn ở `docs/C16_UI_UX_FOLLOWUP_PLAN.md`
+   đang `AWAITING_APPROVAL`; chưa đổi code, migration hoặc remote.
+1. `2026-08-10` — Sau xác nhận riêng, áp migration audit follow-up lên Supabase Production 17/17;
+   deploy Vercel Production `dpl_FiGJRF2QwFJHv4MVuQCmu4aZnV68` Ready/`sin1`, alias canonical và
+   smoke 200/200/401/401 đạt; push Apps Script đủ 4 file. Audit frontend bằng bảy ảnh xác nhận visual
+   system và modal tốt, nhưng Dashboard/list quá dày, detail/interest không đều mật độ, settings rối
+   và chuyển màn thiếu liên tục thị giác; server local warm vẫn 80–173 ms. Báo cáo tại
+   `docs/audits/2026-08-10-frontend/AUDIT.md`.
+1. `2026-08-10` — Hoàn tất audit follow-up cục bộ: cursor export nhận thay đổi `notifications.read_at`;
+   audit bigint đi qua Apps Script dưới dạng text; lần sync thành công không đổi dữ liệu vẫn cập nhật
+   `LAST_SYNC_AT`; `/loans` loại ngày lịch không hợp lệ; bundle Dashboard tái sử dụng một snapshot
+   hiện tại thay vì tính engine lặp; nâng dependency để xóa hai High CVE; đồng bộ README/context.
+   Gate đạt lint/typecheck/32 tests/build, Auth 6/6, E2E 8/8, dependency audit sạch, DB lint,
+   pgTAP 335/335 và migration local 17/17. Chưa áp migration, deploy hoặc push remote.
+1. `2026-08-06` — Sửa click thông báo tự đánh dấu đúng item và làm mới badge layout; Production
+   hiện có 2 item chưa đọc và được giữ nguyên để người dùng kiểm tra. Chuyển sáu tab kết quả khoản
+   vay thành một hàng trượt ngang; card có thêm Lãi đã thu/trả cùng hàng Dư nợ và Lãi còn lại.
+   Migration 16 trả tổng lãi effective, loại reversal và cộng onboarding. Gate đạt
+   lint/typecheck/30 tests/build, E2E 8/8, pgTAP 329/329, diff-check. Supabase Production 16/16;
+   Vercel `dpl_B17L9WG5Az66dBXG6B8ZijF3XAwf` Ready/`sin1`, canonical và smoke đạt.
+1. `2026-08-06` — Sửa sai lệch hiển thị kỳ lãi đang chạy: khoản Ngân engine trả đúng 30 ngày/
+   2.100.000 ₫ nhưng UI đọc bản materialize ngày trước nên hiện 29 ngày/2.030.000 ₫. Tab Các kỳ lãi
+   và nút đóng lãi nhanh nay dùng trực tiếp calculation snapshot theo ngày hiện tại; không đổi dữ
+   liệu hay engine. Thay app icon chân dung bằng biểu tượng banking hình học. Gate đạt
+   lint/typecheck/30 tests/build, E2E 8/8, pgTAP 328/328, diff-check; không migration. Production
+   `dpl_DqNjxmmdPt25ToknLtzh4pJSwfm7` Ready/`sin1`, canonical và smoke login/manifest/icon đạt.
+1. `2026-08-06` — Tinh chỉnh nhận diện và ngôn ngữ theo phản hồi Production: tạo app icon chân
+   dung tối giản từ ảnh tham chiếu, tích hợp PWA/shell/auth; đổi font sang Inter; gỡ mô tả lặp ở
+   heading/KPI/login/chi tiết khoản; đổi `Dashboard` thành `Tổng quan`; Việt hóa toàn bộ thông báo
+   thiết bị và payload nhật ký hệ thống. Gate đạt lint/typecheck/30 tests/build, E2E 8/8, pgTAP
+   328/328 và diff-check. Không migration; Vercel `dpl_9K7Q6KbxFcw7F9GKtK6uxqnt7wpi`
+   Ready/`sin1`, canonical và smoke login/manifest/icon/dashboard 200, export thiếu secret 401.
+1. `2026-08-06` — Tinh chỉnh Giai đoạn 4 theo phản hồi Production: bỏ kem/navy/bronze và gradient
+   trang trí, chuyển sang cool-white/cobalt/cyan với card phẳng/elevation thấp; thay logo tự vẽ bằng
+   ChartSpline và chuẩn hóa icon navigation/module bằng Lucide hình học. Visual QA xác nhận 44 SVG,
+   không overflow, console sạch. Gate đạt lint/typecheck/30 tests/build, E2E 8/8, pgTAP 328/328 và
+   diff-check; không migration, Production giữ 15/15 và 20 khoản/192 giao dịch/201 kỳ. Vercel
+   `dpl_4arxAzUaVakmJf5dejeFwdB4ZNgP` Ready/`sin1`, canonical và smoke 200/200/200/401/401 đạt.
+1. `2026-08-06` — Hoàn tất và rollout UI/UX Giai đoạn 4: hoàn thiện design system semantic, nền
+   canvas ấm/surface phân tầng, Be Vietnam Pro 16 px, custom brand SVG và Lucide SVG; chuẩn hóa
+   primitive form 48 px và sửa filter mobile không tràn container. Thêm `docs/DESIGN_SYSTEM.md`.
+   Responsive QA 375/768/1024/1440 px và mobile landscape đạt, console sạch; gate đạt
+   lint/typecheck/30 tests/build, E2E 8/8,
+   pgTAP 328/328 và diff-check. Không có migration mới; Supabase Production giữ 15/15 và dữ liệu
+   20 khoản/192 giao dịch/201 kỳ. Vercel `dpl_5Hfm1zcftVbjoQBR3r4Y2J3pSxSx` Ready/`sin1`,
+   canonical và smoke 200/200/200/401/401 đạt. Bốn giai đoạn UI/UX đã hoàn tất; C16 tiếp tục
+   kiểm tra Production và đối chiếu dữ liệu thật.
+1. `2026-08-06` — Hoàn tất và rollout UI/UX Giai đoạn 3: Dashboard first fold gồm bốn KPI có so
+   sánh kỳ liền trước, xu hướng dòng tiền và danh sách cần xử lý; bộ lọc thời gian compact, khoảng
+   tùy chỉnh dạng sheet; phân tích vốn/rủi ro/cơ cấu nằm trong disclosure. Biểu đồ có trục, tooltip
+   touch/keyboard, nhãn số và bảng accessible. Migration 15/15; dữ liệu giữ 20 khoản/192 giao
+   dịch/201 kỳ. Gate đạt lint/typecheck/30 tests/build, E2E 8/8, pgTAP 328/328 và diff-check.
+   Vercel `dpl_HCKarHQbgg3etjkJUgi1z37TQSwA` Ready/`sin1`, canonical và smoke
+   200/200/200/401/401 đạt. Tiếp theo là Giai đoạn 4.
+1. `2026-08-05` — Rollout vòng tinh chỉnh UI/UX Giai đoạn 2 theo năm phản hồi kiểm tra thật: filter
+   mobile dùng hai cột (ô tìm kiếm giữ toàn hàng); bốn tab chi tiết nằm một hàng trượt ngang; modal
+   giao dịch có enter/exit motion 260/180 ms và reduced-motion; marker tam giác native được thay bằng
+   chevron nét mảnh; nhãn khoản vay tự sinh chỉ hiện tên đối tác và ngày giải ngân, không lặp hướng/
+   số tiền/ngày. Gate đạt lint/typecheck/30 tests/build, Auth 6/6, E2E 8/8, pgTAP 326/326 và
+   diff-check. Không có migration mới; Supabase Production giữ 14/14. Vercel
+   `dpl_bPEGpkxELRmUYGvsXKNiyxnyXCd2` Ready, Functions `sin1`, canonical và smoke
+   200/200/200/401/401 đạt. Chưa bắt đầu Giai đoạn 3.
+1. `2026-08-05` — Hoàn tất và rollout UI/UX Giai đoạn 2: danh sách Khoản vay giữ tìm kiếm/hướng/
+   trạng thái ở lớp chính, đưa ngày và sắp xếp vào bộ lọc nâng cao, dùng list compact trên desktop
+   và row card trên mobile; chi tiết giữ `returnTo` khi quay lại và tab mobile không cuộn ngang.
+   `Ghi giao dịch` mở modal/bottom sheet; thao tác điều chỉnh và kết thúc khoản được tách nhóm, tất
+   toán dùng xác nhận inline. Gate đạt lint/typecheck/30 tests/build, Auth 6/6, E2E 8/8, pgTAP
+   326/326 và diff-check. Không có migration mới; Supabase Production giữ 14/14. Vercel
+   `dpl_9zveQfoHk4ZCkj9WZVZrNj385xh1` Ready, Functions `sin1`, canonical và smoke
+   200/200/200/401/401 đạt. Giai đoạn 3 Dashboard và biểu đồ là bước tiếp theo.
+1. `2026-08-05` — Hoàn tất và rollout UI/UX Giai đoạn 1 sau quyền triển khai theo giai đoạn: AppShell
+   được giữ ở root layout; loading chỉ thay vùng nội dung; navigation pending áp dụng toàn cục;
+   bottom navigation còn 5 mục; chi tiết khoản vay tải dữ liệu theo tab; danh sách và Dashboard lần
+   lượt dùng một RPC/response. Gate đạt lint/typecheck/30 tests/build, Auth 6/6, E2E 8/8, pgTAP
+   326/326 và diff-check. Supabase Production áp migration 14/14, hai RPC hiện diện, dữ liệu giữ 20
+   khoản. Vercel `dpl_EMCjyztNrfm1buWNsZUq4ZNwKcRu` Ready, Functions `sin1`, canonical và smoke
+   200/200/200/401/401 đạt. Giai đoạn 2 là bước tiếp theo.
+1. `2026-08-05` — Người dùng phê duyệt cải tổ UI/UX bốn giai đoạn trong C16. Thêm
+   `docs/C16_UI_UX_PLAN.md`; bắt đầu Giai đoạn 1 local với phản hồi pending cho mọi internal link,
+   bottom navigation 5 mục có menu `Thêm`, nhãn `Nhật ký hệ thống` và RPC
+   `list_loan_summaries` thay khoảng 2N network calls bằng một response có calculation/schedule/facet.
+   Danh sách giữ tìm/lọc/sắp xếp và số đếm, đồng thời phân biệt `Nhắc thu lãi`/`Nhắc trả lãi`.
+   Gate đạt lint, typecheck, 30 tests, build, E2E 8/8, pgTAP 325/325 và diff-check. Migration 14 và
+   UI mới chỉ ở local; chưa áp Supabase remote hoặc deploy Vercel.
+1. `2026-08-05` — Sau xác nhận hai bước, áp migration analytics Production 13/13; hậu kiểm RPC/quyền
+   đạt và dữ liệu giữ nguyên 20 khoản/192 giao dịch/201 kỳ. Deploy Vercel Production
+   `dpl_6tLW1RRqEhawJoRnnWDGytMPtdsL` Ready, canonical `tindung.vercel.app`, Functions `sin1`; smoke
+   login/manifest/dashboard 200 và export/cron thiếu secret 401. C16 tiếp tục đối chiếu dữ liệu thật.
+1. `2026-08-05` — Hoàn tất local revision UX quản trị C16: Dashboard phân tầng KPI, giữ nhãn ngắn
+   “Lãi ròng phát sinh” kèm công thức, thêm ba biểu đồ; chip danh sách bấm được; chi tiết khoản vay
+   chia bốn tab, có tổng lãi đã thu/trả và biểu đồ kỳ. Migration 13 thêm hai RPC authoritative.
+   Gate đạt lint/typecheck/30 tests/build, Auth 6/6, E2E 8/8 và pgTAP 318/318; visual QA 375px không
+   tràn ngang. Chưa áp migration hoặc deploy Production.
+1. `2026-08-05` — Sau xác nhận cả ba cổng, tạo backup AES-256-GCM
+   `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260805T104926Z` tại local + DriveFS, GCM/SHA khớp; áp migration
+   12/12 và deploy Production `dpl_2ZV4SEs6QHWAwYX1yqpHqwUS95Mu` Ready/`sin1`. RPC và HTTP smoke
+   đạt, số dòng Production không đổi; tiếp tục C16 với dữ liệu thật.
+1. `2026-08-05` — Đối chiếu Đạt Pha Production đúng 50 triệu gốc + 1,5 triệu lãi kỳ cuối chưa đóng,
+   ngừng lãi từ 10/11/2024. Local hoàn tất revision quản trị: Dashboard theo kỳ tách nợ xấu, lọc
+   khoản vay qua URL và giải thích ngày cuối tính lãi. DB lint, pgTAP 309/309, Auth 6/6, E2E 8/8;
+   chưa migration/deploy remote.
+1. `2026-08-04` — Người dùng tự sửa A.Phúc Hà 200 triệu thành `BORROWING`; hậu kiểm đúng tên Đi vay,
+   trạng thái `ACTIVE`. Sau xác nhận riêng, deploy định dạng dấu chấm VND và bắt buộc chọn hướng bằng
+   `dpl_FyPUjxnZtf1KacCHehESA3NbKCoV`, Ready/`sin1`, alias `tindung.vercel.app`, smoke 200/200/401.
+   Production hiện có 148 giao dịch; ledger append-only chưa tạo áp lực lưu trữ đáng kể.
+2. `2026-08-04` — Đối chiếu chỉ-đọc xác nhận khoản A.Phúc Hà 200 triệu được nhập `LENDING`, nên
+   không thuộc nhóm đi vay; khoản 450 triệu cùng đối tác vẫn đúng `BORROWING`. Local bỏ hướng mặc
+   định, bắt buộc chọn rõ Cho vay/Đi vay và thêm input tự chèn dấu chấm hàng nghìn cho mọi trường
+   tiền VND. Gate đạt lint/typecheck/30 tests/build và E2E 7/7; chưa sửa/deploy Production.
+2. `2026-08-04` — Sau xác nhận riêng, xóa đúng project Vercel tạo nhầm `web`
+   (`prj_Wi1AlfHl5N0ajzE1SJX4qxqAZubR`) cùng deployment/alias riêng. Hậu kiểm project không còn tồn
+   tại; Production chính `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F` và deployment
+   `dpl_3zr2dbAFnNR9txwVzsXAqqfM2fzg` vẫn Ready/`sin1`, URL `tindung.vercel.app` đạt 200/200/401.
+2. `2026-08-04` — Sau xác nhận riêng, deploy nút đóng lãi nhanh lên đúng Vercel Production bằng
+   `dpl_3zr2dbAFnNR9txwVzsXAqqfM2fzg`, Ready tại `sin1`; alias chính `https://tindung.vercel.app`,
+   login/manifest 200 và export thiếu secret 401. Một project `web` không secrets/dữ liệu bị CLI tạo
+   nhầm khi chạy từ thư mục con; đã dừng thao tác local và chờ xác nhận riêng để xóa remote project.
+3. `2026-08-04` — Bổ sung local nút **Ghi nhận đóng lãi** trên mỗi card kỳ còn dư, tự điền số dư
+   authoritative và ngày dự kiến thu, cho sửa ngày/số tiền, cảnh báo ngày ngoài kỳ và hiện **Đã
+   đóng đủ** sau khi ghi. Không đổi schema/engine. Gate đạt lint/typecheck/30 tests/build và E2E
+   7/7; chờ xác nhận riêng để deploy Vercel Production rồi tiếp tục nhập/đối chiếu C16.
+4. `2026-08-04` — Sau xác nhận riêng cho bốn thao tác, tạo backup Production AES-256-GCM
+   `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260804T043524Z` tại local ngoài Git và DriveFS, xác minh tag/SHA;
+   áp migration 11/11; deploy Vercel `dpl_23BXDqBAyjy8Z7aKTSV5LCUVEY5H` Ready tại `sin1`; push Apps
+   Script và full sync schema v3 hoàn tất lúc 11:44. Sheet có tab `Khởi tạo khoản cũ` và giữ đủ bốn
+   khoản. C16 tiếp tục `IN_PROGRESS` để thử nghiệm dữ liệu thật; chưa đổi offset của khoản Dũng Hùng.
+4. `2026-08-04` — Sau phê duyệt, local bổ sung nhắc thu sớm theo từng khoản mà không đổi kỳ/lãi;
+   mô phỏng Dũng Hùng nhắc 17/08, kết thúc kỳ 18/08 và đủ 21 triệu. Thêm onboarding bất biến cho
+   khoản cũ/nợ xấu bằng dư gốc, tổng lãi đã thu và ngày ngừng lãi; Google Sync schema v3 có 11 tab.
+   Gate đạt lint/typecheck/30 tests/build, Auth 6/6, E2E 7/7, pgTAP 293/293 và DB lint; chưa rollout.
+5. `2026-08-04` — Đối chiếu bốn khoản Production: khoản Dũng Hùng 700 triệu có ngày đóng lãi kế tiếp
+   theo engine là 18/08/2026; phát hiện nhu cầu anchor lịch sử và onboarding số dư đầu kỳ, chưa đổi
+   nghiệp vụ khi chưa đủ ngày sổ tay mẫu. Sửa local danh sách khoản vay theo ngày giải ngân giảm dần,
+   tie-break bằng thời điểm tạo; lint/typecheck/30 tests/build và diff-check đạt, chưa deploy.
+3. `2026-08-04` — Sau xác nhận riêng, tạo backup Production mã hóa
+   `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260803T235806Z` tại local ngoài Git và Drive, restore rehearsal
+   đầy đủ đạt; áp migration 10/10, deploy Vercel `dpl_Es54Y4hwzKXXLKbKv1GnD7zqW55A`, push Apps
+   Script và full sync workbook. Sửa khoản `Test` bằng correction append-only sang không đáo hạn:
+   `ACTIVE`, kỳ lãi kế tiếp 27/08/2026; kỳ cũ 13,5 triệu đã đóng đủ không đổi. Sửa timezone Sheet và
+   refresh header/full-sync; sync sau correction hiển thị `ACTIVE`, term/maturity trống.
+3. `2026-08-04` — Từ đối chiếu khoản vay thật, người dùng khóa quy tắc mới: khoản vay mặc định không
+   đáo hạn, tiếp tục kỳ lãi 15/30 ngày cho đến khi tất toán; đáo hạn chỉ là tùy chọn. Thêm migration
+   nullable term/maturity, RPC lịch đóng lãi, form/UI/Google Sync/docs và regression bảo toàn kỳ cũ
+   khi đổi lãi từ đầu kỳ mới. Local gate đạt lint/typecheck/28 tests/build, Auth 6/6, E2E 7/7,
+   pgTAP 268/268. Chưa thao tác remote hoặc sửa dữ liệu Production.
+3. `2026-08-03` — C16 rollout remote hoàn tất sau xác nhận riêng: áp migration Production 9/9 bằng
+   transaction và hậu kiểm constraint/RPC/privilege cùng dữ liệu không đổi; deploy Vercel Production
+   `dpl_Cfj4JS8nxQUmXNRZCLMy376rzLWe` Ready, Functions `sin1`, canonical/cron/export schema v2 đạt;
+   push 4 file Apps Script và manual sync hoàn thành, workbook có đủ 10 tab. C16 giữ `IN_PROGRESS`
+   chờ nhập và đối chiếu dữ liệu thực tế.
+3. `2026-08-03` — R6 backup pre-C16 Production hoàn tất sau xác nhận riêng: xuất app/auth schema và
+   data trực tiếp vào AES-256-GCM, khóa ở macOS Keychain, lưu bản chính ngoài Git tại
+   `/Users/ngotuong/Backups/QuanLyVayCaNhan` và đồng bộ 5 ciphertext + manifest vào Drive folder
+   `QuanLyVayCaNhan_Backups`. GCM/SHA-256 đối chiếu đạt; restore đầy đủ trên container cô lập đạt với
+   1 auth user/1 profile, calculation/RLS smoke và toàn bộ invariant; môi trường tạm đã xóa.
+3. `2026-08-03` — C16 remediation local sẵn sàng: khóa direct DML/RPC v1, tuần tự hóa mutation,
+   cho phép tất toán gốc 0, thêm hoàn tác settlement append-only và UI, nâng Google Sync schema v2
+   lên 10 tab, bổ sung runbook backup/restore. Gate đạt lint/typecheck/28 tests/build, Auth 6/6,
+   E2E 7/7, pgTAP 253/253, DB lint, race hai session và restore rehearsal 9 migration/9 bảng. Tại
+   thời điểm gate chưa có thao tác remote; backup Production sau đó được ghi riêng ở mục 1.
+3. `2026-08-03` — Người dùng phê duyệt C16 và yêu cầu lập kế hoạch sửa các phát hiện audit, ngoại
+   trừ chính sách mật khẩu 6 ký tự được giữ nguyên. Thêm `docs/C16_REMEDIATION_PLAN.md`, chuyển C16
+   sang `IN_PROGRESS`; chưa triển khai remediation hoặc thao tác Production.
+3. `2026-08-03` — Sau xác nhận riêng, áp migration C15 remote và xác minh history 8/8, bốn RPC cùng
    dữ liệu hiện hữu không đổi; deploy Production `dpl_8LugJRs4T3YB3R9u4gUhkfqZnENr` Ready tại
    `sin1`, canonical/browser/smoke/cron đạt. C15 `COMPLETED`, C16 `AWAITING_APPROVAL`.
 2. `2026-08-03` — C15 local sẵn sàng: correction nguyên tử có reversal/replacement/audit, input lãi

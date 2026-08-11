@@ -16,17 +16,17 @@ set local role authenticated;
 
 select public.create_counterparty('Đối tác dashboard', 'Dữ liệu kiểm thử C7');
 
-select public.create_loan(
+select public.create_loan_v2(
   (select id from public.counterparties where name = 'Đối tác dashboard'),
   'Cho vay sắp đến hạn', 'LENDING'::public.loan_direction, 10000000::bigint,
-  '2026-07-20'::date, 30, 15::smallint, 0.1::numeric,
+  '2026-07-20'::date, 30, 15::smallint, 1.5::numeric,
   'dashboard-lending', null
 );
 
-select public.create_loan(
+select public.create_loan_v2(
   (select id from public.counterparties where name = 'Đối tác dashboard'),
   'Đi vay quá hạn', 'BORROWING'::public.loan_direction, 4000000::bigint,
-  '2026-07-01'::date, 20, 15::smallint, 0.05::numeric,
+  '2026-07-01'::date, 20, 15::smallint, 0.75::numeric,
   'dashboard-borrowing', null
 );
 

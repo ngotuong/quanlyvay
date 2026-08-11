@@ -24,8 +24,10 @@ class MockSheet {
   autoResizeColumns() { return this; } setColumnWidth() { return this; }
 }
 class MockSpreadsheet {
-  constructor(id = "target") { this.id = id; this.sheets = []; }
+  constructor(id = "target") { this.id = id; this.sheets = []; this.timeZone = null; }
   getId() { return this.id; } getSheets() { return this.sheets; }
+  setSpreadsheetTimeZone(value) { this.timeZone = value; return this; }
+  getSpreadsheetTimeZone() { return this.timeZone; }
   getSheetByName(name) { return this.sheets.find((sheet) => sheet.name === name) || null; }
   insertSheet(name, index) { const sheet = new MockSheet(name); if (index === 0) this.sheets.unshift(sheet); else this.sheets.push(sheet); return sheet; }
   deleteSheet(sheet) { this.sheets = this.sheets.filter((candidate) => candidate !== sheet); }
@@ -40,7 +42,7 @@ function call(context, expression) { return vm.runInContext(expression, context)
 
 test("sheet contract includes every reconciliation dataset", () => {
   const context = makeContext();
-  assert.deepEqual(Array.from(call(context, "SYNC_SHEETS.map(item => item.name)")), ["Đối tác", "Khoản vay", "Giao dịch", "Sự kiện", "Kỳ lãi", "Chi phí", "Thông báo", "Lịch sử"]);
+  assert.deepEqual(Array.from(call(context, "SYNC_SHEETS.map(item => item.name)")), ["Đối tác", "Khoản vay", "Giao dịch", "Sự kiện", "Điều chỉnh khoản vay", "Hoàn tác tất toán", "Khởi tạo khoản cũ", "Kỳ lãi", "Chi phí", "Thông báo", "Lịch sử"]);
 });
 
 test("row mapping keeps IDs as text and VND as numeric when safe", () => {
@@ -52,6 +54,12 @@ test("row mapping keeps IDs as text and VND as numeric when safe", () => {
 test("unsafe VND integers remain text to avoid JavaScript precision loss", () => {
   const context = makeContext();
   assert.equal(call(context, `normalizeCell_("9007199254740993", "money")`), "9007199254740993");
+});
+
+test("audit bigint identifiers remain exact text", () => {
+  const context = makeContext();
+  const row = call(context, `buildSheetRows_(SYNC_SHEETS[10], [{id:"9007199254740993"}])[0]`);
+  assert.equal(row[0], "9007199254740993");
 });
 
 test("user text that resembles a formula is escaped before writing to Sheets", () => {
@@ -68,7 +76,7 @@ test("export URL carries encoded incremental cursor", () => {
 
 test("payload validation rejects wrong schema", () => {
   const context = makeContext();
-  assert.throws(() => call(context, `validatePayload_({schemaVersion:2,sourceVersion:"x"})`), /không hợp lệ/);
+  assert.throws(() => call(context, `validatePayload_({schemaVersion:1,sourceVersion:"x"})`), /không hợp lệ/);
 });
 
 test("production sync configuration removes an obsolete Vercel protection bypass", () => {
@@ -95,10 +103,10 @@ test("retention keeps newest 12 weekly snapshots", () => {
 test("full snapshot writes overview and all data tabs idempotently", () => {
   const spreadsheet = new MockSpreadsheet();
   const context = makeContext(); context.spreadsheet = spreadsheet;
-  context.payload = { schemaVersion: 1, sourceVersion: "v1", generatedAt: "2026-08-01T00:00:00Z", tables: { counterparties: [{ id: "c1", name: "A" }], loans: [], transactions: [], lifecycleEvents: [], interestPeriods: [], expenses: [], notifications: [], auditLogs: [] } };
+  context.payload = { schemaVersion: 3, sourceVersion: "v1", generatedAt: "2026-08-01T00:00:00Z", tables: { counterparties: [{ id: "c1", name: "A" }], loans: [], transactions: [], lifecycleEvents: [], loanTermCorrections: [], settlementReversals: [], interestPeriods: [], expenses: [], notifications: [], auditLogs: [] } };
   call(context, "applyPayloadToSpreadsheet_(spreadsheet, payload)");
   call(context, "applyPayloadToSpreadsheet_(spreadsheet, payload)");
-  assert.equal(spreadsheet.sheets.length, 9);
+  assert.equal(spreadsheet.sheets.length, 12);
   assert.equal(spreadsheet.getSheetByName("Đối tác").cells["2,1"], "c1");
   assert.equal(spreadsheet.getSheetByName("Đối tác").clearCount, 2);
   assert.equal(spreadsheet.getSheetByName("Đối tác").filterCount, 1);
@@ -107,8 +115,8 @@ test("full snapshot writes overview and all data tabs idempotently", () => {
 test("sync stores source cursor then skips unchanged payload", () => {
   const spreadsheet = new MockSpreadsheet(); const values = new Map(); let fetchCount = 0;
   const payloads = [
-    { schemaVersion: 1, sourceVersion: "v1", generatedAt: "2026-08-01T00:00:00Z", unchanged: false, tables: { counterparties: [], loans: [], transactions: [], lifecycleEvents: [], interestPeriods: [], expenses: [], notifications: [], auditLogs: [] } },
-    { schemaVersion: 1, sourceVersion: "v1", unchanged: true },
+    { schemaVersion: 3, sourceVersion: "v1", generatedAt: "2026-08-01T00:00:00Z", unchanged: false, tables: { counterparties: [], loans: [], transactions: [], lifecycleEvents: [], loanTermCorrections: [], settlementReversals: [], interestPeriods: [], expenses: [], notifications: [], auditLogs: [] } },
+    { schemaVersion: 3, sourceVersion: "v1", unchanged: true },
   ];
   const context = makeContext({
     SpreadsheetApp: { getActive: () => spreadsheet }, LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
@@ -117,7 +125,44 @@ test("sync stores source cursor then skips unchanged payload", () => {
   });
   assert.equal(call(context, "runGoogleSheetSync()").unchanged, false);
   assert.equal(values.get("SYNC_CURSOR"), "v1");
+  values.set("LAST_SYNC_AT", "stale-success-marker");
   assert.equal(call(context, "runGoogleSheetSync()").unchanged, true);
+  assert.notEqual(values.get("LAST_SYNC_AT"), "stale-success-marker");
+  assert.equal(spreadsheet.timeZone, "Asia/Ho_Chi_Minh");
+  assert.equal(spreadsheet.getSheetByName("Khoản vay").cells["1,8"], "Số ngày (nếu có)");
+  assert.equal(spreadsheet.getSheetByName("Khoản vay").cells["1,9"], "Ngày đáo hạn (nếu có)");
+});
+
+test("contract refresh repairs timezone and headers without clearing data", () => {
+  const spreadsheet = new MockSpreadsheet();
+  spreadsheet.sheets.push(new MockSheet("Khoản vay"));
+  spreadsheet.getSheetByName("Khoản vay").cells["2,1"] = "loan-kept";
+  const context = makeContext({ SpreadsheetApp: { getActive: () => spreadsheet } });
+  const result = call(context, "refreshGoogleSheetContract()");
+  assert.equal(result.timeZone, "Asia/Ho_Chi_Minh");
+  assert.equal(result.sheetCount, 11);
+  assert.equal(spreadsheet.getSheetByName("Khoản vay").cells["1,8"], "Số ngày (nếu có)");
+  assert.equal(spreadsheet.getSheetByName("Khoản vay").cells["2,1"], "loan-kept");
+});
+
+test("full sync clears only the source cursor before fetching canonical data", () => {
+  const spreadsheet = new MockSpreadsheet();
+  const values = new Map([["SYNC_CURSOR", "stale-cursor"]]);
+  const context = makeContext({
+    SpreadsheetApp: { getActive: () => spreadsheet },
+    LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
+    PropertiesService: { getScriptProperties: () => ({
+      getProperty: (key) => values.get(key) || (key === "SYNC_API_URL" ? "https://sync.test" : key === "SYNC_API_SECRET" ? "secret" : ""),
+      setProperty: (key, value) => values.set(key, value),
+      deleteProperty: (key) => values.delete(key),
+    }) },
+    UrlFetchApp: { fetch: (url) => {
+      assert.equal(url, "https://sync.test/api/google-sync/export");
+      return { getResponseCode: () => 200, getContentText: () => JSON.stringify({ schemaVersion: 3, sourceVersion: "fresh", generatedAt: "2026-08-04T00:00:00Z", tables: {} }) };
+    } },
+  });
+  assert.equal(call(context, "runGoogleSheetFullSync()").unchanged, false);
+  assert.equal(values.get("SYNC_CURSOR"), "fresh");
 });
 
 test("restore copies snapshot values without any Supabase write path", () => {
@@ -160,6 +205,6 @@ test("infrastructure setup defers hourly sync until API configuration exists", (
   const configuredResult = call(context, "installGoogleSyncInfrastructure()");
   assert.equal(configuredResult.triggerCount, 2);
   assert.equal(configuredResult.syncTriggerInstalled, true);
-  assert.equal(folderCreates, 1); assert.equal(triggers.length, 2); assert.equal(spreadsheet.sheets.length, 9);
+  assert.equal(folderCreates, 1); assert.equal(triggers.length, 2); assert.equal(spreadsheet.sheets.length, 12);
   assert.equal(spreadsheet.getSheetByName("Sheet1"), null);
 });

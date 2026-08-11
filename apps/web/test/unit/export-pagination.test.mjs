@@ -1,13 +1,18 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 import test from "node:test";
 import { GOOGLE_SYNC_SELECTS } from "../../src/lib/export/columns.mjs";
 import { fetchAllRows } from "../../src/lib/export/pagination.mjs";
+
+const exportRouteSource = await readFile(path.resolve(import.meta.dirname, "../../src/app/api/google-sync/export/route.ts"), "utf8");
 
 test("Google Sync selects cast every money, rate and bigint identifier to text", () => {
   const requiredCasts = {
     loans: ["original_principal_vnd::text", "initial_daily_rate_percent::text"],
     transactions: ["amount_vnd::text"],
     lifecycleEvents: ["daily_rate_percent::text"],
+    loanTermCorrections: ["original_principal_vnd::text", "initial_period_rate_percent::text"],
     interestPeriods: [
       "opening_principal_vnd::text",
       "closing_principal_vnd::text",
@@ -21,6 +26,10 @@ test("Google Sync selects cast every money, rate and bigint identifier to text",
   for (const [dataset, casts] of Object.entries(requiredCasts)) {
     for (const cast of casts) assert.match(GOOGLE_SYNC_SELECTS[dataset], new RegExp(`(?:^|,)${cast}(?:,|$)`));
   }
+});
+
+test("Google Sync cursor advances when a notification is marked read", () => {
+  assert.match(exportRouteSource, /timestampValues\(notifications, "read_at"\)/);
 });
 
 test("export pagination returns every row beyond the PostgREST 1000-row limit", async () => {

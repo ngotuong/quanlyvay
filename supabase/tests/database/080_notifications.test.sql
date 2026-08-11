@@ -11,14 +11,14 @@ values
 select set_config('request.jwt.claim.sub', '20000000-0000-0000-0000-000000000080', true);
 set local role authenticated;
 select public.create_counterparty('Đối tác thông báo', null);
-select public.create_loan(
+select public.create_loan_v2(
   (select id from public.counterparties where name = 'Đối tác thông báo'),
-  'Khoản đến hạn', 'LENDING'::public.loan_direction, 10000000::bigint, '2026-07-20'::date, 30, 15::smallint, 0.1::numeric,
+  'Khoản đến hạn', 'LENDING'::public.loan_direction, 10000000::bigint, '2026-07-20'::date, 30, 15::smallint, 1.5::numeric,
   'notify-due-loan', null
 );
-select public.create_loan(
+select public.create_loan_v2(
   (select id from public.counterparties where name = 'Đối tác thông báo'),
-  'Khoản quá hạn', 'BORROWING'::public.loan_direction, 4000000::bigint, '2026-07-01'::date, 20, 15::smallint, 0.05::numeric,
+  'Khoản quá hạn', 'BORROWING'::public.loan_direction, 4000000::bigint, '2026-07-01'::date, 20, 15::smallint, 0.75::numeric,
   'notify-overdue-loan', null
 );
 

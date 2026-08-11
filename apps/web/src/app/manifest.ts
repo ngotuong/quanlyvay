@@ -7,8 +7,8 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "Quản lý khoản đi vay, cho vay, lãi và dòng tiền cá nhân.",
     start_url: "/dashboard",
     display: "standalone",
-    background_color: "#f4f7fb",
-    theme_color: "#164e63",
+    background_color: "#f6f7fb",
+    theme_color: "#4f46e5",
     lang: "vi",
     orientation: "any",
     icons: [

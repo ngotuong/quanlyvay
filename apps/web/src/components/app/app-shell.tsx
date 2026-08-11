@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { LogOut, Plus } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { logoutAction } from "@/app/actions/auth";
 import type { AppProfile } from "@/lib/auth/types";
 import { AppNav, BrandIcon } from "./app-nav";
+import { MobileCreateLoanLink } from "./mobile-create-loan-link";
+import { PrivacyToggle } from "./privacy-provider";
 
 const roleLabels = { OWNER: "Chủ tài khoản", EDITOR: "Biên tập", VIEWER: "Chỉ xem" } as const;
 
@@ -28,6 +30,7 @@ export function AppShell({
         <div className="sidebar-profile">
           <span className="profile-avatar" aria-hidden="true">{profile.display_name.slice(0, 1).toUpperCase()}</span>
           <span className="profile-copy"><strong>{profile.display_name}</strong><small>{roleLabels[profile.role]}</small></span>
+          <PrivacyToggle />
           <form action={logoutAction}>
             <button className="icon-button" type="submit" aria-label="Đăng xuất" title="Đăng xuất"><LogOut size={19} /></button>
           </form>
@@ -37,9 +40,10 @@ export function AppShell({
       <div className="app-main-column">
         <header className="mobile-header">
           <Link className="mobile-brand" href="/dashboard"><BrandIcon /><strong>Quản Lý Vay</strong></Link>
-          {showCreateLoan && profile.role !== "VIEWER" ? (
-            <Link className="header-create-link" href="/loans/new"><Plus size={18} /> Tạo khoản vay</Link>
-          ) : null}
+          <div className="flex items-center gap-2">
+            <PrivacyToggle />
+            {showCreateLoan ? <MobileCreateLoanLink canWrite={profile.role !== "VIEWER"} /> : null}
+          </div>
         </header>
         <main className="app-content" id="main-content">{children}</main>
         <div className="mobile-nav-wrap"><AppNav isOwner={profile.role === "OWNER"} unreadCount={unreadCount} /></div>

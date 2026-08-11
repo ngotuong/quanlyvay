@@ -34,16 +34,19 @@ project Google ở C11 và cũng không commit.
 
 ## Contract Sheet
 
-Workbook gồm tab `Tổng quan` và tám tab dữ liệu:
+Payload local hiện dùng `schemaVersion: 3`. Workbook gồm tab `Tổng quan` và mười một tab dữ liệu:
 
 1. `Đối tác`
 2. `Khoản vay`
 3. `Giao dịch`
 4. `Sự kiện`
-5. `Kỳ lãi`
-6. `Chi phí`
-7. `Thông báo`
-8. `Lịch sử`
+5. `Điều chỉnh khoản vay`
+6. `Hoàn tác tất toán`
+7. `Khởi tạo khoản cũ`
+8. `Kỳ lãi`
+9. `Chi phí`
+10. `Thông báo`
+11. `Lịch sử`
 
 Mỗi lần nguồn thay đổi, dữ liệu trong các tab đối chiếu được thay thế toàn bộ. Không nhập dữ
 liệu thủ công vào những tab này vì lần sync tiếp theo sẽ ghi đè. Header được cố định, có filter;
@@ -59,6 +62,21 @@ trả snapshot một phần.
 Endpoint trả `sourceVersion`. Apps Script lưu giá trị này vào `SYNC_CURSOR`; khi nguồn không đổi,
 endpoint trả `unchanged: true` và workbook không bị ghi lại. Đây là checkpoint incremental ở cấp
 snapshot, không phải đồng bộ hai chiều hay cập nhật từng dòng.
+
+`sourceVersion` bao gồm cả `notifications.read_at`, vì vậy thao tác đánh dấu thông báo đã đọc cũng
+làm snapshot tiến lên. `LAST_SYNC_AT` được cập nhật sau mọi lần fetch thành công, kể cả response
+`unchanged`, để trạng thái vận hành phản ánh lần trigger thành công gần nhất. ID bigint của audit
+được giữ dưới dạng text khi ghi Sheet, không chuyển qua `Number`.
+
+Hai hàm bảo trì không chạy theo trigger:
+
+- `refreshGoogleSheetContract()` đặt timezone workbook về `Asia/Ho_Chi_Minh` và cập nhật lại header,
+  kể cả khi `sourceVersion` không đổi.
+- `runGoogleSheetFullSync()` chỉ xóa `SYNC_CURSOR` rồi tải lại snapshot canonical; dùng sau khi sửa
+  timezone/contract để các ô ngày đã ghi trước đó được tạo lại đúng ngày nghiệp vụ.
+
+Không xóa dữ liệu tab thủ công để ép sync. Hai hàm trên vẫn giữ luồng một chiều và không ghi ngược
+vào Supabase.
 
 ## Script Properties ở C11
 
@@ -92,6 +110,9 @@ Các file có prefix `QLV_Snapshot_` được sắp theo ngày tạo; chỉ gi�
 chiếu đang mở. Phục hồi này không gọi endpoint mutate và tuyệt đối không phục hồi ngược vào
 Supabase. Hàm xóa `SYNC_CURSOR` sau khi sao chép để lần sync kế tiếp bắt buộc tải lại snapshot nguồn
 đầy đủ, đưa workbook về trạng thái Supabase chuẩn hiện tại thay vì bỏ qua vì cursor cũ.
+
+Snapshot Drive chỉ phục hồi workbook đối chiếu, không phải backup database. Backup có khả năng
+phục hồi Supabase phải dùng logical dump/backup platform theo `docs/BACKUP_RESTORE.md`.
 
 ## Cấu hình trigger
 

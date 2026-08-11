@@ -52,6 +52,21 @@ Không thực hiện các thao tác sau nếu chưa được người dùng xác
 
 Các lệnh chỉ đọc như kiểm tra phiên bản CLI không được xem là phê duyệt thao tác tài khoản.
 
+### 4.1. Quy trình bắt buộc cho Vercel Preview
+
+- Mọi Preview của project này phải chạy từ repository root bằng `pnpm deploy:preview`; không chạy
+  `vercel deploy` trực tiếp từ `apps/web` và không gán `tindung-preview.vercel.app` bằng tay trong
+  luồng thông thường.
+- Trước khi tạo candidate phải đạt `git diff --check`, lint, typecheck, unit tests, build và E2E.
+- Candidate phải dùng `--target=preview`, đúng project ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`,
+  `Ready`, Functions `sin1` và đạt smoke trên URL deployment bất biến.
+- Chỉ chuyển stable alias sau khi candidate đạt toàn bộ gate. Sau khi chuyển phải smoke lại alias và
+  kiểm tra runtime error log; nếu hậu kiểm thất bại phải trả alias về deployment tốt trước đó.
+- Trạng thái Vercel `Ready` hoặc build thành công không thay thế E2E/runtime smoke. Route có Auth hoặc
+  Server Component đã đổi phải được truy cập thật trong E2E hoặc authenticated browser smoke.
+- Ghi deployment ID, immutable URL, alias, target, region và kết quả từng smoke vào
+  `PROJECT_CONTEXT.md`. Chi tiết vận hành nằm trong `docs/VERCEL_PREVIEW_RUNBOOK.md`.
+
 ## 5. Ranh giới repository và an toàn
 
 - Chỉ đọc/ghi trong `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, trừ khi người dùng chỉ định rõ tài nguyên khác.
