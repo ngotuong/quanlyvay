@@ -8,7 +8,9 @@
   trong kỳ. Dư nợ cho vay đang hoạt động, nợ xấu và tổng vốn chưa thu hồi được trình bày riêng.
 - `/loans` tìm theo tên khoản/đối tác; lọc hướng, trạng thái, ngày giải ngân; sắp xếp mới/cũ, dư nợ
   và tên. Chỉ filter đang áp dụng hiện thành chip xóa nhanh; trạng thái nằm trong query string để hỗ
-  trợ quay lại và deep link. Row ưu tiên dư nợ cùng hạn/lãi kế tiếp.
+  trợ quay lại và deep link. Tìm kiếm debounce 300 ms; select, ngày và sắp xếp cập nhật ngay, không
+  có bước Áp dụng. Card đặt tên–gốc và tag trên hàng đầu; tiếp theo là ngày giải ngân, lãi suất, ngày
+  đóng lãi và ba chỉ số authoritative: dư nợ gốc, lãi phải thu/trả, lãi đã thu/trả.
 - Chi tiết khoản vay chia bốn tab URL: Tổng quan, Các kỳ lãi, Lịch sử, Thiết lập. Tổng quan có hero
   dư nợ/việc kế tiếp/trạng thái và CTA; modal giao dịch lặp lại ngữ cảnh khoản vay. Dưới ba kỳ dùng
   summary thay chart. Tab thiết lập tách rõ Thông tin khoản vay, Điều chỉnh và Kết thúc khoản vay.
@@ -52,8 +54,8 @@ subscription và sổ tài chính phải đi qua RPC có validation; hai RPC v1 
 
 ## Trải nghiệm giao diện
 
-- Mobile dùng header và bottom navigation co giãn đủ năm mục thường hoặc bảy mục OWNER; desktop từ
-  1024px dùng sidebar.
+- Mobile dùng header theo tên/icon module hiện tại và bottom navigation co giãn đủ năm mục thường
+  hoặc bảy mục OWNER; desktop từ 1024px dùng sidebar.
 - Form có label hiển thị, thông báo lỗi gần trường, loading state và touch target tối thiểu 44px.
 - Form nợ xấu gọi mốc hiệu lực là **Ngày cuối cùng còn tính lãi** và nói rõ ngừng lãi từ ngày kế tiếp,
   tránh làm mất kỳ cuối chưa đóng.

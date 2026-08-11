@@ -130,9 +130,11 @@ test("business pages remain usable at 375px", async ({ page }) => {
   await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
   await page.getByRole("button", { name: "Đăng nhập" }).click();
   await expect(page.getByRole("heading", { name: "Tổng quan" })).toBeVisible();
+  await expect(page.locator(".mobile-module-title")).toContainText("Tổng quan");
   await expect(page.getByRole("navigation", { name: "Điều hướng chính" })).toBeVisible();
   await page.getByRole("link", { name: "Khoản vay" }).first().click();
   await expect(page.getByRole("heading", { name: "Các khoản vay" })).toBeVisible();
+  await expect(page.locator(".mobile-module-title")).toContainText("Các khoản vay");
   const [directionBox, statusBox] = await Promise.all([
     page.getByLabel("Hướng", { exact: true }).boundingBox(),
     page.getByLabel("Trạng thái", { exact: true }).boundingBox(),
@@ -145,11 +147,13 @@ test("business pages remain usable at 375px", async ({ page }) => {
     return { parent: { left: parent.left, right: parent.right }, controls: controls.map((control) => ({ left: control.left, right: control.right })) };
   });
   expect(filterBounds.controls.every((control) => control.left >= filterBounds.parent.left && control.right <= filterBounds.parent.right)).toBe(true);
+  const directionColors = await page.locator(".loan-card-icon").evaluateAll((icons) => Object.fromEntries(icons.map((icon) => [icon.getAttribute("data-direction"), getComputedStyle(icon).color])));
+  expect(directionColors.LENDING).not.toBe(directionColors.BORROWING);
   await page.getByRole("button", { name: "Nâng cao" }).click();
   const advancedFilterDialog = page.getByRole("dialog", { name: "Ngày giải ngân và sắp xếp" });
   await expect(advancedFilterDialog).toBeVisible();
   expect(await advancedFilterDialog.evaluate((element) => getComputedStyle(element).animationName)).toBe("sheet-enter");
-  await advancedFilterDialog.getByRole("button", { name: "Đóng" }).click();
+  await advancedFilterDialog.getByRole("button", { name: "Đóng", exact: true }).click();
   await expect(advancedFilterDialog).toBeHidden();
   await page.locator(".loan-card").first().click();
   const mobileTabs = page.getByRole("navigation", { name: "Nội dung khoản vay" });
@@ -282,7 +286,10 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
   await page.getByRole("button", { name: "Tùy chỉnh" }).click();
   await expect(page.getByLabel("Từ ngày")).toHaveValue("2026-07-01");
   await expect(page.getByLabel("Đến ngày")).toHaveValue("2026-07-31");
-  await page.getByRole("button", { name: "Đóng" }).click();
+  await page.getByLabel("Từ ngày").fill("2026-07-02");
+  await expect(page).toHaveURL(/from=2026-07-02&to=2026-07-31/);
+  await expect(page.getByRole("button", { name: "Áp dụng", exact: true })).toHaveCount(0);
+  await page.getByRole("button", { name: "Đóng", exact: true }).click();
   await page.locator(".dashboard-analysis > summary").click();
   await expect(page.getByText("Nợ xấu phải thu", { exact: true })).toBeVisible();
 
@@ -293,10 +300,11 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
 
   await page.getByLabel("Trạng thái").selectOption("");
   await page.getByLabel("Tên khoản vay hoặc đối tác").fill("C16 hoàn tác");
-  await page.getByRole("button", { name: "Áp dụng", exact: true }).click();
   await expect(page).toHaveURL(/q=C16/);
+  await expect(page.getByRole("button", { name: "Áp dụng", exact: true })).toHaveCount(0);
   await expect(page.getByRole("heading", { name: "C16 hoàn tác tất toán" })).toBeVisible();
-  await expect(page.locator(".loan-card-values").first().locator("div")).toHaveCount(2);
+  await expect(page.locator(".loan-card-values").first().locator("div")).toHaveCount(3);
+  await expect(page.locator(".loan-card-details").first().getByText("Lãi suất", { exact: true })).toBeVisible();
   const clickStartedAt = Date.now();
   await page.getByRole("heading", { name: "C16 hoàn tác tất toán" }).click();
   await expect(page.getByRole("link", { name: "Quay lại danh sách" })).toBeVisible();

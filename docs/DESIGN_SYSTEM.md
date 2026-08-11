@@ -11,6 +11,8 @@ glassmorphism, emoji hệ thống hoặc hiệu ứng làm lu mờ dữ liệu.
 - Canvas sáng `#f6f7fb`; surface chính trắng; dark canvas `#090d18`.
 - Cobalt/indigo `#4f46e5` là màu thương hiệu và hành động chính; cyan chỉ dùng làm accent. Xanh lá,
   amber và đỏ dành cho trạng thái có nghĩa.
+- Hướng khoản vay dùng semantic token riêng: cho vay xanh lá, đi vay đỏ; icon luôn đi cùng nhãn chữ
+  để màu không là dấu hiệu phân biệt duy nhất.
 - Radius: `8 / 12 / 16 px`; elevation thấp, card thường chỉ dùng border và `shadow-xs`.
 - Motion: `150 ms` cho state nhỏ, `220 ms` cho component; sheet mở `260 ms`, đóng `180 ms`.
 - Z-index: nội dung `0`, sticky header `20`, bottom navigation `30`, menu `40`, progress/skip `100`.
@@ -41,6 +43,8 @@ thái khi đã có token tương ứng.
 - Lucide SVG là icon hệ thống; stroke chuẩn `1.8`, cỡ nội dung `18–24 px` trong vùng chạm tối thiểu
   `44 px`. Navigation dùng nhóm glyph hình học: grid, arrow-left-right, contact, bell-dot, wallet,
   scroll và sliders.
+- Khoản cho vay dùng `HandCoins`; khoản đi vay dùng `Landmark`. Mobile header hiển thị icon và tên
+  route/module hiện tại, còn tên sản phẩm được giữ trong brand sidebar desktop.
 - Logo ứng dụng dùng biểu tượng banking hình học trên nền navy: mái ngân hàng, thẻ tín dụng và
   dòng tiền đi lên; không dùng chân dung, chữ, crypto, huy hiệu hoặc chi tiết nhỏ.
 - Không dùng emoji hoặc raster icon cho navigation, action, trạng thái hay tiêu đề module.

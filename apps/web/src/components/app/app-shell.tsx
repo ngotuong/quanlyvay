@@ -5,6 +5,7 @@ import type { AppProfile } from "@/lib/auth/types";
 import { AppNav, BrandIcon } from "./app-nav";
 import { MobileCreateLoanLink } from "./mobile-create-loan-link";
 import { PrivacyToggle } from "./privacy-provider";
+import { MobileModuleTitle } from "./mobile-module-title";
 
 const roleLabels = { OWNER: "Chủ tài khoản", EDITOR: "Biên tập", VIEWER: "Chỉ xem" } as const;
 
@@ -39,7 +40,7 @@ export function AppShell({
 
       <div className="app-main-column">
         <header className="mobile-header">
-          <Link className="mobile-brand" href="/dashboard"><BrandIcon /><strong>Quản Lý Vay</strong></Link>
+          <MobileModuleTitle />
           <div className="flex items-center gap-2">
             <PrivacyToggle />
             {showCreateLoan ? <MobileCreateLoanLink canWrite={profile.role !== "VIEWER"} /> : null}

@@ -36,7 +36,7 @@ cuối kỳ và các giao dịch tổng hợp do onboarding khoản cũ không t
 
 ## Quy ước dòng tiền
 
-Tiền vào gồm giải ngân của khoản đi vay và các khoản thu lãi/gốc từ cho vay. Tiền ra gồm giải ngân cho vay, thanh toán lãi/gốc của khoản đi vay và chi phí khác. Biểu đồ tạo các cột tháng nằm trong khoảng đã chọn và luôn có bảng số liệu đi kèm. Bộ lọc nhanh gồm tháng này, tháng trước, năm nay và sáu tháng; khi URL không chỉ định kỳ thì mặc định là tháng này. Khoảng tùy chỉnh tối đa năm năm.
+Tiền vào gồm giải ngân của khoản đi vay và các khoản thu lãi/gốc từ cho vay. Tiền ra gồm giải ngân cho vay, thanh toán lãi/gốc của khoản đi vay và chi phí khác. Biểu đồ tạo các cột tháng nằm trong khoảng đã chọn và luôn có bảng số liệu đi kèm. Bộ lọc nhanh gồm tháng này, tháng trước, năm nay và sáu tháng; khi URL không chỉ định kỳ thì mặc định là tháng này. Khoảng tùy chỉnh tối đa năm năm và cập nhật ngay khi hai ngày hợp lệ, không cần bước Áp dụng.
 
 Dashboard còn có ba biểu đồ quản trị: phát sinh so với thanh toán lãi trong kỳ, cơ cấu dư nợ tại
 ngày chốt và top 10 mức tập trung dư nợ theo đối tác. Nợ xấu luôn là chuỗi riêng, không bị gộp vào

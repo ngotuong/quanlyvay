@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.90
-last_updated: 2026-08-11 17:05:43 +07
+roadmap_version: 1.0.91
+last_updated: 2026-08-11 19:07:45 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C16
 current_status: IN_PROGRESS
@@ -84,7 +84,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
 | Trạng thái | `IN_PROGRESS` |
 | Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX bốn giai đoạn theo `docs/C16_UI_UX_PLAN.md`; sau khi từng giai đoạn đạt gate, được phép áp migration Supabase Production và deploy Vercel Production ngay để người dùng kiểm tra; sửa dữ liệu tài chính, secret và tài nguyên remote khác vẫn cần xác nhận riêng |
-| Kết quả | Remediation R1–R7, audit follow-up, UI/UX follow-up A–E và hardening đã rollout. Người dùng xác nhận notification mẫu trên immutable candidate; Preview `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy` target Preview/Ready/`sin1` đã chuyển stable alias `https://tindung-preview.vercel.app`. Hậu kiểm alias đạt login/manifest 200, export/cron thiếu secret 401 và runtime error log sạch. Nút gửi notification mẫu chỉ hiện ở local/Preview và không ghi database. Gate đạt lint/typecheck/32 tests/build, E2E 9/9, DB lint và pgTAP 360/360; migration 20 chưa rollout Supabase. C16 tiếp tục `IN_PROGRESS` để chỉnh sửa/đối chiếu trên Preview |
+| Kết quả | Remediation R1–R7, audit follow-up, UI/UX follow-up A–E và hardening đã rollout. Revision local mới bỏ nút Áp dụng khỏi bộ lọc khoản vay/Dashboard, cập nhật tức thời và giữ URL; card khoản vay có điều khoản cùng ba chỉ số authoritative, icon cho vay xanh/đi vay đỏ; mobile header dùng tên module. Gate local đạt lint/typecheck/32 tests/build, E2E 9/9 và diff-check. Stable Preview vẫn là `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy`; revision này chưa deploy. Migration 20 chưa rollout Supabase remote. C16 tiếp tục `IN_PROGRESS` để chỉnh sửa/đối chiếu trên Preview |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -175,6 +175,9 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 
 ## 8. Blocker và cổng xác nhận
 
+- Revision UI bộ lọc/card/header ngày `2026-08-11` đã đạt full web gate local nhưng chưa deploy;
+  cần người dùng xác nhận riêng trước khi chạy candidate-first và chuyển stable Preview. Stable alias
+  hiện vẫn trỏ `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy`. Không có migration mới trong revision này.
 - Preview `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy` đã rollout stable alias sau authenticated smoke do
   người dùng xác nhận; không còn blocker Vercel Preview. Migration 20 vẫn chưa áp Supabase remote và
   cần xác nhận riêng trước khi kiểm thử actual generated Push/copy/badge end-to-end.
@@ -531,6 +534,13 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-11` — Hoàn tất local revision UI: tìm kiếm khoản vay debounce 300 ms, quick/select/date/
+   sort cập nhật kết quả và URL ngay, bỏ nút `Áp dụng`; Dashboard tùy chỉnh ngày cũng cập nhật ngay.
+   Card khoản vay đưa tên–gốc và tag lên hàng đầu, hiển thị giải ngân/lãi suất/ngày đóng lãi cùng ba
+   chỉ số dư gốc–lãi phải thu/trả–lãi đã thu/trả authoritative. Icon `HandCoins` cho vay dùng xanh,
+   `Landmark` đi vay dùng đỏ; mobile header hiển thị tên/icon module hiện tại. Thiết kế giữ design
+   system hiện hữu, thêm semantic token light/dark và nhãn dialog rõ ngữ cảnh. Gate đạt
+   lint/typecheck/32 tests/build, E2E 9/9 và diff-check. Chưa deploy Preview, không đổi remote/schema.
 1. `2026-08-11` — Người dùng xác nhận notification mẫu trên immutable candidate tạm ổn và duyệt
    chuyển stable Preview. Runbook chạy lại lint/typecheck/32 tests/build/E2E 9/9, xác nhận
    `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy` target Preview/Ready/`sin1`, rồi chuyển

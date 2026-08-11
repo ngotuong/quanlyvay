@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { ArrowDownLeft, ArrowLeftRight, ArrowUpRight, CircleAlert, Plus, Search, SlidersHorizontal, X } from "lucide-react";
+import { ArrowLeftRight, CircleAlert, HandCoins, Landmark, Plus, X } from "lucide-react";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
-import { LoanAdvancedFilters } from "@/components/business/loan-advanced-filters";
+import { LoanFilters } from "@/components/business/loan-filters";
 import { isValidBusinessDate } from "@/lib/business/dashboard-period";
-import { formatDate, formatVnd } from "@/lib/business/format";
+import { formatDate, formatPercent, formatVnd, periodRateInput } from "@/lib/business/format";
 import { listLoans } from "@/lib/business/queries";
 import type { LoanListFilters } from "@/lib/business/queries";
 import type { LoanDirection, LoanStatus } from "@/lib/business/types";
@@ -53,18 +53,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
         {profile.role !== "VIEWER" ? <Link className="primary-link desktop-only" href="/loans/new"><Plus size={18} />Tạo khoản vay</Link> : null}
       </div>
 
-      <section className="management-filters loan-filters" aria-labelledby="loan-filter-title">
-        <div className="filter-heading"><div><h2 id="loan-filter-title"><SlidersHorizontal size={18} /> Tìm và lọc</h2></div>{hasFilters ? <Link className="clear-filter-link" href="/loans"><X size={17} /> Xóa tất cả</Link> : null}</div>
-        <form className="filter-form loan-filter-form" method="get" key={`${query}:${direction ?? ""}:${status ?? ""}:${disbursedFrom ?? ""}:${disbursedTo ?? ""}:${sort}`}>
-          <div className="loan-filter-primary">
-            <div className="field-group filter-search"><label className="sr-only" htmlFor="loanSearch">Tên khoản vay hoặc đối tác</label><span className="input-with-icon"><Search size={18} aria-hidden="true" /><input id="loanSearch" name="q" type="search" defaultValue={query} placeholder="Tìm tên khoản vay hoặc đối tác..." /></span></div>
-            <div className="field-group"><label className="sr-only" htmlFor="loanDirection">Hướng</label><select id="loanDirection" name="direction" defaultValue={direction ?? ""}><option value="">Hướng: Tất cả</option><option value="LENDING">Cho vay</option><option value="BORROWING">Đi vay</option></select></div>
-            <div className="field-group"><label className="sr-only" htmlFor="loanStatus">Trạng thái</label><select id="loanStatus" name="status" defaultValue={status ?? ""}><option value="">Trạng thái: Tất cả</option><option value="ACTIVE">Đang hoạt động</option><option value="BAD_DEBT">Nợ xấu</option><option value="OVERDUE">Quá hạn</option><option value="SETTLED">Đã tất toán</option></select></div>
-            <button className="primary-button loan-filter-submit" type="submit">Áp dụng</button>
-          </div>
-          <div className="filter-actions"><span>{loans.length} kết quả</span><div><LoanAdvancedFilters disbursedFrom={disbursedFrom} disbursedTo={disbursedTo} sort={sort} active={Boolean(disbursedFrom || disbursedTo || sort !== "newest")} /></div></div>
-        </form>
-      </section>
+      <LoanFilters initial={{ query, direction: direction ?? "", status: status ?? "", disbursedFrom: disbursedFrom ?? "", disbursedTo: disbursedTo ?? "", sort }} resultCount={loans.length} hasFilters={hasFilters} />
 
       {hasFilters ? <div className="filter-pills active-filter-pills" aria-label="Bộ lọc đang áp dụng">
         {query ? <Link href={withoutFilter("q")}>Tìm: {query}<X size={14} /></Link> : null}
@@ -84,7 +73,6 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
         </section>
       ) : (
         <section className="loan-list" aria-label="Danh sách khoản vay">
-          <div className="loan-list-header" aria-hidden="true"><span>Khoản vay và đối tác</span><span>Dư nợ</span><span>Hành động kế tiếp</span></div>
           {loans.map((loan) => {
             const status = loan.calculation?.status ?? loan.status;
             const directionText = loan.direction === "LENDING" ? "Cho vay" : "Đi vay";
@@ -93,28 +81,23 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
             const nextDate = status === "OVERDUE" && loan.maturity_date ? loan.maturity_date : loan.schedule.nextInterestDueDate;
 
             const counterpartyName = loan.counterparties?.name ?? "";
-            let displayName = loan.name;
-            if (counterpartyName && displayName.startsWith(`${counterpartyName} · `)) {
-              const rest = displayName.slice(`${counterpartyName} · `.length);
-              displayName = rest.split(" · ")[0] || counterpartyName;
-            } else if (displayName.includes(" · ")) {
-              displayName = displayName.split(" · ")[0];
-            }
+            const displayName = counterpartyName && loan.name.startsWith(`${counterpartyName} · `) ? counterpartyName : loan.name;
 
-            const subtitleText = counterpartyName && counterpartyName !== displayName
-              ? `${counterpartyName} · Giải ngân ${formatDate(loan.disbursement_date)}`
-              : `Giải ngân ${formatDate(loan.disbursement_date)}`;
+            const periodRate = formatPercent(periodRateInput(loan.initial_daily_rate_percent, loan.interest_cycle_days));
 
             return (
-              <Link className="loan-card" href={`/loans/${loan.id}?returnTo=${encodeURIComponent(returnTo)}`} key={loan.id}>
-                <div className="loan-card-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <ArrowUpRight /> : <ArrowDownLeft />}</div>
+              <Link className="loan-card" data-direction={loan.direction} href={`/loans/${loan.id}?returnTo=${encodeURIComponent(returnTo)}`} key={loan.id}>
+                <div className="loan-card-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins /> : <Landmark />}</div>
                 <div className="loan-card-main">
-                  <div className="loan-card-title">
-                    <h2>{displayName}</h2>
-                    <span className="direction-badge" data-direction={loan.direction}>{directionText}</span>
-                    <span className="status-badge" data-status={status}>{statusLabels[status]}</span>
+                  <div className="loan-card-heading">
+                    <h2>{displayName}<span aria-hidden="true"> • </span><span className="privacy-amount">{formatVnd(loan.original_principal_vnd)}</span></h2>
+                    <div className="loan-card-tags"><span className="direction-badge" data-direction={loan.direction}>{directionText}</span><span className="status-badge" data-status={status}>{statusLabels[status]}</span></div>
                   </div>
-                  <p>{subtitleText}</p>
+                  <dl className="loan-card-details">
+                    <div><dt>Giải ngân</dt><dd>{formatDate(loan.disbursement_date)}</dd></div>
+                    <div><dt>Lãi suất</dt><dd>{periodRate}/{loan.interest_cycle_days} ngày</dd></div>
+                    <div><dt>Ngày đóng lãi</dt><dd>{formatDate(nextDate)}</dd></div>
+                  </dl>
                 </div>
                 <dl className="loan-card-values">
                   <div>
@@ -122,12 +105,10 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
                     <dd className="privacy-amount font-bold text-base sm:text-lg">{formatVnd(principalVnd)}</dd>
                   </div>
                   <div>
-                    <dt>{status === "OVERDUE" ? "Quá hạn gốc" : loan.direction === "LENDING" ? "Cần thu lãi" : "Cần trả lãi"}</dt>
-                    <dd>
-                      <span className="privacy-amount">{status === "OVERDUE" ? formatVnd(principalVnd) : formatVnd(interestVnd)}</span>
-                      <small className="text-muted block mt-0.5">{formatDate(nextDate)}</small>
-                    </dd>
+                    <dt>{loan.direction === "LENDING" ? "Lãi phải thu" : "Lãi phải trả"}</dt>
+                    <dd><span className="privacy-amount">{formatVnd(interestVnd)}</span></dd>
                   </div>
+                  <div><dt>{loan.direction === "LENDING" ? "Lãi đã thu" : "Lãi đã trả"}</dt><dd><span className="privacy-amount">{formatVnd(loan.interestRecordedVnd)}</span></dd></div>
                 </dl>
               </Link>
             );

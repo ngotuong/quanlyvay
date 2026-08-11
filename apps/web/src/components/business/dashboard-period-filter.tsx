@@ -1,17 +1,26 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { CalendarRange, SlidersHorizontal, X } from "lucide-react";
 import type { DashboardPeriod } from "@/lib/business/dashboard-period";
 
 export function DashboardPeriodFilter({ period, periodLabel }: { period: DashboardPeriod; periodLabel: string }) {
+  const router = useRouter();
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const [dates, setDates] = useState({ from: period.start, to: period.end });
+  const periodKey = `${period.start}:${period.end}`;
+  const [syncedPeriodKey, setSyncedPeriodKey] = useState(periodKey);
+  const [pending, startTransition] = useTransition();
 
-  useEffect(() => () => {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-  }, []);
+  if (syncedPeriodKey !== periodKey) {
+    setSyncedPeriodKey(periodKey);
+    setDates({ from: period.start, to: period.end });
+  }
+
+  useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
 
   function openDialog() {
     const dialog = dialogRef.current;
@@ -32,6 +41,14 @@ export function DashboardPeriodFilter({ period, periodLabel }: { period: Dashboa
     }, 180);
   }
 
+  function updateDate(key: "from" | "to", value: string) {
+    const next = { ...dates, [key]: value };
+    setDates(next);
+    if (!next.from || !next.to || next.from > next.to) return;
+    const params = new URLSearchParams({ from: next.from, to: next.to });
+    startTransition(() => router.replace(`/dashboard?${params.toString()}`, { scroll: false }));
+  }
+
   return (
     <section className="dashboard-period-bar" aria-label="Khoảng báo cáo">
       <span className="dashboard-period-current"><CalendarRange size={18} aria-hidden="true" /><span><small>Khoảng báo cáo</small><strong>{periodLabel}</strong></span></span>
@@ -43,12 +60,12 @@ export function DashboardPeriodFilter({ period, periodLabel }: { period: Dashboa
       </nav>
       <button className="secondary-button dashboard-custom-trigger" type="button" onClick={openDialog}><SlidersHorizontal size={17} aria-hidden="true" />Tùy chỉnh</button>
       <dialog aria-labelledby="dashboard-period-dialog-title" className="transaction-dialog dashboard-period-dialog" ref={dialogRef} onCancel={(event) => { event.preventDefault(); closeDialog(); }} onClick={(event) => { if (event.target === event.currentTarget) closeDialog(); }}>
-        <div className="dialog-heading"><div><p className="eyebrow">Khoảng báo cáo</p><h2 id="dashboard-period-dialog-title">Chọn ngày tùy chỉnh</h2></div><button className="icon-button" type="button" aria-label="Đóng" onClick={closeDialog}><X size={20} /></button></div>
-        <form className="filter-form dashboard-date-form dialog-form" method="get" key={`${period.start}:${period.end}`}>
-          <div className="field-group"><label htmlFor="dashboardFrom">Từ ngày</label><input id="dashboardFrom" name="from" type="date" defaultValue={period.start} required /></div>
-          <div className="field-group"><label htmlFor="dashboardTo">Đến ngày</label><input id="dashboardTo" name="to" type="date" defaultValue={period.end} required /></div>
-          <button className="primary-button filter-submit" type="submit">Áp dụng</button>
-        </form>
+        <div className="dialog-heading"><div><p className="eyebrow">Khoảng báo cáo</p><h2 id="dashboard-period-dialog-title">Chọn ngày tùy chỉnh</h2></div><button className="icon-button" type="button" aria-label="Đóng bộ lọc thời gian" onClick={closeDialog}><X size={20} /></button></div>
+        <div className="filter-form dashboard-date-form dialog-form" aria-busy={pending}>
+          <div className="field-group"><label htmlFor="dashboardFrom">Từ ngày</label><input id="dashboardFrom" name="from" type="date" value={dates.from} onChange={(event) => updateDate("from", event.target.value)} required /></div>
+          <div className="field-group"><label htmlFor="dashboardTo">Đến ngày</label><input id="dashboardTo" name="to" type="date" value={dates.to} onChange={(event) => updateDate("to", event.target.value)} required /></div>
+          <div className="instant-filter-status"><span aria-live="polite">{pending ? "Đang cập nhật…" : "Kết quả cập nhật ngay"}</span><button className="secondary-button" type="button" onClick={closeDialog}>Đóng</button></div>
+        </div>
       </dialog>
     </section>
   );
