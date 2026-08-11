@@ -50,6 +50,10 @@ thay vì con số, hoặc không hỗ trợ API. Vì vậy notification center t
 Migration `20260811160000_c16_notification_copy_and_badges.sql` làm mới nội dung các
 `INTEREST_DUE` chưa đọc hiện hữu. Notification hệ điều hành đã giao trước đó không thể sửa ngược.
 
+Ở local và Vercel Preview, trang `/notifications` có nút `Gửi thông báo thử`. Nút này gọi trực tiếp
+service worker trên thiết bị để hiển thị payload mẫu, không tạo bản ghi Supabase, không tăng badge và
+không gửi sang thiết bị khác. Nút bị ẩn trong Production và sẽ được bỏ sau khi người dùng duyệt copy.
+
 ## Cấu hình local
 
 Sinh cặp VAPID:

@@ -315,6 +315,10 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
 
 test("PWA manifest, service worker and notification center are available", async ({ page }) => {
   await page.addInitScript(() => {
+    Object.defineProperty(window, "Notification", {
+      configurable: true,
+      value: { permission: "granted", requestPermission: async () => "granted" },
+    });
     Object.defineProperty(navigator, "setAppBadge", {
       configurable: true,
       value: async (count: number) => { (window as Window & { __appBadge?: number }).__appBadge = count; },
@@ -343,6 +347,16 @@ test("PWA manifest, service worker and notification center are available", async
   await expect(page.getByRole("heading", { name: "Thông báo", exact: true })).toBeVisible();
   await expect(page.getByText("Khoản vay đã quá hạn", { exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Thông báo trên thiết bị" })).toBeVisible();
+  await page.evaluate(async () => {
+    const registration = await navigator.serviceWorker.ready;
+    registration.showNotification = async (title, options) => {
+      (window as Window & { __testNotification?: { title: string; body?: string } }).__testNotification = { title, body: options?.body };
+    };
+  });
+  await page.getByRole("button", { name: "Gửi thông báo thử" }).click();
+  await expect.poll(() => page.evaluate(() => (window as Window & { __testNotification?: { title: string } }).__testNotification?.title)).toBe("Đến ngày thu lãi");
+  await expect.poll(() => page.evaluate(() => (window as Window & { __testNotification?: { body?: string } }).__testNotification?.body)).toBe("Duy • 50.000.000 • 24/07/2024\nSố tiền phải thu : 3.000.000");
+  await expect(page.getByText("Không có dữ liệu nào được ghi vào hệ thống.", { exact: false })).toBeVisible();
   const unreadBefore = Number(await page.locator(".nav-badge").first().innerText());
   await page.getByRole("button", { name: /Khoản vay đã quá hạn/ }).first().click();
   await expect(page).toHaveURL(/\/loans\//);

@@ -864,6 +864,7 @@ details[open] > summary::after { transform: translateY(-30%) rotate(225deg); }
 .push-settings-copy h2 { margin: 0 0 6px; font-size: 1.1rem; }
 .push-settings-copy p:not(.eyebrow), .push-config-note, .push-feedback { margin: 0; color: var(--foreground-muted); font-size: .875rem; line-height: 1.55; }
 .push-settings > button { grid-column: 1 / -1; width: 100%; }
+.push-test-button { border-style: dashed; }
 .push-config-note, .push-feedback { grid-column: 1 / -1; }
 .push-config-note { border-radius: 10px; background: var(--surface-muted); padding: 10px 12px; }
 .push-feedback:empty { display: none; }
@@ -887,6 +888,7 @@ details[open] > summary::after { transform: translateY(-30%) rotate(225deg); }
 @media (min-width: 600px) {
   .push-settings { grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; padding: 20px; }
   .push-settings > button { grid-column: auto; width: auto; }
+  .push-test-button { grid-column: 2 / -1; justify-self: start; }
   .push-config-note, .push-feedback { grid-column: 2 / -1; }
   .notification-item { padding: 16px 18px; }
 }

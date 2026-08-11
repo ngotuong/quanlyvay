@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
-import { BellRing, BellOff, LoaderCircle } from "lucide-react";
+import { BellRing, BellOff, FlaskConical, LoaderCircle } from "lucide-react";
 import { registerPushSubscriptionAction, removePushSubscriptionAction } from "@/app/actions/notifications";
 
 function urlBase64ToUint8Array(value: string) {
@@ -15,10 +15,16 @@ function pushSupported() {
   return typeof window !== "undefined" && "serviceWorker" in navigator && "PushManager" in window && "Notification" in window;
 }
 
-export function PushManager({ publicKey }: { publicKey: string }) {
+const TEST_NOTIFICATION = {
+  title: "Đến ngày thu lãi",
+  body: "Duy • 50.000.000 • 24/07/2024\nSố tiền phải thu : 3.000.000",
+};
+
+export function PushManager({ publicKey, showTestButton = false }: { publicKey: string; showTestButton?: boolean }) {
   const [enabled, setEnabled] = useState(false);
   const [checking, setChecking] = useState(true);
   const [message, setMessage] = useState("");
+  const [testing, setTesting] = useState(false);
   const [pending, startTransition] = useTransition();
 
   useEffect(() => {
@@ -63,6 +69,32 @@ export function PushManager({ publicKey }: { publicKey: string }) {
     });
   }
 
+  async function testNotification() {
+    setTesting(true);
+    try {
+      if (!("serviceWorker" in navigator) || !("Notification" in window)) {
+        return setMessage("Trình duyệt này chưa hỗ trợ thông báo thử trên thiết bị.");
+      }
+      const permission = Notification.permission === "default" ? await Notification.requestPermission() : Notification.permission;
+      if (permission !== "granted") {
+        return setMessage("Quyền thông báo chưa được cấp. Bạn có thể bật lại trong cài đặt trình duyệt.");
+      }
+      const registration = await navigator.serviceWorker.ready;
+      await registration.showNotification(TEST_NOTIFICATION.title, {
+        body: TEST_NOTIFICATION.body,
+        icon: "/icons/app-icon-192.png",
+        badge: "/icons/app-icon-192.png",
+        tag: "preview-interest-notification-test",
+        data: { url: "/notifications" },
+      });
+      setMessage("Đã gửi thông báo mẫu trên thiết bị này. Không có dữ liệu nào được ghi vào hệ thống.");
+    } catch {
+      setMessage("Chưa thể hiển thị thông báo mẫu trên thiết bị này.");
+    } finally {
+      setTesting(false);
+    }
+  }
+
   return <section className="surface-card push-settings" aria-labelledby="push-title">
     <span className="push-settings-icon" data-enabled={enabled}>{enabled ? <BellRing /> : <BellOff />}</span>
     <div className="push-settings-copy"><h2 id="push-title">Thông báo trên thiết bị</h2><p>{enabled ? "Thiết bị này đã đăng ký nhận nhắc hạn." : "Bật để nhận nhắc đúng ngày đóng lãi và lặp hằng ngày khi quá hạn."}</p></div>
@@ -70,6 +102,10 @@ export function PushManager({ publicKey }: { publicKey: string }) {
       {pending ? <LoaderCircle className="spinner-icon" size={18} /> : enabled ? <BellOff size={18} /> : <BellRing size={18} />}
       {pending ? "Đang xử lý" : checking ? "Đang kiểm tra" : enabled ? "Tắt trên thiết bị" : "Bật thông báo"}
     </button>
+    {showTestButton ? <button className="secondary-button push-test-button" type="button" onClick={testNotification} disabled={testing}>
+      {testing ? <LoaderCircle className="spinner-icon" size={18} /> : <FlaskConical size={18} />}
+      {testing ? "Đang gửi thử" : "Gửi thông báo thử"}
+    </button> : null}
     {!publicKey && !enabled ? <p className="push-config-note">Chức năng gửi thông báo chưa được cấu hình.</p> : null}
     <p className="push-feedback" aria-live="polite">{message}</p>
   </section>;
