@@ -66,6 +66,7 @@ Các test tài chính bắt buộc bao phủ: khoản không đáo hạn với k
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.93 | 2026-08-11 | Sau khi người dùng xác nhận authenticated smoke, runbook đạt lại full web gate và chuyển `dpl_F6kXSWBSn3gTxWQpA5PXj6wi7S29` sang stable `tindung-preview.vercel.app`. Deployment target Preview/Ready/`sin1`; hậu kiểm alias 200/200/401/401 và runtime error log sạch. Không có migration mới hoặc thay đổi Production. |
 | 1.0.92 | 2026-08-11 | Sau xác nhận deploy Preview, runbook đạt lại lint/typecheck/32 tests/build và E2E 9/9; candidate `dpl_F6kXSWBSn3gTxWQpA5PXj6wi7S29` target Preview/Ready/`sin1`, immutable public smoke và error log sạch. Script dừng `awaiting_authenticated_smoke` do không có browser session kết nối; stable alias chưa chuyển. |
 | 1.0.91 | 2026-08-11 | Local UI revision C16: bộ lọc khoản vay và ngày Dashboard cập nhật tức thời, giữ URL và bỏ nút Áp dụng; card khoản vay bổ sung điều khoản cùng ba chỉ số authoritative; icon cho vay xanh/đi vay đỏ; mobile header theo tên module. Gate đạt lint/typecheck/32 tests/build, E2E 9/9 và diff-check; chưa deploy Preview, không có migration mới. |
 | 1.0.90 | 2026-08-11 | Sau khi người dùng xác nhận notification mẫu trên immutable candidate, runbook chạy lại full web gate và chuyển `dpl_9mwFrBZ81RZDLbKjLSZEjiFzbRwy` sang stable `tindung-preview.vercel.app`. Deployment target Preview/Ready/`sin1`; hậu kiểm alias 200/200/401/401 và runtime error log sạch. Migration 20 chưa rollout Supabase remote. |
