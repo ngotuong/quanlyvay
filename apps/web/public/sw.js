@@ -7,14 +7,18 @@ self.addEventListener("push", (event) => {
   let payload = {};
   try { payload = event.data?.json() ?? {}; } catch { payload = { title: "Quản Lý Vay", body: event.data?.text() ?? "Bạn có thông báo mới." }; }
   const title = payload.title || "Quản Lý Vay";
-  event.waitUntil(self.registration.showNotification(title, {
+  const tasks = [self.registration.showNotification(title, {
     body: payload.body || "Bạn có thông báo mới.",
     icon: "/icons/app-icon-192.png",
     badge: "/icons/app-icon-192.png",
     tag: payload.tag || CACHE_VERSION,
     renotify: false,
     data: { url: payload.url || "/notifications" },
-  }));
+  })];
+  if ("setAppBadge" in self.navigator && Number.isInteger(payload.badgeCount) && payload.badgeCount >= 0) {
+    tasks.push(payload.badgeCount > 0 ? self.navigator.setAppBadge(payload.badgeCount) : self.navigator.clearAppBadge());
+  }
+  event.waitUntil(Promise.all(tasks));
 });
 
 self.addEventListener("notificationclick", (event) => {

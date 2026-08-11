@@ -36,7 +36,7 @@ cuối kỳ và các giao dịch tổng hợp do onboarding khoản cũ không t
 
 ## Quy ước dòng tiền
 
-Tiền vào gồm giải ngân của khoản đi vay và các khoản thu lãi/gốc từ cho vay. Tiền ra gồm giải ngân cho vay, thanh toán lãi/gốc của khoản đi vay và chi phí khác. Biểu đồ tạo các cột tháng nằm trong khoảng đã chọn và luôn có bảng số liệu đi kèm. Bộ lọc nhanh gồm tháng này, tháng trước, năm nay và sáu tháng; khoảng tùy chỉnh tối đa năm năm.
+Tiền vào gồm giải ngân của khoản đi vay và các khoản thu lãi/gốc từ cho vay. Tiền ra gồm giải ngân cho vay, thanh toán lãi/gốc của khoản đi vay và chi phí khác. Biểu đồ tạo các cột tháng nằm trong khoảng đã chọn và luôn có bảng số liệu đi kèm. Bộ lọc nhanh gồm tháng này, tháng trước, năm nay và sáu tháng; khi URL không chỉ định kỳ thì mặc định là tháng này. Khoảng tùy chỉnh tối đa năm năm.
 
 Dashboard còn có ba biểu đồ quản trị: phát sinh so với thanh toán lãi trong kỳ, cơ cấu dư nợ tại
 ngày chốt và top 10 mức tập trung dư nợ theo đối tác. Nợ xấu luôn là chuỗi riêng, không bị gộp vào
@@ -44,6 +44,10 @@ cho vay hoạt động. First fold giữ bốn KPI ở đầu (desktop một hà
 `Cần xử lý` trước biểu đồ dòng tiền trong thứ tự đọc. Danh sách tách `Quá hạn gốc` và `Lãi sắp đến
 lịch`, tối đa năm item trước liên kết xem thêm và không tạo vùng cuộn lồng. Tổng vốn, nợ xấu và ba
 phân tích phụ nằm trong vùng `Phân tích chi tiết`.
+
+Banner `Lịch nhắc tháng này` không tính bù trừ. Nó hiển thị riêng tổng lãi phải thu của khoản cho vay
+và tổng lãi phải trả của khoản đi vay trong danh sách actionable; đây là hai tổng gross, không phải
+lãi ròng.
 
 ## UX và khả năng truy cập
 

@@ -276,6 +276,7 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
   await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
   await page.getByRole("button", { name: "Đăng nhập" }).click();
 
+  await expect(page.getByRole("link", { name: "Tháng này" })).toHaveAttribute("data-active", "true");
   await page.getByRole("link", { name: "Tháng trước" }).click();
   await expect(page).toHaveURL(/dashboard\?preset=previous_month/);
   await page.getByRole("button", { name: "Tùy chỉnh" }).click();
@@ -313,6 +314,16 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
 });
 
 test("PWA manifest, service worker and notification center are available", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "setAppBadge", {
+      configurable: true,
+      value: async (count: number) => { (window as Window & { __appBadge?: number }).__appBadge = count; },
+    });
+    Object.defineProperty(navigator, "clearAppBadge", {
+      configurable: true,
+      value: async () => { (window as Window & { __appBadge?: number }).__appBadge = 0; },
+    });
+  });
   await page.goto("/login");
   await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
   await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
@@ -325,6 +336,8 @@ test("PWA manifest, service worker and notification center are available", async
   const worker = await page.request.get("/sw.js");
   expect(worker.ok()).toBe(true);
   expect(await worker.text()).toContain('addEventListener("push"');
+  expect(await worker.text()).toContain("setAppBadge");
+  await expect.poll(() => page.evaluate(() => (window as Window & { __appBadge?: number }).__appBadge)).toBeGreaterThan(0);
 
   await page.getByRole("link", { name: /Thông báo/ }).first().click();
   await expect(page.getByRole("heading", { name: "Thông báo", exact: true })).toBeVisible();
@@ -335,6 +348,7 @@ test("PWA manifest, service worker and notification center are available", async
   await expect(page).toHaveURL(/\/loans\//);
   if (unreadBefore > 1) await expect(page.locator(".nav-badge").first()).toHaveText(String(unreadBefore - 1));
   else await expect(page.locator(".nav-badge")).toHaveCount(0);
+  await expect.poll(() => page.evaluate(() => (window as Window & { __appBadge?: number }).__appBadge)).toBe(unreadBefore > 1 ? unreadBefore - 1 : 0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
   expect(await page.evaluate(async () => Boolean(await navigator.serviceWorker.ready))).toBe(true);
 });

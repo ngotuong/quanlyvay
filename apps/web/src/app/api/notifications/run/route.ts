@@ -13,6 +13,7 @@ type ClaimedDelivery = {
   body: string;
   loan_id: string | null;
   idempotency_key: string;
+  unread_count: number;
 };
 
 async function completeDelivery(
@@ -69,7 +70,7 @@ async function runNotifications(request: NextRequest) {
     try {
       await webpush.sendNotification(
         { endpoint: delivery.endpoint, keys: { p256dh: delivery.p256dh, auth: delivery.auth_secret } },
-        JSON.stringify({ title: delivery.title, body: delivery.body, url: delivery.loan_id ? `/loans/${delivery.loan_id}` : "/notifications", tag: delivery.idempotency_key }),
+        JSON.stringify({ title: delivery.title, body: delivery.body, url: delivery.loan_id ? `/loans/${delivery.loan_id}` : "/notifications", tag: delivery.idempotency_key, badgeCount: delivery.unread_count }),
       );
       if (await completeDelivery(supabase, delivery.delivery_id, true, null)) sent += 1;
       else stateUpdateFailed += 1;

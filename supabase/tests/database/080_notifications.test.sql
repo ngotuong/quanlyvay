@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(20);
+select plan(25);
 
 insert into auth.users (id, email, email_confirmed_at, raw_user_meta_data)
 values
@@ -18,18 +18,27 @@ select public.create_loan_v2(
 );
 select public.create_loan_v2(
   (select id from public.counterparties where name = 'Đối tác thông báo'),
+  'Khoản đi vay đến hạn', 'BORROWING'::public.loan_direction, 6000000::bigint, '2026-07-20'::date, 30, 15::smallint, 1.5::numeric,
+  'notify-borrowing-due-loan', null
+);
+select public.create_loan_v2(
+  (select id from public.counterparties where name = 'Đối tác thông báo'),
   'Khoản quá hạn', 'BORROWING'::public.loan_direction, 4000000::bigint, '2026-07-01'::date, 20, 15::smallint, 0.75::numeric,
   'notify-overdue-loan', null
 );
 
 reset role;
 set local role service_role;
-select is(public.generate_due_notifications('2026-08-03'), 4, 'due day creates due and overdue notifications for both active users');
+select is(public.generate_due_notifications('2026-08-03'), 6, 'due day creates lending, borrowing and overdue notifications for both active users');
 select is(public.generate_due_notifications('2026-08-03'), 0, 'same-day retry creates no duplicate notifications');
 select is(public.generate_due_notifications('2026-08-04'), 2, 'overdue reminder repeats on the following day');
-select is((select count(*) from public.notifications), 6::bigint, 'notification rows remain unique by user loan type and day');
-select is((select count(*) from public.notifications where type = 'INTEREST_DUE'), 2::bigint, 'interest due reminder is generated only on the due date');
+select is((select count(*) from public.notifications), 8::bigint, 'notification rows remain unique by user loan type and day');
+select is((select count(*) from public.notifications where type = 'INTEREST_DUE'), 4::bigint, 'interest due reminder is generated only on the due date');
 select is((select count(*) from public.notifications where type = 'LOAN_OVERDUE'), 4::bigint, 'overdue reminder is generated daily');
+select is((select notification.title from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'LENDING' limit 1), 'Đến ngày thu lãi', 'lending reminder uses collection title');
+select is((select notification.title from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'BORROWING' limit 1), 'Đến ngày đóng lãi', 'borrowing reminder uses payment title');
+select ok((select notification.body like E'Đối tác thông báo • 10.000.000 • 20/07/2026\nSố tiền phải thu : %' from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'LENDING' limit 1), 'lending body is Vietnamese and includes the authoritative amount');
+select ok((select notification.body like E'Đối tác thông báo • 6.000.000 • 20/07/2026\nSố tiền phải trả : %' from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'BORROWING' limit 1), 'borrowing body is Vietnamese and includes the authoritative amount');
 
 reset role;
 select set_config('request.jwt.claim.sub', '20000000-0000-0000-0000-000000000080', true);
@@ -56,6 +65,7 @@ select is(public.generate_due_notifications('2026-08-05'), 2, 'a new overdue rem
 create temporary table claimed_delivery as select * from public.claim_push_deliveries(1);
 select is((select count(*) from claimed_delivery), 1::bigint, 'delivery worker claims one queued target');
 select is((select idempotency_key is not null from claimed_delivery), true, 'delivery includes a stable notification idempotency key');
+select is((select unread_count from claimed_delivery), (select count(*)::integer from public.notifications where user_id = '20000000-0000-0000-0000-000000000080' and read_at is null), 'delivery includes the exact unread count for app badging');
 select public.complete_push_delivery((select delivery_id from claimed_delivery), true, null);
 select is((select status::text from public.push_deliveries where id = (select delivery_id from claimed_delivery)), 'SENT', 'successful delivery is marked sent');
 select is((select sent_at is not null from public.push_deliveries where id = (select delivery_id from claimed_delivery)), true, 'successful delivery records sent time');

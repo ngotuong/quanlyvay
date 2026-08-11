@@ -40,7 +40,12 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
   const totalCount = overdueCount + upcomingCount;
 
   const totalOverdueVnd = overdue.reduce((sum, item) => sum + BigInt(item.principalVnd), BigInt(0)).toString();
-  const totalUpcomingVnd = upcoming.reduce((sum, item) => sum + BigInt(item.interestVnd), BigInt(0)).toString();
+  const lendingInterestVnd = upcoming
+    .filter((item) => item.direction === "LENDING")
+    .reduce((sum, item) => sum + BigInt(item.interestVnd), BigInt(0)).toString();
+  const borrowingInterestVnd = upcoming
+    .filter((item) => item.direction === "BORROWING")
+    .reduce((sum, item) => sum + BigInt(item.interestVnd), BigInt(0)).toString();
 
   if (totalCount === 0) {
     return (
@@ -76,8 +81,8 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
       <div className="hero-banner-content">
         <span className="hero-banner-badge" data-status="warning"><CalendarClock size={16} /> Lịch nhắc tháng này</span>
         <div>
-          <h3>Có {upcomingCount} khoản cần thu/trả lãi trong tháng này (<PrivacyAmount value={formatVnd(totalUpcomingVnd)} />)</h3>
-          <p>Lịch chốt lãi sắp đến hạn, bạn có thể chủ động ghi nhận đóng lãi ngay trên danh sách bên dưới.</p>
+          <h3>Có {upcomingCount} khoản cần thu/trả lãi trong tháng này</h3>
+          <p>Phải thu <PrivacyAmount value={formatVnd(lendingInterestVnd)} /> · Phải trả <PrivacyAmount value={formatVnd(borrowingInterestVnd)} /></p>
         </div>
       </div>
       <a className="secondary-button hero-banner-cta active:scale-95 transition-transform cursor-pointer" href="#attention-title">

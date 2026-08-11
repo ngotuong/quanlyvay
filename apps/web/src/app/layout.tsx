@@ -54,7 +54,7 @@ export default async function RootLayout({
           <a className="skip-link" href="#main-content">
             Bỏ qua đến nội dung chính
           </a>
-          <PwaRegister />
+          <PwaRegister unreadCount={unreadCount} />
           <Suspense fallback={null}><NavigationFeedback /></Suspense>
           {showAppShell && profile ? <AppShell profile={profile} showCreateLoan unreadCount={unreadCount}>{children}</AppShell> : children}
         </PrivacyProvider>

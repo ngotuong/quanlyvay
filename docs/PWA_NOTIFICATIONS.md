@@ -10,6 +10,9 @@
 ## Quy tắc nhắc lịch
 
 - `INTEREST_DUE`: tạo đúng ngày đóng lãi của kỳ 15/30 ngày hoặc ngày cuối kỳ bị rút ngắn.
+- Tiêu đề nhắc lãi theo hướng khoản: cho vay dùng `Đến ngày thu lãi`, đi vay dùng `Đến ngày đóng
+  lãi`. Nội dung dùng đối tác, gốc ban đầu, ngày giải ngân và số lãi authoritative còn phải thu/trả;
+  không dùng tên khoản vay tự sinh.
 - `LOAN_OVERDUE`: tạo mỗi ngày khi khoản vay có trạng thái tính toán `OVERDUE`.
 - Khoản `BAD_DEBT` đang dừng lãi và khoản `SETTLED` không tạo nhắc đóng lãi.
 - Khóa `type:loan:date:user` bảo đảm chạy lại cùng ngày không tạo bản ghi trùng.
@@ -30,6 +33,22 @@ subscription thật của trình duyệt hiện tại, không suy ra từ subscr
 khác.
 
 Subscription trả về HTTP 404/410 sẽ bị xóa. Secret và khóa riêng không được lưu trong Git.
+
+## Badge trên biểu tượng ứng dụng
+
+Badge trong navigation là trạng thái giao diện của webapp. Badge ngoài biểu tượng PWA là khả năng
+riêng của hệ điều hành/trình duyệt và chỉ được đồng bộ khi nền tảng có Badging API. Khi app đang mở,
+layout đặt badge bằng tổng notification chưa đọc; khi nhận Push trong nền, payload mang cùng
+`unread_count` để service worker cập nhật badge. Đánh dấu đã đọc rồi mở lại/điều hướng trong app sẽ
+đồng bộ số mới hoặc xóa badge khi về 0.
+
+Trên iOS/iPadOS, chức năng này chỉ áp dụng cho webapp đã thêm vào Home Screen và được người dùng cấp
+quyền thông báo; Badge cũng có thể bị tắt riêng trong Settings. Một số nền tảng chỉ hiện dấu chấm
+thay vì con số, hoặc không hỗ trợ API. Vì vậy notification center trong app vẫn là nguồn trạng thái
+đọc/chưa đọc chuẩn, không suy ra từ hình thức badge của launcher.
+
+Migration `20260811160000_c16_notification_copy_and_badges.sql` làm mới nội dung các
+`INTEREST_DUE` chưa đọc hiện hữu. Notification hệ điều hành đã giao trước đó không thể sửa ngược.
 
 ## Cấu hình local
 
@@ -62,4 +81,5 @@ Vercel gửi trùng.
 - pgTAP kiểm tra đúng ngày đến hạn, nhắc quá hạn hằng ngày, mọi active user, idempotency,
   subscription upsert, không phát lịch sử cho subscription mới, đánh dấu đã đọc và delivery không
   được claim lại sau khi `SENT`.
-- Playwright kiểm tra manifest, service worker, notification center và không tràn ngang trên mobile.
+- Playwright kiểm tra manifest, service worker, notification center, đồng bộ app badge và không tràn
+  ngang trên mobile.

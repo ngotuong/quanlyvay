@@ -51,7 +51,7 @@ export function resolveDashboardPeriod(params: { from?: string; to?: string; pre
     const length = (Date.parse(`${params.to}T00:00:00Z`) - Date.parse(`${params.from}T00:00:00Z`)) / 86_400_000;
     if (length <= 1826) return { start: params.from!, end: params.to!, preset: "custom" };
   }
-  return { ...presets.six_months, preset: "six_months" };
+  return { ...presets.this_month, preset: "this_month" };
 }
 
 export function previousDashboardPeriod(period: Pick<DashboardPeriod, "start" | "end">) {
