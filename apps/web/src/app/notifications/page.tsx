@@ -6,7 +6,7 @@ import { formatDate } from "@/lib/business/format";
 import { getNotificationCenter } from "@/lib/business/queries";
 
 export default async function NotificationsPage() {
-  await requireAuthenticatedProfile();
+  const profile = await requireAuthenticatedProfile();
   const notifications = await getNotificationCenter();
   const unread = notifications.filter((item) => !item.read_at);
   const publicKey = process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY?.trim() ?? "";
@@ -15,7 +15,7 @@ export default async function NotificationsPage() {
     <div className="page-heading-row"><div className="page-title-lockup"><span className="page-title-icon"><BellDot size={24} strokeWidth={1.8} /></span><div><h1>Thông báo</h1></div></div>
       {unread.length ? <form action={markNotificationsReadAction.bind(null, undefined)}><button className="secondary-button notification-read-all" type="submit"><CheckCheck size={18} />Đánh dấu đã đọc</button></form> : null}
     </div>
-    <PushManager publicKey={publicKey} showTestButton={process.env.VERCEL_ENV !== "production"} />
+    <PushManager publicKey={publicKey} initialDeliveryHour={profile.notification_delivery_hour} showTestButton={process.env.VERCEL_ENV !== "production"} />
     {notifications.length === 0 ? <section className="empty-state notification-empty"><span className="empty-icon"><Bell size={28} /></span><h2>Chưa có thông báo</h2><p>Thông báo đóng lãi và quá hạn sẽ xuất hiện tại đây khi bộ nhắc lịch chạy.</p></section> :
       <section className="notification-list" aria-label="Danh sách thông báo">{notifications.map((item) => {
         const overdue = item.type === "LOAN_OVERDUE";

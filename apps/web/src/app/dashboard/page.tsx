@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import { ArrowDownLeft, ArrowUpRight, Banknote, CalendarClock, ChartSpline, CircleAlert, Landmark, Minus, ReceiptText, Scale, ShieldAlert, TrendingDown, TrendingUp, WalletCards } from "lucide-react";
+import { ArrowDownLeft, ArrowUpRight, Banknote, CalendarClock, ChartSpline, CircleAlert, HandCoins, Landmark, Minus, ReceiptText, Scale, ShieldAlert, TrendingDown, TrendingUp, WalletCards } from "lucide-react";
 import { DashboardPeriodFilter } from "@/components/business/dashboard-period-filter";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatVnd } from "@/lib/business/format";
@@ -46,6 +46,8 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
   const borrowingInterestVnd = upcoming
     .filter((item) => item.direction === "BORROWING")
     .reduce((sum, item) => sum + BigInt(item.interestVnd), BigInt(0)).toString();
+  const lendingCount = upcoming.filter((item) => item.direction === "LENDING").length;
+  const borrowingCount = upcoming.filter((item) => item.direction === "BORROWING").length;
 
   if (totalCount === 0) {
     return (
@@ -81,11 +83,11 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
       <div className="hero-banner-content">
         <span className="hero-banner-badge" data-status="warning"><CalendarClock size={16} /> Lịch nhắc tháng này</span>
         <div>
-          <h3>Có {upcomingCount} khoản cần thu/trả lãi trong tháng này</h3>
-          <p>Phải thu <PrivacyAmount value={formatVnd(lendingInterestVnd)} /> · Phải trả <PrivacyAmount value={formatVnd(borrowingInterestVnd)} /></p>
+          <h3>Có {upcomingCount} giao dịch trong tháng này</h3>
+          <p className="monthly-reminder-summary"><span>{lendingCount} khoản phải thu: <PrivacyAmount value={formatVnd(lendingInterestVnd)} /></span><span>{borrowingCount} khoản phải trả: <PrivacyAmount value={formatVnd(borrowingInterestVnd)} /></span></p>
         </div>
       </div>
-      <a className="secondary-button hero-banner-cta active:scale-95 transition-transform cursor-pointer" href="#attention-title">
+      <a className="secondary-button hero-banner-cta active:scale-95 transition-transform cursor-pointer" href="#schedule-title">
         Xem danh sách
       </a>
     </div>
@@ -182,21 +184,20 @@ function AttentionList({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; ov
   const visibleOverdue = overdue.slice(0, 5);
   const visibleUpcoming = upcoming.slice(0, Math.max(0, 5 - visibleOverdue.length));
   const interestAction = (loan: DashboardDueLoan) => loan.direction === "LENDING" ? "Cần thu lãi" : "Cần trả lãi";
+  const rows = [
+    ...visibleOverdue.map((loan) => ({ loan, kind: "overdue" as const })),
+    ...visibleUpcoming.map((loan) => ({ loan, kind: "interest" as const })),
+  ];
   return (
-    <section className="surface-card due-card attention-card" aria-labelledby="attention-title">
-      <div className="dashboard-section-heading"><div><p className="eyebrow">Hành động còn tồn tại</p><h2 id="attention-title">Cần xử lý</h2></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>
-      {total === 0 ? <p className="dashboard-empty">Không có khoản quá hạn gốc hoặc lãi cần thu/trả trong 30 ngày tới.</p> : <div className="attention-groups">
-        {visibleOverdue.length > 0 ? <section className="attention-group" aria-labelledby="overdue-principal-title"><h3 id="overdue-principal-title">Quá hạn gốc</h3><div className="due-list">{visibleOverdue.map((loan) => <Link href={`/loans/${loan.id}`} className="due-item" key={`overdue-${loan.id}`}>
-          <span className="due-icon" data-overdue="true"><CircleAlert size={19} /></span>
-          <span className="due-main"><strong>{loan.name}</strong><small>Quá hạn gốc từ {formatDate(loan.periodEndDate)}</small></span>
-          <span className="due-value"><strong className="privacy-amount">{formatVnd(loan.principalVnd)}</strong><small>Dư gốc cần xử lý</small></span>
-        </Link>)}</div></section> : null}
-        {visibleUpcoming.length > 0 ? <section className="attention-group" aria-labelledby="interest-due-title"><h3 id="interest-due-title">Lãi sắp đến lịch</h3><div className="due-list">{visibleUpcoming.map((loan) => <Link href={`/loans/${loan.id}`} className="due-item" key={`interest-${loan.id}`}>
-          <span className="due-icon"><CalendarClock size={19} /></span>
-          <span className="due-main"><strong>{loan.name}</strong><small>Nhắc {formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt {formatDate(loan.periodEndDate)}</small></span>
-          <span className="due-value"><strong className="privacy-amount">{formatVnd(loan.interestVnd)}</strong><small>{interestAction(loan)}</small></span>
-        </Link>)}</div></section> : null}
-        {total > 5 ? <Link className="attention-all-link" href="/loans">Xem tất cả {total} khoản cần xử lý</Link> : null}
+    <section className="surface-card due-card attention-card" aria-labelledby="schedule-title">
+      <div className="dashboard-section-heading"><h2 id="schedule-title">Lịch Dự Kiến</h2><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>
+      {total === 0 ? <p className="dashboard-empty">Chưa có lịch thu, trả lãi hoặc gốc quá hạn trong 30 ngày tới.</p> : <div className="attention-groups">
+        <div className="due-list schedule-list">{rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}`} className="due-item" key={`${kind}-${loan.id}`}>
+          <span className="due-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins size={19} /> : <Landmark size={19} />}</span>
+          <span className="due-main"><strong>{loan.name}</strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
+          <span className="due-value"><strong className="privacy-amount">{formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)}</strong><small>{kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
+        </Link>)}</div>
+        {total > 5 ? <Link className="attention-all-link" href="/loans">Xem tất cả {total} giao dịch</Link> : null}
       </div>}
     </section>
   );

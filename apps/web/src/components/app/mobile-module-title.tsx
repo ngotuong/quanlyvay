@@ -20,5 +20,5 @@ export function MobileModuleTitle() {
   const pathname = usePathname();
   const current = moduleRoutes.find((item) => item.match(pathname)) ?? moduleRoutes[0];
   const Icon = current.icon;
-  return <div className="mobile-module-title"><Icon size={21} strokeWidth={1.8} aria-hidden="true" /><strong>{current.label}</strong></div>;
+  return <div className="mobile-module-title"><Icon size={21} strokeWidth={1.8} aria-hidden="true" /><h1>{current.label}</h1></div>;
 }

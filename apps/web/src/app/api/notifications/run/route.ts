@@ -16,6 +16,18 @@ type ClaimedDelivery = {
   unread_count: number;
 };
 
+const CLAIM_LIMIT = 500;
+const MAX_BATCHES = 20;
+
+function currentHourInVietnam() {
+  const hour = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    hour: "2-digit",
+    hourCycle: "h23",
+  }).format(new Date());
+  return Number(hour);
+}
+
 async function completeDelivery(
   supabase: ReturnType<typeof createAdminClient>,
   deliveryId: string,
@@ -58,35 +70,50 @@ async function runNotifications(request: NextRequest) {
 
   const supabase = createAdminClient();
   const date = todayInVietnam();
+  const deliveryHour = currentHourInVietnam();
   const { data: generated, error: generationError } = await supabase.rpc("generate_due_notifications", { p_notification_date: date });
   if (generationError) return NextResponse.json({ error: "Không thể tạo thông báo" }, { status: 500 });
-  const { data, error: claimError } = await supabase.rpc("claim_push_deliveries", { p_limit: 100 });
-  if (claimError) return NextResponse.json({ error: "Không thể nhận lượt gửi thông báo" }, { status: 500 });
 
   let sent = 0;
   let failed = 0;
   let stateUpdateFailed = 0;
-  for (const delivery of (data ?? []) as ClaimedDelivery[]) {
-    try {
-      await webpush.sendNotification(
-        { endpoint: delivery.endpoint, keys: { p256dh: delivery.p256dh, auth: delivery.auth_secret } },
-        JSON.stringify({ title: delivery.title, body: delivery.body, url: delivery.loan_id ? `/loans/${delivery.loan_id}` : "/notifications", tag: delivery.idempotency_key, badgeCount: delivery.unread_count }),
-      );
-      if (await completeDelivery(supabase, delivery.delivery_id, true, null)) sent += 1;
-      else stateUpdateFailed += 1;
-    } catch (pushError) {
-      const statusCode = typeof pushError === "object" && pushError && "statusCode" in pushError ? Number(pushError.statusCode) : 0;
-      const message = pushError instanceof Error ? pushError.message : "Lỗi gửi thông báo không xác định";
-      const completed = await completeDelivery(supabase, delivery.delivery_id, false, message);
-      if (statusCode === 404 || statusCode === 410) await supabase.from("push_subscriptions").delete().eq("id", delivery.subscription_id);
-      if (completed) failed += 1;
-      else stateUpdateFailed += 1;
+  let claimed = 0;
+  let batches = 0;
+  let queueRemaining = false;
+
+  while (batches < MAX_BATCHES) {
+    const { data, error: claimError } = await supabase.rpc("claim_push_deliveries", { p_limit: CLAIM_LIMIT, p_delivery_hour: deliveryHour });
+    if (claimError) return NextResponse.json({ error: "Không thể nhận lượt gửi thông báo" }, { status: 500 });
+    const deliveries = (data ?? []) as ClaimedDelivery[];
+    if (deliveries.length === 0) break;
+    batches += 1;
+    claimed += deliveries.length;
+
+    for (const delivery of deliveries) {
+      try {
+        await webpush.sendNotification(
+          { endpoint: delivery.endpoint, keys: { p256dh: delivery.p256dh, auth: delivery.auth_secret } },
+          JSON.stringify({ title: delivery.title, body: delivery.body, url: delivery.loan_id ? `/loans/${delivery.loan_id}` : "/notifications", tag: delivery.idempotency_key, badgeCount: delivery.unread_count }),
+        );
+        if (await completeDelivery(supabase, delivery.delivery_id, true, null)) sent += 1;
+        else stateUpdateFailed += 1;
+      } catch (pushError) {
+        const statusCode = typeof pushError === "object" && pushError && "statusCode" in pushError ? Number(pushError.statusCode) : 0;
+        const message = pushError instanceof Error ? pushError.message : "Lỗi gửi thông báo không xác định";
+        const completed = await completeDelivery(supabase, delivery.delivery_id, false, message);
+        if (statusCode === 404 || statusCode === 410) await supabase.from("push_subscriptions").delete().eq("id", delivery.subscription_id);
+        if (completed) failed += 1;
+        else stateUpdateFailed += 1;
+      }
     }
+
+    if (deliveries.length < CLAIM_LIMIT) break;
+    queueRemaining = batches === MAX_BATCHES;
   }
 
   return NextResponse.json(
-    { date, generated: Number(generated ?? 0), claimed: data?.length ?? 0, sent, failed, stateUpdateFailed },
-    { status: stateUpdateFailed > 0 ? 500 : 200 },
+    { date, deliveryHour, generated: Number(generated ?? 0), claimed, sent, failed, stateUpdateFailed, queueRemaining },
+    { status: stateUpdateFailed > 0 || queueRemaining ? 500 : 200 },
   );
 }
 

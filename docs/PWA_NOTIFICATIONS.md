@@ -16,6 +16,9 @@
 - `LOAN_OVERDUE`: tạo mỗi ngày khi khoản vay có trạng thái tính toán `OVERDUE`.
 - Khoản `BAD_DEBT` đang dừng lãi và khoản `SETTLED` không tạo nhắc đóng lãi.
 - Khóa `type:loan:date:user` bảo đảm chạy lại cùng ngày không tạo bản ghi trùng.
+- Mỗi tài khoản chọn một giờ nguyên từ `00:00` đến `23:00` theo `Asia/Ho_Chi_Minh`; mặc định là
+  `07:00`. RPC `update_notification_delivery_hour` chỉ sửa preference của chính tài khoản đang hoạt
+  động. Worker chỉ claim delivery của người dùng có giờ khớp lượt chạy hiện tại.
 
 `public.generate_due_notifications(date)` và hàng đợi giao nhận chỉ cấp quyền cho `service_role`. Người dùng chỉ đọc notification của chính mình và quản lý subscription của chính mình qua RPC đã kiểm tra Auth.
 
@@ -23,9 +26,15 @@
 
 `GET|POST /api/notifications/run` yêu cầu header `Authorization: Bearer <CRON_SECRET>`. `GET` dùng
 cho Vercel Cron, còn `POST` giữ cho kiểm thử thủ công. Endpoint tạo lịch ngày hiện tại theo
-`Asia/Ho_Chi_Minh`, claim tối đa 100 delivery rồi gửi bằng VAPID.
+`Asia/Ho_Chi_Minh`, sau đó drain tuần tự các batch tối đa 500 delivery, tối đa 20 batch/lượt rồi gửi
+bằng VAPID. Nếu vẫn còn queue sau 10.000 delivery, endpoint trả `500` với
+`queueRemaining=true` để hệ thống giám sát chạy lại thay vì báo thành công thiếu.
 
 Mỗi cặp notification/subscription có duy nhất một delivery. Worker dùng lease 5 phút và tối đa 5 lần thử. Delivery `SENT` không được claim lại; payload dùng cùng idempotency key làm `tag` để service worker không hiển thị nhiều notification khi có retry sau sự cố mạng.
+
+Nhiều khoản cùng đến lịch trong một ngày vẫn có notification, delivery và `tag` riêng; worker gửi
+đủ từng item. Hệ điều hành có thể tự nhóm nhiều notification trên màn hình khóa nhưng không làm mất
+item trong Notification Center của ứng dụng.
 
 Subscription chỉ nhận các notification chưa đọc được tạo từ thời điểm subscription tồn tại; bật
 Push trên thiết bị mới không phát lại toàn bộ lịch sử. Nút bật/tắt trên giao diện lấy trạng thái từ
@@ -73,16 +82,49 @@ CRON_SECRET=...
 
 Sau khi chạy web local, người dùng mở `/notifications` và chủ động bấm **Bật thông báo**. Trình duyệt chỉ hiển thị hộp xin quyền tại thời điểm đó. Việc cấu hình cron remote và remote secret thuộc C10/C12, không thực hiện ở C8.
 
-## Lịch Vercel Hobby
+## Scheduler theo giờ
 
-`apps/web/vercel.json` đăng ký một cron mỗi ngày lúc `00:00 UTC`. Trên Hobby, Vercel có thể gọi
-trong khoảng `00:00–00:59 UTC`, tương ứng khoảng `07:00–07:59` tại Việt Nam. Lịch không chạy
-nhiều hơn một lần/ngày để tuân thủ giới hạn Hobby; idempotency trong database bảo vệ trường hợp
-Vercel gửi trùng.
+`apps/web/vercel.json` vẫn đăng ký cron dự phòng mỗi ngày lúc `00:00 UTC` (khoảng 07:00 Việt Nam).
+Vercel Hobby chỉ cho mỗi cron chạy một lần/ngày và có thể lệch trong giờ, nên cron này không đủ để
+thực thi preference riêng theo giờ. Production phải bật Supabase Cron gọi endpoint mỗi giờ; khóa
+gọi được lưu trong Vault, không ghi vào migration hoặc repository.
+
+Sau khi migration đã áp và trước khi deploy web phụ thuộc preference, vận hành remote theo thứ tự:
+
+1. Bật module `pg_cron` và `pg_net` trong Supabase Dashboard.
+2. Tạo hai Vault secret: `qlv_notification_runner_url` là URL Production kết thúc bằng
+   `/api/notifications/run`; `qlv_notification_runner_secret` là cùng `CRON_SECRET` đang dùng ở
+   Vercel.
+3. Tạo một job tên `qlv-notification-runner-hourly`, lịch `0 * * * *`, chạy một `net.http_post` với
+   header `Authorization: Bearer <secret từ Vault>`.
+4. Gọi thử endpoint ở giờ đã chọn, xác nhận response có `deliveryHour`, `claimed = sent + failed +
+   stateUpdateFailed`, `queueRemaining=false`, rồi xem `cron.job_run_details` và Vercel runtime log.
+
+SQL mẫu vận hành (không thay placeholder bằng secret trong file):
+
+```sql
+select cron.schedule(
+  'qlv-notification-runner-hourly',
+  '0 * * * *',
+  $$
+  select net.http_post(
+    url := (select decrypted_secret from vault.decrypted_secrets where name = 'qlv_notification_runner_url'),
+    headers := jsonb_build_object(
+      'Content-Type', 'application/json',
+      'Authorization', 'Bearer ' || (select decrypted_secret from vault.decrypted_secrets where name = 'qlv_notification_runner_secret')
+    ),
+    body := '{}'::jsonb
+  );
+  $$
+);
+```
+
+Job/Vault là thay đổi remote và luôn cần xác nhận riêng. Idempotency, unique delivery và lease bảo vệ
+trường hợp cron dự phòng Vercel trùng với Supabase Cron lúc 07:00.
 
 ## Kiểm thử
 
-- pgTAP kiểm tra đúng ngày đến hạn, nhắc quá hạn hằng ngày, mọi active user, idempotency,
+- pgTAP kiểm tra đúng ngày đến hạn, nhắc quá hạn hằng ngày, mọi active user, preference giờ, idempotency,
   subscription upsert, không phát lịch sử cho subscription mới, đánh dấu đã đọc và delivery không
   được claim lại sau khi `SENT`.
 - Playwright kiểm tra manifest, service worker, notification center, đồng bộ app badge và không tràn

@@ -54,8 +54,10 @@ subscription và sổ tài chính phải đi qua RPC có validation; hai RPC v1 
 
 ## Trải nghiệm giao diện
 
-- Mobile dùng header theo tên/icon module hiện tại và bottom navigation co giãn đủ năm mục thường
-  hoặc bảy mục OWNER; desktop từ 1024px dùng sidebar.
+- Mobile dùng một `h1` trong header theo tên/icon module hiện tại, ẩn heading module lặp trong nội
+  dung và có bottom navigation co giãn đủ năm mục thường hoặc bảy mục OWNER; desktop từ 1024px dùng
+  sidebar và vẫn giữ heading nội dung.
+- Mọi vùng mở rộng dùng dấu `+` khi đóng, `−` khi mở và canh giữa theo nhãn.
 - Form có label hiển thị, thông báo lỗi gần trường, loading state và touch target tối thiểu 44px.
 - Form nợ xấu gọi mốc hiệu lực là **Ngày cuối cùng còn tính lãi** và nói rõ ngừng lãi từ ngày kế tiếp,
   tránh làm mất kỳ cuối chưa đóng.

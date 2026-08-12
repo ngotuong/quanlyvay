@@ -40,14 +40,14 @@ Tiền vào gồm giải ngân của khoản đi vay và các khoản thu lãi/g
 
 Dashboard còn có ba biểu đồ quản trị: phát sinh so với thanh toán lãi trong kỳ, cơ cấu dư nợ tại
 ngày chốt và top 10 mức tập trung dư nợ theo đối tác. Nợ xấu luôn là chuỗi riêng, không bị gộp vào
-cho vay hoạt động. First fold giữ bốn KPI ở đầu (desktop một hàng, mobile 2×2), sau đó là danh sách
-`Cần xử lý` trước biểu đồ dòng tiền trong thứ tự đọc. Danh sách tách `Quá hạn gốc` và `Lãi sắp đến
-lịch`, tối đa năm item trước liên kết xem thêm và không tạo vùng cuộn lồng. Tổng vốn, nợ xấu và ba
-phân tích phụ nằm trong vùng `Phân tích chi tiết`.
+cho vay hoạt động. First fold giữ bốn KPI ở đầu (desktop một hàng, mobile 2×2), sau đó là card
+`Lịch Dự Kiến` trước biểu đồ dòng tiền trong thứ tự đọc. Card dùng một danh sách liên tục, đường kẻ
+ngăn từng dòng, icon `HandCoins` xanh cho vay và `Landmark` đỏ cho đi vay; tối đa năm item trước liên
+kết xem thêm và không tạo vùng cuộn lồng. Tổng vốn, nợ xấu và ba phân tích phụ nằm trong vùng
+`Phân tích chi tiết`.
 
-Banner `Lịch nhắc tháng này` không tính bù trừ. Nó hiển thị riêng tổng lãi phải thu của khoản cho vay
-và tổng lãi phải trả của khoản đi vay trong danh sách actionable; đây là hai tổng gross, không phải
-lãi ròng.
+Banner `Lịch nhắc tháng này` không tính bù trừ. Nó hiển thị tổng số giao dịch trong tháng, số khoản
+và tổng tiền phải thu, số khoản và tổng tiền phải trả; đây là hai tổng gross, không phải lãi ròng.
 
 ## UX và khả năng truy cập
 

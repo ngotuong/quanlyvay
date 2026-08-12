@@ -123,7 +123,7 @@ số lãi, chi phí và dòng tiền chỉ tính trong khoảng:
 - Lãi đã thu, lãi đã trả, chi phí khác và lãi dự kiến kỳ tới.
 - Biểu đồ phát sinh/thanh toán lãi, cơ cấu dư nợ và mức tập trung theo đối tác.
 - Dòng tiền vào/ra theo tháng trong khoảng đã chọn.
-- **Cần xử lý** tách rõ quá hạn gốc và lãi cần thu/trả trong 30 ngày. Khoản đã đóng đủ hoặc ứng
+- **Lịch Dự Kiến** liệt kê quá hạn gốc và lãi cần thu/trả trong 30 ngày. Khoản đã đóng đủ hoặc ứng
   trước không còn xuất hiện; khoản đóng một phần hiện đúng số tiền còn lại.
 
 Chạm vào một khoản trong danh sách đến hạn để mở chi tiết và xử lý nghiệp vụ.
@@ -137,11 +137,13 @@ thu/trả nằm trong chi tiết. Dùng **Xóa tất cả** để quay lại to�
 
 1. Mở **Thông báo** bằng Chrome hoặc Safari.
 2. Bấm **Bật thông báo** và cho phép trình duyệt gửi thông báo.
-3. Giữ quyền notification được bật trong cài đặt của trình duyệt/hệ điều hành.
+3. Chọn **Giờ nhận thông báo** theo giờ Việt Nam và bấm **Lưu giờ**.
+4. Giữ quyền notification được bật trong cài đặt của trình duyệt/hệ điều hành.
 
 Hệ thống tạo nhắc đóng lãi đúng ngày và nhắc quá hạn hằng ngày. Mỗi thiết bị có subscription riêng;
-thiết bị mới không nhận lại các Push đã phát trước lúc đăng ký. Trong Notification Center, bấm
-**Đánh dấu đã đọc** để xử lý các mục chưa đọc.
+thiết bị mới không nhận lại các Push đã phát trước lúc đăng ký. Nếu một ngày có nhiều khoản đến lịch,
+mỗi khoản vẫn tạo và gửi một thông báo riêng; hệ điều hành có thể nhóm chúng về mặt trình bày. Trong
+Notification Center, bấm **Đánh dấu đã đọc** để xử lý các mục chưa đọc.
 
 Để dùng như ứng dụng:
 

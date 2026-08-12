@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
-import { BellRing, BellOff, FlaskConical, LoaderCircle } from "lucide-react";
-import { registerPushSubscriptionAction, removePushSubscriptionAction } from "@/app/actions/notifications";
+import { BellRing, BellOff, Clock3, FlaskConical, LoaderCircle, Save } from "lucide-react";
+import { registerPushSubscriptionAction, removePushSubscriptionAction, updateNotificationDeliveryHourAction } from "@/app/actions/notifications";
 
 function urlBase64ToUint8Array(value: string) {
   const padding = "=".repeat((4 - (value.length % 4)) % 4);
@@ -20,8 +20,10 @@ const TEST_NOTIFICATION = {
   body: "Duy • 50.000.000 • 24/07/2024\nSố tiền phải thu : 3.000.000",
 };
 
-export function PushManager({ publicKey, showTestButton = false }: { publicKey: string; showTestButton?: boolean }) {
+export function PushManager({ publicKey, initialDeliveryHour, showTestButton = false }: { publicKey: string; initialDeliveryHour: number; showTestButton?: boolean }) {
   const [enabled, setEnabled] = useState(false);
+  const [deliveryHour, setDeliveryHour] = useState(initialDeliveryHour);
+  const [savedDeliveryHour, setSavedDeliveryHour] = useState(initialDeliveryHour);
   const [checking, setChecking] = useState(true);
   const [message, setMessage] = useState("");
   const [testing, setTesting] = useState(false);
@@ -69,6 +71,14 @@ export function PushManager({ publicKey, showTestButton = false }: { publicKey: 
     });
   }
 
+  function saveDeliveryHour() {
+    startTransition(async () => {
+      const result = await updateNotificationDeliveryHourAction(deliveryHour);
+      if (result.ok) setSavedDeliveryHour(deliveryHour);
+      setMessage(result.message);
+    });
+  }
+
   async function testNotification() {
     setTesting(true);
     try {
@@ -102,6 +112,14 @@ export function PushManager({ publicKey, showTestButton = false }: { publicKey: 
       {pending ? <LoaderCircle className="spinner-icon" size={18} /> : enabled ? <BellOff size={18} /> : <BellRing size={18} />}
       {pending ? "Đang xử lý" : checking ? "Đang kiểm tra" : enabled ? "Tắt trên thiết bị" : "Bật thông báo"}
     </button>
+    <div className="notification-time-setting">
+      <span className="notification-time-icon"><Clock3 size={19} aria-hidden="true" /></span>
+      <label htmlFor="notificationDeliveryHour"><strong>Giờ nhận thông báo</strong><small>Theo giờ Việt Nam; các nhắc cùng ngày được gửi riêng.</small></label>
+      <select id="notificationDeliveryHour" value={deliveryHour} onChange={(event) => setDeliveryHour(Number(event.target.value))}>
+        {Array.from({ length: 24 }, (_, hour) => <option value={hour} key={hour}>{String(hour).padStart(2, "0")}:00</option>)}
+      </select>
+      <button className="secondary-button" type="button" onClick={saveDeliveryHour} disabled={pending || deliveryHour === savedDeliveryHour}><Save size={17} />Lưu giờ</button>
+    </div>
     {showTestButton ? <button className="secondary-button push-test-button" type="button" onClick={testNotification} disabled={testing}>
       {testing ? <LoaderCircle className="spinner-icon" size={18} /> : <FlaskConical size={18} />}
       {testing ? "Đang gửi thử" : "Gửi thông báo thử"}

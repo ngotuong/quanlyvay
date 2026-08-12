@@ -38,6 +38,17 @@ export async function removePushSubscriptionAction(endpoint: string) {
   return { ok: true, message: "Đã tắt thông báo trên thiết bị này." };
 }
 
+export async function updateNotificationDeliveryHourAction(hour: number) {
+  await requireAuthenticatedProfile();
+  const parsed = z.number().int().min(0).max(23).safeParse(hour);
+  if (!parsed.success) return { ok: false, message: "Giờ nhận thông báo không hợp lệ." };
+  const supabase = await createClient();
+  const { error } = await supabase.rpc("update_notification_delivery_hour", { p_hour: parsed.data });
+  if (error) return { ok: false, message: "Chưa thể lưu giờ nhận thông báo. Hãy thử lại." };
+  revalidatePath("/notifications");
+  return { ok: true, message: `Đã đặt giờ nhận thông báo là ${String(parsed.data).padStart(2, "0")}:00.` };
+}
+
 export async function markNotificationsReadAction(ids?: string[]) {
   await requireAuthenticatedProfile();
   const parsed = z.array(z.string().uuid()).max(100).optional().safeParse(ids);

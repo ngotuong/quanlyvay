@@ -35,6 +35,8 @@ thái khi đã có token tương ứng.
 - Button/link hành động: cao tối thiểu `46–48 px`; chỉ một CTA primary trên mỗi màn hình.
 - Card: surface trắng phẳng, border semantic, radius vừa và `shadow-xs`; không dùng gradient để trang trí.
 - Modal/sheet: backdrop blur chỉ biểu thị nền bị vô hiệu hóa; đóng nhanh hơn mở.
+- Mọi disclosure `<details>` dùng dấu `+` khi đóng và `−` khi mở, nằm giữa theo trục dọc của nhãn;
+  không dùng chevron hoặc marker tam giác mặc định.
 - Filter mobile: giữ hai field trên một hàng khi phù hợp, mọi grid track dùng `minmax(0, 1fr)`; date,
   select và input không được có intrinsic width làm tràn card.
 
@@ -44,7 +46,8 @@ thái khi đã có token tương ứng.
   `44 px`. Navigation dùng nhóm glyph hình học: grid, arrow-left-right, contact, bell-dot, wallet,
   scroll và sliders.
 - Khoản cho vay dùng `HandCoins`; khoản đi vay dùng `Landmark`. Mobile header hiển thị icon và tên
-  route/module hiện tại, còn tên sản phẩm được giữ trong brand sidebar desktop.
+  route/module hiện tại; heading lặp ngay đầu nội dung bị ẩn ở mobile, còn tên sản phẩm và heading
+  nội dung desktop được giữ trong sidebar/main content.
 - Logo ứng dụng dùng biểu tượng banking hình học trên nền navy: mái ngân hàng, thẻ tín dụng và
   dòng tiền đi lên; không dùng chân dung, chữ, crypto, huy hiệu hoặc chi tiết nhỏ.
 - Không dùng emoji hoặc raster icon cho navigation, action, trạng thái hay tiêu đề module.

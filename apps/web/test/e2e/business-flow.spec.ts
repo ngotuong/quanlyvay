@@ -129,12 +129,14 @@ test("business pages remain usable at 375px", async ({ page }) => {
   await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
   await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
   await page.getByRole("button", { name: "Đăng nhập" }).click();
-  await expect(page.getByRole("heading", { name: "Tổng quan" })).toBeVisible();
   await expect(page.locator(".mobile-module-title")).toContainText("Tổng quan");
+  await expect(page.getByRole("heading", { name: "Tổng quan" })).toBeVisible();
+  await expect(page.locator(".page-heading-row h1:visible")).toHaveCount(0);
   await expect(page.getByRole("navigation", { name: "Điều hướng chính" })).toBeVisible();
   await page.getByRole("link", { name: "Khoản vay" }).first().click();
-  await expect(page.getByRole("heading", { name: "Các khoản vay" })).toBeVisible();
   await expect(page.locator(".mobile-module-title")).toContainText("Các khoản vay");
+  await expect(page.getByRole("heading", { name: "Các khoản vay" })).toBeVisible();
+  await expect(page.locator(".page-heading-row h1:visible")).toHaveCount(0);
   const [directionBox, statusBox] = await Promise.all([
     page.getByLabel("Hướng", { exact: true }).boundingBox(),
     page.getByLabel("Trạng thái", { exact: true }).boundingBox(),
@@ -237,13 +239,21 @@ test("dashboard is responsive and readable in light and dark modes", async ({ pa
   for (const viewport of viewports) {
     await page.setViewportSize(viewport);
     await page.goto("/dashboard");
-    await expect(page.getByRole("heading", { name: "Tổng quan" })).toBeVisible();
+    if (viewport.width < 1024) {
+      await expect(page.locator(".mobile-module-title")).toContainText("Tổng quan");
+      await expect(page.getByRole("heading", { name: "Tổng quan" })).toBeVisible();
+      await expect(page.locator(".page-heading-row h1:visible")).toHaveCount(0);
+    } else {
+      await expect(page.getByRole("heading", { name: "Tổng quan" })).toBeVisible();
+    }
     const primaryMetrics = page.locator(".dashboard-primary-metrics").first();
     await expect(primaryMetrics.getByText("Lãi ròng thực thu", { exact: true })).toBeVisible();
     await expect(primaryMetrics.getByText("Lãi ròng phát sinh", { exact: true })).toBeVisible();
     await expect(primaryMetrics.locator(".dashboard-metric")).toHaveCount(4);
     await expect(page.getByRole("heading", { name: "Xu hướng dòng tiền" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Cần xử lý" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Lịch Dự Kiến" })).toBeVisible();
+    await expect(page.getByText("Hành động còn tồn tại", { exact: true })).toHaveCount(0);
+    await expect(page.getByText("Lãi sắp đến lịch", { exact: true })).toHaveCount(0);
     const [attentionBox, cashFlowBox] = await Promise.all([
       page.locator(".attention-card").first().boundingBox(),
       page.locator(".cash-flow-card").first().boundingBox(),
@@ -290,7 +300,10 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
   await expect(page).toHaveURL(/from=2026-07-02&to=2026-07-31/);
   await expect(page.getByRole("button", { name: "Áp dụng", exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "Đóng", exact: true }).click();
-  await page.locator(".dashboard-analysis > summary").click();
+  const analysisSummary = page.locator(".dashboard-analysis > summary");
+  expect(await analysisSummary.evaluate((element) => getComputedStyle(element, "::after").content)).toContain("+");
+  await analysisSummary.click();
+  expect(await analysisSummary.evaluate((element) => getComputedStyle(element, "::after").content)).toContain("−");
   await expect(page.getByText("Nợ xấu phải thu", { exact: true })).toBeVisible();
 
   await page.goto("/loans?status=BAD_DEBT");
@@ -355,6 +368,12 @@ test("PWA manifest, service worker and notification center are available", async
   await expect(page.getByRole("heading", { name: "Thông báo", exact: true })).toBeVisible();
   await expect(page.getByText("Khoản vay đã quá hạn", { exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Thông báo trên thiết bị" })).toBeVisible();
+  await expect(page.getByLabel("Giờ nhận thông báo")).toHaveValue("7");
+  await page.getByLabel("Giờ nhận thông báo").selectOption("9");
+  await page.getByRole("button", { name: "Lưu giờ" }).click();
+  await expect(page.getByText("Đã đặt giờ nhận thông báo là 09:00.")).toBeVisible();
+  await page.reload();
+  await expect(page.getByLabel("Giờ nhận thông báo")).toHaveValue("9");
   await page.evaluate(async () => {
     const registration = await navigator.serviceWorker.ready;
     registration.showNotification = async (title, options) => {

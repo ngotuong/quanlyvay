@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.93
-last_updated: 2026-08-11 21:00:56 +07
+roadmap_version: 1.0.94
+last_updated: 2026-08-12 09:50:27 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C16
 current_status: IN_PROGRESS
@@ -37,7 +37,7 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `apps/web` dùng Next.js 16.2.12, React 19.2.4, TypeScript 5.9.3, Tailwind CSS 4.3.3 và ESLint 9.39.5.
 - `packages/domain-contract` chứa type contract và test fixture độc lập với production engine.
 - `docs/DOMAIN_SPEC.md` là đặc tả nghiệp vụ v1 đã khóa cho C3–C4.
-- Supabase local đã được khởi tạo với PostgreSQL 17, 20 migration, RLS và 360 pgTAP assertions.
+- Supabase local đã được khởi tạo với PostgreSQL 17, 21 migration, RLS và 364 pgTAP assertions.
 - Bộ máy tài chính authoritative nằm trong PostgreSQL, có RPC tính/rebuild, ghi thanh toán, lifecycle, reversal và tất toán nguyên tử.
 - `docs/FINANCIAL_ENGINE.md` mô tả contract C4; engine đã được giữ nguyên qua regression C5.
 - Local Auth dùng username/password ánh xạ sang email nội bộ, session SSR, bắt đổi mật khẩu và vai trò `OWNER`/`EDITOR`/`VIEWER`; public signup bị tắt.
@@ -84,7 +84,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
 | Trạng thái | `IN_PROGRESS` |
 | Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX bốn giai đoạn theo `docs/C16_UI_UX_PLAN.md`; sau khi từng giai đoạn đạt gate, được phép áp migration Supabase Production và deploy Vercel Production ngay để người dùng kiểm tra; sửa dữ liệu tài chính, secret và tài nguyên remote khác vẫn cần xác nhận riêng |
-| Kết quả | Remediation R1–R7, audit follow-up, UI/UX follow-up A–E và hardening đã rollout. Sau authenticated smoke được người dùng xác nhận, revision bộ lọc/card/header đã chuyển stable Preview sang `dpl_F6kXSWBSn3gTxWQpA5PXj6wi7S29` target Preview/Ready/`sin1`, immutable `https://quan-ly-vay-ca-nhan-j9b5n211g-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`. Gate đạt lint/typecheck/32 tests/build và E2E 9/9; hậu kiểm alias login/manifest 200, export/cron thiếu secret 401 và runtime error log sạch. Migration 20 chưa rollout Supabase remote. C16 tiếp tục `IN_PROGRESS` |
+| Kết quả | Remediation R1–R7, audit follow-up, UI/UX follow-up A–E và hardening đã rollout. Revision local ngày 12/08 bỏ tiêu đề module lặp trên mobile, chuẩn hóa disclosure `+`/`−`, đổi card thành `Lịch Dự Kiến`, viết lại banner lịch tháng và thêm giờ nhận Push theo từng tài khoản. Worker gửi riêng từng notification, drain tối đa 10.000 delivery/lần và giữ idempotency. Gate đạt lint/typecheck/32 tests/build, E2E 9/9, DB lint và pgTAP 364/364. Production vẫn 19/21 migration; revision này chưa rollout remote. C16 tiếp tục `IN_PROGRESS` |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -166,7 +166,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Dịch vụ | Trạng thái |
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
-| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production đang ở 19/20 migration. Migration 20 local thay nội dung notification, thêm unread count cho Push claim và chỉ làm mới notification `INTEREST_DUE` chưa đọc; không sửa dữ liệu tài chính, đang chờ xác nhận rollout. Tài khoản EDITOR `codex_smoke_36832493` dùng riêng cho authenticated rollout smoke đã được vô hiệu hóa và ban Auth ngay sau kiểm tra; policy database không cho xóa vật lý profile |
+| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production đang ở 19/21 migration. Migration 20 local thay nội dung notification/unread badge; migration 21 thêm giờ nhận notification theo tài khoản và claim queue theo giờ. Cả hai không sửa dữ liệu tài chính và đang chờ xác nhận rollout. Supabase Cron/pg_net và Vault secret cho worker theo giờ cũng chưa cấu hình remote. Tài khoản EDITOR `codex_smoke_36832493` dùng riêng cho authenticated rollout smoke đã được vô hiệu hóa và ban Auth ngay sau kiểm tra; policy database không cho xóa vật lý profile |
 | Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; Production `dpl_6JNq6nufC3i9Y3pK1tG7UUqMuhHM` target Production/Ready tại immutable `https://quan-ly-vay-ca-nhan-1nr2fnvlo-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`. Stable Preview là `dpl_F6kXSWBSn3gTxWQpA5PXj6wi7S29` target Preview/Ready tại immutable `https://quan-ly-vay-ca-nhan-j9b5n211g-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Functions `sin1`, authenticated smoke do người dùng xác nhận, alias login/manifest 200, export/cron thiếu secret 401 và runtime error log sạch |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; schema v3 và audit follow-up đã push đủ 4 file bằng named user `quanlyvay-google` lúc 16:52 ngày 10/08/2026; hai trigger giữ nguyên, chưa chạy full sync thủ công |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook schema v3 có 11 tab dữ liệu cộng `Tổng quan`. Backup mới nhất `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260805T104926Z` gồm 5 ciphertext + manifest có bản tại `/Users/ngotuong/Backups/QuanLyVayCaNhan` và DriveFS `QuanLyVayCaNhan_Backups`; GCM tag và SHA-256 hai bản khớp, không lưu plaintext |
@@ -178,8 +178,11 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 - Revision UI bộ lọc/card/header ngày `2026-08-11` đã rollout stable Preview
   `dpl_F6kXSWBSn3gTxWQpA5PXj6wi7S29` sau authenticated smoke do người dùng xác nhận; alias và runtime
   hậu kiểm sạch, không còn blocker Vercel Preview. Không có migration mới trong revision này.
-- Migration 20 vẫn chưa áp Supabase remote và cần xác nhận riêng trước khi kiểm thử actual generated
-  Push/copy/badge end-to-end.
+- Migration 20–21 vẫn chưa áp Supabase remote. Migration 21 là dependency bắt buộc của web revision
+  vì session đọc `notification_delivery_hour`; phải rollout schema trước candidate Preview. Sau đó
+  việc cấu hình Supabase Cron/pg_net, Vault URL/secret để gọi worker mỗi giờ và deploy Preview đều
+  cần xác nhận riêng trước khi thực hiện. Vercel daily 07:00 hiện tại được giữ làm fallback; claim
+  idempotent ngăn gửi trùng nếu hai scheduler giao nhau.
 - Hardening ngày `2026-08-11` đã rollout đủ sau xác nhận: Supabase Production 19/19; Preview
   `dpl_CcfBZ534rdB3v8xoPF1GXatQy4PJ` và Production `dpl_6JNq6nufC3i9Y3pK1tG7UUqMuhHM`
   Ready/`sin1`, alias và toàn bộ smoke đạt. Không còn blocker migration/deploy. C16 vẫn
@@ -533,6 +536,13 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-12` — Hoàn tất local revision theo phản hồi giao diện: mobile chỉ còn một tiêu đề module
+   trong header; toàn bộ disclosure dùng `+` khi đóng và `−` khi mở; card Dashboard đổi thành
+   `Lịch Dự Kiến`, bỏ các nhãn lặp, dùng icon cho vay xanh/đi vay đỏ và kẻ phân cách từng dòng;
+   banner tháng hiển thị tổng giao dịch cùng số khoản/tổng tiền phải thu và phải trả. Notification
+   cho phép từng tài khoản chọn giờ 00–23 theo Việt Nam; worker claim đúng giờ, gửi từng item riêng,
+   drain tối đa 20 batch × 500 và giữ idempotency/retry. Gate đạt lint/typecheck/32 tests/build,
+   E2E 9/9, DB lint và pgTAP 364/364. Migration 20–21, Supabase Cron/Vault và web chưa rollout remote.
 1. `2026-08-11` — Người dùng xác nhận authenticated smoke candidate UI đạt; runbook chạy lại
    lint/typecheck/32 tests/build/E2E 9/9 rồi chuyển stable alias sang
    `dpl_F6kXSWBSn3gTxWQpA5PXj6wi7S29`, target Preview/Ready/`sin1`, immutable

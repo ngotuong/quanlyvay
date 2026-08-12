@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(25);
+select plan(29);
 
 insert into auth.users (id, email, email_confirmed_at, raw_user_meta_data)
 values
@@ -55,6 +55,9 @@ select is((select count(*) from public.push_subscriptions), 1::bigint, 'subscrip
 select is((select p256dh from public.push_subscriptions), 'rotated-key', 'subscription retry updates browser key');
 select is(public.mark_notifications_read(array[(select id from public.notifications order by created_at limit 1)]), 1, 'user can mark one own notification read');
 select is((select count(*) from public.notifications where read_at is not null), 1::bigint, 'read state is persisted');
+select is((select notification_delivery_hour from public.profiles where user_id = '20000000-0000-0000-0000-000000000080'), 7::smallint, 'notification delivery hour defaults to 07:00 Vietnam time');
+select is(public.update_notification_delivery_hour(9::smallint), 9::smallint, 'active user can choose a delivery hour');
+select is((select notification_delivery_hour from public.profiles where user_id = '20000000-0000-0000-0000-000000000080'), 9::smallint, 'chosen delivery hour is persisted');
 
 reset role;
 update public.notifications set created_at = now() - interval '2 seconds';
@@ -62,14 +65,15 @@ update public.push_subscriptions set created_at = now() - interval '1 second';
 set local role service_role;
 select is((select count(*) from public.claim_push_deliveries(100)), 0::bigint, 'new subscription does not receive historical notifications');
 select is(public.generate_due_notifications('2026-08-05'), 2, 'a new overdue reminder is generated after subscription registration');
-create temporary table claimed_delivery as select * from public.claim_push_deliveries(1);
+select is((select count(*) from public.claim_push_deliveries(100, 7::smallint)), 0::bigint, 'worker does not claim a notification before the recipient selected hour');
+create temporary table claimed_delivery as select * from public.claim_push_deliveries(1, 9::smallint);
 select is((select count(*) from claimed_delivery), 1::bigint, 'delivery worker claims one queued target');
 select is((select idempotency_key is not null from claimed_delivery), true, 'delivery includes a stable notification idempotency key');
 select is((select unread_count from claimed_delivery), (select count(*)::integer from public.notifications where user_id = '20000000-0000-0000-0000-000000000080' and read_at is null), 'delivery includes the exact unread count for app badging');
 select public.complete_push_delivery((select delivery_id from claimed_delivery), true, null);
 select is((select status::text from public.push_deliveries where id = (select delivery_id from claimed_delivery)), 'SENT', 'successful delivery is marked sent');
 select is((select sent_at is not null from public.push_deliveries where id = (select delivery_id from claimed_delivery)), true, 'successful delivery records sent time');
-select is((select count(*) from public.claim_push_deliveries(100) where delivery_id = (select delivery_id from claimed_delivery)), 0::bigint, 'sent delivery is never claimed again on retry');
+select is((select count(*) from public.claim_push_deliveries(100, 9::smallint) where delivery_id = (select delivery_id from claimed_delivery)), 0::bigint, 'sent delivery is never claimed again on retry');
 
 reset role;
 select set_config('request.jwt.claim.sub', '20000000-0000-0000-0000-000000000080', true);

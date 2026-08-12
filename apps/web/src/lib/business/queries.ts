@@ -26,7 +26,7 @@ export async function listManagedProfiles() {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("profiles")
-    .select("user_id,username,display_name,role,must_change_password,is_active,created_at")
+    .select("user_id,username,display_name,role,must_change_password,is_active,notification_delivery_hour,created_at")
     .order("created_at");
   if (error) throw new Error("Không thể tải danh sách tài khoản.");
   return (data ?? []) as AppProfile[];

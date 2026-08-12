@@ -18,7 +18,7 @@ export const getAuthenticatedProfile = cache(async (): Promise<AppProfile | null
 
   const { data, error } = await supabase
     .from("profiles")
-    .select("user_id, username, display_name, role, must_change_password, is_active")
+    .select("user_id, username, display_name, role, must_change_password, is_active, notification_delivery_hour")
     .eq("user_id", user.id)
     .single();
 

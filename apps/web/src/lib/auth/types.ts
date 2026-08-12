@@ -8,6 +8,7 @@ export type AppProfile = {
   role: AppRole;
   must_change_password: boolean;
   is_active: boolean;
+  notification_delivery_hour: number;
 };
 
 export type AuthActionState = {
