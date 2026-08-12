@@ -66,6 +66,7 @@ Các test tài chính bắt buộc bao phủ: khoản không đáo hạn với k
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.98 | 2026-08-12 | Rollout Playground cấp thành phần lên stable Preview `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV`, target Preview/Ready/`sin1`; immutable authenticated smoke, persistence, console/runtime và hậu kiểm alias đạt. Full gate lint/typecheck/32 tests/build, E2E 10/10; Production không đổi. |
 | 1.0.97 | 2026-08-12 | Local nâng UI Playground lên chỉnh cấp thành phần: chọn trực tiếp tab/text/card; sửa nhãn, tiêu đề, typography, kích thước tab và padding/viền/bóng card; giữ accessibility, localStorage và JSON export. Gate lint/typecheck/32 tests/build, E2E 10/10; chưa deploy Preview. |
 | 1.0.96 | 2026-08-12 | Thay Figma bằng UI Playground miễn phí ngay trên Preview: route Local/Preview dùng dữ liệu mẫu, chỉnh nội dung/theme/device/token trình bày, sắp xếp/ẩn khối, tự lưu và xuất JSON; Production 404. Gate lint/typecheck/32 tests/build, E2E 10/10; stable Preview `dpl_A241RwoGLzm3G4mQov3UA5R6Pywi` Ready/`sin1`, authenticated/public/runtime smoke đạt. |
 | 1.0.95 | 2026-08-12 | Rollout C16 revision: Supabase Production 21/21, giữ 22 khoản/209 giao dịch; Preview `dpl_G2r3YPUsRwbLVRiGzLoHQbyAQeon` và Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX` Ready/`sin1`, authenticated/public/runtime smoke đạt. Bật pg_cron/pg_net/Vault, xoay CRON secret an toàn, job ID 1 chạy mỗi giờ và worker test trả 200/queue sạch. |

@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.97
-last_updated: 2026-08-12 20:05:00 +07
+roadmap_version: 1.0.98
+last_updated: 2026-08-12 22:21:10 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C16
 current_status: IN_PROGRESS
@@ -84,7 +84,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
 | Trạng thái | `IN_PROGRESS` |
 | Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX bốn giai đoạn theo `docs/C16_UI_UX_PLAN.md`; sau khi từng giai đoạn đạt gate, được phép áp migration Supabase Production và deploy Vercel Production ngay để người dùng kiểm tra; sửa dữ liệu tài chính, secret và tài nguyên remote khác vẫn cần xác nhận riêng |
-| Kết quả | Revision ngày 12/08 đã rollout đủ Preview và Production: Supabase 21/21 migration; Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX`; Functions `sin1`. Stable Preview `dpl_A241RwoGLzm3G4mQov3UA5R6Pywi` có UI Playground Tổng quan cấp khối. Local revision mới nâng Playground lên chỉnh thành phần: chọn trực tiếp tab/text/card; sửa nhãn, typography, kích thước tab, padding/viền/bóng card và lưu/xuất cấu hình. Gate local đạt lint/typecheck/32 tests/build và E2E 10/10; chưa deploy revision mới. Supabase Cron job ID 1 chạy mỗi giờ, URL/token ở Vault; test thực trả 200, không còn queue. C16 tiếp tục `IN_PROGRESS` để đối chiếu dữ liệu thật |
+| Kết quả | Revision ngày 12/08 đã rollout đủ Preview và Production: Supabase 21/21 migration; Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX`; Functions `sin1`. Stable Preview `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV` có UI Playground chỉnh cấp thành phần: chọn trực tiếp tab/text/card; sửa nhãn, typography, kích thước tab, padding/viền/bóng card và lưu/xuất cấu hình. Gate đạt lint/typecheck/32 tests/build và E2E 10/10; authenticated playground, persistence, console/runtime và alias smoke đạt. Supabase Cron job ID 1 chạy mỗi giờ, URL/token ở Vault; test thực trả 200, không còn queue. C16 tiếp tục `IN_PROGRESS` để đối chiếu dữ liệu thật |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -167,7 +167,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production khớp 21/21 migration. Migration 20–21 đã áp qua SQL Editor từ source đã review; 2/2 profile có giờ hợp lệ, dữ liệu giữ 22 khoản/209 giao dịch. `pg_cron`, `pg_net`, `supabase_vault` đã bật; job `qlv-notification-runner-hourly` ID 1 active lịch `0 * * * *`, có hai Vault secret và test `net.http_post` trả 200/`queueRemaining=false`. Tài khoản EDITOR smoke cũ đã vô hiệu hóa và ban Auth; policy database không cho xóa vật lý profile |
-| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX` target Production/Ready tại immutable `https://quan-ly-vay-ca-nhan-yx9w2e34a-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`. Stable Preview `dpl_A241RwoGLzm3G4mQov3UA5R6Pywi` target Preview/Ready tại immutable `https://quan-ly-vay-ca-nhan-34b8azojd-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Functions `sin1`. Authenticated UI Playground smoke, console, public 200/200/401/401 và runtime error log đạt. Production `CRON_SECRET` đã xoay, lưu Keychain/Vault; gọi có secret trả 200 |
+| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX` target Production/Ready tại immutable `https://quan-ly-vay-ca-nhan-yx9w2e34a-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`. Stable Preview `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV` target Preview/Ready tại immutable `https://quan-ly-vay-ca-nhan-734val51b-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Functions `sin1`. Authenticated UI Playground component selection/persistence, console, public smoke và runtime error log đạt. Production `CRON_SECRET` đã xoay, lưu Keychain/Vault; gọi có secret trả 200 |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; schema v3 và audit follow-up đã push đủ 4 file bằng named user `quanlyvay-google` lúc 16:52 ngày 10/08/2026; hai trigger giữ nguyên, chưa chạy full sync thủ công |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook schema v3 có 11 tab dữ liệu cộng `Tổng quan`. Backup mới nhất `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260805T104926Z` gồm 5 ciphertext + manifest có bản tại `/Users/ngotuong/Backups/QuanLyVayCaNhan` và DriveFS `QuanLyVayCaNhan_Backups`; GCM tag và SHA-256 hai bản khớp, không lưu plaintext |
 
@@ -175,10 +175,10 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 
 ## 8. Blocker và cổng xác nhận
 
-- Local đã nâng UI Playground từ cấp khối lên cấp thành phần ngày `2026-08-12`: người dùng có thể
+- Đã rollout UI Playground từ cấp khối lên cấp thành phần ngày `2026-08-12`: người dùng có thể
   bấm trực tiếp tab/text/card trên canvas, chỉnh nhãn và tiêu đề, cỡ chữ/độ đậm, kích thước tab,
-  padding/viền/bóng card; cấu hình tiếp tục tự lưu và xuất JSON. Full local gate đạt. Revision này
-  chưa có trên Preview; cần người dùng xác nhận riêng trước khi chạy runbook deploy candidate/alias.
+  padding/viền/bóng card; cấu hình tiếp tục tự lưu và xuất JSON. Full gate cùng authenticated,
+  public, console và runtime smoke đạt; không còn blocker deploy.
 - UI Playground Tổng quan đã rollout stable Preview ngày `2026-08-12`; không còn blocker deploy.
   Route dùng dữ liệu mẫu, lưu cấu hình trong `localStorage`, không mutate database và bị 404 trên
   Vercel Production. Bước tiếp theo là người dùng chỉnh trên Preview, sao chép cấu hình rồi gửi lại
@@ -539,6 +539,12 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-12` — Sau xác nhận riêng, chạy runbook Preview đủ hai pha cho Playground cấp thành
+   phần. Candidate `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV` target Preview/Ready/`sin1`, immutable
+   `https://quan-ly-vay-ca-nhan-734val51b-ngotuong2105.vercel.app`; authenticated smoke xác nhận
+   chọn text/card, sửa nội dung và persistence, console/runtime log sạch. Stable alias
+   `https://tindung-preview.vercel.app` đã chuyển và hậu kiểm đúng deployment; full gate đạt lại
+   lint/typecheck/32 tests/build, E2E 10/10. Production không thay đổi.
 1. `2026-08-12` — Nâng UI Playground Tổng quan từ chỉnh cấp khối sang chọn/chỉnh cấp thành phần.
    Canvas cho phép bấm tab, text hoặc card để mở nhóm thuộc tính tương ứng; tab sửa được ba nhãn,
    cỡ chữ, chiều cao, padding, khoảng cách và bo góc; text sửa ba tiêu đề, cỡ chữ và độ đậm; card
