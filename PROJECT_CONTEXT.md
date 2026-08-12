@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.96
-last_updated: 2026-08-12 18:32:00 +07
+roadmap_version: 1.0.97
+last_updated: 2026-08-12 20:05:00 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C16
 current_status: IN_PROGRESS
@@ -84,7 +84,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
 | Trạng thái | `IN_PROGRESS` |
 | Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX bốn giai đoạn theo `docs/C16_UI_UX_PLAN.md`; sau khi từng giai đoạn đạt gate, được phép áp migration Supabase Production và deploy Vercel Production ngay để người dùng kiểm tra; sửa dữ liệu tài chính, secret và tài nguyên remote khác vẫn cần xác nhận riêng |
-| Kết quả | Revision ngày 12/08 đã rollout đủ Preview và Production: Supabase 21/21 migration; Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX`; Functions `sin1`. Stable Preview mới `dpl_A241RwoGLzm3G4mQov3UA5R6Pywi` bổ sung UI Playground Tổng quan chỉ ở Local/Preview, dùng dữ liệu mẫu và cấu hình browser-local. Authenticated smoke playground/console/runtime đạt. Supabase Cron job ID 1 chạy mỗi giờ, URL/token ở Vault; test thực trả 200, không còn queue. Gate đạt lint/typecheck/32 tests/build, E2E 10/10, DB lint và pgTAP 364/364. C16 tiếp tục `IN_PROGRESS` để đối chiếu dữ liệu thật |
+| Kết quả | Revision ngày 12/08 đã rollout đủ Preview và Production: Supabase 21/21 migration; Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX`; Functions `sin1`. Stable Preview `dpl_A241RwoGLzm3G4mQov3UA5R6Pywi` có UI Playground Tổng quan cấp khối. Local revision mới nâng Playground lên chỉnh thành phần: chọn trực tiếp tab/text/card; sửa nhãn, typography, kích thước tab, padding/viền/bóng card và lưu/xuất cấu hình. Gate local đạt lint/typecheck/32 tests/build và E2E 10/10; chưa deploy revision mới. Supabase Cron job ID 1 chạy mỗi giờ, URL/token ở Vault; test thực trả 200, không còn queue. C16 tiếp tục `IN_PROGRESS` để đối chiếu dữ liệu thật |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -175,6 +175,10 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 
 ## 8. Blocker và cổng xác nhận
 
+- Local đã nâng UI Playground từ cấp khối lên cấp thành phần ngày `2026-08-12`: người dùng có thể
+  bấm trực tiếp tab/text/card trên canvas, chỉnh nhãn và tiêu đề, cỡ chữ/độ đậm, kích thước tab,
+  padding/viền/bóng card; cấu hình tiếp tục tự lưu và xuất JSON. Full local gate đạt. Revision này
+  chưa có trên Preview; cần người dùng xác nhận riêng trước khi chạy runbook deploy candidate/alias.
 - UI Playground Tổng quan đã rollout stable Preview ngày `2026-08-12`; không còn blocker deploy.
   Route dùng dữ liệu mẫu, lưu cấu hình trong `localStorage`, không mutate database và bị 404 trên
   Vercel Production. Bước tiếp theo là người dùng chỉnh trên Preview, sao chép cấu hình rồi gửi lại
@@ -535,6 +539,11 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-12` — Nâng UI Playground Tổng quan từ chỉnh cấp khối sang chọn/chỉnh cấp thành phần.
+   Canvas cho phép bấm tab, text hoặc card để mở nhóm thuộc tính tương ứng; tab sửa được ba nhãn,
+   cỡ chữ, chiều cao, padding, khoảng cách và bo góc; text sửa ba tiêu đề, cỡ chữ và độ đậm; card
+   sửa padding, viền và bóng. Giữ điều khiển 44 px, focus/keyboard alternative, responsive và
+   localStorage/JSON. Gate local đạt lint/typecheck/32 tests/build, E2E 10/10; chưa deploy Preview.
 1. `2026-08-12` — Bỏ workflow Figma do giới hạn gói miễn phí; thêm `/ui-playground` chỉ ở
    Local/Preview với dữ liệu mẫu, bảng điều khiển nội dung/màu/spacing/radius, Mobile/Desktop,
    Light/Dark, kéo-thả cùng nút lên/xuống accessible, ẩn/hiện khối, tự lưu `localStorage` và sao chép
