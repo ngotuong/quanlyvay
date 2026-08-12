@@ -284,6 +284,39 @@ test("dashboard is responsive and readable in light and dark modes", async ({ pa
   await testInfo.attach("dashboard-performance.json", { body: JSON.stringify(performanceMetrics, null, 2), contentType: "application/json" });
 });
 
+test("owner customizes the preview-only dashboard playground without financial data", async ({ page }) => {
+  await page.goto("/login");
+  await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
+  await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
+  await page.getByRole("button", { name: "Đăng nhập" }).click();
+  await expect(page.getByRole("heading", { name: "Tổng quan" })).toBeVisible();
+
+  await page.goto("/ui-playground");
+  await expect(page.getByRole("heading", { name: "UI Playground · Tổng quan" })).toBeVisible();
+  await expect(page.getByText("Dữ liệu bên dưới hoàn toàn là dữ liệu mẫu.")).toBeVisible();
+
+  await page.getByRole("button", { name: "Mobile" }).click();
+  await page.getByRole("button", { name: "Tối" }).click();
+  await page.getByLabel("Tên module").fill("Tổng quan thử nghiệm");
+  await page.getByLabel("Số giao dịch").fill("18");
+  await page.locator('.playground-color-control input[type="color"]').fill("#2563eb");
+  await page.getByRole("button", { name: "Đưa Lịch nhắc tháng này xuống" }).click();
+  await page.getByRole("checkbox", { name: "Xu hướng dòng tiền" }).uncheck();
+
+  const canvas = page.locator(".playground-canvas");
+  await expect(page.locator(".playground-canvas-shell")).toHaveAttribute("data-device", "mobile");
+  await expect(canvas).toHaveAttribute("data-theme", "dark");
+  await expect(canvas.locator(".playground-preview-header h2")).toHaveText("Tổng quan thử nghiệm");
+  await expect(canvas.getByText("Có 18 giao dịch trong tháng này")).toBeVisible();
+  await expect(canvas.getByRole("heading", { name: "Xu hướng dòng tiền" })).toHaveCount(0);
+
+  await page.reload();
+  await expect(page.locator(".playground-canvas-shell")).toHaveAttribute("data-device", "mobile");
+  await expect(page.locator(".playground-canvas")).toHaveAttribute("data-theme", "dark");
+  await expect(page.locator(".playground-preview-header h2")).toHaveText("Tổng quan thử nghiệm");
+  await expect(page.getByRole("heading", { name: "Xu hướng dòng tiền" })).toHaveCount(0);
+});
+
 test("dashboard periods and loan filters are deep-linkable", async ({ page }, testInfo) => {
   await page.goto("/login");
   await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");

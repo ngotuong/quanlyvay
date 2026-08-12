@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.95
-last_updated: 2026-08-12 15:08:35 +07
+roadmap_version: 1.0.96
+last_updated: 2026-08-12 18:32:00 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C16
 current_status: IN_PROGRESS
@@ -84,7 +84,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
 | Trạng thái | `IN_PROGRESS` |
 | Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX bốn giai đoạn theo `docs/C16_UI_UX_PLAN.md`; sau khi từng giai đoạn đạt gate, được phép áp migration Supabase Production và deploy Vercel Production ngay để người dùng kiểm tra; sửa dữ liệu tài chính, secret và tài nguyên remote khác vẫn cần xác nhận riêng |
-| Kết quả | Revision ngày 12/08 đã rollout đủ Preview và Production: Supabase 21/21 migration; stable Preview `dpl_G2r3YPUsRwbLVRiGzLoHQbyAQeon`; Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX`; Functions `sin1`. Authenticated smoke Dashboard/Thông báo/Khoản vay và console đạt. Supabase Cron job ID 1 chạy mỗi giờ, URL/token ở Vault; test thực trả 200, không còn queue. Gate đạt lint/typecheck/32 tests/build, E2E 9/9, DB lint và pgTAP 364/364. C16 tiếp tục `IN_PROGRESS` để đối chiếu dữ liệu thật |
+| Kết quả | Revision ngày 12/08 đã rollout đủ Preview và Production: Supabase 21/21 migration; Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX`; Functions `sin1`. Stable Preview mới `dpl_A241RwoGLzm3G4mQov3UA5R6Pywi` bổ sung UI Playground Tổng quan chỉ ở Local/Preview, dùng dữ liệu mẫu và cấu hình browser-local. Authenticated smoke playground/console/runtime đạt. Supabase Cron job ID 1 chạy mỗi giờ, URL/token ở Vault; test thực trả 200, không còn queue. Gate đạt lint/typecheck/32 tests/build, E2E 10/10, DB lint và pgTAP 364/364. C16 tiếp tục `IN_PROGRESS` để đối chiếu dữ liệu thật |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -167,7 +167,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production khớp 21/21 migration. Migration 20–21 đã áp qua SQL Editor từ source đã review; 2/2 profile có giờ hợp lệ, dữ liệu giữ 22 khoản/209 giao dịch. `pg_cron`, `pg_net`, `supabase_vault` đã bật; job `qlv-notification-runner-hourly` ID 1 active lịch `0 * * * *`, có hai Vault secret và test `net.http_post` trả 200/`queueRemaining=false`. Tài khoản EDITOR smoke cũ đã vô hiệu hóa và ban Auth; policy database không cho xóa vật lý profile |
-| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX` target Production/Ready tại immutable `https://quan-ly-vay-ca-nhan-yx9w2e34a-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`. Stable Preview `dpl_G2r3YPUsRwbLVRiGzLoHQbyAQeon` target Preview/Ready tại immutable `https://quan-ly-vay-ca-nhan-1q2pd332o-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Functions `sin1`. Authenticated Dashboard/Thông báo/Khoản vay, console, public 200/200/401 và runtime error log đều đạt. Production `CRON_SECRET` đã xoay, lưu Keychain/Vault; gọi có secret trả 200 |
+| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX` target Production/Ready tại immutable `https://quan-ly-vay-ca-nhan-yx9w2e34a-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`. Stable Preview `dpl_A241RwoGLzm3G4mQov3UA5R6Pywi` target Preview/Ready tại immutable `https://quan-ly-vay-ca-nhan-34b8azojd-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Functions `sin1`. Authenticated UI Playground smoke, console, public 200/200/401/401 và runtime error log đạt. Production `CRON_SECRET` đã xoay, lưu Keychain/Vault; gọi có secret trả 200 |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; schema v3 và audit follow-up đã push đủ 4 file bằng named user `quanlyvay-google` lúc 16:52 ngày 10/08/2026; hai trigger giữ nguyên, chưa chạy full sync thủ công |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook schema v3 có 11 tab dữ liệu cộng `Tổng quan`. Backup mới nhất `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260805T104926Z` gồm 5 ciphertext + manifest có bản tại `/Users/ngotuong/Backups/QuanLyVayCaNhan` và DriveFS `QuanLyVayCaNhan_Backups`; GCM tag và SHA-256 hai bản khớp, không lưu plaintext |
 
@@ -175,6 +175,10 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 
 ## 8. Blocker và cổng xác nhận
 
+- UI Playground Tổng quan đã rollout stable Preview ngày `2026-08-12`; không còn blocker deploy.
+  Route dùng dữ liệu mẫu, lưu cấu hình trong `localStorage`, không mutate database và bị 404 trên
+  Vercel Production. Bước tiếp theo là người dùng chỉnh trên Preview, sao chép cấu hình rồi gửi lại
+  để chuyển thành code sản phẩm; mở rộng playground sang module khác cần chỉ dẫn tiếp theo.
 - Revision giao diện/notification ngày `2026-08-12` đã rollout đủ Supabase, Preview và Production;
   authenticated/public/runtime smoke cùng scheduler test đều đạt. Không còn blocker migration,
   deploy hoặc cron. Vercel daily 07:00 giữ làm fallback; unique delivery/lease bảo vệ khi trùng job.
@@ -531,6 +535,13 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-12` — Bỏ workflow Figma do giới hạn gói miễn phí; thêm `/ui-playground` chỉ ở
+   Local/Preview với dữ liệu mẫu, bảng điều khiển nội dung/màu/spacing/radius, Mobile/Desktop,
+   Light/Dark, kéo-thả cùng nút lên/xuống accessible, ẩn/hiện khối, tự lưu `localStorage` và sao chép
+   JSON. Gate đạt lint/typecheck/32 tests/build và E2E 10/10. Candidate
+   `dpl_A241RwoGLzm3G4mQov3UA5R6Pywi` target Preview/Ready/`sin1`, immutable
+   `https://quan-ly-vay-ca-nhan-34b8azojd-ngotuong2105.vercel.app`; authenticated smoke playground,
+   persistence, console và runtime log đạt rồi chuyển `tindung-preview.vercel.app` thành công.
 1. `2026-08-12` — Sau xác nhận riêng, áp migration 20–21 lên Supabase Production, history khớp
    21/21; schema/RPC/quyền đúng và dữ liệu giữ 22 khoản/209 giao dịch. Full Preview gate đạt lại,
    authenticated smoke Dashboard/Thông báo/Khoản vay cùng console/log sạch; chuyển stable Preview

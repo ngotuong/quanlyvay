@@ -1,9 +1,10 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { ArrowLeftRight, BellDot, ChartSpline, ContactRound, KeyRound, PlusCircle, ScrollText, SlidersHorizontal, WalletCards } from "lucide-react";
+import { ArrowLeftRight, BellDot, ChartSpline, ContactRound, KeyRound, Palette, PlusCircle, ScrollText, SlidersHorizontal, WalletCards } from "lucide-react";
 
 const moduleRoutes = [
+  { match: (path: string) => path.startsWith("/ui-playground"), label: "UI Playground", icon: Palette },
   { match: (path: string) => path === "/dashboard", label: "Tổng quan", icon: ChartSpline },
   { match: (path: string) => path === "/loans/new", label: "Tạo khoản vay", icon: PlusCircle },
   { match: (path: string) => /^\/loans\/[^/]+/.test(path), label: "Chi tiết khoản vay", icon: WalletCards },
