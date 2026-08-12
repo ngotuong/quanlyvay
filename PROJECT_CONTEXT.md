@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.98
-last_updated: 2026-08-12 22:21:10 +07
+roadmap_version: 1.0.102
+last_updated: 2026-08-13 00:21:59 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C16
 current_status: IN_PROGRESS
@@ -83,8 +83,8 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 |---|---|
 | Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
 | Trạng thái | `IN_PROGRESS` |
-| Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX bốn giai đoạn theo `docs/C16_UI_UX_PLAN.md`; sau khi từng giai đoạn đạt gate, được phép áp migration Supabase Production và deploy Vercel Production ngay để người dùng kiểm tra; sửa dữ liệu tài chính, secret và tài nguyên remote khác vẫn cần xác nhận riêng |
-| Kết quả | Revision ngày 12/08 đã rollout đủ Preview và Production: Supabase 21/21 migration; Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX`; Functions `sin1`. Stable Preview `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV` có UI Playground chỉnh cấp thành phần: chọn trực tiếp tab/text/card; sửa nhãn, typography, kích thước tab, padding/viền/bóng card và lưu/xuất cấu hình. Gate đạt lint/typecheck/32 tests/build và E2E 10/10; authenticated playground, persistence, console/runtime và alias smoke đạt. Supabase Cron job ID 1 chạy mỗi giờ, URL/token ở Vault; test thực trả 200, không còn queue. C16 tiếp tục `IN_PROGRESS` để đối chiếu dữ liệu thật |
+| Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX bốn giai đoạn; Giai đoạn 1 K01–K03 theo `docs/C16_PHASE1_PLAN.md`. Backup Production, `git push`, correction dữ liệu và mọi thao tác remote vẫn cần xác nhận riêng |
+| Kết quả | Revision ngày 12/08 đã rollout đủ Preview và Production: Supabase 21/21 migration; Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX`; Functions `sin1`; stable Preview `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV`. Giai đoạn 1 đã hoàn tất K01 với backup/restore/RPO/RTO đạt. K02 đang `IN_PROGRESS`: preflight local đạt, `origin/main` là ancestor và local ahead 16 trước commit; không có secret/dump/tệp trên 5 MiB; full gate đạt. Chưa `git push` |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -136,10 +136,10 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-| Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
+| Checkpoint | K02 — Đồng bộ mã nguồn an toàn lên GitHub trong C16 |
 |---|---|
 | Trạng thái | `IN_PROGRESS` |
-| Phạm vi đã duyệt | Bổ sung khoản vay không đáo hạn mặc định, đáo hạn là tùy chọn; tiếp tục chu kỳ lãi và ngày đóng lãi tới khi tất toán; mọi migration/deploy/push và sửa dữ liệu Production cần xác nhận riêng |
+| Phạm vi đã duyệt | Preflight `HEAD`/`origin`, quét secret/dump/file lớn và full local gate đã đạt. Đang chờ xác nhận riêng cho `git push origin main` fast-forward; không force-push. Chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -169,12 +169,35 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production khớp 21/21 migration. Migration 20–21 đã áp qua SQL Editor từ source đã review; 2/2 profile có giờ hợp lệ, dữ liệu giữ 22 khoản/209 giao dịch. `pg_cron`, `pg_net`, `supabase_vault` đã bật; job `qlv-notification-runner-hourly` ID 1 active lịch `0 * * * *`, có hai Vault secret và test `net.http_post` trả 200/`queueRemaining=false`. Tài khoản EDITOR smoke cũ đã vô hiệu hóa và ban Auth; policy database không cho xóa vật lý profile |
 | Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX` target Production/Ready tại immutable `https://quan-ly-vay-ca-nhan-yx9w2e34a-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`. Stable Preview `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV` target Preview/Ready tại immutable `https://quan-ly-vay-ca-nhan-734val51b-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Functions `sin1`. Authenticated UI Playground component selection/persistence, console, public smoke và runtime error log đạt. Production `CRON_SECRET` đã xoay, lưu Keychain/Vault; gọi có secret trả 200 |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; schema v3 và audit follow-up đã push đủ 4 file bằng named user `quanlyvay-google` lúc 16:52 ngày 10/08/2026; hai trigger giữ nguyên, chưa chạy full sync thủ công |
-| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook schema v3 có 11 tab dữ liệu cộng `Tổng quan`. Backup mới nhất `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260805T104926Z` gồm 5 ciphertext + manifest có bản tại `/Users/ngotuong/Backups/QuanLyVayCaNhan` và DriveFS `QuanLyVayCaNhan_Backups`; GCM tag và SHA-256 hai bản khớp, không lưu plaintext |
+| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook schema v3 có 11 tab dữ liệu cộng `Tổng quan`. Backup đạt mới nhất `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260812T165654Z` gồm logical stream có ACL cho `auth/private/public/supabase_migrations` + manifest tại `/Users/ngotuong/Backups/QuanLyVayCaNhan` và DriveFS `QuanLyVayCaNhan_Backups`; GCM/SHA/RPO/restore rehearsal khớp, không lưu plaintext |
 
 Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; không lưu secret.
 
 ## 8. Blocker và cổng xác nhận
 
+- K01 `COMPLETED` ngày `2026-08-13`. Sau xác nhận riêng, Supabase CLI đăng nhập đúng project và
+  database password được xoay; password cùng khóa backup mới chỉ lưu trong macOS Keychain. Backup đạt
+  `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260812T165654Z` ở local + DriveFS, ciphertext 861.546 byte,
+  SHA-256 `c7cf1b051d686548cc968570e1a6234ec844d677c9be052c97edbb057dcfb22e`, GCM và RPO dưới 24 giờ đạt.
+  Manifest có 21 migration, 2 profile/2 Auth user, 15 đối tác, 22 khoản, 209 giao dịch, 7 lifecycle,
+  6 correction, 0 settlement reversal, 208 kỳ và 316 audit log.
+- Restore rehearsal dùng image PostgreSQL `17.6.1.155`, bật `extensions.citext`, restore bằng
+  `supabase_admin` vào container cô lập. Toàn bộ row count khớp; 22/22 calculation, invariant
+  transaction/principal/reversal/settlement, Auth mapping, authenticated RLS và 11 projection Google
+  export đều đạt; `anon` không có quyền SELECT. RTO đo 278 giây (4,63 phút) dưới mục tiêu 4 giờ;
+  container đã dừng và tự xóa, Production không bị restore/mutate. Bản thử `...T165336Z` thiếu ACL
+  bị rehearsal từ chối, vẫn giữ ở hai nơi; retention chỉ dry-run, không xóa bản nào.
+- K02 được người dùng duyệt ngày `2026-08-13` và đang `IN_PROGRESS`. Preflight xác nhận
+  `origin/main` là ancestor, local ahead 16 commit trước commit K02 và không diverged; 195 file ứng
+  viên không có dump/backup/credential file, không file nào trên 5 MiB và secret scan không có phát
+  hiện rủi ro cao. Stable Preview được ghi nhận từ cùng `HEAD` trong lịch sử rollout; `vercel inspect`
+  xác nhận deployment đúng project/target/Ready nhưng metadata CLI hiện không có Git provenance nên
+  không được xem là bằng chứng độc lập cho commit.
+- Full local gate K02 đạt: `git diff --check`, lint, typecheck, 39/39 unit, build, Auth 6/6 (gồm mật
+  khẩu sáu chữ số), E2E 10/10, DB lint không lỗi và pgTAP 364/364. Docker credential helper local bị
+  treo ở lần đầu; phần Supabase được chạy lại thành công với `DOCKER_CONFIG` tạm, không đăng nhập hay
+  thay đổi remote. Chưa push/tag/PR và không force-push; đang chờ xác nhận riêng cho fast-forward
+  `git push origin main`, sau đó mới hậu kiểm `origin/main = HEAD` và fresh clone.
 - Đã rollout UI Playground từ cấp khối lên cấp thành phần ngày `2026-08-12`: người dùng có thể
   bấm trực tiếp tab/text/card trên canvas, chỉnh nhãn và tiêu đề, cỡ chữ/độ đậm, kích thước tab,
   padding/viền/bóng card; cấu hình tiếp tục tự lưu và xuất JSON. Full gate cùng authenticated,
@@ -539,6 +562,29 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-13` — K02 preflight đạt: fetch xác nhận `origin/main` là ancestor và local ahead 16
+   commit trước commit K02; 195 file không chứa dump/credential, không có file trên 5 MiB, secret
+   scan không có phát hiện rủi ro cao. `git diff --check`, lint, typecheck, 39/39 unit, build, Auth
+   6/6, E2E 10/10, DB lint và pgTAP 364/364 đều đạt. Chưa push; đang chờ xác nhận riêng cho
+   fast-forward `git push origin main` rồi mới fresh-clone smoke.
+1. `2026-08-13` — Hoàn tất K01 sau xác nhận remote: đăng nhập đúng Supabase và xoay database
+   password; backup đạt `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260812T165654Z` mã hóa AES-256-GCM có
+   ACL tại local + DriveFS, SHA/GCM/RPO khớp. Restore container cô lập khớp 21/21 migration và toàn
+   bộ row count, 22/22 calculation, invariant/RLS/Auth/11 Google export projection; RTO 278 giây,
+   container đã cleanup. Rehearsal loại một bản thử thiếu ACL nhưng không xóa file; retention chỉ
+   dry-run. Sửa CLI manifest và thêm regression; lint/typecheck/39 tests/build/diff-check đạt.
+   K02 chuyển `AWAITING_APPROVAL`, chưa push GitHub; chính sách mật khẩu 6 ký tự không đổi.
+1. `2026-08-12` — Người dùng phê duyệt Giai đoạn 1 K01–K03. Bắt đầu K01 local: thêm manifest
+   `QLV_BACKUP_MANIFEST_V1`, CLI create/verify fail-closed theo project/RPO 24 giờ/path/kích thước/
+   SHA-256 và retention dry-run 7 ngày–4 tuần–12 tháng không tự xóa. Thêm 6 unit tests vào
+   `pnpm test`; lint/typecheck/38 workspace tests/build/diff-check đạt. Không truy cập/dump
+   Production, không ghi Drive và không đổi chính sách mật khẩu 6 ký tự. K01 chờ xác nhận riêng cho
+   backup Production cùng restore rehearsal cô lập.
+1. `2026-08-12` — Sau phê duyệt K01 remote, preflight chỉ đọc xác minh toàn bộ 20 ciphertext local
+   cũ và 5/5 file bản mới nhất trên DriveFS đều khớp SHA-256; manifest mới nhất hai nơi giống nhau.
+   Phát hiện Supabase CLI mất access token, database password và khóa backup trong Keychain hiện tại
+   không còn; hai Keychain cũ chỉ trả metadata nhưng payload rỗng. Dừng trước đăng nhập/reset/sinh
+   khóa mới để xin xác nhận riêng; chưa dump, chưa ghi Drive và Production không thay đổi.
 1. `2026-08-12` — Sau xác nhận riêng, chạy runbook Preview đủ hai pha cho Playground cấp thành
    phần. Candidate `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV` target Preview/Ready/`sin1`, immutable
    `https://quan-ly-vay-ca-nhan-734val51b-ngotuong2105.vercel.app`; authenticated smoke xác nhận

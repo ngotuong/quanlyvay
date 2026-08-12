@@ -12,10 +12,11 @@
 - Mọi migration Supabase remote, deploy Vercel, push Apps Script, sửa Google Sheet và thao tác backup
   remote vẫn cần xác nhận riêng theo `AGENTS.md`.
 
-Tiến độ local ngày `2026-08-03`: R1–R5 và R7 đã triển khai; R6 có runbook và restore rehearsal
-logical stream local đạt (SHA-256, 9 migration, 9 bảng kiểm tra). Full gate local đạt
-lint/typecheck/28 tests/build, Auth 6/6, E2E 7/7, pgTAP 253/253 và DB lint. Backup/rollout
-Production, cập nhật Apps Script/Sheet và dữ liệu thật chưa thực hiện.
+Tiến độ cập nhật ngày `2026-08-13`: R1–R5 và R7 đã rollout; K01 đã đóng khoảng trống R6 bằng backup
+Production mới có ACL tại local + Drive, GCM/SHA/RPO đạt và restore rehearsal cô lập toàn trình với
+RTO 278 giây. Công cụ manifest fail-closed và retention dry-run có regression trong gate chuẩn; không
+restore lên Production và không xóa backup cũ. Giai đoạn 1 tiếp tục tại `docs/C16_PHASE1_PLAN.md` với
+K02 đang `AWAITING_APPROVAL`, chưa push GitHub.
 
 ## 2. Phạm vi remediation đã khóa
 
