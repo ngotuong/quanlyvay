@@ -5,6 +5,7 @@ const local = localSupabaseEnvironment();
 
 export default defineConfig({
   testDir: "./test/e2e",
+  timeout: process.env.CI ? 60_000 : 30_000,
   fullyParallel: false,
   workers: 1,
   retries: 0,

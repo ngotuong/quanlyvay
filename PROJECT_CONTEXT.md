@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.110
-last_updated: 2026-08-13 15:37:07 +07
+roadmap_version: 1.0.111
+last_updated: 2026-08-13 16:04:26 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C17-K04
 current_status: IN_PROGRESS
@@ -85,7 +85,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Trạng thái | `IN_PROGRESS` |
 | Phạm vi đã duyệt | Workflow local cho PR/push gồm frozen install, lint/typecheck/unit/build, Supabase reset/lint/pgTAP/Auth, Playwright E2E, dependency/secret scan, pin version và concurrency cancel; giữ chính sách mật khẩu 6 ký tự |
 | Kết quả local | Workflow/policy/runbook đã sẵn sàng; actionlint, fixture fail-closed, Gitleaks 60 commit, dependency audit, lint/typecheck/41 tests/build, DB lint, pgTAP 364/364, Auth 6/6 và E2E 10/10 đều đạt |
-| Giới hạn | Chưa push workflow, chưa bật branch protection và không dùng Production secret/dữ liệu thật; đang chờ xác nhận riêng cho cổng push workflow |
+| Giới hạn | Workflow đã push; run đầu fail-closed vì E2E timeout trên runner lạnh. Bản sửa timeout CI 60 giây đạt E2E local 10/10 và chờ xác nhận riêng để push; branch protection chưa bật |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -163,7 +163,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Checkpoint | K04 — CI fail-closed trong C17 |
 |---|---|
 | Trạng thái | `IN_PROGRESS` |
-| Phạm vi đã duyệt | Local đã đạt theo `docs/C17_PHASE2_PLAN.md`; chờ xác nhận riêng để push workflow và hậu kiểm GitHub Actions. Branch protection vẫn là cổng remote thứ hai. Chính sách mật khẩu 6 ký tự giữ nguyên |
+| Phạm vi đã duyệt | Workflow đã push và fail-closed đúng ở run đầu; chờ xác nhận riêng để push bản sửa timeout CI rồi hậu kiểm GitHub Actions xanh. Branch protection vẫn là cổng remote thứ hai. Chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -255,16 +255,24 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
   đúng sổ thực tế; OWNER sau đó xác nhận đây là các giao dịch mới phát sinh cùng ngày và toàn bộ danh
   mục/tổng số đúng. Full gate cuối đạt lint/typecheck/39 unit/build, Auth 6/6, E2E 10/10, DB lint và
   pgTAP 364/364; C16 đã hoàn tất.
-- K04 thuộc C17 được người dùng phê duyệt ngày `2026-08-13` và đang `IN_PROGRESS`; chưa push workflow
-  hoặc đổi branch protection.
+- K04 thuộc C17 được người dùng phê duyệt ngày `2026-08-13` và đang `IN_PROGRESS`; workflow đã push,
+  branch protection chưa thay đổi.
 - K04 local đã thêm workflow bốn job bắt buộc cộng gate tổng hợp, concurrency cancel, quyền chỉ đọc,
   frozen install và khóa Node 24.15.0/pnpm 11.9.0/Supabase 2.109.0/Playwright 1.62.1. Action ngoài
   pin SHA, image actionlint/Gitleaks pin digest; workflow không tham chiếu repository/environment
   secret hoặc Production credential. Policy/actionlint đạt, fixture unsafe bị từ chối, Gitleaks
   quét 60 commit sạch và dependency audit không có lỗ hổng đã biết.
 - Full local gate K04 đạt: `git diff --check`, lint, typecheck, 41/41 unit/regression, build, DB lint,
-  pgTAP 364/364, Auth 6/6 gồm mật khẩu sáu chữ số và E2E 10/10. Chưa push; cổng tiếp theo là xác nhận
-  riêng cho fast-forward GitHub để quan sát workflow thật. Branch protection cần một xác nhận khác.
+  pgTAP 364/364, Auth 6/6 gồm mật khẩu sáu chữ số và E2E 10/10. Workflow sau đó đã push; branch
+  protection vẫn cần một xác nhận riêng sau khi GitHub Actions xanh.
+- Sau xác nhận và GitHub OAuth scope `workflow`, push fast-forward hai commit C16/K04 tới `577a195`
+  thành công; local/origin/advertised hash khớp. GitHub Actions run `31683908290` chứng minh policy,
+  quality/build và security xanh; integration đạt reset 21 migration, DB lint, pgTAP và Auth nhưng
+  E2E có 9/10 đạt, ca đầu timeout 30 giây trên runner lạnh tại bước mở disclosure. Required gate đỏ
+  đúng fail-closed; không phải lỗi nghiệp vụ hoặc secret.
+- Local tăng riêng Playwright timeout khi `CI=true` từ 30 lên 60 giây, giữ local 30 giây và retries=0;
+  chạy lại `CI=true` đạt E2E 10/10. Bản sửa chưa push và đang chờ xác nhận riêng; branch protection
+  chưa thay đổi.
 - Đã rollout UI Playground từ cấp khối lên cấp thành phần ngày `2026-08-12`: người dùng có thể
   bấm trực tiếp tab/text/card trên canvas, chỉnh nhãn và tiêu đề, cỡ chữ/độ đậm, kích thước tab,
   padding/viền/bóng card; cấu hình tiếp tục tự lưu và xuất JSON. Full gate cùng authenticated,
@@ -629,6 +637,10 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-13` — Push C16/K04 fast-forward tới GitHub `577a195`. Run CI đầu `31683908290` xanh
+   policy/quality/security và DB/Auth, nhưng E2E 9/10 do ca đầu vượt timeout 30 giây trên runner lạnh;
+   required gate đỏ đúng fail-closed. Local tăng timeout chỉ khi CI lên 60 giây, giữ retries=0 và
+   E2E `CI=true` đạt 10/10; chờ xác nhận riêng để push bản sửa, chưa bật branch protection.
 1. `2026-08-13` — K04 local sẵn sàng: thêm GitHub Actions fail-closed, policy regression, fixture
    unsafe và runbook CI; action/version/image đều pin, không dùng Production secret. Policy/actionlint,
    Gitleaks 60 commit, dependency audit, diff-check, lint/typecheck/41 tests/build, DB lint, pgTAP

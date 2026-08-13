@@ -67,6 +67,7 @@ Các test tài chính bắt buộc bao phủ: khoản không đáo hạn với k
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.111 | 2026-08-13 | Push C16/K04 fast-forward lên GitHub `577a195`. CI run đầu xanh policy/quality/security và DB/Auth nhưng E2E 9/10 do ca đầu timeout 30 giây trên runner lạnh; required gate đỏ đúng fail-closed. Local tăng timeout riêng CI lên 60 giây, giữ retries=0 và E2E `CI=true` đạt 10/10; chờ xác nhận riêng để push bản sửa, chưa bật branch protection. |
 | 1.0.110 | 2026-08-13 | K04 local sẵn sàng với workflow fail-closed, policy/unsafe fixture và runbook. Action/tool/image đều pin, không dùng Production secret; actionlint, Gitleaks 60 commit, audit dependency, diff-check, lint/typecheck/41 tests/build, DB lint, pgTAP 364/364, Auth 6/6 và E2E 10/10 đạt. K04 giữ `IN_PROGRESS`, chờ xác nhận riêng để push workflow; branch protection là cổng remote độc lập tiếp theo. |
 | 1.0.109 | 2026-08-13 | Người dùng phê duyệt K04; chuyển C17-K04 sang `IN_PROGRESS` để dựng CI fail-closed local. Chưa push workflow, chưa bật branch protection và không dùng Production secret/dữ liệu thật; chính sách mật khẩu 6 ký tự giữ nguyên. |
 | 1.0.108 | 2026-08-13 | OWNER xác nhận 24 khoản và hai khoản 400 triệu mới đúng sổ thực tế. Full gate cuối đạt diff-check, lint, typecheck, 39/39 unit, build, Auth 6/6, E2E 10/10, DB lint và pgTAP 364/364. K03/C16 `COMPLETED`; không correction/reversal hoặc xóa giao dịch. Thêm C17 theo `docs/C17_PHASE2_PLAN.md`, K04 CI fail-closed `AWAITING_APPROVAL`; chưa push workflow hay đổi branch protection. |
