@@ -15,6 +15,8 @@
     "test:auth": "pnpm --filter @quan-ly-vay-ca-nhan/web test:auth",
     "test:e2e": "pnpm --filter @quan-ly-vay-ca-nhan/web test:e2e",
     "build": "pnpm -r --if-present build",
+    "ci:policy": "node scripts/ci-policy.mjs .github/workflows/ci.yml",
+    "ci:validate": "pnpm ci:policy && docker run --rm -v \"$PWD:/repo\" -w /repo rhysd/actionlint:1.7.9@sha256:a0383f60d92601e2694e24b24d37df7b6a40bed7cedbc447611c50009bf02d94 -color",
     "deploy:preview": "node scripts/deploy-preview.mjs"
   }
 }

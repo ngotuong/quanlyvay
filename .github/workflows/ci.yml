@@ -1,0 +1,164 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  CI: "true"
+  NODE_VERSION: "24.15.0"
+  PNPM_VERSION: "11.9.0"
+  SUPABASE_VERSION: "2.109.0"
+  PLAYWRIGHT_VERSION: "1.62.1"
+  SUPABASE_PROFILE: supabase
+
+jobs:
+  workflow-policy:
+    name: Workflow policy
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install pinned pnpm
+        run: npm install --global pnpm@"${PNPM_VERSION}"
+      - name: Frozen install
+        run: pnpm install --frozen-lockfile
+      - name: Enforce CI policy
+        run: pnpm ci:policy
+      - name: Lint workflow syntax
+        run: docker run --rm -v "$PWD:/repo" -w /repo rhysd/actionlint:1.7.9@sha256:a0383f60d92601e2694e24b24d37df7b6a40bed7cedbc447611c50009bf02d94 -color
+
+  quality:
+    name: Quality and build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install pinned pnpm
+        run: npm install --global pnpm@"${PNPM_VERSION}"
+      - name: Verify toolchain
+        run: |
+          test "$(node --version)" = "v${NODE_VERSION}"
+          test "$(pnpm --version)" = "${PNPM_VERSION}"
+      - name: Frozen install
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: Unit tests
+        run: pnpm test
+      - name: Production build
+        run: pnpm build
+
+  security:
+    name: Dependency and secret scan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Secret scan
+        run: >-
+          docker run --rm -v "$PWD:/repo" -w /repo
+          ghcr.io/gitleaks/gitleaks:v8.30.1@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f
+          git --no-banner --redact --exit-code 1
+      - name: Setup Node.js
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install pinned pnpm
+        run: npm install --global pnpm@"${PNPM_VERSION}"
+      - name: Frozen install
+        run: pnpm install --frozen-lockfile
+      - name: Dependency audit
+        run: pnpm audit --audit-level high
+
+  integration:
+    name: Supabase Auth pgTAP and E2E
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          persist-credentials: false
+      - name: Setup Node.js
+        uses: actions/setup-node@395ad3262231945c25e8478fd5baf05154b1d79f # v6.1.0
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install pinned pnpm
+        run: npm install --global pnpm@"${PNPM_VERSION}"
+      - name: Frozen install
+        run: pnpm install --frozen-lockfile
+      - name: Install pinned Supabase CLI
+        uses: supabase/setup-cli@ab058987d8d6c725971f6cf9d0b5c98467e30bd1 # v1.7.1
+        with:
+          version: ${{ env.SUPABASE_VERSION }}
+      - name: Verify Supabase CLI
+        run: test "$(supabase --version)" = "${SUPABASE_VERSION}"
+      - name: Start local Supabase
+        run: supabase start >/dev/null
+      - name: Reset database
+        run: supabase db reset
+      - name: Database lint
+        run: supabase db lint --level warning
+      - name: pgTAP
+        run: supabase test db
+      - name: Auth integration
+        run: pnpm test:auth
+      - name: Install pinned Playwright browser
+        run: |
+          test "$(pnpm --filter @quan-ly-vay-ca-nhan/web exec playwright --version)" = "Version ${PLAYWRIGHT_VERSION}"
+          pnpm --filter @quan-ly-vay-ca-nhan/web exec playwright install --with-deps chrome
+      - name: Playwright E2E
+        run: pnpm test:e2e
+      - name: Stop local Supabase
+        if: always()
+        run: supabase stop --no-backup
+
+  gate:
+    name: Required CI gate
+    if: always()
+    needs: [workflow-policy, quality, security, integration]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Require every job to pass
+        env:
+          POLICY_RESULT: ${{ needs.workflow-policy.result }}
+          QUALITY_RESULT: ${{ needs.quality.result }}
+          SECURITY_RESULT: ${{ needs.security.result }}
+          INTEGRATION_RESULT: ${{ needs.integration.result }}
+        run: |
+          test "$POLICY_RESULT" = success
+          test "$QUALITY_RESULT" = success
+          test "$SECURITY_RESULT" = success
+          test "$INTEGRATION_RESULT" = success

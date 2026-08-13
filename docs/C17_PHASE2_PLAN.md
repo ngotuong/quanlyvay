@@ -4,7 +4,7 @@
 
 | ID | Bước | Trạng thái |
 |---|---|---|
-| K04 | CI fail-closed | `AWAITING_APPROVAL` |
+| K04 | CI fail-closed | `IN_PROGRESS` — local gate đạt, chờ cổng push workflow |
 | K05 | Xác minh provenance Vercel candidate | `NOT_STARTED` — chỉ bắt đầu sau K04 |
 
 Chính sách mật khẩu tối thiểu 6 ký tự ASCII chữ hoặc số tiếp tục giữ nguyên. Mọi push workflow,
@@ -21,6 +21,10 @@ thay đổi branch protection, deploy Preview hoặc chuyển alias cần xác n
 Acceptance local: workflow lint/dry-run được, toàn bộ full gate hiện hành đạt và không có secret trong
 artifact/log. Sau xác nhận remote: workflow chạy xanh trên GitHub và required checks chặn main khi
 gate lỗi. Push workflow và bật branch protection là hai cổng xác nhận riêng.
+
+Bằng chứng local ngày 13/08/2026: policy và actionlint đạt; fixture cố ý không an toàn bị chặn;
+Gitleaks quét 60 commit không phát hiện secret; dependency audit sạch; lint/typecheck/41 tests/build,
+DB lint, pgTAP 364/364, Auth 6/6 và E2E 10/10 đạt. Runbook ở `docs/CI.md`.
 
 ## 3. K05 — Provenance Vercel candidate
 

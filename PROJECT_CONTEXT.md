@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.108
-last_updated: 2026-08-13 15:14:30 +07
+roadmap_version: 1.0.110
+last_updated: 2026-08-13 15:37:07 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C16
-current_status: COMPLETED
+current_checkpoint: C17-K04
+current_status: IN_PROGRESS
 ---
 
 # Project Context
@@ -81,10 +81,11 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
-| Trạng thái | `COMPLETED` |
-| Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX; Giai đoạn 1 K01–K03 theo `docs/C16_PHASE1_PLAN.md`; giữ chính sách mật khẩu 6 ký tự và ledger append-only |
-| Kết quả | K01 chứng minh backup/RPO/RTO và restore; K02 phục hồi GitHub; K03 đối chiếu Production/Sheet đạt. OWNER xác nhận 24 khoản cùng hai giao dịch mới ngày 13/08 đúng sổ thực tế. Full gate cuối đạt lint/typecheck/39 unit/build, Auth 6/6, E2E 10/10, DB lint và pgTAP 364/364; không correction/reversal hoặc xóa giao dịch |
+| Checkpoint | C17-K04 — CI fail-closed |
+| Trạng thái | `IN_PROGRESS` |
+| Phạm vi đã duyệt | Workflow local cho PR/push gồm frozen install, lint/typecheck/unit/build, Supabase reset/lint/pgTAP/Auth, Playwright E2E, dependency/secret scan, pin version và concurrency cancel; giữ chính sách mật khẩu 6 ký tự |
+| Kết quả local | Workflow/policy/runbook đã sẵn sàng; actionlint, fixture fail-closed, Gitleaks 60 commit, dependency audit, lint/typecheck/41 tests/build, DB lint, pgTAP 364/364, Auth 6/6 và E2E 10/10 đều đạt |
+| Giới hạn | Chưa push workflow, chưa bật branch protection và không dùng Production secret/dữ liệu thật; đang chờ xác nhận riêng cho cổng push workflow |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -161,8 +162,8 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Checkpoint | K04 — CI fail-closed trong C17 |
 |---|---|
-| Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi chờ duyệt | Theo `docs/C17_PHASE2_PLAN.md`: GitHub Actions fail-closed cho frozen install, lint/typecheck/unit/build, Supabase/Auth/E2E, dependency/secret scan, pin version và concurrency cancel. Push workflow và branch protection là hai cổng remote riêng. Chính sách mật khẩu 6 ký tự giữ nguyên |
+| Trạng thái | `IN_PROGRESS` |
+| Phạm vi đã duyệt | Local đã đạt theo `docs/C17_PHASE2_PLAN.md`; chờ xác nhận riêng để push workflow và hậu kiểm GitHub Actions. Branch protection vẫn là cổng remote thứ hai. Chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -254,7 +255,16 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
   đúng sổ thực tế; OWNER sau đó xác nhận đây là các giao dịch mới phát sinh cùng ngày và toàn bộ danh
   mục/tổng số đúng. Full gate cuối đạt lint/typecheck/39 unit/build, Auth 6/6, E2E 10/10, DB lint và
   pgTAP 364/364; C16 đã hoàn tất.
-- K04 thuộc C17 đang `AWAITING_APPROVAL`; chưa thêm workflow CI, chưa push hoặc đổi branch protection.
+- K04 thuộc C17 được người dùng phê duyệt ngày `2026-08-13` và đang `IN_PROGRESS`; chưa push workflow
+  hoặc đổi branch protection.
+- K04 local đã thêm workflow bốn job bắt buộc cộng gate tổng hợp, concurrency cancel, quyền chỉ đọc,
+  frozen install và khóa Node 24.15.0/pnpm 11.9.0/Supabase 2.109.0/Playwright 1.62.1. Action ngoài
+  pin SHA, image actionlint/Gitleaks pin digest; workflow không tham chiếu repository/environment
+  secret hoặc Production credential. Policy/actionlint đạt, fixture unsafe bị từ chối, Gitleaks
+  quét 60 commit sạch và dependency audit không có lỗ hổng đã biết.
+- Full local gate K04 đạt: `git diff --check`, lint, typecheck, 41/41 unit/regression, build, DB lint,
+  pgTAP 364/364, Auth 6/6 gồm mật khẩu sáu chữ số và E2E 10/10. Chưa push; cổng tiếp theo là xác nhận
+  riêng cho fast-forward GitHub để quan sát workflow thật. Branch protection cần một xác nhận khác.
 - Đã rollout UI Playground từ cấp khối lên cấp thành phần ngày `2026-08-12`: người dùng có thể
   bấm trực tiếp tab/text/card trên canvas, chỉnh nhãn và tiêu đề, cỡ chữ/độ đậm, kích thước tab,
   padding/viền/bóng card; cấu hình tiếp tục tự lưu và xuất JSON. Full gate cùng authenticated,
@@ -619,6 +629,14 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-13` — K04 local sẵn sàng: thêm GitHub Actions fail-closed, policy regression, fixture
+   unsafe và runbook CI; action/version/image đều pin, không dùng Production secret. Policy/actionlint,
+   Gitleaks 60 commit, dependency audit, diff-check, lint/typecheck/41 tests/build, DB lint, pgTAP
+   364/364, Auth 6/6 và E2E 10/10 đạt. K04 giữ `IN_PROGRESS`, chờ xác nhận riêng để push workflow;
+   branch protection là cổng remote kế tiếp độc lập.
+1. `2026-08-13` — Người dùng phê duyệt K04. Chuyển C17-K04 sang `IN_PROGRESS` để dựng và kiểm thử
+   GitHub Actions fail-closed tại local; giữ chính sách mật khẩu 6 ký tự. Chưa push workflow, chưa
+   bật branch protection và không dùng Production secret/dữ liệu thật.
 1. `2026-08-13` — OWNER xác nhận 24 khoản và hai khoản 400 triệu mới đúng sổ thực tế. Full gate cuối
    đạt diff-check, lint, typecheck, 39/39 unit, build, Auth 6/6, E2E 10/10, DB lint và pgTAP 364/364.
    K03/C16 chuyển `COMPLETED`; không correction/reversal hoặc xóa giao dịch. K04 CI fail-closed trong
