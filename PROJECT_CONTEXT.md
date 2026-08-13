@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.111
-last_updated: 2026-08-13 16:04:26 +07
+roadmap_version: 1.0.112
+last_updated: 2026-08-13 16:24:04 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C17-K04
 current_status: IN_PROGRESS
@@ -85,7 +85,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Trạng thái | `IN_PROGRESS` |
 | Phạm vi đã duyệt | Workflow local cho PR/push gồm frozen install, lint/typecheck/unit/build, Supabase reset/lint/pgTAP/Auth, Playwright E2E, dependency/secret scan, pin version và concurrency cancel; giữ chính sách mật khẩu 6 ký tự |
 | Kết quả local | Workflow/policy/runbook đã sẵn sàng; actionlint, fixture fail-closed, Gitleaks 60 commit, dependency audit, lint/typecheck/41 tests/build, DB lint, pgTAP 364/364, Auth 6/6 và E2E 10/10 đều đạt |
-| Giới hạn | Workflow đã push; run đầu fail-closed vì E2E timeout trên runner lạnh. Bản sửa timeout CI 60 giây đạt E2E local 10/10 và chờ xác nhận riêng để push; branch protection chưa bật |
+| Giới hạn | Workflow và bản sửa đã push; GitHub run `31685578084` xanh toàn bộ. Branch protection chưa bật vì GitHub API trả 403: repository private cần GitHub Pro hoặc public; chờ quyết định của OWNER, không tự đổi visibility/nâng gói |
 
 ## 4. Checkpoint hoàn tất gần nhất
 
@@ -163,7 +163,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Checkpoint | K04 — CI fail-closed trong C17 |
 |---|---|
 | Trạng thái | `IN_PROGRESS` |
-| Phạm vi đã duyệt | Workflow đã push và fail-closed đúng ở run đầu; chờ xác nhận riêng để push bản sửa timeout CI rồi hậu kiểm GitHub Actions xanh. Branch protection vẫn là cổng remote thứ hai. Chính sách mật khẩu 6 ký tự giữ nguyên |
+| Phạm vi đã duyệt | Workflow/bản sửa đã push và GitHub Actions xanh. Cổng branch protection bị giới hạn gói cho private repository; chờ OWNER chọn nâng GitHub Pro hoặc bỏ qua acceptance này. Không khuyến nghị chuyển public. Chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -271,8 +271,16 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
   E2E có 9/10 đạt, ca đầu timeout 30 giây trên runner lạnh tại bước mở disclosure. Required gate đỏ
   đúng fail-closed; không phải lỗi nghiệp vụ hoặc secret.
 - Local tăng riêng Playwright timeout khi `CI=true` từ 30 lên 60 giây, giữ local 30 giây và retries=0;
-  chạy lại `CI=true` đạt E2E 10/10. Bản sửa chưa push và đang chờ xác nhận riêng; branch protection
+  chạy lại `CI=true` đạt E2E 10/10. Bản sửa sau đó đã push theo xác nhận riêng; branch protection
   chưa thay đổi.
+- Sau xác nhận riêng, push fast-forward bản sửa `e60f547`; local/origin/advertised hash khớp. GitHub
+  run `31685578084` đạt cả năm check: workflow policy, quality/build, dependency/secret scan,
+  Supabase/Auth/pgTAP/E2E và `Required CI gate`; E2E 10/10. Annotation duy nhất là action cài
+  Supabase CLI còn metadata Node 20 nhưng runner ép Node 24 và job đạt; cần theo dõi/nâng action trước
+  khi GitHub bỏ runtime tương thích.
+- Kiểm tra branch protection chỉ đọc trả HTTP 403: GitHub yêu cầu nâng Pro hoặc chuyển repository
+  private thành public. Không tự đổi visibility hoặc mua gói; với mã ứng dụng tài chính không khuyến
+  nghị public. K04 giữ `IN_PROGRESS` chờ OWNER chọn nâng Pro hoặc bỏ qua acceptance branch protection.
 - Đã rollout UI Playground từ cấp khối lên cấp thành phần ngày `2026-08-12`: người dùng có thể
   bấm trực tiếp tab/text/card trên canvas, chỉnh nhãn và tiêu đề, cỡ chữ/độ đậm, kích thước tab,
   padding/viền/bóng card; cấu hình tiếp tục tự lưu và xuất JSON. Full gate cùng authenticated,
@@ -637,6 +645,10 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-13` — Push bản sửa `e60f547`; GitHub CI run `31685578084` xanh toàn bộ năm check,
+   gồm E2E 10/10 và `Required CI gate`. Branch protection API trả 403 vì repository private cần
+   GitHub Pro hoặc public; không đổi visibility/nâng gói. K04 giữ `IN_PROGRESS` chờ OWNER quyết định
+   nâng Pro hay bỏ qua acceptance branch protection.
 1. `2026-08-13` — Push C16/K04 fast-forward tới GitHub `577a195`. Run CI đầu `31683908290` xanh
    policy/quality/security và DB/Auth, nhưng E2E 9/10 do ca đầu vượt timeout 30 giây trên runner lạnh;
    required gate đỏ đúng fail-closed. Local tăng timeout chỉ khi CI lên 60 giây, giữ retries=0 và

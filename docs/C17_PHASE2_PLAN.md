@@ -4,7 +4,7 @@
 
 | ID | Bước | Trạng thái |
 |---|---|---|
-| K04 | CI fail-closed | `IN_PROGRESS` — workflow đã push, chờ push bản sửa timeout CI |
+| K04 | CI fail-closed | `IN_PROGRESS` — CI xanh, branch protection bị giới hạn gói |
 | K05 | Xác minh provenance Vercel candidate | `NOT_STARTED` — chỉ bắt đầu sau K04 |
 
 Chính sách mật khẩu tối thiểu 6 ký tự ASCII chữ hoặc số tiếp tục giữ nguyên. Mọi push workflow,
@@ -28,7 +28,12 @@ DB lint, pgTAP 364/364, Auth 6/6 và E2E 10/10 đạt. Runbook ở `docs/CI.md`.
 
 Run GitHub đầu `31683908290` xanh policy/quality/security và DB/Auth, nhưng required gate đỏ do ca
 E2E đầu vượt timeout 30 giây trên runner lạnh; 9 ca còn lại đạt. Bản local tăng riêng timeout CI lên
-60 giây, không retry và chạy `CI=true` đạt 10/10; chờ xác nhận push để có run GitHub xanh.
+60 giây, không retry và chạy `CI=true` đạt 10/10 trước khi push.
+
+Bản sửa `e60f547` đã push; run `31685578084` xanh toàn bộ năm check, gồm E2E 10/10 và gate tổng hợp.
+Branch protection cho private repository trả HTTP 403 vì tài khoản hiện tại cần GitHub Pro hoặc phải
+chuyển repository public. Không tự đổi visibility/nâng gói; K04 chờ OWNER chọn nâng Pro hoặc bỏ qua
+acceptance branch protection. Không khuyến nghị public với repository ứng dụng tài chính.
 
 ## 3. K05 — Provenance Vercel candidate
 
