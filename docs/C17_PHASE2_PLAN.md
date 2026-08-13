@@ -4,8 +4,8 @@
 
 | ID | Bước | Trạng thái |
 |---|---|---|
-| K04 | CI fail-closed | `IN_PROGRESS` — CI xanh, branch protection bị giới hạn gói |
-| K05 | Xác minh provenance Vercel candidate | `NOT_STARTED` — chỉ bắt đầu sau K04 |
+| K04 | CI fail-closed | `COMPLETED` — OWNER bỏ qua branch protection do không dùng GitHub Pro |
+| K05 | Xác minh provenance Vercel candidate | `AWAITING_APPROVAL` |
 
 Chính sách mật khẩu tối thiểu 6 ký tự ASCII chữ hoặc số tiếp tục giữ nguyên. Mọi push workflow,
 thay đổi branch protection, deploy Preview hoặc chuyển alias cần xác nhận remote riêng.
@@ -32,8 +32,12 @@ E2E đầu vượt timeout 30 giây trên runner lạnh; 9 ca còn lại đạt.
 
 Bản sửa `e60f547` đã push; run `31685578084` xanh toàn bộ năm check, gồm E2E 10/10 và gate tổng hợp.
 Branch protection cho private repository trả HTTP 403 vì tài khoản hiện tại cần GitHub Pro hoặc phải
-chuyển repository public. Không tự đổi visibility/nâng gói; K04 chờ OWNER chọn nâng Pro hoặc bỏ qua
-acceptance branch protection. Không khuyến nghị public với repository ứng dụng tài chính.
+chuyển repository public. Không tự đổi visibility/nâng gói; không khuyến nghị public với repository
+ứng dụng tài chính.
+
+OWNER quyết định bỏ qua branch protection và giữ repository private. K04 hoàn tất với rủi ro được
+chấp nhận: workflow vẫn chạy và báo đỏ fail-closed, nhưng GitHub Free không cưỡng chế chặn direct
+push/merge. Không chuyển public và không nâng gói.
 
 ## 3. K05 — Provenance Vercel candidate
 

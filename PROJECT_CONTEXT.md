@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.112
-last_updated: 2026-08-13 16:24:04 +07
+roadmap_version: 1.0.113
+last_updated: 2026-08-13 16:27:00 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C17-K04
-current_status: IN_PROGRESS
+current_checkpoint: C17-K05
+current_status: AWAITING_APPROVAL
 ---
 
 # Project Context
@@ -81,13 +81,23 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C17-K04 — CI fail-closed |
-| Trạng thái | `IN_PROGRESS` |
-| Phạm vi đã duyệt | Workflow local cho PR/push gồm frozen install, lint/typecheck/unit/build, Supabase reset/lint/pgTAP/Auth, Playwright E2E, dependency/secret scan, pin version và concurrency cancel; giữ chính sách mật khẩu 6 ký tự |
-| Kết quả local | Workflow/policy/runbook đã sẵn sàng; actionlint, fixture fail-closed, Gitleaks 60 commit, dependency audit, lint/typecheck/41 tests/build, DB lint, pgTAP 364/364, Auth 6/6 và E2E 10/10 đều đạt |
-| Giới hạn | Workflow và bản sửa đã push; GitHub run `31685578084` xanh toàn bộ. Branch protection chưa bật vì GitHub API trả 403: repository private cần GitHub Pro hoặc public; chờ quyết định của OWNER, không tự đổi visibility/nâng gói |
+| Checkpoint | C17-K05 — Xác minh provenance Vercel candidate |
+| Trạng thái | `AWAITING_APPROVAL` |
+| Phạm vi chờ duyệt | Theo `docs/C17_PHASE2_PLAN.md`: fail-closed project/org, immutable candidate, target Preview/Ready/`sin1`, rollback cùng project và fixture sai phải bị chặn. Mọi deploy/alias/rollback vẫn cần xác nhận remote riêng |
+| Giới hạn | Chưa bắt đầu K05. Chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 4. Checkpoint hoàn tất gần nhất
+
+### K04 — CI fail-closed
+
+- Trạng thái: `COMPLETED` ngày `2026-08-13`.
+- Workflow PR/push có policy, lint/typecheck/test/build, dependency/secret scan, Supabase reset/lint/
+  pgTAP/Auth, Playwright E2E, concurrency cancel và gate tổng hợp; không dùng Production secret.
+- GitHub run `31685578084` xanh toàn bộ năm check tại commit `e60f547`; E2E 10/10 và required gate
+  đạt. Fixture unsafe chứng minh lỗi bị chặn; run đầu đỏ đúng fail-closed trước khi sửa timeout CI.
+- GitHub Free không hỗ trợ branch protection cho private repository hiện tại. OWNER chọn bỏ qua
+  acceptance này thay vì GitHub Pro hoặc public; rủi ro còn lại được chấp nhận: CI vẫn chạy nhưng
+  GitHub không ngăn direct push/merge khi check đỏ. Repository tiếp tục private.
 
 ### C16 — Kiểm thử dữ liệu thực tế đầu tiên
 
@@ -160,10 +170,10 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-| Checkpoint | K04 — CI fail-closed trong C17 |
+| Checkpoint | K05 — Xác minh provenance Vercel candidate trong C17 |
 |---|---|
-| Trạng thái | `IN_PROGRESS` |
-| Phạm vi đã duyệt | Workflow/bản sửa đã push và GitHub Actions xanh. Cổng branch protection bị giới hạn gói cho private repository; chờ OWNER chọn nâng GitHub Pro hoặc bỏ qua acceptance này. Không khuyến nghị chuyển public. Chính sách mật khẩu 6 ký tự giữ nguyên |
+| Trạng thái | `AWAITING_APPROVAL` |
+| Phạm vi chờ duyệt | Nâng `pnpm deploy:preview` và fixture/runbook theo K05; chưa deploy Preview, đổi alias hay rollback. Chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -280,7 +290,8 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
   khi GitHub bỏ runtime tương thích.
 - Kiểm tra branch protection chỉ đọc trả HTTP 403: GitHub yêu cầu nâng Pro hoặc chuyển repository
   private thành public. Không tự đổi visibility hoặc mua gói; với mã ứng dụng tài chính không khuyến
-  nghị public. K04 giữ `IN_PROGRESS` chờ OWNER chọn nâng Pro hoặc bỏ qua acceptance branch protection.
+  nghị public. OWNER chọn bỏ qua branch protection và chấp nhận CI không thể cưỡng chế direct push;
+  K04 chuyển `COMPLETED`, repository giữ private và K05 chuyển `AWAITING_APPROVAL`.
 - Đã rollout UI Playground từ cấp khối lên cấp thành phần ngày `2026-08-12`: người dùng có thể
   bấm trực tiếp tab/text/card trên canvas, chỉnh nhãn và tiêu đề, cỡ chữ/độ đậm, kích thước tab,
   padding/viền/bóng card; cấu hình tiếp tục tự lưu và xuất JSON. Full gate cùng authenticated,
@@ -645,6 +656,10 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-13` — OWNER chọn không dùng GitHub Pro và bỏ qua branch protection, giữ repository
+   private. Chấp nhận rủi ro CI không cưỡng chế direct push/merge khi check đỏ; workflow vẫn tự chạy
+   fail-closed. K04 chuyển `COMPLETED`; K05 provenance Vercel chuyển `AWAITING_APPROVAL`, chưa triển
+   khai hoặc thao tác Vercel remote.
 1. `2026-08-13` — Push bản sửa `e60f547`; GitHub CI run `31685578084` xanh toàn bộ năm check,
    gồm E2E 10/10 và `Required CI gate`. Branch protection API trả 403 vì repository private cần
    GitHub Pro hoặc public; không đổi visibility/nâng gói. K04 giữ `IN_PROGRESS` chờ OWNER quyết định
