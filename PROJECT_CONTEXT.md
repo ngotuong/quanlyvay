@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.102
-last_updated: 2026-08-13 00:21:59 +07
+roadmap_version: 1.0.108
+last_updated: 2026-08-13 15:14:30 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C16
-current_status: IN_PROGRESS
+current_status: COMPLETED
 ---
 
 # Project Context
@@ -82,11 +82,34 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Trường | Giá trị |
 |---|---|
 | Checkpoint | C16 — Kiểm thử dữ liệu thực tế đầu tiên |
-| Trạng thái | `IN_PROGRESS` |
-| Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX bốn giai đoạn; Giai đoạn 1 K01–K03 theo `docs/C16_PHASE1_PLAN.md`. Backup Production, `git push`, correction dữ liệu và mọi thao tác remote vẫn cần xác nhận riêng |
-| Kết quả | Revision ngày 12/08 đã rollout đủ Preview và Production: Supabase 21/21 migration; Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX`; Functions `sin1`; stable Preview `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV`. Giai đoạn 1 đã hoàn tất K01 với backup/restore/RPO/RTO đạt. K02 đang `IN_PROGRESS`: preflight local đạt, `origin/main` là ancestor và local ahead 16 trước commit; không có secret/dump/tệp trên 5 MiB; full gate đạt. Chưa `git push` |
+| Trạng thái | `COMPLETED` |
+| Phạm vi đã duyệt | Remediation R1–R7; cải tổ UI/UX; Giai đoạn 1 K01–K03 theo `docs/C16_PHASE1_PLAN.md`; giữ chính sách mật khẩu 6 ký tự và ledger append-only |
+| Kết quả | K01 chứng minh backup/RPO/RTO và restore; K02 phục hồi GitHub; K03 đối chiếu Production/Sheet đạt. OWNER xác nhận 24 khoản cùng hai giao dịch mới ngày 13/08 đúng sổ thực tế. Full gate cuối đạt lint/typecheck/39 unit/build, Auth 6/6, E2E 10/10, DB lint và pgTAP 364/364; không correction/reversal hoặc xóa giao dịch |
 
 ## 4. Checkpoint hoàn tất gần nhất
+
+### C16 — Kiểm thử dữ liệu thực tế đầu tiên
+
+- Trạng thái: `COMPLETED` ngày `2026-08-13`.
+- K01: backup Production AES-256-GCM local + Drive khớp GCM/SHA/RPO; restore cô lập khớp 21
+  migration, RLS/Auth/calculation/export và RTO 278 giây.
+- K02: GitHub `main` fast-forward tới `29cfd33`; remote hash và fresh-clone frozen install/lint/
+  typecheck/39 tests/build đạt.
+- K03: Supabase và Google Sheet khớp số dòng cùng SHA-256 tập ID của 11 dataset; snapshot cuối có
+  24 khoản, 215 giao dịch, 213 kỳ và 326 audit; calculation 24/24, Dashboard không mismatch. OWNER
+  xác nhận danh mục và hai khoản mới ngày 13/08 đúng sổ thực tế.
+- Full gate cuối: `git diff --check`, lint, typecheck, 39/39 unit, build, Auth 6/6, E2E 10/10,
+  DB lint không lỗi và pgTAP 364/364. Không correction/reversal hoặc xóa vật lý giao dịch.
+
+### K02 — Đồng bộ mã nguồn an toàn lên GitHub
+
+- Trạng thái: `COMPLETED` ngày `2026-08-13`.
+- Preflight xác nhận `origin/main` là ancestor, không diverged; secret/dump/tệp lớn scan và toàn bộ
+  local gate đạt trước push. Không force-push, tag hoặc PR.
+- Sau xác nhận riêng, fast-forward `main` từ `15d1058` lên `29cfd33`. `git fetch`, local ref và
+  `git ls-remote` cùng trả `29cfd33f23e9f8a735387de310b4c7c0cc4b8d63`.
+- Fresh clone đúng remote commit đạt `pnpm install --frozen-lockfile`, lint, typecheck, 39/39 unit
+  tests và production build. Workspace tạm đã được dọn khỏi repository.
 
 ### C15 — Sửa dữ liệu khoản vay và trình bày lãi theo kỳ
 
@@ -136,10 +159,10 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-| Checkpoint | K02 — Đồng bộ mã nguồn an toàn lên GitHub trong C16 |
+| Checkpoint | K04 — CI fail-closed trong C17 |
 |---|---|
-| Trạng thái | `IN_PROGRESS` |
-| Phạm vi đã duyệt | Preflight `HEAD`/`origin`, quét secret/dump/file lớn và full local gate đã đạt. Đang chờ xác nhận riêng cho `git push origin main` fast-forward; không force-push. Chính sách mật khẩu 6 ký tự giữ nguyên |
+| Trạng thái | `AWAITING_APPROVAL` |
+| Phạm vi chờ duyệt | Theo `docs/C17_PHASE2_PLAN.md`: GitHub Actions fail-closed cho frozen install, lint/typecheck/unit/build, Supabase/Auth/E2E, dependency/secret scan, pin version và concurrency cancel. Push workflow và branch protection là hai cổng remote riêng. Chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -187,7 +210,7 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
   export đều đạt; `anon` không có quyền SELECT. RTO đo 278 giây (4,63 phút) dưới mục tiêu 4 giờ;
   container đã dừng và tự xóa, Production không bị restore/mutate. Bản thử `...T165336Z` thiếu ACL
   bị rehearsal từ chối, vẫn giữ ở hai nơi; retention chỉ dry-run, không xóa bản nào.
-- K02 được người dùng duyệt ngày `2026-08-13` và đang `IN_PROGRESS`. Preflight xác nhận
+- K02 `COMPLETED` ngày `2026-08-13`. Preflight xác nhận
   `origin/main` là ancestor, local ahead 16 commit trước commit K02 và không diverged; 195 file ứng
   viên không có dump/backup/credential file, không file nào trên 5 MiB và secret scan không có phát
   hiện rủi ro cao. Stable Preview được ghi nhận từ cùng `HEAD` trong lịch sử rollout; `vercel inspect`
@@ -196,8 +219,42 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 - Full local gate K02 đạt: `git diff --check`, lint, typecheck, 39/39 unit, build, Auth 6/6 (gồm mật
   khẩu sáu chữ số), E2E 10/10, DB lint không lỗi và pgTAP 364/364. Docker credential helper local bị
   treo ở lần đầu; phần Supabase được chạy lại thành công với `DOCKER_CONFIG` tạm, không đăng nhập hay
-  thay đổi remote. Chưa push/tag/PR và không force-push; đang chờ xác nhận riêng cho fast-forward
-  `git push origin main`, sau đó mới hậu kiểm `origin/main = HEAD` và fresh clone.
+  thay đổi remote. Sau xác nhận riêng, `git push origin main` fast-forward thành công từ `15d1058`
+  lên `29cfd33`; local/origin/advertised hash khớp. Fresh clone đúng commit đạt frozen install, lint,
+  typecheck, 39/39 unit và build; không push tag/PR hoặc force-push.
+- K03 `COMPLETED` ngày `2026-08-13`. Phạm vi chỉ đọc đã đối chiếu từng khoản; không correction/
+  reversal và không xóa vật lý giao dịch.
+- Đối chiếu Supabase Production tại ngày nghiệp vụ `2026-08-13` đạt 22/22 calculation và không có
+  sai lệch nội bộ về loan ID, trạng thái, dư gốc âm, khoản đã tất toán, giao dịch, kỳ materialize hay
+  audit khoản vay. Số dòng khớp recovery point K01: 15 đối tác, 22 khoản, 209 giao dịch, 7 lifecycle,
+  6 correction, 0 settlement reversal, 0 onboarding, 208 kỳ và 316 audit log.
+- Tổng calculation khớp RPC Dashboard kỳ `2026-08-01`–`2026-08-13`: cho vay hoạt động 3,73 tỷ,
+  nợ xấu cho vay 50 triệu, tổng cho vay 3,78 tỷ; đi vay hoạt động 950 triệu, nợ xấu đi vay 0. Không
+  có correction/reversal hoặc mutation nào được gọi.
+- Sau khi người dùng đăng nhập đúng tài khoản Google (UI hiển thị `ngotuong077@gmail.com`), workbook
+  `QuanLyVayCaNhanSync` đọc được và xác nhận stale: source version
+  `2026-08-04T08:38:06.21076+00:00`, xuất lúc `2026-08-04 15:54:45`; chỉ có 8 đối tác, 4 khoản,
+  11 giao dịch, 0 lifecycle, 3 correction, 0 settlement reversal/onboarding, 87 kỳ, 0 chi phí,
+  0 thông báo và 39 audit. Supabase hiện có 15/22/209/7/6/0/0/208/0/9/316 tương ứng.
+- Lịch thực thi Apps Script cho thấy `runGoogleSheetSync` thất bại mỗi giờ; lần gần nhất
+  `23:54:41 12/08/2026` ghi `Export API trả về HTTP 404` tại `Code:108:51`. Đối chiếu HTTP chỉ đọc
+  xác nhận alias cũ `https://quan-ly-vay-ca-nhan.vercel.app/api/google-sync/export` trả 404, còn
+  endpoint chuẩn `https://tindung.vercel.app/api/google-sync/export` trả 401 đúng khi thiếu secret.
+  Sau xác nhận riêng, Script Property `SYNC_API_URL` đã đổi sang alias chuẩn; không đổi secret,
+  source code, trigger, Supabase hay dữ liệu tài chính.
+- `runGoogleSheetFullSync` chạy từ editor lúc `15:05:30 13/08/2026`, hoàn tất trong 18,297 giây.
+  Workbook mới xuất lúc `15:05:34`, source version `2026-08-13T03:58:15.416559+00:00`; có 15 đối
+  tác, 24 khoản, 215 giao dịch, 7 lifecycle, 6 correction, 0 settlement reversal/onboarding,
+  213 kỳ, 0 chi phí, 9 thông báo và 326 audit. SHA-256 của tập ID từng tab khớp Supabase cho cả
+  11 dataset; không chỉ dựa vào số dòng.
+- Production tăng thêm hai khoản ACTIVE ngày `2026-08-13` trong khoảng K03 (một `LENDING` 400 triệu
+  và một `BORROWING` 400 triệu), không phải mutation của agent. Snapshot hiện tại đã được tính lại:
+  24/24 calculation, 0 internal issue, 0 Dashboard mismatch; tổng cho vay 4,18 tỷ gồm 4,13 tỷ hoạt
+  động + 50 triệu nợ xấu, tổng đi vay 1,35 tỷ. Còn cần OWNER xác nhận các khoản/số tổng này phản ánh
+  đúng sổ thực tế; OWNER sau đó xác nhận đây là các giao dịch mới phát sinh cùng ngày và toàn bộ danh
+  mục/tổng số đúng. Full gate cuối đạt lint/typecheck/39 unit/build, Auth 6/6, E2E 10/10, DB lint và
+  pgTAP 364/364; C16 đã hoàn tất.
+- K04 thuộc C17 đang `AWAITING_APPROVAL`; chưa thêm workflow CI, chưa push hoặc đổi branch protection.
 - Đã rollout UI Playground từ cấp khối lên cấp thành phần ngày `2026-08-12`: người dùng có thể
   bấm trực tiếp tab/text/card trên canvas, chỉnh nhãn và tiêu đề, cỡ chữ/độ đậm, kích thước tab,
   padding/viền/bóng card; cấu hình tiếp tục tự lưu và xuất JSON. Full gate cùng authenticated,
@@ -562,6 +619,32 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-13` — OWNER xác nhận 24 khoản và hai khoản 400 triệu mới đúng sổ thực tế. Full gate cuối
+   đạt diff-check, lint, typecheck, 39/39 unit, build, Auth 6/6, E2E 10/10, DB lint và pgTAP 364/364.
+   K03/C16 chuyển `COMPLETED`; không correction/reversal hoặc xóa giao dịch. K04 CI fail-closed trong
+   C17 chuyển `AWAITING_APPROVAL`; chưa push hay đổi branch protection.
+1. `2026-08-13` — Sau phê duyệt ba thao tác, đổi duy nhất Apps Script `SYNC_API_URL` sang
+   `https://tindung.vercel.app`; full sync hoàn tất 18,297 giây. Sheet hiện khớp Supabase theo số
+   dòng và SHA-256 tập ID của 11 dataset: 15 đối tác/24 khoản/215 giao dịch/213 kỳ/326 audit cùng các
+   bảng phụ. Tính lại snapshot mới đạt 24/24 calculation và Dashboard 4,18 tỷ cho vay/1,35 tỷ đi vay.
+   Không đổi secret/source/trigger/Supabase và chưa correction/reversal; chờ OWNER xác nhận sổ thật.
+1. `2026-08-13` — Sau đăng nhập Google, xác nhận Sheet stale từ bản xuất 04/08: 4 khoản/11 giao
+   dịch/87 kỳ/39 audit so với Supabase 22/209/208/316. Trigger sync thất bại mỗi giờ với HTTP 404 do
+   `SYNC_API_URL` còn alias cũ `quan-ly-vay-ca-nhan.vercel.app`; alias chuẩn `tindung.vercel.app`
+   đáp ứng đúng. Chờ xác nhận riêng để sửa đúng một Script Property và chạy full sync; chưa mutation
+   Supabase hay correction/reversal.
+1. `2026-08-13` — K03 đối chiếu chỉ đọc Supabase đạt 22/22 calculation, 0 invariant issue; 15 đối
+   tác/22 khoản/209 giao dịch/208 kỳ/316 audit khớp recovery point. Tổng Dashboard khớp calculation:
+   cho vay 3,78 tỷ (3,73 tỷ hoạt động + 50 triệu nợ xấu), đi vay 950 triệu. Google Sheet private trả
+   401 và in-app browser đã mở trang sign-in đúng workbook; chờ người dùng đăng nhập đúng tài khoản
+   Google trước khi đọc Sheet. Chưa correction/reversal hoặc sửa remote.
+1. `2026-08-13` — Người dùng phê duyệt K03. Chuyển K03 sang `IN_PROGRESS` để đối chiếu chỉ đọc
+   từng khoản giữa Supabase authoritative, calculation, Dashboard, audit và Google Sheet. Chưa
+   correction/reversal hoặc sửa remote; mật khẩu 6 ký tự giữ nguyên.
+1. `2026-08-13` — Hoàn tất K02 sau xác nhận push: fast-forward GitHub `main` từ `15d1058` lên
+   `29cfd33`; local, `origin/main` và `git ls-remote` cùng hash. Fresh clone đúng commit đạt
+   `pnpm install --frozen-lockfile`, lint, typecheck, 39/39 unit và build; workspace tạm đã dọn khỏi
+   repository. Không force-push/tag/PR. K03 chuyển `AWAITING_APPROVAL`.
 1. `2026-08-13` — K02 preflight đạt: fetch xác nhận `origin/main` là ancestor và local ahead 16
    commit trước commit K02; 195 file không chứa dump/credential, không có file trên 5 MiB, secret
    scan không có phát hiện rủi ro cao. `git diff --check`, lint, typecheck, 39/39 unit, build, Auth

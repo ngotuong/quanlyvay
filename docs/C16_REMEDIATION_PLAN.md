@@ -2,7 +2,7 @@
 
 ## 1. Trạng thái và nguyên tắc
 
-- Trạng thái: `IN_PROGRESS` từ ngày `2026-08-03` sau khi người dùng phê duyệt C16.
+- Trạng thái: `COMPLETED` ngày `2026-08-13`.
 - Thứ tự bắt buộc: hoàn tất remediation local → đạt full gate → backup/rollout có xác nhận riêng →
   kiểm thử dữ liệu thực tế.
 - Không nhập thêm dữ liệu thật trước khi các lỗi mức P1/P2 của audit được sửa và kiểm thử local đạt.
@@ -12,11 +12,11 @@
 - Mọi migration Supabase remote, deploy Vercel, push Apps Script, sửa Google Sheet và thao tác backup
   remote vẫn cần xác nhận riêng theo `AGENTS.md`.
 
-Tiến độ cập nhật ngày `2026-08-13`: R1–R5 và R7 đã rollout; K01 đã đóng khoảng trống R6 bằng backup
-Production mới có ACL tại local + Drive, GCM/SHA/RPO đạt và restore rehearsal cô lập toàn trình với
-RTO 278 giây. Công cụ manifest fail-closed và retention dry-run có regression trong gate chuẩn; không
-restore lên Production và không xóa backup cũ. Giai đoạn 1 tiếp tục tại `docs/C16_PHASE1_PLAN.md` với
-K02 đang `AWAITING_APPROVAL`, chưa push GitHub.
+Kết quả cuối ngày `2026-08-13`: R1–R7 đã rollout/đạt acceptance; K01 đóng khoảng trống R6 bằng backup
+Production mới có ACL tại local + Drive, GCM/SHA/RPO và restore rehearsal RTO 278 giây; K02 phục hồi
+GitHub; K03 đối chiếu Supabase/Sheet/calculation/Dashboard và được OWNER xác nhận đúng sổ thực tế.
+Full gate cuối đạt lint/typecheck/39 unit/build, Auth 6/6, E2E 10/10, DB lint và pgTAP 364/364.
+Không correction/reversal hoặc xóa vật lý giao dịch. Chi tiết tại `docs/C16_PHASE1_PLAN.md`.
 
 ## 2. Phạm vi remediation đã khóa
 

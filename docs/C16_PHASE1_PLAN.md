@@ -8,8 +8,8 @@ duyệt của từng bước; thao tác remote vẫn cần xác nhận riêng th
 | ID | Bước | Trạng thái |
 |---|---|---|
 | K01 | Khôi phục nhịp backup và chứng minh RPO/RTO | `COMPLETED` — backup mới local + Drive, GCM/SHA/RPO và restore cô lập đạt |
-| K02 | Đồng bộ mã nguồn an toàn lên GitHub | `IN_PROGRESS` — preflight local đạt; chờ xác nhận riêng cho `git push origin main` fast-forward |
-| K03 | Đối chiếu dữ liệu thật và đóng C16 | `NOT_STARTED` — chỉ bắt đầu sau K02; mọi correction Production cần xác nhận riêng |
+| K02 | Đồng bộ mã nguồn an toàn lên GitHub | `COMPLETED` — fast-forward tới `29cfd33`, remote hash và fresh-clone gate đạt |
+| K03 | Đối chiếu dữ liệu thật và đóng C16 | `COMPLETED` — Sheet/Supabase/calculation/Dashboard khớp, OWNER xác nhận sổ thật, full gate đạt |
 
 Không thay đổi chính sách mật khẩu: tối thiểu 6 ký tự ASCII chữ hoặc số, không bắt buộc phối hợp
 thành phần. Regression `123456` và `abcdef` phải tiếp tục đạt.
@@ -93,8 +93,12 @@ Kết quả preflight K02 ngày `2026-08-13`:
   đối chiếu bổ sung chứ không thay thế hậu kiểm GitHub/fresh clone.
 - Gate đạt `git diff --check`, lint, typecheck, 39/39 unit, build, Auth 6/6, E2E 10/10, DB lint và
   pgTAP 364/364. Regression mật khẩu sáu chữ số tiếp tục đạt.
-- Chưa push/tag/PR. Bước kế tiếp chỉ là `git push origin main` fast-forward sau xác nhận riêng, rồi
-  so `origin/main = HEAD` và chạy fresh-clone gate trước khi hoàn tất K02.
+- Sau xác nhận riêng, `git push origin main` fast-forward thành công từ `15d1058` lên `29cfd33`;
+  không force-push, tag hoặc PR. Local `HEAD`, `origin/main` và advertised hash cùng là
+  `29cfd33f23e9f8a735387de310b4c7c0cc4b8d63`.
+- Fresh clone đúng remote commit đạt `pnpm install --frozen-lockfile`, lint, typecheck, 39/39 unit
+  tests và production build. Workspace tạm đã dọn khỏi repository. K02 hoàn tất; K03 chuyển
+  `AWAITING_APPROVAL` và không được bắt đầu nếu chưa có phê duyệt mới.
 
 ## 4. K03 — Đối chiếu dữ liệu thật và đóng C16
 
@@ -104,6 +108,28 @@ Kết quả preflight K02 ngày `2026-08-13`:
    một thời điểm.
 3. Mọi sai lệch phải dừng; correction/reversal Production cần xác nhận riêng và không xóa vật lý.
 4. Sửa tài liệu drift, chạy full gate, ghi rủi ro còn lại và chỉ sau đó chuyển C16 `COMPLETED`.
+
+Tiến độ K03 ngày `2026-08-13`:
+
+- Supabase Production chỉ đọc đạt 22/22 calculation và 0 invariant issue; 15 đối tác, 22 khoản,
+  209 giao dịch, 7 lifecycle, 6 correction, 0 settlement reversal, 0 onboarding, 208 kỳ và 316 audit.
+- Tổng calculation khớp Dashboard: cho vay 3,78 tỷ (3,73 tỷ hoạt động + 50 triệu nợ xấu), đi vay
+  950 triệu. Chưa gọi correction/reversal hoặc mutation.
+- Sau khi OWNER đăng nhập, Sheet xác nhận stale từ bản xuất 04/08: chỉ có 4 khoản, 11 giao dịch,
+  87 kỳ và 39 audit so với Supabase 22/209/208/316. Trigger Apps Script thất bại mỗi giờ với
+  `Export API trả về HTTP 404` vì `SYNC_API_URL` còn dùng alias cũ
+  `https://quan-ly-vay-ca-nhan.vercel.app`; alias chuẩn `https://tindung.vercel.app` hoạt động.
+- Sau xác nhận riêng, đổi duy nhất `SYNC_API_URL` sang alias chuẩn và chạy
+  `runGoogleSheetFullSync`; hoàn tất trong 18,297 giây. Workbook khớp Supabase theo số dòng và
+  SHA-256 tập ID của cả 11 dataset: 15 đối tác, 24 khoản, 215 giao dịch, 7 lifecycle, 6 correction,
+  0 settlement reversal/onboarding, 213 kỳ, 0 chi phí, 9 thông báo và 326 audit.
+- Hai khoản ACTIVE 400 triệu mới (một cho vay, một đi vay) phát sinh trong khoảng K03 không phải
+  mutation của agent. Snapshot mới đạt 24/24 calculation, 0 internal issue và 0 Dashboard mismatch;
+  tổng cho vay 4,18 tỷ, tổng đi vay 1,35 tỷ.
+- OWNER xác nhận 24 khoản và hai khoản 400 triệu mới đúng là giao dịch phát sinh ngày `2026-08-13`;
+  danh mục và tổng số phản ánh đúng sổ thực tế. Không cần correction/reversal.
+- Full gate cuối đạt `git diff --check`, lint, typecheck, 39/39 unit, build, Auth 6/6, E2E 10/10,
+  DB lint không lỗi và pgTAP 364/364. K03 và C16 hoàn tất; K04 thuộc C17 chờ phê duyệt riêng.
 
 ## 5. Gate
 
