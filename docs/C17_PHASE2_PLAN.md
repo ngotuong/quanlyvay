@@ -5,7 +5,7 @@
 | ID | Bước | Trạng thái |
 |---|---|---|
 | K04 | CI fail-closed | `COMPLETED` — OWNER bỏ qua branch protection do không dùng GitHub Pro |
-| K05 | Xác minh provenance Vercel candidate | `AWAITING_APPROVAL` |
+| K05 | Xác minh provenance Vercel candidate | `COMPLETED` |
 
 Chính sách mật khẩu tối thiểu 6 ký tự ASCII chữ hoặc số tiếp tục giữ nguyên. Mọi push workflow,
 thay đổi branch protection, deploy Preview hoặc chuyển alias cần xác nhận remote riêng.
@@ -50,3 +50,26 @@ push/merge. Không chuyển public và không nâng gói.
 
 Mọi tạo candidate/chuyển alias/rollback vẫn cần xác nhận riêng. K05 không được bắt đầu nếu K04 chưa
 hoàn tất hoặc người dùng chưa phê duyệt rõ.
+
+Bằng chứng local ngày 13/08/2026: validator provenance và fixture đạt 7/7; candidate đúng đi qua,
+stable/khác alias, project sai và rollback khác org/project đều bị chặn trước `alias set`. Parser đạt
+với output thật của Vercel CLI; deployment Preview hiện hữu qua kiểm tra provenance chỉ đọc. Full
+gate đạt lint/typecheck/48 tests/build và E2E 10/10. K05 giữ `IN_PROGRESS`, chờ xác nhận riêng để tạo
+candidate pha một; chưa chuyển alias hoặc rollback.
+
+Pha một được OWNER phê duyệt và hoàn tất ngày 13/08/2026. Candidate
+`dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY` tại immutable
+`https://quan-ly-vay-ca-nhan-a9hmuohg5-ngotuong2105.vercel.app` đúng project, Preview/READY/`sin1`;
+public smoke đạt và runtime error log trống. Stable alias vẫn trỏ deployment cũ. K05 chờ xác nhận
+đăng nhập authenticated smoke; chuyển alias tiếp tục là cổng remote riêng sau đó.
+
+Authenticated smoke được OWNER đăng nhập và agent kiểm tra ngày 16/08/2026: Dashboard, danh sách và
+chi tiết khoản vay, đối tác, chi phí, thông báo, audit, cài đặt và UI Playground đều tải đúng, main
+content hiện diện, không redirect sai hay runtime error; browser console và Vercel error/HTTP 500 log
+đều sạch. Stable alias chưa đổi. K05 chờ xác nhận riêng cho pha hai chuyển alias có rollback fail-safe.
+
+Pha hai được OWNER phê duyệt và hoàn tất ngày 16/08/2026. Script chạy lại full gate đạt
+lint/typecheck/48 tests/build/E2E 10/10, xác minh candidate và rollback cùng project trước khi chuyển
+`tindung-preview.vercel.app` sang `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY`. Hậu kiểm alias đúng
+Preview/READY/`sin1`, public smoke 200/200/401/401 và runtime error/HTTP 500 log trống. Không kích
+hoạt rollback. K05 và C17 hoàn tất.

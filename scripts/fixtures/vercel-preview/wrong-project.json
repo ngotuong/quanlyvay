@@ -1,0 +1,18 @@
+{
+  "requestedUrl": "https://unrelated-project-candidate-otherteam.vercel.app",
+  "deployment": {
+    "id": "dpl_WrongProject123",
+    "url": "unrelated-project-candidate-otherteam.vercel.app",
+    "name": "unrelated-project",
+    "target": "preview",
+    "readyState": "READY",
+    "builds": [{ "output": [{ "type": "lambda", "lambda": { "deployedTo": ["sin1"] } }] }]
+  },
+  "project": {
+    "orgSlug": "otherteam",
+    "qualifiedProjectName": "unrelated-project",
+    "projectId": "prj_WrongProject123",
+    "projectName": "unrelated-project",
+    "rootDirectory": "apps/web"
+  }
+}

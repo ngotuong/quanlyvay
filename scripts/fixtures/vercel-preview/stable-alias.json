@@ -1,0 +1,18 @@
+{
+  "requestedUrl": "https://tindung-preview.vercel.app",
+  "deployment": {
+    "id": "dpl_Candidate123",
+    "url": "quan-ly-vay-ca-nhan-candidate-ngotuong2105.vercel.app",
+    "name": "quan-ly-vay-ca-nhan",
+    "target": "preview",
+    "readyState": "READY",
+    "builds": [{ "output": [{ "type": "lambda", "lambda": { "deployedTo": ["sin1"] } }] }]
+  },
+  "project": {
+    "orgSlug": "ngotuong2105",
+    "qualifiedProjectName": "quan-ly-vay-ca-nhan",
+    "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+    "projectName": "quan-ly-vay-ca-nhan",
+    "rootDirectory": "apps/web"
+  }
+}

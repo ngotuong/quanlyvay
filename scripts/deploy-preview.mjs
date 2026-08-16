@@ -1,10 +1,15 @@
-import { execFileSync, spawnSync } from "node:child_process";
+import { spawnSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
-const EXPECTED_PROJECT_ID = "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F";
-const STABLE_ALIAS = "tindung-preview.vercel.app";
+import {
+  EXPECTED_VERCEL,
+  assertDeploymentProvenance,
+  assertPromotionProvenance,
+  parseProjectInspection,
+} from "./vercel-preview-provenance.mjs";
+
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 if (process.cwd() !== root) {
@@ -12,7 +17,12 @@ if (process.cwd() !== root) {
 }
 
 const linkedProject = JSON.parse(readFileSync(resolve(root, ".vercel/project.json"), "utf8"));
-if (linkedProject.projectId !== EXPECTED_PROJECT_ID || linkedProject.settings?.rootDirectory !== "apps/web") {
+if (
+  linkedProject.projectId !== EXPECTED_VERCEL.projectId ||
+  linkedProject.orgId !== EXPECTED_VERCEL.orgId ||
+  linkedProject.projectName !== EXPECTED_VERCEL.projectName ||
+  linkedProject.settings?.rootDirectory !== EXPECTED_VERCEL.rootDirectory
+) {
   throw new Error("Vercel project hoặc Root Directory không đúng; dừng trước khi tạo deployment remote.");
 }
 
@@ -21,19 +31,44 @@ function run(command, args) {
   if (result.status !== 0) throw new Error(`${command} ${args.join(" ")} thất bại.`);
 }
 
-function capture(command, args) {
-  return execFileSync(command, args, { cwd: root, encoding: "utf8" }).trim();
+function captureResult(command, args) {
+  const result = spawnSync(command, args, { cwd: root, encoding: "utf8" });
+  if (result.status !== 0) {
+    throw new Error(`${command} ${args.join(" ")} thất bại: ${(result.stderr || result.stdout).trim()}`);
+  }
+  return result;
 }
 
 function inspectDeployment(url) {
-  return JSON.parse(capture("vercel", ["inspect", url, "--format=json"]));
+  const result = captureResult("vercel", [
+    "inspect",
+    url,
+    "--scope",
+    EXPECTED_VERCEL.orgSlug,
+    "--format=json",
+  ]);
+  try {
+    return JSON.parse(result.stdout.trim());
+  } catch {
+    throw new Error("Không đọc được JSON từ `vercel inspect`; dừng fail-closed.");
+  }
 }
 
-function hasSingaporeFunctions(deployment) {
-  const functions = deployment.builds
-    ?.flatMap((build) => build.output ?? [])
-    .filter((output) => output.type === "lambda" && output.lambda);
-  return Boolean(functions?.length) && functions.every((output) => output.lambda.deployedTo?.includes("sin1"));
+function inspectProject(projectName) {
+  const result = captureResult("vercel", [
+    "project",
+    "inspect",
+    projectName,
+    "--scope",
+    EXPECTED_VERCEL.orgSlug,
+    "--yes",
+    "--no-color",
+  ]);
+  return parseProjectInspection(`${result.stderr}\n${result.stdout}`);
+}
+
+function deploymentEvidence(requestedUrl, deployment = inspectDeployment(requestedUrl)) {
+  return { requestedUrl, deployment, project: inspectProject(deployment.name) };
 }
 
 async function assertStatus(url, path, expected) {
@@ -66,38 +101,38 @@ run("pnpm", ["test"]);
 run("pnpm", ["build"]);
 run("pnpm", ["test:e2e"]);
 
-let previousUrl;
-try {
-  const previous = inspectDeployment(STABLE_ALIAS);
-  previousUrl = `https://${previous.url}`;
-} catch {
-  previousUrl = undefined;
-}
+const previous = inspectDeployment(EXPECTED_VERCEL.stableAlias);
+const previousUrl = `https://${previous.url}`;
+const rollbackEvidence = deploymentEvidence(previousUrl, previous);
+assertDeploymentProvenance(rollbackEvidence);
 
 let candidateUrl = argumentValue("--candidate");
 if (!candidateUrl) {
   console.log("Tạo candidate Preview chưa chuyển stable alias...");
-  const deployResult = JSON.parse(capture("vercel", ["deploy", "--target=preview", "--yes", "--format=json"]));
+  const result = captureResult("vercel", [
+    "deploy",
+    "--target=preview",
+    "--scope",
+    EXPECTED_VERCEL.orgSlug,
+    "--yes",
+    "--format=json",
+  ]);
+  const deployResult = JSON.parse(result.stdout.trim());
   const created = deployResult.deployment ?? deployResult;
   candidateUrl = created.url?.startsWith("http") ? created.url : `https://${created.url}`;
 }
 if (!candidateUrl) throw new Error("Không đọc được deployment candidate từ Vercel CLI.");
-const parsedCandidateUrl = new URL(candidateUrl);
-if (parsedCandidateUrl.protocol !== "https:" || !parsedCandidateUrl.hostname.endsWith(".vercel.app")) {
-  throw new Error("Candidate phải là immutable HTTPS URL của Vercel.");
-}
 
 const candidate = inspectDeployment(candidateUrl);
-const candidateId = candidate.id;
-if (candidate.target !== "preview" || candidate.readyState !== "READY" || !hasSingaporeFunctions(candidate)) {
-  throw new Error("Candidate không đồng thời đạt target=preview, Ready và Functions sin1.");
-}
-await smoke(candidateUrl);
+const candidateEvidence = deploymentEvidence(candidateUrl, candidate);
+const checkedCandidate = assertDeploymentProvenance(candidateEvidence);
+candidateUrl = checkedCandidate.deploymentUrl;
+await smoke(checkedCandidate.deploymentUrl);
 
 if (!process.argv.includes("--verified-authenticated-smoke")) {
   console.log(JSON.stringify({
     status: "awaiting_authenticated_smoke",
-    deploymentId: candidateId,
+    deploymentId: checkedCandidate.deploymentId,
     deploymentUrl: candidateUrl,
     nextCommand: `pnpm deploy:preview -- --candidate ${candidateUrl} --verified-authenticated-smoke`,
     requiredEvidence: [
@@ -108,19 +143,28 @@ if (!process.argv.includes("--verified-authenticated-smoke")) {
   process.exit(0);
 }
 
-console.log(`Candidate đạt smoke: ${candidateId}. Chuyển ${STABLE_ALIAS}...`);
-run("vercel", ["alias", "set", candidateUrl, STABLE_ALIAS]);
+assertPromotionProvenance({ candidate: candidateEvidence, rollback: rollbackEvidence });
+console.log(`Candidate đạt smoke: ${checkedCandidate.deploymentId}. Chuyển ${EXPECTED_VERCEL.stableAlias}...`);
+run("vercel", ["alias", "set", candidateUrl, EXPECTED_VERCEL.stableAlias, "--scope", EXPECTED_VERCEL.orgSlug]);
 
 try {
-  await smoke(`https://${STABLE_ALIAS}`);
-  const stable = inspectDeployment(STABLE_ALIAS);
-  if (stable.id !== candidateId) throw new Error("Stable alias chưa trỏ đúng candidate vừa kiểm tra.");
+  await smoke(`https://${EXPECTED_VERCEL.stableAlias}`);
+  const stable = inspectDeployment(EXPECTED_VERCEL.stableAlias);
+  assertDeploymentProvenance(deploymentEvidence(`https://${stable.url}`, stable));
+  if (stable.id !== checkedCandidate.deploymentId) throw new Error("Stable alias chưa trỏ đúng candidate vừa kiểm tra.");
 } catch (error) {
-  if (previousUrl) {
-    console.error("Hậu kiểm alias thất bại; khôi phục deployment trước đó.");
-    run("vercel", ["alias", "set", previousUrl, STABLE_ALIAS]);
-  }
+  console.error("Hậu kiểm alias thất bại; khôi phục deployment cùng project đã xác minh.");
+  run("vercel", ["alias", "set", previousUrl, EXPECTED_VERCEL.stableAlias, "--scope", EXPECTED_VERCEL.orgSlug]);
+  const restored = inspectDeployment(EXPECTED_VERCEL.stableAlias);
+  if (restored.id !== rollbackEvidence.deployment.id) throw new Error("Rollback alias không trỏ về deployment đã xác minh.", { cause: error });
   throw error;
 }
 
-console.log(JSON.stringify({ status: "ok", deploymentId: candidateId, deploymentUrl: candidateUrl, alias: `https://${STABLE_ALIAS}` }, null, 2));
+console.log(JSON.stringify({
+  status: "ok",
+  deploymentId: checkedCandidate.deploymentId,
+  deploymentUrl: candidateUrl,
+  projectId: candidateEvidence.project.projectId,
+  org: candidateEvidence.project.orgSlug,
+  alias: `https://${EXPECTED_VERCEL.stableAlias}`,
+}, null, 2));

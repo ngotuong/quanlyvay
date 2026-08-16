@@ -1,9 +1,9 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.113
-last_updated: 2026-08-13 16:27:00 +07
+roadmap_version: 1.0.118
+last_updated: 2026-08-16 22:57:52 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C17-K05
+current_checkpoint: C18-K06
 current_status: AWAITING_APPROVAL
 ---
 
@@ -81,12 +81,25 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C17-K05 — Xác minh provenance Vercel candidate |
+| Checkpoint | C18-K06 — Redact secret trong audit và export |
 | Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi chờ duyệt | Theo `docs/C17_PHASE2_PLAN.md`: fail-closed project/org, immutable candidate, target Preview/Ready/`sin1`, rollback cùng project và fixture sai phải bị chặn. Mọi deploy/alias/rollback vẫn cần xác nhận remote riêng |
-| Giới hạn | Chưa bắt đầu K05. Chính sách mật khẩu 6 ký tự giữ nguyên |
+| Phạm vi chờ duyệt | Theo `docs/C18_SECURITY_PLAN.md`: che Push secret trong audit mới, chỉ cho app/export đọc dữ liệu sanitized và thu hồi quyền authenticated đọc raw audit |
+| Giới hạn | Chưa triển khai K06. Scrub dữ liệu lịch sử, rotate Push, migration/deploy/Apps Script remote là các cổng riêng; chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 4. Checkpoint hoàn tất gần nhất
+
+### C17 — CI fail-closed và provenance triển khai
+
+- Trạng thái: `COMPLETED` ngày `2026-08-16`.
+- K04 có workflow fail-closed chạy xanh trên GitHub; OWNER giữ private repository và chấp nhận bỏ
+  branch protection do GitHub Free không hỗ trợ.
+- K05 khóa provenance Vercel theo org/project ID/name/root, immutable URL, Preview/READY/`sin1` và
+  rollback cùng project; fixture fail-closed đạt 7/7.
+- Candidate `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY`, immutable
+  `https://quan-ly-vay-ca-nhan-a9hmuohg5-ngotuong2105.vercel.app`, đã qua public/authenticated smoke,
+  browser console và runtime log. Stable alias `https://tindung-preview.vercel.app` đã chuyển đúng
+  candidate; hậu kiểm 200/200/401/401, Preview/READY/`sin1`, không lỗi/HTTP 500. Rollback không chạy.
+- Full gate pha hai đạt lint, typecheck, 48/48 tests, build và E2E 10/10.
 
 ### K04 — CI fail-closed
 
@@ -170,10 +183,10 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-| Checkpoint | K05 — Xác minh provenance Vercel candidate trong C17 |
+| Checkpoint | C18-K06 — Redact secret trong audit và export |
 |---|---|
 | Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi chờ duyệt | Nâng `pnpm deploy:preview` và fixture/runbook theo K05; chưa deploy Preview, đổi alias hay rollback. Chính sách mật khẩu 6 ký tự giữ nguyên |
+| Phạm vi chờ duyệt | Che `p256dh`/`auth_secret` trong audit mới, dùng projection/RPC sanitized cho app và Google export, thu hồi authenticated khỏi raw audit; chưa scrub/rotate hoặc thao tác remote. Chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -201,7 +214,7 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
 | Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production khớp 21/21 migration. Migration 20–21 đã áp qua SQL Editor từ source đã review; 2/2 profile có giờ hợp lệ, dữ liệu giữ 22 khoản/209 giao dịch. `pg_cron`, `pg_net`, `supabase_vault` đã bật; job `qlv-notification-runner-hourly` ID 1 active lịch `0 * * * *`, có hai Vault secret và test `net.http_post` trả 200/`queueRemaining=false`. Tài khoản EDITOR smoke cũ đã vô hiệu hóa và ban Auth; policy database không cho xóa vật lý profile |
-| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX` target Production/Ready tại immutable `https://quan-ly-vay-ca-nhan-yx9w2e34a-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`. Stable Preview `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV` target Preview/Ready tại immutable `https://quan-ly-vay-ca-nhan-734val51b-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Functions `sin1`. Authenticated UI Playground component selection/persistence, console, public smoke và runtime error log đạt. Production `CRON_SECRET` đã xoay, lưu Keychain/Vault; gọi có secret trả 200 |
+| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX` target Production/Ready tại immutable `https://quan-ly-vay-ca-nhan-yx9w2e34a-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`. Stable Preview `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY` target Preview/Ready tại immutable `https://quan-ly-vay-ca-nhan-a9hmuohg5-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Functions `sin1`. Provenance, public/authenticated smoke, console và runtime error/HTTP 500 log đạt ngày 16/08/2026. Production `CRON_SECRET` đã xoay, lưu Keychain/Vault; gọi có secret trả 200 |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; schema v3 và audit follow-up đã push đủ 4 file bằng named user `quanlyvay-google` lúc 16:52 ngày 10/08/2026; hai trigger giữ nguyên, chưa chạy full sync thủ công |
 | Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook schema v3 có 11 tab dữ liệu cộng `Tổng quan`. Backup đạt mới nhất `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260812T165654Z` gồm logical stream có ACL cho `auth/private/public/supabase_migrations` + manifest tại `/Users/ngotuong/Backups/QuanLyVayCaNhan` và DriveFS `QuanLyVayCaNhan_Backups`; GCM/SHA/RPO/restore rehearsal khớp, không lưu plaintext |
 
@@ -209,6 +222,32 @@ Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; kh
 
 ## 8. Blocker và cổng xác nhận
 
+- K05/C17 `COMPLETED` ngày `2026-08-16`. Sau xác nhận pha hai, script chạy lại lint/typecheck/48
+  tests/build/E2E 10/10, xác minh candidate và rollback cùng project rồi chuyển stable alias sang
+  `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY`. Hậu kiểm alias đúng Preview/READY/`sin1`, login/manifest 200,
+  export/notification runner thiếu secret 401, error và HTTP 500 log trống; không rollback. K06
+  chuyển `AWAITING_APPROVAL`; chưa triển khai hoặc thao tác remote.
+- Sau khi OWNER tự đăng nhập ngày `2026-08-16`, authenticated smoke trên immutable candidate đạt cho
+  Dashboard, danh sách và chi tiết khoản vay, đối tác, chi phí, thông báo, audit, cài đặt và UI
+  Playground. Mọi route giữ đúng URL, main content hiện diện, không có Application/Internal Server
+  Error; browser console không warning/error và Vercel error/HTTP 500 log sau smoke đều trống. Stable
+  alias vẫn trỏ `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV`. K05 chờ xác nhận remote riêng để chạy pha hai
+  với candidate đã xác minh; thao tác đó sẽ chuyển alias và tự rollback nếu hậu kiểm thất bại.
+- Sau xác nhận riêng ngày `2026-08-13`, pha một `pnpm deploy:preview` chạy lại full gate và tạo
+  candidate `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY`, immutable
+  `https://quan-ly-vay-ca-nhan-a9hmuohg5-ngotuong2105.vercel.app`. Inspect xác nhận đúng project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target Preview, `READY`, Functions `sin1`; public smoke
+  login/manifest 200 và hai API thiếu secret 401, runtime error log trống. Script dừng đúng
+  `awaiting_authenticated_smoke`. Stable alias chưa đổi, vẫn trỏ
+  `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV`; cần xác nhận riêng cho đăng nhập/smoke authenticated trên
+  immutable URL, rồi cần một xác nhận khác trước khi chuyển alias.
+- K05 local đã sẵn sàng ngày `2026-08-13`. Script khóa local link theo org/project ID/name/root và
+  dùng `vercel inspect --scope` cùng `vercel project inspect` để đọc lại provenance remote; chỉ nhận
+  URL bất biến khớp inspect, Preview/READY/`sin1`, và xác minh rollback cùng project/org trước
+  `alias set`. Parser đã đạt với output thật của CLI; deployment Preview hiện hữu
+  `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV` cũng qua provenance chỉ đọc. Fixture đúng/sai đạt 7/7; full
+  local gate đạt lint, typecheck, 48/48 tests, build và E2E 10/10. Chưa tạo candidate hoặc đổi alias;
+  cần xác nhận remote riêng cho lần chạy pha một `pnpm deploy:preview`.
 - K01 `COMPLETED` ngày `2026-08-13`. Sau xác nhận riêng, Supabase CLI đăng nhập đúng project và
   database password được xoay; password cùng khóa backup mới chỉ lưu trong macOS Keychain. Backup đạt
   `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260812T165654Z` ở local + DriveFS, ciphertext 861.546 byte,
@@ -656,6 +695,25 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-16` — Sau phê duyệt chuyển alias và rollback có điều kiện, pha hai K05 đạt full gate,
+   provenance và hậu kiểm. `tindung-preview.vercel.app` trỏ đúng
+   `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY`; smoke/log sạch, không rollback. K05/C17 `COMPLETED`; C18-K06
+   redact secret audit chuyển `AWAITING_APPROVAL`, chưa bắt đầu.
+1. `2026-08-16` — OWNER đăng nhập immutable candidate thành công. Authenticated smoke đạt trên tám
+   module chính và route chi tiết khoản vay; không redirect sai/runtime error, browser console sạch,
+   Vercel error và HTTP 500 log trống. Stable alias chưa đổi; chờ xác nhận riêng cho pha hai chuyển
+   alias có rollback fail-safe.
+1. `2026-08-13` — Sau phê duyệt pha một K05, full gate đạt lại lint/typecheck/48 tests/build/E2E
+   10/10; tạo candidate `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY` đúng Preview/READY/`sin1`, immutable
+   URL và public smoke đạt, runtime error log trống. Script dừng trước alias để chờ authenticated
+   smoke; stable Preview vẫn ở `dpl_3pMZZKUaUTh4E5WgLdRJ9VhWgnXV`.
+1. `2026-08-13` — K05 local sẵn sàng: tách validator provenance fail-closed, xác minh org/project từ
+   Vercel CLI, chặn stable/khác alias và project sai, đồng thời bắt rollback target cùng project trước
+   alias. Fixture 7/7, parser/output thật và deployment hiện hữu qua kiểm tra chỉ đọc; lint/typecheck,
+   48/48 tests, build và E2E 10/10 đạt. Chưa deploy/alias/rollback; chờ xác nhận tạo candidate Preview.
+1. `2026-08-13` — OWNER phê duyệt push hai commit tài liệu K04 và bắt đầu K05. Push fast-forward
+   `origin/main` tới `ef97549`; local/origin/advertised hash khớp. K05 chuyển `IN_PROGRESS` để nâng
+   provenance Vercel và fixture/runbook tại local; chưa tạo Preview, đổi alias hoặc rollback.
 1. `2026-08-13` — OWNER chọn không dùng GitHub Pro và bỏ qua branch protection, giữ repository
    private. Chấp nhận rủi ro CI không cưỡng chế direct push/merge khi check đỏ; workflow vẫn tự chạy
    fail-closed. K04 chuyển `COMPLETED`; K05 provenance Vercel chuyển `AWAITING_APPROVAL`, chưa triển
