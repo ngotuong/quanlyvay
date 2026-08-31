@@ -38,9 +38,19 @@ Trạng thái hợp lệ: `NOT_STARTED`, `AWAITING_APPROVAL`, `APPROVED`, `IN_PR
 - Nếu phạm vi phát sinh ngoài checkpoint, ghi nhận đề xuất; không âm thầm triển khai.
 - Cập nhật `PROJECT_CONTEXT.md` và bảng roadmap trong cùng thay đổi khi chuyển trạng thái.
 
-## 4. Thao tác bên ngoài luôn cần xác nhận
+## 4. Phê duyệt checkpoint và thao tác bên ngoài
 
-Không thực hiện các thao tác sau nếu chưa được người dùng xác nhận riêng:
+Khi người dùng đã phê duyệt rõ một checkpoint, agent chủ động thực hiện đầy đủ các bước local và
+remote được nêu trong phạm vi/acceptance criteria của checkpoint đó mà không xin lại từng thao tác.
+Chỉ dừng giữa checkpoint khi:
+
+- người dùng phải tự đăng nhập, giải CAPTCHA hoặc thực hiện bước mà công cụ không được phép làm;
+- chính sách an toàn của công cụ bắt buộc xác nhận tại thời điểm thao tác;
+- xuất hiện sai lệch dữ liệu, thay đổi kiến trúc hoặc thao tác phá hủy ngoài phạm vi đã duyệt;
+- cần mở rộng sang checkpoint khác.
+
+Nếu checkpoint chưa được duyệt hoặc thao tác không nằm rõ trong phạm vi đã duyệt, các thao tác sau
+vẫn cần người dùng xác nhận riêng:
 
 - Đăng nhập hoặc đăng xuất Google, Supabase, Vercel, `clasp` hay dịch vụ khác.
 - Tạo, liên kết, đổi tên hoặc xóa project/tài nguyên remote.
@@ -50,7 +60,9 @@ Không thực hiện các thao tác sau nếu chưa được người dùng xác
 - Deploy Preview/Production, promote, rollback, gán domain hoặc alias.
 - Tạo Git remote, `git push`, mở PR hoặc thay đổi repository bên ngoài.
 
-Các lệnh chỉ đọc như kiểm tra phiên bản CLI không được xem là phê duyệt thao tác tài khoản.
+Các lệnh chỉ đọc như kiểm tra phiên bản CLI không được xem là phê duyệt thao tác tài khoản. Khi
+checkpoint hoàn tất, cập nhật trạng thái, báo kết quả và dừng để người dùng duyệt checkpoint tiếp
+theo; không tự chuyển checkpoint.
 
 ### 4.1. Quy trình bắt buộc cho Vercel Preview
 

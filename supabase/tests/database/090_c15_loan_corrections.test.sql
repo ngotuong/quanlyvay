@@ -98,7 +98,7 @@ select is(
   'correction preserves the old disbursement through a reasoned reversal'
 );
 select is(
-  (select count(*) from public.audit_logs
+  (select count(*) from public.get_audit_logs_sanitized()
    where table_name = 'loans'
      and record_id = (select id from public.loans where name like 'Đối tác C15%')
      and action = 'UPDATE'

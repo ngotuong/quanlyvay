@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { randomUUID } from "node:crypto";
 import { localSupabaseEnvironment, resetLocalDatabase } from "./helpers";
 
 export default async function globalSetup() {
@@ -66,4 +67,15 @@ export default async function globalSetup() {
     idempotency_key: `e2e-notification:${data.user.id}`,
   });
   if (notificationError) throw notificationError;
+  const { error: auditFixtureError } = await admin.from("audit_logs").insert(
+    Array.from({ length: 30 }, (_, index) => ({
+      actor_user_id: data.user.id,
+      table_name: "counterparties",
+      record_id: randomUUID(),
+      action: "INSERT",
+      new_data: { name: `Đối tác phân trang ${index + 1}` },
+      request_id: `e2e-audit-pagination-${index + 1}`,
+    })),
+  );
+  if (auditFixtureError) throw auditFixtureError;
 }

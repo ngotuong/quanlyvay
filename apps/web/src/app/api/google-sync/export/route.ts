@@ -6,6 +6,22 @@ import { fetchAllRows } from "@/lib/export/pagination.mjs";
 
 type ExportRow = Record<string, unknown>;
 
+async function fetchSanitizedAuditRows(
+  supabase: ReturnType<typeof createAdminClient>,
+  from: number,
+  to: number,
+) {
+  const result = await supabase
+    .rpc("get_audit_logs_sanitized")
+    .select(GOOGLE_SYNC_SELECTS.auditLogs)
+    .order("id")
+    .range(from, to);
+  return {
+    data: Array.isArray(result.data) ? result.data : result.data ? [result.data] : [],
+    error: result.error,
+  };
+}
+
 function timestampValues(rows: ExportRow[], field: string) {
   return rows
     .map((row) => row[field])
@@ -22,6 +38,11 @@ function authorized(request: NextRequest) {
 export async function GET(request: NextRequest) {
   if (!authorized(request)) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const supabase = createAdminClient();
+  const datasetNames = [
+    "counterparties", "loans", "transactions", "lifecycleEvents", "loanTermCorrections",
+    "settlementReversals", "legacyLoanOnboardings", "interestPeriods", "expenses",
+    "notifications", "auditLogs",
+  ] as const;
   const queries = await Promise.all([
     fetchAllRows((from, to) => supabase.from("counterparties").select(GOOGLE_SYNC_SELECTS.counterparties).order("id").range(from, to)),
     fetchAllRows((from, to) => supabase.from("loans").select(GOOGLE_SYNC_SELECTS.loans).order("id").range(from, to)),
@@ -33,10 +54,17 @@ export async function GET(request: NextRequest) {
     fetchAllRows((from, to) => supabase.from("interest_periods").select(GOOGLE_SYNC_SELECTS.interestPeriods).order("id").range(from, to)),
     fetchAllRows((from, to) => supabase.from("expenses").select(GOOGLE_SYNC_SELECTS.expenses).order("transaction_id").range(from, to)),
     fetchAllRows((from, to) => supabase.from("notifications").select(GOOGLE_SYNC_SELECTS.notifications).order("id").range(from, to)),
-    fetchAllRows((from, to) => supabase.from("audit_logs").select(GOOGLE_SYNC_SELECTS.auditLogs).order("id").range(from, to)),
+    fetchAllRows((from, to) => fetchSanitizedAuditRows(supabase, from, to)),
   ]);
-  const failed = queries.find((query) => query.error);
-  if (failed?.error) return NextResponse.json({ error: "Export query failed" }, { status: 500 });
+  const failedIndex = queries.findIndex((query) => query.error);
+  if (failedIndex >= 0) {
+    const failed = queries[failedIndex];
+    const errorCode = failed.error && typeof failed.error === "object" && "code" in failed.error
+      ? String(failed.error.code)
+      : "unknown";
+    console.error("Google Sync export query failed", { dataset: datasetNames[failedIndex], errorCode });
+    return NextResponse.json({ error: "Export query failed" }, { status: 500 });
+  }
 
   const [counterpartiesQuery, loansQuery, transactionsQuery, lifecycleEventsQuery, loanTermCorrectionsQuery, settlementReversalsQuery, legacyLoanOnboardingsQuery, interestPeriodsQuery, expensesQuery, notificationsQuery, auditLogsQuery] = queries;
   const counterparties = counterpartiesQuery.data ?? [];

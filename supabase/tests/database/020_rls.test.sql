@@ -112,7 +112,12 @@ select is(
   'viewer cannot update counterparties'
 );
 select is((select count(*) from public.profiles), 1::bigint, 'viewer can only read their own profile');
-select is((select count(*) from public.audit_logs), 0::bigint, 'viewer cannot read audit history');
+select throws_ok(
+  $$select count(*) from public.audit_logs$$,
+  '42501',
+  null,
+  'viewer has no direct access to raw audit history'
+);
 select is((select count(*) from public.notifications), 1::bigint, 'viewer only sees their own notifications');
 select lives_ok(
   $$select public.register_push_subscription('https://push.example.test/viewer', 'key', 'secret')$$,
@@ -147,7 +152,12 @@ reset role;
 select set_config('request.jwt.claim.sub', '10000000-0000-0000-0000-000000000011', true);
 set local role authenticated;
 
-select cmp_ok((select count(*) from public.audit_logs), '>', 0::bigint, 'owner can read audit history');
+select cmp_ok(
+  (select count(*) from public.get_audit_logs_sanitized()),
+  '>',
+  0::bigint,
+  'owner can read sanitized audit history through the RPC'
+);
 select is(
   (select role::text from public.profiles where user_id = '10000000-0000-0000-0000-000000000011'),
   'OWNER',

@@ -79,9 +79,7 @@ const auditFieldLabels: Record<string, string> = {
   category: "Nhóm chi phí",
   title: "Tiêu đề",
   body: "Nội dung",
-  endpoint: "Điểm nhận thông báo",
-  p256dh: "Khóa thiết bị",
-  auth_secret: "Khóa xác thực thiết bị",
+  endpoint_fingerprint: "Dấu vân tay đăng ký thiết bị",
   attempt_count: "Số lần thử",
   last_attempt_at: "Lần thử gần nhất",
   lease_until: "Giữ xử lý đến",
@@ -95,6 +93,8 @@ const auditFieldLabels: Record<string, string> = {
   updated_at: "Thời điểm cập nhật",
   changed_at: "Thời điểm thay đổi",
 };
+
+const auditSecretFields = new Set(["endpoint", "p256dh", "auth_secret"]);
 
 const auditValueLabels: Record<string, string> = {
   OWNER: "Chủ tài khoản",
@@ -132,7 +132,9 @@ export function localizeAuditData(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(localizeAuditData);
   if (value && typeof value === "object") {
     return Object.fromEntries(
-      Object.entries(value).map(([key, item], index) => [auditFieldLabels[key] ?? `Thông tin khác ${index + 1}`, localizeAuditData(item)]),
+      Object.entries(value)
+        .filter(([key]) => !auditSecretFields.has(key))
+        .map(([key, item], index) => [auditFieldLabels[key] ?? `Thông tin khác ${index + 1}`, localizeAuditData(item)]),
     );
   }
   if (typeof value === "string") return auditValueLabels[value] ?? value;

@@ -9,5 +9,5 @@ export const GOOGLE_SYNC_SELECTS = Object.freeze({
   interestPeriods: "id,loan_id,kind,start_date,end_date,day_count,opening_principal_vnd::text,closing_principal_vnd::text,accrued_interest_vnd::text,interest_payments_vnd::text,closing_interest_balance_vnd::text,calculated_at",
   expenses: "transaction_id,category",
   notifications: "id,user_id,loan_id,type,notification_date,title,body,read_at,created_at",
-  auditLogs: "id::text,actor_user_id,table_name,record_id,action,changed_at,request_id",
+  auditLogs: "id,actor_user_id,table_name,record_id,action,changed_at,request_id",
 });

@@ -716,6 +716,13 @@ details[open] > summary::after { content: "−"; }
 .timeline-item .timeline-amount { color: var(--foreground); font-variant-numeric: tabular-nums; font-weight: 700; }
 .timeline-item details { margin-top: 8px; }
 .timeline-item pre { max-width: 100%; overflow-x: auto; border-radius: 10px; background: var(--surface-muted); padding: 12px; font-size: .75rem; white-space: pre-wrap; overflow-wrap: anywhere; }
+.audit-pagination { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 18px; margin-top: 4px; border-top: 1px solid var(--border); padding-top: 18px; }
+.audit-pagination p { display: grid; gap: 3px; margin: 0; }
+.audit-pagination p strong { font-size: .9rem; }
+.audit-pagination p span { color: var(--foreground-muted); font-size: .8rem; }
+.audit-pagination > div { display: flex; gap: 8px; }
+.audit-pagination .secondary-link { min-width: 108px; }
+.audit-pagination [aria-disabled="true"] { cursor: not-allowed; opacity: .48; }
 .inline-reversal { margin-top: 9px; font-size: .8rem; }
 .inline-reversal .compact-form { margin-top: 10px; border-left: 2px solid var(--error); padding-left: 12px; }
 .period-list { display: grid; gap: 10px; }
@@ -1079,6 +1086,10 @@ details[open] > summary::after { content: "−"; }
   .field-group select { padding-inline: 9px 24px; font-size: 0.875rem; min-height: 44px; text-overflow: ellipsis; }
   .filter-actions { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
   .filter-actions > span { font-size: .8125rem; color: var(--foreground-muted); }
+  .audit-pagination { align-items: stretch; }
+  .audit-pagination p { width: 100%; }
+  .audit-pagination > div { display: grid; width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .audit-pagination .secondary-link { min-width: 0; }
   .dashboard-period-dialog .dashboard-date-form { grid-template-columns: minmax(0, 1fr); }
 }
 

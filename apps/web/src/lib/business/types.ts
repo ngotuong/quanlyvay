@@ -122,7 +122,7 @@ export type InterestPeriod = {
 };
 
 export type AuditLog = {
-  id: number;
+  id: string;
   table_name: string;
   record_id: string;
   action: "INSERT" | "UPDATE" | "DELETE";

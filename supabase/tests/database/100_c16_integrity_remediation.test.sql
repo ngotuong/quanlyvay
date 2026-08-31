@@ -171,7 +171,7 @@ select is(
   'zero-principal settlement still closes the loan'
 );
 select is(
-  (select count(*) from public.audit_logs where table_name = 'loan_settlement_reversals' and action = 'INSERT'),
+  (select count(*) from public.get_audit_logs_sanitized() where table_name = 'loan_settlement_reversals' and action = 'INSERT'),
   1::bigint,
   'settlement reversal is covered by the audit ledger'
 );

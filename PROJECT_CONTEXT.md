@@ -1,9 +1,9 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.118
-last_updated: 2026-08-16 22:57:52 +07
+roadmap_version: 1.0.131
+last_updated: 2026-08-31 20:59:49 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C18-K06
+current_checkpoint: C19
 current_status: AWAITING_APPROVAL
 ---
 
@@ -37,7 +37,7 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `apps/web` dùng Next.js 16.2.12, React 19.2.4, TypeScript 5.9.3, Tailwind CSS 4.3.3 và ESLint 9.39.5.
 - `packages/domain-contract` chứa type contract và test fixture độc lập với production engine.
 - `docs/DOMAIN_SPEC.md` là đặc tả nghiệp vụ v1 đã khóa cho C3–C4.
-- Supabase local đã được khởi tạo với PostgreSQL 17, 21 migration, RLS và 364 pgTAP assertions.
+- Supabase local đã được khởi tạo với PostgreSQL 17, 23 migration, RLS và 384 pgTAP assertions.
 - Bộ máy tài chính authoritative nằm trong PostgreSQL, có RPC tính/rebuild, ghi thanh toán, lifecycle, reversal và tất toán nguyên tử.
 - `docs/FINANCIAL_ENGINE.md` mô tả contract C4; engine đã được giữ nguyên qua regression C5.
 - Local Auth dùng username/password ánh xạ sang email nội bộ, session SSR, bắt đổi mật khẩu và vai trò `OWNER`/`EDITOR`/`VIEWER`; public signup bị tắt.
@@ -59,8 +59,9 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
   `Asia/Ho_Chi_Minh`; có hàm bảo trì refresh contract và full sync để sửa header/ngày cũ an toàn.
 - `docs/GOOGLE_SYNC.md` mô tả contract Sheet, Script Properties và ranh giới cấu hình remote C11–C12.
 - Supabase Production project Singapore `hmfxnstrqfqpvsgfmjmd`, thuộc tài khoản
-  `tuongnt2105@gmail.com`, đã áp 21/21 migration gồm Dashboard/analytics quản trị, notification theo
-  giờ và tài khoản quản lý không giới hạn, không seed và public signup đã tắt.
+  `tuongnt2105@gmail.com`, đã áp 23/23 migration gồm Dashboard/analytics quản trị, notification theo
+  giờ, tài khoản quản lý không giới hạn và thu hồi raw audit khỏi `authenticated`; không seed và public
+  signup đã tắt.
   CLI đã đăng nhập
   đúng tài khoản/profile `quanlyvay`; legacy `anon`/`service_role` runtime keys đã phục hồi vào hai
   Keychain services Publishable/Secret tương ứng.
@@ -81,12 +82,28 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 | Trường | Giá trị |
 |---|---|
-| Checkpoint | C18-K06 — Redact secret trong audit và export |
+| Checkpoint | C19 — Xử lý secret lịch sử và vòng đời Push (tùy chọn) |
 | Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi chờ duyệt | Theo `docs/C18_SECURITY_PLAN.md`: che Push secret trong audit mới, chỉ cho app/export đọc dữ liệu sanitized và thu hồi quyền authenticated đọc raw audit |
-| Giới hạn | Chưa triển khai K06. Scrub dữ liệu lịch sử, rotate Push, migration/deploy/Apps Script remote là các cổng riêng; chính sách mật khẩu 6 ký tự giữ nguyên |
+| Phạm vi chờ duyệt | Chọn có scrub raw audit/snapshot cũ và rotate Push subscription hay tiếp tục giữ append-only với raw access chỉ dành cho service role |
+| Giới hạn | Chưa scrub/rotate hoặc đổi dữ liệu/thiết bị. Chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 4. Checkpoint hoàn tất gần nhất
+
+### C18 — Redact secret trong audit và export
+
+- Trạng thái: `COMPLETED` ngày `2026-08-31`.
+- Migration 22 sanitize audit mới và cung cấp RPC sanitized; UI, API export và Google Sheet không
+  nhận `endpoint`, `p256dh` hoặc `auth_secret`. Audit UI phân trang 25 dòng qua URL.
+- Preview stable `dpl_8VUZ82qr151T33a3vtzKakBEDqf7` và Production
+  `dpl_HGUNgAyiB9t6kKBd3ALqAxWoxYbm` đều Ready tại `sin1`; authenticated/public smoke, runtime log
+  và full sync Sheet đạt. Sheet có 482 audit tại lần sync, không chứa ba tên secret.
+- Database credential bị lộ trong output chẩn đoán đã được OWNER reset, xác minh và lưu lại Keychain.
+  Backup mã hóa trước migration được lưu local + Drive với GCM/SHA khớp.
+- Migration 23 đã áp Production: history 23/23, dry-run up-to-date, DB lint sạch; `authenticated`
+  raw SELECT=false và sequence USAGE=false, policy tương thích=0, `service_role` raw SELECT=true,
+  RPC sanitized trả 486 dòng và REST RPC service-role trả 200.
+- Gate local K06 đạt lint, typecheck, 51/51 unit tests, build, Auth 6/6, E2E 10/10, DB lint và
+  pgTAP 384/384. Không scrub raw lịch sử, xóa snapshot cũ hoặc rotate Push.
 
 ### C17 — CI fail-closed và provenance triển khai
 
@@ -183,10 +200,10 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-| Checkpoint | C18-K06 — Redact secret trong audit và export |
+| Checkpoint | C19 — Xử lý secret lịch sử và vòng đời Push (tùy chọn) |
 |---|---|
 | Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi chờ duyệt | Che `p256dh`/`auth_secret` trong audit mới, dùng projection/RPC sanitized cho app và Google export, thu hồi authenticated khỏi raw audit; chưa scrub/rotate hoặc thao tác remote. Chính sách mật khẩu 6 ký tự giữ nguyên |
+| Phạm vi | Chọn rõ có scrub raw audit/snapshot cũ và rotate Push subscription hay tiếp tục giữ append-only với raw access chỉ dành cho service role; chưa triển khai |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -213,15 +230,96 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Dịch vụ | Trạng thái |
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
-| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production khớp 21/21 migration. Migration 20–21 đã áp qua SQL Editor từ source đã review; 2/2 profile có giờ hợp lệ, dữ liệu giữ 22 khoản/209 giao dịch. `pg_cron`, `pg_net`, `supabase_vault` đã bật; job `qlv-notification-runner-hourly` ID 1 active lịch `0 * * * *`, có hai Vault secret và test `net.http_post` trả 200/`queueRemaining=false`. Tài khoản EDITOR smoke cũ đã vô hiệu hóa và ban Auth; policy database không cho xóa vật lý profile |
-| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX` target Production/Ready tại immutable `https://quan-ly-vay-ca-nhan-yx9w2e34a-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`. Stable Preview `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY` target Preview/Ready tại immutable `https://quan-ly-vay-ca-nhan-a9hmuohg5-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Functions `sin1`. Provenance, public/authenticated smoke, console và runtime error/HTTP 500 log đạt ngày 16/08/2026. Production `CRON_SECRET` đã xoay, lưu Keychain/Vault; gọi có secret trả 200 |
+| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production khớp 23/23 migration. Migration 22 sanitize audit mới/RPC; migration 23 thu hồi raw SELECT và sequence USAGE khỏi `authenticated`, gỡ policy tương thích, giữ `service_role` vận hành. Hậu kiểm ngày 31/08/2026: DB lint sạch, RPC sanitized 486 dòng, REST service-role 200. Database credential đã reset và lưu Keychain; migration chỉ có DDL/ACL, không DML. `pg_cron`, `pg_net`, `supabase_vault` đã bật; job `qlv-notification-runner-hourly` ID 1 active lịch `0 * * * *`. Tài khoản EDITOR smoke cũ đã vô hiệu hóa và ban Auth; policy database không cho xóa vật lý profile |
+| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production K06 `dpl_HGUNgAyiB9t6kKBd3ALqAxWoxYbm`, immutable `https://quan-ly-vay-ca-nhan-4ag7ue1kf-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`; target Production/Ready, Functions `sin1`, smoke 200/200/401/401 và runtime error log trống. Stable Preview `dpl_8VUZ82qr151T33a3vtzKakBEDqf7`, immutable `https://quan-ly-vay-ca-nhan-5xtqb61d9-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Preview/Ready/`sin1`, public và authenticated smoke đạt. Production `CRON_SECRET` lưu Keychain/Vault; gọi có secret trả 200 |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; schema v3 và audit follow-up đã push đủ 4 file bằng named user `quanlyvay-google` lúc 16:52 ngày 10/08/2026; hai trigger giữ nguyên, chưa chạy full sync thủ công |
-| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook schema v3 có 11 tab dữ liệu cộng `Tổng quan`. Backup đạt mới nhất `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260812T165654Z` gồm logical stream có ACL cho `auth/private/public/supabase_migrations` + manifest tại `/Users/ngotuong/Backups/QuanLyVayCaNhan` và DriveFS `QuanLyVayCaNhan_Backups`; GCM/SHA/RPO/restore rehearsal khớp, không lưu plaintext |
+| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook schema v3 có 11 tab dữ liệu cộng `Tổng quan`; full sync K06 đạt 482 audit và không có ba tên Push secret. Backup trước migration mới nhất `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260823T114933Z` gồm schema/data ciphertext + manifest tại `/Users/ngotuong/Backups/QuanLyVayCaNhan` và DriveFS `QuanLyVayCaNhan_Backups`; GCM/SHA và bản sao Drive khớp, không lưu plaintext. Restore rehearsal gần nhất vẫn là backup K01 `...20260812T165654Z` |
 
 Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; không lưu secret.
 
 ## 8. Blocker và cổng xác nhận
 
+- Không còn blocker cho K06. C18 đã hoàn tất ngày `2026-08-31`; checkpoint tùy chọn C19 đang
+  `AWAITING_APPROVAL`. Raw audit lịch sử vẫn append-only nhưng không còn được `authenticated` đọc;
+  scrub snapshot/raw history hoặc rotate Push chỉ được thực hiện nếu OWNER duyệt C19 và chọn rõ
+  phạm vi.
+
+- Sau phê duyệt Preview ngày `2026-08-23`, `pnpm deploy:preview` từ repository root đạt lại lint,
+  typecheck, 51/51 tests, build và E2E 10/10; tạo candidate remediation export
+  `dpl_8VUZ82qr151T33a3vtzKakBEDqf7`, immutable
+  `https://quan-ly-vay-ca-nhan-5xtqb61d9-ngotuong2105.vercel.app`. Inspect xác nhận đúng project,
+  target Preview, Ready và Functions `sin1`; public smoke đạt. Script dừng đúng
+  `awaiting_authenticated_smoke`; stable alias vẫn trỏ candidate trước
+  `dpl_FisSwpJQykXLJdmzE8ZcxfVrroB3`. Cần OWNER đăng nhập immutable URL và mở route authenticated;
+  sau đó chuyển stable alias vẫn cần một xác nhận riêng. Production và Google Sheet chưa đổi.
+- Sau phê duyệt full sync ngày `2026-08-23`, `clasp run` vẫn bị API executable từ chối nên chạy đúng
+  `runGoogleSheetFullSync` từ Apps Script editor của owner. Hai lần gọi lúc 15:57/15:58 đều dừng với
+  HTTP 500 trước `applyPayloadToSpreadsheet_`; Sheet không bị cập nhật dở dang. Vercel access log xác
+  nhận hai 500, trong khi lần sync cursor lúc 15:54 trả 200. Kiểm tra chỉ đọc bằng service key mới từ
+  Supabase Management cho thấy cả 11 dataset/RPC đều đạt, gồm 472 audit; payload chỉ 0,419 MB. Local
+  remediation cho `fetchAllRows` retry một lần theo từng page, không nhân đôi dòng, vẫn fail-closed
+  nếu lỗi lặp và log duy nhất dataset/error code an toàn. Gate đạt lint/typecheck/51 tests/build/E2E
+  10/10 và diff-check. Cần OWNER xác nhận riêng để tạo Preview candidate mới; chưa redeploy, chạy lại
+  full sync, đổi secret/Apps Script hoặc Sheet.
+- OWNER xác nhận đăng nhập Production ngày `2026-08-23`. Browser authenticated smoke trực tiếp trên
+  canonical `/audit` đạt: trang 1 và 2 đều có 25 bản ghi, tổng 472 bản ghi/19 trang, URL chuyển đúng
+  `/audit?page=2`, điều khiển Trước/Sau hiện diện; nội dung hai trang không có chuỗi
+  `endpoint`/`p256dh`/`auth_secret`, console sạch. Vercel error log sau lượt truy cập trống. Pha 2 còn
+  kiểm tra export có secret và full sync Google Sheet; thao tác Sheet cần OWNER xác nhận riêng.
+  Apps Script source không đổi nên không cần `clasp push`.
+- Sau phê duyệt Production ngày `2026-08-23`, preflight xác nhận đúng project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, root `apps/web`, rollback
+  `dpl_5eSWfa11fZVESNLpeSrAr9qnssUX` và diff-check sạch; full web gate vừa chạy ở bước Preview vẫn
+  đạt lint/typecheck/50 tests/build/E2E 10/10. Deploy Production tạo
+  `dpl_6rKeCAjkMP17cjfuHnMU13CdLeyr`, immutable
+  `https://quan-ly-vay-ca-nhan-hq4gg3gcg-ngotuong2105.vercel.app`; canonical alias đúng, target
+  Production/Ready, Functions `sin1`, smoke 200/200/401/401 và runtime error log 15 phút trống.
+  Browser không có session Production nên `/audit` chuyển về login, console không lỗi. Cần OWNER
+  đăng nhập `https://tindung.vercel.app/audit` và xác nhận trang hoạt động/phân trang trước khi pha 2
+  được xem là đạt. Chưa rollback, đổi Apps Script, raw access, scrub/rotate hoặc push GitHub.
+- OWNER xác nhận ngày `2026-08-23` đã kiểm tra xong candidate phân trang Audit và phê duyệt tiếp tục.
+  Lệnh continuation chạy lại lint/typecheck/50 tests/build/E2E 10/10, xác minh candidate cùng rollback
+  target rồi chuyển `https://tindung-preview.vercel.app` sang
+  `dpl_FisSwpJQykXLJdmzE8ZcxfVrroB3`. Hậu kiểm alias đúng Preview/Ready/`sin1`, smoke
+  200/200/401/401 và runtime error log 15 phút trống; không rollback. Cổng kế tiếp là deploy web
+  Production để UI/export dùng RPC sanitized, cần OWNER xác nhận riêng. Chưa đổi Apps Script, thu
+  hồi raw access, scrub/rotate hoặc push GitHub.
+- Sau phê duyệt deploy ngày `2026-08-23`, `pnpm deploy:preview` chạy từ repository root đạt lint,
+  typecheck, 50/50 tests, build và E2E 10/10; tạo candidate
+  `dpl_FisSwpJQykXLJdmzE8ZcxfVrroB3`, immutable
+  `https://quan-ly-vay-ca-nhan-qqijghcp6-ngotuong2105.vercel.app`. Inspect xác nhận đúng project,
+  target Preview, Ready và Functions `sin1`; public smoke đạt. Script dừng đúng
+  `awaiting_authenticated_smoke`; stable alias vẫn trỏ `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY`.
+  Cổng hiện tại cần OWNER đăng nhập immutable URL, kiểm tra Audit hiển thị 25 dòng/trang, tổng số
+  trang và điều hướng Trước/Sau; sau đó việc chuyển stable alias cần một xác nhận riêng.
+- Sau phê duyệt bổ sung ngày `2026-08-23`, Audit local dùng exact count và range 25 dòng, sắp xếp
+  ổn định `changed_at/id`, chuẩn hóa trang ngoài phạm vi, URL `/audit?page=N`, nút Trước/Sau và bố
+  cục mobile hai cột. Google export tiếp tục phân trang độc lập toàn bộ dữ liệu, không bị giới hạn
+  25. Regression tạo 30 audit fixture local và xác nhận 25 item cùng điều hướng 1→2→1. Gate đạt
+  lint, typecheck, 50/50 tests, build, Auth 6/6, E2E 10/10 và diff-check; database code không đổi,
+  pgTAP 379/379 từ gate K06 vẫn áp dụng. Candidate `dpl_3HGC8SM1iNSaYCGofANpgQzeh6B9` không có
+  phân trang nên đã lỗi thời và không được promote.
+- OWNER xác nhận ngày `2026-08-23` đã đăng nhập immutable candidate và trang Nhật ký hệ thống tải
+  được. Vercel log candidate trong ba ngày không có error hoặc HTTP 500; RPC/schema/code đã chứng
+  minh UI không nhận Push secret. Agent không có lại browser session đã đăng nhập nên không đọc
+  browser console độc lập. Audit UI hiện gọi `.limit(100)` rồi render cả 100 item, không có `page`/
+  `range` hay điều khiển Trước/Sau; đây là giới hạn cứng, không phải phân trang. Khuyến nghị sửa
+  25 dòng/trang, điều hướng URL và tổng số trang trước khi chuyển stable alias. Đây là phạm vi UX
+  bổ sung cần OWNER duyệt hoặc bỏ qua; nếu duyệt phải tạo candidate mới và smoke lại.
+- Sau phê duyệt ngày `2026-08-21`, `pnpm deploy:preview` chạy từ repository root đạt lint,
+  typecheck, 49/49 tests, build và E2E 10/10; candidate
+  `dpl_3HGC8SM1iNSaYCGofANpgQzeh6B9` đúng project/Preview/Ready/`sin1`, immutable
+  `https://quan-ly-vay-ca-nhan-4exr52w3u-ngotuong2105.vercel.app` và public smoke đạt. Script dừng
+  đúng `awaiting_authenticated_smoke`; stable alias vẫn trỏ deployment cũ
+  `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY`. Cần OWNER tự đăng nhập immutable candidate và kiểm tra trang
+  Audit/console; sau đó cần xác nhận riêng trước lệnh tiếp tục chuyển alias có rollback fail-safe.
+- K06 pha tương thích đã áp Supabase Production ngày `2026-08-21` sau xác nhận. History và dry-run
+  khớp 22/22; DB lint sạch; schema dump xác nhận sanitizer, trigger audit mới, RPC và ACL đúng.
+  RPC service-role trả 341 audit rows với 0 khóa `endpoint`/`p256dh`/`auth_secret`, ba Push rows có
+  fingerprint. Ba raw Push audit lịch sử vẫn giữ secret append-only; raw OWNER access được giữ tạm
+  cho web Production cũ. Cổng kế tiếp cần OWNER xác nhận riêng: chạy `pnpm deploy:preview` để tạo
+  candidate web/export đọc RPC sanitized. Chưa deploy Production, thu hồi raw access, scrub lịch sử,
+  xóa snapshot Drive cũ, rotate Push hoặc thay đổi Apps Script.
 - K05/C17 `COMPLETED` ngày `2026-08-16`. Sau xác nhận pha hai, script chạy lại lint/typecheck/48
   tests/build/E2E 10/10, xác minh candidate và rollback cùng project rồi chuyển stable alias sang
   `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY`. Hậu kiểm alias đúng Preview/READY/`sin1`, login/manifest 200,
@@ -695,6 +793,69 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-08-31` — OWNER reset database credential sau sự cố credential xuất hiện trong output chẩn
+   đoán; credential mới được xác minh, lưu Keychain và mục staging đã xóa. Áp migration
+   `20260823184500_c18_revoke_raw_audit_access.sql` lên Production; history 23/23, dry-run up-to-date,
+   DB lint sạch. Hậu kiểm: raw SELECT/sequence của `authenticated` đều false, policy tương thích=0,
+   `service_role` raw SELECT=true, RPC sanitized 486 dòng, REST RPC 200. K06/C18 `COMPLETED`; C19 tùy
+   chọn chuyển `AWAITING_APPROVAL`.
+1. `2026-08-23` — Sau phê duyệt, `pnpm deploy:preview` đạt lại lint/typecheck/51 tests/build/E2E
+   10/10 và tạo candidate remediation export `dpl_8VUZ82qr151T33a3vtzKakBEDqf7`, immutable
+   `https://quan-ly-vay-ca-nhan-5xtqb61d9-ngotuong2105.vercel.app`. Candidate đúng project,
+   Preview/Ready/`sin1` và public smoke đạt; script dừng `awaiting_authenticated_smoke`. Stable alias
+   vẫn ở `dpl_FisSwpJQykXLJdmzE8ZcxfVrroB3`; Production/Sheet chưa đổi.
+1. `2026-08-23` — Full sync được phê duyệt nhưng hai lần dừng an toàn trước khi ghi Sheet do export
+   Production HTTP 500. RPC/11 dataset Production đọc trực tiếp đều đạt; 472 audit, payload 0,419 MB.
+   Local thêm retry một lần theo page và log dataset/error code an toàn; regression không nhân đôi dữ
+   liệu và vẫn fail-closed. Gate đạt lint/typecheck/51 tests/build/E2E 10/10/diff-check; chờ phê duyệt
+   tạo Preview candidate mới.
+1. `2026-08-23` — OWNER đăng nhập Production thành công; authenticated browser smoke canonical Audit
+   đạt 25 dòng ở cả trang 1/2, 472 bản ghi/19 trang, URL `?page=2`, Trước/Sau, không thấy tên ba Push
+   secret, console và Vercel error log sạch. Chờ phê duyệt full sync Google Sheet để đối chiếu export
+   sanitized; Apps Script source không đổi nên không cần push.
+1. `2026-08-23` — Sau phê duyệt riêng, deploy web Production K06 thành
+   `dpl_6rKeCAjkMP17cjfuHnMU13CdLeyr`, immutable
+   `https://quan-ly-vay-ca-nhan-hq4gg3gcg-ngotuong2105.vercel.app`; canonical alias đúng,
+   Production/Ready/`sin1`, smoke 200/200/401/401 và runtime error log trống. Browser chưa có session
+   Production nên chờ OWNER đăng nhập và kiểm tra Audit; rollback target cũ vẫn giữ.
+1. `2026-08-23` — OWNER xác nhận kiểm tra candidate phân trang Audit và duyệt tiếp tục. Runbook chạy
+   lại lint/typecheck/50 tests/build/E2E 10/10, chuyển stable Preview alias sang
+   `dpl_FisSwpJQykXLJdmzE8ZcxfVrroB3` rồi hậu kiểm đúng Preview/Ready/`sin1`, smoke
+   200/200/401/401 và runtime error log trống. Không rollback; Production chưa đổi.
+1. `2026-08-23` — Sau phê duyệt, `pnpm deploy:preview` chạy đủ lint/typecheck/50 tests/build/E2E
+   10/10 và tạo candidate `dpl_FisSwpJQykXLJdmzE8ZcxfVrroB3`, immutable
+   `https://quan-ly-vay-ca-nhan-qqijghcp6-ngotuong2105.vercel.app`. Candidate đúng project,
+   Preview/Ready/`sin1` và public smoke đạt; script dừng `awaiting_authenticated_smoke`. Stable alias
+   vẫn ở `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY`; chờ OWNER kiểm tra phân trang Audit trên immutable URL.
+1. `2026-08-23` — Sau phê duyệt, thêm phân trang Audit local 25 dòng/trang với exact count, URL,
+   Trước/Sau, trang ngoài phạm vi được chuẩn hóa và responsive mobile. Google export vẫn lấy toàn bộ
+   audit độc lập. Regression 30 fixture xác nhận 25 item và chuyển 1→2→1; gate đạt lint/typecheck,
+   50/50 tests, build, Auth 6/6, E2E 10/10 và diff-check. Candidate cũ được đánh dấu lỗi thời; chờ
+   phê duyệt tạo Preview candidate mới, chưa đổi alias/Production.
+1. `2026-08-23` — OWNER xác nhận immutable K06 candidate đăng nhập và mở trang Audit thành công;
+   Vercel error/HTTP 500 log ba ngày sạch. Làm rõ acceptance: cần trang hoạt động và không hiện
+   `endpoint`/`p256dh`/`auth_secret`; việc rà từng log không thuộc trách nhiệm OWNER. Phát hiện trang
+   hiện lấy cứng 100 dòng và render toàn bộ, chưa phân trang. Khuyến nghị thêm 25 dòng/trang qua URL
+   trước alias; chờ OWNER duyệt hoặc bỏ qua, chưa đổi code/alias.
+1. `2026-08-21` — Sau phê duyệt tạo Preview, runbook đạt lint/typecheck/49 tests/build/E2E 10/10 và
+   tạo candidate `dpl_3HGC8SM1iNSaYCGofANpgQzeh6B9`, immutable
+   `https://quan-ly-vay-ca-nhan-4exr52w3u-ngotuong2105.vercel.app`, đúng project/Preview/Ready/`sin1`
+   cùng public smoke. Script dừng `awaiting_authenticated_smoke`; stable alias chưa đổi. Chờ OWNER
+   đăng nhập và kiểm tra Audit/console trước cổng xác nhận chuyển alias.
+1. `2026-08-21` — Sau phê duyệt riêng, preflight xác nhận đúng project Singapore và duy nhất migration
+   22 pending; áp `20260820203000_c18_audit_secret_redaction.sql` lên Production. Hậu kiểm history/
+   dry-run 22/22, DB lint, function/trigger/ACL và RPC sanitized đạt; 341 audit trả về không có secret
+   key, ba Push row có fingerprint. Raw lịch sử và raw OWNER access tạm giữ đúng rollout tương thích;
+   dữ liệu hiện có 16 đối tác/25 khoản/223 giao dịch/216 kỳ, migration không DML. Chờ phê duyệt tạo
+   Vercel Preview candidate; chưa deploy/scrub/rotate/Apps Script.
+1. `2026-08-20` — Hoàn tất pha tương thích K06 local: migration 22 sanitize Push audit mới và cung
+   cấp RPC sanitized; UI/export không còn đọc raw audit, export chỉ lấy metadata. Lịch sử raw giữ
+   append-only và raw OWNER access tạm giữ cho web cũ đến khi rollout web xong. Gate đạt lint,
+   typecheck, 49/49 tests, build, Auth 6/6, E2E 10/10, DB lint và pgTAP 379/379. Chờ phê duyệt riêng
+   để áp migration 22 lên Production; chưa scrub/rotate/deploy/Apps Script.
+1. `2026-08-20` — OWNER phê duyệt push C17 và bắt đầu K06. Push fast-forward `main` tới `f7d8421`;
+   local/origin/advertised hash khớp. K06 chuyển `IN_PROGRESS` cho audit/migration/code/test local;
+   chưa migration/deploy/Apps Script remote, scrub lịch sử hoặc rotate Push.
 1. `2026-08-16` — Sau phê duyệt chuyển alias và rollback có điều kiện, pha hai K05 đạt full gate,
    provenance và hậu kiểm. `tindung-preview.vercel.app` trỏ đúng
    `dpl_8CWxKi4kYRmztXcKNTrXqfdoKYjY`; smoke/log sạch, không rollback. K05/C17 `COMPLETED`; C18-K06

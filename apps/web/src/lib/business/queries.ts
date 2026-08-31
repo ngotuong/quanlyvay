@@ -220,20 +220,33 @@ export async function getLoanWorkspace(id: string, section: LoanWorkspaceSection
   };
 }
 
-export async function listAuditLogs() {
+export async function listAuditLogs(page = 1, pageSize = 25) {
   const supabase = await createClient();
-  const [{ data, error }, { data: profiles, error: profilesError }] = await Promise.all([
+  const safePage = Number.isSafeInteger(page) && page > 0 ? page : 1;
+  const safePageSize = Number.isSafeInteger(pageSize) && pageSize > 0 && pageSize <= 100 ? pageSize : 25;
+  const from = (safePage - 1) * safePageSize;
+  const to = from + safePageSize - 1;
+  const [{ data, error, count }, { data: profiles, error: profilesError }] = await Promise.all([
     supabase
-    .from("audit_logs")
-    .select("id, actor_user_id, table_name, record_id, action, changed_at, old_data, new_data")
-    .order("changed_at", { ascending: false })
-    .limit(100),
+      .rpc("get_audit_logs_sanitized", undefined, { count: "exact" })
+      .order("changed_at", { ascending: false })
+      .order("id", { ascending: false })
+      .range(from, to),
     supabase.from("profiles").select("user_id, display_name"),
   ]);
   if (error || profilesError) throw new Error("Không thể tải lịch sử chỉnh sửa.");
   const names = new Map((profiles ?? []).map((profile) => [profile.user_id, profile.display_name]));
-  return (data ?? []).map((log) => ({
+  const sanitizedLogs = Array.isArray(data) ? data as Array<Omit<AuditLog, "profiles"> & { actor_user_id: string | null }> : [];
+  const logs = sanitizedLogs.map((log) => ({
     ...log,
     profiles: log.actor_user_id ? { display_name: names.get(log.actor_user_id) ?? "Người dùng" } : null,
   })) as unknown as AuditLog[];
+  const totalCount = count ?? 0;
+  return {
+    logs,
+    page: safePage,
+    pageSize: safePageSize,
+    totalCount,
+    totalPages: Math.max(1, Math.ceil(totalCount / safePageSize)),
+  };
 }

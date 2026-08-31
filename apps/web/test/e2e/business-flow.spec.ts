@@ -72,6 +72,15 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
 
   await page.getByRole("link", { name: "Nhật ký hệ thống" }).first().click();
   await expect(page.getByRole("heading", { name: "Nhật ký hệ thống" })).toBeVisible();
+  await expect(page.locator(".timeline-item")).toHaveCount(25);
+  await expect(page.getByText(/Trang 1 \/ \d+/)).toBeVisible();
+  await expect(page.getByText(/\d+ bản ghi/)).toBeVisible();
+  await expect(page.getByText("Trang trước", { exact: true })).toHaveAttribute("aria-disabled", "true");
+  await page.getByRole("link", { name: "Trang sau" }).click();
+  await expect(page).toHaveURL(/\/audit\?page=2$/);
+  await expect(page.getByText(/Trang 2 \/ \d+/)).toBeVisible();
+  await page.getByRole("link", { name: "Trang trước" }).click();
+  await expect(page).toHaveURL(/\/audit$/);
   await expect(page.getByText(/Thực hiện bởi C6 Owner E2E/).first()).toBeVisible();
   const loanAudit = page.locator(".timeline-item").filter({ hasText: "Tạo mới · Khoản vay" }).first();
   await expect(loanAudit).toBeVisible();
@@ -470,6 +479,19 @@ test("Google Sync export requires its secret and supports an unchanged cursor", 
     "settlementReversals",
     "transactions",
   ]);
+  expect(payload.tables.auditLogs.length).toBeGreaterThan(0);
+  for (const audit of payload.tables.auditLogs) {
+    expect(Object.keys(audit).sort()).toEqual([
+      "action",
+      "actor_user_id",
+      "changed_at",
+      "id",
+      "record_id",
+      "request_id",
+      "table_name",
+    ]);
+    expect(JSON.stringify(audit)).not.toMatch(/old_data|new_data|p256dh|auth_secret|endpoint/i);
+  }
 
   const unchanged = await request.get(
     `/api/google-sync/export?cursor=${encodeURIComponent(payload.sourceVersion)}`,
