@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.131
-last_updated: 2026-08-31 20:59:49 +07
+roadmap_version: 1.0.133
+last_updated: 2026-09-01 08:28:29 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C19
-current_status: AWAITING_APPROVAL
+current_status: COMPLETED
 ---
 
 # Project Context
@@ -37,7 +37,7 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
 - `apps/web` dùng Next.js 16.2.12, React 19.2.4, TypeScript 5.9.3, Tailwind CSS 4.3.3 và ESLint 9.39.5.
 - `packages/domain-contract` chứa type contract và test fixture độc lập với production engine.
 - `docs/DOMAIN_SPEC.md` là đặc tả nghiệp vụ v1 đã khóa cho C3–C4.
-- Supabase local đã được khởi tạo với PostgreSQL 17, 23 migration, RLS và 384 pgTAP assertions.
+- Supabase local đã được khởi tạo với PostgreSQL 17, 24 migration, RLS và 385 pgTAP assertions.
 - Bộ máy tài chính authoritative nằm trong PostgreSQL, có RPC tính/rebuild, ghi thanh toán, lifecycle, reversal và tất toán nguyên tử.
 - `docs/FINANCIAL_ENGINE.md` mô tả contract C4; engine đã được giữ nguyên qua regression C5.
 - Local Auth dùng username/password ánh xạ sang email nội bộ, session SSR, bắt đổi mật khẩu và vai trò `OWNER`/`EDITOR`/`VIEWER`; public signup bị tắt.
@@ -59,7 +59,7 @@ Repository đã có lớp quản trị dự án và nền tảng web local:
   `Asia/Ho_Chi_Minh`; có hàm bảo trì refresh contract và full sync để sửa header/ngày cũ an toàn.
 - `docs/GOOGLE_SYNC.md` mô tả contract Sheet, Script Properties và ranh giới cấu hình remote C11–C12.
 - Supabase Production project Singapore `hmfxnstrqfqpvsgfmjmd`, thuộc tài khoản
-  `tuongnt2105@gmail.com`, đã áp 23/23 migration gồm Dashboard/analytics quản trị, notification theo
+  `tuongnt2105@gmail.com`, đã áp 24/24 migration gồm Dashboard/analytics quản trị, notification theo
   giờ, tài khoản quản lý không giới hạn và thu hồi raw audit khỏi `authenticated`; không seed và public
   signup đã tắt.
   CLI đã đăng nhập
@@ -83,11 +83,30 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Trường | Giá trị |
 |---|---|
 | Checkpoint | C19 — Xử lý secret lịch sử và vòng đời Push (tùy chọn) |
-| Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi chờ duyệt | Chọn có scrub raw audit/snapshot cũ và rotate Push subscription hay tiếp tục giữ append-only với raw access chỉ dành cho service role |
-| Giới hạn | Chưa scrub/rotate hoặc đổi dữ liệu/thiết bị. Chính sách mật khẩu 6 ký tự giữ nguyên |
+| Trạng thái | `COMPLETED` ngày `2026-09-01` |
+| Phạm vi đã duyệt | Scrub raw audit/snapshot cũ, vô hiệu hóa Push subscription cũ, rotate VAPID, tạo backup sạch và kiểm chứng không mất lịch sử nghiệp vụ |
+| Giới hạn | Không xóa hoặc sửa giao dịch tài chính; thiết bị phải đăng ký Push lại sau rollout. Chính sách mật khẩu 6 ký tự giữ nguyên |
 
 ## 4. Checkpoint hoàn tất gần nhất
+
+### C19 — Xử lý secret lịch sử và vòng đời Push
+
+- Trạng thái: `COMPLETED` ngày `2026-09-01`.
+- Migration 24 scrub toàn bộ raw Push secret lịch sử, thêm trigger phòng vệ cho insert trực tiếp và
+  vô hiệu hóa subscription/delivery cũ. Production còn 0 raw secret, 0 subscription, 0 delivery;
+  489 audit và audit delete đã sanitize vẫn được giữ.
+- VAPID đã xoay và lưu trong Keychain/Vercel Preview + Production. Thiết bị cũ phải bấm **Bật thông
+  báo** lại; đây là hành vi bắt buộc sau rotate, không phải lỗi dữ liệu.
+- Backup sạch mã hóa `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260831T160647Z-c19-clean` đạt GCM/SHA/SQL
+  gate và restore rehearsal cô lập. Dữ liệu phục hồi khớp 31 khoản vay, 338 giao dịch, 16 đối tác,
+  526 kỳ lãi, 15 lifecycle, 9 correction và không vi phạm invariant/RLS.
+- Google Sheet full sync có 489 audit, không chứa ba Push secret; snapshot sạch
+  `QLV_Snapshot_2026-08-31-C19-clean` và ba tệp backup sạch là bốn mục duy nhất còn lại trong thư
+  mục Drive backup. Bản cũ local/DriveFS được chuyển vào Thùng rác; bản cũ trên Drive cloud đã xóa.
+- Preview `dpl_2q4dg4wWqW7YQoLaQv9m6Wvc329u` và Production
+  `dpl_4o6JerspEoJUbgu3qXr27twuZZSd` đều Ready tại `sin1`; public/authenticated smoke, alias và
+  runtime log đạt. Gate cuối đạt lint, typecheck, 54/54 tests, build, Auth 6/6, E2E 10/10, DB lint
+  và pgTAP 385/385.
 
 ### C18 — Redact secret trong audit và export
 
@@ -200,10 +219,10 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 
 ## 5. Checkpoint tiếp theo
 
-| Checkpoint | C19 — Xử lý secret lịch sử và vòng đời Push (tùy chọn) |
+| Checkpoint | Chưa có — chờ yêu cầu mới của người dùng |
 |---|---|
-| Trạng thái | `AWAITING_APPROVAL` |
-| Phạm vi | Chọn rõ có scrub raw audit/snapshot cũ và rotate Push subscription hay tiếp tục giữ append-only với raw access chỉ dành cho service role; chưa triển khai |
+| Trạng thái | Không có checkpoint chờ duyệt |
+| Phạm vi | Không tự mở rộng công việc sau C19 |
 
 ## 6. Quyết định nghiệp vụ đang có hiệu lực
 
@@ -230,19 +249,23 @@ docs                 Kế hoạch và tài liệu kỹ thuật
 | Dịch vụ | Trạng thái |
 |---|---|
 | Git remote | `https://github.com/ngotuong/quanlyvay.git` — private, `main` theo dõi `origin/main` |
-| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production khớp 23/23 migration. Migration 22 sanitize audit mới/RPC; migration 23 thu hồi raw SELECT và sequence USAGE khỏi `authenticated`, gỡ policy tương thích, giữ `service_role` vận hành. Hậu kiểm ngày 31/08/2026: DB lint sạch, RPC sanitized 486 dòng, REST service-role 200. Database credential đã reset và lưu Keychain; migration chỉ có DDL/ACL, không DML. `pg_cron`, `pg_net`, `supabase_vault` đã bật; job `qlv-notification-runner-hourly` ID 1 active lịch `0 * * * *`. Tài khoản EDITOR smoke cũ đã vô hiệu hóa và ban Auth; policy database không cho xóa vật lý profile |
-| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production K06 `dpl_HGUNgAyiB9t6kKBd3ALqAxWoxYbm`, immutable `https://quan-ly-vay-ca-nhan-4ag7ue1kf-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`; target Production/Ready, Functions `sin1`, smoke 200/200/401/401 và runtime error log trống. Stable Preview `dpl_8VUZ82qr151T33a3vtzKakBEDqf7`, immutable `https://quan-ly-vay-ca-nhan-5xtqb61d9-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Preview/Ready/`sin1`, public và authenticated smoke đạt. Production `CRON_SECRET` lưu Keychain/Vault; gọi có secret trả 200 |
+| Supabase | Profile `quanlyvay`; project `hmfxnstrqfqpvsgfmjmd` (`quan-ly-vay-ca-nhan`) tại Singapore; Production khớp 24/24 migration. Migration 24 scrub raw Push secret, thêm trigger sanitize insert trực tiếp và xóa subscription/delivery cũ. Hậu kiểm ngày 01/09/2026: DB lint sạch, 489 audit, 0 raw secret audit, 0 subscription/delivery, trigger active; 31 khoản vay, 338 giao dịch, 16 đối tác và 526 kỳ lãi không đổi. Database credential đã reset và lưu Keychain. `pg_cron`, `pg_net`, `supabase_vault` đã bật; job `qlv-notification-runner-hourly` ID 1 active lịch `0 * * * *`. Tài khoản EDITOR smoke cũ đã vô hiệu hóa và ban Auth; policy database không cho xóa vật lý profile |
+| Vercel | Project `quan-ly-vay-ca-nhan` ID `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Production C19 `dpl_4o6JerspEoJUbgu3qXr27twuZZSd`, immutable `https://quan-ly-vay-ca-nhan-kdq1gu7kh-ngotuong2105.vercel.app`, alias `https://tindung.vercel.app`; target Production/Ready, Functions `sin1`, smoke 200/200/401/401, authenticated smoke và runtime error log sạch. Stable Preview C19 `dpl_2q4dg4wWqW7YQoLaQv9m6Wvc329u`, immutable `https://quan-ly-vay-ca-nhan-7syj4kwwp-ngotuong2105.vercel.app`, alias `https://tindung-preview.vercel.app`; Preview/Ready/`sin1`, public/authenticated smoke đạt. Preview và Production dùng cặp VAPID mới lưu trong Keychain/Vercel; Production `CRON_SECRET` giữ nguyên |
 | Google Apps Script / `clasp` | `QuanLyVayCaNhanSync`, script ID `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; schema v3 và audit follow-up đã push đủ 4 file bằng named user `quanlyvay-google` lúc 16:52 ngày 10/08/2026; hai trigger giữ nguyên, chưa chạy full sync thủ công |
-| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; workbook schema v3 có 11 tab dữ liệu cộng `Tổng quan`; full sync K06 đạt 482 audit và không có ba tên Push secret. Backup trước migration mới nhất `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260823T114933Z` gồm schema/data ciphertext + manifest tại `/Users/ngotuong/Backups/QuanLyVayCaNhan` và DriveFS `QuanLyVayCaNhan_Backups`; GCM/SHA và bản sao Drive khớp, không lưu plaintext. Restore rehearsal gần nhất vẫn là backup K01 `...20260812T165654Z` |
+| Google Sheets / Drive | Bound Sheet ID `1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8`; full sync C19 đạt 489 audit và không có `endpoint`/`p256dh`/`auth_secret`. Snapshot sạch `QLV_Snapshot_2026-08-31-C19-clean` ID `1Hebj6010rovOPIWKr2a8JieSnajYg7a8PzqiOL0Ec2g`. Backup sạch `qlv-prod-hmfxnstrqfqpvsgfmjmd-20260831T160647Z-c19-clean` gồm schema/data ciphertext + manifest tại local và Drive folder `1loMcJEzDvy5r38K2nz7nCqQHg9KFfz_P`; GCM/SHA/SQL gate và restore rehearsal đạt. Thư mục Drive còn đúng snapshot sạch và ba tệp backup sạch; bản cũ cloud đã xóa, bản cũ local/DriveFS ở Thùng rác |
 
 Repository chỉ lưu metadata remote cần cho handoff như project ref/URL; không lưu secret.
 
 ## 8. Blocker và cổng xác nhận
 
-- Không còn blocker cho K06. C18 đã hoàn tất ngày `2026-08-31`; checkpoint tùy chọn C19 đang
-  `AWAITING_APPROVAL`. Raw audit lịch sử vẫn append-only nhưng không còn được `authenticated` đọc;
-  scrub snapshot/raw history hoặc rotate Push chỉ được thực hiện nếu OWNER duyệt C19 và chọn rõ
-  phạm vi.
+- Không còn blocker triển khai. C0–C19 đều `COMPLETED`; chưa có checkpoint tiếp theo.
+- Sau rotate VAPID C19, mỗi thiết bị muốn nhận Web Push phải đăng nhập và bấm **Bật thông báo** lại.
+  Đây là bước đăng ký thiết bị có chủ ý, không ảnh hưởng dữ liệu hay việc dùng các chức năng khác.
+
+### Nhật ký cổng đã đóng (chỉ để truy vết)
+
+Các mục dưới đây là bằng chứng lịch sử của checkpoint đã hoàn tất, không còn là blocker hoặc yêu
+cầu phê duyệt hiện hành.
 
 - Sau phê duyệt Preview ngày `2026-08-23`, `pnpm deploy:preview` từ repository root đạt lại lint,
   typecheck, 51/51 tests, build và E2E 10/10; tạo candidate remediation export
@@ -793,6 +816,17 @@ git remote -v
 
 ## 10. Thay đổi gần nhất
 
+1. `2026-09-01` — Hoàn tất C19. Áp migration 24 lên Production để scrub raw Push secret, bắt buộc
+   sanitize insert audit trực tiếp và vô hiệu hóa subscription/delivery cũ; hậu kiểm 24/24, DB lint
+   sạch, 489 audit, 0 raw secret, 0 subscription/delivery và dữ liệu nghiệp vụ giữ nguyên. Rotate
+   VAPID Preview/Production; deploy stable Preview `dpl_2q4dg4wWqW7YQoLaQv9m6Wvc329u` và
+   Production `dpl_4o6JerspEoJUbgu3qXr27twuZZSd`, đều Ready/`sin1`, smoke/console/log đạt. Backup
+   sạch `...20260831T160647Z-c19-clean` qua GCM/SHA/SQL gate và restore rehearsal; full sync Sheet
+   489 audit, snapshot sạch và dọn backup/snapshot cũ. Gate đạt lint/typecheck/54 tests/build, Auth
+   6/6, E2E 10/10, DB lint và pgTAP 385/385. C0–C19 hoàn tất; chưa có checkpoint chờ duyệt.
+1. `2026-08-31` — Người dùng duyệt toàn bộ C19 và yêu cầu khắc phục mọi rủi ro còn lại. C19 chuyển
+   `IN_PROGRESS`; phạm vi gồm scrub raw audit/snapshot cũ, vô hiệu hóa subscription/VAPID cũ, tạo
+   backup sạch và hậu kiểm không mất lịch sử nghiệp vụ.
 1. `2026-08-31` — OWNER reset database credential sau sự cố credential xuất hiện trong output chẩn
    đoán; credential mới được xác minh, lưu Keychain và mục staging đã xóa. Áp migration
    `20260823184500_c18_revoke_raw_audit_access.sql` lên Production; history 23/23, dry-run up-to-date,

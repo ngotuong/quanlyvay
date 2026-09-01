@@ -1,9 +1,10 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(20);
+select plan(21);
 
 select has_function('private', 'sanitize_audit_payload', array['text', 'jsonb'], 'audit sanitizer exists');
+select has_trigger('public', 'audit_logs', 'audit_logs_sanitize_before_insert', 'audit table has a defense-in-depth sanitizer');
 select has_function('public', 'get_audit_logs_sanitized', array[]::text[], 'sanitized audit RPC exists');
 select is(
   has_table_privilege('authenticated', 'public.audit_logs', 'SELECT'),
@@ -105,8 +106,8 @@ select is(
 );
 select is(
   (select new_data ->> 'auth_secret' from public.audit_logs where request_id = 'c18-historical-raw'),
-  'historical-auth-secret',
-  'historical raw audit remains append-only and unchanged'
+  null,
+  'direct audit inserts cannot persist an auth secret after C19'
 );
 
 select set_config('request.jwt.claim.sub', '10000000-0000-0000-0000-000000000062', true);

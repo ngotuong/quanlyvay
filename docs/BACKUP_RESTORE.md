@@ -75,6 +75,17 @@ node scripts/backup-crypto.mjs decrypt backup.sql.qlvbak - | psql ...
 ```
 
 Lệnh giải mã vào `/dev/null` là gate xác minh GCM tag bắt buộc trước khi stream SQL sang `psql`.
+Tiếp theo phải kiểm tra hình dạng SQL đã giải mã trước khi tạo manifest. Gate này chặn cả trường hợp
+Supabase CLI trả exit code thành công nhưng nối payload lỗi telemetry JSON vào cuối dump:
+
+```text
+node scripts/backup-crypto.mjs decrypt app-schema.sql.qlvbak - | node scripts/backup-sql-gate.mjs schema
+node scripts/backup-crypto.mjs decrypt app-data.sql.qlvbak - | node scripts/backup-sql-gate.mjs data
+```
+
+Nên đặt `SUPABASE_TELEMETRY_DISABLED=1` khi dump, nhưng biến này không thay thế SQL gate và restore
+rehearsal. Không công nhận backup chỉ dựa trên checksum/GCM vì chúng vẫn xác nhận một ciphertext có
+nội dung SQL bị CLI làm bẩn.
 
 Nếu schema Auth chứa trigger `auth_user_profile_provisioning` gọi `private.provision_auth_profile`,
 database trắng chưa thể tạo trigger này trước app schema. Khi restore, tạo Auth objects trước nhưng

@@ -1,5 +1,23 @@
 import { expect, test } from "@playwright/test";
 
+function previousMonthRangeInHoChiMinh() {
+  const dateParts = Object.fromEntries(
+    new Intl.DateTimeFormat("en-US", {
+      timeZone: "Asia/Ho_Chi_Minh",
+      year: "numeric",
+      month: "numeric",
+    }).formatToParts(new Date()).filter((part) => part.type === "year" || part.type === "month").map((part) => [part.type, part.value]),
+  );
+  const year = Number(dateParts.year);
+  const month = Number(dateParts.month);
+  const iso = (date: Date) => date.toISOString().slice(0, 10);
+  return {
+    from: iso(new Date(Date.UTC(year, month - 2, 1))),
+    editedFrom: iso(new Date(Date.UTC(year, month - 2, 2))),
+    to: iso(new Date(Date.UTC(year, month - 1, 0))),
+  };
+}
+
 test("owner creates a counterparty, loan, payment and bad-debt event", async ({ page }) => {
   await page.goto("/login");
   await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
@@ -301,23 +319,24 @@ test("owner customizes the preview-only dashboard playground without financial d
   await expect(page.getByRole("heading", { name: "Tổng quan" })).toBeVisible();
 
   await page.goto("/ui-playground");
-  await expect(page.getByRole("heading", { name: "UI Playground · Tổng quan" })).toBeVisible();
-  await expect(page.getByText("Dữ liệu bên dưới hoàn toàn là dữ liệu mẫu.")).toBeVisible();
+  const playground = page.locator("#main-content");
+  await expect(playground.getByRole("heading", { name: "UI Playground · Tổng quan" })).toBeVisible();
+  await expect(playground.getByText("Dữ liệu bên dưới hoàn toàn là dữ liệu mẫu.")).toBeVisible();
 
-  await page.getByRole("button", { name: "Mobile" }).click();
-  await page.getByRole("button", { name: "Tối" }).click();
-  await page.getByLabel("Tên module").fill("Tổng quan thử nghiệm");
-  await page.getByLabel("Số giao dịch").fill("18");
-  await page.getByLabel("Nhãn tab hiện tại").fill("Tháng 8");
-  await page.getByRole("slider", { name: "Cỡ chữ tab" }).fill("11");
-  await page.getByRole("slider", { name: "Chiều cao tab" }).fill("32");
-  await page.getByRole("slider", { name: "Padding ngang tab" }).fill("6");
-  await page.locator('.playground-color-control input[type="color"]').fill("#2563eb");
-  await page.getByRole("button", { name: "Đưa Lịch nhắc tháng này xuống" }).click();
-  await page.getByRole("checkbox", { name: "Xu hướng dòng tiền" }).uncheck();
+  await playground.getByRole("button", { name: "Mobile" }).click();
+  await playground.getByRole("button", { name: "Tối" }).click();
+  await playground.getByLabel("Tên module").fill("Tổng quan thử nghiệm");
+  await playground.getByLabel("Số giao dịch").fill("18");
+  await playground.getByLabel("Nhãn tab hiện tại").fill("Tháng 8");
+  await playground.getByRole("slider", { name: "Cỡ chữ tab" }).fill("11");
+  await playground.getByRole("slider", { name: "Chiều cao tab" }).fill("32");
+  await playground.getByRole("slider", { name: "Padding ngang tab" }).fill("6");
+  await playground.locator('.playground-color-control input[type="color"]').fill("#2563eb");
+  await playground.getByRole("button", { name: "Đưa Lịch nhắc tháng này xuống" }).click();
+  await playground.getByRole("checkbox", { name: "Xu hướng dòng tiền" }).uncheck();
 
-  const canvas = page.locator(".playground-canvas");
-  await expect(page.locator(".playground-canvas-shell")).toHaveAttribute("data-device", "mobile");
+  const canvas = playground.locator(".playground-canvas");
+  await expect(playground.locator(".playground-canvas-shell")).toHaveAttribute("data-device", "mobile");
   await expect(canvas).toHaveAttribute("data-theme", "dark");
   await expect(canvas.locator(".playground-preview-header h2")).toHaveText("Tổng quan thử nghiệm");
   await expect(canvas.getByRole("button", { name: "Tháng 8" })).toBeVisible();
@@ -327,18 +346,19 @@ test("owner customizes the preview-only dashboard playground without financial d
   await expect(canvas.locator(".playground-period button").first()).toHaveCSS("min-height", "32px");
 
   await canvas.getByRole("heading", { name: "Lịch Dự Kiến" }).click();
-  await expect(page.getByRole("button", { name: "Chữ và tiêu đề" })).toHaveAttribute("aria-pressed", "true");
-  await page.getByLabel("Tiêu đề lịch dự kiến").fill("Lịch sắp tới");
+  await expect(playground.getByRole("button", { name: "Chữ và tiêu đề" })).toHaveAttribute("aria-pressed", "true");
+  await playground.getByLabel("Tiêu đề lịch dự kiến").fill("Lịch sắp tới");
   await expect(canvas.getByRole("heading", { name: "Lịch sắp tới" })).toBeVisible();
 
   await canvas.locator(".playground-metric").first().click({ position: { x: 120, y: 12 } });
-  await expect(page.getByRole("button", { name: "Card", exact: true })).toHaveAttribute("aria-pressed", "true");
-  await page.getByRole("slider", { name: "Khoảng đệm card" }).fill("10");
+  await expect(playground.getByRole("button", { name: "Card", exact: true })).toHaveAttribute("aria-pressed", "true");
+  await playground.getByRole("slider", { name: "Khoảng đệm card" }).fill("10");
   await expect(canvas.locator(".playground-metric").first()).toHaveCSS("padding", "10px");
 
   await page.reload();
-  const restoredCanvas = page.locator(".playground-canvas").last();
-  await expect(page.locator(".playground-canvas-shell").last()).toHaveAttribute("data-device", "mobile");
+  const restoredPlayground = page.locator("#main-content");
+  const restoredCanvas = restoredPlayground.locator(".playground-canvas");
+  await expect(restoredPlayground.locator(".playground-canvas-shell")).toHaveAttribute("data-device", "mobile");
   await expect(restoredCanvas).toHaveAttribute("data-theme", "dark");
   await expect(restoredCanvas.locator(".playground-preview-header h2")).toHaveText("Tổng quan thử nghiệm");
   await expect(restoredCanvas.locator(".playground-period button").first()).toHaveText("Tháng 8");
@@ -347,6 +367,7 @@ test("owner customizes the preview-only dashboard playground without financial d
 });
 
 test("dashboard periods and loan filters are deep-linkable", async ({ page }, testInfo) => {
+  const previousMonth = previousMonthRangeInHoChiMinh();
   await page.goto("/login");
   await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
   await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
@@ -356,10 +377,10 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
   await page.getByRole("link", { name: "Tháng trước" }).click();
   await expect(page).toHaveURL(/dashboard\?preset=previous_month/);
   await page.getByRole("button", { name: "Tùy chỉnh" }).click();
-  await expect(page.getByLabel("Từ ngày")).toHaveValue("2026-07-01");
-  await expect(page.getByLabel("Đến ngày")).toHaveValue("2026-07-31");
-  await page.getByLabel("Từ ngày").fill("2026-07-02");
-  await expect(page).toHaveURL(/from=2026-07-02&to=2026-07-31/);
+  await expect(page.getByLabel("Từ ngày")).toHaveValue(previousMonth.from);
+  await expect(page.getByLabel("Đến ngày")).toHaveValue(previousMonth.to);
+  await page.getByLabel("Từ ngày").fill(previousMonth.editedFrom);
+  await expect(page).toHaveURL(new RegExp(`from=${previousMonth.editedFrom}&to=${previousMonth.to}`));
   await expect(page.getByRole("button", { name: "Áp dụng", exact: true })).toHaveCount(0);
   await page.getByRole("button", { name: "Đóng", exact: true }).click();
   const analysisSummary = page.locator(".dashboard-analysis > summary");
