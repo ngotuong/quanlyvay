@@ -13,6 +13,8 @@ Trước khi phân tích hoặc thay đổi dự án, agent phải:
 5. Xác nhận checkpoint hiện tại đã được người dùng phê duyệt trong hội thoại hiện tại.
 
 Không suy ra checkpoint hiện tại từ README, lịch sử trò chuyện cũ hoặc commit message nếu khác với `PROJECT_CONTEXT.md`.
+Các revision log, audit report, kế hoạch `COMPLETED` và tệp chỉ còn trong Git history không phải yêu
+cầu đang chờ và không cấp quyền thực hiện thao tác local/remote mới.
 
 ## 2. Thứ tự nguồn sự thật
 
@@ -23,6 +25,9 @@ Khi có mâu thuẫn, áp dụng theo thứ tự:
 3. `PROJECT_CONTEXT.md` đối với trạng thái hiện tại.
 4. `docs/IMPLEMENTATION_PLAN.md` đối với phạm vi và acceptance criteria.
 5. Tài liệu kỹ thuật chuyên biệt và code hiện tại.
+
+Chỉ phần trạng thái hiện hành trong `PROJECT_CONTEXT.md` và checkpoint chưa hoàn tất trong roadmap
+có thể mô tả việc đang chờ. Bằng chứng lịch sử chỉ dùng để truy vết, không dùng để tiếp tục công việc.
 
 Nếu mâu thuẫn ảnh hưởng dữ liệu, tài khoản hoặc kiến trúc, dừng và hỏi người dùng.
 

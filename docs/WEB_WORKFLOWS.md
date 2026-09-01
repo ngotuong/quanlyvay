@@ -23,7 +23,8 @@
   nguyên trước RPC. Form tạo khoản không chọn sẵn hướng; `Cho vay`/`Đi vay` là lựa chọn bắt buộc.
 - Chi phí không gắn khoản vay được nhập, xem và đảo tại `/expenses`.
 - Giao dịch tài chính chỉ được sửa sai bằng thao tác đảo; giao dịch gốc vẫn còn trong timeline.
-- OWNER xem 100 audit log gần nhất tại `/audit`; EDITOR và VIEWER không truy cập được.
+- OWNER xem audit log sanitized tại `/audit`, phân trang 25 dòng qua URL; EDITOR và VIEWER không
+  truy cập được. UI không đọc raw `endpoint`, `p256dh` hoặc `auth_secret`.
 - OWNER quản lý các tài khoản EDITOR/VIEWER và mật khẩu tạm tại `/settings`.
 - VIEWER xem được toàn bộ nghiệp vụ nhưng không thấy các biểu mẫu thay đổi dữ liệu.
 

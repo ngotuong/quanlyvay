@@ -21,11 +21,13 @@ Webapp/PWA quản lý các khoản đi vay và cho vay cá nhân, sử dụng Ne
   Web Push delivery thật đều đã được kiểm thử.
 - C14 — Hiệu năng và độ mượt UX: hoàn tất.
 - C15 — Sửa dữ liệu khoản vay và trình bày lãi theo kỳ: hoàn tất.
-- C16 — Remediation audit và kiểm thử dữ liệu thực tế đầu tiên: đang thực hiện; các vòng trước đã
-  rollout Production, hiện tiếp tục hardening local và đối chiếu dữ liệu thật.
+- C16–C19 — Remediation, CI/provenance, bảo vệ audit secret và cleanup vòng đời Push: hoàn tất.
+- Chưa có checkpoint mới hoặc hạng mục chờ phê duyệt.
 - GitHub private, Supabase Singapore, Google/Clasp và Vercel Production đã liên kết; Production chạy tại `https://tindung.vercel.app`.
 
-Trạng thái hiện tại luôn được lấy từ `PROJECT_CONTEXT.md`; roadmap nằm trong `docs/IMPLEMENTATION_PLAN.md`.
+Trạng thái hiện tại luôn được lấy từ `PROJECT_CONTEXT.md`; roadmap tóm tắt nằm trong
+`docs/IMPLEMENTATION_PLAN.md`. Kế hoạch đã hoàn tất và Git history chỉ dùng để truy vết, không phải
+yêu cầu đang chờ.
 
 ## Kiến trúc đích
 

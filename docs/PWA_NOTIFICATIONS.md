@@ -1,5 +1,8 @@
 # PWA và thông báo C8
 
+Audit của Web Push chỉ lưu fingerprint/ngữ cảnh đã sanitize; không lưu raw `endpoint`, `p256dh` hoặc
+`auth_secret`. Sau khi rotate VAPID, subscription cũ phải bị vô hiệu hóa và từng thiết bị đăng ký lại.
+
 ## Phạm vi
 
 - Manifest và service worker giúp cài ứng dụng ở chế độ `standalone`.
