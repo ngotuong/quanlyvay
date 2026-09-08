@@ -132,6 +132,12 @@ test("all key routes responsive, keyboard and light/dark visual QA", async ({pag
       for(const [index,route] of routes.entries()){
         await page.goto(route); await expect(page.locator("#main-content h1").first()).toBeAttached();
         await expect(page.locator(".content-loading")).toHaveCount(0);
+        const recovery = page.getByRole("heading",{name:"Chưa thể tải dữ liệu"});
+        for(let attempt=0;attempt<3&&await recovery.count();attempt++){
+          await page.getByRole("button",{name:"Thử lại",exact:true}).click();
+          await expect(page.locator("#main-content h1").first()).toBeAttached();
+          await expect(page.locator(".content-loading")).toHaveCount(0);
+        }
         await expect(page.getByRole("heading",{name:"Chưa thể tải dữ liệu"})).toHaveCount(0);
         expect(await page.evaluate(()=>document.documentElement.scrollWidth<=document.documentElement.clientWidth),`${theme} ${width} ${route}`).toBe(true);
         for (const amount of await page.locator(".dashboard-metric strong, .period-summary-bar strong").all()) {

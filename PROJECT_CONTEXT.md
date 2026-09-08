@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.136
-last_updated: 2026-09-08 09:17:34 +07
+roadmap_version: 1.0.139
+last_updated: 2026-09-08 14:40:58 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C20
+current_checkpoint: NONE
 current_status: COMPLETED
-last_completed_checkpoint: C20
+last_completed_checkpoint: C21
 next_checkpoint: NONE
 ---
 
@@ -16,7 +16,8 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
-- C0–C20 đều `COMPLETED`; chưa có checkpoint kế tiếp.
+- C0–C21 đều `COMPLETED`; không có checkpoint đang chờ phê duyệt.
+- C21 hoàn tất sau khi người dùng ủy quyền tự tạo tài khoản/giao dịch test và QA mobile tự động.
 - C20: khắc phục audit, bỏ VietQR/tạo phiếu và nâng cấp UI/UX; phạm vi và acceptance criteria
   tại `docs/IMPLEMENTATION_PLAN.md` và `docs/C20_REMEDIATION_PLAN.md`.
 - Người dùng đã phê duyệt triển khai C20 trong hội thoại ngày 2026-09-07.
@@ -93,6 +94,20 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C21 local đã đạt: list RPC chỉ tính lãi cho page đã chọn; benchmark 1.000 khoản + 13.000 giao dịch
+  có median 102,456 ms, worst 104,726 ms, payload 24.060 bytes/25 cards. DB lint sạch, pgTAP
+  431/431 (28 migration local), lint/typecheck, 70 unit/script, build, Auth 6/6 và E2E 21/21 đạt.
+- C21 thêm phản hồi điều hướng khoản vay sau ngưỡng 300 ms, có `aria-live`, safe-area và
+  reduced-motion; test chậm 500 ms xác nhận trạng thái chờ xuất hiện.
+- Stable Preview C21 `dpl_C75aW28nYqMhM8x4owLtJFtAUEyw`, immutable
+  `https://quan-ly-vay-ca-nhan-8kd5p2f6z-ngotuong2105.vercel.app`, Preview/Ready/Functions `sin1`.
+  Public/authenticated smoke trên immutable URL và stable alias đạt; console sạch, error log bằng 0.
+- QA remote dùng tài khoản EDITOR tạm và dữ liệu `C21 TEST ONLY`; payment đã đảo, audit history được
+  giữ, tài khoản đã deactivate/ban và đăng nhập lại bị từ chối. Hai profile mobile đạt 11 route,
+  touch target 44px, zoom 200%, dark/light, landscape, offline và PWA; stable list→detail 871/837 ms.
+- Preview Supabase vẫn có 24 migration vì remote migration ngoài phạm vi. Web fallback có giới hạn
+  khi RPC mới trả `PGRST202`; tính tiền/sắp xếp vẫn authoritative trong DB, VND dùng bigint.
+- Bằng chứng chi tiết: `docs/C21_VALIDATION.md`.
 - C20 đã hoàn tất local: gỡ VietQR/phiếu; thêm privacy SSR, account mobile, form recovery,
   preview tất toán có xác nhận, phân trang/aggregate, snapshot export nhất quán và Push worker hữu hạn.
 - Test riêng: `QuanLyVayCaNhan-C20-test`, config `.cache/c20-test`, API `127.0.0.1:55321`.
@@ -128,10 +143,11 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- C20 đã nghiệm thu local và hoàn tất. Không còn blocker local trong checkpoint.
-- Remote migration/deploy/Apps Script rollout chưa thực hiện vì ngoài phạm vi C20; cần checkpoint
-  hoặc phê duyệt riêng nếu người dùng muốn đưa thay đổi lên Preview/Production.
-- Chưa có checkpoint sau C20; rollout remote không thuộc phạm vi local này.
+- Không còn blocker cho C21. Không có kiểm chứng phần cứng thật; theo ủy quyền mới của người dùng,
+  checkpoint dùng Chromium mobile profiles và ghi rõ không thay thế Safari WebKit/phần cứng thật.
+- Supabase CLI profile toàn cục hiện lỗi `Unsupported Config Type`; DB lint đã sạch trước lỗi này và
+  pgTAP cuối được chạy trực tiếp trong container local sau khi áp đủ migration, không có `not ok`.
+- C21 không cho phép Production rollout, Apps Script push hoặc git push.
 - Việc đăng ký lại Web Push là thao tác theo từng thiết bị, không chặn chức năng khác.
 
 ## 8. Lệnh kiểm tra chuẩn

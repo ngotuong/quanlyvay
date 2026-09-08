@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeftRight, CircleAlert, HandCoins, Landmark, Plus, X } from "lucide-react";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { LoanFilters } from "@/components/business/loan-filters";
+import { LoanCardLink } from "@/components/business/loan-card-link";
 import { isValidBusinessDate } from "@/lib/business/dashboard-period";
 import { formatDate, formatPercent, formatVnd, periodRateInput } from "@/lib/business/format";
 import { listLoans } from "@/lib/business/queries";
@@ -91,7 +92,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
             const periodRate = formatPercent(periodRateInput(loan.initial_daily_rate_percent, loan.interest_cycle_days));
 
             return (
-              <Link className="loan-card" data-direction={loan.direction} href={`/loans/${loan.id}?returnTo=${encodeURIComponent(returnTo)}`} key={loan.id}>
+              <LoanCardLink direction={loan.direction} href={`/loans/${loan.id}?returnTo=${encodeURIComponent(returnTo)}`} key={loan.id}>
                 <div className="loan-card-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins /> : <Landmark />}</div>
                 <div className="loan-card-main">
                   <div className="loan-card-heading">
@@ -115,7 +116,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
                   </div>
                   <div><dt>{loan.direction === "LENDING" ? "Lãi đã thu" : "Lãi đã trả"}</dt><dd><span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.interestRecordedVnd)} /></span></dd></div>
                 </dl>
-              </Link>
+              </LoanCardLink>
             );
           })}
         </section>

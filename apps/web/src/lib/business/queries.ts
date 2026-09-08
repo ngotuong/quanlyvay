@@ -1,6 +1,8 @@
 import "server-only";
 
 import { fetchAllRows } from "@/lib/export/pagination.mjs";
+import { buildLegacyGeneralExpensesPage } from "./expense-list-pagination.mjs";
+import { paginateLegacyLoanSummaries } from "./loan-list-pagination.mjs";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import type { AppProfile } from "@/lib/auth/types";
@@ -35,8 +37,24 @@ export async function listManagedProfiles() {
 
 export async function listGeneralExpenses(page = 1) {
   const supabase = await createClient();
-  const { data, error } = await supabase.rpc("get_general_expenses_page", { p_page: page, p_size: 25 });
-  if (error || !data) throw new Error("Không thể tải chi phí.");
+  const pageResult = await supabase.rpc("get_general_expenses_page", { p_page: page, p_size: 25 });
+  let data: unknown = pageResult.data;
+  if (pageResult.error?.code === "PGRST202") {
+    console.warn("expense.list_page_rpc_missing", { fallback: "rls_protected_rows" });
+    const legacyResult = await fetchAllRows((from, to) => supabase
+      .from("transactions")
+      .select("id, type, transaction_date, amount_vnd::text, note, reversal_of_id, created_at, expenses(category)")
+      .is("loan_id", null)
+      .in("type", ["EXPENSE", "REVERSAL"])
+      .order("transaction_date", { ascending: false })
+      .order("created_at", { ascending: false })
+      .order("id", { ascending: false })
+      .range(from, to));
+    if (legacyResult.error) throw new Error("Không thể tải chi phí.");
+    data = buildLegacyGeneralExpensesPage(legacyResult.data ?? [], page, 25);
+  } else if (pageResult.error || !data) {
+    throw new Error("Không thể tải chi phí.");
+  }
   return data as { items: Array<GeneralExpense & { reversed: boolean }>; totalCount: number; totalVnd: string; categories: Array<{ category: string; amountVnd: string }> };
 }
 
@@ -123,7 +141,7 @@ export type LoanListCounts = { all: number; lending: number; borrowing: number; 
 export async function listLoans(filters: LoanListFilters = {}, page = 1) {
   const supabase = await createClient();
   const asOfDate = todayInVietnam();
-  const { data, error } = await supabase.rpc("list_loan_summaries_page", {
+  const args = {
     p_as_of_date: asOfDate,
     p_query: filters.query?.trim() || null,
     p_direction: filters.direction ?? null,
@@ -133,9 +151,28 @@ export async function listLoans(filters: LoanListFilters = {}, page = 1) {
     p_sort: filters.sort ?? "newest",
     p_page: page,
     p_size: 25,
-  });
-  if (error || !data) throw new Error("Không thể tải danh sách khoản vay.");
-  return data as unknown as {
+  };
+  const pageResult = await supabase.rpc("list_loan_summaries_page", args);
+  let data: unknown = pageResult.data;
+
+  if (pageResult.error?.code === "PGRST202") {
+    console.warn("loan.list_page_rpc_missing", { fallback: "list_loan_summaries" });
+    const legacyResult = await supabase.rpc("list_loan_summaries", {
+      p_as_of_date: args.p_as_of_date,
+      p_query: args.p_query,
+      p_direction: args.p_direction,
+      p_status: args.p_status,
+      p_disbursed_from: args.p_disbursed_from,
+      p_disbursed_to: args.p_disbursed_to,
+      p_sort: args.p_sort,
+    });
+    if (legacyResult.error || !legacyResult.data) throw new Error("Không thể tải danh sách khoản vay.");
+    data = paginateLegacyLoanSummaries(legacyResult.data, page, args.p_size);
+  } else if (pageResult.error || !data) {
+    throw new Error("Không thể tải danh sách khoản vay.");
+  }
+
+  return data as {
     items: Array<Loan & { calculation: CalculationSnapshot; schedule: LoanScheduleSummary; interestRecordedVnd: string }>;
     counts: LoanListCounts;
     totalCount: number;
