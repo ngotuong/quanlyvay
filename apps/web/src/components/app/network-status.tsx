@@ -1,0 +1,10 @@
+"use client";
+import { useSyncExternalStore } from "react";
+function subscribe(notify: () => void) {
+  window.addEventListener("online", notify); window.addEventListener("offline", notify);
+  return () => { window.removeEventListener("online", notify); window.removeEventListener("offline", notify); };
+}
+export function NetworkStatus() {
+  const online = useSyncExternalStore(subscribe, () => navigator.onLine, () => true);
+  return online ? null : <p role="alert" className="network-notice">Đang mất kết nối. Dữ liệu có thể chưa cập nhật; hãy giữ trang mở và thử lại khi có mạng.</p>;
+}

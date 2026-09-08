@@ -1,10 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.134
-last_updated: 2026-09-01 17:59:09 +07
+roadmap_version: 1.0.136
+last_updated: 2026-09-08 09:17:34 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C19
+current_checkpoint: C20
 current_status: COMPLETED
+last_completed_checkpoint: C20
 next_checkpoint: NONE
 ---
 
@@ -15,8 +16,11 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
-- C0–C19 đều `COMPLETED`; chưa có checkpoint tiếp theo.
-- Không tự triển khai thêm cho đến khi người dùng giao việc hoặc phê duyệt checkpoint mới.
+- C0–C20 đều `COMPLETED`; chưa có checkpoint kế tiếp.
+- C20: khắc phục audit, bỏ VietQR/tạo phiếu và nâng cấp UI/UX; phạm vi và acceptance criteria
+  tại `docs/IMPLEMENTATION_PLAN.md` và `docs/C20_REMEDIATION_PLAN.md`.
+- Người dùng đã phê duyệt triển khai C20 trong hội thoại ngày 2026-09-07.
+- C20 đã nghiệm thu local với dữ liệu giả; remote rollout cần phạm vi/phê duyệt riêng.
 - Worktree chuẩn ở branch `main`; dùng `git status --short --branch` để kiểm tra commit chưa push.
 - Production: <https://tindung.vercel.app>.
 - Stable Preview: <https://tindung-preview.vercel.app>.
@@ -87,7 +91,29 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
   AES-256-GCM, SQL gate và restore rehearsal cô lập. Thư mục Drive chỉ còn snapshot sạch cùng ba
   tệp backup sạch.
 
-## 6. Gate gần nhất
+## 6. Gate và thay đổi gần nhất
+
+- C20 đã hoàn tất local: gỡ VietQR/phiếu; thêm privacy SSR, account mobile, form recovery,
+  preview tất toán có xác nhận, phân trang/aggregate, snapshot export nhất quán và Push worker hữu hạn.
+- Test riêng: `QuanLyVayCaNhan-C20-test`, config `.cache/c20-test`, API `127.0.0.1:55321`.
+  Không reset instance local gốc và không thay đổi remote.
+- Gate cuối đạt ngày 2026-09-08: lint, typecheck, unit/script 66 tests, build; Auth 6/6;
+  E2E production build local 20/20; DB lint sạch và pgTAP 414/414 (27 migration local);
+  `git diff --check` sạch.
+- Đã thêm revision acknowledgement và fallback GET-only nếu UI không commit sau action thành
+  công; không gửi lại giao dịch. Full E2E sau fallback đạt 20/20.
+- QA ảnh từng phát hiện tiền lớn bị cắt trong dashboard card dù trang không tràn; đã sửa
+  wrap/min-width, xem lại ảnh desktop/mobile và regression chống cắt đã đạt.
+- Hồ sơ đóng phát hiện, benchmark, giới hạn thiết bị và rollout đề xuất: `docs/C20_VALIDATION.md`.
+- Benchmark fake: 1.000 khoản từ 2025-01-01, 12.000 giao dịch trả lãi; SQL list cũ 15.003 ms /
+  10.393.114 bytes, list phân trang 7.240 ms / 24.060 bytes (25 cards, tổng 1.000).
+
+- 2026-09-07: tạo kế hoạch C20, đồng bộ context/roadmap; chỉ thay đổi tài liệu.
+- Audit 2026-09-06 tại local HEAD `6054610`: lint, typecheck, 54/54 unit/script tests và build
+  đạt; login Production được xem ở desktop/mobile. Chưa kiểm chứng runtime sau đăng nhập.
+- Phiên tạo kế hoạch C20: `git diff --check` đạt; chưa chạy gate triển khai C20.
+- Báo cáo `docs/AUDIT_2026-09-06.md` là bằng chứng đầu vào; đề xuất sửa VietQR trong báo cáo
+  được thay bằng yêu cầu mới của người dùng: gỡ toàn bộ VietQR và phiếu văn bản.
 
 C19 đạt toàn bộ gate ngày `2026-09-01`:
 
@@ -102,8 +128,10 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- Không có blocker triển khai.
-- Không có checkpoint chờ phê duyệt.
+- C20 đã nghiệm thu local và hoàn tất. Không còn blocker local trong checkpoint.
+- Remote migration/deploy/Apps Script rollout chưa thực hiện vì ngoài phạm vi C20; cần checkpoint
+  hoặc phê duyệt riêng nếu người dùng muốn đưa thay đổi lên Preview/Production.
+- Chưa có checkpoint sau C20; rollout remote không thuộc phạm vi local này.
 - Việc đăng ký lại Web Push là thao tác theo từng thiết bị, không chặn chức năng khác.
 
 ## 8. Lệnh kiểm tra chuẩn

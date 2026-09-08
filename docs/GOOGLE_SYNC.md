@@ -55,16 +55,17 @@ Giá trị VND vượt giới hạn số nguyên an toàn của JavaScript đư�
 độ chính xác. Mọi giá trị text bắt đầu bằng `=`, `+`, `-` hoặc `@` được thêm dấu nháy đơn trước
 khi ghi để không bị Google Sheets diễn giải thành công thức.
 
-Export API đọc từng bảng theo các trang 1.000 dòng cho tới khi hết dữ liệu. Giới hạn `max_rows`
-của PostgREST vì vậy không thể làm snapshot bị cắt ngầm; nếu bất kỳ trang nào lỗi, endpoint không
-trả snapshot một phần.
+Export API gọi `get_google_sync_snapshot()` (chỉ service_role): một SQL STABLE statement đọc
+11 dataset trong cùng MVCC snapshot. JSON aggregate không bị giới hạn 1.000 dòng PostgREST.
+RPC lỗi thì không trả dữ liệu một phần. `sourceVersion` là hash toàn bộ dữ liệu đã chọn, phát hiện
+cả cập nhật và xóa; lượt unchanged vẫn đọc toàn snapshot để bảo đảm đúng, chưa tối ưu bằng cache.
 
 Endpoint trả `sourceVersion`. Apps Script lưu giá trị này vào `SYNC_CURSOR`; khi nguồn không đổi,
 endpoint trả `unchanged: true` và workbook không bị ghi lại. Đây là checkpoint incremental ở cấp
 snapshot, không phải đồng bộ hai chiều hay cập nhật từng dòng.
 
 `sourceVersion` bao gồm cả `notifications.read_at`, vì vậy thao tác đánh dấu thông báo đã đọc cũng
-làm snapshot tiến lên. `LAST_SYNC_AT` được cập nhật sau mọi lần fetch thành công, kể cả response
+làm snapshot tiến lên. `LAST_SYNC_AT` chỉ được cập nhật sau khi kiểm tra/ghi Sheet thành công, kể cả response
 `unchanged`, để trạng thái vận hành phản ánh lần trigger thành công gần nhất. ID bigint của audit
 được giữ dưới dạng text khi ghi Sheet, không chuyển qua `Number`.
 
@@ -101,6 +102,11 @@ Manifest giới hạn API executable ở `MYSELF`; chỉ tài khoản chủ sở
 các entry point quản trị từ CLI.
 
 ## Snapshot và phục hồi
+
+Sync, full sync, snapshot và restore dùng cùng ScriptLock. `SYNC_WRITE_STATE=IN_PROGRESS` được
+đặt trước khi ghi; lỗi giữa chừng giữ nguyên mốc thành công và buộc full fetch lần sau. Snapshot
+chỉ chạy khi có cursor, LAST_SYNC_AT và không còn ghi dở. Restore giữ trạng thái cần đồng bộ lại;
+chỉ sau canonical sync thành công mới được snapshot tiếp.
 
 `runWeeklySnapshot` tạo tối đa một bản sao workbook mỗi tuần trong thư mục Drive được cấu hình.
 Các file có prefix `QLV_Snapshot_` được sắp theo ngày tạo; chỉ giữ 12 bản mới nhất, bản cũ hơn

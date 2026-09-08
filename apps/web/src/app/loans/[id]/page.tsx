@@ -1,3 +1,6 @@
+import { Pagination, parsePage } from "@/components/business/pagination";
+import { RenderRevision } from "@/components/app/render-revision";
+import { PrivacyAmount, PrivacyRegion, PrivacyForm } from "@/components/app/privacy-provider";
 import { randomUUID } from "node:crypto";
 import type { CSSProperties } from "react";
 import Link from "next/link";
@@ -49,9 +52,9 @@ function PeriodInterestChart({ periods }: { periods: InterestPeriod[] }) {
         <div className="chart-legend"><span data-series="accrued">Phát sinh</span><span data-series="paid">Đã đóng</span><span data-series="remaining">Còn thiếu</span></div>
       </div>
       {rows.length === 0 ? <p className="dashboard-empty">Chưa phát sinh kỳ lãi.</p> : rows.length < 3 ? <div className="period-summary-bar" role="group" aria-label="Tóm tắt kỳ lãi gần nhất">
-        <div><small>Lãi phát sinh</small><strong>{formatVnd(rows.at(-1)!.accrued_interest_vnd)}</strong></div>
-        <div><small>Đã đóng</small><strong>{formatVnd(rows.at(-1)!.interest_payments_vnd)}</strong></div>
-        <div><small>Còn lại</small><strong>{formatVnd(rows.at(-1)!.closing_interest_balance_vnd)}</strong></div>
+        <div><small>Lãi phát sinh</small><strong><PrivacyAmount value={formatVnd(rows.at(-1)!.accrued_interest_vnd)} /></strong></div>
+        <div><small>Đã đóng</small><strong><PrivacyAmount value={formatVnd(rows.at(-1)!.interest_payments_vnd)} /></strong></div>
+        <div><small>Còn lại</small><strong><PrivacyAmount value={formatVnd(rows.at(-1)!.closing_interest_balance_vnd)} /></strong></div>
       </div> : <div className="period-chart-scroll"><div className="period-chart" style={{ "--period-count": rows.length } as CSSProperties} role="img" aria-label="Biểu đồ đối chiếu lãi theo kỳ">
         {rows.map((period) => <div className="period-chart-column" key={period.id}>
           <div className="period-bar-group">
@@ -66,8 +69,9 @@ function PeriodInterestChart({ periods }: { periods: InterestPeriod[] }) {
   );
 }
 
-export default async function LoanDetailPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ tab?: string; returnTo?: string }> }) {
+export default async function LoanDetailPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ tab?: string; returnTo?: string; page?: string }> }) {
   const [{ id }, query] = await Promise.all([params, searchParams]);
+  const page = parsePage(query.page);
   const activeTab: LoanTab = tabs.some((tab) => tab.id === query.tab) ? query.tab as LoanTab : "overview";
   const returnTo = query.returnTo?.startsWith("/loans") && !query.returnTo.startsWith("//") ? query.returnTo : "/loans";
   const profile = await requireAuthenticatedProfile();
@@ -89,7 +93,7 @@ export default async function LoanDetailPage({ params, searchParams }: { params:
     ...transactions.map((item) => ({ kind: "transaction" as const, date: item.transaction_date, createdAt: item.created_at, item })),
     ...events.map((item) => ({ kind: "event" as const, date: item.effective_date, createdAt: item.created_at, item })),
     ...settlementReversals.map((item) => ({ kind: "settlementReversal" as const, date: item.reversal_date, createdAt: item.created_at, item })),
-  ].sort((a, b) => b.date.localeCompare(a.date) || b.createdAt.localeCompare(a.createdAt));
+  ].sort((a, b) => b.date.localeCompare(a.date) || b.createdAt.localeCompare(a.createdAt) || b.item.id.localeCompare(a.item.id));
   const interestRecordedLabel = loan.direction === "LENDING" ? "Lãi đã thu" : "Lãi đã trả";
   const interestBalanceLabel = loan.direction === "LENDING" ? "Lãi còn phải thu" : "Lãi còn phải trả";
   const overviewSummary = managementSummary!;
@@ -108,35 +112,36 @@ export default async function LoanDetailPage({ params, searchParams }: { params:
 
   return (
     <>
+      <RenderRevision />
       <Link className="back-link" href={returnTo}><ArrowLeft size={18} />Quay lại danh sách</Link>
       <div className="loan-detail-heading">
-        <div><div className="heading-badges"><span className="direction-badge" data-direction={loan.direction}>{directionLabel}</span><span className="status-badge" data-status={status}>{statusLabels[status]}</span></div><h1>{displayName}</h1><p>{hasGeneratedName ? "" : `${counterpartyName} · `}Giải ngân {formatDate(loan.disbursement_date)}</p></div>
+        <div><div className="heading-badges"><span className="direction-badge" data-direction={loan.direction}>{directionLabel}</span><span className="status-badge" data-status={status}>{statusLabels[status]}</span></div><h1><PrivacyRegion>{displayName}</PrivacyRegion></h1><p><PrivacyRegion>{hasGeneratedName ? "" : `${counterpartyName} · `}</PrivacyRegion>Giải ngân {formatDate(loan.disbursement_date)}</p></div>
       </div>
 
       <nav className="loan-tabs" aria-label="Nội dung khoản vay">{tabs.map((tab) => <Link key={tab.id} href={tabHref(tab.id)} scroll={false} data-active={activeTab === tab.id} aria-current={activeTab === tab.id ? "page" : undefined}>{tab.label}</Link>)}</nav>
 
       {activeTab === "overview" ? <>
         <section className="overview-hero" aria-label="Tình trạng khoản vay">
-          <div className="overview-primary"><span><WalletCards size={22} /></span><div><p>Dư nợ gốc</p><strong className="privacy-amount">{formatVnd(calculation.principalOutstandingVnd)}</strong><small>{counterpartyName}</small></div></div>
-          <div className="overview-next"><p>{interestBalanceLabel}</p><strong className="privacy-amount">{formatVnd(calculation.interestBalanceVnd)}</strong><span><CalendarDays size={16} />{loan.maturity_date ? `Đáo hạn gốc ${formatDate(loan.maturity_date)}` : `Nhắc lãi ${formatDate(loanSchedule.nextInterestDueDate)}`}</span>{!loan.maturity_date && loan.interest_reminder_offset_days > 0 ? <small>Kỳ chốt {formatDate(loanSchedule.nextInterestPeriodEndDate)}</small> : null}</div>
+          <div className="overview-primary"><span><WalletCards size={22} /></span><div><p>Dư nợ gốc</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(calculation.principalOutstandingVnd)} /></strong><small><PrivacyRegion>{counterpartyName}</PrivacyRegion></small></div></div>
+          <div className="overview-next"><p>{interestBalanceLabel}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(calculation.interestBalanceVnd)} /></strong><span><CalendarDays size={16} />{loan.maturity_date ? `Đáo hạn gốc ${formatDate(loan.maturity_date)}` : `Nhắc lãi ${formatDate(loanSchedule.nextInterestDueDate)}`}</span>{!loan.maturity_date && loan.interest_reminder_offset_days > 0 ? <small>Kỳ chốt {formatDate(loanSchedule.nextInterestPeriodEndDate)}</small> : null}</div>
           <span className="status-badge overview-status" data-status={status}>{statusLabels[status]}</span>
         </section>
-        {canWrite ? <LoanActions loanId={loan.id} status={status} interestCycleDays={loan.interest_cycle_days} context={transactionContext} keys={{ payment: randomUUID(), expense: randomUUID(), lifecycle: randomUUID(), settlement: randomUUID() }} mode="payment" /> : <div className="viewer-notice">Bạn đang ở chế độ chỉ xem. Mọi dữ liệu nghiệp vụ được giữ nguyên.</div>}
-        <section className="overview-supporting" aria-label="Số liệu bổ sung"><div><CircleDollarSign size={18} /><span><small>{interestRecordedLabel}</small><strong className="privacy-amount">{formatVnd(overviewSummary.interestRecordedVnd)}</strong></span></div><div><Percent size={18} /><span><small>Tổng lãi phát sinh</small><strong className="privacy-amount">{formatVnd(overviewSummary.totalAccruedInterestVnd)}</strong></span></div><div><Landmark size={18} /><span><small>Gốc đã hoàn trả</small><strong className="privacy-amount">{formatVnd(overviewSummary.principalRepaidVnd)}</strong></span></div></section>
+        {canWrite ? <PrivacyForm><LoanActions loanId={loan.id} status={status} interestCycleDays={loan.interest_cycle_days} context={transactionContext} keys={{ payment: randomUUID(), expense: randomUUID(), lifecycle: randomUUID(), settlement: randomUUID() }} mode="payment" /></PrivacyForm> : <div className="viewer-notice">Bạn đang ở chế độ chỉ xem. Mọi dữ liệu nghiệp vụ được giữ nguyên.</div>}
+        <section className="overview-supporting" aria-label="Số liệu bổ sung"><div><CircleDollarSign size={18} /><span><small>{interestRecordedLabel}</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(overviewSummary.interestRecordedVnd)} /></strong></span></div><div><Percent size={18} /><span><small>Tổng lãi phát sinh</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(overviewSummary.totalAccruedInterestVnd)} /></strong></span></div><div><Landmark size={18} /><span><small>Gốc đã hoàn trả</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(overviewSummary.principalRepaidVnd)} /></strong></span></div></section>
       </> : null}
 
       {activeTab === "interest" ? <div className="loan-tab-stack">
-        <PeriodInterestChart periods={periods} />
+        <PrivacyRegion><PeriodInterestChart periods={periods} /></PrivacyRegion>
         <section className="surface-card detail-section">
           <div className="section-heading"><div><p className="eyebrow">Đối chiếu lãi</p><h2>Các kỳ lãi</h2></div></div>
-          {periods.length === 0 ? <p className="empty-copy">Chưa phát sinh kỳ lãi.</p> : <div className="period-list">{periods.map((period) => {
+          {periods.length === 0 ? <p className="empty-copy">Chưa phát sinh kỳ lãi.</p> : <div className="period-list">{periods.slice((page-1)*25, page*25).map((period) => {
             const remainingInterest = BigInt(period.closing_interest_balance_vnd);
             const reminderDate = subtractDays(period.end_date, loan.interest_reminder_offset_days);
             const defaultPaymentDate = reminderDate < period.start_date ? period.start_date : reminderDate;
             return <article key={period.id}>
               <div><strong>{formatDate(period.start_date)} – {formatDate(period.end_date)}</strong><span>{period.day_count} ngày · {period.kind === "OVERDUE" ? "Quá hạn" : period.kind === "SETTLEMENT" ? "Tất toán" : "Định kỳ"}</span></div>
-              <dl><div><dt>Lãi phát sinh</dt><dd className="privacy-amount">{formatVnd(period.accrued_interest_vnd)}</dd></div><div><dt>Đã thanh toán</dt><dd className="privacy-amount">{formatVnd(period.interest_payments_vnd)}</dd></div><div><dt>Số dư lãi</dt><dd className="privacy-amount">{formatVnd(period.closing_interest_balance_vnd)}</dd></div></dl>
-              {canWrite && status !== "SETTLED" ? <PeriodInterestPaymentForm loanId={loan.id} periodId={period.id} startDate={period.start_date} endDate={period.end_date} defaultPaymentDate={defaultPaymentDate} amountVnd={remainingInterest.toString()} canPay={remainingInterest > BigInt(0)} idempotencyKey={randomUUID()} /> : remainingInterest <= BigInt(0) ? <p className="period-paid-status">Đã đóng đủ</p> : null}
+              <dl><div><dt>Lãi phát sinh</dt><dd className="privacy-amount"><PrivacyAmount value={formatVnd(period.accrued_interest_vnd)} /></dd></div><div><dt>Đã thanh toán</dt><dd className="privacy-amount"><PrivacyAmount value={formatVnd(period.interest_payments_vnd)} /></dd></div><div><dt>Số dư lãi</dt><dd className="privacy-amount"><PrivacyAmount value={formatVnd(period.closing_interest_balance_vnd)} /></dd></div></dl>
+              {canWrite && status !== "SETTLED" ? <PrivacyForm><PeriodInterestPaymentForm loanId={loan.id} periodId={period.id} startDate={period.start_date} endDate={period.end_date} defaultPaymentDate={defaultPaymentDate} amountVnd={remainingInterest.toString()} canPay={remainingInterest > BigInt(0)} idempotencyKey={randomUUID()} /></PrivacyForm> : remainingInterest <= BigInt(0) ? <p className="period-paid-status">Đã đóng đủ</p> : null}
             </article>;
           })}</div>}
         </section>
@@ -144,25 +149,26 @@ export default async function LoanDetailPage({ params, searchParams }: { params:
 
       {activeTab === "history" ? <section className="surface-card detail-section">
         <div className="section-heading"><div><p className="eyebrow">Dòng thời gian</p><h2>Giao dịch và trạng thái</h2></div></div>
-        {timeline.length === 0 ? <p className="empty-copy">Chưa có sự kiện.</p> : <div className="timeline-list compact-timeline">{timeline.map((entry) => entry.kind === "transaction" ? (
-          <article className="timeline-item" key={`t-${entry.item.id}`}><span className="timeline-dot" data-transaction={entry.item.type} /><div><div className="timeline-heading"><strong>{transactionLabels[entry.item.type]}</strong><time>{formatDate(entry.item.transaction_date)}</time></div><p className="timeline-amount">{formatVnd(entry.item.amount_vnd)}{entry.item.expenses?.category ? ` · ${entry.item.expenses.category}` : ""}</p>{entry.item.note ? <p>{entry.item.note}</p> : null}{canWrite && entry.item.type !== "DISBURSEMENT" && entry.item.type !== "REVERSAL" && !reversedIds.has(entry.item.id) && !settlementComponentKeys.has(entry.item.idempotency_key ?? "") && !onboardingComponentKeys.has(entry.item.idempotency_key ?? "") ? <ReversalForm loanId={loan.id} transactionId={entry.item.id} idempotencyKey={randomUUID()} /> : null}</div></article>
+        {timeline.length === 0 ? <p className="empty-copy">Chưa có sự kiện.</p> : <div className="timeline-list compact-timeline">{timeline.slice((page-1)*25, page*25).map((entry) => entry.kind === "transaction" ? (
+          <article className="timeline-item" key={`t-${entry.item.id}`}><span className="timeline-dot" data-transaction={entry.item.type} /><div><div className="timeline-heading"><strong>{transactionLabels[entry.item.type]}</strong><time>{formatDate(entry.item.transaction_date)}</time></div><p className="timeline-amount"><PrivacyAmount value={formatVnd(entry.item.amount_vnd)} /><PrivacyRegion>{entry.item.expenses?.category ? ` · ${entry.item.expenses.category}` : ""}</PrivacyRegion></p>{entry.item.note ? <PrivacyRegion><p>{entry.item.note}</p></PrivacyRegion> : null}{canWrite && entry.item.type !== "DISBURSEMENT" && entry.item.type !== "REVERSAL" && !reversedIds.has(entry.item.id) && !settlementComponentKeys.has(entry.item.idempotency_key ?? "") && !onboardingComponentKeys.has(entry.item.idempotency_key ?? "") ? <PrivacyForm><ReversalForm loanId={loan.id} transactionId={entry.item.id} idempotencyKey={randomUUID()} /></PrivacyForm> : null}</div></article>
         ) : entry.kind === "event" ? (
-          <article className="timeline-item" key={`e-${entry.item.id}`}><span className="timeline-dot" data-event={entry.item.event_type} /><div><div className="timeline-heading"><strong>{eventLabels[entry.item.event_type]}</strong><time>{formatDate(entry.item.effective_date)}</time></div>{entry.item.daily_rate_percent !== null ? <p>{formatPeriodRate(entry.item.daily_rate_percent, loan.interest_cycle_days)}</p> : null}{entry.item.note ? <p>{entry.item.note}</p> : null}</div></article>
+          <article className="timeline-item" key={`e-${entry.item.id}`}><span className="timeline-dot" data-event={entry.item.event_type} /><div><div className="timeline-heading"><strong>{eventLabels[entry.item.event_type]}</strong><time>{formatDate(entry.item.effective_date)}</time></div>{entry.item.daily_rate_percent !== null ? <p>{formatPeriodRate(entry.item.daily_rate_percent, loan.interest_cycle_days)}</p> : null}{entry.item.note ? <PrivacyRegion><p>{entry.item.note}</p></PrivacyRegion> : null}</div></article>
         ) : (
-          <article className="timeline-item" key={`sr-${entry.item.id}`}><span className="timeline-dot" data-event="SETTLEMENT_REVERSAL" /><div><div className="timeline-heading"><strong>Hoàn tác tất toán</strong><time>{formatDate(entry.item.reversal_date)}</time></div><p>{entry.item.reason}</p></div></article>
+          <article className="timeline-item" key={`sr-${entry.item.id}`}><span className="timeline-dot" data-event="SETTLEMENT_REVERSAL" /><div><div className="timeline-heading"><strong>Hoàn tác tất toán</strong><time>{formatDate(entry.item.reversal_date)}</time></div><p><PrivacyRegion>{entry.item.reason}</PrivacyRegion></p></div></article>
         ))}</div>}
       </section> : null}
 
       {activeTab === "settings" ? <div className="loan-tab-stack">
         <section className="surface-card detail-section loan-settings">
           <div className="settings-section-heading"><p className="eyebrow">Thông tin khoản vay</p><h2>Điều khoản và ghi chú</h2></div>
-          <details open><summary>Xem và chỉnh sửa thông tin</summary><dl className="loan-terms"><div><dt>Gốc ban đầu</dt><dd>{formatVnd(loan.original_principal_vnd)}</dd></div><div><dt>Thời hạn</dt><dd>{loan.term_days === null ? "Không đáo hạn" : `${loan.term_days} ngày`}</dd></div><div><dt>Chu kỳ lãi</dt><dd>{loan.interest_cycle_days} ngày</dd></div><div><dt>Nhắc thu sớm</dt><dd>{loan.interest_reminder_offset_days} ngày</dd></div><div><dt>Lãi suất mỗi kỳ</dt><dd>{formatPercent(loanTerm.periodRatePercent)}</dd></div><div><dt>Lãi kỳ đầu đủ {loanTerm.cycleDays} ngày</dt><dd>{formatVnd(loanTerm.fullPeriodInterestVnd)}</dd></div><div><dt>Ghi chú</dt><dd>{loan.notes || "—"}</dd></div></dl>{canWrite ? <LoanForm counterparties={counterparties} idempotencyKey={randomUUID()} loan={loan} /> : null}</details>
-          {onboarding ? <details><summary>Số dư mở đầu khoản vay cũ</summary><dl className="loan-terms"><div><dt>Ngày chốt</dt><dd>{formatDate(onboarding.as_of_date)}</dd></div><div><dt>Dư gốc tại ngày chốt</dt><dd>{formatVnd(onboarding.principal_outstanding_vnd)}</dd></div><div><dt>Tổng lãi đã thu</dt><dd>{formatVnd(onboarding.interest_collected_vnd)}</dd></div><div><dt>Ngày cuối cùng còn tính lãi</dt><dd>{formatDate(onboarding.bad_debt_since)}</dd></div><div><dt>Ghi chú</dt><dd>{onboarding.note || "—"}</dd></div></dl></details> : null}
+          <details open><summary>Xem và chỉnh sửa thông tin</summary><dl className="loan-terms"><div><dt>Gốc ban đầu</dt><dd><PrivacyAmount value={formatVnd(loan.original_principal_vnd)} /></dd></div><div><dt>Thời hạn</dt><dd>{loan.term_days === null ? "Không đáo hạn" : `${loan.term_days} ngày`}</dd></div><div><dt>Chu kỳ lãi</dt><dd>{loan.interest_cycle_days} ngày</dd></div><div><dt>Nhắc thu sớm</dt><dd>{loan.interest_reminder_offset_days} ngày</dd></div><div><dt>Lãi suất mỗi kỳ</dt><dd>{formatPercent(loanTerm.periodRatePercent)}</dd></div><div><dt>Lãi kỳ đầu đủ {loanTerm.cycleDays} ngày</dt><dd><PrivacyAmount value={formatVnd(loanTerm.fullPeriodInterestVnd)} /></dd></div><div><dt>Ghi chú</dt><dd><PrivacyRegion>{loan.notes || "—"}</PrivacyRegion></dd></div></dl>{canWrite ? <PrivacyForm><LoanForm counterparties={counterparties} idempotencyKey={randomUUID()} loan={loan} /></PrivacyForm> : null}</details>
+          {onboarding ? <details><summary>Số dư mở đầu khoản vay cũ</summary><dl className="loan-terms"><div><dt>Ngày chốt</dt><dd>{formatDate(onboarding.as_of_date)}</dd></div><div><dt>Dư gốc tại ngày chốt</dt><dd><PrivacyAmount value={formatVnd(onboarding.principal_outstanding_vnd)} /></dd></div><div><dt>Tổng lãi đã thu</dt><dd><PrivacyAmount value={formatVnd(onboarding.interest_collected_vnd)} /></dd></div><div><dt>Ngày cuối cùng còn tính lãi</dt><dd>{formatDate(onboarding.bad_debt_since)}</dd></div><div><dt>Ghi chú</dt><dd><PrivacyRegion>{onboarding.note || "—"}</PrivacyRegion></dd></div></dl></details> : null}
         </section>
-        {canWrite ? <LoanActions loanId={loan.id} status={status} interestCycleDays={loan.interest_cycle_days} keys={{ payment: randomUUID(), expense: randomUUID(), lifecycle: randomUUID(), settlement: randomUUID() }} mode="management" /> : <div className="viewer-notice">Bạn đang ở chế độ chỉ xem. Mọi dữ liệu nghiệp vụ được giữ nguyên.</div>}
-        {canWrite && (canOnboardLegacy || status !== "SETTLED") ? <section className="surface-card detail-section loan-settings"><div className="settings-section-heading"><p className="eyebrow">Điều chỉnh</p><h2>Dữ liệu khởi tạo</h2></div>{canOnboardLegacy && status !== "SETTLED" ? <details><summary>Khởi tạo số dư khoản vay cũ / nợ xấu</summary><LegacyOnboardingForm loanId={loan.id} originalPrincipalVnd={loan.original_principal_vnd} idempotencyKey={randomUUID()} /></details> : null}{status !== "SETTLED" ? <details className="correction-details"><summary>Sửa dữ liệu ban đầu đã nhập sai</summary><LoanCorrectionForm loan={loan} idempotencyKey={randomUUID()} /></details> : null}</section> : null}
-        {canWrite && status === "SETTLED" ? <section className="surface-card detail-section"><div className="settings-section-heading"><p className="eyebrow">Kết thúc khoản vay</p><h2>Hoàn tác tất toán</h2></div><SettlementReversalForm loanId={loan.id} idempotencyKey={randomUUID()} /></section> : null}
+        {canWrite ? <PrivacyForm><LoanActions loanId={loan.id} status={status} interestCycleDays={loan.interest_cycle_days} keys={{ payment: randomUUID(), expense: randomUUID(), lifecycle: randomUUID(), settlement: randomUUID() }} mode="management" /></PrivacyForm> : <div className="viewer-notice">Bạn đang ở chế độ chỉ xem. Mọi dữ liệu nghiệp vụ được giữ nguyên.</div>}
+        {canWrite && (canOnboardLegacy || status !== "SETTLED") ? <section className="surface-card detail-section loan-settings"><div className="settings-section-heading"><p className="eyebrow">Điều chỉnh</p><h2>Dữ liệu khởi tạo</h2></div>{canOnboardLegacy && status !== "SETTLED" ? <details><summary>Khởi tạo số dư khoản vay cũ / nợ xấu</summary><PrivacyForm><LegacyOnboardingForm loanId={loan.id} originalPrincipalVnd={loan.original_principal_vnd} idempotencyKey={randomUUID()} /></PrivacyForm></details> : null}{status !== "SETTLED" ? <details className="correction-details"><summary>Sửa dữ liệu ban đầu đã nhập sai</summary><PrivacyForm><LoanCorrectionForm loan={loan} idempotencyKey={randomUUID()} /></PrivacyForm></details> : null}</section> : null}
+        {canWrite && status === "SETTLED" ? <section className="surface-card detail-section"><div className="settings-section-heading"><p className="eyebrow">Kết thúc khoản vay</p><h2>Hoàn tác tất toán</h2></div><PrivacyForm><SettlementReversalForm loanId={loan.id} idempotencyKey={randomUUID()} /></PrivacyForm></section> : null}
       </div> : null}
+      {activeTab === "history" || activeTab === "interest" ? <Pagination page={page} total={activeTab === "history" ? timeline.length : periods.length} href={tabHref(activeTab)} /> : null}
     </>
   );
 }

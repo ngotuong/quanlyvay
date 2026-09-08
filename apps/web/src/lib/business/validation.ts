@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { normalizeVnd } from "./vnd.mjs";
 
 const requiredText = (label: string, max = 120) =>
   z.string().trim().min(1, `${label} là bắt buộc.`).max(max, `${label} quá dài.`);
@@ -23,7 +24,7 @@ function percentageWithinLimit(value: string) {
 const vndAmount = z
   .string()
   .trim()
-  .transform((value) => value.replace(/[.,\s]/g, ""))
+  .transform(normalizeVnd)
   .refine((value) => /^\d+$/.test(value), "Số tiền phải là số nguyên VND.")
   .refine((value) => /^\d+$/.test(value) && BigInt(value) > BigInt(0), "Số tiền phải lớn hơn 0.")
   .refine((value) => /^\d+$/.test(value) && BigInt(value) <= MAX_BIGINT_VND, "Số tiền vượt giới hạn lưu trữ VND.");
@@ -31,7 +32,7 @@ const vndAmount = z
 const vndNonnegative = z
   .string()
   .trim()
-  .transform((value) => value.replace(/[.,\s]/g, ""))
+  .transform(normalizeVnd)
   .refine((value) => /^\d+$/.test(value), "Số tiền phải là số nguyên VND.")
   .refine((value) => /^\d+$/.test(value) && BigInt(value) <= MAX_BIGINT_VND, "Số tiền vượt giới hạn lưu trữ VND.");
 
@@ -173,6 +174,9 @@ export const settlementSchema = z.object({
   settlementDate: businessDate,
   note: optionalText,
   idempotencyKey: uuid,
+  expectedPrincipal: vndNonnegative,
+  expectedInterest: vndNonnegative,
+  confirmation: z.literal("confirmed", { error: "Hãy xác nhận số tiền tất toán." }),
 });
 
 export const reversalSchema = z.object({

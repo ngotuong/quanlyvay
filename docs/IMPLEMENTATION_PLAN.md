@@ -13,7 +13,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 - Hoàn tất checkpoint thì dừng; không suy ra checkpoint kế tiếp từ kế hoạch hoặc commit cũ.
 - Phạm vi remote, dữ liệu và secret tuân theo cổng phê duyệt trong `AGENTS.md`.
 
-## 2. Roadmap đã hoàn tất
+## 2. Roadmap
 
 | ID | Kết quả bền vững | Trạng thái |
 |---|---|---|
@@ -28,13 +28,19 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C17 | CI fail-closed và kiểm chứng provenance Vercel | `COMPLETED` |
 | C18 | Sanitize Push secret trong audit/UI/export và thu hồi raw access | `COMPLETED` |
 | C19 | Scrub lịch sử, rotate VAPID, backup/snapshot sạch và đăng ký lại thiết bị | `COMPLETED` |
+| C20 | Khắc phục audit, bỏ VietQR/tạo phiếu và nâng cấp UI/UX; nghiệm thu local | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
-- Chưa có checkpoint mới.
-- Không có hạng mục `AWAITING_APPROVAL`.
-- Khi người dùng giao mục tiêu mới, tạo checkpoint mới với phạm vi, acceptance criteria, gate và
-  cổng remote rõ ràng trước khi triển khai.
+- C20 đã được người dùng phê duyệt ngày 2026-09-07 và nghiệm thu local ngày 2026-09-08.
+- Kế hoạch chi tiết: [C20 — Remediation và UI/UX](C20_REMEDIATION_PLAN.md).
+- Bằng chứng hoàn tất: [C20 — Nghiệm thu local](C20_VALIDATION.md).
+- Bao phủ F01–F12 của audit: F01/F03 giải quyết bằng loại bỏ VietQR và phiếu văn bản; các lỗi
+  còn lại được sửa và có regression test. Bao gồm nâng cấp luồng mobile/form, đồng bộ thiết kế
+  và kiểm chứng các rủi ro bổ sung trong phạm vi nêu ở kế hoạch.
+- Nghiệm thu bằng các gate local ở mục 5 cùng ma trận UI/UX và dữ liệu lớn của C20.
+- Không deploy, migrate remote, clasp push, đổi secret/trigger hoặc git push trong C20.
+  Sau khi C20 đạt nghiệm thu, dừng; chưa có checkpoint tiếp theo được định nghĩa.
 
 ## 4. Contract không được phá vỡ
 
@@ -70,5 +76,7 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.136 | 2026-09-08 | Hoàn tất C20 local: đóng F01–F12 và rủi ro bổ sung; toàn bộ gate đạt, chưa rollout remote. |
+| 1.0.135 | 2026-09-07 | Tạo C20 `AWAITING_APPROVAL`: remediation audit, bỏ VietQR/phiếu và nâng cấp UI/UX; phạm vi nghiệm thu local, rollout remote riêng. |
 | 1.0.134 | 2026-09-01 | Dọn context/roadmap; bỏ kế hoạch C16–C19 đã hoàn tất khỏi nhánh hiện tại; Git history giữ bằng chứng. C0–C19 hoàn tất, chưa có checkpoint mới. |
 | 1.0.133 | 2026-09-01 | Hoàn tất C19 với migration 24, rotate VAPID, backup/restore và rollout Preview/Production sạch. |

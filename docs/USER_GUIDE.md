@@ -1,5 +1,19 @@
 # Hướng dẫn sử dụng Quản Lý Vay Cá Nhân
 
+## Thay đổi C20 (bản local, chờ rollout)
+
+- Đã bỏ VietQR, tạo phiếu văn bản và sao chép phiếu; ghi nhận đóng lãi/gốc vẫn hoạt động.
+- Nút hình mắt che tiền và nội dung nhạy cảm trên các trang. Khi chưa chọn, mặc định che; bấm
+  “Hiển thị số tiền” trước khi nhập giao dịch. Lựa chọn được giữ khi tải lại trang.
+- Đây là chế độ trình bày, không phải phân quyền hoặc bảo vệ dữ liệu trong devtools/network.
+  Không che ngược nội dung Web Push đã gửi trên màn hình khóa; kiểm soát preview thông báo trong cài đặt thiết bị.
+- Mọi vai trò mở “Thêm” → “Tài khoản của tôi” trên mobile để đổi mật khẩu hoặc đăng xuất.
+- Form tạo khoản cho phép tìm và thêm đối tác ngay tại chỗ. Nhập tiền bằng chữ số hoặc dấu chấm
+  hàng nghìn đầy đủ; không dùng số âm, dấu phẩy hay phần thập phân. Bản nháp không lưu bền vững.
+- Tất toán hiển thị gốc/lãi/tổng theo ngày chọn. Nếu số liệu thay đổi, tải lại bảng và xác nhận lại.
+- Danh sách dùng phân trang; tổng chi phí bao phủ mọi trang và loại chi phí đã đảo.
+- Thông báo có lọc “Chưa đọc”; “Đánh dấu đã đọc” áp dụng toàn bộ thông báo chưa đọc của tài khoản.
+
 ## 1. Truy cập và đăng nhập
 
 Mở Production tại:
@@ -167,7 +181,7 @@ công khai và không lưu mật khẩu trong GitHub hoặc Google Sheets.
 
 ## 7. Audit, Google Sheets và backup
 
-- OWNER mở **Lịch sử** để xem 100 thay đổi gần nhất.
+- OWNER mở **Nhật ký hệ thống** để xem lịch sử với phân trang 25 bản ghi.
 - Google Sheets là bản đối chiếu **một chiều** từ Supabase. Không sửa Sheet với kỳ vọng dữ liệu ghi
   ngược về ứng dụng.
 - Apps Script đồng bộ Sheet theo giờ và tạo snapshot Drive hằng tuần; hệ thống giữ 12 snapshot mới

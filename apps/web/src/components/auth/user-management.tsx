@@ -1,13 +1,13 @@
 "use client";
 
 import { Fragment, useState, useTransition } from "react";
-import { useRouter } from "next/navigation";
 import {
   createManagedUser,
   manageUserProfile,
   resetManagedUserPassword,
 } from "@/app/actions/user-admin";
 import type { AppProfile } from "@/lib/auth/types";
+import { captureRender, recoverUncommittedRender } from "@/lib/business/render-recovery.mjs";
 import {
   PASSWORD_MIN_LENGTH,
   PASSWORD_PATTERN,
@@ -19,12 +19,12 @@ function Feedback({ message, ok }: { message: string; ok: boolean }) {
 }
 
 export function UserManagement({ profiles, ownerId }: { profiles: AppProfile[]; ownerId: string }) {
-  const router = useRouter();
   const [pending, startTransition] = useTransition();
   const [feedback, setFeedback] = useState({ message: "", ok: false });
   const managedProfiles = profiles.filter((profile) => profile.user_id !== ownerId);
 
   function submitCreate(formData: FormData) {
+    const before = captureRender(document, window.location);
     startTransition(async () => {
       const result = await createManagedUser({
         username: formData.get("username"),
@@ -33,11 +33,12 @@ export function UserManagement({ profiles, ownerId }: { profiles: AppProfile[]; 
         temporaryPassword: formData.get("temporaryPassword"),
       });
       setFeedback({ ok: result.ok, message: result.ok ? "Đã tạo tài khoản." : result.message });
-      if (result.ok) router.refresh();
+      if (result.ok) recoverUncommittedRender(before, { document, location: window.location });
     });
   }
 
   function submitProfile(formData: FormData) {
+    const before = captureRender(document, window.location);
     const userId = formData.get("userId");
     startTransition(async () => {
       const result = await manageUserProfile({
@@ -47,11 +48,12 @@ export function UserManagement({ profiles, ownerId }: { profiles: AppProfile[]; 
         isActive: formData.get("isActive") === "on",
       });
       setFeedback({ ok: result.ok, message: result.ok ? "Đã cập nhật tài khoản." : result.message });
-      if (result.ok) router.refresh();
+      if (result.ok) recoverUncommittedRender(before, { document, location: window.location });
     });
   }
 
   function submitReset(formData: FormData) {
+    const before = captureRender(document, window.location);
     const userId = formData.get("userId");
     startTransition(async () => {
       const result = await resetManagedUserPassword({
@@ -59,7 +61,7 @@ export function UserManagement({ profiles, ownerId }: { profiles: AppProfile[]; 
         temporaryPassword: formData.get("temporaryPassword"),
       });
       setFeedback({ ok: result.ok, message: result.ok ? "Đã đặt mật khẩu tạm; người dùng phải đổi ở lần đăng nhập sau." : result.message });
-      if (result.ok) router.refresh();
+      if (result.ok) recoverUncommittedRender(before, { document, location: window.location });
     });
   }
 

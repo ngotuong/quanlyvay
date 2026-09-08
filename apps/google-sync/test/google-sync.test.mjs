@@ -40,6 +40,45 @@ function makeContext(overrides = {}) {
 }
 function call(context, expression) { return vm.runInContext(expression, context); }
 
+test("sync, snapshot and restore refuse work while the common lock is held", () => {
+  let reads = 0;
+  const context = makeContext({
+    LockService: { getScriptLock: () => ({ waitLock() { throw new Error("lock busy"); } }) },
+    SpreadsheetApp: { getActive() { reads++; } },
+  });
+  for (const operation of ["runGoogleSheetSync()", "runWeeklySnapshot()", 'restoreSnapshotById("fake")'])
+    assert.throws(() => call(context, operation), /lock busy/);
+  assert.equal(reads, 0);
+});
+
+test("partial sheet failure preserves last success and blocks snapshots until full retry", () => {
+  const values = new Map([["LAST_SYNC_AT", "prior-success"], ["SYNC_CURSOR", "prior-version"]]);
+  const properties = { getProperty: key => values.get(key) || ({SYNC_API_URL:"https://sync.test",SYNC_API_SECRET:"fake"}[key] ?? ""), setProperty: (key,value) => values.set(key,value) };
+  let released = 0;
+  const spreadsheet = new MockSpreadsheet();
+  const broken = new MockSheet("Đối tác"); broken.clear = () => { throw new Error("sheet write failure"); }; spreadsheet.sheets.push(broken);
+  const context = makeContext({
+    LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() { released++; } }) },
+    PropertiesService: { getScriptProperties: () => properties },
+    SpreadsheetApp: { getActive: () => spreadsheet },
+    UrlFetchApp: { fetch: () => ({ getResponseCode: () => 200, getContentText: () => JSON.stringify({schemaVersion:3,sourceVersion:"new",generatedAt:"2026-09-07T00:00:00Z",tables:{}}) }) },
+  });
+  assert.throws(() => call(context, "runGoogleSheetSync()"), /sheet write failure/);
+  assert.equal(values.get("LAST_SYNC_AT"), "prior-success");
+  assert.equal(values.get("SYNC_CURSOR"), "prior-version");
+  assert.equal(values.get("SYNC_WRITE_STATE"), "IN_PROGRESS");
+  assert.throws(() => call(context, "runWeeklySnapshot()"), /đồng bộ thành công/);
+  broken.clear = MockSheet.prototype.clear;
+  context.UrlFetchApp.fetch = url => {
+    assert.equal(url, "https://sync.test/api/google-sync/export");
+    return {getResponseCode: () => 200,getContentText: () => JSON.stringify({schemaVersion:3,sourceVersion:"new",generatedAt:"2026-09-07T00:00:00Z",tables:{}})};
+  };
+  call(context, "runGoogleSheetSync()");
+  assert.equal(values.get("SYNC_WRITE_STATE"), "COMPLETED");
+  assert.equal(values.get("SYNC_CURSOR"), "new");
+  assert.equal(released, 3);
+});
+
 test("sheet contract includes every reconciliation dataset", () => {
   const context = makeContext();
   assert.deepEqual(Array.from(call(context, "SYNC_SHEETS.map(item => item.name)")), ["Đối tác", "Khoản vay", "Giao dịch", "Sự kiện", "Điều chỉnh khoản vay", "Hoàn tác tất toán", "Khởi tạo khoản cũ", "Kỳ lãi", "Chi phí", "Thông báo", "Lịch sử"]);
@@ -171,7 +210,8 @@ test("restore copies snapshot values without any Supabase write path", () => {
   const values = new Map([["SYNC_CURSOR", "current-source-version"]]);
   const context = makeContext({
     SpreadsheetApp: { openById: (id) => { assert.equal(id, "snapshot"); return sourceBook; }, getActive: () => targetBook },
-    PropertiesService: { getScriptProperties: () => ({ deleteProperty: (key) => values.delete(key) }) },
+    LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
+    PropertiesService: { getScriptProperties: () => ({ setProperty: (key, value) => values.set(key, value), deleteProperty: (key) => values.delete(key) }) },
   });
   const result = call(context, `restoreSnapshotById("snapshot")`);
   assert.equal(result.sheetCount, 1); assert.equal(targetBook.getSheetByName("Đối tác").cells["2,2"], "Bản sao");

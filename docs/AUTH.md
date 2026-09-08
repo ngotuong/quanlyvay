@@ -36,6 +36,9 @@ Script yêu cầu các biến `BOOTSTRAP_USERNAME`, `BOOTSTRAP_DISPLAY_NAME`, `B
 
 ## Quyền
 
+Mọi vai trò có `/account` để đổi mật khẩu cá nhân và đăng xuất. Mobile mở “Thêm” → “Tài khoản
+của tôi”; `/settings` vẫn chỉ dành cho OWNER quản trị các tài khoản khác.
+
 | Thao tác | OWNER | EDITOR | VIEWER |
 |---|---:|---:|---:|
 | Xem dữ liệu tài chính | Có | Có | Có |
@@ -62,3 +65,7 @@ pnpm test:auth
 ```
 
 Lần reset cuối xóa toàn bộ tài khoản test giả. Không chạy quy trình này trên database có dữ liệu thật.
+
+Harness local dùng project `QuanLyVayCaNhan-C20-test` trong `.cache/c20-test`, API port `55321`.
+`scripts/test-environment.cjs` kiểm tra target localhost và project trước reset; không reset instance
+`QuanLyVayCaNhan` hiện hữu. CI dùng database ephemeral của workflow.

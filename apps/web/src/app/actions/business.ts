@@ -45,7 +45,7 @@ export async function saveCounterpartyAction(
   if (!parsed.success) return validationFailure(parsed.error);
 
   const supabase = await createClient();
-  const { error } = parsed.data.id
+  const { data, error } = parsed.data.id
     ? await supabase.rpc("update_counterparty", {
         p_counterparty_id: parsed.data.id,
         p_name: parsed.data.name,
@@ -60,16 +60,18 @@ export async function saveCounterpartyAction(
   revalidatePath("/counterparties");
   revalidatePath("/loans");
   revalidatePath("/dashboard");
-  return { ok: true, message: parsed.data.id ? "Đã cập nhật đối tác." : "Đã thêm đối tác." };
+  return { ok: true, message: parsed.data.id ? "Đã cập nhật đối tác." : "Đã thêm đối tác.", createdId: typeof data === "string" ? data : undefined };
 }
 
-export async function deleteCounterpartyAction(formData: FormData) {
+export async function deleteCounterpartyAction(_state: BusinessActionState, formData: FormData): Promise<BusinessActionState> {
   await requireOwnerProfile();
   const parsed = deleteCounterpartySchema.safeParse(values(formData));
-  if (!parsed.success) return;
+  if (!parsed.success) return validationFailure(parsed.error);
   const supabase = await createClient();
-  await supabase.rpc("delete_counterparty", { p_counterparty_id: parsed.data.id });
+  const { error } = await supabase.rpc("delete_counterparty", { p_counterparty_id: parsed.data.id });
+  if (error) return databaseFailure("Không thể xóa đối tác đã có lịch sử khoản vay. Nếu đối tác chưa có lịch sử, hãy kiểm tra kết nối và thử lại.");
   revalidatePath("/counterparties");
+  redirect("/counterparties?deleted=1");
 }
 
 export async function createLoanAction(
@@ -265,12 +267,15 @@ export async function settleLoanAction(
   const parsed = settlementSchema.safeParse(values(formData));
   if (!parsed.success) return validationFailure(parsed.error);
   const supabase = await createClient();
-  const { error } = await supabase.rpc("settle_loan", {
+  const { error } = await supabase.rpc("settle_loan_confirmed", {
     p_loan_id: parsed.data.loanId,
     p_settlement_date: parsed.data.settlementDate,
     p_idempotency_key: parsed.data.idempotencyKey,
     p_note: parsed.data.note,
+    p_expected_principal: parsed.data.expectedPrincipal,
+    p_expected_interest: parsed.data.expectedInterest,
   });
+  if (error?.code === "PT409") return databaseFailure("Số tiền đã thay đổi. Hãy tải lại bảng tất toán và xác nhận lại.");
   if (error) return databaseFailure("Không thể tất toán. Hãy kiểm tra số dư lãi trả thừa và ngày tất toán.");
   revalidatePath(`/loans/${parsed.data.loanId}`);
   revalidatePath("/loans");

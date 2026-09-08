@@ -1,5 +1,6 @@
 import "server-only";
 
+import { fetchAllRows } from "@/lib/export/pagination.mjs";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import type { AppProfile } from "@/lib/auth/types";
@@ -32,29 +33,22 @@ export async function listManagedProfiles() {
   return (data ?? []) as AppProfile[];
 }
 
-export async function listGeneralExpenses() {
+export async function listGeneralExpenses(page = 1) {
   const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("transactions")
-    .select("id,type,transaction_date,amount_vnd,note,reversal_of_id,created_at,expenses(category)")
-    .in("type", ["EXPENSE", "REVERSAL"])
-    .is("loan_id", null)
-    .order("transaction_date", { ascending: false })
-    .order("created_at", { ascending: false });
-  if (error) throw new Error("Không thể tải danh sách chi phí chung.");
-  return (data ?? []) as unknown as GeneralExpense[];
+  const { data, error } = await supabase.rpc("get_general_expenses_page", { p_page: page, p_size: 25 });
+  if (error || !data) throw new Error("Không thể tải chi phí.");
+  return data as { items: Array<GeneralExpense & { reversed: boolean }>; totalCount: number; totalVnd: string; categories: Array<{ category: string; amountVnd: string }> };
 }
 
-export async function getNotificationCenter() {
+export async function getNotificationCenter(page = 1, unreadOnly = false) {
   const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("notifications")
-    .select("id, loan_id, type, notification_date, title, body, read_at, created_at, loans(name)")
-    .order("notification_date", { ascending: false })
-    .order("created_at", { ascending: false })
-    .limit(100);
+  let query = supabase.from("notifications")
+    .select("id, loan_id, type, notification_date, title, body, read_at, created_at, loans(name)", { count: "exact" });
+  if (unreadOnly) query = query.is("read_at", null);
+  const { data, error, count } = await query.order("notification_date", { ascending: false })
+    .order("created_at", { ascending: false }).order("id").range((page-1)*25, page*25-1);
   if (error) throw new Error("Không thể tải trung tâm thông báo.");
-  return (data ?? []) as unknown as AppNotification[];
+  return { items: (data ?? []) as unknown as AppNotification[], totalCount: count ?? 0 };
 }
 
 export async function getUnreadNotificationCount() {
@@ -89,22 +83,28 @@ export async function getManagementAnalytics(periodStart: string, periodEnd: str
 
 export async function getManagementDashboardBundle(periodStart: string, periodEnd: string, previousStart: string, previousEnd: string) {
   const supabase = await createClient();
-  const { data, error } = await supabase.rpc("get_management_dashboard_bundle_v2", {
+  const args = {
     p_period_start: periodStart,
     p_period_end: periodEnd,
     p_previous_start: previousStart,
     p_previous_end: previousEnd,
-  });
-  if (error || !data) throw new Error("Không thể tải số liệu tổng quan.");
+  };
+  let result = await supabase.rpc("get_management_dashboard_bundle_v2", args);
+  if (result.error) result = await supabase.rpc("get_management_dashboard_bundle_v2", args);
+  const { data, error } = result;
+  if (error || !data) {
+    console.error("dashboard.read_failed", { code: error?.code ?? "empty" });
+    throw new Error("Không thể tải số liệu tổng quan.");
+  }
   return data as unknown as { dashboard: DashboardData; analytics: ManagementAnalytics; previousDashboard: DashboardData };
 }
 
 export async function listCounterparties() {
   const supabase = await createClient();
-  const { data, error } = await supabase
+  const { data, error } = await fetchAllRows((from, to) => supabase
     .from("counterparties")
     .select("id, name, notes, created_at, updated_at")
-    .order("name");
+    .order("name").order("id").range(from, to));
   if (error) throw new Error("Không thể tải danh sách đối tác.");
   return data as Counterparty[];
 }
@@ -120,10 +120,10 @@ export type LoanListFilters = {
 
 export type LoanListCounts = { all: number; lending: number; borrowing: number; active: number; badDebt: number; settled: number };
 
-export async function listLoans(filters: LoanListFilters = {}) {
+export async function listLoans(filters: LoanListFilters = {}, page = 1) {
   const supabase = await createClient();
   const asOfDate = todayInVietnam();
-  const { data, error } = await supabase.rpc("list_loan_summaries", {
+  const { data, error } = await supabase.rpc("list_loan_summaries_page", {
     p_as_of_date: asOfDate,
     p_query: filters.query?.trim() || null,
     p_direction: filters.direction ?? null,
@@ -131,11 +131,14 @@ export async function listLoans(filters: LoanListFilters = {}) {
     p_disbursed_from: filters.disbursedFrom ?? null,
     p_disbursed_to: filters.disbursedTo ?? null,
     p_sort: filters.sort ?? "newest",
+    p_page: page,
+    p_size: 25,
   });
   if (error || !data) throw new Error("Không thể tải danh sách khoản vay.");
   return data as unknown as {
     items: Array<Loan & { calculation: CalculationSnapshot; schedule: LoanScheduleSummary; interestRecordedVnd: string }>;
     counts: LoanListCounts;
+    totalCount: number;
   };
 }
 
@@ -166,28 +169,28 @@ export async function getLoanWorkspace(id: string, section: LoanWorkspaceSection
   const [loanResult, transactionsResult, eventsResult, settlementReversalsResult, onboardingResult, calculationResult, termSummaryResult, scheduleResult, managementSummaryResult] = await Promise.all([
     supabase
       .from("loans")
-      .select("id, counterparty_id, name, direction, status, original_principal_vnd, disbursement_date, term_days, maturity_date, interest_cycle_days, interest_reminder_offset_days, initial_daily_rate_percent, settled_on, notes, created_at, counterparties(name)")
+      .select("id, counterparty_id, name, direction, status, original_principal_vnd::text, disbursement_date, term_days, maturity_date, interest_cycle_days, interest_reminder_offset_days, initial_daily_rate_percent::text, settled_on, notes, created_at, counterparties(name)")
       .eq("id", id)
-      .single(),
-    loadTransactions ? supabase
+      .maybeSingle(),
+    loadTransactions ? fetchAllRows((from, to) => supabase
       .from("transactions")
-      .select("id, type, transaction_date, amount_vnd, note, reversal_of_id, idempotency_key, created_at, expenses(category)")
+      .select("id, type, transaction_date, amount_vnd::text, note, reversal_of_id, idempotency_key, created_at, expenses(category)")
       .eq("loan_id", id)
       .order("transaction_date", { ascending: false })
-      .order("created_at", { ascending: false }) : Promise.resolve({ data: [], error: null }),
-    loadEvents ? supabase
+      .order("created_at", { ascending: false }).order("id").range(from, to)) : Promise.resolve({ data: [], error: null }),
+    loadEvents ? fetchAllRows((from, to) => supabase
       .from("loan_lifecycle_events")
-      .select("id, event_type, effective_date, daily_rate_percent, note, idempotency_key, created_at")
+      .select("id, event_type, effective_date, daily_rate_percent::text, note, idempotency_key, created_at")
       .eq("loan_id", id)
-      .order("effective_date", { ascending: false }) : Promise.resolve({ data: [], error: null }),
-    section === "history" ? supabase
+      .order("effective_date", { ascending: false }).order("id").range(from, to)) : Promise.resolve({ data: [], error: null }),
+    section === "history" ? fetchAllRows((from, to) => supabase
       .from("loan_settlement_reversals")
       .select("id, settlement_event_id, reversal_date, reason, created_at")
       .eq("loan_id", id)
-      .order("reversal_date", { ascending: false }) : Promise.resolve({ data: [], error: null }),
+      .order("reversal_date", { ascending: false }).order("id").range(from, to)) : Promise.resolve({ data: [], error: null }),
     (section === "history" || section === "settings") ? supabase
       .from("legacy_loan_onboardings")
-      .select("id, as_of_date, principal_outstanding_vnd, interest_collected_vnd, bad_debt_since, note, idempotency_key, created_at")
+      .select("id, as_of_date, principal_outstanding_vnd::text, interest_collected_vnd::text, bad_debt_since, note, idempotency_key, created_at")
       .eq("loan_id", id)
       .maybeSingle() : Promise.resolve({ data: null, error: null }),
     supabase.rpc("calculate_loan", {
@@ -199,11 +202,15 @@ export async function getLoanWorkspace(id: string, section: LoanWorkspaceSection
     section === "overview" ? supabase.rpc("get_loan_management_summary", { p_loan_id: id, p_as_of_date: asOfDate }) : Promise.resolve({ data: null, error: null }),
   ]);
 
-  if (loanResult.error || !loanResult.data) notFound();
+  if (loanResult.error) throw new Error("Không thể tải khoản vay. Hãy thử lại.");
+  if (!loanResult.data) notFound();
   if (transactionsResult.error || eventsResult.error || settlementReversalsResult.error || onboardingResult.error) {
     throw new Error("Không thể tải đầy đủ lịch sử khoản vay.");
   }
-  if (calculationResult.error || termSummaryResult.error || scheduleResult.error || managementSummaryResult.error) throw new Error("Không thể tính trạng thái khoản vay.");
+  if (calculationResult.error || termSummaryResult.error || scheduleResult.error || managementSummaryResult.error) {
+    console.error("loan.summary_failed", { calculation: calculationResult.error?.code, terms: termSummaryResult.error?.code, schedule: scheduleResult.error?.code, management: managementSummaryResult.error?.code });
+    throw new Error("Không thể tính trạng thái khoản vay.");
+  }
 
   const calculation = calculationResult.data as CalculationSnapshot;
 

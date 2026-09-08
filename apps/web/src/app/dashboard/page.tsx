@@ -32,7 +32,7 @@ function compactVnd(value: bigint) {
   return `${tenths / BigInt(10)}${decimal === BigInt(0) ? "" : `,${decimal}`} ${unit.label}`;
 }
 
-import { PrivacyAmount } from "@/components/app/privacy-provider";
+import { PrivacyAmount, PrivacyRegion } from "@/components/app/privacy-provider";
 
 function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; overdue: DashboardDueLoan[] }) {
   const overdueCount = overdue.length;
@@ -108,7 +108,7 @@ function HorizontalBarChart({ title, eyebrow, rows }: { title: string; eyebrow: 
     <section className="surface-card horizontal-chart-card">
       <div className="dashboard-section-heading"><div><p className="eyebrow">{eyebrow}</p><h2>{title}</h2></div></div>
       <div className="horizontal-bars" role="list">{rows.map((row) => <div className="horizontal-bar-row" role="listitem" key={row.label}>
-        <div><span>{row.label}</span><strong className="privacy-amount">{formatVnd(row.value)}</strong></div>
+        <div><span>{row.label}</span><strong className="privacy-amount"><PrivacyAmount value={formatVnd(row.value)} /></strong></div>
         <span className="horizontal-bar-track" aria-hidden="true"><span data-tone={row.tone} style={{ "--bar-size": ratio(row.value, maximum) } as CSSProperties} /></span>
       </div>)}</div>
     </section>
@@ -129,7 +129,7 @@ function CounterpartyChart({ rows }: { rows: CounterpartyExposure[] }) {
           const width = maximum === BigInt(0) ? BigInt(0) : (total * BigInt(10000)) / maximum;
           const segment = (value: string) => total === BigInt(0) ? "0%" : `${Number((BigInt(value) * width) / total) / 100}%`;
           return <div className="horizontal-bar-row" key={row.counterpartyId}>
-            <div><span>{row.name}</span><strong className="privacy-amount">{formatVnd(row.totalVnd)}</strong></div>
+            <div><span><PrivacyRegion>{row.name}</PrivacyRegion></span><strong className="privacy-amount"><PrivacyAmount value={formatVnd(row.totalVnd)} /></strong></div>
             <span className="horizontal-bar-track stacked-bar" aria-hidden="true">
               <span data-tone="lending" style={{ "--bar-size": segment(row.lendingVnd) } as CSSProperties} />
               <span data-tone="bad-debt" style={{ "--bar-size": segment(row.badDebtVnd) } as CSSProperties} />
@@ -137,7 +137,7 @@ function CounterpartyChart({ rows }: { rows: CounterpartyExposure[] }) {
             </span>
           </div>;
         })}</div>
-        <details className="chart-data-details"><summary>Xem bảng đối tác</summary><div className="table-scroll"><table><thead><tr><th>Đối tác</th><th>Cho vay</th><th>Nợ xấu</th><th>Đi vay</th><th>Tổng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.counterpartyId}><th>{row.name}</th><td className="privacy-amount">{formatVnd(row.lendingVnd)}</td><td className="privacy-amount">{formatVnd(row.badDebtVnd)}</td><td className="privacy-amount">{formatVnd(row.borrowingVnd)}</td><td className="privacy-amount">{formatVnd(row.totalVnd)}</td></tr>)}</tbody></table></div></details>
+        <details className="chart-data-details"><summary>Xem bảng đối tác</summary><div className="table-scroll"><table><thead><tr><th>Đối tác</th><th>Cho vay</th><th>Nợ xấu</th><th>Đi vay</th><th>Tổng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.counterpartyId}><th><PrivacyRegion>{row.name}</PrivacyRegion></th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.lendingVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.badDebtVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.borrowingVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.totalVnd)} /></td></tr>)}</tbody></table></div></details>
       </>}
     </section>
   );
@@ -162,8 +162,8 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
             {rows.map((row) => (
               <div className="cash-flow-month" key={row.month}>
                 <div className="bar-pair">
-                  <button className="cash-bar-control" type="button" aria-label={`Tiền vào ${monthLabel(row.month)}: ${formatVnd(row.inflowVnd)}`}><span className="cash-bar" data-series="inflow" style={{ "--bar-size": ratio(row.inflowVnd, maximum) } as CSSProperties} /><span className="chart-tooltip privacy-amount" role="tooltip">{formatVnd(row.inflowVnd)}</span></button>
-                  <button className="cash-bar-control" type="button" aria-label={`Tiền ra ${monthLabel(row.month)}: ${formatVnd(row.outflowVnd)}`}><span className="cash-bar" data-series="outflow" style={{ "--bar-size": ratio(row.outflowVnd, maximum) } as CSSProperties} /><span className="chart-tooltip privacy-amount" role="tooltip">{formatVnd(row.outflowVnd)}</span></button>
+                  <PrivacyRegion><button className="cash-bar-control" type="button" aria-label={`Tiền vào ${monthLabel(row.month)}: ${formatVnd(row.inflowVnd)}`}><span className="cash-bar" data-series="inflow" style={{ "--bar-size": ratio(row.inflowVnd, maximum) } as CSSProperties} /><span className="chart-tooltip privacy-amount" role="tooltip"><PrivacyAmount value={formatVnd(row.inflowVnd)} /></span></button></PrivacyRegion>
+                  <PrivacyRegion><button className="cash-bar-control" type="button" aria-label={`Tiền ra ${monthLabel(row.month)}: ${formatVnd(row.outflowVnd)}`}><span className="cash-bar" data-series="outflow" style={{ "--bar-size": ratio(row.outflowVnd, maximum) } as CSSProperties} /><span className="chart-tooltip privacy-amount" role="tooltip"><PrivacyAmount value={formatVnd(row.outflowVnd)} /></span></button></PrivacyRegion>
                 </div>
                 <span>{monthLabel(row.month)}</span>
               </div>
@@ -173,7 +173,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
       </div>
       <details className="cash-flow-details chart-data-details">
         <summary>Xem bảng số liệu</summary>
-        <div className="table-scroll"><table><thead><tr><th>Tháng</th><th>Tiền vào</th><th>Tiền ra</th><th>Ròng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.month}><th>{monthLabel(row.month)}</th><td className="privacy-amount">{formatVnd(row.inflowVnd)}</td><td className="privacy-amount">{formatVnd(row.outflowVnd)}</td><td className="privacy-amount" data-negative={BigInt(row.netVnd) < BigInt(0)}>{formatVnd(row.netVnd)}</td></tr>)}</tbody></table></div>
+        <div className="table-scroll"><table><thead><tr><th>Tháng</th><th>Tiền vào</th><th>Tiền ra</th><th>Ròng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.month}><th>{monthLabel(row.month)}</th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.inflowVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.outflowVnd)} /></td><td className="privacy-amount" data-negative={BigInt(row.netVnd) < BigInt(0)}><PrivacyAmount value={formatVnd(row.netVnd)} /></td></tr>)}</tbody></table></div>
       </details>
     </section>
   );
@@ -194,8 +194,8 @@ function AttentionList({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; ov
       {total === 0 ? <p className="dashboard-empty">Chưa có lịch thu, trả lãi hoặc gốc quá hạn trong 30 ngày tới.</p> : <div className="attention-groups">
         <div className="due-list schedule-list">{rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}`} className="due-item" key={`${kind}-${loan.id}`}>
           <span className="due-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins size={19} /> : <Landmark size={19} />}</span>
-          <span className="due-main"><strong>{loan.name}</strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
-          <span className="due-value"><strong className="privacy-amount">{formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)}</strong><small>{kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
+          <span className="due-main"><strong><PrivacyRegion>{loan.name}</PrivacyRegion></strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
+          <span className="due-value"><strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong><small>{kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
         </Link>)}</div>
         {total > 5 ? <Link className="attention-all-link" href="/loans">Xem tất cả {total} giao dịch</Link> : null}
       </div>}
@@ -228,21 +228,21 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       <ActionHeroBanner upcoming={dashboard.upcoming} overdue={dashboard.overdue} />
 
-      <section className="dashboard-metrics dashboard-primary-metrics" aria-label="Các chỉ số chính">{primaryMetrics.map(({ label, value, previous, icon: Icon, tone }) => <article className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount">{formatVnd(value)}</strong><MetricComparison current={value} previous={previous} /></div></article>)}</section>
+      <section className="dashboard-metrics dashboard-primary-metrics" aria-label="Các chỉ số chính">{primaryMetrics.map(({ label, value, previous, icon: Icon, tone }) => <article className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><MetricComparison current={value} previous={previous} /></div></article>)}</section>
 
       <div className="dashboard-main-grid dashboard-focus-grid"><AttentionList upcoming={dashboard.upcoming} overdue={dashboard.overdue} /><CashFlowChart rows={dashboard.cashFlow} periodLabel={periodLabel} /></div>
 
       <details className="dashboard-analysis">
         <summary><span><strong>Phân tích chi tiết</strong></span></summary>
         <div className="dashboard-analysis-content">
-          <section className="dashboard-metrics dashboard-risk-metrics" aria-label="Vốn và nợ xấu">{riskMetrics.map(({ label, value, icon: Icon, tone, hint }) => <article className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount">{formatVnd(value)}</strong><small>{hint}</small>{tone === "bad-debt" ? <Link className="metric-detail-link" href="/loans?status=BAD_DEBT">Xem các khoản nợ xấu</Link> : null}</div></article>)}</section>
+          <section className="dashboard-metrics dashboard-risk-metrics" aria-label="Vốn và nợ xấu">{riskMetrics.map(({ label, value, icon: Icon, tone, hint }) => <article className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><small>{hint}</small>{tone === "bad-debt" ? <Link className="metric-detail-link" href="/loans?status=BAD_DEBT">Xem các khoản nợ xấu</Link> : null}</div></article>)}</section>
 
           <section className="interest-strip" aria-label="Tổng hợp lãi và chi phí">
-            <div><Banknote size={19} /><span><small>Lãi đã thu</small><strong className="privacy-amount">{formatVnd(dashboard.interestCollectedVnd)}</strong></span></div>
-            <div><Landmark size={19} /><span><small>Lãi đã trả</small><strong className="privacy-amount">{formatVnd(dashboard.interestPaidVnd)}</strong></span></div>
-            <div><ReceiptText size={19} /><span><small>Chi phí khác</small><strong className="privacy-amount">{formatVnd(dashboard.expensesPaidVnd)}</strong></span></div>
-            <div><ArrowUpRight size={19} /><span><small>Lãi cho vay kỳ tới</small><strong className="privacy-amount">{formatVnd(dashboard.projectedLendingInterestVnd)}</strong></span></div>
-            <div><ArrowDownLeft size={19} /><span><small>Lãi đi vay kỳ tới</small><strong className="privacy-amount">{formatVnd(dashboard.projectedBorrowingInterestVnd)}</strong></span></div>
+            <div><Banknote size={19} /><span><small>Lãi đã thu</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(dashboard.interestCollectedVnd)} /></strong></span></div>
+            <div><Landmark size={19} /><span><small>Lãi đã trả</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(dashboard.interestPaidVnd)} /></strong></span></div>
+            <div><ReceiptText size={19} /><span><small>Chi phí khác</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(dashboard.expensesPaidVnd)} /></strong></span></div>
+            <div><ArrowUpRight size={19} /><span><small>Lãi cho vay kỳ tới</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(dashboard.projectedLendingInterestVnd)} /></strong></span></div>
+            <div><ArrowDownLeft size={19} /><span><small>Lãi đi vay kỳ tới</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(dashboard.projectedBorrowingInterestVnd)} /></strong></span></div>
           </section>
 
           <div className="dashboard-analytics-grid">

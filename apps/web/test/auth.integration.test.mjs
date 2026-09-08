@@ -1,41 +1,7 @@
 import assert from "node:assert/strict";
-import { execFileSync } from "node:child_process";
-import { fileURLToPath } from "node:url";
-import path from "node:path";
+import { localSupabaseEnvironment, resetLocalDatabase } from "../../../scripts/test-environment.cjs";
 import test from "node:test";
 import { createClient } from "@supabase/supabase-js";
-
-const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const repositoryRoot = path.resolve(webRoot, "../..");
-const supabaseEnvironment = {
-  ...process.env,
-  SUPABASE_PROFILE: process.env.SUPABASE_PROFILE?.trim() || "supabase",
-};
-
-function resetLocalDatabase() {
-  execFileSync("supabase", ["db", "reset"], {
-    cwd: repositoryRoot,
-    env: supabaseEnvironment,
-    stdio: "inherit",
-  });
-}
-
-function localSupabaseEnvironment() {
-  const output = execFileSync("supabase", ["status", "-o", "env"], {
-    cwd: repositoryRoot,
-    encoding: "utf8",
-    env: supabaseEnvironment,
-    stdio: ["ignore", "pipe", "pipe"],
-  });
-
-  return Object.fromEntries(
-    output
-      .split("\n")
-      .map((line) => line.match(/^([A-Z_]+)="?(.*?)"?$/))
-      .filter(Boolean)
-      .map((match) => [match[1], match[2]]),
-  );
-}
 
 const environment = localSupabaseEnvironment();
 const apiUrl = environment.API_URL;

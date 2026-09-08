@@ -9,6 +9,8 @@ export async function createClient() {
   const { url, publishableKey } = publicSupabaseEnvironment();
 
   return createServerClient(url, publishableKey, {
+    // Financial reads must bypass Next's fetch cache, including post-mutation RSC renders.
+    global: { fetch: (input, init) => fetch(input, { ...init, cache: "no-store" }) },
     cookies: {
       getAll() {
         return cookieStore.getAll();

@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
+import { UserRound } from "lucide-react";
 import { ArrowLeftRight, BellDot, ContactRound, LayoutGrid, MoreHorizontal, ScrollText, SlidersHorizontal, WalletCards } from "lucide-react";
 
 const primaryItems = [
@@ -13,6 +15,7 @@ const primaryItems = [
 ];
 
 const secondaryItems = [
+  { href: "/account", label: "Tài khoản của tôi", icon: UserRound },
   { href: "/expenses", label: "Chi phí", icon: WalletCards },
   { href: "/audit", label: "Nhật ký hệ thống", icon: ScrollText, ownerOnly: true },
   { href: "/settings", label: "Cài đặt", icon: SlidersHorizontal, ownerOnly: true },
@@ -20,6 +23,24 @@ const secondaryItems = [
 
 export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadCount?: number }) {
   const pathname = usePathname();
+  const more = useRef<HTMLDetailsElement>(null);
+  useEffect(() => {
+    if (more.current) more.current.open = false;
+  }, [pathname]);
+  useEffect(() => {
+    function outside(event: PointerEvent) {
+      if (more.current && !more.current.contains(event.target as Node)) more.current.open = false;
+    }
+    function escape(event: KeyboardEvent) {
+      if (event.key === "Escape" && more.current?.open) {
+        more.current.open = false;
+        more.current.querySelector("summary")?.focus();
+      }
+    }
+    document.addEventListener("pointerdown", outside);
+    document.addEventListener("keydown", escape);
+    return () => { document.removeEventListener("pointerdown", outside); document.removeEventListener("keydown", escape); };
+  }, []);
   const visibleSecondaryItems = secondaryItems.filter((item) => !item.ownerOnly || isOwner);
   const secondaryActive = visibleSecondaryItems.some((item) => pathname.startsWith(item.href));
 
@@ -35,7 +56,7 @@ export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadC
             href={item.href}
             key={item.href}
             aria-current={active ? "page" : undefined}
-            prefetch
+            prefetch={false}
           >
             <Icon aria-hidden="true" size={20} strokeWidth={1.8} />
             <span>{item.label}</span>
@@ -46,9 +67,9 @@ export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadC
       {visibleSecondaryItems.map((item) => {
         const active = pathname.startsWith(item.href);
         const Icon = item.icon;
-        return <Link className="nav-link desktop-secondary-nav-item" data-active={active} href={item.href} key={item.href} aria-current={active ? "page" : undefined} prefetch><Icon aria-hidden="true" size={20} strokeWidth={1.8} /><span>{item.label}</span></Link>;
+        return <Link className="nav-link desktop-secondary-nav-item" data-active={active} href={item.href} key={item.href} aria-current={active ? "page" : undefined} prefetch={false}><Icon aria-hidden="true" size={20} strokeWidth={1.8} /><span>{item.label}</span></Link>;
       })}
-      <details className="mobile-more-nav">
+      <details className="mobile-more-nav" ref={more}>
         <summary className="nav-link" data-active={secondaryActive}><MoreHorizontal aria-hidden="true" size={20} strokeWidth={1.8} /><span>Thêm</span></summary>
         <div className="mobile-more-menu">
           <p>Tiện ích khác</p>

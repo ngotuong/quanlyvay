@@ -1,3 +1,5 @@
+import { Pagination, parsePage } from "@/components/business/pagination";
+import { PrivacyAmount, PrivacyRegion } from "@/components/app/privacy-provider";
 import Link from "next/link";
 import { ArrowLeftRight, CircleAlert, HandCoins, Landmark, Plus, X } from "lucide-react";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
@@ -17,6 +19,7 @@ function single(value: string | string[] | undefined) {
 export default async function LoansPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const profile = await requireAuthenticatedProfile();
   const params = await searchParams;
+  const page = parsePage(params.page);
   const query = single(params.q)?.trim().slice(0, 120) ?? "";
   const rawDirection = single(params.direction);
   const direction = rawDirection === "LENDING" || rawDirection === "BORROWING" ? rawDirection as LoanDirection : undefined;
@@ -29,7 +32,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
   const rawSort = single(params.sort);
   const sort: NonNullable<LoanListFilters["sort"]> = rawSort === "oldest" || rawSort === "outstanding_desc" || rawSort === "name" ? rawSort : "newest";
   const hasFilters = Boolean(query || direction || status || disbursedFrom || disbursedTo || sort !== "newest");
-  const loanResult = await listLoans({ query, direction, status, disbursedFrom, disbursedTo, sort });
+  const loanResult = await listLoans({ query, direction, status, disbursedFrom, disbursedTo, sort }, page);
   const loans = loanResult.items;
   const currentQuery = new URLSearchParams();
   if (query) currentQuery.set("q", query);
@@ -38,10 +41,12 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
   if (disbursedFrom) currentQuery.set("from", disbursedFrom);
   if (disbursedTo) currentQuery.set("to", disbursedTo);
   if (sort !== "newest") currentQuery.set("sort", sort);
+  if (page > 1) currentQuery.set("page", String(page));
   const returnTo = currentQuery.size ? `/loans?${currentQuery.toString()}` : "/loans";
   const withoutFilter = (key: string) => {
     const url = new URLSearchParams(currentQuery);
     url.delete(key);
+    url.delete("page");
     const queryString = url.toString();
     return queryString ? `/loans?${queryString}` : "/loans";
   };
@@ -53,10 +58,10 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
         {profile.role !== "VIEWER" ? <Link className="primary-link desktop-only" href="/loans/new"><Plus size={18} />Tạo khoản vay</Link> : null}
       </div>
 
-      <LoanFilters initial={{ query, direction: direction ?? "", status: status ?? "", disbursedFrom: disbursedFrom ?? "", disbursedTo: disbursedTo ?? "", sort }} resultCount={loans.length} hasFilters={hasFilters} />
+      <LoanFilters initial={{ query, direction: direction ?? "", status: status ?? "", disbursedFrom: disbursedFrom ?? "", disbursedTo: disbursedTo ?? "", sort }} resultCount={loanResult.totalCount} hasFilters={hasFilters} />
 
       {hasFilters ? <div className="filter-pills active-filter-pills" aria-label="Bộ lọc đang áp dụng">
-        {query ? <Link href={withoutFilter("q")}>Tìm: {query}<X size={14} /></Link> : null}
+        {query ? <Link href={withoutFilter("q")}>Tìm: <PrivacyRegion>{query}</PrivacyRegion><X size={14} /></Link> : null}
         {direction ? <Link href={withoutFilter("direction")}>{direction === "LENDING" ? "Cho vay" : "Đi vay"}<X size={14} /></Link> : null}
         {status ? <Link href={withoutFilter("status")}>{statusLabels[status]}<X size={14} /></Link> : null}
         {disbursedFrom ? <Link href={withoutFilter("from")}>Từ {formatDate(disbursedFrom)}<X size={14} /></Link> : null}
@@ -90,7 +95,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
                 <div className="loan-card-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins /> : <Landmark />}</div>
                 <div className="loan-card-main">
                   <div className="loan-card-heading">
-                    <h2>{displayName}<span aria-hidden="true"> • </span><span className="privacy-amount">{formatVnd(loan.original_principal_vnd)}</span></h2>
+                    <h2><PrivacyRegion>{displayName}</PrivacyRegion><span aria-hidden="true"> • </span><span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.original_principal_vnd)} /></span></h2>
                     <div className="loan-card-tags"><span className="direction-badge" data-direction={loan.direction}>{directionText}</span><span className="status-badge" data-status={status}>{statusLabels[status]}</span></div>
                   </div>
                   <dl className="loan-card-details">
@@ -102,19 +107,20 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
                 <dl className="loan-card-values">
                   <div>
                     <dt>Dư nợ gốc</dt>
-                    <dd className="privacy-amount font-bold text-base sm:text-lg">{formatVnd(principalVnd)}</dd>
+                    <dd className="privacy-amount font-bold text-base sm:text-lg"><PrivacyAmount value={formatVnd(principalVnd)} /></dd>
                   </div>
                   <div>
                     <dt>{loan.direction === "LENDING" ? "Lãi phải thu" : "Lãi phải trả"}</dt>
-                    <dd><span className="privacy-amount">{formatVnd(interestVnd)}</span></dd>
+                    <dd><span className="privacy-amount"><PrivacyAmount value={formatVnd(interestVnd)} /></span></dd>
                   </div>
-                  <div><dt>{loan.direction === "LENDING" ? "Lãi đã thu" : "Lãi đã trả"}</dt><dd><span className="privacy-amount">{formatVnd(loan.interestRecordedVnd)}</span></dd></div>
+                  <div><dt>{loan.direction === "LENDING" ? "Lãi đã thu" : "Lãi đã trả"}</dt><dd><span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.interestRecordedVnd)} /></span></dd></div>
                 </dl>
               </Link>
             );
           })}
         </section>
       )}
+      <Pagination page={page} total={loanResult.totalCount} href={returnTo} />
     </>
   );
 }

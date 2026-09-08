@@ -1,3 +1,4 @@
+import { PrivacyForm } from "@/components/app/privacy-provider";
 import { randomUUID } from "node:crypto";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -12,7 +13,7 @@ export default async function NewLoanPage() {
     <>
       <Link className="back-link" href="/loans"><ArrowLeft size={18} />Quay lại danh sách</Link>
       <div className="page-heading-row"><div className="mobile-repeated-title"><h1>Tạo khoản vay</h1></div></div>
-      {counterparties.length === 0 ? <section className="empty-state"><h2>Cần có đối tác trước</h2><p>Thêm người vay hoặc người cho vay rồi quay lại bước này.</p><Link className="primary-link" href="/counterparties">Đi tới đối tác</Link></section> : <section className="surface-card form-surface"><LoanForm counterparties={counterparties} idempotencyKey={randomUUID()} /></section>}
+      <section className="surface-card form-surface"><PrivacyForm><LoanForm counterparties={counterparties} idempotencyKey={randomUUID()} /></PrivacyForm></section>
     </>
   );
 }

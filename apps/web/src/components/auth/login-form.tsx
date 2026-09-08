@@ -52,6 +52,7 @@ export function LoginForm() {
       ) : null}
 
       <SubmitButton idleLabel="Đăng nhập" pendingLabel="Đang kiểm tra…" />
+      <p className="field-hint">Quên mật khẩu? Liên hệ chủ hệ thống (OWNER) để được cấp lại mật khẩu tạm.</p>
     </form>
   );
 }

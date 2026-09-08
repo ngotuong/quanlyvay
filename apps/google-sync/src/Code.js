@@ -87,16 +87,18 @@ function installGoogleSyncInfrastructure() {
   };
 }
 
-function runGoogleSheetSync() {
+/** @param {boolean=} forceFull */
+function runGoogleSheetSync(forceFull) {
   const lock = LockService.getScriptLock();
   lock.waitLock(30000);
   try {
     const properties = PropertiesService.getScriptProperties();
+    if (forceFull === true) properties.deleteProperty("SYNC_CURSOR");
     const baseUrl = properties.getProperty("SYNC_API_URL");
     const secret = properties.getProperty("SYNC_API_SECRET");
     const protectionBypass = properties.getProperty("VERCEL_PROTECTION_BYPASS_SECRET");
     if (!baseUrl || !secret) throw new Error("Thiếu SYNC_API_URL hoặc SYNC_API_SECRET trong Script Properties.");
-    const cursor = properties.getProperty("SYNC_CURSOR") || "";
+    const cursor = properties.getProperty("SYNC_WRITE_STATE") === "IN_PROGRESS" ? "" : properties.getProperty("SYNC_CURSOR") || "";
     /** @type {Record<string, string>} */
     const headers = { "x-sync-secret": secret };
     if (protectionBypass) headers["x-vercel-protection-bypass"] = protectionBypass;
@@ -109,10 +111,15 @@ function runGoogleSheetSync() {
     const payload = validatePayload_(JSON.parse(response.getContentText()));
     const spreadsheet = SpreadsheetApp.getActive();
     ensureSpreadsheetContract_(spreadsheet);
-    properties.setProperty("LAST_SYNC_AT", new Date().toISOString());
-    if (payload.unchanged) return { unchanged: true, sourceVersion: payload.sourceVersion };
+    if (payload.unchanged) {
+      properties.setProperty("LAST_SYNC_AT", new Date().toISOString());
+      return { unchanged: true, sourceVersion: payload.sourceVersion };
+    }
+    properties.setProperty("SYNC_WRITE_STATE", "IN_PROGRESS");
     applyPayloadToSpreadsheet_(spreadsheet, payload);
     properties.setProperty("SYNC_CURSOR", payload.sourceVersion);
+    properties.setProperty("LAST_SYNC_AT", new Date().toISOString());
+    properties.setProperty("SYNC_WRITE_STATE", "COMPLETED");
     return { unchanged: false, sourceVersion: payload.sourceVersion };
   } finally {
     lock.releaseLock();
@@ -135,8 +142,7 @@ function refreshGoogleSheetContract() {
 }
 
 function runGoogleSheetFullSync() {
-  PropertiesService.getScriptProperties().deleteProperty("SYNC_CURSOR");
-  return runGoogleSheetSync();
+  return runGoogleSheetSync(true);
 }
 
 /** @param {GoogleAppsScript.Spreadsheet.Spreadsheet} spreadsheet @param {*} payload */
@@ -187,7 +193,13 @@ function writeOverview_(spreadsheet, payload) {
 }
 
 function runWeeklySnapshot() {
+  const lock = LockService.getScriptLock();
+  lock.waitLock(30000);
+  try {
   const properties = PropertiesService.getScriptProperties();
+  if (!properties.getProperty("LAST_SYNC_AT") || !properties.getProperty("SYNC_CURSOR") || properties.getProperty("SYNC_WRITE_STATE") === "IN_PROGRESS") {
+    throw new Error("Cần đồng bộ thành công trước khi tạo snapshot.");
+  }
   const folderId = properties.getProperty("BACKUP_FOLDER_ID");
   if (!folderId) throw new Error("Thiếu BACKUP_FOLDER_ID trong Script Properties.");
   const now = new Date();
@@ -200,6 +212,7 @@ function runWeeklySnapshot() {
   purgeOldSnapshots_(folder);
   properties.setProperty("LAST_SNAPSHOT_WEEK", weekKey);
   return { unchanged: false, weekKey: weekKey };
+  } finally { lock.releaseLock(); }
 }
 
 /** @param {GoogleAppsScript.Drive.Folder} folder */
@@ -217,6 +230,10 @@ function purgeOldSnapshots_(folder) {
 /** Restore snapshot data into the active comparison workbook. Never writes to Supabase. @param {string} snapshotSpreadsheetId */
 function restoreSnapshotById(snapshotSpreadsheetId) {
   if (!snapshotSpreadsheetId) throw new Error("Cần snapshotSpreadsheetId.");
+  const lock = LockService.getScriptLock();
+  lock.waitLock(30000);
+  try {
+  PropertiesService.getScriptProperties().setProperty("SYNC_WRITE_STATE", "IN_PROGRESS");
   const source = SpreadsheetApp.openById(snapshotSpreadsheetId);
   const target = SpreadsheetApp.getActive();
   source.getSheets().forEach(function (sourceSheet) {
@@ -227,4 +244,5 @@ function restoreSnapshotById(snapshotSpreadsheetId) {
   });
   PropertiesService.getScriptProperties().deleteProperty("SYNC_CURSOR");
   return { restoredFrom: snapshotSpreadsheetId, sheetCount: source.getSheets().length };
+  } finally { lock.releaseLock(); }
 }

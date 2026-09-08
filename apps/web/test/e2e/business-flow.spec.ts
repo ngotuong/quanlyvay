@@ -1,5 +1,9 @@
 import { expect, test } from "@playwright/test";
 
+test.beforeEach(async ({ context }) => {
+  await context.addCookies([{ name: "qlv_privacy_mode", value: "false", url: "http://127.0.0.1:3101" }]);
+});
+
 function previousMonthRangeInHoChiMinh() {
   const dateParts = Object.fromEntries(
     new Intl.DateTimeFormat("en-US", {
@@ -84,6 +88,7 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await lifecycleForm.getByLabel("Thao tác").selectOption("BAD_DEBT_START");
   await lifecycleForm.getByLabel("Ghi chú").fill("Khách chậm thanh toán");
   await lifecycleForm.getByRole("button", { name: "Cập nhật", exact: true }).click();
+  await expect(page.getByText("Đã cập nhật lịch sử khoản vay.")).toBeVisible();
   await expect(page.getByText("Nợ xấu").first()).toBeVisible();
   await loanTabs.getByRole("link", { name: "Lịch sử" }).click();
   await expect(page.getByText("Chuyển nợ xấu")).toBeVisible();

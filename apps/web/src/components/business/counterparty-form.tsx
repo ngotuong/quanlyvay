@@ -1,15 +1,15 @@
 "use client";
+import { useBusinessAction } from "./use-business-action";
 
-import { useActionState } from "react";
 import { saveCounterpartyAction } from "@/app/actions/business";
 import { initialBusinessActionState } from "@/lib/business/action-state";
 import type { Counterparty } from "@/lib/business/types";
-import { ActionMessage, FieldError, FormSubmit } from "./form-parts";
+import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
 
 export function CounterpartyForm({ counterparty }: { counterparty?: Counterparty }) {
-  const [state, action] = useActionState(saveCounterpartyAction, initialBusinessActionState);
+  const [state, action] = useBusinessAction(saveCounterpartyAction, initialBusinessActionState);
   return (
-    <form action={action} className="business-form">
+    <BusinessForm state={state} action={action} className="business-form">
       {counterparty ? <input name="id" type="hidden" value={counterparty.id} /> : null}
       <div className="field-group">
         <label htmlFor={`counterparty-name-${counterparty?.id ?? "new"}`}>Tên đối tác <span aria-hidden="true">*</span></label>
@@ -23,6 +23,6 @@ export function CounterpartyForm({ counterparty }: { counterparty?: Counterparty
       </div>
       <ActionMessage state={state} />
       <FormSubmit>{counterparty ? "Lưu thay đổi" : "Thêm đối tác"}</FormSubmit>
-    </form>
+    </BusinessForm>
   );
 }

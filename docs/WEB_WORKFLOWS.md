@@ -1,5 +1,23 @@
 # Web Workflows
 
+### Ghi chú cập nhật giao diện C20
+
+Server Actions nghiệp vụ và quản trị tài khoản đã gọi `revalidatePath` và trả cây RSC mới;
+không gọi thêm `router.refresh()` ngay khi nhận thành công. Thanh điều hướng không ép full
+prefetch các trang dữ liệu tài chính sau mỗi lần invalidation. Hai thay đổi này giảm công việc
+trùng nhưng không đủ để loại bỏ mọi lần UI giữ trạng thái cũ trong E2E production build local.
+
+Các trang ghi nghiệp vụ có `RenderRevision` do server tạo. Sau khi action xác nhận thành công,
+`render-recovery.mjs` kiểm tra sau 3 giây: nếu URL và revision vẫn y nguyên, tải lại document
+bằng GET một lần. Nếu cây mới đã commit hoặc người dùng chuyển trang thì không làm gì.
+Không gửi lại action/RPC, không tính tiền ở client, không lưu draft hay credential; cảnh báo
+`beforeunload` vẫn bảo vệ các form khác chưa lưu. Đây là fallback cho UI không commit, không
+phải bằng chứng đã sửa framework; phản hồi thành công được hiển thị trước khi phục hồi.
+
+Triệu chứng local tương tự các báo cáo [Next #97990](https://github.com/vercel/next.js/issues/97990)
+và [#96243](https://github.com/vercel/next.js/issues/96243): POST trả dữ liệu mới nhưng transition
+không hiển thị. Đây là đối chiếu triệu chứng, không kết luận hai lỗi có cùng nguyên nhân.
+
 ## Phạm vi hiện hành
 
 - `/dashboard` là trang mặc định sau đăng nhập; danh sách khoản vay ở `/loans`, chi tiết tại
@@ -27,6 +45,14 @@
   truy cập được. UI không đọc raw `endpoint`, `p256dh` hoặc `auth_secret`.
 - OWNER quản lý các tài khoản EDITOR/VIEWER và mật khẩu tạm tại `/settings`.
 - VIEWER xem được toàn bộ nghiệp vụ nhưng không thấy các biểu mẫu thay đổi dữ liệu.
+- C20 bỏ hoàn toàn VietQR/phiếu văn bản; giữ các form ghi nhận tiền và lịch sử.
+- `/account` dành cho mọi vai trò; quản trị tại `/settings` vẫn chỉ OWNER.
+- Danh sách khoản vay, chi phí, đối tác, kỳ lãi và lịch sử dùng page 25; thông báo có page và lọc
+  chưa đọc. Tổng chi phí/phân bổ lấy từ RPC cho toàn bộ dữ liệu, không cộng trên page đang xem.
+- Tìm/chọn đối tác có thêm nhanh trong dialog, giữ form khoản vay. Lỗi form giữ dữ liệu, focus
+  trường sai và liên kết thông báo; rời form có thay đổi sẽ yêu cầu xác nhận.
+- Privacy mặc định bật khi chưa có cookie; che cả nội dung tự do và từ khóa tìm kiếm. Muốn nhập
+  nghiệp vụ hoặc tìm theo tên phải chủ động hiện nội dung. Cookie giúp SSR không chớp tiền.
 
 ## Ranh giới dữ liệu
 
@@ -48,6 +74,10 @@ PostgreSQL; frontend không tự tính dư nợ hoặc lãi. Migration C6 bổ s
   khoản vay, ngày, số tiền, nhóm chi phí và ghi chú
 - `reverse_settlement`: hoàn tác nguyên lần tất toán bằng các reversal đúng batch và một ledger
   append-only; không cho đảo lẻ gốc/lãi do tất toán tạo ra
+- `get_general_expenses_page`: tổng và category đầy đủ, xác định reversal ở server, page 25.
+- `list_loan_summaries_page`: filter/sort ổn định, tổng số đếm, không gửi periods trong card.
+- `preview_settlement` / `settle_loan_confirmed`: xem gốc/lãi/tổng theo ngày; lúc ghi khóa khoản
+  vay và tính lại, từ chối nếu khác số tiền đã xác nhận. Tải lại preview bắt buộc xác nhận lại.
 
 Role `authenticated` chỉ có quyền đọc trực tiếp theo RLS. Mutation hồ sơ, đối tác, khoản vay,
 subscription và sổ tài chính phải đi qua RPC có validation; hai RPC v1 nhận lãi `%/ngày` không còn
@@ -56,7 +86,7 @@ subscription và sổ tài chính phải đi qua RPC có validation; hai RPC v1 
 ## Trải nghiệm giao diện
 
 - Mobile dùng một `h1` trong header theo tên/icon module hiện tại, ẩn heading module lặp trong nội
-  dung và có bottom navigation co giãn đủ năm mục thường hoặc bảy mục OWNER; desktop từ 1024px dùng
+  dung và có bottom navigation bốn mục chính và menu “Thêm”; desktop từ 1024px dùng
   sidebar và vẫn giữ heading nội dung.
 - Mọi vùng mở rộng dùng dấu `+` khi đóng, `−` khi mở và canh giữa theo nhãn.
 - Form có label hiển thị, thông báo lỗi gần trường, loading state và touch target tối thiểu 44px.
@@ -73,10 +103,13 @@ subscription và sổ tài chính phải đi qua RPC có validation; hai RPC v1 
 ## Kiểm thử
 
 ```bash
-supabase db reset
-supabase test db
+node scripts/test-environment.cjs
+# Chỉ chạy Supabase trong .cache/c20-test (project và port riêng)
 pnpm test:e2e
 ```
 
-Playwright dùng Google Chrome local tại cổng `3100`, tạo OWNER giả, chạy luồng nghiệp vụ và reset
-database khi kết thúc. Không chạy bộ test này trên database có dữ liệu thật.
+Playwright build rồi chạy Next.js Production **trên local** bằng Google Chrome tại cổng `3101`,
+với biến môi trường database test được cấp từ harness; tạo tài khoản giả, chạy nghiệp vụ và reset
+database khi kết thúc. Không chạy bộ test này trên database có dữ liệu thật. Không chạy Auth/DB/E2E
+đồng thời vì chúng dùng chung database test và có reset/fixture. Build thông thường cũng không
+chạy song song E2E vì cùng sử dụng `.next`.

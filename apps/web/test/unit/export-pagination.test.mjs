@@ -6,6 +6,7 @@ import { GOOGLE_SYNC_SELECTS } from "../../src/lib/export/columns.mjs";
 import { fetchAllRows } from "../../src/lib/export/pagination.mjs";
 
 const exportRouteSource = await readFile(path.resolve(import.meta.dirname, "../../src/app/api/google-sync/export/route.ts"), "utf8");
+const snapshotSource = await readFile(path.resolve(import.meta.dirname, "../../../../supabase/migrations/20260907072000_c20_consistent_export.sql"), "utf8");
 const auditPageSource = await readFile(path.resolve(import.meta.dirname, "../../src/app/audit/page.tsx"), "utf8");
 const businessQueriesSource = await readFile(path.resolve(import.meta.dirname, "../../src/lib/business/queries.ts"), "utf8");
 
@@ -30,8 +31,9 @@ test("Google Sync selects cast every money, rate and bigint identifier to text",
 });
 
 test("Google Sync reads audit metadata only from the sanitized RPC", () => {
-  assert.match(exportRouteSource, /rpc\("get_audit_logs_sanitized"\)/);
-  assert.match(exportRouteSource, /\.select\(GOOGLE_SYNC_SELECTS\.auditLogs\)/);
+  assert.match(exportRouteSource, /rpc\("get_google_sync_snapshot"\)/);
+  assert.match(snapshotSource, /public\.get_audit_logs_sanitized\(\)/);
+  assert.doesNotMatch(snapshotSource, /public\.audit_logs/);
   assert.doesNotMatch(exportRouteSource, /from\("audit_logs"\)/);
   assert.doesNotMatch(GOOGLE_SYNC_SELECTS.auditLogs, /old_data|new_data|p256dh|auth_secret|endpoint/);
 });
@@ -47,7 +49,8 @@ test("Audit UI paginates the sanitized RPC by URL without changing Google export
 });
 
 test("Google Sync cursor advances when a notification is marked read", () => {
-  assert.match(exportRouteSource, /timestampValues\(notifications, "read_at"\)/);
+  assert.match(snapshotSource, /md5\(tables::text\)/);
+  assert.match(snapshotSource, /read_at/);
 });
 
 test("export pagination returns every row beyond the PostgREST 1000-row limit", async () => {

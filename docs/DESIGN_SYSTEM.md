@@ -59,3 +59,11 @@ thái khi đã có token tương ứng.
 - Tất cả thao tác có focus visible, nhãn accessible, keyboard path và touch target tối thiểu 44 px.
 - Light/dark được kiểm tra độc lập; trạng thái không truyền đạt chỉ bằng màu.
 - `prefers-reduced-motion` tắt gần như toàn bộ animation/transition không thiết yếu.
+
+## C20 — Primitive và quyền riêng tư
+
+- Primary/danger có `--on-primary`/`--on-danger` theo theme; không mặc định chữ trắng trên nền sáng ở dark mode.
+- `PrivacyAmount` che tiền; `PrivacyRegion` che nguyên khối text tự do; `PrivacyForm` yêu cầu chủ động hiện tiền trước khi ghi nghiệp vụ.
+- Privacy dùng cookie đọc ở SSR. Khi chưa có lựa chọn cookie (kể cả nâng cấp từ localStorage cũ), mặc định che; không chớp tiền trước hydration.
+- `BusinessForm` giữ giá trị khi lỗi, liên kết lỗi với input, focus lỗi đầu và cảnh báo rời trang chưa lưu. Bản nháp chỉ trong bộ nhớ.
+- Tài khoản cá nhân nằm trong menu “Thêm” mobile cho mọi vai trò; menu đóng bằng Escape, click ngoài hoặc chọn route.

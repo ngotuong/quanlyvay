@@ -1,18 +1,20 @@
 "use client";
+import { useBusinessAction } from "./use-business-action";
 
-import { useActionState } from "react";
+import { useState } from "react";
 import { correctLoanTermsAction } from "@/app/actions/business";
 import { initialBusinessActionState } from "@/lib/business/action-state";
 import { periodRateInput } from "@/lib/business/format";
 import type { Loan } from "@/lib/business/types";
-import { ActionMessage, FieldError, FormSubmit } from "./form-parts";
+import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
 import { VndInput } from "./vnd-input";
 
 export function LoanCorrectionForm({ loan, idempotencyKey }: { loan: Loan; idempotencyKey: string }) {
-  const [state, action] = useActionState(correctLoanTermsAction, initialBusinessActionState);
+  const [state, action] = useBusinessAction(correctLoanTermsAction, initialBusinessActionState);
+  const [maturity, setMaturity] = useState(loan.term_days === null ? "none" : "fixed");
 
   return (
-    <form action={action} className="business-form correction-form">
+    <BusinessForm state={state} action={action} className="business-form correction-form">
       <input name="loanId" type="hidden" value={loan.id} />
       <input name="idempotencyKey" type="hidden" value={idempotencyKey} />
       <div className="correction-notice" role="note">
@@ -25,6 +27,7 @@ export function LoanCorrectionForm({ loan, idempotencyKey }: { loan: Loan; idemp
             <label><input defaultChecked={loan.direction === "LENDING"} name="direction" type="radio" value="LENDING" /><span>Cho vay</span></label>
             <label><input defaultChecked={loan.direction === "BORROWING"} name="direction" type="radio" value="BORROWING" /><span>Đi vay</span></label>
           </div>
+          <FieldError state={state} name="direction" />
         </fieldset>
         <div className="field-group">
           <label htmlFor="correctionPrincipal">Số tiền gốc ban đầu (VND) <span aria-hidden="true">*</span></label>
@@ -39,16 +42,17 @@ export function LoanCorrectionForm({ loan, idempotencyKey }: { loan: Loan; idemp
         <fieldset className="field-group segmented-field form-span-2">
           <legend>Thời hạn khoản vay</legend>
           <div className="segmented-control">
-            <label><input defaultChecked={loan.term_days === null} name="maturityOption" type="radio" value="none" /><span>Không đáo hạn</span></label>
-            <label><input defaultChecked={loan.term_days !== null} name="maturityOption" type="radio" value="fixed" /><span>Có đáo hạn</span></label>
+            <label><input checked={maturity === "none"} onChange={() => setMaturity("none")} name="maturityOption" type="radio" value="none" /><span>Không đáo hạn</span></label>
+            <label><input checked={maturity === "fixed"} onChange={() => setMaturity("fixed")} name="maturityOption" type="radio" value="fixed" /><span>Có đáo hạn</span></label>
           </div>
+          <FieldError state={state} name="maturityOption" />
           <p className="field-hint">Không đáo hạn: tiếp tục tính kỳ lãi theo chu kỳ cho đến khi tất toán.</p>
         </fieldset>
-        <div className="field-group">
+        {maturity === "fixed" ? <div className="field-group">
           <label htmlFor="correctionTerm">Số ngày vay (nếu có đáo hạn)</label>
-          <input id="correctionTerm" name="termDays" type="number" min={1} max={36500} defaultValue={loan.term_days ?? ""} placeholder="Ví dụ: 90" />
+          <input id="correctionTerm" name="termDays" required type="number" min={1} max={36500} defaultValue={loan.term_days ?? ""} placeholder="Ví dụ: 90" />
           <FieldError state={state} name="termDays" />
-        </div>
+        </div> : <input type="hidden" name="termDays" value="" />}
         <div className="field-group">
           <label htmlFor="correctionCycle">Chu kỳ đóng lãi <span aria-hidden="true">*</span></label>
           <select id="correctionCycle" name="interestCycleDays" defaultValue={String(loan.interest_cycle_days)}><option value="15">15 ngày</option><option value="30">30 ngày</option></select>
@@ -71,8 +75,8 @@ export function LoanCorrectionForm({ loan, idempotencyKey }: { loan: Loan; idemp
         </label>
         <FieldError state={state} name="confirmation" />
       </div>
-      <ActionMessage state={state} />
+      <ActionMessage state={state} hiddenFields={maturity === "none" ? ["termDays"] : []} />
       <FormSubmit>Áp dụng điều chỉnh</FormSubmit>
-    </form>
+    </BusinessForm>
   );
 }

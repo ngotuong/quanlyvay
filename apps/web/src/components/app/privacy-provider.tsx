@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useState, useSyncExternalStore } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
 
 interface PrivacyContextType {
@@ -13,38 +13,19 @@ const PrivacyContext = createContext<PrivacyContextType>({
   togglePrivacyMode: () => {},
 });
 
-const emptySubscribe = () => () => {};
-
-export function PrivacyProvider({ children }: { children: React.ReactNode }) {
-  const isServer = useSyncExternalStore(
-    emptySubscribe,
-    () => false,
-    () => true,
-  );
-
-  const [isPrivacyMode, setIsPrivacyMode] = useState<boolean>(() => {
-    if (typeof window === "undefined") return false;
-    return localStorage.getItem("qlv_privacy_mode") === "true";
-  });
-
-  useEffect(() => {
-    if (isPrivacyMode) {
-      document.documentElement.setAttribute("data-privacy-mode", "true");
-    } else {
-      document.documentElement.setAttribute("data-privacy-mode", "false");
-    }
-  }, [isPrivacyMode]);
+export function PrivacyProvider({ children, initialPrivacy = false }: { children: React.ReactNode; initialPrivacy?: boolean }) {
+  const [isPrivacyMode, setIsPrivacyMode] = useState(initialPrivacy);
 
   const togglePrivacyMode = () => {
     setIsPrivacyMode((prev) => {
       const next = !prev;
-      localStorage.setItem("qlv_privacy_mode", next ? "true" : "false");
+      document.cookie = `qlv_privacy_mode=${next}; Path=/; Max-Age=31536000; SameSite=Lax${location.protocol === "https:" ? "; Secure" : ""}`;
       return next;
     });
   };
 
   return (
-    <PrivacyContext.Provider value={{ isPrivacyMode: isServer ? false : isPrivacyMode, togglePrivacyMode }}>
+    <PrivacyContext.Provider value={{ isPrivacyMode, togglePrivacyMode }}>
       {children}
     </PrivacyContext.Provider>
   );
@@ -52,6 +33,16 @@ export function PrivacyProvider({ children }: { children: React.ReactNode }) {
 
 export function usePrivacy() {
   return useContext(PrivacyContext);
+}
+
+export function PrivacyRegion({ children }: { children: React.ReactNode }) {
+  const { isPrivacyMode } = usePrivacy();
+  return isPrivacyMode ? <span className="privacy-placeholder">Nội dung đang ẩn</span> : children;
+}
+
+export function PrivacyForm({ children }: { children: React.ReactNode }) {
+  const { isPrivacyMode } = usePrivacy();
+  return isPrivacyMode ? <p className="viewer-notice">Hãy bấm “Hiển thị số tiền” để xem và ghi nghiệp vụ.</p> : children;
 }
 
 export function PrivacyToggle({ className = "" }: { className?: string }) {

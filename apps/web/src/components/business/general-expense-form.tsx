@@ -1,17 +1,17 @@
 "use client";
+import { useBusinessAction } from "./use-business-action";
 
-import { useActionState } from "react";
 import { recordExpenseAction } from "@/app/actions/business";
 import { initialBusinessActionState } from "@/lib/business/action-state";
 import { todayInVietnam } from "@/lib/business/format";
-import { ActionMessage, FieldError, FormSubmit } from "./form-parts";
+import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
 import { VndInput } from "./vnd-input";
 
 export function GeneralExpenseForm({ idempotencyKey }: { idempotencyKey: string }) {
-  const [state, action] = useActionState(recordExpenseAction, initialBusinessActionState);
+  const [state, action] = useBusinessAction(recordExpenseAction, initialBusinessActionState);
 
   return (
-    <form action={action} className="business-form">
+    <BusinessForm state={state} action={action} className="business-form">
       <input name="loanId" type="hidden" value="" />
       <input name="idempotencyKey" type="hidden" value={idempotencyKey} />
       <div className="field-group">
@@ -32,9 +32,10 @@ export function GeneralExpenseForm({ idempotencyKey }: { idempotencyKey: string 
       <div className="field-group">
         <label htmlFor="general-expense-note">Ghi chú</label>
         <textarea id="general-expense-note" name="note" maxLength={500} rows={3} />
+        <FieldError state={state} name="note" />
       </div>
       <ActionMessage state={state} />
       <FormSubmit>Ghi chi phí chung</FormSubmit>
-    </form>
+    </BusinessForm>
   );
 }

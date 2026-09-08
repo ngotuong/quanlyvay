@@ -1,3 +1,4 @@
+import { PrivacyRegion } from "@/components/app/privacy-provider";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { ScrollText } from "lucide-react";
@@ -31,7 +32,7 @@ export default async function AuditPage({ searchParams }: { searchParams: Promis
       <div className="page-heading-row"><div className="page-title-lockup"><span className="page-title-icon"><ScrollText size={24} strokeWidth={1.8} /></span><div><h1>Nhật ký hệ thống</h1></div></div></div>
       <section className="timeline-list">
         {logs.length === 0 ? <div className="empty-state compact"><h2>Chưa có lịch sử</h2></div> : logs.map((log) => (
-          <article className="timeline-item" key={log.id}><span className="timeline-dot" data-action={log.action} /><div><div className="timeline-heading"><strong>{actionLabels[log.action]} · {getAuditTableLabel(log.table_name)}</strong><time>{formatDateTime(log.changed_at)}</time></div><p>Thực hiện bởi {log.profiles?.display_name ?? "Hệ thống"}</p><details><summary>Xem dữ liệu thay đổi</summary><pre>{JSON.stringify({ "Trước thay đổi": localizeAuditData(log.old_data), "Sau thay đổi": localizeAuditData(log.new_data) }, null, 2)}</pre></details></div></article>
+          <article className="timeline-item" key={log.id}><span className="timeline-dot" data-action={log.action} /><div><div className="timeline-heading"><strong>{actionLabels[log.action]} · {getAuditTableLabel(log.table_name)}</strong><time>{formatDateTime(log.changed_at)}</time></div><p>Thực hiện bởi {log.profiles?.display_name ?? "Hệ thống"}</p><details><summary>Xem dữ liệu thay đổi</summary><PrivacyRegion><pre>{JSON.stringify({ "Trước thay đổi": localizeAuditData(log.old_data), "Sau thay đổi": localizeAuditData(log.new_data) }, null, 2)}</pre></PrivacyRegion></details></div></article>
         ))}
       </section>
       {totalCount > 0 ? <nav className="audit-pagination" aria-label="Phân trang nhật ký hệ thống">

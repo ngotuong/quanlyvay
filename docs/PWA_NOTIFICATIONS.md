@@ -29,8 +29,8 @@ Audit của Web Push chỉ lưu fingerprint/ngữ cảnh đã sanitize; không l
 
 `GET|POST /api/notifications/run` yêu cầu header `Authorization: Bearer <CRON_SECRET>`. `GET` dùng
 cho Vercel Cron, còn `POST` giữ cho kiểm thử thủ công. Endpoint tạo lịch ngày hiện tại theo
-`Asia/Ho_Chi_Minh`, sau đó drain tuần tự các batch tối đa 500 delivery, tối đa 20 batch/lượt rồi gửi
-bằng VAPID. Nếu vẫn còn queue sau 10.000 delivery, endpoint trả `500` với
+`Asia/Ho_Chi_Minh`, sau đó drain tối đa 200 batch, mỗi batch 5 delivery gửi song song, timeout mỗi gửi 5 giây.
+Ngân sách nhận batch là 40 giây (gồm tạo lịch), dưới maxDuration 60 giây. Nếu vẫn còn queue, endpoint trả `500` với
 `queueRemaining=true` để hệ thống giám sát chạy lại thay vì báo thành công thiếu.
 
 Mỗi cặp notification/subscription có duy nhất một delivery. Worker dùng lease 5 phút và tối đa 5 lần thử. Delivery `SENT` không được claim lại; payload dùng cùng idempotency key làm `tag` để service worker không hiển thị nhiều notification khi có retry sau sự cố mạng.

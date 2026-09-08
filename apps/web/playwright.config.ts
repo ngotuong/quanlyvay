@@ -6,6 +6,7 @@ const local = localSupabaseEnvironment();
 export default defineConfig({
   testDir: "./test/e2e",
   timeout: process.env.CI ? 60_000 : 30_000,
+  expect: { timeout: 15_000 },
   fullyParallel: false,
   workers: 1,
   retries: 0,
@@ -20,7 +21,7 @@ export default defineConfig({
     channel: "chrome",
   },
   webServer: {
-    command: "pnpm exec next dev -p 3101",
+    command: "pnpm exec next build && pnpm exec next start -p 3101",
     url: "http://127.0.0.1:3101/login",
     reuseExistingServer: false,
     timeout: 120_000,

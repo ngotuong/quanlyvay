@@ -1,10 +1,11 @@
 "use client";
+import { useBusinessAction } from "./use-business-action";
 
-import { useActionState, useState } from "react";
+import { useState } from "react";
 import { recordPaymentAction } from "@/app/actions/business";
 import { initialBusinessActionState } from "@/lib/business/action-state";
 import { formatDate } from "@/lib/business/format";
-import { ActionMessage, FieldError, FormSubmit } from "./form-parts";
+import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
 import { VndInput } from "./vnd-input";
 
 type PeriodInterestPaymentFormProps = {
@@ -18,7 +19,6 @@ type PeriodInterestPaymentFormProps = {
   idempotencyKey: string;
 };
 
-import { VietQrModal } from "./vietqr-modal";
 
 export function PeriodInterestPaymentForm({
   loanId,
@@ -30,7 +30,7 @@ export function PeriodInterestPaymentForm({
   canPay,
   idempotencyKey,
 }: PeriodInterestPaymentFormProps) {
-  const [state, action] = useActionState(recordPaymentAction, initialBusinessActionState);
+  const [state, action] = useBusinessAction(recordPaymentAction, initialBusinessActionState);
   const [paymentDate, setPaymentDate] = useState(defaultPaymentDate);
   const outsidePeriod = paymentDate !== "" && (paymentDate < startDate || paymentDate > endDate);
   const inputSuffix = periodId.replaceAll("-", "");
@@ -49,10 +49,7 @@ export function PeriodInterestPaymentForm({
       <summary className="flex items-center justify-between">
         <span>Ghi nhận đóng lãi</span>
       </summary>
-      <div className="pt-2 pb-1 flex justify-end">
-        <VietQrModal amountVnd={amountVnd} defaultNote={`Dong lai ky ${formatDate(startDate)} - ${formatDate(endDate)}`} />
-      </div>
-      <form action={action} className="compact-form">
+      <BusinessForm state={state} action={action} className="compact-form">
         <input name="loanId" type="hidden" value={loanId} />
         <input name="type" type="hidden" value="INTEREST_PAYMENT" />
         <input name="idempotencyKey" type="hidden" value={idempotencyKey} />
@@ -97,10 +94,11 @@ export function PeriodInterestPaymentForm({
             maxLength={500}
             defaultValue={`Đóng lãi kỳ ${formatDate(startDate)} – ${formatDate(endDate)}`}
           />
+          <FieldError state={state} name="note" />
         </div>
         <ActionMessage state={state} />
         <FormSubmit>Ghi nhận đóng lãi</FormSubmit>
-      </form>
+      </BusinessForm>
     </details>
   );
 }
