@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.139
-last_updated: 2026-09-08 14:40:58 +07
+roadmap_version: 1.0.141
+last_updated: 2026-09-09 00:00:00 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: NONE
 current_status: COMPLETED
-last_completed_checkpoint: C21
+last_completed_checkpoint: C22
 next_checkpoint: NONE
 ---
 
@@ -16,7 +16,9 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
-- C0–C21 đều `COMPLETED`; không có checkpoint đang chờ phê duyệt.
+- C0–C22 đều `COMPLETED`; không có checkpoint đang chờ phê duyệt.
+- C22 đã tất toán có audit 6 khoản `C21 TEST ONLY` trên Preview, không xóa vật lý; dashboard stable
+  đã trở về số liệu thật và tài khoản kỹ thuật tạm đã bị vô hiệu hóa.
 - C21 hoàn tất sau khi người dùng ủy quyền tự tạo tài khoản/giao dịch test và QA mobile tự động.
 - C20: khắc phục audit, bỏ VietQR/tạo phiếu và nâng cấp UI/UX; phạm vi và acceptance criteria
   tại `docs/IMPLEMENTATION_PLAN.md` và `docs/C20_REMEDIATION_PLAN.md`.
@@ -94,6 +96,13 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C22: xác nhận 6 khoản QA × `9.007.199.254.740.993 ₫` (1 ACTIVE, 5 BAD_DEBT), tất toán bằng
+  `settle_loan` với idempotency key riêng; cả 6 `SETTLED`, dư gốc 0. Dashboard 2026-09-01–09-09:
+  active lending từ `9.007.203.104.740.993` về `3.850.000.000`, bad debt từ
+  `45.035.996.783.704.965` về `510.000.000`, total exposure về `4.360.000.000` VND.
+- Browser authenticated trên stable Preview xác nhận card “Cho vay đang hoạt động” là
+  `3.850.000.000 ₫`; tài khoản cleanup đã deactivate/ban và đăng nhập lại bị từ chối HTTP 400.
+- C22 không đổi code ứng dụng, không deploy, không migrate và không xóa audit/financial history.
 - C21 local đã đạt: list RPC chỉ tính lãi cho page đã chọn; benchmark 1.000 khoản + 13.000 giao dịch
   có median 102,456 ms, worst 104,726 ms, payload 24.060 bytes/25 cards. DB lint sạch, pgTAP
   431/431 (28 migration local), lint/typecheck, 70 unit/script, build, Auth 6/6 và E2E 21/21 đạt.
@@ -143,6 +152,7 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- Không còn blocker cho C22.
 - Không còn blocker cho C21. Không có kiểm chứng phần cứng thật; theo ủy quyền mới của người dùng,
   checkpoint dùng Chromium mobile profiles và ghi rõ không thay thế Safari WebKit/phần cứng thật.
 - Supabase CLI profile toàn cục hiện lỗi `Unsupported Config Type`; DB lint đã sạch trước lỗi này và
