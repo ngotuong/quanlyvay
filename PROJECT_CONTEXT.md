@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.141
-last_updated: 2026-09-09 00:00:00 +07
+roadmap_version: 1.0.143
+last_updated: 2026-09-10 23:58:00 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: NONE
+current_checkpoint: C23
 current_status: COMPLETED
-last_completed_checkpoint: C22
+last_completed_checkpoint: C23
 next_checkpoint: NONE
 ---
 
@@ -16,7 +16,9 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
-- C0–C22 đều `COMPLETED`; không có checkpoint đang chờ phê duyệt.
+- C0–C23 đã `COMPLETED`; chưa có checkpoint tiếp theo được định nghĩa.
+- C23 sửa kỳ so sánh dashboard, cách ly dữ liệu QA C21 khỏi số liệu vận hành/Google Sync nhưng giữ
+  audit append-only; rollout chỉ áp dụng Preview.
 - C22 đã tất toán có audit 6 khoản `C21 TEST ONLY` trên Preview, không xóa vật lý; dashboard stable
   đã trở về số liệu thật và tài khoản kỹ thuật tạm đã bị vô hiệu hóa.
 - C21 hoàn tất sau khi người dùng ủy quyền tự tạo tài khoản/giao dịch test và QA mobile tự động.
@@ -96,6 +98,26 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C23 local đã triển khai: KPI dòng tiền/lãi dùng cùng kỳ lịch, KPI số dư dùng mốc trước đầu kỳ;
+  card hiển thị rõ ngày so sánh. Migration thêm phân loại `is_test_data`, cách ly QA khỏi dashboard,
+  danh sách khoản vay/đối tác và Google Sync nhưng giữ nguyên bản ghi/audit; đồng thời sửa list facts
+  để chỉ tính reversal đã có hiệu lực tại ngày chốt.
+- Gate C23 ngày 2026-09-10 đạt: `git diff --check`, lint, typecheck, 73/73 unit/script tests, build,
+  Auth 6/6, E2E 21/21, DB lint sạch và pgTAP 443/443 trên database reset sạch với 29 migration.
+- Preview candidate C23 `dpl_7FLxGSQi3xCxRKRbKobAas9YLFve`, immutable
+  `https://quan-ly-vay-ca-nhan-o87p3rtgr-ngotuong2105.vercel.app`, Preview/Ready/Functions `sin1`.
+  Preview Supabase đã áp đủ 29 migration và DB lint sạch. Immutable URL cùng stable alias
+  `https://tindung-preview.vercel.app` đều đạt authenticated smoke; alias trỏ đúng candidate,
+  dashboard/cash-flow/danh sách/Google Sync đúng kỳ vọng, console sạch và error log bằng 0.
+- Hậu kiểm stable C23 xác nhận cho vay hoạt động `3.850.000.000 ₫`, nợ xấu
+  `510.000.000 ₫`, tổng vốn chưa thu hồi `4.360.000.000 ₫`, dư nợ đi vay
+  `1.100.000.000 ₫`; lãi ròng 01–10/09 là `7.030.000 ₫` so với 01–10/08 là
+  `3.035.000 ₫`. Dòng tiền tháng 9 là vào `107.800.000 ₫`, ra `100.770.000 ₫`,
+  ròng `7.030.000 ₫`; 6 khoản QA không còn xuất hiện trong list/Google Sync.
+- Audit authenticated Preview ngày 2026-09-10 xác nhận `Lãi ròng thực thu` 01–10/09 là
+  `7.030.000` VND nhưng đang so với 22–31/08 là `51.450.000` VND, gây nhãn giảm `44.420.000`;
+  cùng kỳ 01–10/08 chỉ là `3.035.000` VND. Sáu khoản QA còn làm tiền vào/ra tháng 9 phình lên
+  khoảng `54.043` nghìn tỷ dù dòng tiền ròng vẫn đúng; C23 xử lý hai nguyên nhân này.
 - C22: xác nhận 6 khoản QA × `9.007.199.254.740.993 ₫` (1 ACTIVE, 5 BAD_DEBT), tất toán bằng
   `settle_loan` với idempotency key riêng; cả 6 `SETTLED`, dư gốc 0. Dashboard 2026-09-01–09-09:
   active lending từ `9.007.203.104.740.993` về `3.850.000.000`, bad debt từ
@@ -114,8 +136,8 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 - QA remote dùng tài khoản EDITOR tạm và dữ liệu `C21 TEST ONLY`; payment đã đảo, audit history được
   giữ, tài khoản đã deactivate/ban và đăng nhập lại bị từ chối. Hai profile mobile đạt 11 route,
   touch target 44px, zoom 200%, dark/light, landscape, offline và PWA; stable list→detail 871/837 ms.
-- Preview Supabase vẫn có 24 migration vì remote migration ngoài phạm vi. Web fallback có giới hạn
-  khi RPC mới trả `PGRST202`; tính tiền/sắp xếp vẫn authoritative trong DB, VND dùng bigint.
+- Preview Supabase có 29 migration sau C23; Production vẫn giữ 24 migration và không bị thay đổi.
+  Web fallback vẫn fail-safe nếu RPC v3 chưa tồn tại; tính tiền authoritative trong DB, VND dùng bigint.
 - Bằng chứng chi tiết: `docs/C21_VALIDATION.md`.
 - C20 đã hoàn tất local: gỡ VietQR/phiếu; thêm privacy SSR, account mobile, form recovery,
   preview tất toán có xác nhận, phân trang/aggregate, snapshot export nhất quán và Push worker hữu hạn.
@@ -152,6 +174,7 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- Không còn blocker cho C23; chưa có checkpoint tiếp theo chờ phê duyệt.
 - Không còn blocker cho C22.
 - Không còn blocker cho C21. Không có kiểm chứng phần cứng thật; theo ủy quyền mới của người dùng,
   checkpoint dùng Chromium mobile profiles và ghi rõ không thay thế Safari WebKit/phần cứng thật.

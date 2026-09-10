@@ -24,6 +24,27 @@ function dayBefore(value: string) {
   return date.toISOString().slice(0, 10);
 }
 
+function shiftCalendarMonths(value: string, offset: number) {
+  const [year, month, day] = value.split("-").map(Number);
+  const targetMonth = new Date(Date.UTC(year, month - 1 + offset, 1));
+  const lastDay = new Date(Date.UTC(
+    targetMonth.getUTCFullYear(),
+    targetMonth.getUTCMonth() + 1,
+    0,
+  )).getUTCDate();
+  return new Date(Date.UTC(
+    targetMonth.getUTCFullYear(),
+    targetMonth.getUTCMonth(),
+    Math.min(day, lastDay),
+  )).toISOString().slice(0, 10);
+}
+
+function shiftCalendarYears(value: string, offset: number) {
+  const [year, month, day] = value.split("-").map(Number);
+  const lastDay = new Date(Date.UTC(year + offset, month, 0)).getUTCDate();
+  return new Date(Date.UTC(year + offset, month - 1, Math.min(day, lastDay))).toISOString().slice(0, 10);
+}
+
 export function isValidBusinessDate(value: string | undefined) {
   if (!value || !businessDatePattern.test(value)) return false;
   const parsed = new Date(`${value}T00:00:00Z`);
@@ -65,5 +86,28 @@ export function previousDashboardPeriod(period: Pick<DashboardPeriod, "start" | 
   return {
     start: previousStart.toISOString().slice(0, 10),
     end: previousEnd.toISOString().slice(0, 10),
+  };
+}
+
+export function dashboardComparisonPeriods(period: DashboardPeriod) {
+  const balanceDate = dayBefore(period.start);
+
+  if (period.preset === "this_month") {
+    return {
+      flow: { start: shiftCalendarMonths(period.start, -1), end: shiftCalendarMonths(period.end, -1) },
+      balance: { start: balanceDate, end: balanceDate },
+    };
+  }
+
+  if (period.preset === "year_to_date") {
+    return {
+      flow: { start: shiftCalendarYears(period.start, -1), end: shiftCalendarYears(period.end, -1) },
+      balance: { start: balanceDate, end: balanceDate },
+    };
+  }
+
+  return {
+    flow: previousDashboardPeriod(period),
+    balance: { start: balanceDate, end: balanceDate },
   };
 }

@@ -31,9 +31,14 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C20 | Khắc phục audit, bỏ VietQR/tạo phiếu và nâng cấp UI/UX; nghiệm thu local | `COMPLETED` |
 | C21 | Tối ưu hiệu năng danh sách khoản vay và kiểm chứng Preview | `COMPLETED` |
 | C22 | Làm sạch ảnh hưởng dữ liệu QA C21 trên Preview bằng nghiệp vụ có audit | `COMPLETED` |
+| C23 | Sửa kỳ so sánh dashboard và cách ly dữ liệu QA khỏi số liệu vận hành | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
+- C23 hoàn tất ngày 2026-09-10 theo
+  [kế hoạch độ chính xác dữ liệu](C23_DATA_CORRECTNESS_PLAN.md): gate local/DB, migration
+  Preview, authenticated smoke trên immutable URL và stable alias, cùng runtime log đều đạt.
+- Chưa có checkpoint tiếp theo được định nghĩa; dừng tại cổng phê duyệt.
 - C22 hoàn tất ngày 2026-09-09: 6 khoản `C21 TEST ONLY` được tất toán qua RPC, dư gốc 0; dashboard
   stable đã xác minh và tài khoản kỹ thuật đã vô hiệu hóa. Bằng chứng tại `docs/C22_VALIDATION.md`.
 - C21 hoàn tất ngày 2026-09-08; kế hoạch chi tiết tại
@@ -84,6 +89,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.143 | 2026-09-10 | Hoàn tất C23: số liệu/kỳ so sánh chính xác, QA được cách ly và stable Preview đạt hậu kiểm. |
+| 1.0.142 | 2026-09-10 | Mở C23 `IN_PROGRESS`: sửa kỳ so sánh và cách ly dữ liệu QA khỏi số liệu vận hành/Google Sync. |
 | 1.0.141 | 2026-09-09 | Hoàn tất C22: tất toán có audit 6 khoản QA, xác minh dashboard stable và vô hiệu hóa tài khoản cleanup. |
 | 1.0.140 | 2026-09-09 | Mở C22: làm sạch ảnh hưởng của dữ liệu QA C21 trên Preview bằng nghiệp vụ có audit. |
 | 1.0.139 | 2026-09-08 | Hoàn tất C21: benchmark, QA giao dịch/mobile và stable Preview đều đạt; tài khoản test đã vô hiệu hóa. |

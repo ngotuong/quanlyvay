@@ -22,7 +22,8 @@ function loadVercelEnvironment() {
 loadVercelEnvironment();
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const publishableKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
-if (!supabaseUrl || !publishableKey) throw new Error("Preview Supabase environment is incomplete.");
+const secretKey = process.env.SUPABASE_SECRET_KEY;
+if (!supabaseUrl || !publishableKey || !secretKey) throw new Error("Preview Supabase environment is incomplete.");
 
 mkdirSync(evidenceDirectory, { recursive: true });
 const suffix = Date.now().toString(36);
@@ -34,6 +35,7 @@ const asOfDate = new Intl.DateTimeFormat("en-CA", {
 }).format(new Date());
 
 const owner = createClient(supabaseUrl, publishableKey, { auth: { autoRefreshToken: false, persistSession: false } });
+const admin = createClient(supabaseUrl, secretKey, { auth: { autoRefreshToken: false, persistSession: false } });
 let loanId;
 const evidence = { previewUrl, asOfDate, account: username, financialHistoryPreserved: true, profiles: [], workflow: {}, runtime: {} };
 
@@ -192,6 +194,15 @@ try {
     }), "record fake bad-debt state");
     evidence.workflow = { counterpartyId, loanId, paymentId, paymentReversed: true, badDebtRecorded: true };
   }
+
+  const classifiedLoan = await required(
+    await admin.from("loans").update({ is_test_data: true }).eq("id", loanId).select("counterparty_id").single(),
+    "classify fake loan",
+  );
+  await required(
+    await admin.from("counterparties").update({ is_test_data: true }).eq("id", classifiedLoan.counterparty_id),
+    "classify fake counterparty",
+  );
 
   const browser = await chromium.launch({ channel: "chrome", headless: true });
   try {

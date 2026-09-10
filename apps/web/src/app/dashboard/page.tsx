@@ -4,13 +4,18 @@ import { ArrowDownLeft, ArrowUpRight, Banknote, CalendarClock, ChartSpline, Circ
 import { DashboardPeriodFilter } from "@/components/business/dashboard-period-filter";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatVnd } from "@/lib/business/format";
-import { previousDashboardPeriod, resolveDashboardPeriod } from "@/lib/business/dashboard-period";
+import { dashboardComparisonPeriods, resolveDashboardPeriod } from "@/lib/business/dashboard-period";
 import { getManagementDashboardBundle } from "@/lib/business/queries";
 import type { CounterpartyExposure, DashboardCashFlow, DashboardDueLoan } from "@/lib/business/types";
 
 function monthLabel(value: string) {
   const [year, month] = value.split("-");
   return `T${Number(month)}/${year}`;
+}
+
+function comparisonPeriodLabel(start: string, end: string) {
+  if (start.slice(0, 7) === end.slice(0, 7)) return `${start.slice(8, 10)}–${formatDate(end)}`;
+  return `${formatDate(start)}–${formatDate(end)}`;
 }
 
 function ratio(value: string, maximum: bigint) {
@@ -94,12 +99,12 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
   );
 }
 
-function MetricComparison({ current, previous }: { current: string; previous: string }) {
+function MetricComparison({ current, previous, comparisonLabel }: { current: string; previous: string; comparisonLabel: string }) {
   const difference = BigInt(current) - BigInt(previous);
   const Icon = difference > BigInt(0) ? TrendingUp : difference < BigInt(0) ? TrendingDown : Minus;
   const label = difference > BigInt(0) ? "Tăng" : difference < BigInt(0) ? "Giảm" : "Không đổi";
   const absolute = difference < BigInt(0) ? -difference : difference;
-  return <span className="metric-comparison" data-direction={difference > BigInt(0) ? "up" : difference < BigInt(0) ? "down" : "flat"}><Icon size={14} aria-hidden="true" />{label}{difference === BigInt(0) ? "" : " "}<PrivacyAmount value={difference === BigInt(0) ? "" : formatVnd(absolute.toString())} /><span className="sr-only"> so với kỳ trước</span></span>;
+  return <span className="metric-comparison" data-direction={difference > BigInt(0) ? "up" : difference < BigInt(0) ? "down" : "flat"}><Icon size={14} aria-hidden="true" />{label}{difference === BigInt(0) ? "" : " "}<PrivacyAmount value={difference === BigInt(0) ? "" : formatVnd(absolute.toString())} /><span> so với {comparisonLabel}</span></span>;
 }
 
 function HorizontalBarChart({ title, eyebrow, rows }: { title: string; eyebrow: string; rows: { label: string; value: string; tone: string }[] }) {
@@ -206,14 +211,23 @@ function AttentionList({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; ov
 export default async function DashboardPage({ searchParams }: { searchParams: Promise<{ from?: string; to?: string; preset?: string }> }) {
   await requireAuthenticatedProfile();
   const period = resolveDashboardPeriod(await searchParams);
-  const previousPeriod = previousDashboardPeriod(period);
-  const { dashboard, analytics, previousDashboard } = await getManagementDashboardBundle(period.start, period.end, previousPeriod.start, previousPeriod.end);
+  const comparison = dashboardComparisonPeriods(period);
+  const { dashboard, analytics, previousDashboard, previousBalanceDashboard } = await getManagementDashboardBundle(
+    period.start,
+    period.end,
+    comparison.flow.start,
+    comparison.flow.end,
+    comparison.balance.start,
+    comparison.balance.end,
+  );
   const periodLabel = `${formatDate(dashboard.periodStartDate)}–${formatDate(dashboard.periodEndDate)}`;
+  const flowComparisonLabel = comparisonPeriodLabel(comparison.flow.start, comparison.flow.end);
+  const balanceComparisonLabel = formatDate(comparison.balance.end);
   const primaryMetrics = [
-    { label: "Cho vay đang hoạt động", value: dashboard.activeLendingOutstandingVnd, previous: previousDashboard.activeLendingOutstandingVnd, icon: ArrowUpRight, tone: "lending" },
-    { label: "Dư nợ đi vay", value: dashboard.activeBorrowingOutstandingVnd, previous: previousDashboard.activeBorrowingOutstandingVnd, icon: ArrowDownLeft, tone: "borrowing" },
-    { label: "Lãi ròng thực thu", value: dashboard.cashProfitVnd, previous: previousDashboard.cashProfitVnd, icon: WalletCards, tone: "profit" },
-    { label: "Lãi ròng phát sinh", value: dashboard.accrualProfitVnd, previous: previousDashboard.accrualProfitVnd, icon: TrendingUp, tone: "accrual" },
+    { label: "Cho vay đang hoạt động", value: dashboard.activeLendingOutstandingVnd, previous: previousBalanceDashboard.activeLendingOutstandingVnd, comparisonLabel: balanceComparisonLabel, icon: ArrowUpRight, tone: "lending" },
+    { label: "Dư nợ đi vay", value: dashboard.activeBorrowingOutstandingVnd, previous: previousBalanceDashboard.activeBorrowingOutstandingVnd, comparisonLabel: balanceComparisonLabel, icon: ArrowDownLeft, tone: "borrowing" },
+    { label: "Lãi ròng thực thu", value: dashboard.cashProfitVnd, previous: previousDashboard.cashProfitVnd, comparisonLabel: flowComparisonLabel, icon: WalletCards, tone: "profit" },
+    { label: "Lãi ròng phát sinh", value: dashboard.accrualProfitVnd, previous: previousDashboard.accrualProfitVnd, comparisonLabel: flowComparisonLabel, icon: TrendingUp, tone: "accrual" },
   ];
   const riskMetrics = [
     { label: "Tổng vốn chưa thu hồi", value: dashboard.totalLendingExposureVnd, icon: Scale, tone: "exposure", hint: "Cho vay hoạt động + nợ xấu" },
@@ -228,7 +242,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       <ActionHeroBanner upcoming={dashboard.upcoming} overdue={dashboard.overdue} />
 
-      <section className="dashboard-metrics dashboard-primary-metrics" aria-label="Các chỉ số chính">{primaryMetrics.map(({ label, value, previous, icon: Icon, tone }) => <article className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><MetricComparison current={value} previous={previous} /></div></article>)}</section>
+      <section className="dashboard-metrics dashboard-primary-metrics" aria-label="Các chỉ số chính">{primaryMetrics.map(({ label, value, previous, comparisonLabel, icon: Icon, tone }) => <article className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><MetricComparison current={value} previous={previous} comparisonLabel={comparisonLabel} /></div></article>)}</section>
 
       <div className="dashboard-main-grid dashboard-focus-grid"><AttentionList upcoming={dashboard.upcoming} overdue={dashboard.overdue} /><CashFlowChart rows={dashboard.cashFlow} periodLabel={periodLabel} /></div>
 

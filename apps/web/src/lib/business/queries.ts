@@ -99,22 +99,37 @@ export async function getManagementAnalytics(periodStart: string, periodEnd: str
   return data as ManagementAnalytics;
 }
 
-export async function getManagementDashboardBundle(periodStart: string, periodEnd: string, previousStart: string, previousEnd: string) {
+export async function getManagementDashboardBundle(periodStart: string, periodEnd: string, previousStart: string, previousEnd: string, balanceStart: string, balanceEnd: string) {
   const supabase = await createClient();
   const args = {
     p_period_start: periodStart,
     p_period_end: periodEnd,
     p_previous_start: previousStart,
     p_previous_end: previousEnd,
+    p_balance_start: balanceStart,
+    p_balance_end: balanceEnd,
   };
-  let result = await supabase.rpc("get_management_dashboard_bundle_v2", args);
-  if (result.error) result = await supabase.rpc("get_management_dashboard_bundle_v2", args);
-  const { data, error } = result;
+  const result = await supabase.rpc("get_management_dashboard_bundle_v3", args);
+  let data = result.data as Record<string, unknown> | null;
+  let error = result.error;
+  if (error) {
+    const fallback = await supabase.rpc("get_management_dashboard_bundle_v2", {
+      p_period_start: periodStart,
+      p_period_end: periodEnd,
+      p_previous_start: previousStart,
+      p_previous_end: previousEnd,
+    });
+    data = fallback.data ? {
+      ...fallback.data as Record<string, unknown>,
+      previousBalanceDashboard: (fallback.data as Record<string, unknown>).previousDashboard,
+    } : null;
+    error = fallback.error;
+  }
   if (error || !data) {
     console.error("dashboard.read_failed", { code: error?.code ?? "empty" });
     throw new Error("Không thể tải số liệu tổng quan.");
   }
-  return data as unknown as { dashboard: DashboardData; analytics: ManagementAnalytics; previousDashboard: DashboardData };
+  return data as unknown as { dashboard: DashboardData; analytics: ManagementAnalytics; previousDashboard: DashboardData; previousBalanceDashboard: DashboardData };
 }
 
 export async function listCounterparties() {
@@ -122,6 +137,7 @@ export async function listCounterparties() {
   const { data, error } = await fetchAllRows((from, to) => supabase
     .from("counterparties")
     .select("id, name, notes, created_at, updated_at")
+    .eq("is_test_data", false)
     .order("name").order("id").range(from, to));
   if (error) throw new Error("Không thể tải danh sách đối tác.");
   return data as Counterparty[];

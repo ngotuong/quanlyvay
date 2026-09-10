@@ -3,9 +3,9 @@
 ## Nguồn số liệu
 
 Dashboard quản trị gọi một lần RPC
-`public.get_management_dashboard_bundle_v2(period_start, period_end, previous_start, previous_end)`.
-Bundle dùng một snapshot authoritative chung cho KPI và analytics kỳ hiện tại, cộng một snapshot
-cho kỳ liền trước; không gọi lại engine qua RPC analytics riêng. `get_management_analytics` được giữ
+`public.get_management_dashboard_bundle_v3(period_start, period_end, previous_start, previous_end, balance_start, balance_end)`.
+Bundle dùng một snapshot authoritative chung cho KPI và analytics kỳ hiện tại, một snapshot so sánh
+dòng tiền/lãi và một snapshot số dư đầu kỳ; không gọi lại engine qua RPC analytics riêng. `get_management_analytics` được giữ
 làm projection tương thích ngược. Các hàm yêu cầu người dùng đang hoạt động, nhưng cho
 phép cả `OWNER`, `EDITOR` và `VIEWER` đọc số liệu. Frontend chỉ định dạng, tính chênh lệch hiển thị
 và trực quan hóa kết quả; mọi phép tổng hợp tiền nằm trong PostgreSQL. RPC C7
@@ -13,7 +13,9 @@ và trực quan hóa kết quả; mọi phép tổng hợp tiền nằm trong Po
 
 Khoảng báo cáo dùng ngày nghiệp vụ `Asia/Ho_Chi_Minh`. Số dư được chốt tại `period_end`; lãi, chi phí,
 lợi nhuận và dòng tiền chỉ lấy từ `period_start` đến `period_end`. Giao dịch gốc đã bị đảo trước ngày
-cuối kỳ và các giao dịch tổng hợp do onboarding khoản cũ không tham gia dòng tiền trong kỳ.
+cuối kỳ và các giao dịch tổng hợp do onboarding khoản cũ không tham gia dòng tiền trong kỳ. Dữ liệu
+được phân loại `is_test_data` chỉ phục vụ QA: vẫn giữ bản ghi và audit append-only nhưng không tham
+gia dashboard, danh sách nghiệp vụ hay snapshot Google Sync.
 
 ## Định nghĩa chỉ số
 
@@ -48,6 +50,10 @@ kết xem thêm và không tạo vùng cuộn lồng. Tổng vốn, nợ xấu v
 
 Banner `Lịch nhắc tháng này` không tính bù trừ. Nó hiển thị tổng số giao dịch trong tháng, số khoản
 và tổng tiền phải thu, số khoản và tổng tiền phải trả; đây là hai tổng gross, không phải lãi ròng.
+
+KPI dòng tiền/lãi của `Tháng này` so với cùng số ngày tháng trước; `Năm nay` so với cùng kỳ năm
+trước; kỳ khác so với kỳ liền trước cùng độ dài. KPI số dư so với ngày ngay trước đầu kỳ. Mỗi card
+hiển thị trực tiếp ngày hoặc khoảng ngày so sánh để người dùng không phải suy đoán “kỳ trước”.
 
 ## UX và khả năng truy cập
 
