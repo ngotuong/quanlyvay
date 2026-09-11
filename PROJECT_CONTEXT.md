@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.143
-last_updated: 2026-09-10 23:58:00 +07
+roadmap_version: 1.0.145
+last_updated: 2026-09-11 07:49:40 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C23
+current_checkpoint: C24
 current_status: COMPLETED
-last_completed_checkpoint: C23
+last_completed_checkpoint: C24
 next_checkpoint: NONE
 ---
 
@@ -16,7 +16,7 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
-- C0–C23 đã `COMPLETED`; chưa có checkpoint tiếp theo được định nghĩa.
+- C0–C24 đã `COMPLETED`; chưa có checkpoint tiếp theo được định nghĩa.
 - C23 sửa kỳ so sánh dashboard, cách ly dữ liệu QA C21 khỏi số liệu vận hành/Google Sync nhưng giữ
   audit append-only; rollout chỉ áp dụng Preview.
 - C22 đã tất toán có audit 6 khoản `C21 TEST ONLY` trên Preview, không xóa vật lý; dashboard stable
@@ -58,7 +58,8 @@ ra yêu cầu đang chờ, quyền thao tác remote hay checkpoint mới.
 - Giao dịch tài chính không xóa vật lý; sửa sai bằng reversal/correction và audit append-only.
 - Tiền VND dùng số nguyên, lãi suất dùng decimal; ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`, audit UTC.
 - Web Push và Google Sync phải idempotent; secret chỉ nằm trong kho secret của môi trường.
-- Production hiện có 24 migration và bộ pgTAP 385 assertions.
+- Production dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 29 migration và bộ pgTAP
+  443 assertions.
 
 ## 4. Tài khoản và tài nguyên remote
 
@@ -98,6 +99,19 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C24 hoàn tất rollout C20–C23 lên Production. Candidate
+  `dpl_GPWF8qZJPFdRbtBpp9awZAZtuGtC`, immutable
+  `https://quan-ly-vay-ca-nhan-l6dmwcbvz-ngotuong2105.vercel.app`, target `production`, `Ready`;
+  toàn bộ Functions có `sin1`. Rollback target là C19 `dpl_4o6JerspEoJUbgu3qXr27twuZZSd`.
+- `https://tindung.vercel.app` đã trỏ đúng C24. Public smoke (`/login` 200, manifest 200,
+  export không secret 401), authenticated smoke trên immutable/stable, console và runtime error log đều đạt.
+  Số liệu 01–11/09: cho vay hoạt động `3.850.000.000 ₫`, lãi ròng `7.030.000 ₫`,
+  tiền vào `107.800.000 ₫`, tiền ra `100.770.000 ₫`; QA không xuất hiện trong list/Sync.
+- Gate C24 ngày 2026-09-11 đạt: `git diff --check`, lint, typecheck, 73/73 unit/script tests,
+  build, Auth 6/6, E2E 21/21, remote DB lint sạch và pgTAP 443/443.
+- Production và Preview dùng cùng Supabase `hmfxnstrqfqpvsgfmjmd`; remote đã có đủ 29/29
+  migration trước C24 nên không chạy migration lần hai và không phát sinh DB mutation/backup.
+  C24 không Git push, không thay Google resources hay remote secret.
 - C23 local đã triển khai: KPI dòng tiền/lãi dùng cùng kỳ lịch, KPI số dư dùng mốc trước đầu kỳ;
   card hiển thị rõ ngày so sánh. Migration thêm phân loại `is_test_data`, cách ly QA khỏi dashboard,
   danh sách khoản vay/đối tác và Google Sync nhưng giữ nguyên bản ghi/audit; đồng thời sửa list facts
@@ -136,8 +150,8 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 - QA remote dùng tài khoản EDITOR tạm và dữ liệu `C21 TEST ONLY`; payment đã đảo, audit history được
   giữ, tài khoản đã deactivate/ban và đăng nhập lại bị từ chối. Hai profile mobile đạt 11 route,
   touch target 44px, zoom 200%, dark/light, landscape, offline và PWA; stable list→detail 871/837 ms.
-- Preview Supabase có 29 migration sau C23; Production vẫn giữ 24 migration và không bị thay đổi.
-  Web fallback vẫn fail-safe nếu RPC v3 chưa tồn tại; tính tiền authoritative trong DB, VND dùng bigint.
+- Supabase dùng chung cho Preview/Production có 29 migration sau C23; tính tiền authoritative
+  trong DB và VND dùng bigint.
 - Bằng chứng chi tiết: `docs/C21_VALIDATION.md`.
 - C20 đã hoàn tất local: gỡ VietQR/phiếu; thêm privacy SSR, account mobile, form recovery,
   preview tất toán có xác nhận, phân trang/aggregate, snapshot export nhất quán và Push worker hữu hạn.
@@ -174,7 +188,8 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- Không còn blocker cho C23; chưa có checkpoint tiếp theo chờ phê duyệt.
+- Không còn blocker cho C24; chưa có checkpoint tiếp theo chờ phê duyệt.
+- Không còn blocker cho C23.
 - Không còn blocker cho C22.
 - Không còn blocker cho C21. Không có kiểm chứng phần cứng thật; theo ủy quyền mới của người dùng,
   checkpoint dùng Chromium mobile profiles và ghi rõ không thay thế Safari WebKit/phần cứng thật.

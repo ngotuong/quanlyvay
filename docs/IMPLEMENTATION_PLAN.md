@@ -32,12 +32,15 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C21 | Tối ưu hiệu năng danh sách khoản vay và kiểm chứng Preview | `COMPLETED` |
 | C22 | Làm sạch ảnh hưởng dữ liệu QA C21 trên Preview bằng nghiệp vụ có audit | `COMPLETED` |
 | C23 | Sửa kỳ so sánh dashboard và cách ly dữ liệu QA khỏi số liệu vận hành | `COMPLETED` |
+| C24 | Rollout C20–C23 lên Production với candidate, smoke và rollback an toàn | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
 - C23 hoàn tất ngày 2026-09-10 theo
   [kế hoạch độ chính xác dữ liệu](C23_DATA_CORRECTNESS_PLAN.md): gate local/DB, migration
   Preview, authenticated smoke trên immutable URL và stable alias, cùng runtime log đều đạt.
+- C24 hoàn tất ngày 2026-09-11; Production candidate, authenticated smoke, promote, stable
+  smoke và runtime log đều đạt. Bằng chứng tại [kế hoạch rollout Production](C24_PRODUCTION_ROLLOUT.md).
 - Chưa có checkpoint tiếp theo được định nghĩa; dừng tại cổng phê duyệt.
 - C22 hoàn tất ngày 2026-09-09: 6 khoản `C21 TEST ONLY` được tất toán qua RPC, dư gốc 0; dashboard
   stable đã xác minh và tài khoản kỹ thuật đã vô hiệu hóa. Bằng chứng tại `docs/C22_VALIDATION.md`.
@@ -89,6 +92,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.145 | 2026-09-11 | Hoàn tất C24: C20–C23 đã lên Production, authenticated/public smoke và runtime log sạch. |
+| 1.0.144 | 2026-09-11 | Mở C24 `IN_PROGRESS`: rollout C20–C23 lên Production bằng candidate không gán domain, smoke và promote có rollback. |
 | 1.0.143 | 2026-09-10 | Hoàn tất C23: số liệu/kỳ so sánh chính xác, QA được cách ly và stable Preview đạt hậu kiểm. |
 | 1.0.142 | 2026-09-10 | Mở C23 `IN_PROGRESS`: sửa kỳ so sánh và cách ly dữ liệu QA khỏi số liệu vận hành/Google Sync. |
 | 1.0.141 | 2026-09-09 | Hoàn tất C22: tất toán có audit 6 khoản QA, xác minh dashboard stable và vô hiệu hóa tài khoản cleanup. |
