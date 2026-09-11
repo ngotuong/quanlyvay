@@ -234,6 +234,11 @@ test("settlement date preview rejects stale confirmation and can recover", async
   await expect(page.getByLabel(/Tôi xác nhận hệ thống/)).not.toBeChecked();await page.getByLabel(/Tôi xác nhận hệ thống/).check();
   await page.getByRole("button",{name:"Tất toán toàn bộ",exact:true}).click();
   await expect.poll(async()=>(await admin.from("loans").select("status").eq("id",result.data).single()).data?.status).toBe("SETTLED");
+  await page.goto("/loans?status=SETTLED&q=C20+settlement+race");
+  const settledCard=page.locator(".loan-card").filter({hasText:"C20 settlement race"});
+  await expect(settledCard.getByText("Ngày tất toán",{exact:true})).toBeVisible();
+  await expect(settledCard.getByText("3/8/2026",{exact:true})).toBeVisible();
+  await expect(settledCard.getByText("Ngày đóng lãi",{exact:true})).toHaveCount(0);
 });
 
 test("DB errors differ from missing records, retry recovers and offline is explicit", async ({page,context,request}) => {

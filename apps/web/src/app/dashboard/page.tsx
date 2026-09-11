@@ -104,7 +104,8 @@ function MetricComparison({ current, previous, comparisonLabel }: { current: str
   const Icon = difference > BigInt(0) ? TrendingUp : difference < BigInt(0) ? TrendingDown : Minus;
   const label = difference > BigInt(0) ? "Tăng" : difference < BigInt(0) ? "Giảm" : "Không đổi";
   const absolute = difference < BigInt(0) ? -difference : difference;
-  return <span className="metric-comparison" data-direction={difference > BigInt(0) ? "up" : difference < BigInt(0) ? "down" : "flat"}><Icon size={14} aria-hidden="true" />{label}{difference === BigInt(0) ? "" : " "}<PrivacyAmount value={difference === BigInt(0) ? "" : formatVnd(absolute.toString())} /><span> so với {comparisonLabel}</span></span>;
+  const amount = formatVnd(absolute.toString());
+  return <span className="metric-comparison" data-direction={difference > BigInt(0) ? "up" : difference < BigInt(0) ? "down" : "flat"} aria-label={`${label} ${amount} so với ${comparisonLabel}`} title={`${label} ${amount} so với ${comparisonLabel}`}><Icon size={14} aria-hidden="true" /><PrivacyAmount value={amount} /></span>;
 }
 
 function HorizontalBarChart({ title, eyebrow, rows }: { title: string; eyebrow: string; rows: { label: string; value: string; tone: string }[] }) {

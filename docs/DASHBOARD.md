@@ -53,7 +53,8 @@ và tổng tiền phải thu, số khoản và tổng tiền phải trả; đây
 
 KPI dòng tiền/lãi của `Tháng này` so với cùng số ngày tháng trước; `Năm nay` so với cùng kỳ năm
 trước; kỳ khác so với kỳ liền trước cùng độ dài. KPI số dư so với ngày ngay trước đầu kỳ. Mỗi card
-hiển thị trực tiếp ngày hoặc khoảng ngày so sánh để người dùng không phải suy đoán “kỳ trước”.
+chỉ hiển thị icon hướng và số chênh lệch; nhãn truy cập và tooltip vẫn nêu đủ hướng, số tiền
+cùng ngày hoặc khoảng ngày so sánh.
 
 ## UX và khả năng truy cập
 

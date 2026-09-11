@@ -282,6 +282,9 @@ test("dashboard is responsive and readable in light and dark modes", async ({ pa
     await expect(primaryMetrics.getByText("Lãi ròng thực thu", { exact: true })).toBeVisible();
     await expect(primaryMetrics.getByText("Lãi ròng phát sinh", { exact: true })).toBeVisible();
     await expect(primaryMetrics.locator(".dashboard-metric")).toHaveCount(4);
+    const comparisons = primaryMetrics.locator(".metric-comparison");
+    await expect(comparisons.first()).toHaveAttribute("aria-label", /^(Tăng|Giảm|Không đổi) .* so với /);
+    expect(await comparisons.allInnerTexts()).toEqual(expect.not.arrayContaining([expect.stringMatching(/Tăng|Giảm|so với/)]));
     await expect(page.getByRole("heading", { name: "Xu hướng dòng tiền" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Lịch Dự Kiến" })).toBeVisible();
     await expect(page.getByText("Hành động còn tồn tại", { exact: true })).toHaveCount(0);
@@ -399,7 +402,8 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
   await expect(page.getByRole("link", { name: "Xóa tất cả" }).first()).toBeVisible();
   await expect(page.locator(".filter-pills").first()).toHaveCSS("flex-wrap", "nowrap");
 
-  await page.getByLabel("Trạng thái").selectOption("");
+  await page.getByLabel("Trạng thái").selectOption("ALL");
+  await expect(page).toHaveURL(/status=ALL/);
   await page.getByLabel("Tên khoản vay hoặc đối tác").fill("C16 hoàn tác");
   await expect(page).toHaveURL(/q=C16/);
   await expect(page.getByRole("button", { name: "Áp dụng", exact: true })).toHaveCount(0);
@@ -419,6 +423,7 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
 
   await page.goto("/loans?from=2026-99-99");
   await expect(page.getByRole("heading", { name: "Các khoản vay" })).toBeVisible();
+  await expect(page.getByLabel("Trạng thái")).toHaveValue("ACTIVE");
   await expect(page.getByLabel("Giải ngân từ")).toHaveValue("");
 });
 

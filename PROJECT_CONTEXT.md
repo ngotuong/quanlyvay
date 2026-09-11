@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.145
-last_updated: 2026-09-11 07:49:40 +07
+roadmap_version: 1.0.147
+last_updated: 2026-09-11 16:42:50 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C24
+current_checkpoint: C25
 current_status: COMPLETED
-last_completed_checkpoint: C24
-next_checkpoint: NONE
+last_completed_checkpoint: C25
+next_checkpoint: C26
 ---
 
 # Project Context
@@ -16,7 +16,7 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
-- C0–C24 đã `COMPLETED`; chưa có checkpoint tiếp theo được định nghĩa.
+- C0–C25 đã `COMPLETED`; C26 rollout C25 lên Preview/Production đang `AWAITING_APPROVAL`.
 - C23 sửa kỳ so sánh dashboard, cách ly dữ liệu QA C21 khỏi số liệu vận hành/Google Sync nhưng giữ
   audit append-only; rollout chỉ áp dụng Preview.
 - C22 đã tất toán có audit 6 khoản `C21 TEST ONLY` trên Preview, không xóa vật lý; dashboard stable
@@ -99,6 +99,10 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C25 hoàn tất local: thẻ `SETTLED` hiển thị `Ngày tất toán`; `/loans` mặc định
+  `ACTIVE` và `status=ALL` thật sự bỏ lọc; KPI chỉ hiện icon hướng cùng số chênh lệch,
+  trong khi screen reader/tooltip vẫn có nhãn đầy đủ. Gate đạt: `git diff --check`, lint,
+  typecheck, 73/73 unit/script tests, build và E2E 21/21 trên 5 viewport/light-dark.
 - C24 hoàn tất rollout C20–C23 lên Production. Candidate
   `dpl_GPWF8qZJPFdRbtBpp9awZAZtuGtC`, immutable
   `https://quan-ly-vay-ca-nhan-l6dmwcbvz-ngotuong2105.vercel.app`, target `production`, `Ready`;
@@ -188,6 +192,7 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- Không còn blocker cho C25. C26 chờ phê duyệt remote rollout; chưa deploy C25.
 - Không còn blocker cho C24; chưa có checkpoint tiếp theo chờ phê duyệt.
 - Không còn blocker cho C23.
 - Không còn blocker cho C22.

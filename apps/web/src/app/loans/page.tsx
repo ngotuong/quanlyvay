@@ -25,7 +25,8 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
   const rawDirection = single(params.direction);
   const direction = rawDirection === "LENDING" || rawDirection === "BORROWING" ? rawDirection as LoanDirection : undefined;
   const rawStatus = single(params.status);
-  const status = rawStatus && rawStatus in statusLabels ? rawStatus as LoanStatus : undefined;
+  const showAllStatuses = rawStatus === "ALL";
+  const status = showAllStatuses ? undefined : rawStatus && rawStatus in statusLabels ? rawStatus as LoanStatus : "ACTIVE";
   const rawDisbursedFrom = single(params.from);
   const rawDisbursedTo = single(params.to);
   const disbursedFrom = isValidBusinessDate(rawDisbursedFrom) ? rawDisbursedFrom : undefined;
@@ -38,7 +39,8 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
   const currentQuery = new URLSearchParams();
   if (query) currentQuery.set("q", query);
   if (direction) currentQuery.set("direction", direction);
-  if (status) currentQuery.set("status", status);
+  if (showAllStatuses) currentQuery.set("status", "ALL");
+  else if (rawStatus && status) currentQuery.set("status", status);
   if (disbursedFrom) currentQuery.set("from", disbursedFrom);
   if (disbursedTo) currentQuery.set("to", disbursedTo);
   if (sort !== "newest") currentQuery.set("sort", sort);
@@ -46,7 +48,8 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
   const returnTo = currentQuery.size ? `/loans?${currentQuery.toString()}` : "/loans";
   const withoutFilter = (key: string) => {
     const url = new URLSearchParams(currentQuery);
-    url.delete(key);
+    if (key === "status") url.set("status", "ALL");
+    else url.delete(key);
     url.delete("page");
     const queryString = url.toString();
     return queryString ? `/loans?${queryString}` : "/loans";
@@ -59,7 +62,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
         {profile.role !== "VIEWER" ? <Link className="primary-link desktop-only" href="/loans/new"><Plus size={18} />Tạo khoản vay</Link> : null}
       </div>
 
-      <LoanFilters initial={{ query, direction: direction ?? "", status: status ?? "", disbursedFrom: disbursedFrom ?? "", disbursedTo: disbursedTo ?? "", sort }} resultCount={loanResult.totalCount} hasFilters={hasFilters} />
+      <LoanFilters initial={{ query, direction: direction ?? "", status: showAllStatuses ? "ALL" : status ?? "ACTIVE", disbursedFrom: disbursedFrom ?? "", disbursedTo: disbursedTo ?? "", sort }} resultCount={loanResult.totalCount} hasFilters={hasFilters} />
 
       {hasFilters ? <div className="filter-pills active-filter-pills" aria-label="Bộ lọc đang áp dụng">
         {query ? <Link href={withoutFilter("q")}>Tìm: <PrivacyRegion>{query}</PrivacyRegion><X size={14} /></Link> : null}
@@ -75,7 +78,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
           <span className="empty-icon"><CircleAlert size={28} /></span>
           <h2>{hasFilters ? "Không tìm thấy khoản phù hợp" : "Chưa có khoản vay"}</h2>
           <p>{hasFilters ? "Hãy thử bỏ bớt điều kiện, kiểm tra tên đối tác hoặc xóa toàn bộ bộ lọc." : "Hãy thêm đối tác trước, sau đó tạo khoản vay đầu tiên."}</p>
-          {hasFilters ? <div className="empty-actions"><Link className="secondary-link" href="/loans">Xóa bộ lọc</Link></div> : profile.role !== "VIEWER" ? <div className="empty-actions"><Link className="secondary-link" href="/counterparties">Thêm đối tác</Link><Link className="primary-link" href="/loans/new">Tạo khoản vay</Link></div> : null}
+          {hasFilters ? <div className="empty-actions"><Link className="secondary-link" href="/loans?status=ALL">Xóa bộ lọc</Link></div> : profile.role !== "VIEWER" ? <div className="empty-actions"><Link className="secondary-link" href="/counterparties">Thêm đối tác</Link><Link className="primary-link" href="/loans/new">Tạo khoản vay</Link></div> : null}
         </section>
       ) : (
         <section className="loan-list" aria-label="Danh sách khoản vay">
@@ -102,7 +105,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
                   <dl className="loan-card-details">
                     <div><dt>Giải ngân</dt><dd>{formatDate(loan.disbursement_date)}</dd></div>
                     <div><dt>Lãi suất</dt><dd>{periodRate}/{loan.interest_cycle_days} ngày</dd></div>
-                    <div><dt>Ngày đóng lãi</dt><dd>{formatDate(nextDate)}</dd></div>
+                    <div><dt>{status === "SETTLED" ? "Ngày tất toán" : "Ngày đóng lãi"}</dt><dd>{formatDate(status === "SETTLED" ? loan.settled_on : nextDate)}</dd></div>
                   </dl>
                 </div>
                 <dl className="loan-card-values">

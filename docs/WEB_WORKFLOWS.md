@@ -24,11 +24,13 @@ không hiển thị. Đây là đối chiếu triệu chứng, không kết lu�
   `/loans/[id]` và tạo mới tại `/loans/new`.
 - Dashboard có bộ lọc kỳ báo cáo bằng URL; số dư chốt cuối kỳ, còn lãi/chi phí/dòng tiền giới hạn
   trong kỳ. Dư nợ cho vay đang hoạt động, nợ xấu và tổng vốn chưa thu hồi được trình bày riêng.
-- `/loans` tìm theo tên khoản/đối tác; lọc hướng, trạng thái, ngày giải ngân; sắp xếp mới/cũ, dư nợ
+- `/loans` mặc định lọc `ACTIVE`; `status=ALL` hiển thị tất cả. Trang tìm theo tên khoản/đối
+  tác; lọc hướng, trạng thái, ngày giải ngân; sắp xếp mới/cũ, dư nợ
   và tên. Chỉ filter đang áp dụng hiện thành chip xóa nhanh; trạng thái nằm trong query string để hỗ
   trợ quay lại và deep link. Tìm kiếm debounce 300 ms; select, ngày và sắp xếp cập nhật ngay, không
   có bước Áp dụng. Card đặt tên–gốc và tag trên hàng đầu; tiếp theo là ngày giải ngân, lãi suất, ngày
-  đóng lãi và ba chỉ số authoritative: dư nợ gốc, lãi phải thu/trả, lãi đã thu/trả.
+  đóng lãi và ba chỉ số authoritative: dư nợ gốc, lãi phải thu/trả, lãi đã thu/trả. Thẻ
+  `SETTLED` thay lịch đóng lãi bằng `settled_on` với nhãn **Ngày tất toán**.
 - Chi tiết khoản vay chia bốn tab URL: Tổng quan, Các kỳ lãi, Lịch sử, Thiết lập. Tổng quan có hero
   dư nợ/việc kế tiếp/trạng thái và CTA; modal giao dịch lặp lại ngữ cảnh khoản vay. Dưới ba kỳ dùng
   summary thay chart. Tab thiết lập tách rõ Thông tin khoản vay, Điều chỉnh và Kết thúc khoản vay.
