@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { UserRound } from "lucide-react";
 import { ArrowLeftRight, BellDot, ContactRound, LayoutGrid, MoreHorizontal, ScrollText, SlidersHorizontal, WalletCards } from "lucide-react";
+import { BottomSheet, Button } from "@/components/ui";
 
 const primaryItems = [
   { href: "/dashboard", label: "Tổng quan", icon: LayoutGrid },
@@ -23,24 +24,27 @@ const secondaryItems = [
 
 export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadCount?: number }) {
   const pathname = usePathname();
-  const more = useRef<HTMLDetailsElement>(null);
+  const more = useRef<HTMLDialogElement>(null);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => {
-    if (more.current) more.current.open = false;
+    if (more.current?.open) more.current.close();
   }, [pathname]);
-  useEffect(() => {
-    function outside(event: PointerEvent) {
-      if (more.current && !more.current.contains(event.target as Node)) more.current.open = false;
-    }
-    function escape(event: KeyboardEvent) {
-      if (event.key === "Escape" && more.current?.open) {
-        more.current.open = false;
-        more.current.querySelector("summary")?.focus();
-      }
-    }
-    document.addEventListener("pointerdown", outside);
-    document.addEventListener("keydown", escape);
-    return () => { document.removeEventListener("pointerdown", outside); document.removeEventListener("keydown", escape); };
-  }, []);
+  useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
+  function openMore() {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    more.current?.classList.remove("is-closing");
+    if (more.current && !more.current.open) more.current.showModal();
+  }
+  function closeMore() {
+    const dialog = more.current;
+    if (!dialog?.open || dialog.classList.contains("is-closing")) return;
+    dialog.classList.add("is-closing");
+    closeTimer.current = setTimeout(() => {
+      dialog.close();
+      dialog.classList.remove("is-closing");
+      closeTimer.current = null;
+    }, 180);
+  }
   const visibleSecondaryItems = secondaryItems.filter((item) => !item.ownerOnly || isOwner);
   const secondaryActive = visibleSecondaryItems.some((item) => pathname.startsWith(item.href));
 
@@ -69,21 +73,22 @@ export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadC
         const Icon = item.icon;
         return <Link className="nav-link desktop-secondary-nav-item" data-active={active} href={item.href} key={item.href} aria-current={active ? "page" : undefined} prefetch={false}><Icon aria-hidden="true" size={20} strokeWidth={1.8} /><span>{item.label}</span></Link>;
       })}
-      <details className="mobile-more-nav" ref={more}>
-        <summary className="nav-link" data-active={secondaryActive}><MoreHorizontal aria-hidden="true" size={20} strokeWidth={1.8} /><span>Thêm</span></summary>
-        <div className="mobile-more-menu">
-          <p>Tiện ích khác</p>
+      <div className="mobile-more-nav">
+        <Button variant="ghost" className="nav-link mobile-more-trigger" data-active={secondaryActive} aria-haspopup="dialog" onClick={openMore}><MoreHorizontal aria-hidden="true" size={20} strokeWidth={1.8} /><span>Thêm</span></Button>
+        <BottomSheet className="mobile-more-sheet" title="Tiện ích khác" ref={more} onRequestClose={closeMore}>
+          <div className="mobile-more-sheet-links">
           {visibleSecondaryItems.map((item) => {
             const active = pathname.startsWith(item.href);
             const Icon = item.icon;
-            return <Link data-active={active} href={item.href} key={item.href}><Icon aria-hidden="true" size={20} /><span>{item.label}</span></Link>;
+            return <Link data-active={active} aria-current={active ? "page" : undefined} href={item.href} key={item.href}><Icon aria-hidden="true" size={20} /><span>{item.label}</span></Link>;
           })}
-        </div>
-      </details>
+          </div>
+        </BottomSheet>
+      </div>
     </nav>
   );
 }
 
 export function BrandIcon() {
-  return <Image className="brand-symbol" src="/icons/app-icon-192.png" alt="" width={32} height={32} priority />;
+  return <Image className="brand-symbol" src="/icons/brand-symbol-192.png" alt="" width={32} height={32} priority />;
 }

@@ -35,10 +35,21 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C24 | Rollout C20–C23 lên Production với candidate, smoke và rollback an toàn | `COMPLETED` |
 | C25 | Tinh gọn thẻ khoản vay, bộ lọc mặc định và chỉ báo KPI | `COMPLETED` |
 | C26 | Rollout C25 lên Preview và Production với authenticated smoke | `COMPLETED` |
+| C27A | Thay bộ nhận diện logo, favicon, Apple Touch Icon và PWA icon | `COMPLETED` |
+| C27 | Chuẩn hóa Design System và Tối ưu UI/UX Frontend | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
-- C23 hoàn tất ngày 2026-09-10 theo
+- C27A được người dùng phê duyệt trực tiếp và hoàn tất local ngày 2026-09-12 theo
+  [kế hoạch brand icon](C27A_BRAND_ICON_PLAN.md).
+- C27 được người dùng phê duyệt trực tiếp và hoàn tất local ngày 2026-09-12: chuẩn hóa Design
+  System, xây dựng UI Primitives (`apps/web/src/components/ui/`), tinh gọn `globals.css`, tối ưu
+  Dashboard, danh sách khoản vay và tương tác mobile. Toàn bộ gate local đạt; chưa rollout remote.
+  Kế hoạch và bằng chứng tại [C27_DESIGN_SYSTEM_UIUX_PLAN.md](C27_DESIGN_SYSTEM_UIUX_PLAN.md).
+- Chưa có checkpoint kế tiếp được định nghĩa.
+- C26 hoàn tất ngày 2026-09-12 theo [kế hoạch C26](C26_C25_ROLLOUT.md): Preview và Production
+  đã đạt public/authenticated smoke, stable alias hậu kiểm sạch, token tạm đã thu hồi. Không có
+  migration hay thay đổi dữ liệu, Google resources hoặc Git remote.
   [kế hoạch độ chính xác dữ liệu](C23_DATA_CORRECTNESS_PLAN.md): gate local/DB, migration
   Preview, authenticated smoke trên immutable URL và stable alias, cùng runtime log đều đạt.
 - C24 hoàn tất ngày 2026-09-11; Production candidate, authenticated smoke, promote, stable
@@ -98,6 +109,10 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.154 | 2026-09-12 | Hoàn tất C27 local: UI primitives, trust-blue tokens, Quick Action/BottomSheet/Toast và toàn bộ gate đạt. |
+| 1.0.153 | 2026-09-12 | Mở C27 `IN_PROGRESS` sau phê duyệt: Design System, UI Primitives và tối ưu Dashboard/Mobile. |
+| 1.0.152 | 2026-09-12 | Hoàn tất C27A local: thay logo/favicon/Apple/PWA icon, quét reference và đạt toàn bộ gate. |
+| 1.0.151 | 2026-09-12 | Mở C27A `IN_PROGRESS`: thay logo/icon cục bộ theo mẫu người dùng; giữ C27 chờ duyệt. |
 | 1.0.149 | 2026-09-12 | Hoàn tất C26: C25 đã lên stable Preview/Production, smoke và log sạch, credential tạm đã thu hồi. |
 | 1.0.148 | 2026-09-11 | Mở C26 `IN_PROGRESS`: rollout C25 lên Preview/Production sau phê duyệt. |
 | 1.0.147 | 2026-09-11 | Hoàn tất C25 local; mở C26 `AWAITING_APPROVAL` cho rollout Preview/Production. |

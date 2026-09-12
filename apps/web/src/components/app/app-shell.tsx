@@ -6,6 +6,7 @@ import { AppNav, BrandIcon } from "./app-nav";
 import { MobileCreateLoanLink } from "./mobile-create-loan-link";
 import { PrivacyToggle } from "./privacy-provider";
 import { MobileModuleTitle } from "./mobile-module-title";
+import { ToastProvider } from "@/components/ui";
 
 const roleLabels = { OWNER: "Chủ tài khoản", EDITOR: "Biên tập", VIEWER: "Chỉ xem" } as const;
 
@@ -22,6 +23,7 @@ export function AppShell({
 }) {
   return (
     <div className="app-frame">
+      <ToastProvider />
       <aside className="app-sidebar">
         <Link className="app-brand" href="/dashboard" aria-label="Quản Lý Vay Cá Nhân - Trang tổng quan">
           <span className="app-brand-icon"><BrandIcon /></span>

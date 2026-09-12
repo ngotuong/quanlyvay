@@ -9,7 +9,7 @@ export default async function ChangePasswordPage() {
     <main className="auth-page" id="main-content">
       <section className="single-auth-card" aria-labelledby="change-password-title">
         <div className="brand-mark brand-mark-small" aria-hidden="true">
-          <Image src="/icons/app-icon-192.png" alt="" width={48} height={48} priority />
+          <Image src="/icons/brand-symbol-192.png" alt="" width={48} height={48} priority />
         </div>
         <p className="eyebrow">Tài khoản {profile.username}</p>
         <h1 id="change-password-title">

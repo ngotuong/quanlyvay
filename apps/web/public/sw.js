@@ -9,8 +9,8 @@ self.addEventListener("push", (event) => {
   const title = payload.title || "Quản Lý Vay";
   const tasks = [self.registration.showNotification(title, {
     body: payload.body || "Bạn có thông báo mới.",
-    icon: "/icons/app-icon-192.png",
-    badge: "/icons/app-icon-192.png",
+    icon: "/icons/brand-logo-192.png",
+    badge: "/icons/brand-symbol-192.png",
     tag: payload.tag || CACHE_VERSION,
     renotify: false,
     data: { url: payload.url || "/notifications" },

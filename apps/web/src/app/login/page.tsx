@@ -15,7 +15,7 @@ export default async function LoginPage() {
       <section className="auth-shell" aria-labelledby="login-title">
         <div className="auth-intro">
           <div className="brand-mark" aria-hidden="true">
-            <Image src="/icons/app-icon-192.png" alt="" width={64} height={64} priority />
+            <Image src="/icons/brand-symbol-192.png" alt="" width={64} height={64} priority />
           </div>
           <p className="eyebrow">Quản lý vay cá nhân</p>
           <h1 id="login-title">Đăng nhập an toàn</h1>

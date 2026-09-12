@@ -2,7 +2,7 @@
 import { useBusinessAction } from "./use-business-action";
 
 import { useEffect, useRef, useState } from "react";
-import { Plus, X } from "lucide-react";
+import { Plus } from "lucide-react";
 import {
   recordExpenseAction,
   recordLifecycleAction,
@@ -13,11 +13,11 @@ import { todayInVietnam } from "@/lib/business/format";
 import type { LoanStatus } from "@/lib/business/types";
 import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
 import { SettlementForm } from "./settlement-form";
-import { VndInput } from "./vnd-input";
+import { BottomSheet, Button, Input, Select, VndInput } from "@/components/ui";
 
 type Keys = { payment: string; expense: string; lifecycle: string; settlement: string };
 
-export function LoanActions({ loanId, status, interestCycleDays, keys, context, mode = "all" }: { loanId: string; status: LoanStatus; interestCycleDays: 15 | 30; keys: Keys; context?: { name: string; outstandingVnd: string; interestBalanceVnd: string }; mode?: "all" | "payment" | "management" }) {
+export function LoanActions({ loanId, status, interestCycleDays, keys, context, mode = "all", autoOpen = false }: { loanId: string; status: LoanStatus; interestCycleDays: 15 | 30; keys: Keys; context?: { name: string; outstandingVnd: string; interestBalanceVnd: string }; mode?: "all" | "payment" | "management"; autoOpen?: boolean }) {
   const [paymentState, paymentAction] = useBusinessAction(recordPaymentAction, initialBusinessActionState);
   const [expenseState, expenseAction] = useBusinessAction(recordExpenseAction, initialBusinessActionState);
   const [lifecycleState, lifecycleAction] = useBusinessAction(recordLifecycleAction, initialBusinessActionState);
@@ -25,6 +25,7 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
   const paymentDialog = useRef<HTMLDialogElement>(null);
   const paymentDirty = useRef(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const autoOpened = useRef(false);
   const today = todayInVietnam();
   const isSettled = status === "SETTLED";
   useEffect(() => { if (paymentState.ok) paymentDirty.current = false; }, [paymentState]);
@@ -55,26 +56,31 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
     }, 180);
   }
 
+  useEffect(() => {
+    if (!autoOpen || autoOpened.current || isSettled) return;
+    autoOpened.current = true;
+    openPaymentDialog();
+  }, [autoOpen, isSettled]);
+
   if (isSettled) return mode === "payment" || mode === "all" ? <div className="settled-notice">Khoản vay đã tất toán. Chỉ còn xem lịch sử và hoàn tác nghiệp vụ hợp lệ.</div> : null;
 
   return (
-    <section className="action-drawer-grid" aria-label="Ghi nhận nghiệp vụ">
+    <section className="action-drawer-grid" id={mode === "payment" ? "transaction-actions" : undefined} aria-label="Ghi nhận nghiệp vụ">
       {mode !== "management" ? <div className="transaction-action">
-        <button className="primary-button transaction-trigger" type="button" onClick={openPaymentDialog}><Plus size={18} />Ghi giao dịch</button>
+        <Button className="primary-button transaction-trigger" type="button" onClick={openPaymentDialog}><Plus size={18} />Ghi giao dịch</Button>
         <p>Ghi tiền lãi hoặc tiền gốc mà không làm gián đoạn phần đối chiếu.</p>
-        <dialog aria-labelledby="transaction-dialog-title" className="transaction-dialog" ref={paymentDialog} onCancel={(event) => { event.preventDefault(); closePaymentDialog(); }} onClick={(event) => { if (event.target === event.currentTarget) closePaymentDialog(); }}>
-          <div className="dialog-heading"><div><p className="eyebrow">Nghiệp vụ khoản vay</p><h2 id="transaction-dialog-title">Ghi giao dịch</h2></div><button className="icon-button" type="button" aria-label="Đóng" onClick={closePaymentDialog}><X size={20} /></button></div>
+        <BottomSheet eyebrow="Nghiệp vụ khoản vay" title="Ghi giao dịch" titleId="transaction-dialog-title" ref={paymentDialog} onRequestClose={closePaymentDialog}>
           <BusinessForm state={paymentState} action={paymentAction} className="compact-form dialog-form" onChange={() => { paymentDirty.current = true; }}>
           {context ? <p className="transaction-context"><strong>{context.name}</strong><span>Dư gốc {context.outstandingVnd} · Lãi còn lại {context.interestBalanceVnd}</span></p> : null}
           <input name="loanId" type="hidden" value={loanId} />
           <input name="idempotencyKey" type="hidden" value={keys.payment} />
-          <div className="field-group"><label htmlFor="paymentType">Loại tiền</label><select id="paymentType" name="type"><option value="INTEREST_PAYMENT">Tiền lãi</option><option value="PRINCIPAL_PAYMENT">Tiền gốc</option></select><FieldError state={paymentState} name="type" /></div>
-          <div className="field-group"><label htmlFor="paymentDate">Ngày thanh toán</label><input id="paymentDate" name="transactionDate" type="date" defaultValue={today} required /><FieldError state={paymentState} name="transactionDate" /></div>
+          <div className="field-group"><label htmlFor="paymentType">Loại tiền</label><Select id="paymentType" name="type"><option value="INTEREST_PAYMENT">Tiền lãi</option><option value="PRINCIPAL_PAYMENT">Tiền gốc</option></Select><FieldError state={paymentState} name="type" /></div>
+          <div className="field-group"><label htmlFor="paymentDate">Ngày thanh toán</label><Input id="paymentDate" name="transactionDate" type="date" defaultValue={today} required /><FieldError state={paymentState} name="transactionDate" /></div>
           <div className="field-group"><label htmlFor="paymentAmount">Số tiền (VND)</label><VndInput id="paymentAmount" name="amountVnd" required placeholder="1.000.000" /><FieldError state={paymentState} name="amountVnd" /></div>
-          <div className="field-group"><label htmlFor="paymentNote">Ghi chú</label><input id="paymentNote" name="note" maxLength={500} /><FieldError state={paymentState} name="note" /></div>
-          <ActionMessage state={paymentState} /><div className="dialog-actions"><button className="secondary-button" type="button" onClick={closePaymentDialog}>Hủy</button><FormSubmit>Ghi nhận</FormSubmit></div>
+          <div className="field-group"><label htmlFor="paymentNote">Ghi chú</label><Input id="paymentNote" name="note" maxLength={500} /><FieldError state={paymentState} name="note" /></div>
+          <ActionMessage state={paymentState} /><div className="dialog-actions"><Button variant="secondary" className="secondary-button" type="button" onClick={closePaymentDialog}>Hủy</Button><FormSubmit>Ghi nhận</FormSubmit></div>
           </BusinessForm>
-        </dialog>
+        </BottomSheet>
       </div> : null}
 
       {mode === "management" ? <div className="management-group-heading"><p className="eyebrow">Điều chỉnh</p><h2>Nghiệp vụ ít dùng</h2><span>Chi phí, lãi suất và trạng thái nợ xấu.</span></div> : null}

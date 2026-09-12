@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.149
-last_updated: 2026-09-12 07:07:18 +07
+roadmap_version: 1.0.154
+last_updated: 2026-09-12 22:19:11 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: NONE
 current_status: COMPLETED
-last_completed_checkpoint: C26
+last_completed_checkpoint: C27
 next_checkpoint: NONE
 ---
 
@@ -16,8 +16,12 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
+- C27A thay toàn bộ brand logo/app icon bằng mẫu `Ngô Tường Financial Workspace` được người dùng
+  cung cấp và phê duyệt trực tiếp ngày 2026-09-12; đã `COMPLETED` local, chỉ thay tài sản/metadata
+  giao diện và không đổi logic, API, dữ liệu, routing hay chức năng.
+- C27: Chuẩn hóa Design System và Tối ưu UI/UX Frontend đã `COMPLETED` local ngày 2026-09-12
+  theo `docs/C27_DESIGN_SYSTEM_UIUX_PLAN.md`; chưa rollout Preview/Production.
 - C0–C26 đã `COMPLETED`; C26 rollout C25 lên Preview/Production hoàn tất ngày 2026-09-12.
-- Chưa có checkpoint tiếp theo; phải có chỉ dẫn/phê duyệt mới của người dùng trước mọi phạm vi mới.
 - C23 sửa kỳ so sánh dashboard, cách ly dữ liệu QA C21 khỏi số liệu vận hành/Google Sync nhưng giữ
   audit append-only; rollout chỉ áp dụng Preview.
 - C22 đã tất toán có audit 6 khoản `C21 TEST ONLY` trên Preview, không xóa vật lý; dashboard stable
@@ -100,6 +104,25 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C27 hoàn tất local: thêm UI primitives dùng chung (Button, Input/Select/Textarea, VndInput,
+  Badge, Card, Tabs, Toast và BottomSheet), chuyển palette sang trust-blue/cobalt, chuẩn hóa elevation,
+  motion và z-index; Dashboard cùng các trang khoản vay/đối tác/chi phí/cài đặt đã dùng primitives.
+  Danh sách khoản vay có Quick Action ghi giao dịch, chi tiết khoản vay tự mở sheet qua deep link;
+  menu mobile và bộ lọc nâng cao dùng BottomSheet có Escape/chạm ngoài/vuốt đóng. Toast phản hồi
+  Server Action tự ẩn và vẫn có live-region. `globals.css` giảm từ khoảng 99,8 KB xuống 74,6 KB,
+  CSS primitives/playground được tách riêng. Không đổi logic nghiệp vụ, API, routing, dữ liệu,
+  migration hoặc Privacy SSR.
+- Gate C27 ngày 2026-09-12 đạt: `git diff --check`, lint, typecheck, 74/74 unit/script tests,
+  production build, Auth 6/6 và E2E 21/21. E2E bao phủ 375/768/1024/1440, light/dark,
+  Quick Action, Toast tự ẩn, BottomSheet đóng bằng nút/Escape/chạm ngoài/vuốt và không tràn ngang.
+  DB lint/pgTAP không chạy lại vì C27 không có thay đổi database; E2E/Auth đã reset đủ 29 migration
+  trên local. Không deploy, Git push, đổi secret hoặc tài nguyên remote.
+- C27A hoàn tất local: sidebar, đăng nhập và đổi mật khẩu dùng biểu tượng vô cực mới với kích thước
+  hiển thị cố định; favicon 16/32 dùng bản không chữ; Apple Touch Icon 180 và PWA 192/512/maskable
+  dùng bộ nhận diện mới. Metadata, manifest, Web Push icon/badge và service worker đã chuyển reference;
+  asset cũ chỉ được xóa sau khi quét source không còn reference. Gate đạt `git diff --check`, lint,
+  typecheck, toàn bộ unit/script tests, build và E2E 21/21. Không deploy, migration, thay dữ liệu,
+  remote secret, Google resources hay Git remote.
 - C26 đã rollout C25 lên Preview và Production. Preview candidate
   `dpl_8RwYQmGmqUD67wJeDMDzqveh1gz7`, immutable
   `https://quan-ly-vay-ca-nhan-o98f4jlj4-ngotuong2105.vercel.app`; stable
@@ -206,6 +229,8 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- Không có blocker và chưa có checkpoint kế tiếp. C27/C27A mới hoàn tất local; bộ icon và UI/UX
+  mới chưa được rollout Preview/Production.
 - C26 không còn blocker. Token CLI Supabase tạm
   `cli_ngotuong@Mac-mini.local_1789127470` đã được thu hồi sau xác nhận của người dùng và credential
   cục bộ đã xóa; tài khoản smoke đã deactivate/ban. Chưa có checkpoint tiếp theo.

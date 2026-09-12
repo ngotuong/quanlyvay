@@ -92,8 +92,8 @@ export function PushManager({ publicKey, initialDeliveryHour, showTestButton = f
       const registration = await navigator.serviceWorker.ready;
       await registration.showNotification(TEST_NOTIFICATION.title, {
         body: TEST_NOTIFICATION.body,
-        icon: "/icons/app-icon-192.png",
-        badge: "/icons/app-icon-192.png",
+        icon: "/icons/brand-logo-192.png",
+        badge: "/icons/brand-symbol-192.png",
         tag: "preview-interest-notification-test",
         data: { url: "/notifications" },
       });

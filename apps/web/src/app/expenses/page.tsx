@@ -9,6 +9,7 @@ import { formatDate, formatVnd } from "@/lib/business/format";
 import { listGeneralExpenses } from "@/lib/business/queries";
 
 import { PrivacyAmount, PrivacyRegion, PrivacyForm } from "@/components/app/privacy-provider";
+import { Card } from "@/components/ui";
 
 export default async function ExpensesPage({ searchParams }: { searchParams: Promise<{ page?: string; unread?: string }> }) {
   const profile = await requireAuthenticatedProfile();
@@ -29,7 +30,7 @@ export default async function ExpensesPage({ searchParams }: { searchParams: Pro
       </div>
 
       {result.categories.length > 0 ? (
-        <section className="surface-card mb-4 p-4">
+        <Card className="surface-card mb-4 p-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b pb-3 mb-3 gap-2">
             <div>
               <p className="eyebrow">Tổng quan ngân sách</p>
@@ -59,18 +60,18 @@ export default async function ExpensesPage({ searchParams }: { searchParams: Pro
               );
             })}
           </div>
-        </section>
+        </Card>
       ) : null}
 
       <div className={canWrite ? "two-panel-layout" : undefined}>
-        {canWrite ? <section className="surface-card sticky-panel"><h2>Thêm chi phí</h2><PrivacyForm><GeneralExpenseForm idempotencyKey={randomUUID()} /></PrivacyForm></section> : null}
+        {canWrite ? <Card className="surface-card sticky-panel"><h2>Thêm chi phí</h2><PrivacyForm><GeneralExpenseForm idempotencyKey={randomUUID()} /></PrivacyForm></Card> : null}
         <section className="counterparty-list" aria-label="Danh sách chi phí chung">
           {expenseRows.length === 0 ? <div className="empty-state compact"><ReceiptText size={26} /><h2>Chưa có chi phí chung</h2><p>Các chi phí không gắn khoản vay sẽ xuất hiện tại đây.</p></div> : expenseRows.map((expense) => (
-            <article className="surface-card counterparty-card" key={expense.id}>
+            <Card as="article" variant="interactive" className="surface-card counterparty-card" key={expense.id}>
               <div className="counterparty-card-heading"><div><h2><PrivacyRegion>{expense.expenses?.category ?? "Chi phí khác"}</PrivacyRegion></h2><p>{formatDate(expense.transaction_date)}</p></div><strong className="privacy-amount"><PrivacyAmount value={formatVnd(expense.amount_vnd)} /></strong></div>
               <p className="notes-copy"><PrivacyRegion>{expense.note || "Không có ghi chú."}</PrivacyRegion></p>
               {expense.reversed ? <p className="action-message" data-success="true">Đã đảo giao dịch</p> : canWrite ? <PrivacyForm><ReversalForm loanId={null} transactionId={expense.id} idempotencyKey={randomUUID()} /></PrivacyForm> : null}
-            </article>
+            </Card>
           ))}
         </section>
       </div>

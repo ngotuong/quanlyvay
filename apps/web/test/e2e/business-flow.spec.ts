@@ -39,6 +39,9 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await page.getByLabel("Ghi chú").first().fill("Đối tác được tạo bởi Playwright");
   await page.getByRole("button", { name: "Thêm đối tác" }).click();
   await expect(page.getByRole("heading", { name: "Anh Nam E2E" })).toBeVisible();
+  const createdToast = page.locator(".ui-toast");
+  await expect(createdToast).toHaveAttribute("aria-label", "Đã thêm đối tác.");
+  await expect(createdToast).toBeHidden({ timeout: 6_000 });
 
   await page.getByRole("link", { name: "Khoản vay" }).first().click();
   await page.getByRole("link", { name: "Tạo khoản vay" }).first().click();
@@ -70,7 +73,7 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await page.getByLabel("Lý do điều chỉnh").fill("Nhập nhầm dữ liệu khi tạo khoản vay E2E");
   await page.getByLabel(/Tôi đã kiểm tra lại dữ liệu/).check();
   await page.getByRole("button", { name: "Áp dụng điều chỉnh" }).click();
-  await expect(page.getByText("Đã điều chỉnh dữ liệu ban đầu và lưu đầy đủ lịch sử.")).toBeVisible();
+  await expect(page.locator("#main-content").getByText("Đã điều chỉnh dữ liệu ban đầu và lưu đầy đủ lịch sử.")).toBeVisible();
   await expect(page.getByRole("heading", { name: "Anh Nam E2E", exact: true })).toBeVisible();
   await loanTabs.getByRole("link", { name: "Các kỳ lãi" }).click();
   const interestPeriod = page.locator(".period-list article").first();
@@ -88,7 +91,7 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await lifecycleForm.getByLabel("Thao tác").selectOption("BAD_DEBT_START");
   await lifecycleForm.getByLabel("Ghi chú").fill("Khách chậm thanh toán");
   await lifecycleForm.getByRole("button", { name: "Cập nhật", exact: true }).click();
-  await expect(page.getByText("Đã cập nhật lịch sử khoản vay.")).toBeVisible();
+  await expect(page.locator("#main-content").getByText("Đã cập nhật lịch sử khoản vay.")).toBeVisible();
   await expect(page.getByText("Nợ xấu").first()).toBeVisible();
   await loanTabs.getByRole("link", { name: "Lịch sử" }).click();
   await expect(page.getByText("Chuyển nợ xấu")).toBeVisible();
@@ -183,6 +186,14 @@ test("business pages remain usable at 375px", async ({ page }) => {
   expect(filterBounds.controls.every((control) => control.left >= filterBounds.parent.left && control.right <= filterBounds.parent.right)).toBe(true);
   const directionColors = await page.locator(".loan-card-icon").evaluateAll((icons) => Object.fromEntries(icons.map((icon) => [icon.getAttribute("data-direction"), getComputedStyle(icon).color])));
   expect(directionColors.LENDING).not.toBe(directionColors.BORROWING);
+  const quickAction = page.getByRole("link", { name: "Ghi giao dịch cho khoản vay" }).first();
+  await expect(quickAction).toBeVisible();
+  await quickAction.click();
+  await expect(page).toHaveURL(/transaction=1/);
+  const quickDialog = page.getByRole("dialog", { name: "Ghi giao dịch" });
+  await expect(quickDialog).toBeVisible();
+  await quickDialog.getByRole("button", { name: "Hủy" }).click();
+  await page.getByRole("link", { name: "Quay lại danh sách" }).click();
   await page.getByRole("button", { name: "Nâng cao" }).click();
   const advancedFilterDialog = page.getByRole("dialog", { name: "Ngày giải ngân và sắp xếp" });
   await expect(advancedFilterDialog).toBeVisible();
@@ -200,6 +211,18 @@ test("business pages remain usable at 375px", async ({ page }) => {
   expect(await transactionDialog.evaluate((element) => getComputedStyle(element).animationName)).toBe("sheet-enter");
   await transactionDialog.getByRole("button", { name: "Đóng" }).click();
   await expect(transactionDialog).toHaveClass(/is-closing/);
+  await expect(transactionDialog).toBeHidden();
+  await page.getByRole("button", { name: "Ghi giao dịch" }).click();
+  await expect(transactionDialog).toBeVisible();
+  const grabber = transactionDialog.locator(".ui-sheet-grabber");
+  await grabber.evaluate((element) => {
+    element.setPointerCapture = () => {};
+    const startY = element.getBoundingClientRect().top + 8;
+    const event = (type: string, clientY: number) => new PointerEvent(type, { bubbles: true, clientY, pointerId: 1, pointerType: "touch" });
+    element.dispatchEvent(event("pointerdown", startY));
+    element.dispatchEvent(event("pointermove", startY + 120));
+    element.dispatchEvent(event("pointerup", startY + 120));
+  });
   await expect(transactionDialog).toBeHidden();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
 });
@@ -238,7 +261,7 @@ test("owner can manage more than one additional account", async ({ page }) => {
   await page.getByLabel("Mật khẩu tạm", { exact: true }).fill("Viewer123");
   await page.getByRole("button", { name: "Tạo tài khoản" }).click();
 
-  await expect(page.getByText("Đã tạo tài khoản.", { exact: true })).toBeVisible();
+  await expect(page.locator("#main-content").getByText("Đã tạo tài khoản.", { exact: true })).toBeVisible();
   await expect(page.getByRole("heading", { name: "Tài khoản c16_viewer_e2e" })).toBeVisible();
   await expect(page.getByRole("heading", { name: /^Tài khoản / })).toHaveCount(2);
 });
@@ -450,7 +473,23 @@ test("PWA manifest, service worker and notification center are available", async
 
   const manifest = await page.request.get("/manifest.webmanifest");
   expect(manifest.ok()).toBe(true);
-  expect((await manifest.json()).display).toBe("standalone");
+  const manifestBody = await manifest.json();
+  expect(manifestBody.display).toBe("standalone");
+  expect(manifestBody.icons).toEqual([
+    { src: "/icons/brand-logo-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+    { src: "/icons/brand-logo-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+    { src: "/icons/brand-logo-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+  ]);
+  const headIcons = await page.evaluate(() => Array.from(document.head.querySelectorAll<HTMLLinkElement>('link[rel="icon"], link[rel="apple-touch-icon"]')).map((link) => ({ rel: link.rel, href: new URL(link.href).pathname })));
+  expect(headIcons).toEqual(expect.arrayContaining([
+    { rel: "icon", href: "/favicon.ico" },
+    { rel: "icon", href: "/icons/favicon-16.png" },
+    { rel: "icon", href: "/icons/favicon-32.png" },
+    { rel: "apple-touch-icon", href: "/icons/apple-touch-icon.png" },
+  ]));
+  for (const icon of [...manifestBody.icons.map((item: { src: string }) => item.src), "/favicon.ico", "/icons/favicon-16.png", "/icons/favicon-32.png", "/icons/apple-touch-icon.png", "/icons/brand-symbol-192.png"]) {
+    expect((await page.request.get(icon)).ok()).toBe(true);
+  }
   const worker = await page.request.get("/sw.js");
   expect(worker.ok()).toBe(true);
   expect(await worker.text()).toContain('addEventListener("push"');
@@ -464,7 +503,7 @@ test("PWA manifest, service worker and notification center are available", async
   await expect(page.getByLabel("Giờ nhận thông báo")).toHaveValue("7");
   await page.getByLabel("Giờ nhận thông báo").selectOption("9");
   await page.getByRole("button", { name: "Lưu giờ" }).click();
-  await expect(page.getByText("Đã đặt giờ nhận thông báo là 09:00.")).toBeVisible();
+  await expect(page.locator("#main-content").getByText("Đã đặt giờ nhận thông báo là 09:00.")).toBeVisible();
   await page.reload();
   await expect(page.getByLabel("Giờ nhận thông báo")).toHaveValue("9");
   await page.evaluate(async () => {

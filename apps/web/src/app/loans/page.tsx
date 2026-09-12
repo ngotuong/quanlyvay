@@ -10,6 +10,7 @@ import { formatDate, formatPercent, formatVnd, periodRateInput } from "@/lib/bus
 import { listLoans } from "@/lib/business/queries";
 import type { LoanListFilters } from "@/lib/business/queries";
 import type { LoanDirection, LoanStatus } from "@/lib/business/types";
+import { Badge } from "@/components/ui";
 
 const statusLabels: Record<LoanStatus, string> = { ACTIVE: "Đang hoạt động", OVERDUE: "Quá hạn", BAD_DEBT: "Nợ xấu", SETTLED: "Đã tất toán" };
 
@@ -95,12 +96,12 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
             const periodRate = formatPercent(periodRateInput(loan.initial_daily_rate_percent, loan.interest_cycle_days));
 
             return (
-              <LoanCardLink direction={loan.direction} href={`/loans/${loan.id}?returnTo=${encodeURIComponent(returnTo)}`} key={loan.id}>
+              <LoanCardLink direction={loan.direction} href={`/loans/${loan.id}?returnTo=${encodeURIComponent(returnTo)}`} quickActionHref={profile.role !== "VIEWER" && status !== "SETTLED" ? `/loans/${loan.id}?transaction=1&returnTo=${encodeURIComponent(returnTo)}` : undefined} key={loan.id}>
                 <div className="loan-card-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins /> : <Landmark />}</div>
                 <div className="loan-card-main">
                   <div className="loan-card-heading">
                     <h2><PrivacyRegion>{displayName}</PrivacyRegion><span aria-hidden="true"> • </span><span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.original_principal_vnd)} /></span></h2>
-                    <div className="loan-card-tags"><span className="direction-badge" data-direction={loan.direction}>{directionText}</span><span className="status-badge" data-status={status}>{statusLabels[status]}</span></div>
+                    <div className="loan-card-tags"><Badge className="direction-badge" tone={loan.direction === "LENDING" ? "lending" : "borrowing"} data-direction={loan.direction}>{directionText}</Badge><Badge className="status-badge" tone={status === "ACTIVE" ? "success" : status === "SETTLED" ? "neutral" : status === "OVERDUE" ? "warning" : "danger"} data-status={status}>{statusLabels[status]}</Badge></div>
                   </div>
                   <dl className="loan-card-details">
                     <div><dt>Giải ngân</dt><dd>{formatDate(loan.disbursement_date)}</dd></div>

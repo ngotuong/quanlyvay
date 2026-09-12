@@ -12,9 +12,9 @@ export default function manifest(): MetadataRoute.Manifest {
     lang: "vi",
     orientation: "any",
     icons: [
-      { src: "/icons/app-icon-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
-      { src: "/icons/app-icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
-      { src: "/icons/app-icon-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+      { src: "/icons/brand-logo-192.png", sizes: "192x192", type: "image/png", purpose: "any" },
+      { src: "/icons/brand-logo-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+      { src: "/icons/brand-logo-maskable-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
   };
 }

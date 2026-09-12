@@ -109,10 +109,11 @@ test("account available to all roles, mobile menu Escape/outside and logout", as
     if(page.url().includes("change-password")){
       await page.getByLabel("Mật khẩu mới",{exact:true}).fill("Viewer456");await page.getByLabel("Nhập lại mật khẩu mới").fill("Viewer456");await page.getByRole("button",{name:"Lưu mật khẩu mới"}).click();
     }
-    const menu=page.locator(".mobile-more-nav:visible");await menu.locator("summary").click();await page.keyboard.press("Escape");await expect(menu).not.toHaveAttribute("open");
-    await menu.locator("summary").click();await page.locator(".mobile-module-title").click();await expect(menu).not.toHaveAttribute("open");
-    await menu.locator("summary").click();await menu.getByRole("link",{name:"Tài khoản của tôi"}).click();
-    await expect(page.locator(".mobile-module-title")).toContainText("Tài khoản của tôi");await expect(menu).not.toHaveAttribute("open");
+    const menu=page.locator(".mobile-more-nav:visible");const menuButton=menu.getByRole("button",{name:"Thêm",exact:true});
+    await menuButton.click();const menuDialog=page.getByRole("dialog",{name:"Tiện ích khác"});await expect(menuDialog).toBeVisible();await page.keyboard.press("Escape");await expect(menuDialog).toBeHidden();
+    await menuButton.click();await page.mouse.click(2,2);await expect(menuDialog).toBeHidden();
+    await menuButton.click();await menuDialog.getByRole("link",{name:"Tài khoản của tôi"}).click();
+    await expect(page.locator(".mobile-module-title")).toContainText("Tài khoản của tôi");await expect(menuDialog).toBeHidden();
     await expect(page.getByRole("link",{name:"Đổi mật khẩu của tôi"})).toBeVisible();
     const previewResponse=await page.request.get(`/api/loans/${loanId}/settlement-preview?date=2026-09-07`);
     expect(previewResponse.status()).toBe(username==="c16_viewer_e2e"?403:200);

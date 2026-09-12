@@ -16,6 +16,7 @@ import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatPercent, formatPeriodRate, formatVnd } from "@/lib/business/format";
 import { getLoanWorkspace, listCounterparties } from "@/lib/business/queries";
 import type { InterestPeriod, LoanStatus } from "@/lib/business/types";
+import { Badge, Card, TabList, Tabs } from "@/components/ui";
 
 const statusLabels: Record<LoanStatus, string> = { ACTIVE: "Đang hoạt động", OVERDUE: "Quá hạn", BAD_DEBT: "Nợ xấu", SETTLED: "Đã tất toán" };
 const transactionLabels = { DISBURSEMENT: "Giải ngân", INTEREST_PAYMENT: "Thanh toán lãi", PRINCIPAL_PAYMENT: "Thanh toán gốc", EXPENSE: "Chi phí", REVERSAL: "Đảo giao dịch" } as const;
@@ -46,7 +47,7 @@ function PeriodInterestChart({ periods }: { periods: InterestPeriod[] }) {
   const height = (value: string) => maximum === BigInt(0) ? "0%" : `${Math.max(2, Number((BigInt(value) * BigInt(100)) / maximum))}%`;
 
   return (
-    <section className="surface-card period-chart-card" aria-labelledby="period-chart-title">
+    <Card className="surface-card period-chart-card" aria-labelledby="period-chart-title">
       <div className="dashboard-section-heading">
         <div><p className="eyebrow">Tối đa 12 kỳ gần nhất</p><h2 id="period-chart-title">Phát sinh, đã đóng và còn thiếu</h2></div>
         <div className="chart-legend"><span data-series="accrued">Phát sinh</span><span data-series="paid">Đã đóng</span><span data-series="remaining">Còn thiếu</span></div>
@@ -65,11 +66,11 @@ function PeriodInterestChart({ periods }: { periods: InterestPeriod[] }) {
           <small>{formatDate(period.end_date)}</small>
         </div>)}
       </div></div>}
-    </section>
+    </Card>
   );
 }
 
-export default async function LoanDetailPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ tab?: string; returnTo?: string; page?: string }> }) {
+export default async function LoanDetailPage({ params, searchParams }: { params: Promise<{ id: string }>; searchParams: Promise<{ tab?: string; returnTo?: string; page?: string; transaction?: string }> }) {
   const [{ id }, query] = await Promise.all([params, searchParams]);
   const page = parsePage(query.page);
   const activeTab: LoanTab = tabs.some((tab) => tab.id === query.tab) ? query.tab as LoanTab : "overview";
@@ -115,10 +116,10 @@ export default async function LoanDetailPage({ params, searchParams }: { params:
       <RenderRevision />
       <Link className="back-link" href={returnTo}><ArrowLeft size={18} />Quay lại danh sách</Link>
       <div className="loan-detail-heading">
-        <div><div className="heading-badges"><span className="direction-badge" data-direction={loan.direction}>{directionLabel}</span><span className="status-badge" data-status={status}>{statusLabels[status]}</span></div><h1><PrivacyRegion>{displayName}</PrivacyRegion></h1><p><PrivacyRegion>{hasGeneratedName ? "" : `${counterpartyName} · `}</PrivacyRegion>Giải ngân {formatDate(loan.disbursement_date)}</p></div>
+        <div><div className="heading-badges"><Badge className="direction-badge" tone={loan.direction === "LENDING" ? "lending" : "borrowing"} data-direction={loan.direction}>{directionLabel}</Badge><Badge className="status-badge" tone={status === "ACTIVE" ? "success" : status === "SETTLED" ? "neutral" : status === "OVERDUE" ? "warning" : "danger"} data-status={status}>{statusLabels[status]}</Badge></div><h1><PrivacyRegion>{displayName}</PrivacyRegion></h1><p><PrivacyRegion>{hasGeneratedName ? "" : `${counterpartyName} · `}</PrivacyRegion>Giải ngân {formatDate(loan.disbursement_date)}</p></div>
       </div>
 
-      <nav className="loan-tabs" aria-label="Nội dung khoản vay">{tabs.map((tab) => <Link key={tab.id} href={tabHref(tab.id)} scroll={false} data-active={activeTab === tab.id} aria-current={activeTab === tab.id ? "page" : undefined}>{tab.label}</Link>)}</nav>
+      <Tabs className="loan-tabs" aria-label="Nội dung khoản vay"><TabList>{tabs.map((tab) => <Link key={tab.id} href={tabHref(tab.id)} scroll={false} data-active={activeTab === tab.id} aria-current={activeTab === tab.id ? "page" : undefined}>{tab.label}</Link>)}</TabList></Tabs>
 
       {activeTab === "overview" ? <>
         <section className="overview-hero" aria-label="Tình trạng khoản vay">
@@ -126,7 +127,7 @@ export default async function LoanDetailPage({ params, searchParams }: { params:
           <div className="overview-next"><p>{interestBalanceLabel}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(calculation.interestBalanceVnd)} /></strong><span><CalendarDays size={16} />{loan.maturity_date ? `Đáo hạn gốc ${formatDate(loan.maturity_date)}` : `Nhắc lãi ${formatDate(loanSchedule.nextInterestDueDate)}`}</span>{!loan.maturity_date && loan.interest_reminder_offset_days > 0 ? <small>Kỳ chốt {formatDate(loanSchedule.nextInterestPeriodEndDate)}</small> : null}</div>
           <span className="status-badge overview-status" data-status={status}>{statusLabels[status]}</span>
         </section>
-        {canWrite ? <PrivacyForm><LoanActions loanId={loan.id} status={status} interestCycleDays={loan.interest_cycle_days} context={transactionContext} keys={{ payment: randomUUID(), expense: randomUUID(), lifecycle: randomUUID(), settlement: randomUUID() }} mode="payment" /></PrivacyForm> : <div className="viewer-notice">Bạn đang ở chế độ chỉ xem. Mọi dữ liệu nghiệp vụ được giữ nguyên.</div>}
+        {canWrite ? <PrivacyForm><LoanActions loanId={loan.id} status={status} interestCycleDays={loan.interest_cycle_days} context={transactionContext} keys={{ payment: randomUUID(), expense: randomUUID(), lifecycle: randomUUID(), settlement: randomUUID() }} mode="payment" autoOpen={query.transaction === "1"} /></PrivacyForm> : <div className="viewer-notice">Bạn đang ở chế độ chỉ xem. Mọi dữ liệu nghiệp vụ được giữ nguyên.</div>}
         <section className="overview-supporting" aria-label="Số liệu bổ sung"><div><CircleDollarSign size={18} /><span><small>{interestRecordedLabel}</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(overviewSummary.interestRecordedVnd)} /></strong></span></div><div><Percent size={18} /><span><small>Tổng lãi phát sinh</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(overviewSummary.totalAccruedInterestVnd)} /></strong></span></div><div><Landmark size={18} /><span><small>Gốc đã hoàn trả</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(overviewSummary.principalRepaidVnd)} /></strong></span></div></section>
       </> : null}
 

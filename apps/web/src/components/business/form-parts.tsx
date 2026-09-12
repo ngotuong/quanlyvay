@@ -3,6 +3,7 @@
 import { createContext, useContext, useEffect, useId, useRef, useSyncExternalStore, type ComponentProps } from "react";
 import { LoaderCircle } from "lucide-react";
 import type { BusinessActionState } from "@/lib/business/action-state";
+import { Button, notifyToast } from "@/components/ui";
 
 const BusinessPending = createContext(false);
 const subscribeHydration = () => () => {};
@@ -63,6 +64,12 @@ export function BusinessForm({ state, children, action, ...props }: Omit<Compone
 }
 
 export function ActionMessage({ state, hiddenFields = [] }: { state: BusinessActionState; hiddenFields?: string[] }) {
+  const announced = useRef<string | null>(null);
+  useEffect(() => {
+    if (!state.message || announced.current === state.message) return;
+    announced.current = state.message;
+    notifyToast(state.message, state.ok ? "success" : "error");
+  }, [state.message, state.ok]);
   if (!state.message) return null;
   return <div className="action-message" data-success={state.ok} role="status" aria-live="polite"><p>{state.message}</p>
     {state.fieldErrors ? <ul>{Object.entries(state.fieldErrors).filter(([name]) => !hiddenFields.includes(name)).flatMap(([name, errors]) => errors.map(message => <li key={`${name}-${message}`}><button type="button" className="error-field-link" onClick={event => {
@@ -74,9 +81,9 @@ export function ActionMessage({ state, hiddenFields = [] }: { state: BusinessAct
 export function FormSubmit({ children, danger = false }: { children: React.ReactNode; danger?: boolean }) {
   const pending = useContext(BusinessPending);
   return (
-    <button className={danger ? "danger-button" : "primary-button"} disabled={pending} type="submit">
+    <Button variant={danger ? "danger" : "primary"} className={danger ? "danger-button" : "primary-button"} disabled={pending} type="submit">
       {pending ? <LoaderCircle className="spin" aria-hidden="true" size={18} /> : null}
       {pending ? "Đang lưu…" : children}
-    </button>
+    </Button>
   );
 }

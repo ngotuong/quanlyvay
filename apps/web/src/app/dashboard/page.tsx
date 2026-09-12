@@ -7,6 +7,7 @@ import { formatDate, formatVnd } from "@/lib/business/format";
 import { dashboardComparisonPeriods, resolveDashboardPeriod } from "@/lib/business/dashboard-period";
 import { getManagementDashboardBundle } from "@/lib/business/queries";
 import type { CounterpartyExposure, DashboardCashFlow, DashboardDueLoan } from "@/lib/business/types";
+import { Card } from "@/components/ui";
 
 function monthLabel(value: string) {
   const [year, month] = value.split("-");
@@ -111,20 +112,20 @@ function MetricComparison({ current, previous, comparisonLabel }: { current: str
 function HorizontalBarChart({ title, eyebrow, rows }: { title: string; eyebrow: string; rows: { label: string; value: string; tone: string }[] }) {
   const maximum = rows.reduce((current, row) => BigInt(row.value) > current ? BigInt(row.value) : current, BigInt(0));
   return (
-    <section className="surface-card horizontal-chart-card">
+    <Card className="surface-card horizontal-chart-card">
       <div className="dashboard-section-heading"><div><p className="eyebrow">{eyebrow}</p><h2>{title}</h2></div></div>
       <div className="horizontal-bars" role="list">{rows.map((row) => <div className="horizontal-bar-row" role="listitem" key={row.label}>
         <div><span>{row.label}</span><strong className="privacy-amount"><PrivacyAmount value={formatVnd(row.value)} /></strong></div>
         <span className="horizontal-bar-track" aria-hidden="true"><span data-tone={row.tone} style={{ "--bar-size": ratio(row.value, maximum) } as CSSProperties} /></span>
       </div>)}</div>
-    </section>
+    </Card>
   );
 }
 
 function CounterpartyChart({ rows }: { rows: CounterpartyExposure[] }) {
   const maximum = rows.reduce((current, row) => BigInt(row.totalVnd) > current ? BigInt(row.totalVnd) : current, BigInt(0));
   return (
-    <section className="surface-card horizontal-chart-card counterparty-chart">
+    <Card className="surface-card horizontal-chart-card counterparty-chart">
       <div className="dashboard-section-heading">
         <div><p className="eyebrow">Top 10 theo dư nợ</p><h2>Mức tập trung theo đối tác</h2></div>
         <div className="chart-legend" aria-label="Chú giải"><span data-series="lending">Cho vay</span><span data-series="bad-debt">Nợ xấu</span><span data-series="borrowing">Đi vay</span></div>
@@ -145,7 +146,7 @@ function CounterpartyChart({ rows }: { rows: CounterpartyExposure[] }) {
         })}</div>
         <details className="chart-data-details"><summary>Xem bảng đối tác</summary><div className="table-scroll"><table><thead><tr><th>Đối tác</th><th>Cho vay</th><th>Nợ xấu</th><th>Đi vay</th><th>Tổng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.counterpartyId}><th><PrivacyRegion>{row.name}</PrivacyRegion></th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.lendingVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.badDebtVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.borrowingVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.totalVnd)} /></td></tr>)}</tbody></table></div></details>
       </>}
-    </section>
+    </Card>
   );
 }
 
@@ -156,7 +157,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
   }, BigInt(0));
 
   return (
-    <section className="surface-card cash-flow-card" aria-labelledby="cash-flow-title">
+    <Card className="surface-card cash-flow-card" aria-labelledby="cash-flow-title">
       <div className="dashboard-section-heading">
         <div><p className="eyebrow">{periodLabel}</p><h2 id="cash-flow-title">Xu hướng dòng tiền</h2></div>
         <div className="chart-legend" aria-label="Chú giải"><span data-series="inflow">Tiền vào</span><span data-series="outflow">Tiền ra</span></div>
@@ -181,7 +182,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
         <summary>Xem bảng số liệu</summary>
         <div className="table-scroll"><table><thead><tr><th>Tháng</th><th>Tiền vào</th><th>Tiền ra</th><th>Ròng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.month}><th>{monthLabel(row.month)}</th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.inflowVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.outflowVnd)} /></td><td className="privacy-amount" data-negative={BigInt(row.netVnd) < BigInt(0)}><PrivacyAmount value={formatVnd(row.netVnd)} /></td></tr>)}</tbody></table></div>
       </details>
-    </section>
+    </Card>
   );
 }
 
@@ -195,7 +196,7 @@ function AttentionList({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; ov
     ...visibleUpcoming.map((loan) => ({ loan, kind: "interest" as const })),
   ];
   return (
-    <section className="surface-card due-card attention-card" aria-labelledby="schedule-title">
+    <Card className="surface-card due-card attention-card" aria-labelledby="schedule-title">
       <div className="dashboard-section-heading"><h2 id="schedule-title">Lịch Dự Kiến</h2><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>
       {total === 0 ? <p className="dashboard-empty">Chưa có lịch thu, trả lãi hoặc gốc quá hạn trong 30 ngày tới.</p> : <div className="attention-groups">
         <div className="due-list schedule-list">{rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}`} className="due-item" key={`${kind}-${loan.id}`}>
@@ -205,7 +206,7 @@ function AttentionList({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; ov
         </Link>)}</div>
         {total > 5 ? <Link className="attention-all-link" href="/loans">Xem tất cả {total} giao dịch</Link> : null}
       </div>}
-    </section>
+    </Card>
   );
 }
 
@@ -243,14 +244,14 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       <ActionHeroBanner upcoming={dashboard.upcoming} overdue={dashboard.overdue} />
 
-      <section className="dashboard-metrics dashboard-primary-metrics" aria-label="Các chỉ số chính">{primaryMetrics.map(({ label, value, previous, comparisonLabel, icon: Icon, tone }) => <article className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><MetricComparison current={value} previous={previous} comparisonLabel={comparisonLabel} /></div></article>)}</section>
+      <section className="dashboard-metrics dashboard-primary-metrics" aria-label="Các chỉ số chính">{primaryMetrics.map(({ label, value, previous, comparisonLabel, icon: Icon, tone }) => <Card as="article" variant="metric" className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><MetricComparison current={value} previous={previous} comparisonLabel={comparisonLabel} /></div></Card>)}</section>
 
       <div className="dashboard-main-grid dashboard-focus-grid"><AttentionList upcoming={dashboard.upcoming} overdue={dashboard.overdue} /><CashFlowChart rows={dashboard.cashFlow} periodLabel={periodLabel} /></div>
 
       <details className="dashboard-analysis">
         <summary><span><strong>Phân tích chi tiết</strong></span></summary>
         <div className="dashboard-analysis-content">
-          <section className="dashboard-metrics dashboard-risk-metrics" aria-label="Vốn và nợ xấu">{riskMetrics.map(({ label, value, icon: Icon, tone, hint }) => <article className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><small>{hint}</small>{tone === "bad-debt" ? <Link className="metric-detail-link" href="/loans?status=BAD_DEBT">Xem các khoản nợ xấu</Link> : null}</div></article>)}</section>
+          <section className="dashboard-metrics dashboard-risk-metrics" aria-label="Vốn và nợ xấu">{riskMetrics.map(({ label, value, icon: Icon, tone, hint }) => <Card as="article" variant="metric" className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><small>{hint}</small>{tone === "bad-debt" ? <Link className="metric-detail-link" href="/loans?status=BAD_DEBT">Xem các khoản nợ xấu</Link> : null}</div></Card>)}</section>
 
           <section className="interest-strip" aria-label="Tổng hợp lãi và chi phí">
             <div><Banknote size={19} /><span><small>Lãi đã thu</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(dashboard.interestCollectedVnd)} /></strong></span></div>
