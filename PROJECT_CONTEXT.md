@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.147
-last_updated: 2026-09-11 16:42:50 +07
+roadmap_version: 1.0.149
+last_updated: 2026-09-12 07:07:18 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C25
+current_checkpoint: NONE
 current_status: COMPLETED
-last_completed_checkpoint: C25
-next_checkpoint: C26
+last_completed_checkpoint: C26
+next_checkpoint: NONE
 ---
 
 # Project Context
@@ -16,7 +16,8 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
-- C0–C25 đã `COMPLETED`; C26 rollout C25 lên Preview/Production đang `AWAITING_APPROVAL`.
+- C0–C26 đã `COMPLETED`; C26 rollout C25 lên Preview/Production hoàn tất ngày 2026-09-12.
+- Chưa có checkpoint tiếp theo; phải có chỉ dẫn/phê duyệt mới của người dùng trước mọi phạm vi mới.
 - C23 sửa kỳ so sánh dashboard, cách ly dữ liệu QA C21 khỏi số liệu vận hành/Google Sync nhưng giữ
   audit append-only; rollout chỉ áp dụng Preview.
 - C22 đã tất toán có audit 6 khoản `C21 TEST ONLY` trên Preview, không xóa vật lý; dashboard stable
@@ -99,6 +100,19 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C26 đã rollout C25 lên Preview và Production. Preview candidate
+  `dpl_8RwYQmGmqUD67wJeDMDzqveh1gz7`, immutable
+  `https://quan-ly-vay-ca-nhan-o98f4jlj4-ngotuong2105.vercel.app`; stable
+  `https://tindung-preview.vercel.app` đã trỏ đúng candidate. Production candidate
+  `dpl_66uiiExUfXXNnS3KCajLhNmgkqyw`, immutable
+  `https://quan-ly-vay-ca-nhan-nxf62gt51-ngotuong2105.vercel.app`; stable
+  `https://tindung.vercel.app` đã promote thành công. Rollback Production là
+  `dpl_GPWF8qZJPFdRbtBpp9awZAZtuGtC` và không phải kích hoạt.
+- Hai candidate đều `Ready`, đúng target và toàn bộ Function ứng dụng ở `sin1`; public cùng
+  authenticated smoke trên immutable/stable đều đạt. Hậu kiểm xác nhận 4 KPI dùng nội dung rút gọn,
+  `/loans` mặc định `ACTIVE`, `status=ALL` hoạt động và 11 thẻ `SETTLED` có ngày tất toán;
+  console/runtime error log sạch. Gate rollout chạy lại đạt lint, typecheck, 73/73 unit/script,
+  build và E2E 21/21. Không migration, không giao dịch tài chính, không đổi Google/secret/Git remote.
 - C25 hoàn tất local: thẻ `SETTLED` hiển thị `Ngày tất toán`; `/loans` mặc định
   `ACTIVE` và `status=ALL` thật sự bỏ lọc; KPI chỉ hiện icon hướng cùng số chênh lệch,
   trong khi screen reader/tooltip vẫn có nhãn đầy đủ. Gate đạt: `git diff --check`, lint,
@@ -192,7 +206,10 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- Không còn blocker cho C25. C26 chờ phê duyệt remote rollout; chưa deploy C25.
+- C26 không còn blocker. Token CLI Supabase tạm
+  `cli_ngotuong@Mac-mini.local_1789127470` đã được thu hồi sau xác nhận của người dùng và credential
+  cục bộ đã xóa; tài khoản smoke đã deactivate/ban. Chưa có checkpoint tiếp theo.
+- Không còn blocker cho C25.
 - Không còn blocker cho C24; chưa có checkpoint tiếp theo chờ phê duyệt.
 - Không còn blocker cho C23.
 - Không còn blocker cho C22.

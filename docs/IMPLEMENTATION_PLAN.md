@@ -34,7 +34,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C23 | Sửa kỳ so sánh dashboard và cách ly dữ liệu QA khỏi số liệu vận hành | `COMPLETED` |
 | C24 | Rollout C20–C23 lên Production với candidate, smoke và rollback an toàn | `COMPLETED` |
 | C25 | Tinh gọn thẻ khoản vay, bộ lọc mặc định và chỉ báo KPI | `COMPLETED` |
-| C26 | Rollout C25 lên Preview và Production với authenticated smoke | `AWAITING_APPROVAL` |
+| C26 | Rollout C25 lên Preview và Production với authenticated smoke | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -45,8 +45,9 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   smoke và runtime log đều đạt. Bằng chứng tại [kế hoạch rollout Production](C24_PRODUCTION_ROLLOUT.md).
 - C25 hoàn tất local ngày 2026-09-11: thẻ đã tất toán hiển thị ngày tất toán,
   danh sách mặc định lọc `ACTIVE`, KPI chỉ còn icon và số chênh lệch; tất cả gate đạt.
-- C26 chờ người dùng phê duyệt rollout C25 lên Preview/Production; không có migration hay
-  thay đổi dữ liệu, Google resources hoặc Git remote trong phạm vi đề xuất.
+- C26 hoàn tất ngày 2026-09-12 theo [kế hoạch C26](C26_C25_ROLLOUT.md): Preview và Production
+  đã đạt public/authenticated smoke, stable alias hậu kiểm sạch, token tạm đã thu hồi. Không có
+  migration hay thay đổi dữ liệu, Google resources hoặc Git remote. Chưa có checkpoint tiếp theo.
 - C22 hoàn tất ngày 2026-09-09: 6 khoản `C21 TEST ONLY` được tất toán qua RPC, dư gốc 0; dashboard
   stable đã xác minh và tài khoản kỹ thuật đã vô hiệu hóa. Bằng chứng tại `docs/C22_VALIDATION.md`.
 - C21 hoàn tất ngày 2026-09-08; kế hoạch chi tiết tại
@@ -97,6 +98,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.149 | 2026-09-12 | Hoàn tất C26: C25 đã lên stable Preview/Production, smoke và log sạch, credential tạm đã thu hồi. |
+| 1.0.148 | 2026-09-11 | Mở C26 `IN_PROGRESS`: rollout C25 lên Preview/Production sau phê duyệt. |
 | 1.0.147 | 2026-09-11 | Hoàn tất C25 local; mở C26 `AWAITING_APPROVAL` cho rollout Preview/Production. |
 | 1.0.146 | 2026-09-11 | Mở C25 `IN_PROGRESS`: tinh gọn thẻ khoản vay, bộ lọc ACTIVE mặc định và chỉ báo KPI. |
 | 1.0.145 | 2026-09-11 | Hoàn tất C24: C20–C23 đã lên Production, authenticated/public smoke và runtime log sạch. |
