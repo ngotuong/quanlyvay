@@ -40,9 +40,13 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C28 | Rollout C27 lên Vercel Preview và hậu kiểm | `COMPLETED` |
 | C29 | Rollout C27/C27A lên Vercel Production với candidate, smoke và rollback an toàn | `COMPLETED` |
 | C30 | Tinh gọn Push/Thông báo và chuẩn hóa bộ lọc, dialog mobile | `COMPLETED` |
+| C31 | Rollout C30 lên Vercel Preview và áp migration notification | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
+- C31 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-13: migration C30 đã active trên
+  Supabase dùng chung; candidate và stable Preview đạt public/authenticated smoke, console cùng
+  runtime log sạch. Bằng chứng tại [C31_C30_PREVIEW_ROLLOUT.md](C31_C30_PREVIEW_ROLLOUT.md).
 - C30 được người dùng phê duyệt trực tiếp và hoàn tất local ngày 2026-09-13: Push/Notification Center
   dùng nội dung nhiều dòng, notification quá hạn có số ngày; card chưa đọc rõ hơn; control lọc/tìm
   kiếm đồng bộ 44px và dialog form căn giữa, không chồng date input trên mobile. Phạm vi và bằng chứng tại
@@ -124,6 +128,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.163 | 2026-09-13 | Hoàn tất C31: migration C30 active; stable Preview đạt authenticated smoke và runtime hậu kiểm sạch. |
+| 1.0.162 | 2026-09-13 | Mở C31 `IN_PROGRESS` sau phê duyệt: rollout C30 lên Preview, gồm migration notification dùng chung và smoke fail-closed. |
 | 1.0.161 | 2026-09-13 | Hoàn tất C30 local: copy notification nhiều dòng, trạng thái chưa đọc, control 44px và dialog mobile; toàn bộ gate đạt. |
 | 1.0.160 | 2026-09-13 | Mở C30 `IN_PROGRESS` sau phê duyệt: triển khai copy Push/Notification Center và sửa bộ lọc, dialog mobile. |
 | 1.0.159 | 2026-09-13 | Tạo C30 `AWAITING_APPROVAL`: tinh gọn Push/Notification Center và chuẩn hóa bộ lọc, dialog mobile. |

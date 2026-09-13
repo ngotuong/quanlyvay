@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.161
-last_updated: 2026-09-13 17:16:26 +07
+roadmap_version: 1.0.163
+last_updated: 2026-09-13 19:44:12 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: NONE
 current_status: COMPLETED
-last_completed_checkpoint: C30
+last_completed_checkpoint: C31
 next_checkpoint: NONE
 ---
 
@@ -16,6 +16,10 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
+- C31 được người dùng phê duyệt trực tiếp và `COMPLETED` ngày 2026-09-13 theo
+  `docs/C31_C30_PREVIEW_ROLLOUT.md`: migration notification C30 đã hoạt động trên Supabase dùng
+  chung; candidate đã đạt toàn bộ gate, authenticated smoke và hậu kiểm stable Preview. Không deploy
+  Vercel Production.
 - C30 được người dùng phê duyệt trực tiếp và `COMPLETED` local ngày 2026-09-13 theo
   `docs/C30_NOTIFICATION_FILTER_UX_PLAN.md`: Push/Notification Center dùng copy nhiều dòng có số ngày
   quá hạn; card chưa đọc rõ hơn; control lọc/tìm kiếm đồng bộ 44px; dialog form căn giữa và date
@@ -74,8 +78,8 @@ ra yêu cầu đang chờ, quyền thao tác remote hay checkpoint mới.
 - Giao dịch tài chính không xóa vật lý; sửa sai bằng reversal/correction và audit append-only.
 - Tiền VND dùng số nguyên, lãi suất dùng decimal; ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`, audit UTC.
 - Web Push và Google Sync phải idempotent; secret chỉ nằm trong kho secret của môi trường.
-- Production dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 29 migration và bộ pgTAP
-  443 assertions.
+- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 30 migration; bộ pgTAP local có
+  444 assertions.
 
 ## 4. Tài khoản và tài nguyên remote
 
@@ -115,6 +119,21 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C31 hoàn tất rollout C30 lên stable Preview. Supabase dùng chung đã có đủ 30 migration, phiên bản
+  mới nhất `20260913165000`; hàm notification C30 active, chỉ `service_role` có quyền execute và
+  notification chưa đọc được làm mới đúng copy nhiều dòng. Candidate
+  `dpl_8cuYqL5y4ALYYpGskEbq5X8yPwwo`, immutable
+  `https://quan-ly-vay-ca-nhan-ggwaigsrx-ngotuong2105.vercel.app`, target Preview, `Ready`, đúng
+  project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; 44/44 output Function ở `sin1`.
+  `https://tindung-preview.vercel.app` đã trỏ đúng candidate; rollback target C28
+  `dpl_5M1XWMy69HrkAPVdPCmZtk9EzqF1` đã được xác minh và không phải kích hoạt.
+- Gate C31 đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6,
+  E2E 21/21, DB lint sạch và pgTAP 444/444. Public smoke đạt; authenticated smoke trên immutable và
+  stable xác nhận notification nhiều dòng, nền đọc/chưa đọc khác nhau, modal bộ lọc căn giữa, hai ô
+  ngày không chồng lấn, không còn nút `Đóng` thừa và mobile không tràn ngang. Console sạch; runtime
+  hậu kiểm có 0 error/0 fatal. Hai tài khoản EDITOR kỹ thuật đã bị deactivate/ban; hai notification
+  giả phi tài chính đã xóa, không tạo khoản vay/giao dịch. Không deploy Production, Git push, đổi
+  remote secret hoặc Google resources.
 - C30 hoàn tất local: migration thứ 30 tạo nội dung nhắc lãi ba dòng và quá hạn bốn dòng bằng số
   tiền authoritative, đồng thời làm mới notification chưa đọc; Notification Center bỏ tên khoản
   vay lặp và tăng nền/viền/nhãn cho trạng thái chưa đọc. Control lọc, tìm kiếm và giờ thông báo dùng
@@ -237,7 +256,7 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 - QA remote dùng tài khoản EDITOR tạm và dữ liệu `C21 TEST ONLY`; payment đã đảo, audit history được
   giữ, tài khoản đã deactivate/ban và đăng nhập lại bị từ chối. Hai profile mobile đạt 11 route,
   touch target 44px, zoom 200%, dark/light, landscape, offline và PWA; stable list→detail 871/837 ms.
-- Supabase dùng chung cho Preview/Production có 29 migration sau C23; tính tiền authoritative
+- Supabase dùng chung cho Preview/Production có 30 migration sau C31; tính tiền authoritative
   trong DB và VND dùng bigint.
 - Bằng chứng chi tiết: `docs/C21_VALIDATION.md`.
 - C20 đã hoàn tất local: gỡ VietQR/phiếu; thêm privacy SSR, account mobile, form recovery,
@@ -275,8 +294,9 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- C30 không còn blocker và chưa có checkpoint kế tiếp. Rollout Preview/Production cùng migration
-  remote chưa thực hiện; cần checkpoint/phê duyệt riêng nếu người dùng muốn phát hành thay đổi C30.
+- C31 không còn blocker và chưa có checkpoint kế tiếp. C30 đã lên stable Preview; Vercel Production
+  vẫn ở C29 và chỉ được rollout trong checkpoint/phê duyệt riêng.
+- C30 không còn blocker; migration remote và rollout Preview đã hoàn tất qua C31.
 - C29 không còn blocker; Production stable đã trỏ đúng candidate C29 và rollback target C26 không
   phải kích hoạt. Chưa có checkpoint kế tiếp.
 - C28 không còn blocker; rollout Preview và hậu kiểm đã hoàn tất. Chưa có checkpoint kế tiếp.
