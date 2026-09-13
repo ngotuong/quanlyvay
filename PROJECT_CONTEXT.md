@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.156
-last_updated: 2026-09-13 08:25:18 +07
+roadmap_version: 1.0.158
+last_updated: 2026-09-13 08:41:35 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: NONE
 current_status: COMPLETED
-last_completed_checkpoint: C28
+last_completed_checkpoint: C29
 next_checkpoint: NONE
 ---
 
@@ -16,6 +16,10 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
+- C29 rollout C27/C27A từ stable Preview đã kiểm chứng lên Vercel Production được người dùng phê
+  duyệt trực tiếp và `COMPLETED` ngày 2026-09-13 theo `docs/C29_C27_PRODUCTION_ROLLOUT.md`.
+  Production stable đã qua public/authenticated smoke và hậu kiểm runtime; không migration, thay dữ
+  liệu tài chính, remote secret, Google resources hoặc Git push.
 - C28 rollout C27 lên Vercel Preview đã `COMPLETED` ngày 2026-09-13 theo
   `docs/C28_C27_PREVIEW_ROLLOUT.md`. Phạm vi không gồm Production, migration, dữ liệu tài chính,
   thay đổi secret, Google resources hoặc Git push.
@@ -23,7 +27,7 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
   cung cấp và phê duyệt trực tiếp ngày 2026-09-12; đã `COMPLETED` local, chỉ thay tài sản/metadata
   giao diện và không đổi logic, API, dữ liệu, routing hay chức năng.
 - C27: Chuẩn hóa Design System và Tối ưu UI/UX Frontend đã `COMPLETED` local ngày 2026-09-12
-  theo `docs/C27_DESIGN_SYSTEM_UIUX_PLAN.md`; chưa rollout Preview/Production.
+  theo `docs/C27_DESIGN_SYSTEM_UIUX_PLAN.md`; C28/C29 đã rollout Preview và Production.
 - C0–C26 đã `COMPLETED`; C26 rollout C25 lên Preview/Production hoàn tất ngày 2026-09-12.
 - C23 sửa kỳ so sánh dashboard, cách ly dữ liệu QA C21 khỏi số liệu vận hành/Google Sync nhưng giữ
   audit append-only; rollout chỉ áp dụng Preview.
@@ -107,6 +111,18 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C29 hoàn tất rollout C27/C27A lên Production. Candidate `dpl_3kKvGQd5Ym6GjjJRdZm6d2YMwQFx`,
+  immutable `https://quan-ly-vay-ca-nhan-ifzext0p6-ngotuong2105.vercel.app`, target `production`,
+  `Ready`, đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; 43 Function ứng dụng ở `sin1` và
+  middleware toàn cầu có `sin1`. `https://tindung.vercel.app` đã promote đúng candidate; rollback
+  target C26 `dpl_66uiiExUfXXNnS3KCajLhNmgkqyw` không phải kích hoạt.
+- Gate C29 đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6 và
+  E2E 21/21. Public smoke immutable/stable đạt 200 cho login/manifest và 401 cho hai API được bảo
+  vệ. Authenticated smoke trên cả hai URL đạt cho 6 route chính, Quick Action/BottomSheet, menu
+  mobile, chống tràn ngang và bộ brand/favicon/Apple/PWA icon; browser console sạch. Runtime log
+  candidate/hậu kiểm có 0 error và 0 fatal. Hai tài khoản EDITOR smoke đã deactivate/ban, không tạo
+  giao dịch hoặc dữ liệu tài chính; credential và bằng chứng có dữ liệu thật đã được xóa khỏi cache.
+  Không chạy DB gate/migration vì C29 không đổi database; Auth/E2E đã reset đủ 29 migration local.
 - C28 hoàn tất rollout C27 lên stable Preview. Candidate `dpl_5M1XWMy69HrkAPVdPCmZtk9EzqF1`,
   immutable `https://quan-ly-vay-ca-nhan-b2fdfk4z9-ngotuong2105.vercel.app`, target Preview,
   `Ready`, đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; 44/44 Lambda ở `sin1`.
@@ -244,9 +260,11 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- C29 không còn blocker; Production stable đã trỏ đúng candidate C29 và rollback target C26 không
+  phải kích hoạt. Chưa có checkpoint kế tiếp.
 - C28 không còn blocker; rollout Preview và hậu kiểm đã hoàn tất. Chưa có checkpoint kế tiếp.
-- Không có blocker và chưa có checkpoint kế tiếp. C27/C27A mới hoàn tất local; bộ icon và UI/UX
-  mới chưa được rollout Preview/Production.
+- Không có blocker và chưa có checkpoint kế tiếp. C27/C27A đã được rollout đầy đủ lên Preview và
+  Production qua C28/C29.
 - C26 không còn blocker. Token CLI Supabase tạm
   `cli_ngotuong@Mac-mini.local_1789127470` đã được thu hồi sau xác nhận của người dùng và credential
   cục bộ đã xóa; tài khoản smoke đã deactivate/ban. Chưa có checkpoint tiếp theo.

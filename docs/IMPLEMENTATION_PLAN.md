@@ -38,9 +38,14 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C27A | Thay bộ nhận diện logo, favicon, Apple Touch Icon và PWA icon | `COMPLETED` |
 | C27 | Chuẩn hóa Design System và Tối ưu UI/UX Frontend | `COMPLETED` |
 | C28 | Rollout C27 lên Vercel Preview và hậu kiểm | `COMPLETED` |
+| C29 | Rollout C27/C27A lên Vercel Production với candidate, smoke và rollback an toàn | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
+- C29 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-13: source C27/C27A đã đạt stable
+  Preview được rollout lên Vercel Production theo quy trình candidate không gán domain,
+  authenticated/public smoke, promote có rollback và hậu kiểm runtime. Bằng chứng tại
+  [C29_C27_PRODUCTION_ROLLOUT.md](C29_C27_PRODUCTION_ROLLOUT.md).
 - C28 được người dùng phê duyệt trực tiếp ngày 2026-09-12 và hoàn tất ngày 2026-09-13: C27 đã lên
   stable Preview bằng candidate đúng project/target/region; public/authenticated smoke, alias và
   runtime-log hậu kiểm đều đạt. Bằng chứng tại [C28_C27_PREVIEW_ROLLOUT.md](C28_C27_PREVIEW_ROLLOUT.md).
@@ -48,7 +53,8 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   [kế hoạch brand icon](C27A_BRAND_ICON_PLAN.md).
 - C27 được người dùng phê duyệt trực tiếp và hoàn tất local ngày 2026-09-12: chuẩn hóa Design
   System, xây dựng UI Primitives (`apps/web/src/components/ui/`), tinh gọn `globals.css`, tối ưu
-  Dashboard, danh sách khoản vay và tương tác mobile. Toàn bộ gate local đạt; chưa rollout remote.
+  Dashboard, danh sách khoản vay và tương tác mobile. Toàn bộ gate local đạt; C28/C29 đã rollout
+  Preview và Production.
   Kế hoạch và bằng chứng tại [C27_DESIGN_SYSTEM_UIUX_PLAN.md](C27_DESIGN_SYSTEM_UIUX_PLAN.md).
 - Chưa có checkpoint kế tiếp được định nghĩa.
 - C26 hoàn tất ngày 2026-09-12 theo [kế hoạch C26](C26_C25_ROLLOUT.md): Preview và Production
@@ -113,6 +119,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.158 | 2026-09-13 | Hoàn tất C29: C27/C27A đã lên Production; authenticated/public smoke, alias, region và runtime log đều đạt. |
+| 1.0.157 | 2026-09-13 | Mở C29 `IN_PROGRESS` sau phê duyệt: rollout C27/C27A lên Vercel Production bằng candidate, smoke và rollback fail-closed. |
 | 1.0.156 | 2026-09-13 | Hoàn tất C28: C27 đã lên stable Preview; authenticated/public smoke, alias, region và runtime log đều đạt. |
 | 1.0.155 | 2026-09-12 | Mở C28 `IN_PROGRESS` sau phê duyệt: rollout C27 lên Vercel Preview theo runbook fail-closed. |
 | 1.0.154 | 2026-09-12 | Hoàn tất C27 local: UI primitives, trust-blue tokens, Quick Action/BottomSheet/Toast và toàn bộ gate đạt. |
