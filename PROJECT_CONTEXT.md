@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.154
-last_updated: 2026-09-12 22:19:11 +07
+roadmap_version: 1.0.156
+last_updated: 2026-09-13 08:25:18 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: NONE
 current_status: COMPLETED
-last_completed_checkpoint: C27
+last_completed_checkpoint: C28
 next_checkpoint: NONE
 ---
 
@@ -16,6 +16,9 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
+- C28 rollout C27 lên Vercel Preview đã `COMPLETED` ngày 2026-09-13 theo
+  `docs/C28_C27_PREVIEW_ROLLOUT.md`. Phạm vi không gồm Production, migration, dữ liệu tài chính,
+  thay đổi secret, Google resources hoặc Git push.
 - C27A thay toàn bộ brand logo/app icon bằng mẫu `Ngô Tường Financial Workspace` được người dùng
   cung cấp và phê duyệt trực tiếp ngày 2026-09-12; đã `COMPLETED` local, chỉ thay tài sản/metadata
   giao diện và không đổi logic, API, dữ liệu, routing hay chức năng.
@@ -104,6 +107,18 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C28 hoàn tất rollout C27 lên stable Preview. Candidate `dpl_5M1XWMy69HrkAPVdPCmZtk9EzqF1`,
+  immutable `https://quan-ly-vay-ca-nhan-b2fdfk4z9-ngotuong2105.vercel.app`, target Preview,
+  `Ready`, đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; 44/44 Lambda ở `sin1`.
+  `https://tindung-preview.vercel.app` đã trỏ đúng candidate; rollback target C26
+  `dpl_8RwYQmGmqUD67wJeDMDzqveh1gz7` không phải kích hoạt.
+- Gate rollout C28 đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build và
+  E2E 21/21. Public smoke trên immutable/stable đạt; authenticated smoke trên cả hai URL đạt cho
+  Dashboard, khoản vay, đối tác, chi phí, thông báo, tài khoản, Quick Action/BottomSheet, menu mobile,
+  brand/PWA icons và chống tràn ngang; browser console sạch. Runtime log hậu kiểm có 0 error và
+  0 fatal. Bốn tài khoản `C28 Preview Smoke` phục vụ các lần chẩn đoán/smoke đều đã bị vô hiệu hóa
+  và ban; không tạo giao dịch hoặc dữ liệu tài chính. Không migration, đổi remote secret, deploy
+  Production, thao tác Google hay Git push.
 - C27 hoàn tất local: thêm UI primitives dùng chung (Button, Input/Select/Textarea, VndInput,
   Badge, Card, Tabs, Toast và BottomSheet), chuyển palette sang trust-blue/cobalt, chuẩn hóa elevation,
   motion và z-index; Dashboard cùng các trang khoản vay/đối tác/chi phí/cài đặt đã dùng primitives.
@@ -229,6 +244,7 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- C28 không còn blocker; rollout Preview và hậu kiểm đã hoàn tất. Chưa có checkpoint kế tiếp.
 - Không có blocker và chưa có checkpoint kế tiếp. C27/C27A mới hoàn tất local; bộ icon và UI/UX
   mới chưa được rollout Preview/Production.
 - C26 không còn blocker. Token CLI Supabase tạm

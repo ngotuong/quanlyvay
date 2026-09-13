@@ -37,9 +37,13 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C26 | Rollout C25 lên Preview và Production với authenticated smoke | `COMPLETED` |
 | C27A | Thay bộ nhận diện logo, favicon, Apple Touch Icon và PWA icon | `COMPLETED` |
 | C27 | Chuẩn hóa Design System và Tối ưu UI/UX Frontend | `COMPLETED` |
+| C28 | Rollout C27 lên Vercel Preview và hậu kiểm | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
+- C28 được người dùng phê duyệt trực tiếp ngày 2026-09-12 và hoàn tất ngày 2026-09-13: C27 đã lên
+  stable Preview bằng candidate đúng project/target/region; public/authenticated smoke, alias và
+  runtime-log hậu kiểm đều đạt. Bằng chứng tại [C28_C27_PREVIEW_ROLLOUT.md](C28_C27_PREVIEW_ROLLOUT.md).
 - C27A được người dùng phê duyệt trực tiếp và hoàn tất local ngày 2026-09-12 theo
   [kế hoạch brand icon](C27A_BRAND_ICON_PLAN.md).
 - C27 được người dùng phê duyệt trực tiếp và hoàn tất local ngày 2026-09-12: chuẩn hóa Design
@@ -109,6 +113,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.156 | 2026-09-13 | Hoàn tất C28: C27 đã lên stable Preview; authenticated/public smoke, alias, region và runtime log đều đạt. |
+| 1.0.155 | 2026-09-12 | Mở C28 `IN_PROGRESS` sau phê duyệt: rollout C27 lên Vercel Preview theo runbook fail-closed. |
 | 1.0.154 | 2026-09-12 | Hoàn tất C27 local: UI primitives, trust-blue tokens, Quick Action/BottomSheet/Toast và toàn bộ gate đạt. |
 | 1.0.153 | 2026-09-12 | Mở C27 `IN_PROGRESS` sau phê duyệt: Design System, UI Primitives và tối ưu Dashboard/Mobile. |
 | 1.0.152 | 2026-09-12 | Hoàn tất C27A local: thay logo/favicon/Apple/PWA icon, quét reference và đạt toàn bộ gate. |
