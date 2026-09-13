@@ -197,9 +197,45 @@ test("business pages remain usable at 375px", async ({ page }) => {
   await page.getByRole("button", { name: "Nâng cao" }).click();
   const advancedFilterDialog = page.getByRole("dialog", { name: "Ngày giải ngân và sắp xếp" });
   await expect(advancedFilterDialog).toBeVisible();
-  expect(await advancedFilterDialog.evaluate((element) => getComputedStyle(element).animationName)).toBe("sheet-enter");
-  await advancedFilterDialog.getByRole("button", { name: "Đóng", exact: true }).click();
+  expect(await advancedFilterDialog.evaluate((element) => getComputedStyle(element).animationName)).toBe("dialog-enter");
+  await advancedFilterDialog.evaluate(async (element) => Promise.all(element.getAnimations().map((animation) => animation.finished)));
+  await expect(advancedFilterDialog.getByRole("button", { name: "Đóng", exact: true })).toHaveCount(0);
+  await expect(advancedFilterDialog.getByRole("button", { name: "Đóng bộ lọc nâng cao", exact: true })).toBeVisible();
+  const advancedGeometry = await advancedFilterDialog.evaluate((dialog) => {
+    const dialogBox = dialog.getBoundingClientRect();
+    const dates = [...dialog.querySelectorAll<HTMLInputElement>('input[type="date"]')].map((input) => input.getBoundingClientRect());
+    return {
+      centeredDelta: Math.abs(dialogBox.top - (innerHeight - dialogBox.bottom)),
+      insideViewport: dialogBox.left >= 0 && dialogBox.right <= innerWidth,
+      datesDoNotOverlap: dates.length === 2 && (dates[0].right <= dates[1].left || dates[1].right <= dates[0].left || dates[0].bottom <= dates[1].top || dates[1].bottom <= dates[0].top),
+      controlHeights: [...document.querySelectorAll<HTMLElement>(".loan-filter-primary input, .loan-filter-primary select, .advanced-filter-trigger")].map((control) => control.getBoundingClientRect().height),
+    };
+  });
+  expect(advancedGeometry.centeredDelta).toBeLessThan(3);
+  expect(advancedGeometry.insideViewport).toBe(true);
+  expect(advancedGeometry.datesDoNotOverlap).toBe(true);
+  expect(advancedGeometry.controlHeights.every((height) => Math.abs(height - 44) < 1)).toBe(true);
+  await page.keyboard.press("Escape");
   await expect(advancedFilterDialog).toBeHidden();
+  for (const viewport of [{ width: 320, height: 700 }, { width: 812, height: 375 }]) {
+    await page.setViewportSize(viewport);
+    await page.getByRole("button", { name: "Nâng cao" }).click();
+    await expect(advancedFilterDialog).toBeVisible();
+    await advancedFilterDialog.evaluate(async (element) => Promise.all(element.getAnimations().map((animation) => animation.finished)));
+    const geometry = await advancedFilterDialog.evaluate((dialog) => {
+      const box = dialog.getBoundingClientRect();
+      const dates = [...dialog.querySelectorAll<HTMLInputElement>('input[type="date"]')].map((input) => input.getBoundingClientRect());
+      const separate = dates.length === 2 && (dates[0].right <= dates[1].left || dates[1].right <= dates[0].left || dates[0].bottom <= dates[1].top || dates[1].bottom <= dates[0].top);
+      return { centeredDelta: Math.abs(box.top - (innerHeight - box.bottom)), insideViewport: box.left >= 0 && box.right <= innerWidth, separate, noPageOverflow: document.documentElement.scrollWidth <= document.documentElement.clientWidth };
+    });
+    expect(geometry.centeredDelta).toBeLessThan(3);
+    expect(geometry.insideViewport).toBe(true);
+    expect(geometry.separate).toBe(true);
+    expect(geometry.noPageOverflow).toBe(true);
+    await page.keyboard.press("Escape");
+    await expect(advancedFilterDialog).toBeHidden();
+  }
+  await page.setViewportSize({ width: 375, height: 812 });
   await page.locator(".loan-card").first().click();
   const mobileTabs = page.getByRole("navigation", { name: "Nội dung khoản vay" });
   await expect(mobileTabs.getByRole("link")).toHaveCount(4);
@@ -208,21 +244,18 @@ test("business pages remain usable at 375px", async ({ page }) => {
   await page.getByRole("button", { name: "Ghi giao dịch" }).click();
   const transactionDialog = page.getByRole("dialog", { name: "Ghi giao dịch" });
   await expect(transactionDialog).toBeVisible();
-  expect(await transactionDialog.evaluate((element) => getComputedStyle(element).animationName)).toBe("sheet-enter");
+  expect(await transactionDialog.evaluate((element) => getComputedStyle(element).animationName)).toBe("dialog-enter");
   await transactionDialog.getByRole("button", { name: "Đóng" }).click();
   await expect(transactionDialog).toHaveClass(/is-closing/);
   await expect(transactionDialog).toBeHidden();
   await page.getByRole("button", { name: "Ghi giao dịch" }).click();
   await expect(transactionDialog).toBeVisible();
-  const grabber = transactionDialog.locator(".ui-sheet-grabber");
-  await grabber.evaluate((element) => {
-    element.setPointerCapture = () => {};
-    const startY = element.getBoundingClientRect().top + 8;
-    const event = (type: string, clientY: number) => new PointerEvent(type, { bubbles: true, clientY, pointerId: 1, pointerType: "touch" });
-    element.dispatchEvent(event("pointerdown", startY));
-    element.dispatchEvent(event("pointermove", startY + 120));
-    element.dispatchEvent(event("pointerup", startY + 120));
-  });
+  await transactionDialog.evaluate(async (element) => Promise.all(element.getAnimations().map((animation) => animation.finished)));
+  expect(await transactionDialog.evaluate((dialog) => {
+    const box = dialog.getBoundingClientRect();
+    return Math.abs(box.top - (innerHeight - box.bottom));
+  })).toBeLessThan(3);
+  await page.keyboard.press("Escape");
   await expect(transactionDialog).toBeHidden();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
 });
@@ -499,6 +532,9 @@ test("PWA manifest, service worker and notification center are available", async
   await page.getByRole("link", { name: /Thông báo/ }).first().click();
   await expect(page.getByRole("heading", { name: "Thông báo", exact: true })).toBeVisible();
   await expect(page.getByText("Khoản vay đã quá hạn", { exact: true })).toBeVisible();
+  await expect(page.getByText("Đối tác thông báo E2E • 1.000.000\nGiải ngân : 01/08/2026\nDư gốc quá hạn : 1.000.000\nQuá hạn : 1 ngày", { exact: true })).toBeVisible();
+  const notificationBackgrounds = await page.locator(".notification-item").evaluateAll((items) => Object.fromEntries(items.map((item) => [item.getAttribute("data-read"), getComputedStyle(item).backgroundColor])));
+  expect(notificationBackgrounds.false).not.toBe(notificationBackgrounds.true);
   await expect(page.getByRole("heading", { name: "Thông báo trên thiết bị" })).toBeVisible();
   await expect(page.getByLabel("Giờ nhận thông báo")).toHaveValue("7");
   await page.getByLabel("Giờ nhận thông báo").selectOption("9");
@@ -514,7 +550,7 @@ test("PWA manifest, service worker and notification center are available", async
   });
   await page.getByRole("button", { name: "Gửi thông báo thử" }).click();
   await expect.poll(() => page.evaluate(() => (window as Window & { __testNotification?: { title: string } }).__testNotification?.title)).toBe("Đến ngày thu lãi");
-  await expect.poll(() => page.evaluate(() => (window as Window & { __testNotification?: { body?: string } }).__testNotification?.body)).toBe("Duy • 50.000.000 • 24/07/2024\nSố tiền phải thu : 3.000.000");
+  await expect.poll(() => page.evaluate(() => (window as Window & { __testNotification?: { body?: string } }).__testNotification?.body)).toBe("Duy • 50.000.000\nGiải ngân : 24/07/2024\nSố lãi phải thu : 3.000.000");
   await expect(page.getByText("Không có dữ liệu nào được ghi vào hệ thống.", { exact: false })).toBeVisible();
   const unreadBefore = Number(await page.locator(".nav-badge").first().innerText());
   await page.getByRole("button", { name: /Khoản vay đã quá hạn/ }).first().click();

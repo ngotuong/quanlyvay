@@ -204,7 +204,6 @@ export type AppNotification = {
   body: string;
   read_at: string | null;
   created_at: string;
-  loans: { name: string } | null;
 };
 
 export type GeneralExpense = {

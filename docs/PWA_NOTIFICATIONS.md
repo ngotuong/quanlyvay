@@ -15,8 +15,10 @@ Audit của Web Push chỉ lưu fingerprint/ngữ cảnh đã sanitize; không l
 - `INTEREST_DUE`: tạo đúng ngày đóng lãi của kỳ 15/30 ngày hoặc ngày cuối kỳ bị rút ngắn.
 - Tiêu đề nhắc lãi theo hướng khoản: cho vay dùng `Đến ngày thu lãi`, đi vay dùng `Đến ngày đóng
   lãi`. Nội dung dùng đối tác, gốc ban đầu, ngày giải ngân và số lãi authoritative còn phải thu/trả;
-  không dùng tên khoản vay tự sinh.
-- `LOAN_OVERDUE`: tạo mỗi ngày khi khoản vay có trạng thái tính toán `OVERDUE`.
+  không dùng tên khoản vay tự sinh. Nội dung được tách thành ba dòng: đối tác và gốc ban đầu; ngày
+  giải ngân; số lãi phải thu/trả.
+- `LOAN_OVERDUE`: tạo mỗi ngày khi khoản vay có trạng thái tính toán `OVERDUE`. Nội dung có thêm dòng
+  thứ tư ghi chính xác số ngày quá hạn so với ngày đáo hạn.
 - Khoản `BAD_DEBT` đang dừng lãi và khoản `SETTLED` không tạo nhắc đóng lãi.
 - Khóa `type:loan:date:user` bảo đảm chạy lại cùng ngày không tạo bản ghi trùng.
 - Mỗi tài khoản chọn một giờ nguyên từ `00:00` đến `23:00` theo `Asia/Ho_Chi_Minh`; mặc định là
@@ -59,8 +61,10 @@ quyền thông báo; Badge cũng có thể bị tắt riêng trong Settings. M�
 thay vì con số, hoặc không hỗ trợ API. Vì vậy notification center trong app vẫn là nguồn trạng thái
 đọc/chưa đọc chuẩn, không suy ra từ hình thức badge của launcher.
 
-Migration `20260811160000_c16_notification_copy_and_badges.sql` làm mới nội dung các
-`INTEREST_DUE` chưa đọc hiện hữu. Notification hệ điều hành đã giao trước đó không thể sửa ngược.
+Migration `20260913165000_c30_notification_copy.sql` làm mới nội dung các `INTEREST_DUE` và
+`LOAN_OVERDUE` chưa đọc hiện hữu theo copy nhiều dòng. Notification hệ điều hành đã giao trước đó
+không thể sửa ngược; hệ điều hành cũng có thể tự ngắt dòng hoặc rút gọn nội dung tùy kích thước màn
+hình, nhưng Notification Center trong ứng dụng luôn giữ nguyên cấu trúc dòng.
 
 Ở local và Vercel Preview, trang `/notifications` có nút `Gửi thông báo thử`. Nút này gọi trực tiếp
 service worker trên thiết bị để hiển thị payload mẫu, không tạo bản ghi Supabase, không tăng badge và

@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(29);
+select plan(30);
 
 insert into auth.users (id, email, email_confirmed_at, raw_user_meta_data)
 values
@@ -37,8 +37,9 @@ select is((select count(*) from public.notifications where type = 'INTEREST_DUE'
 select is((select count(*) from public.notifications where type = 'LOAN_OVERDUE'), 4::bigint, 'overdue reminder is generated daily');
 select is((select notification.title from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'LENDING' limit 1), 'Đến ngày thu lãi', 'lending reminder uses collection title');
 select is((select notification.title from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'BORROWING' limit 1), 'Đến ngày đóng lãi', 'borrowing reminder uses payment title');
-select ok((select notification.body like E'Đối tác thông báo • 10.000.000 • 20/07/2026\nSố tiền phải thu : %' from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'LENDING' limit 1), 'lending body is Vietnamese and includes the authoritative amount');
-select ok((select notification.body like E'Đối tác thông báo • 6.000.000 • 20/07/2026\nSố tiền phải trả : %' from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'BORROWING' limit 1), 'borrowing body is Vietnamese and includes the authoritative amount');
+select is((select notification.body from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'LENDING' limit 1), E'Đối tác thông báo • 10.000.000\nGiải ngân : 20/07/2026\nSố lãi phải thu : 150.000', 'lending body uses three concise lines and the authoritative amount');
+select is((select notification.body from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'BORROWING' limit 1), E'Đối tác thông báo • 6.000.000\nGiải ngân : 20/07/2026\nSố lãi phải trả : 90.000', 'borrowing body uses three concise lines and the authoritative amount');
+select is((select notification.body from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'LOAN_OVERDUE' and notification.notification_date = '2026-08-03' and loan.name = 'Khoản quá hạn' limit 1), E'Đối tác thông báo • 4.000.000\nGiải ngân : 01/07/2026\nDư gốc quá hạn : 4.000.000\nQuá hạn : 14 ngày', 'overdue body adds an accurate overdue-day line');
 
 reset role;
 select set_config('request.jwt.claim.sub', '20000000-0000-0000-0000-000000000080', true);

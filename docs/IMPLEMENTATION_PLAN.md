@@ -39,9 +39,14 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C27 | Chuẩn hóa Design System và Tối ưu UI/UX Frontend | `COMPLETED` |
 | C28 | Rollout C27 lên Vercel Preview và hậu kiểm | `COMPLETED` |
 | C29 | Rollout C27/C27A lên Vercel Production với candidate, smoke và rollback an toàn | `COMPLETED` |
+| C30 | Tinh gọn Push/Thông báo và chuẩn hóa bộ lọc, dialog mobile | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
+- C30 được người dùng phê duyệt trực tiếp và hoàn tất local ngày 2026-09-13: Push/Notification Center
+  dùng nội dung nhiều dòng, notification quá hạn có số ngày; card chưa đọc rõ hơn; control lọc/tìm
+  kiếm đồng bộ 44px và dialog form căn giữa, không chồng date input trên mobile. Phạm vi và bằng chứng tại
+  [C30_NOTIFICATION_FILTER_UX_PLAN.md](C30_NOTIFICATION_FILTER_UX_PLAN.md).
 - C29 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-13: source C27/C27A đã đạt stable
   Preview được rollout lên Vercel Production theo quy trình candidate không gán domain,
   authenticated/public smoke, promote có rollback và hậu kiểm runtime. Bằng chứng tại
@@ -119,6 +124,9 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.161 | 2026-09-13 | Hoàn tất C30 local: copy notification nhiều dòng, trạng thái chưa đọc, control 44px và dialog mobile; toàn bộ gate đạt. |
+| 1.0.160 | 2026-09-13 | Mở C30 `IN_PROGRESS` sau phê duyệt: triển khai copy Push/Notification Center và sửa bộ lọc, dialog mobile. |
+| 1.0.159 | 2026-09-13 | Tạo C30 `AWAITING_APPROVAL`: tinh gọn Push/Notification Center và chuẩn hóa bộ lọc, dialog mobile. |
 | 1.0.158 | 2026-09-13 | Hoàn tất C29: C27/C27A đã lên Production; authenticated/public smoke, alias, region và runtime log đều đạt. |
 | 1.0.157 | 2026-09-13 | Mở C29 `IN_PROGRESS` sau phê duyệt: rollout C27/C27A lên Vercel Production bằng candidate, smoke và rollback fail-closed. |
 | 1.0.156 | 2026-09-13 | Hoàn tất C28: C27 đã lên stable Preview; authenticated/public smoke, alias, region và runtime log đều đạt. |

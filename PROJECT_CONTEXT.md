@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.158
-last_updated: 2026-09-13 08:41:35 +07
+roadmap_version: 1.0.161
+last_updated: 2026-09-13 17:16:26 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: NONE
 current_status: COMPLETED
-last_completed_checkpoint: C29
+last_completed_checkpoint: C30
 next_checkpoint: NONE
 ---
 
@@ -16,6 +16,10 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
+- C30 được người dùng phê duyệt trực tiếp và `COMPLETED` local ngày 2026-09-13 theo
+  `docs/C30_NOTIFICATION_FILTER_UX_PLAN.md`: Push/Notification Center dùng copy nhiều dòng có số ngày
+  quá hạn; card chưa đọc rõ hơn; control lọc/tìm kiếm đồng bộ 44px; dialog form căn giữa và date
+  filter không chồng lấn ở 320/375px cùng landscape. Chưa rollout hay migration remote.
 - C29 rollout C27/C27A từ stable Preview đã kiểm chứng lên Vercel Production được người dùng phê
   duyệt trực tiếp và `COMPLETED` ngày 2026-09-13 theo `docs/C29_C27_PRODUCTION_ROLLOUT.md`.
   Production stable đã qua public/authenticated smoke và hậu kiểm runtime; không migration, thay dữ
@@ -111,6 +115,17 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C30 hoàn tất local: migration thứ 30 tạo nội dung nhắc lãi ba dòng và quá hạn bốn dòng bằng số
+  tiền authoritative, đồng thời làm mới notification chưa đọc; Notification Center bỏ tên khoản
+  vay lặp và tăng nền/viền/nhãn cho trạng thái chưa đọc. Control lọc, tìm kiếm và giờ thông báo dùng
+  chiều cao 44px/font 16px; form dialog căn giữa trên mobile/desktop, còn menu `Thêm` mobile giữ
+  bottom sheet. Bộ lọc nâng cao dùng một cột trên mobile, bỏ nút chữ `Đóng` phía dưới nhưng vẫn có
+  nút ×, Escape và backdrop.
+- Gate C30 đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, production build,
+  Auth 6/6, E2E 21/21, DB lint sạch và pgTAP 444/444 trên database test cô lập với 30 migration.
+  E2E kiểm tra copy Push/Notification Center, nền đọc/chưa đọc, control 44px, dialog/date input ở
+  320px, 375px và landscape; ảnh QA light/dark của `/notifications` không tràn ngang. Không deploy,
+  migration remote, thay dữ liệu thật, secret, Google resources hoặc Git push.
 - C29 hoàn tất rollout C27/C27A lên Production. Candidate `dpl_3kKvGQd5Ym6GjjJRdZm6d2YMwQFx`,
   immutable `https://quan-ly-vay-ca-nhan-ifzext0p6-ngotuong2105.vercel.app`, target `production`,
   `Ready`, đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; 43 Function ứng dụng ở `sin1` và
@@ -260,6 +275,8 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- C30 không còn blocker và chưa có checkpoint kế tiếp. Rollout Preview/Production cùng migration
+  remote chưa thực hiện; cần checkpoint/phê duyệt riêng nếu người dùng muốn phát hành thay đổi C30.
 - C29 không còn blocker; Production stable đã trỏ đúng candidate C29 và rollback target C26 không
   phải kích hoạt. Chưa có checkpoint kế tiếp.
 - C28 không còn blocker; rollout Preview và hậu kiểm đã hoàn tất. Chưa có checkpoint kế tiếp.

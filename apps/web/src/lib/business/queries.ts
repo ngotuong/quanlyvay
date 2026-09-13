@@ -61,7 +61,7 @@ export async function listGeneralExpenses(page = 1) {
 export async function getNotificationCenter(page = 1, unreadOnly = false) {
   const supabase = await createClient();
   let query = supabase.from("notifications")
-    .select("id, loan_id, type, notification_date, title, body, read_at, created_at, loans(name)", { count: "exact" });
+    .select("id, loan_id, type, notification_date, title, body, read_at, created_at", { count: "exact" });
   if (unreadOnly) query = query.is("read_at", null);
   const { data, error, count } = await query.order("notification_date", { ascending: false })
     .order("created_at", { ascending: false }).order("id").range((page-1)*25, page*25-1);

@@ -63,7 +63,7 @@
 
 .ui-bottom-sheet { overflow: hidden; }
 .ui-bottom-sheet-surface { min-width: 0; transition: transform var(--motion-fast) var(--ease-standard); }
-.ui-sheet-grabber { display: flex; min-height: 26px; align-items: center; justify-content: center; cursor: grab; touch-action: none; }
+.ui-sheet-grabber { display: none; min-height: 26px; align-items: center; justify-content: center; cursor: grab; touch-action: none; }
 .ui-sheet-grabber span { width: 42px; height: 4px; border-radius: 999px; background: var(--border-strong); }
 .ui-bottom-sheet .dialog-heading { padding-top: 6px; }
 
@@ -81,14 +81,17 @@
 .loan-card-quick-action:hover { background: color-mix(in srgb, var(--primary) 16%, var(--surface)); transform: translateY(-1px); }
 .loan-card-shell:has(.loan-card-quick-action) .loan-card { padding-bottom: 68px; }
 .mobile-more-trigger { width: 100%; border: 0; padding: 0; }
-.mobile-more-sheet { max-width: none; }
+.mobile-more-sheet { width: 100%; max-width: none; margin: auto 0 0; border-radius: 20px 20px 0 0; box-shadow: 0 -20px 60px color-mix(in srgb, #000 24%, transparent); }
+.mobile-more-sheet[open] { animation-name: sheet-enter; }
+.mobile-more-sheet.is-closing { animation-name: sheet-exit; }
+.mobile-more-sheet .ui-sheet-grabber { display: flex; }
 .mobile-more-sheet-links { display: grid; gap: 6px; padding: 8px 16px calc(18px + env(safe-area-inset-bottom)); }
 .mobile-more-sheet-links a { min-height: 52px; display: flex; align-items: center; gap: 13px; border-radius: 12px; padding: 0 14px; color: var(--foreground); font-weight: 700; text-decoration: none; }
 .mobile-more-sheet-links a:hover, .mobile-more-sheet-links a[data-active="true"] { background: var(--primary-soft); color: var(--primary); }
 
 @media (min-width: 760px) {
   .ui-toast-region { right: 24px; bottom: 24px; }
-  .ui-sheet-grabber { display: none; }
+  .mobile-more-sheet .ui-sheet-grabber { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -38,7 +38,7 @@ export function LoanAdvancedFilters({ disbursedFrom, disbursedTo, sort, active, 
         <div className="field-group"><label htmlFor="loanFrom">Giải ngân từ</label><input id="loanFrom" name="from" type="date" value={disbursedFrom} onChange={(event) => onChange({ disbursedFrom: event.target.value })} /></div>
         <div className="field-group"><label htmlFor="loanTo">Đến ngày</label><input id="loanTo" name="to" type="date" value={disbursedTo} onChange={(event) => onChange({ disbursedTo: event.target.value })} /></div>
         <div className="field-group"><label htmlFor="loanSort">Sắp xếp</label><select id="loanSort" name="sort" value={sort} onChange={(event) => onChange({ sort: event.target.value as "newest" | "oldest" | "outstanding_desc" | "name" })}><option value="newest">Mới nhất</option><option value="oldest">Cũ nhất</option><option value="outstanding_desc">Dư nợ lớn nhất</option><option value="name">Tên A–Z</option></select></div>
-        <div className="advanced-filter-dialog-actions"><p>Kết quả được cập nhật ngay khi bạn thay đổi điều kiện.</p><button className="secondary-button" type="button" onClick={closeDialog}>Đóng</button></div>
+        <div className="advanced-filter-dialog-actions"><p>Kết quả được cập nhật ngay khi bạn thay đổi điều kiện.</p></div>
       </div>
     </dialog>
   </div>;

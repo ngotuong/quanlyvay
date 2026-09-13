@@ -57,15 +57,27 @@ export default async function globalSetup() {
     p_notes: null,
   });
   if (loanError) throw loanError;
-  const { error: notificationError } = await admin.from("notifications").insert({
-    user_id: data.user.id,
-    loan_id: loanId,
-    type: "LOAN_OVERDUE",
-    notification_date: "2026-08-01",
-    title: "Khoản vay đã quá hạn",
-    body: "Thông báo mẫu cho kiểm thử giao diện.",
-    idempotency_key: `e2e-notification:${data.user.id}`,
-  });
+  const { error: notificationError } = await admin.from("notifications").insert([
+    {
+      user_id: data.user.id,
+      loan_id: loanId,
+      type: "LOAN_OVERDUE",
+      notification_date: "2026-08-01",
+      title: "Khoản vay đã quá hạn",
+      body: "Đối tác thông báo E2E • 1.000.000\nGiải ngân : 01/08/2026\nDư gốc quá hạn : 1.000.000\nQuá hạn : 1 ngày",
+      idempotency_key: `e2e-notification:${data.user.id}`,
+    },
+    {
+      user_id: data.user.id,
+      loan_id: loanId,
+      type: "INTEREST_DUE",
+      notification_date: "2026-07-31",
+      title: "Đến ngày thu lãi",
+      body: "Đối tác thông báo E2E • 1.000.000\nGiải ngân : 01/08/2026\nSố lãi phải thu : 30.000",
+      idempotency_key: `e2e-read-notification:${data.user.id}`,
+      read_at: new Date().toISOString(),
+    },
+  ]);
   if (notificationError) throw notificationError;
   const { error: auditFixtureError } = await admin.from("audit_logs").insert(
     Array.from({ length: 30 }, (_, index) => ({

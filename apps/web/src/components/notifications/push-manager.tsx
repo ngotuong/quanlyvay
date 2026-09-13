@@ -17,7 +17,7 @@ function pushSupported() {
 
 const TEST_NOTIFICATION = {
   title: "Đến ngày thu lãi",
-  body: "Duy • 50.000.000 • 24/07/2024\nSố tiền phải thu : 3.000.000",
+  body: "Duy • 50.000.000\nGiải ngân : 24/07/2024\nSố lãi phải thu : 3.000.000",
 };
 
 export function PushManager({ publicKey, initialDeliveryHour, showTestButton = false }: { publicKey: string; initialDeliveryHour: number; showTestButton?: boolean }) {
