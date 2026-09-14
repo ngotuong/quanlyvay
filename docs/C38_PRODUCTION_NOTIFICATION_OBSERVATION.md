@@ -1,6 +1,10 @@
 # C38 — Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế
 
-Trạng thái: `AWAITING_APPROVAL`
+Trạng thái: `IN_PROGRESS`
+
+Phê duyệt: người dùng phê duyệt trực tiếp ngày 2026-09-14.
+
+Cửa sổ quan sát: sau giờ gửi 07:00 (`Asia/Ho_Chi_Minh`) ngày 2026-09-15.
 
 ## Mục tiêu
 

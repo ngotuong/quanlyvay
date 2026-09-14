@@ -47,7 +47,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C35 | Nhắc lãi lặp lại, tinh gọn thông báo, hợp nhất tài khoản và dọn QA | `COMPLETED` |
 | C36 | Rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng chung | `COMPLETED` |
 | C37 | Rollout C33/C35 từ stable Preview lên Vercel Production | `COMPLETED` |
-| C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `AWAITING_APPROVAL` |
+| C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `IN_PROGRESS` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -72,8 +72,8 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   authenticated smoke, console, runtime log đều đạt. Migration C35 không chạy lại; tài khoản test
   đã inactive/banned và không tạo dữ liệu tài chính. Bằng chứng tại
   [C37_C35_PRODUCTION_ROLLOUT.md](C37_C35_PRODUCTION_ROLLOUT.md).
-- C38 đang `AWAITING_APPROVAL`: hậu kiểm read-only chu kỳ nhắc lãi Production theo lịch thực tế kế
-  tiếp, không chạy worker thủ công hoặc thay dữ liệu. Phạm vi tại
+- C38 được người dùng phê duyệt trực tiếp và đang `IN_PROGRESS`: hậu kiểm read-only chu kỳ nhắc lãi
+  Production sau giờ gửi 07:00 ngày 2026-09-15, không chạy worker thủ công hoặc thay dữ liệu. Phạm vi tại
   [C38_PRODUCTION_NOTIFICATION_OBSERVATION.md](C38_PRODUCTION_NOTIFICATION_OBSERVATION.md).
 - C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
   candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
@@ -99,7 +99,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   Dashboard, danh sách khoản vay và tương tác mobile. Toàn bộ gate local đạt; C28/C29 đã rollout
   Preview và Production.
   Kế hoạch và bằng chứng tại [C27_DESIGN_SYSTEM_UIUX_PLAN.md](C27_DESIGN_SYSTEM_UIUX_PLAN.md).
-- Checkpoint kế tiếp là C38 và chưa được phê duyệt.
+- Checkpoint hiện tại là C38 và đã được phê duyệt.
 - C26 hoàn tất ngày 2026-09-12 theo [kế hoạch C26](C26_C25_ROLLOUT.md): Preview và Production
   đã đạt public/authenticated smoke, stable alias hậu kiểm sạch, token tạm đã thu hồi. Không có
   migration hay thay đổi dữ liệu, Google resources hoặc Git remote.
@@ -162,6 +162,7 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.176 | 2026-09-14 | Mở C38 `IN_PROGRESS` sau phê duyệt: chờ chu kỳ 07:00 ngày 2026-09-15 để hậu kiểm read-only nhắc lãi Production. |
 | 1.0.175 | 2026-09-14 | Hoàn tất C37: C33/C35 lên Production, authenticated/public smoke và runtime hậu kiểm đạt; mở C38 chờ duyệt. |
 | 1.0.174 | 2026-09-14 | Mở C37 `IN_PROGRESS` sau phê duyệt: rollout source C33/C35 từ stable Preview lên Production. |
 | 1.0.173 | 2026-09-14 | Hoàn tất C36: migration C35 active, stable Preview đạt toàn bộ gate/smoke; mở C37 chờ duyệt Production rollout. |
