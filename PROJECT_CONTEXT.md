@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.171
-last_updated: 2026-09-14 15:57:46 +07
+roadmap_version: 1.0.172
+last_updated: 2026-09-14 16:10:00 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C36
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 last_completed_checkpoint: C34
 next_checkpoint: C36
 ---
@@ -33,8 +33,9 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
   `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E 21/21.
 - C34 `COMPLETED` ngày 2026-09-14: đúng commit C33 `697bd25` đã lên stable Preview qua candidate
   `dpl_5CcFRo14rfrr1JoSJmd3Vizi5N8M`; C35 và migration C35 không nằm trong rollout này.
-- C36 đang `AWAITING_APPROVAL`: rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng
-  chung; database dùng chung đồng nghĩa logic nhắc lãi mới sẽ có hiệu lực cho Production worker.
+- C36 đang `IN_PROGRESS` sau khi được người dùng phê duyệt trực tiếp ngày 2026-09-14: rollout C35
+  lên Preview và áp migration nhắc lãi trên Supabase dùng chung; database dùng chung đồng nghĩa
+  logic nhắc lãi mới sẽ có hiệu lực cho Production worker.
 - C32 được người dùng phê duyệt trực tiếp và `COMPLETED` ngày 2026-09-14 theo
   `docs/C32_C30_PRODUCTION_ROLLOUT.md`: source C30 đã được rollout từ stable Preview lên Vercel
   Production; immutable/stable authenticated smoke và runtime hậu kiểm đều đạt. Không chạy lại
@@ -352,8 +353,8 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- C36 không có blocker kỹ thuật nhưng đang chờ phê duyệt riêng vì gồm migration trên Supabase dùng
-  chung và Vercel Preview rollout.
+- C36 không có blocker kỹ thuật; migration Supabase dùng chung và Vercel Preview rollout đã được
+  người dùng phê duyệt trực tiếp ngày 2026-09-14.
 - C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc giảm 29
   profile kỹ thuật xuống một tài khoản QA không thể thực hiện mà không thay đổi bất biến kiến trúc
   “profile không xóa vật lý”; nếu vẫn cần xóa thật phải mở checkpoint migration có kiểm soát riêng.

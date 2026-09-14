@@ -45,7 +45,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C33 | Chuẩn hóa bộ lọc ngày và tương tác biểu đồ dòng tiền | `COMPLETED` |
 | C34 | Rollout C33 lên Vercel Preview và hậu kiểm | `COMPLETED` |
 | C35 | Nhắc lãi lặp lại, tinh gọn thông báo, hợp nhất tài khoản và dọn QA | `COMPLETED` |
-| C36 | Rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng chung | `AWAITING_APPROVAL` |
+| C36 | Rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng chung | `IN_PROGRESS` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -62,8 +62,9 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   lệ audit: 3 tài khoản có tham chiếu tài chính; 26 tài khoản không có tham chiếu vẫn bị trigger
   quản trị cấm xóa và transaction đã rollback an toàn. Bằng chứng tại
   [C35_NOTIFICATION_ACCOUNT_SETTINGS_PLAN.md](C35_NOTIFICATION_ACCOUNT_SETTINGS_PLAN.md).
-- C36 đang `AWAITING_APPROVAL`: rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng
-  chung. Phạm vi và ảnh hưởng Production của database được nêu tại
+- C36 đang `IN_PROGRESS` sau khi được người dùng phê duyệt trực tiếp ngày 2026-09-14: rollout C35
+  lên Preview và áp migration nhắc lãi trên Supabase dùng chung. Phạm vi và ảnh hưởng Production
+  của database được nêu tại
   [C36_C35_PREVIEW_ROLLOUT.md](C36_C35_PREVIEW_ROLLOUT.md).
 - C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
   candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
@@ -152,6 +153,7 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.172 | 2026-09-14 | Mở C36 `IN_PROGRESS` sau phê duyệt: áp migration nhắc lãi dùng chung và rollout C35 lên Preview. |
 | 1.0.171 | 2026-09-14 | Hoàn tất C34: C33 lên stable Preview, authenticated/public smoke và runtime log đạt; mở C36 chờ duyệt. |
 | 1.0.170 | 2026-09-14 | Mở C34 `IN_PROGRESS` sau phê duyệt; rollout đúng commit C33, không kèm C35. |
 | 1.0.169 | 2026-09-14 | Hoàn tất C35 local; ghi ngoại lệ audit/profile governance sau khi lệnh dọn 26 tài khoản rollback an toàn. |

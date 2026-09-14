@@ -1,6 +1,6 @@
 # C36 — Rollout C35 lên Vercel Preview và áp migration nhắc lãi
 
-Trạng thái: `AWAITING_APPROVAL`
+Trạng thái: `IN_PROGRESS`
 
 ## Mục tiêu
 
