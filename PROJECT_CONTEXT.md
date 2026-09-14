@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.169
-last_updated: 2026-09-14 15:23:38 +07
+roadmap_version: 1.0.170
+last_updated: 2026-09-14 15:32:39 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C34
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 last_completed_checkpoint: C35
 next_checkpoint: C34
 ---
@@ -31,7 +31,8 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
   `docs/C33_FILTER_CHART_INTERACTION_PLAN.md`: hai trường ngày `Từ`/`Đến` cùng hàng, bằng nhau ở
   mobile; cột dòng tiền hỗ trợ tap/click/keyboard với tooltip nằm trọn trong biểu đồ. Gate đạt
   `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E 21/21.
-- C34 rollout C33 lên Vercel Preview đang `AWAITING_APPROVAL`; chưa thực hiện thao tác remote.
+- C34 được người dùng phê duyệt trực tiếp và chuyển `IN_PROGRESS` ngày 2026-09-14. Candidate sẽ lấy
+  đúng commit C33 `697bd25`; C35 và migration C35 không nằm trong rollout này.
 - C32 được người dùng phê duyệt trực tiếp và `COMPLETED` ngày 2026-09-14 theo
   `docs/C32_C30_PRODUCTION_ROLLOUT.md`: source C30 đã được rollout từ stable Preview lên Vercel
   Production; immutable/stable authenticated smoke và runtime hậu kiểm đều đạt. Không chạy lại
@@ -339,7 +340,7 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 - C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc giảm 29
   profile kỹ thuật xuống một tài khoản QA không thể thực hiện mà không thay đổi bất biến kiến trúc
   “profile không xóa vật lý”; nếu vẫn cần xóa thật phải mở checkpoint migration có kiểm soát riêng.
-- C34 không có blocker kỹ thuật nhưng đang chờ người dùng phê duyệt trước khi rollout Preview.
+- C34 đang thực hiện rollout Preview sau phê duyệt; chưa có blocker kỹ thuật.
 - C33 không còn blocker; đã hoàn tất local và chưa deploy.
 - C32 không còn blocker và chưa có checkpoint kế tiếp. C30 đã rollout đầy đủ lên Preview/Production.
 - C31 không còn blocker và chưa có checkpoint kế tiếp. C30 đã lên stable Preview; Vercel Production

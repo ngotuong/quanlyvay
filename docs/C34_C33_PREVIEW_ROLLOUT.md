@@ -1,6 +1,8 @@
 # C34 — Rollout C33 lên Vercel Preview
 
-Trạng thái: `AWAITING_APPROVAL`
+Trạng thái: `IN_PROGRESS`
+
+Người dùng phê duyệt trực tiếp trong hội thoại ngày 2026-09-14.
 
 ## Mục tiêu
 

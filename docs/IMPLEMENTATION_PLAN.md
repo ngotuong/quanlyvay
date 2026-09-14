@@ -43,7 +43,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C31 | Rollout C30 lên Vercel Preview và áp migration notification | `COMPLETED` |
 | C32 | Rollout C30 lên Vercel Production với authenticated smoke và rollback | `COMPLETED` |
 | C33 | Chuẩn hóa bộ lọc ngày và tương tác biểu đồ dòng tiền | `COMPLETED` |
-| C34 | Rollout C33 lên Vercel Preview và hậu kiểm | `AWAITING_APPROVAL` |
+| C34 | Rollout C33 lên Vercel Preview và hậu kiểm | `IN_PROGRESS` |
 | C35 | Nhắc lãi lặp lại, tinh gọn thông báo, hợp nhất tài khoản và dọn QA | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
@@ -52,8 +52,10 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   `Từ`/`Đến` cùng hàng, đồng đều trên mobile; cột dòng tiền xem được bằng tap/click/keyboard và
   tooltip không bị cắt. Toàn bộ gate local đạt; bằng chứng tại
   [C33_FILTER_CHART_INTERACTION_PLAN.md](C33_FILTER_CHART_INTERACTION_PLAN.md).
-- C34 đang `AWAITING_APPROVAL`: rollout C33 lên Vercel Preview theo runbook, authenticated smoke và
-  hậu kiểm stable alias. Phạm vi tại [C34_C33_PREVIEW_ROLLOUT.md](C34_C33_PREVIEW_ROLLOUT.md).
+- C34 được người dùng phê duyệt trực tiếp và mở `IN_PROGRESS` ngày 2026-09-14: rollout đúng commit
+  C33 `697bd25` lên Vercel Preview theo runbook, authenticated smoke và hậu kiểm stable alias;
+  không đưa C35 hoặc migration C35 vào candidate. Phạm vi tại
+  [C34_C33_PREVIEW_ROLLOUT.md](C34_C33_PREVIEW_ROLLOUT.md).
 - C35 hoàn tất local ngày 2026-09-14: nhắc lãi lặp hằng ngày, Push gọn, Tài khoản gộp vào Cài đặt
   và toàn bộ gate đạt. Supabase giữ 29 tài khoản kỹ thuật ở trạng thái vô hiệu hóa/ban theo ngoại
   lệ audit: 3 tài khoản có tham chiếu tài chính; 26 tài khoản không có tham chiếu vẫn bị trigger
@@ -146,6 +148,7 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.170 | 2026-09-14 | Mở C34 `IN_PROGRESS` sau phê duyệt; rollout đúng commit C33, không kèm C35. |
 | 1.0.169 | 2026-09-14 | Hoàn tất C35 local; ghi ngoại lệ audit/profile governance sau khi lệnh dọn 26 tài khoản rollback an toàn. |
 | 1.0.168 | 2026-09-14 | Mở C35 `IN_PROGRESS`: nhắc lãi lặp lại, tinh gọn Push, hợp nhất Tài khoản/Cài đặt và dọn tài khoản QA. |
 | 1.0.167 | 2026-09-14 | Hoàn tất C33 local với toàn bộ gate đạt; mở C34 `AWAITING_APPROVAL` cho Preview rollout. |
