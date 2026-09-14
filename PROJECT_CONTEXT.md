@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.163
-last_updated: 2026-09-13 19:44:12 +07
+roadmap_version: 1.0.165
+last_updated: 2026-09-14 08:37:58 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: NONE
 current_status: COMPLETED
-last_completed_checkpoint: C31
+last_completed_checkpoint: C32
 next_checkpoint: NONE
 ---
 
@@ -16,6 +16,10 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
+- C32 được người dùng phê duyệt trực tiếp và `COMPLETED` ngày 2026-09-14 theo
+  `docs/C32_C30_PRODUCTION_ROLLOUT.md`: source C30 đã được rollout từ stable Preview lên Vercel
+  Production; immutable/stable authenticated smoke và runtime hậu kiểm đều đạt. Không chạy lại
+  migration.
 - C31 được người dùng phê duyệt trực tiếp và `COMPLETED` ngày 2026-09-13 theo
   `docs/C31_C30_PREVIEW_ROLLOUT.md`: migration notification C30 đã hoạt động trên Supabase dùng
   chung; candidate đã đạt toàn bộ gate, authenticated smoke và hậu kiểm stable Preview. Không deploy
@@ -23,7 +27,7 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 - C30 được người dùng phê duyệt trực tiếp và `COMPLETED` local ngày 2026-09-13 theo
   `docs/C30_NOTIFICATION_FILTER_UX_PLAN.md`: Push/Notification Center dùng copy nhiều dòng có số ngày
   quá hạn; card chưa đọc rõ hơn; control lọc/tìm kiếm đồng bộ 44px; dialog form căn giữa và date
-  filter không chồng lấn ở 320/375px cùng landscape. Chưa rollout hay migration remote.
+  filter không chồng lấn ở 320/375px cùng landscape. C31/C32 đã rollout Preview và Production.
 - C29 rollout C27/C27A từ stable Preview đã kiểm chứng lên Vercel Production được người dùng phê
   duyệt trực tiếp và `COMPLETED` ngày 2026-09-13 theo `docs/C29_C27_PRODUCTION_ROLLOUT.md`.
   Production stable đã qua public/authenticated smoke và hậu kiểm runtime; không migration, thay dữ
@@ -119,6 +123,18 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C32 hoàn tất rollout C30 lên Production. Rollback C29
+  `dpl_3kKvGQd5Ym6GjjJRdZm6d2YMwQFx` đã được xác minh trước promote. Candidate
+  `dpl_3zLcZo3vQgGiAAjgzpgNTz3p8bzX`, immutable
+  `https://quan-ly-vay-ca-nhan-l9vb87op2-ngotuong2105.vercel.app`, đúng project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target Production, `Ready`; 44/44 output Function ở `sin1`.
+  `https://tindung.vercel.app` đã promote đúng candidate; rollback không phải kích hoạt.
+- Gate C32 đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E
+  21/21. Public/authenticated smoke trên immutable và stable đạt cho notification nhiều dòng, nền
+  đọc/chưa đọc, modal bộ lọc/date mobile và chống tràn ngang; console sạch. Runtime log candidate và
+  hậu kiểm stable có 0 error/0 fatal. Hai tài khoản EDITOR kỹ thuật đã deactivate/ban; hai
+  notification giả phi tài chính đã xóa, không tạo khoản vay/giao dịch. Không chạy lại migration,
+  đổi remote secret, Google resources hoặc Git push.
 - C31 hoàn tất rollout C30 lên stable Preview. Supabase dùng chung đã có đủ 30 migration, phiên bản
   mới nhất `20260913165000`; hàm notification C30 active, chỉ `service_role` có quyền execute và
   notification chưa đọc được làm mới đúng copy nhiều dòng. Candidate
@@ -294,6 +310,7 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- C32 không còn blocker và chưa có checkpoint kế tiếp. C30 đã rollout đầy đủ lên Preview/Production.
 - C31 không còn blocker và chưa có checkpoint kế tiếp. C30 đã lên stable Preview; Vercel Production
   vẫn ở C29 và chỉ được rollout trong checkpoint/phê duyệt riêng.
 - C30 không còn blocker; migration remote và rollout Preview đã hoàn tất qua C31.

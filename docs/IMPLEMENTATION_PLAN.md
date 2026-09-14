@@ -41,9 +41,13 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C29 | Rollout C27/C27A lên Vercel Production với candidate, smoke và rollback an toàn | `COMPLETED` |
 | C30 | Tinh gọn Push/Thông báo và chuẩn hóa bộ lọc, dialog mobile | `COMPLETED` |
 | C31 | Rollout C30 lên Vercel Preview và áp migration notification | `COMPLETED` |
+| C32 | Rollout C30 lên Vercel Production với authenticated smoke và rollback | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
+- C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
+  candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
+  Bằng chứng tại [C32_C30_PRODUCTION_ROLLOUT.md](C32_C30_PRODUCTION_ROLLOUT.md).
 - C31 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-13: migration C30 đã active trên
   Supabase dùng chung; candidate và stable Preview đạt public/authenticated smoke, console cùng
   runtime log sạch. Bằng chứng tại [C31_C30_PREVIEW_ROLLOUT.md](C31_C30_PREVIEW_ROLLOUT.md).
@@ -128,6 +132,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.165 | 2026-09-14 | Hoàn tất C32: C30 đã lên Production; immutable/stable authenticated smoke và runtime hậu kiểm đạt. |
+| 1.0.164 | 2026-09-14 | Mở C32 `IN_PROGRESS` sau phê duyệt: rollout C30 từ stable Preview lên Vercel Production có smoke và rollback. |
 | 1.0.163 | 2026-09-13 | Hoàn tất C31: migration C30 active; stable Preview đạt authenticated smoke và runtime hậu kiểm sạch. |
 | 1.0.162 | 2026-09-13 | Mở C31 `IN_PROGRESS` sau phê duyệt: rollout C30 lên Preview, gồm migration notification dùng chung và smoke fail-closed. |
 | 1.0.161 | 2026-09-13 | Hoàn tất C30 local: copy notification nhiều dòng, trạng thái chưa đọc, control 44px và dialog mobile; toàn bộ gate đạt. |
