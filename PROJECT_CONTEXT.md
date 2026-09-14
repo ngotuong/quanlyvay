@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.172
-last_updated: 2026-09-14 16:10:00 +07
+roadmap_version: 1.0.173
+last_updated: 2026-09-14 18:58:00 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C36
-current_status: IN_PROGRESS
-last_completed_checkpoint: C34
-next_checkpoint: C36
+current_checkpoint: C37
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C36
+next_checkpoint: C37
 ---
 
 # Project Context
@@ -16,14 +16,16 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
-- C35 `COMPLETED` local ngày 2026-09-14 theo `docs/C35_NOTIFICATION_ACCOUNT_SETTINGS_PLAN.md`:
-  nhắc lãi lặp hằng ngày đến khi thanh toán, card Push gọn, Tài khoản gộp vào Cài đặt và toàn bộ
-  gate đạt. Migration/web C35 chưa rollout.
-- Kiểm tra read-only trên Supabase cho thấy scheduler `qlv-notification-runner-hourly` active và 12
-  lượt gần nhất đều thành công; 5 subscription active của OWNER, 6 delivery đều `SENT`. Bản đang
-  deploy chỉ tạo `INTEREST_DUE` đúng ngày nhắc ban đầu; C35 đã sửa local và còn chờ rollout.
-- Supabase vẫn có 1 OWNER và 29 tài khoản kỹ thuật đã vô hiệu hóa/ban. Ba tài khoản C21 có tham
-  chiếu tài chính `ON DELETE RESTRICT`; 26 tài khoản còn lại không có tham chiếu nhưng trigger
+- C36 `COMPLETED` ngày 2026-09-14 theo `docs/C36_C35_PREVIEW_ROLLOUT.md`: migration C35 đã active
+  trên Supabase dùng chung và source C33/C35 đã lên stable Preview. Candidate/stable đạt toàn bộ
+  gate, public/authenticated smoke, console và runtime hậu kiểm; tài khoản EDITOR tạm đã
+  inactive/banned và không tạo dữ liệu tài chính.
+- C37 đang `AWAITING_APPROVAL`: rollout source C33/C35 từ stable Preview lên Vercel Production.
+  Migration C35 đã active trên database dùng chung nên checkpoint này không chạy migration lần hai.
+- Supabase chỉ có 1 tài khoản OWNER đang hoạt động; 30 tài khoản kỹ thuật đã vô hiệu hóa/ban, gồm
+  tài khoản smoke C36. Ba tài khoản C21 có tham
+  chiếu tài chính `ON DELETE RESTRICT`; 26 tài khoản đã audit ở C35 và tài khoản smoke C36 không có
+  tham chiếu tài chính nhưng trigger
   `private.validate_profile_governance()` cấm xóa mọi profile. Lệnh xóa fail-closed đã rollback toàn
   transaction với SQLSTATE `55000`; không tắt trigger hoặc sửa lịch sử. Danh sách và biện pháp thay
   thế được ghi trong kế hoạch C35.
@@ -33,9 +35,8 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
   `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E 21/21.
 - C34 `COMPLETED` ngày 2026-09-14: đúng commit C33 `697bd25` đã lên stable Preview qua candidate
   `dpl_5CcFRo14rfrr1JoSJmd3Vizi5N8M`; C35 và migration C35 không nằm trong rollout này.
-- C36 đang `IN_PROGRESS` sau khi được người dùng phê duyệt trực tiếp ngày 2026-09-14: rollout C35
-  lên Preview và áp migration nhắc lãi trên Supabase dùng chung; database dùng chung đồng nghĩa
-  logic nhắc lãi mới sẽ có hiệu lực cho Production worker.
+- C35 `COMPLETED` local ngày 2026-09-14 theo `docs/C35_NOTIFICATION_ACCOUNT_SETTINGS_PLAN.md`;
+  migration/web đã rollout Preview qua C36 nhưng Vercel Production vẫn chờ C37.
 - C32 được người dùng phê duyệt trực tiếp và `COMPLETED` ngày 2026-09-14 theo
   `docs/C32_C30_PRODUCTION_ROLLOUT.md`: source C30 đã được rollout từ stable Preview lên Vercel
   Production; immutable/stable authenticated smoke và runtime hậu kiểm đều đạt. Không chạy lại
@@ -102,8 +103,8 @@ ra yêu cầu đang chờ, quyền thao tác remote hay checkpoint mới.
 - Giao dịch tài chính không xóa vật lý; sửa sai bằng reversal/correction và audit append-only.
 - Tiền VND dùng số nguyên, lãi suất dùng decimal; ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`, audit UTC.
 - Web Push và Google Sync phải idempotent; secret chỉ nằm trong kho secret của môi trường.
-- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 30 migration; bộ pgTAP local có
-  448 assertions sau migration C35 chưa rollout.
+- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 31 migration; bộ pgTAP local có
+  448 assertions.
 
 ## 4. Tài khoản và tài nguyên remote
 
@@ -142,6 +143,21 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
   tệp backup sạch.
 
 ## 6. Gate và thay đổi gần nhất
+
+- C36 hoàn tất rollout source C33/C35 lên stable Preview. Candidate
+  `dpl_m5ubMxZxidzgnjawrxyLEVUL5CvA`, immutable
+  `https://quan-ly-vay-ca-nhan-ohjwewlit-ngotuong2105.vercel.app`, target Preview, `READY`, đúng
+  project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; 44/44 output Function ở `sin1`. Stable alias trỏ
+  đúng candidate; rollback target C34 `dpl_5CcFRo14rfrr1JoSJmd3Vizi5N8M` không phải kích hoạt.
+- Supabase dùng chung đã có đủ 31 migration, mới nhất `20260914150000`; checksum hàm notification
+  là `12cb12366774794dd85856b8bd510a79`, chỉ `service_role` execute. Scheduler hourly vẫn active;
+  số lượng loan/transaction/notification/push delivery giữ nguyên `37/378/27/6` sau migration.
+- Gate C36 đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6, E2E
+  21/21, DB lint sạch và pgTAP 448/448. Một lượt continuation dừng trước alias vì hai assertion E2E
+  không ổn định; lượt chạy sạch kế tiếp đạt 21/21 rồi mới promote. Authenticated smoke immutable và
+  stable đạt Notification Center/Cài đặt/redirect `/account`, khoản vay, filter C33 và biểu đồ có
+  tooltip; browser console và runtime 0 error/0 fatal. Tài khoản smoke đã inactive/banned, đăng nhập
+  lại bị từ chối; không có mutation tài chính, Production deploy, secret/scheduler/Google/Git push.
 
 - C34 hoàn tất rollout đúng source C33 lên stable Preview. Candidate
   `dpl_5CcFRo14rfrr1JoSJmd3Vizi5N8M`, immutable
@@ -353,9 +369,9 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- C36 không có blocker kỹ thuật; migration Supabase dùng chung và Vercel Preview rollout đã được
-  người dùng phê duyệt trực tiếp ngày 2026-09-14.
-- C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc giảm 29
+- C37 chưa có blocker kỹ thuật nhưng đang chờ người dùng phê duyệt Production rollout.
+- C36 không còn blocker; migration C35 và Vercel Preview rollout đã hoàn tất.
+- C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc giảm 30
   profile kỹ thuật xuống một tài khoản QA không thể thực hiện mà không thay đổi bất biến kiến trúc
   “profile không xóa vật lý”; nếu vẫn cần xóa thật phải mở checkpoint migration có kiểm soát riêng.
 - C34 không còn blocker; stable Preview đã trỏ đúng candidate C34.

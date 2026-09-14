@@ -45,7 +45,8 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C33 | Chuẩn hóa bộ lọc ngày và tương tác biểu đồ dòng tiền | `COMPLETED` |
 | C34 | Rollout C33 lên Vercel Preview và hậu kiểm | `COMPLETED` |
 | C35 | Nhắc lãi lặp lại, tinh gọn thông báo, hợp nhất tài khoản và dọn QA | `COMPLETED` |
-| C36 | Rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng chung | `IN_PROGRESS` |
+| C36 | Rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng chung | `COMPLETED` |
+| C37 | Rollout C33/C35 từ stable Preview lên Vercel Production | `AWAITING_APPROVAL` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -62,10 +63,13 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   lệ audit: 3 tài khoản có tham chiếu tài chính; 26 tài khoản không có tham chiếu vẫn bị trigger
   quản trị cấm xóa và transaction đã rollback an toàn. Bằng chứng tại
   [C35_NOTIFICATION_ACCOUNT_SETTINGS_PLAN.md](C35_NOTIFICATION_ACCOUNT_SETTINGS_PLAN.md).
-- C36 đang `IN_PROGRESS` sau khi được người dùng phê duyệt trực tiếp ngày 2026-09-14: rollout C35
-  lên Preview và áp migration nhắc lãi trên Supabase dùng chung. Phạm vi và ảnh hưởng Production
-  của database được nêu tại
+- C36 hoàn tất ngày 2026-09-14: migration nhắc lãi thứ 31 đã active trên Supabase dùng chung;
+  candidate/stable Preview đạt public/authenticated smoke, console và runtime log sạch. Tài khoản
+  EDITOR tạm đã inactive/banned, không tạo dữ liệu tài chính. Bằng chứng tại
   [C36_C35_PREVIEW_ROLLOUT.md](C36_C35_PREVIEW_ROLLOUT.md).
+- C37 đang `AWAITING_APPROVAL`: rollout source C33/C35 đã đạt stable Preview lên Vercel Production;
+  migration C35 đã active trên database dùng chung nên không chạy lại. Phạm vi tại
+  [C37_C35_PRODUCTION_ROLLOUT.md](C37_C35_PRODUCTION_ROLLOUT.md).
 - C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
   candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
   Bằng chứng tại [C32_C30_PRODUCTION_ROLLOUT.md](C32_C30_PRODUCTION_ROLLOUT.md).
@@ -90,7 +94,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   Dashboard, danh sách khoản vay và tương tác mobile. Toàn bộ gate local đạt; C28/C29 đã rollout
   Preview và Production.
   Kế hoạch và bằng chứng tại [C27_DESIGN_SYSTEM_UIUX_PLAN.md](C27_DESIGN_SYSTEM_UIUX_PLAN.md).
-- Chưa có checkpoint kế tiếp được định nghĩa.
+- Checkpoint kế tiếp là C37 và chưa được phê duyệt.
 - C26 hoàn tất ngày 2026-09-12 theo [kế hoạch C26](C26_C25_ROLLOUT.md): Preview và Production
   đã đạt public/authenticated smoke, stable alias hậu kiểm sạch, token tạm đã thu hồi. Không có
   migration hay thay đổi dữ liệu, Google resources hoặc Git remote.
@@ -153,6 +157,7 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.173 | 2026-09-14 | Hoàn tất C36: migration C35 active, stable Preview đạt toàn bộ gate/smoke; mở C37 chờ duyệt Production rollout. |
 | 1.0.172 | 2026-09-14 | Mở C36 `IN_PROGRESS` sau phê duyệt: áp migration nhắc lãi dùng chung và rollout C35 lên Preview. |
 | 1.0.171 | 2026-09-14 | Hoàn tất C34: C33 lên stable Preview, authenticated/public smoke và runtime log đạt; mở C36 chờ duyệt. |
 | 1.0.170 | 2026-09-14 | Mở C34 `IN_PROGRESS` sau phê duyệt; rollout đúng commit C33, không kèm C35. |
