@@ -201,19 +201,27 @@ test("business pages remain usable at 375px", async ({ page }) => {
   await advancedFilterDialog.evaluate(async (element) => Promise.all(element.getAnimations().map((animation) => animation.finished)));
   await expect(advancedFilterDialog.getByRole("button", { name: "Đóng", exact: true })).toHaveCount(0);
   await expect(advancedFilterDialog.getByRole("button", { name: "Đóng bộ lọc nâng cao", exact: true })).toBeVisible();
+  await expect(advancedFilterDialog.getByLabel("Từ", { exact: true })).toBeVisible();
+  await expect(advancedFilterDialog.getByLabel("Đến", { exact: true })).toBeVisible();
   const advancedGeometry = await advancedFilterDialog.evaluate((dialog) => {
     const dialogBox = dialog.getBoundingClientRect();
     const dates = [...dialog.querySelectorAll<HTMLInputElement>('input[type="date"]')].map((input) => input.getBoundingClientRect());
     return {
       centeredDelta: Math.abs(dialogBox.top - (innerHeight - dialogBox.bottom)),
       insideViewport: dialogBox.left >= 0 && dialogBox.right <= innerWidth,
-      datesDoNotOverlap: dates.length === 2 && (dates[0].right <= dates[1].left || dates[1].right <= dates[0].left || dates[0].bottom <= dates[1].top || dates[1].bottom <= dates[0].top),
+      datesSameRow: dates.length === 2 && Math.abs(dates[0].top - dates[1].top) < 1,
+      datesEqualWidth: dates.length === 2 && Math.abs(dates[0].width - dates[1].width) < 2,
+      dateGap: dates.length === 2 ? dates[1].left - dates[0].right : 0,
+      dateHeights: dates.map((date) => date.height),
       controlHeights: [...document.querySelectorAll<HTMLElement>(".loan-filter-primary input, .loan-filter-primary select, .advanced-filter-trigger")].map((control) => control.getBoundingClientRect().height),
     };
   });
   expect(advancedGeometry.centeredDelta).toBeLessThan(3);
   expect(advancedGeometry.insideViewport).toBe(true);
-  expect(advancedGeometry.datesDoNotOverlap).toBe(true);
+  expect(advancedGeometry.datesSameRow).toBe(true);
+  expect(advancedGeometry.datesEqualWidth).toBe(true);
+  expect(advancedGeometry.dateGap).toBeGreaterThanOrEqual(8);
+  expect(advancedGeometry.dateHeights.every((height) => height >= 44)).toBe(true);
   expect(advancedGeometry.controlHeights.every((height) => Math.abs(height - 44) < 1)).toBe(true);
   await page.keyboard.press("Escape");
   await expect(advancedFilterDialog).toBeHidden();
@@ -225,12 +233,17 @@ test("business pages remain usable at 375px", async ({ page }) => {
     const geometry = await advancedFilterDialog.evaluate((dialog) => {
       const box = dialog.getBoundingClientRect();
       const dates = [...dialog.querySelectorAll<HTMLInputElement>('input[type="date"]')].map((input) => input.getBoundingClientRect());
-      const separate = dates.length === 2 && (dates[0].right <= dates[1].left || dates[1].right <= dates[0].left || dates[0].bottom <= dates[1].top || dates[1].bottom <= dates[0].top);
-      return { centeredDelta: Math.abs(box.top - (innerHeight - box.bottom)), insideViewport: box.left >= 0 && box.right <= innerWidth, separate, noPageOverflow: document.documentElement.scrollWidth <= document.documentElement.clientWidth };
+      const sameRow = dates.length === 2 && Math.abs(dates[0].top - dates[1].top) < 1;
+      const equalWidth = dates.length === 2 && Math.abs(dates[0].width - dates[1].width) < 2;
+      const gap = dates.length === 2 ? dates[1].left - dates[0].right : 0;
+      return { centeredDelta: Math.abs(box.top - (innerHeight - box.bottom)), insideViewport: box.left >= 0 && box.right <= innerWidth, sameRow, equalWidth, gap, dateHeights: dates.map((date) => date.height), noPageOverflow: document.documentElement.scrollWidth <= document.documentElement.clientWidth };
     });
     expect(geometry.centeredDelta).toBeLessThan(3);
     expect(geometry.insideViewport).toBe(true);
-    expect(geometry.separate).toBe(true);
+    expect(geometry.sameRow).toBe(true);
+    expect(geometry.equalWidth).toBe(true);
+    expect(geometry.gap).toBeGreaterThanOrEqual(8);
+    expect(geometry.dateHeights.every((height) => height >= 44)).toBe(true);
     expect(geometry.noPageOverflow).toBe(true);
     await page.keyboard.press("Escape");
     await expect(advancedFilterDialog).toBeHidden();
@@ -353,8 +366,24 @@ test("dashboard is responsive and readable in light and dark modes", async ({ pa
     await expect(page.locator(".attention-groups").first()).not.toHaveCSS("overflow-y", "auto");
     await expect(page.getByRole("group", { name: /Biểu đồ cột/ }).first()).toBeVisible();
     const firstCashBar = page.locator(".cash-bar-control").first();
-    await firstCashBar.focus();
+    await firstCashBar.click();
+    await expect(firstCashBar).toHaveAttribute("aria-pressed", "true");
     await expect(firstCashBar.locator(".chart-tooltip")).toHaveCSS("opacity", "1");
+    const tooltipGeometry = await page.locator(".cash-flow-card").first().evaluate((card) => {
+      const viewport = card.querySelector<HTMLElement>(".cash-flow-chart-scroll")!.getBoundingClientRect();
+      const tooltip = card.querySelector<HTMLElement>('.cash-bar-control[aria-pressed="true"] .chart-tooltip')!.getBoundingClientRect();
+      const control = card.querySelector<HTMLElement>('.cash-bar-control[aria-pressed="true"]')!.getBoundingClientRect();
+      return {
+        tooltipInsideVertically: tooltip.top >= viewport.top && tooltip.bottom <= viewport.bottom,
+        touchWidth: control.width,
+        touchHeight: control.height,
+      };
+    });
+    expect(tooltipGeometry.tooltipInsideVertically).toBe(true);
+    expect(tooltipGeometry.touchWidth).toBeGreaterThanOrEqual(44);
+    expect(tooltipGeometry.touchHeight).toBeGreaterThanOrEqual(44);
+    await firstCashBar.press("Enter");
+    await expect(firstCashBar).toHaveAttribute("aria-pressed", "false");
     await page.locator(".dashboard-analysis > summary").first().click();
     await expect(page.getByRole("heading", { name: "Phát sinh và thanh toán lãi" })).toBeVisible();
     expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
@@ -480,7 +509,7 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
   await page.goto("/loans?from=2026-99-99");
   await expect(page.getByRole("heading", { name: "Các khoản vay" })).toBeVisible();
   await expect(page.getByLabel("Trạng thái")).toHaveValue("ACTIVE");
-  await expect(page.getByLabel("Giải ngân từ")).toHaveValue("");
+  await expect(page.getByLabel("Từ", { exact: true })).toHaveValue("");
 });
 
 test("PWA manifest, service worker and notification center are available", async ({ page }) => {

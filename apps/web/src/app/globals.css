@@ -687,7 +687,9 @@ details[open] > summary::after { content: "−"; }
 .advanced-filters { border-top: 1px solid var(--border); padding-top: 4px; }
 .advanced-filters > summary { display: inline-flex; min-height: 44px; align-items: center; color: var(--foreground-muted); font-size: .84rem; }
 .advanced-filter-grid, .loan-filter-primary { display: grid; width: 100%; min-width: 0; max-width: 100%; gap: 12px; }
-.advanced-filter-grid { grid-template-columns: minmax(0, 1fr); }
+.advanced-filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 8px; }
+.advanced-filter-grid .advanced-filter-sort { grid-column: 1 / -1; }
+.advanced-filter-grid .field-group input, .advanced-filter-grid .field-group select { height: 44px; min-height: 44px; }
 .loan-filter-primary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .loan-filter-primary .filter-search { grid-column: 1 / -1; }
 .filter-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; }
@@ -960,16 +962,16 @@ details[open] > summary::after { content: "−"; }
 .cash-flow-plot { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 10px; }
 .chart-y-axis { display: flex; height: 220px; flex-direction: column; justify-content: space-between; padding: 13px 0 3px; color: var(--foreground-muted); font-size: .75rem; font-variant-numeric: tabular-nums; text-align: right; font-weight: 500; }
 .cash-flow-chart-scroll { width: 100%; min-width: 0; max-width: 100%; overflow-x: auto; }
-.cash-flow-chart { height: 250px; min-width: calc(var(--month-count) * 92px); display: grid; grid-template-columns: repeat(var(--month-count), minmax(82px, 1fr)); align-items: end; gap: 8px; border-bottom: 2px solid var(--border); padding: 16px 4px 0; background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--surface-muted) 30%, transparent)); }
+.cash-flow-chart { height: 250px; min-width: calc(var(--month-count) * 100px); display: grid; grid-template-columns: repeat(var(--month-count), minmax(92px, 1fr)); align-items: end; gap: 8px; border-bottom: 2px solid var(--border); padding: 16px 4px 0; background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--surface-muted) 30%, transparent)); }
 .cash-flow-month { display: grid; min-width: 0; gap: 8px; color: var(--foreground-muted); font-size: .8125rem; font-weight: 600; text-align: center; }
 .bar-pair { height: 205px; display: flex; align-items: flex-end; justify-content: center; gap: 4px; }
-.cash-bar-control { position: relative; display: flex; width: 34px; height: 205px; align-items: flex-end; justify-content: center; border: 0; border-radius: 8px; background: transparent; padding: 0; color: inherit; cursor: pointer; }
+.cash-bar-control { position: relative; display: flex; width: 44px; height: 205px; touch-action: manipulation; align-items: flex-end; justify-content: center; border: 0; border-radius: 8px; background: transparent; padding: 0; color: inherit; cursor: pointer; }
 .cash-bar-control:focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 40%, transparent); outline-offset: 1px; }
 .cash-bar { display: block; width: 14px; height: var(--bar-size); min-height: 4px; border-radius: 6px 6px 2px 2px; background: linear-gradient(180deg, #60a5fa, #1d4ed8); transition: filter 160ms ease, transform 160ms ease; box-shadow: 0 2px 4px rgba(29, 78, 216, 0.22); }
 .cash-bar[data-series="outflow"] { background: linear-gradient(180deg, #fb923c, #c2410c); box-shadow: 0 2px 4px rgba(194, 65, 12, 0.22); }
-.cash-bar-control:hover .cash-bar, .cash-bar-control:focus-visible .cash-bar { filter: brightness(1.12); transform: scaleY(1.02); }
-.chart-tooltip { position: absolute; z-index: 10; top: -36px; left: 50%; width: max-content; max-width: 200px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); padding: 6px 10px; color: var(--foreground); font-size: .8125rem; font-weight: 700; opacity: 0; pointer-events: none; transform: translate(-50%, 4px); transition: opacity 150ms ease, transform 150ms ease; box-shadow: var(--shadow-md); }
-.cash-bar-control:hover .chart-tooltip, .cash-bar-control:focus-visible .chart-tooltip { opacity: 1; transform: translate(-50%, 0); }
+.cash-bar-control:hover .cash-bar, .cash-bar-control:focus-visible .cash-bar, .cash-bar-control[data-active="true"] .cash-bar { filter: brightness(1.12); transform: scaleY(1.02); }
+.chart-tooltip { position: absolute; z-index: 10; bottom: min(calc(var(--bar-size) + 8px), calc(100% - 38px)); left: 50%; width: max-content; max-width: min(180px, calc(100vw - 48px)); border: 1px solid var(--border); border-radius: 10px; background: var(--surface); padding: 6px 10px; color: var(--foreground); font-size: .8125rem; font-weight: 700; white-space: nowrap; opacity: 0; pointer-events: none; transform: translate(-50%, 4px); transition: opacity 150ms ease, transform 150ms ease; box-shadow: var(--shadow-md); }
+.cash-bar-control:hover .chart-tooltip, .cash-bar-control:focus-visible .chart-tooltip, .cash-bar-control[data-active="true"] .chart-tooltip { opacity: 1; transform: translate(-50%, 0); }
 .cash-flow-details { margin-top: 18px; }
 .chart-data-details summary { min-height: 44px; display: inline-flex; align-items: center; color: var(--primary); font-size: .85rem; }
 .table-scroll { max-width: 100%; overflow-x: auto; }
@@ -1047,8 +1049,7 @@ details[open] > summary::after { content: "−"; }
   .loan-filter-form { grid-template-columns: 1fr; }
   .loan-filter-primary { grid-template-columns: 1fr 1fr; }
   .loan-filter-primary .filter-search { grid-column: 1 / -1; }
-  .advanced-filter-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .advanced-filter-grid .field-group:last-child { grid-column: auto; }
+  .advanced-filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .filter-search { grid-column: 1 / -1; }
   .interest-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .dashboard-period-current { flex: 0 1 auto; }
@@ -1072,7 +1073,7 @@ details[open] > summary::after { content: "−"; }
   .dashboard-date-form .instant-filter-status { grid-column: 1 / -1; }
   .loan-filter-form { grid-template-columns: 1fr; }
   .loan-filter-primary { grid-template-columns: minmax(280px, 1.5fr) minmax(150px, .5fr) minmax(180px, .6fr); }
-  .advanced-filter-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .advanced-filter-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .interest-strip { grid-template-columns: repeat(5, minmax(0, 1fr)); }
   .dashboard-main-grid { grid-template-columns: minmax(340px, .7fr) minmax(0, 1.3fr); align-items: start; }
   .cash-flow-card { min-height: 100%; }

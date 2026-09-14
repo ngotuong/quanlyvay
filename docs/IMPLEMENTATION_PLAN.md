@@ -42,9 +42,17 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C30 | Tinh gọn Push/Thông báo và chuẩn hóa bộ lọc, dialog mobile | `COMPLETED` |
 | C31 | Rollout C30 lên Vercel Preview và áp migration notification | `COMPLETED` |
 | C32 | Rollout C30 lên Vercel Production với authenticated smoke và rollback | `COMPLETED` |
+| C33 | Chuẩn hóa bộ lọc ngày và tương tác biểu đồ dòng tiền | `COMPLETED` |
+| C34 | Rollout C33 lên Vercel Preview và hậu kiểm | `AWAITING_APPROVAL` |
 
 ## 3. Trạng thái kế tiếp
 
+- C33 được người dùng phê duyệt trực tiếp và hoàn tất local ngày 2026-09-14: hai trường ngày
+  `Từ`/`Đến` cùng hàng, đồng đều trên mobile; cột dòng tiền xem được bằng tap/click/keyboard và
+  tooltip không bị cắt. Toàn bộ gate local đạt; bằng chứng tại
+  [C33_FILTER_CHART_INTERACTION_PLAN.md](C33_FILTER_CHART_INTERACTION_PLAN.md).
+- C34 đang `AWAITING_APPROVAL`: rollout C33 lên Vercel Preview theo runbook, authenticated smoke và
+  hậu kiểm stable alias. Phạm vi tại [C34_C33_PREVIEW_ROLLOUT.md](C34_C33_PREVIEW_ROLLOUT.md).
 - C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
   candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
   Bằng chứng tại [C32_C30_PRODUCTION_ROLLOUT.md](C32_C30_PRODUCTION_ROLLOUT.md).
@@ -132,6 +140,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.167 | 2026-09-14 | Hoàn tất C33 local với toàn bộ gate đạt; mở C34 `AWAITING_APPROVAL` cho Preview rollout. |
+| 1.0.166 | 2026-09-14 | Mở C33 `IN_PROGRESS`: cân bằng bộ lọc ngày cùng hàng và sửa tương tác/tooltip biểu đồ dòng tiền. |
 | 1.0.165 | 2026-09-14 | Hoàn tất C32: C30 đã lên Production; immutable/stable authenticated smoke và runtime hậu kiểm đạt. |
 | 1.0.164 | 2026-09-14 | Mở C32 `IN_PROGRESS` sau phê duyệt: rollout C30 từ stable Preview lên Vercel Production có smoke và rollback. |
 | 1.0.163 | 2026-09-13 | Hoàn tất C31: migration C30 active; stable Preview đạt authenticated smoke và runtime hậu kiểm sạch. |

@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowDownLeft, ArrowUpRight, Banknote, CalendarClock, ChartSpline, CircleAlert, HandCoins, Landmark, Minus, ReceiptText, Scale, ShieldAlert, TrendingDown, TrendingUp, WalletCards } from "lucide-react";
 import { DashboardPeriodFilter } from "@/components/business/dashboard-period-filter";
+import { CashFlowBars } from "@/components/business/cash-flow-bars";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatVnd } from "@/lib/business/format";
 import { dashboardComparisonPeriods, resolveDashboardPeriod } from "@/lib/business/dashboard-period";
@@ -165,17 +166,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
       <div className="cash-flow-plot">
         <div className="chart-y-axis" aria-hidden="true"><span className="privacy-amount">{compactVnd(maximum)}</span><span className="privacy-amount">{compactVnd(maximum / BigInt(2))}</span><span>0 ₫</span></div>
         <div className="cash-flow-chart-scroll">
-          <div className="cash-flow-chart" style={{ "--month-count": rows.length } as CSSProperties} role="group" aria-label="Biểu đồ cột so sánh tiền vào và tiền ra theo tháng. Chạm hoặc dùng Tab trên từng cột để xem số tiền chính xác.">
-            {rows.map((row) => (
-              <div className="cash-flow-month" key={row.month}>
-                <div className="bar-pair">
-                  <PrivacyRegion><button className="cash-bar-control" type="button" aria-label={`Tiền vào ${monthLabel(row.month)}: ${formatVnd(row.inflowVnd)}`}><span className="cash-bar" data-series="inflow" style={{ "--bar-size": ratio(row.inflowVnd, maximum) } as CSSProperties} /><span className="chart-tooltip privacy-amount" role="tooltip"><PrivacyAmount value={formatVnd(row.inflowVnd)} /></span></button></PrivacyRegion>
-                  <PrivacyRegion><button className="cash-bar-control" type="button" aria-label={`Tiền ra ${monthLabel(row.month)}: ${formatVnd(row.outflowVnd)}`}><span className="cash-bar" data-series="outflow" style={{ "--bar-size": ratio(row.outflowVnd, maximum) } as CSSProperties} /><span className="chart-tooltip privacy-amount" role="tooltip"><PrivacyAmount value={formatVnd(row.outflowVnd)} /></span></button></PrivacyRegion>
-                </div>
-                <span>{monthLabel(row.month)}</span>
-              </div>
-            ))}
-          </div>
+          <CashFlowBars rows={rows} maximum={maximum.toString()} />
         </div>
       </div>
       <details className="cash-flow-details chart-data-details">

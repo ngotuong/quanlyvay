@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.165
-last_updated: 2026-09-14 08:37:58 +07
+roadmap_version: 1.0.167
+last_updated: 2026-09-14 13:45:05 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: NONE
-current_status: COMPLETED
-last_completed_checkpoint: C32
-next_checkpoint: NONE
+current_checkpoint: C34
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C33
+next_checkpoint: C34
 ---
 
 # Project Context
@@ -16,6 +16,11 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
+- C33 được người dùng phê duyệt trực tiếp và `COMPLETED` local ngày 2026-09-14 theo
+  `docs/C33_FILTER_CHART_INTERACTION_PLAN.md`: hai trường ngày `Từ`/`Đến` cùng hàng, bằng nhau ở
+  mobile; cột dòng tiền hỗ trợ tap/click/keyboard với tooltip nằm trọn trong biểu đồ. Gate đạt
+  `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E 21/21.
+- C34 rollout C33 lên Vercel Preview đang `AWAITING_APPROVAL`; chưa thực hiện thao tác remote.
 - C32 được người dùng phê duyệt trực tiếp và `COMPLETED` ngày 2026-09-14 theo
   `docs/C32_C30_PRODUCTION_ROLLOUT.md`: source C30 đã được rollout từ stable Preview lên Vercel
   Production; immutable/stable authenticated smoke và runtime hậu kiểm đều đạt. Không chạy lại
@@ -310,6 +315,8 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- C34 không có blocker kỹ thuật nhưng đang chờ người dùng phê duyệt trước khi rollout Preview.
+- C33 không còn blocker; đã hoàn tất local và chưa deploy.
 - C32 không còn blocker và chưa có checkpoint kế tiếp. C30 đã rollout đầy đủ lên Preview/Production.
 - C31 không còn blocker và chưa có checkpoint kế tiếp. C30 đã lên stable Preview; Vercel Production
   vẫn ở C29 và chỉ được rollout trong checkpoint/phê duyệt riêng.
