@@ -103,7 +103,7 @@ test("old unread beyond 100 notices remains reachable and export changes with re
   expect(after.unchanged).toBe(false); expect(after.sourceVersion).not.toBe(before.sourceVersion);
 });
 
-test("account available to all roles, mobile menu Escape/outside and logout", async ({page}) => {
+test("settings includes personal account for all roles, mobile menu Escape/outside and logout", async ({page}) => {
   for(const [username,password] of [["c6_owner_e2e","123456"],["c13_editor_e2e","abcdef"],["c16_viewer_e2e","Viewer123"]]){
     await page.setViewportSize({width:375,height:812}); await login(page,username,password);
     if(page.url().includes("change-password")){
@@ -112,12 +112,14 @@ test("account available to all roles, mobile menu Escape/outside and logout", as
     const menu=page.locator(".mobile-more-nav:visible");const menuButton=menu.getByRole("button",{name:"Thêm",exact:true});
     await menuButton.click();const menuDialog=page.getByRole("dialog",{name:"Tiện ích khác"});await expect(menuDialog).toBeVisible();await page.keyboard.press("Escape");await expect(menuDialog).toBeHidden();
     await menuButton.click();await page.mouse.click(2,2);await expect(menuDialog).toBeHidden();
-    await menuButton.click();await menuDialog.getByRole("link",{name:"Tài khoản của tôi"}).click();
-    await expect(page.locator(".mobile-module-title")).toContainText("Tài khoản của tôi");await expect(menuDialog).toBeHidden();
-    await expect(page.getByRole("link",{name:"Đổi mật khẩu của tôi"})).toBeVisible();
+    await menuButton.click();await menuDialog.getByRole("link",{name:"Cài đặt"}).click();
+    await expect(page.locator(".mobile-module-title")).toContainText("Cài đặt");await expect(menuDialog).toBeHidden();
+    await expect(page.getByText("Tài khoản của tôi",{exact:true})).toBeVisible();
+    await expect(page.getByRole("link",{name:"Đổi mật khẩu"})).toBeVisible();
+    await page.goto("/account");await expect(page).toHaveURL(/\/settings$/);
     const previewResponse=await page.request.get(`/api/loans/${loanId}/settlement-preview?date=2026-09-07`);
     expect(previewResponse.status()).toBe(username==="c16_viewer_e2e"?403:200);
-    if(username!=="c6_owner_e2e")await expect(page.getByRole("link",{name:"Cài đặt",exact:true})).toHaveCount(0);
+    if(username!=="c6_owner_e2e")await expect(page.getByRole("heading",{name:"Tạo tài khoản"})).toHaveCount(0);
     await page.locator("#main-content").getByRole("button",{name:"Đăng xuất"}).click();await expect(page).toHaveURL(/login/);
     await page.goto("/account");await expect(page).toHaveURL(/login/);
   }
@@ -125,7 +127,7 @@ test("account available to all roles, mobile menu Escape/outside and logout", as
 
 test("all key routes responsive, keyboard and light/dark visual QA", async ({page},info) => {
   test.setTimeout(180000); await login(page);
-  const routes=["/dashboard","/loans","/loans/new",`/loans/${loanId}?tab=overview`,`/loans/${loanId}?tab=interest`,`/loans/${loanId}?tab=history`,`/loans/${loanId}?tab=settings`,"/counterparties","/expenses","/notifications","/account","/settings","/audit"];
+  const routes=["/dashboard","/loans","/loans/new",`/loans/${loanId}?tab=overview`,`/loans/${loanId}?tab=interest`,`/loans/${loanId}?tab=history`,`/loans/${loanId}?tab=settings`,"/counterparties","/expenses","/notifications","/settings","/audit"];
   for(const theme of ["light","dark"] as const){
     await page.emulateMedia({colorScheme:theme,reducedMotion:"reduce"});
     for(const width of [375,768,1024,1440]){
@@ -262,7 +264,7 @@ test("DB errors differ from missing records, retry recovers and offline is expli
     const response=await request.get("/api/google-sync/export",{headers:{"x-sync-secret":"e2e-sync-secret"}});expect(response.status()).toBe(500);expect(await response.text()).not.toContain('"tables"');
   } finally {sql("grant execute on function public.get_google_sync_snapshot() to service_role;");}
   await page.goto(`/loans/${randomUUID()}`);await expect(page.getByRole("heading",{name:"Không tìm thấy nội dung"})).toBeVisible();
-  await page.goto("/account");await context.setOffline(true);await expect(page.getByText(/Đang mất kết nối/)).toBeVisible();
+  await page.goto("/settings");await context.setOffline(true);await expect(page.getByText(/Đang mất kết nối/)).toBeVisible();
   await context.setOffline(false);await expect(page.getByText(/Đang mất kết nối/)).toHaveCount(0);
 });
 

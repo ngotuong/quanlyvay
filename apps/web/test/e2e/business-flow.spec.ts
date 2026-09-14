@@ -273,7 +273,7 @@ test("business pages remain usable at 375px", async ({ page }) => {
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
 });
 
-test("editor is redirected away from owner-only pages", async ({ page }) => {
+test("editor can use personal settings but remains blocked from owner-only pages", async ({ page }) => {
   await page.goto("/login");
   await page.getByLabel("Tên đăng nhập").fill("c13_editor_e2e");
   await page.getByLabel("Mật khẩu", { exact: true }).fill("EditorE2eTemp123");
@@ -287,7 +287,9 @@ test("editor is redirected away from owner-only pages", async ({ page }) => {
   await expect(page.locator(".page-title-icon svg")).toBeVisible();
 
   await page.goto("/settings");
-  await expect(page).toHaveURL(/dashboard/);
+  await expect(page.getByText("Tài khoản của tôi", { exact: true })).toBeVisible();
+  await expect(page.getByRole("link", { name: "Đổi mật khẩu" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Tạo tài khoản" })).toHaveCount(0);
   await page.goto("/audit");
   await expect(page).toHaveURL(/dashboard/);
 });
@@ -565,9 +567,16 @@ test("PWA manifest, service worker and notification center are available", async
   const notificationBackgrounds = await page.locator(".notification-item").evaluateAll((items) => Object.fromEntries(items.map((item) => [item.getAttribute("data-read"), getComputedStyle(item).backgroundColor])));
   expect(notificationBackgrounds.false).not.toBe(notificationBackgrounds.true);
   await expect(page.getByRole("heading", { name: "Thông báo trên thiết bị" })).toBeVisible();
+  const pushToggle = page.getByRole("switch", { name: /thông báo trên thiết bị/i });
+  await expect(pushToggle).toHaveAttribute("aria-checked", /true|false/);
+  expect((await pushToggle.boundingBox())!.height).toBeGreaterThanOrEqual(44);
   await expect(page.getByLabel("Giờ nhận thông báo")).toHaveValue("7");
+  const [timeLabelBox, timeSelectBox] = await Promise.all([
+    page.getByText("Giờ nhận thông báo", { exact: true }).boundingBox(),
+    page.getByLabel("Giờ nhận thông báo").boundingBox(),
+  ]);
+  expect(Math.abs(timeLabelBox!.y - timeSelectBox!.y)).toBeLessThan(16);
   await page.getByLabel("Giờ nhận thông báo").selectOption("9");
-  await page.getByRole("button", { name: "Lưu giờ" }).click();
   await expect(page.locator("#main-content").getByText("Đã đặt giờ nhận thông báo là 09:00.")).toBeVisible();
   await page.reload();
   await expect(page.getByLabel("Giờ nhận thông báo")).toHaveValue("9");

@@ -16,7 +16,8 @@
 - Tài khoản đầu tiên được provision qua Admin API tự động trở thành `OWNER`.
 - Mọi tài khoản sau OWNER chỉ có thể là `EDITOR` hoặc `VIEWER`; không giới hạn số lượng ở tầng ứng dụng.
 - Profile được tạo bởi trigger cùng transaction với `auth.users`; username và user ID bất biến.
-- Profile không xóa vật lý. OWNER có thể vô hiệu hóa từng tài khoản được quản lý.
+- Profile không xóa vật lý. Trigger quản trị từ chối `DELETE`, kể cả profile đã vô hiệu hóa và
+  không có tham chiếu tài chính; OWNER có thể vô hiệu hóa từng tài khoản được quản lý.
 - Chỉ có một OWNER hoạt động và OWNER không thể tự hạ quyền hoặc tự vô hiệu hóa.
 - OWNER quản lý các tài khoản tại `/settings`: tạo tài khoản, đổi tên hiển thị/vai trò/trạng
   thái hoạt động và cấp lại mật khẩu tạm. Mật khẩu tạm luôn buộc đổi ở lần đăng nhập kế tiếp.
@@ -36,8 +37,9 @@ Script yêu cầu các biến `BOOTSTRAP_USERNAME`, `BOOTSTRAP_DISPLAY_NAME`, `B
 
 ## Quyền
 
-Mọi vai trò có `/account` để đổi mật khẩu cá nhân và đăng xuất. Mobile mở “Thêm” → “Tài khoản
-của tôi”; `/settings` vẫn chỉ dành cho OWNER quản trị các tài khoản khác.
+Mọi vai trò mở **Cài đặt** tại `/settings` để xem tài khoản, đổi mật khẩu cá nhân và đăng xuất;
+`/account` chuyển hướng giữ tương thích sang `/settings`. Chỉ OWNER thấy phần quản trị tài khoản
+khác. Mobile mở “Thêm” → “Cài đặt”.
 
 | Thao tác | OWNER | EDITOR | VIEWER |
 |---|---:|---:|---:|

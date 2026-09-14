@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import { ArrowLeftRight, BellDot, ChartSpline, ContactRound, KeyRound, Palette, PlusCircle, ScrollText, SlidersHorizontal, WalletCards } from "lucide-react";
 
 const moduleRoutes = [
-  { match: (path: string) => path === "/account", label: "Tài khoản của tôi", icon: KeyRound },
   { match: (path: string) => path.startsWith("/ui-playground"), label: "UI Playground", icon: Palette },
   { match: (path: string) => path === "/dashboard", label: "Tổng quan", icon: ChartSpline },
   { match: (path: string) => path === "/loans/new", label: "Tạo khoản vay", icon: PlusCircle },
@@ -15,7 +14,7 @@ const moduleRoutes = [
   { match: (path: string) => path.startsWith("/expenses"), label: "Chi phí", icon: WalletCards },
   { match: (path: string) => path.startsWith("/audit"), label: "Nhật ký hệ thống", icon: ScrollText },
   { match: (path: string) => path.startsWith("/change-password"), label: "Đổi mật khẩu", icon: KeyRound },
-  { match: (path: string) => path.startsWith("/settings"), label: "Cài đặt tài khoản", icon: SlidersHorizontal },
+  { match: (path: string) => path.startsWith("/settings"), label: "Cài đặt", icon: SlidersHorizontal },
 ];
 
 export function MobileModuleTitle() {

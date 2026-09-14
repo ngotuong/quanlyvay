@@ -824,22 +824,24 @@ details[open] > summary::after { content: "−"; }
 }
 
 /* C8 PWA and notification center */
-.push-settings { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 12px; margin-bottom: 18px; }
+.push-settings { display: grid; grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; gap: 12px; margin-bottom: 18px; }
 .push-settings-icon { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 14px; background: var(--surface-muted); color: var(--foreground-muted); }
 .push-settings-icon[data-enabled="true"] { background: var(--primary-soft); color: var(--primary); }
 .push-settings-copy { min-width: 0; }
 .push-settings-copy .eyebrow { margin: 0 0 4px; }
 .push-settings-copy h2 { margin: 0 0 6px; font-size: 1.1rem; }
 .push-settings-copy p:not(.eyebrow), .push-config-note, .push-feedback { margin: 0; color: var(--foreground-muted); font-size: .875rem; line-height: 1.55; }
-.push-settings > button { grid-column: 1 / -1; width: 100%; }
-.push-test-button { border-style: dashed; }
-.notification-time-setting { display: grid; grid-column: 1 / -1; grid-template-columns: 40px minmax(0, 1fr); align-items: center; gap: 10px 12px; border-top: 1px solid var(--border); padding-top: 16px; }
-.notification-time-icon { display: grid; width: 40px; height: 40px; place-items: center; border-radius: 11px; background: var(--primary-soft); color: var(--primary); }
-.notification-time-setting label { display: grid; min-width: 0; gap: 2px; }
-.notification-time-setting label strong { font-size: .9rem; }
-.notification-time-setting label small { color: var(--foreground-muted); font-size: .8rem; font-weight: 500; line-height: 1.45; }
-.notification-time-setting select { grid-column: 1 / -1; width: 100%; min-height: 44px; border: 1px solid var(--border-strong); border-radius: 11px; background: var(--surface); color: var(--foreground); padding: 0 12px; font: inherit; }
-.notification-time-setting > button { grid-column: 1 / -1; width: 100%; min-height: 44px; }
+.push-toggle { position: relative; width: 52px; height: 30px; min-height: 44px; border: 0; background: transparent; padding: 7px 0; cursor: pointer; }
+.push-toggle::before { position: absolute; inset: 7px 0; border-radius: 999px; background: var(--border-strong); content: ""; transition: background 160ms ease; }
+.push-toggle[aria-checked="true"]::before { background: var(--primary); }
+.push-toggle-thumb { position: absolute; top: 10px; left: 3px; display: grid; width: 24px; height: 24px; place-items: center; border-radius: 50%; background: var(--surface); color: var(--primary); box-shadow: 0 1px 4px color-mix(in srgb, var(--foreground) 28%, transparent); transition: transform 160ms ease; }
+.push-toggle[aria-checked="true"] .push-toggle-thumb { transform: translateX(22px); }
+.push-toggle:focus-visible { outline: 3px solid color-mix(in srgb, var(--primary) 35%, transparent); outline-offset: 2px; border-radius: 999px; }
+.push-toggle:disabled { cursor: wait; opacity: .66; }
+.push-test-button { grid-column: 1 / -1; width: 100%; border-style: dashed; }
+.notification-time-setting { display: grid; grid-column: 1 / -1; grid-template-columns: minmax(0, 1fr) minmax(92px, 112px); align-items: center; gap: 12px; border-top: 1px solid var(--border); padding-top: 14px; }
+.notification-time-setting label { min-width: 0; font-size: .9rem; font-weight: 750; }
+.notification-time-setting select { width: 100%; min-width: 0; min-height: 44px; border: 1px solid var(--border-strong); border-radius: 11px; background: var(--surface); color: var(--foreground); padding: 0 10px; font: inherit; }
 .push-config-note, .push-feedback { grid-column: 1 / -1; }
 .push-config-note { border-radius: 10px; background: var(--surface-muted); padding: 10px 12px; }
 .push-feedback:empty { display: none; }
@@ -862,10 +864,8 @@ details[open] > summary::after { content: "−"; }
 
 @media (min-width: 600px) {
   .push-settings { grid-template-columns: 48px minmax(0, 1fr) auto; align-items: center; padding: 20px; }
-  .push-settings > button { grid-column: auto; width: auto; }
   .push-test-button { grid-column: 2 / -1; justify-self: start; }
-  .notification-time-setting { grid-template-columns: 40px minmax(220px, 1fr) minmax(100px, 130px) auto; }
-  .notification-time-setting select, .notification-time-setting > button { grid-column: auto; width: auto; }
+  .notification-time-setting { grid-template-columns: minmax(220px, 1fr) minmax(100px, 130px); }
   .push-config-note, .push-feedback { grid-column: 2 / -1; }
   .notification-item { padding: 16px 18px; }
 }
@@ -1176,6 +1176,11 @@ details[open] > summary::after { content: "−"; }
 }
 
 .account-logout { margin-top: 24px; }
+.account-settings-card { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 18px; }
+.account-settings-card h2 { margin: 3px 0 4px; }
+.account-settings-card .notes-copy { margin: 0; }
+.account-settings-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+.account-settings-actions form { margin: 0; }
 .business-form-fields { display: contents; border: 0; margin: 0; padding: 0; min-width: 0; }
 .network-notice { margin: 0; padding: 12px 20px; background: var(--error-surface); color: var(--error); position: sticky; top: 0; z-index: 110; }
 .error-field-link { background: none; border: 0; color: inherit; text-decoration: underline; min-height: 44px; text-align: left; }

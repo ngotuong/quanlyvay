@@ -7,7 +7,7 @@
   “Hiển thị số tiền” trước khi nhập giao dịch. Lựa chọn được giữ khi tải lại trang.
 - Đây là chế độ trình bày, không phải phân quyền hoặc bảo vệ dữ liệu trong devtools/network.
   Không che ngược nội dung Web Push đã gửi trên màn hình khóa; kiểm soát preview thông báo trong cài đặt thiết bị.
-- Mọi vai trò mở “Thêm” → “Tài khoản của tôi” trên mobile để đổi mật khẩu hoặc đăng xuất.
+- Mọi vai trò mở “Thêm” → “Cài đặt” trên mobile để xem tài khoản, đổi mật khẩu hoặc đăng xuất.
 - Form tạo khoản cho phép tìm và thêm đối tác ngay tại chỗ. Nhập tiền bằng chữ số hoặc dấu chấm
   hàng nghìn đầy đủ; không dùng số âm, dấu phẩy hay phần thập phân. Bản nháp không lưu bền vững.
 - Tất toán hiển thị gốc/lãi/tổng theo ngày chọn. Nếu số liệu thay đổi, tải lại bảng và xác nhận lại.
@@ -150,11 +150,12 @@ thu/trả nằm trong chi tiết. Dùng **Xóa tất cả** để quay lại to�
 ## 5. Thông báo và cài PWA
 
 1. Mở **Thông báo** bằng Chrome hoặc Safari.
-2. Bấm **Bật thông báo** và cho phép trình duyệt gửi thông báo.
-3. Chọn **Giờ nhận thông báo** theo giờ Việt Nam và bấm **Lưu giờ**.
+2. Bật công tắc **Thông báo trên thiết bị** và cho phép trình duyệt gửi thông báo.
+3. Chọn **Giờ nhận thông báo**; thay đổi được lưu ngay.
 4. Giữ quyền notification được bật trong cài đặt của trình duyệt/hệ điều hành.
 
-Hệ thống tạo nhắc đóng lãi đúng ngày và nhắc quá hạn hằng ngày. Mỗi thiết bị có subscription riêng;
+Hệ thống tạo nhắc theo ngày nhắc của kỳ, rồi lặp mỗi ngày từ ngày đến hạn cho tới khi lãi đến hạn
+được thanh toán đủ. Khoản quá hạn gốc cũng được nhắc hằng ngày. Mỗi thiết bị có subscription riêng;
 thiết bị mới không nhận lại các Push đã phát trước lúc đăng ký. Nếu một ngày có nhiều khoản đến lịch,
 mỗi khoản vẫn tạo và gửi một thông báo riêng; hệ điều hành có thể nhóm chúng về mặt trình bày. Trong
 Notification Center, bấm **Đánh dấu đã đọc** để xử lý các mục chưa đọc.
@@ -169,7 +170,8 @@ nghiệp vụ.
 
 ## 6. Quản lý tài khoản
 
-OWNER mở **Cài đặt** để:
+Mọi vai trò mở **Cài đặt** để xem tài khoản của mình, đổi mật khẩu và đăng xuất. Riêng OWNER còn có
+thể:
 
 - Tạo các tài khoản EDITOR hoặc VIEWER.
 - Đổi tên hiển thị và vai trò.

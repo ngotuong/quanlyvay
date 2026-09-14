@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState, useTransition } from "react";
-import { BellRing, BellOff, Clock3, FlaskConical, LoaderCircle, Save } from "lucide-react";
+import { BellRing, BellOff, FlaskConical, LoaderCircle } from "lucide-react";
 import { registerPushSubscriptionAction, removePushSubscriptionAction, updateNotificationDeliveryHourAction } from "@/app/actions/notifications";
 
 function urlBase64ToUint8Array(value: string) {
@@ -71,10 +71,12 @@ export function PushManager({ publicKey, initialDeliveryHour, showTestButton = f
     });
   }
 
-  function saveDeliveryHour() {
+  function saveDeliveryHour(nextHour: number) {
+    setDeliveryHour(nextHour);
     startTransition(async () => {
-      const result = await updateNotificationDeliveryHourAction(deliveryHour);
-      if (result.ok) setSavedDeliveryHour(deliveryHour);
+      const result = await updateNotificationDeliveryHourAction(nextHour);
+      if (result.ok) setSavedDeliveryHour(nextHour);
+      else setDeliveryHour(savedDeliveryHour);
       setMessage(result.message);
     });
   }
@@ -107,18 +109,24 @@ export function PushManager({ publicKey, initialDeliveryHour, showTestButton = f
 
   return <section className="surface-card push-settings" aria-labelledby="push-title">
     <span className="push-settings-icon" data-enabled={enabled}>{enabled ? <BellRing /> : <BellOff />}</span>
-    <div className="push-settings-copy"><h2 id="push-title">Thông báo trên thiết bị</h2><p>{enabled ? "Thiết bị này đã đăng ký nhận nhắc hạn." : "Bật để nhận nhắc đúng ngày đóng lãi và lặp hằng ngày khi quá hạn."}</p></div>
-    <button className={enabled ? "secondary-button" : "primary-button"} type="button" onClick={enabled ? disable : enable} disabled={pending || checking || (!publicKey && !enabled)}>
-      {pending ? <LoaderCircle className="spinner-icon" size={18} /> : enabled ? <BellOff size={18} /> : <BellRing size={18} />}
-      {pending ? "Đang xử lý" : checking ? "Đang kiểm tra" : enabled ? "Tắt trên thiết bị" : "Bật thông báo"}
+    <div className="push-settings-copy"><h2 id="push-title">Thông báo trên thiết bị</h2><p>{enabled ? "Thiết bị này đã đăng ký nhận nhắc hạn." : "Bật để nhận nhắc đến hạn và nhắc lại mỗi ngày khi lãi chưa thanh toán."}</p></div>
+    <button
+      className="push-toggle"
+      type="button"
+      role="switch"
+      aria-checked={enabled}
+      aria-label={enabled ? "Tắt thông báo trên thiết bị" : "Bật thông báo trên thiết bị"}
+      title={enabled ? "Tắt thông báo trên thiết bị" : "Bật thông báo trên thiết bị"}
+      onClick={enabled ? disable : enable}
+      disabled={pending || checking || (!publicKey && !enabled)}
+    >
+      <span className="push-toggle-thumb">{pending || checking ? <LoaderCircle className="spinner-icon" size={14} aria-hidden="true" /> : null}</span>
     </button>
     <div className="notification-time-setting">
-      <span className="notification-time-icon"><Clock3 size={19} aria-hidden="true" /></span>
-      <label htmlFor="notificationDeliveryHour"><strong>Giờ nhận thông báo</strong><small>Theo giờ Việt Nam; các nhắc cùng ngày được gửi riêng.</small></label>
-      <select id="notificationDeliveryHour" value={deliveryHour} onChange={(event) => setDeliveryHour(Number(event.target.value))}>
+      <label htmlFor="notificationDeliveryHour">Giờ nhận thông báo</label>
+      <select id="notificationDeliveryHour" value={deliveryHour} onChange={(event) => saveDeliveryHour(Number(event.target.value))} disabled={pending}>
         {Array.from({ length: 24 }, (_, hour) => <option value={hour} key={hour}>{String(hour).padStart(2, "0")}:00</option>)}
       </select>
-      <button className="secondary-button" type="button" onClick={saveDeliveryHour} disabled={pending || deliveryHour === savedDeliveryHour}><Save size={17} />Lưu giờ</button>
     </div>
     {showTestButton ? <button className="secondary-button push-test-button" type="button" onClick={testNotification} disabled={testing}>
       {testing ? <LoaderCircle className="spinner-icon" size={18} /> : <FlaskConical size={18} />}

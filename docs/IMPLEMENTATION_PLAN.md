@@ -44,6 +44,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C32 | Rollout C30 lên Vercel Production với authenticated smoke và rollback | `COMPLETED` |
 | C33 | Chuẩn hóa bộ lọc ngày và tương tác biểu đồ dòng tiền | `COMPLETED` |
 | C34 | Rollout C33 lên Vercel Preview và hậu kiểm | `AWAITING_APPROVAL` |
+| C35 | Nhắc lãi lặp lại, tinh gọn thông báo, hợp nhất tài khoản và dọn QA | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -53,6 +54,11 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   [C33_FILTER_CHART_INTERACTION_PLAN.md](C33_FILTER_CHART_INTERACTION_PLAN.md).
 - C34 đang `AWAITING_APPROVAL`: rollout C33 lên Vercel Preview theo runbook, authenticated smoke và
   hậu kiểm stable alias. Phạm vi tại [C34_C33_PREVIEW_ROLLOUT.md](C34_C33_PREVIEW_ROLLOUT.md).
+- C35 hoàn tất local ngày 2026-09-14: nhắc lãi lặp hằng ngày, Push gọn, Tài khoản gộp vào Cài đặt
+  và toàn bộ gate đạt. Supabase giữ 29 tài khoản kỹ thuật ở trạng thái vô hiệu hóa/ban theo ngoại
+  lệ audit: 3 tài khoản có tham chiếu tài chính; 26 tài khoản không có tham chiếu vẫn bị trigger
+  quản trị cấm xóa và transaction đã rollback an toàn. Bằng chứng tại
+  [C35_NOTIFICATION_ACCOUNT_SETTINGS_PLAN.md](C35_NOTIFICATION_ACCOUNT_SETTINGS_PLAN.md).
 - C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
   candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
   Bằng chứng tại [C32_C30_PRODUCTION_ROLLOUT.md](C32_C30_PRODUCTION_ROLLOUT.md).
@@ -140,6 +146,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.169 | 2026-09-14 | Hoàn tất C35 local; ghi ngoại lệ audit/profile governance sau khi lệnh dọn 26 tài khoản rollback an toàn. |
+| 1.0.168 | 2026-09-14 | Mở C35 `IN_PROGRESS`: nhắc lãi lặp lại, tinh gọn Push, hợp nhất Tài khoản/Cài đặt và dọn tài khoản QA. |
 | 1.0.167 | 2026-09-14 | Hoàn tất C33 local với toàn bộ gate đạt; mở C34 `AWAITING_APPROVAL` cho Preview rollout. |
 | 1.0.166 | 2026-09-14 | Mở C33 `IN_PROGRESS`: cân bằng bộ lọc ngày cùng hàng và sửa tương tác/tooltip biểu đồ dòng tiền. |
 | 1.0.165 | 2026-09-14 | Hoàn tất C32: C30 đã lên Production; immutable/stable authenticated smoke và runtime hậu kiểm đạt. |

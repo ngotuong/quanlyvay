@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.167
-last_updated: 2026-09-14 13:45:05 +07
+roadmap_version: 1.0.169
+last_updated: 2026-09-14 15:23:38 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C34
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C33
+last_completed_checkpoint: C35
 next_checkpoint: C34
 ---
 
@@ -16,6 +16,17 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 ## 1. Trạng thái hiện tại
 
+- C35 `COMPLETED` local ngày 2026-09-14 theo `docs/C35_NOTIFICATION_ACCOUNT_SETTINGS_PLAN.md`:
+  nhắc lãi lặp hằng ngày đến khi thanh toán, card Push gọn, Tài khoản gộp vào Cài đặt và toàn bộ
+  gate đạt. Migration/web C35 chưa rollout.
+- Kiểm tra read-only trên Supabase cho thấy scheduler `qlv-notification-runner-hourly` active và 12
+  lượt gần nhất đều thành công; 5 subscription active của OWNER, 6 delivery đều `SENT`. Bản đang
+  deploy chỉ tạo `INTEREST_DUE` đúng ngày nhắc ban đầu; C35 đã sửa local và còn chờ rollout.
+- Supabase vẫn có 1 OWNER và 29 tài khoản kỹ thuật đã vô hiệu hóa/ban. Ba tài khoản C21 có tham
+  chiếu tài chính `ON DELETE RESTRICT`; 26 tài khoản còn lại không có tham chiếu nhưng trigger
+  `private.validate_profile_governance()` cấm xóa mọi profile. Lệnh xóa fail-closed đã rollback toàn
+  transaction với SQLSTATE `55000`; không tắt trigger hoặc sửa lịch sử. Danh sách và biện pháp thay
+  thế được ghi trong kế hoạch C35.
 - C33 được người dùng phê duyệt trực tiếp và `COMPLETED` local ngày 2026-09-14 theo
   `docs/C33_FILTER_CHART_INTERACTION_PLAN.md`: hai trường ngày `Từ`/`Đến` cùng hàng, bằng nhau ở
   mobile; cột dòng tiền hỗ trợ tap/click/keyboard với tooltip nằm trọn trong biểu đồ. Gate đạt
@@ -88,7 +99,7 @@ ra yêu cầu đang chờ, quyền thao tác remote hay checkpoint mới.
 - Tiền VND dùng số nguyên, lãi suất dùng decimal; ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`, audit UTC.
 - Web Push và Google Sync phải idempotent; secret chỉ nằm trong kho secret của môi trường.
 - Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 30 migration; bộ pgTAP local có
-  444 assertions.
+  448 assertions sau migration C35 chưa rollout.
 
 ## 4. Tài khoản và tài nguyên remote
 
@@ -128,6 +139,16 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C35 hoàn tất local: migration thứ 31 tạo lại nhắc lãi mỗi ngày khi nghĩa vụ đến hạn còn dư và
+  dừng khi đã thanh toán/BAD_DEBT/SETTLED; card Push dùng switch viên thuốc, giờ nằm cùng hàng và tự
+  lưu; `/account` chuyển hướng `/settings`, mọi vai trò tự quản lý tài khoản còn OWNER mới thấy quản
+  trị người dùng. Gate đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth
+  6/6, E2E 21/21, DB lint sạch và pgTAP 448/448.
+- Audit tài khoản remote C35 xác nhận 29 tài khoản kỹ thuật đều inactive/banned. Ba tài khoản C21
+  có 36 tham chiếu trực tiếp tới đối tác/khoản vay/giao dịch; 26 tài khoản còn lại có 0 tham chiếu
+  trong bảy bảng audit tài chính. Lệnh xóa chính xác 26 tài khoản đã bị profile-governance trigger
+  chặn và rollback toàn bộ; hậu kiểm vẫn có đủ 29 profile inactive. Không có dữ liệu bị xóa một
+  phần, không đổi tài chính, không deploy, không migration remote, không đổi secret hay Git remote.
 - C32 hoàn tất rollout C30 lên Production. Rollback C29
   `dpl_3kKvGQd5Ym6GjjJRdZm6d2YMwQFx` đã được xác minh trước promote. Candidate
   `dpl_3zLcZo3vQgGiAAjgzpgNTz3p8bzX`, immutable
@@ -315,6 +336,9 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc giảm 29
+  profile kỹ thuật xuống một tài khoản QA không thể thực hiện mà không thay đổi bất biến kiến trúc
+  “profile không xóa vật lý”; nếu vẫn cần xóa thật phải mở checkpoint migration có kiểm soát riêng.
 - C34 không có blocker kỹ thuật nhưng đang chờ người dùng phê duyệt trước khi rollout Preview.
 - C33 không còn blocker; đã hoàn tất local và chưa deploy.
 - C32 không còn blocker và chưa có checkpoint kế tiếp. C30 đã rollout đầy đủ lên Preview/Production.

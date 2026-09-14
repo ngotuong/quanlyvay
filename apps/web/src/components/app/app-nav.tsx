@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
-import { UserRound } from "lucide-react";
 import { ArrowLeftRight, BellDot, ContactRound, LayoutGrid, MoreHorizontal, ScrollText, SlidersHorizontal, WalletCards } from "lucide-react";
 import { BottomSheet, Button } from "@/components/ui";
 
@@ -16,10 +15,9 @@ const primaryItems = [
 ];
 
 const secondaryItems = [
-  { href: "/account", label: "Tài khoản của tôi", icon: UserRound },
   { href: "/expenses", label: "Chi phí", icon: WalletCards },
   { href: "/audit", label: "Nhật ký hệ thống", icon: ScrollText, ownerOnly: true },
-  { href: "/settings", label: "Cài đặt", icon: SlidersHorizontal, ownerOnly: true },
+  { href: "/settings", label: "Cài đặt", icon: SlidersHorizontal },
 ];
 
 export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadCount?: number }) {

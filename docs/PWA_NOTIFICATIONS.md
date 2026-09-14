@@ -12,14 +12,17 @@ Audit của Web Push chỉ lưu fingerprint/ngữ cảnh đã sanitize; không l
 
 ## Quy tắc nhắc lịch
 
-- `INTEREST_DUE`: tạo đúng ngày đóng lãi của kỳ 15/30 ngày hoặc ngày cuối kỳ bị rút ngắn.
+- `INTEREST_DUE`: tạo lần đầu theo ngày nhắc của kỳ 15/30 ngày hoặc kỳ bị rút ngắn. Từ ngày kết
+  thúc kỳ, nếu số lãi đến hạn vẫn chưa được thu/đóng đủ, hệ thống tạo lại một nhắc mỗi ngày. Dòng
+  `Quá hạn` bắt đầu từ ngày sau ngày kết thúc kỳ; thanh toán sau hạn được khấu trừ vào nghĩa vụ đến
+  hạn cũ trước khi quyết định có tiếp tục nhắc.
 - Tiêu đề nhắc lãi theo hướng khoản: cho vay dùng `Đến ngày thu lãi`, đi vay dùng `Đến ngày đóng
   lãi`. Nội dung dùng đối tác, gốc ban đầu, ngày giải ngân và số lãi authoritative còn phải thu/trả;
   không dùng tên khoản vay tự sinh. Nội dung được tách thành ba dòng: đối tác và gốc ban đầu; ngày
   giải ngân; số lãi phải thu/trả.
 - `LOAN_OVERDUE`: tạo mỗi ngày khi khoản vay có trạng thái tính toán `OVERDUE`. Nội dung có thêm dòng
   thứ tư ghi chính xác số ngày quá hạn so với ngày đáo hạn.
-- Khoản `BAD_DEBT` đang dừng lãi và khoản `SETTLED` không tạo nhắc đóng lãi.
+- Khoản `BAD_DEBT` đang dừng lãi và khoản `SETTLED` không tạo hoặc lặp nhắc đóng lãi.
 - Khóa `type:loan:date:user` bảo đảm chạy lại cùng ngày không tạo bản ghi trùng.
 - Mỗi tài khoản chọn một giờ nguyên từ `00:00` đến `23:00` theo `Asia/Ho_Chi_Minh`; mặc định là
   `07:00`. RPC `update_notification_delivery_hour` chỉ sửa preference của chính tài khoản đang hoạt
@@ -41,6 +44,11 @@ Nhiều khoản cùng đến lịch trong một ngày vẫn có notification, de
 đủ từng item. Hệ điều hành có thể tự nhóm nhiều notification trên màn hình khóa nhưng không làm mất
 item trong Notification Center của ứng dụng.
 
+Nếu Notification Center có mục mới nhưng thiết bị không hiện banner, kiểm tra quyền thông báo của
+trình duyệt/PWA, chế độ Tập trung/Không làm phiền, cài đặt tóm tắt thông báo và việc PWA còn được cài
+trên thiết bị. Trạng thái delivery `SENT` có nghĩa dịch vụ Push đã chấp nhận payload, không bảo đảm
+hệ điều hành sẽ hiện banner ngay. Notification Center trong ứng dụng là nguồn đối chiếu chuẩn.
+
 Subscription chỉ nhận các notification chưa đọc được tạo từ thời điểm subscription tồn tại; bật
 Push trên thiết bị mới không phát lại toàn bộ lịch sử. Nút bật/tắt trên giao diện lấy trạng thái từ
 subscription thật của trình duyệt hiện tại, không suy ra từ subscription của tài khoản trên thiết bị
@@ -61,7 +69,8 @@ quyền thông báo; Badge cũng có thể bị tắt riêng trong Settings. M�
 thay vì con số, hoặc không hỗ trợ API. Vì vậy notification center trong app vẫn là nguồn trạng thái
 đọc/chưa đọc chuẩn, không suy ra từ hình thức badge của launcher.
 
-Migration `20260913165000_c30_notification_copy.sql` làm mới nội dung các `INTEREST_DUE` và
+Migration `20260914150000_c35_repeat_interest_notifications.sql` bổ sung nhắc lãi lặp hằng ngày;
+migration `20260913165000_c30_notification_copy.sql` làm mới nội dung các `INTEREST_DUE` và
 `LOAN_OVERDUE` chưa đọc hiện hữu theo copy nhiều dòng. Notification hệ điều hành đã giao trước đó
 không thể sửa ngược; hệ điều hành cũng có thể tự ngắt dòng hoặc rút gọn nội dung tùy kích thước màn
 hình, nhưng Notification Center trong ứng dụng luôn giữ nguyên cấu trúc dòng.
@@ -131,7 +140,8 @@ trường hợp cron dự phòng Vercel trùng với Supabase Cron lúc 07:00.
 
 ## Kiểm thử
 
-- pgTAP kiểm tra đúng ngày đến hạn, nhắc quá hạn hằng ngày, mọi active user, preference giờ, idempotency,
+- pgTAP kiểm tra đúng ngày đến hạn, nhắc lãi/quá hạn hằng ngày, dừng sau khi thanh toán hoặc dừng lãi,
+  mọi active user, preference giờ, idempotency,
   subscription upsert, không phát lịch sử cho subscription mới, đánh dấu đã đọc và delivery không
   được claim lại sau khi `SENT`.
 - Playwright kiểm tra manifest, service worker, notification center, đồng bộ app badge và không tràn
