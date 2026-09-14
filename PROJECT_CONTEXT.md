@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.170
-last_updated: 2026-09-14 15:32:39 +07
+roadmap_version: 1.0.171
+last_updated: 2026-09-14 15:57:46 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C34
-current_status: IN_PROGRESS
-last_completed_checkpoint: C35
-next_checkpoint: C34
+current_checkpoint: C36
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C34
+next_checkpoint: C36
 ---
 
 # Project Context
@@ -31,8 +31,10 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
   `docs/C33_FILTER_CHART_INTERACTION_PLAN.md`: hai trường ngày `Từ`/`Đến` cùng hàng, bằng nhau ở
   mobile; cột dòng tiền hỗ trợ tap/click/keyboard với tooltip nằm trọn trong biểu đồ. Gate đạt
   `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E 21/21.
-- C34 được người dùng phê duyệt trực tiếp và chuyển `IN_PROGRESS` ngày 2026-09-14. Candidate sẽ lấy
-  đúng commit C33 `697bd25`; C35 và migration C35 không nằm trong rollout này.
+- C34 `COMPLETED` ngày 2026-09-14: đúng commit C33 `697bd25` đã lên stable Preview qua candidate
+  `dpl_5CcFRo14rfrr1JoSJmd3Vizi5N8M`; C35 và migration C35 không nằm trong rollout này.
+- C36 đang `AWAITING_APPROVAL`: rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng
+  chung; database dùng chung đồng nghĩa logic nhắc lãi mới sẽ có hiệu lực cho Production worker.
 - C32 được người dùng phê duyệt trực tiếp và `COMPLETED` ngày 2026-09-14 theo
   `docs/C32_C30_PRODUCTION_ROLLOUT.md`: source C30 đã được rollout từ stable Preview lên Vercel
   Production; immutable/stable authenticated smoke và runtime hậu kiểm đều đạt. Không chạy lại
@@ -140,6 +142,19 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
 
 ## 6. Gate và thay đổi gần nhất
 
+- C34 hoàn tất rollout đúng source C33 lên stable Preview. Candidate
+  `dpl_5CcFRo14rfrr1JoSJmd3Vizi5N8M`, immutable
+  `https://quan-ly-vay-ca-nhan-55rb62mxf-ngotuong2105.vercel.app`, target Preview, `READY`, đúng
+  project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; 44/44 Functions ở `sin1`. Rollback target C31
+  `dpl_8cuYqL5y4ALYYpGskEbq5X8yPwwo` đã được xác minh và không phải kích hoạt.
+- Authenticated smoke immutable đạt desktop/mobile: hai input `Từ`/`Đến` cùng hàng, rộng bằng nhau
+  152,5px, cao 44px tại 375×812; không tràn ngang. Biểu đồ nhận click/tap/phím Space và tooltip
+  `431.050.000 ₫` nằm trong viewport. Console sạch. `https://tindung-preview.vercel.app` trỏ đúng
+  candidate; hậu kiểm `/login`/manifest 200, API bảo vệ 401 và runtime 0 error/0 fatal.
+- Gate C34 được `pnpm deploy:preview` chạy hai lượt đều đạt `git diff --check`, lint, typecheck,
+  74/74 unit/script tests, build và E2E 21/21. Tài khoản `c34_smoke_mu102krb` không tạo dữ liệu tài
+  chính, đã inactive/banned và đăng nhập lại bị từ chối. Không migration, đổi secret, Production,
+  Google resources hoặc Git push.
 - C35 hoàn tất local: migration thứ 31 tạo lại nhắc lãi mỗi ngày khi nghĩa vụ đến hạn còn dư và
   dừng khi đã thanh toán/BAD_DEBT/SETTLED; card Push dùng switch viên thuốc, giờ nằm cùng hàng và tự
   lưu; `/account` chuyển hướng `/settings`, mọi vai trò tự quản lý tài khoản còn OWNER mới thấy quản
@@ -337,11 +352,13 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- C36 không có blocker kỹ thuật nhưng đang chờ phê duyệt riêng vì gồm migration trên Supabase dùng
+  chung và Vercel Preview rollout.
 - C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc giảm 29
   profile kỹ thuật xuống một tài khoản QA không thể thực hiện mà không thay đổi bất biến kiến trúc
   “profile không xóa vật lý”; nếu vẫn cần xóa thật phải mở checkpoint migration có kiểm soát riêng.
-- C34 đang thực hiện rollout Preview sau phê duyệt; chưa có blocker kỹ thuật.
-- C33 không còn blocker; đã hoàn tất local và chưa deploy.
+- C34 không còn blocker; stable Preview đã trỏ đúng candidate C34.
+- C33 không còn blocker; đã rollout Preview qua C34 nhưng chưa rollout Production.
 - C32 không còn blocker và chưa có checkpoint kế tiếp. C30 đã rollout đầy đủ lên Preview/Production.
 - C31 không còn blocker và chưa có checkpoint kế tiếp. C30 đã lên stable Preview; Vercel Production
   vẫn ở C29 và chỉ được rollout trong checkpoint/phê duyệt riêng.
