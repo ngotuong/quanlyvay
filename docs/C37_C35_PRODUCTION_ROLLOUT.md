@@ -1,6 +1,6 @@
 # C37 — Rollout C33/C35 lên Vercel Production
 
-Trạng thái: `AWAITING_APPROVAL`
+Ngày phê duyệt: 2026-09-14. Trạng thái: `IN_PROGRESS`.
 
 ## Mục tiêu
 

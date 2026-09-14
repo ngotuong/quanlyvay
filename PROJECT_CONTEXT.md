@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.173
-last_updated: 2026-09-14 18:58:00 +07
+roadmap_version: 1.0.174
+last_updated: 2026-09-14 21:08:00 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C37
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 last_completed_checkpoint: C36
 next_checkpoint: C37
 ---
@@ -20,8 +20,9 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
   trên Supabase dùng chung và source C33/C35 đã lên stable Preview. Candidate/stable đạt toàn bộ
   gate, public/authenticated smoke, console và runtime hậu kiểm; tài khoản EDITOR tạm đã
   inactive/banned và không tạo dữ liệu tài chính.
-- C37 đang `AWAITING_APPROVAL`: rollout source C33/C35 từ stable Preview lên Vercel Production.
-  Migration C35 đã active trên database dùng chung nên checkpoint này không chạy migration lần hai.
+- C37 đang `IN_PROGRESS` sau khi được người dùng phê duyệt trực tiếp ngày 2026-09-14: rollout source
+  C33/C35 từ stable Preview lên Vercel Production. Migration C35 đã active trên database dùng chung
+  nên checkpoint này không chạy migration lần hai.
 - Supabase chỉ có 1 tài khoản OWNER đang hoạt động; 30 tài khoản kỹ thuật đã vô hiệu hóa/ban, gồm
   tài khoản smoke C36. Ba tài khoản C21 có tham
   chiếu tài chính `ON DELETE RESTRICT`; 26 tài khoản đã audit ở C35 và tài khoản smoke C36 không có
@@ -369,7 +370,8 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- C37 chưa có blocker kỹ thuật nhưng đang chờ người dùng phê duyệt Production rollout.
+- C37 không có blocker kỹ thuật; Production rollout đã được người dùng phê duyệt trực tiếp ngày
+  2026-09-14.
 - C36 không còn blocker; migration C35 và Vercel Preview rollout đã hoàn tất.
 - C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc giảm 30
   profile kỹ thuật xuống một tài khoản QA không thể thực hiện mà không thay đổi bất biến kiến trúc
