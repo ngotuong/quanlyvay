@@ -1,6 +1,27 @@
 # C37 — Rollout C33/C35 lên Vercel Production
 
-Ngày phê duyệt: 2026-09-14. Trạng thái: `IN_PROGRESS`.
+Ngày phê duyệt: 2026-09-14. Hoàn tất: 2026-09-14. Trạng thái: `COMPLETED`.
+
+## Kết quả rollout
+
+- Rollback target C32 được xác minh trước promote:
+  `dpl_3zLcZo3vQgGiAAjgzpgNTz3p8bzX`, target Production, `READY`; Function ứng dụng ở `sin1`.
+- Candidate `dpl_E5yFNn2qmsquDW4wXDf2Pddz3Nt6`, immutable
+  `https://quan-ly-vay-ca-nhan-j85cgaavq-ngotuong2105.vercel.app`, đúng project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target Production, `READY`; 43 Function ứng dụng ở `sin1`
+  và middleware toàn cầu đúng cấu hình.
+- `https://tindung.vercel.app` đã trỏ đúng candidate; rollback không phải kích hoạt.
+- Gate đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E
+  21/21 trên database local cô lập có đủ 31 migration.
+- Public smoke immutable/stable đạt: login và manifest 200; Google Sync export và notification
+  runner không secret 401. Authenticated smoke cả hai URL đạt cho Dashboard/tooltip dòng tiền,
+  Notification Center C35, Cài đặt hợp nhất, redirect `/account`, khoản vay mặc định `ACTIVE`, bộ
+  lọc C33 đồng đều 44px/không tràn ngang, phân quyền EDITOR; browser console sạch.
+- Runtime hậu kiểm candidate/stable có 0 error và 0 fatal. Tài khoản EDITOR C36 được mở lại sau xác
+  nhận trực tiếp của người dùng, không tạo dữ liệu tài chính hoặc đổi Push, rồi đã inactive/banned;
+  phiên bị thu hồi và đăng nhập lại bị từ chối.
+- Không chạy lại migration C35, không đổi schema, dữ liệu nghiệp vụ, remote secret/scheduler, Google
+  resources hoặc Git remote; không Git push.
 
 ## Mục tiêu
 
