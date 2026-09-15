@@ -48,6 +48,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C36 | Rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng chung | `COMPLETED` |
 | C37 | Rollout C33/C35 từ stable Preview lên Vercel Production | `COMPLETED` |
 | C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `IN_PROGRESS` |
+| C39 | Tái cấu trúc thao tác khoản vay, Thiết lập và quản trị tài khoản | `AWAITING_APPROVAL` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -75,6 +76,10 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 - C38 được người dùng phê duyệt trực tiếp và đang `IN_PROGRESS`: hậu kiểm read-only chu kỳ nhắc lãi
   Production sau giờ gửi 07:00 ngày 2026-09-15, không chạy worker thủ công hoặc thay dữ liệu. Phạm vi tại
   [C38_PRODUCTION_NOTIFICATION_OBSERVATION.md](C38_PRODUCTION_NOTIFICATION_OBSERVATION.md).
+- C39 đang `AWAITING_APPROVAL` và chỉ bắt đầu sau khi C38 hoàn tất: đưa **Tất toán** ra Tổng quan,
+  tái cấu trúc tab Thiết lập theo mức độ sử dụng/rủi ro và gom tài khoản vô hiệu hóa khỏi danh sách
+  quản trị chính. Phạm vi tại
+  [C39_LOAN_ACTION_SETTINGS_ACCOUNT_UX_PLAN.md](C39_LOAN_ACTION_SETTINGS_ACCOUNT_UX_PLAN.md).
 - C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
   candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
   Bằng chứng tại [C32_C30_PRODUCTION_ROLLOUT.md](C32_C30_PRODUCTION_ROLLOUT.md).
@@ -162,6 +167,7 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.177 | 2026-09-15 | Ghi nhận C39 `AWAITING_APPROVAL`: hành động tất toán ở Tổng quan, Thiết lập có thứ bậc và quản trị tài khoản cô đọng; C38 vẫn `IN_PROGRESS`. |
 | 1.0.176 | 2026-09-14 | Mở C38 `IN_PROGRESS` sau phê duyệt: chờ chu kỳ 07:00 ngày 2026-09-15 để hậu kiểm read-only nhắc lãi Production. |
 | 1.0.175 | 2026-09-14 | Hoàn tất C37: C33/C35 lên Production, authenticated/public smoke và runtime hậu kiểm đạt; mở C38 chờ duyệt. |
 | 1.0.174 | 2026-09-14 | Mở C37 `IN_PROGRESS` sau phê duyệt: rollout source C33/C35 từ stable Preview lên Production. |

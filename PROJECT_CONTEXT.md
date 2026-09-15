@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.176
-last_updated: 2026-09-14 21:29:18 +07
+roadmap_version: 1.0.177
+last_updated: 2026-09-15 10:48:58 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C38
 current_status: IN_PROGRESS
@@ -25,6 +25,9 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
   runtime hậu kiểm. Migration C35 không chạy lại; tài khoản EDITOR tạm đã inactive/banned.
 - C38 được người dùng phê duyệt trực tiếp và đang `IN_PROGRESS`: hậu kiểm read-only chu kỳ nhắc lãi
   Production sau giờ gửi 07:00 ngày 2026-09-15; không chạy worker thủ công hoặc thay dữ liệu.
+- C39 đã được ghi nhận `AWAITING_APPROVAL` nhưng chưa được triển khai khi C38 còn `IN_PROGRESS`:
+  đưa **Tất toán** ra Tổng quan, tái cấu trúc Thiết lập và gom tài khoản vô hiệu hóa khỏi danh sách
+  quản trị chính. Kế hoạch tại `docs/C39_LOAN_ACTION_SETTINGS_ACCOUNT_UX_PLAN.md`.
 - Supabase chỉ có 1 tài khoản OWNER đang hoạt động; 30 tài khoản kỹ thuật đã vô hiệu hóa/ban, gồm
   tài khoản smoke C36. Ba tài khoản C21 có tham
   chiếu tài chính `ON DELETE RESTRICT`; 26 tài khoản đã audit ở C35 và tài khoản smoke C36 không có
