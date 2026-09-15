@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.180
-last_updated: 2026-09-15 11:30:58 +07
+roadmap_version: 1.0.182
+last_updated: 2026-09-15 12:25:44 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C38
 current_status: APPROVED
-last_completed_checkpoint: C39
+last_completed_checkpoint: C40
 next_checkpoint: C38
 ---
 
@@ -29,12 +29,17 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
   nhóm thu gọn. Không đổi RPC, dữ liệu, schema hoặc quyền. Gate đạt `git diff --check`, lint,
   typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E 21/21. Bằng chứng tại
   `docs/C39_LOAN_ACTION_SETTINGS_ACCOUNT_UX_PLAN.md`.
+- C40 `COMPLETED` ngày 2026-09-15: đúng source C39 đã lên Vercel Production qua candidate
+  `dpl_DePegwVo77qL5WFUiYp7vMtxKKK1`; immutable/stable public và authenticated smoke, console cùng
+  runtime hậu kiểm đạt. Stable `https://tindung.vercel.app` trỏ đúng candidate, rollback không phải
+  kích hoạt; tài khoản smoke đã inactive/banned. Bằng chứng tại
+  `docs/C40_C39_PRODUCTION_ROLLOUT.md`.
 - C38 đã được người dùng cho phép tạm hoãn ngày 2026-09-15 và vẫn ở `APPROVED`; baseline read-only
   đã xác nhận notification đúng. Heartbeat C38 vẫn `PAUSED`; chỉ tiếp tục phần Push sau giờ nhận khi
   người dùng yêu cầu tiếp tục, không tự động nối checkpoint.
-- Supabase chỉ có 1 tài khoản OWNER đang hoạt động; 30 tài khoản kỹ thuật đã vô hiệu hóa/ban, gồm
-  tài khoản smoke C36. Ba tài khoản C21 có tham
-  chiếu tài chính `ON DELETE RESTRICT`; 26 tài khoản đã audit ở C35 và tài khoản smoke C36 không có
+- Supabase chỉ có 1 tài khoản OWNER đang hoạt động; 31 tài khoản kỹ thuật đã vô hiệu hóa/ban, gồm
+  tài khoản smoke C36 được giữ để tái sử dụng. Ba tài khoản C21 có tham chiếu tài chính
+  `ON DELETE RESTRICT`; các tài khoản còn lại không có
   tham chiếu tài chính nhưng trigger
   `private.validate_profile_governance()` cấm xóa mọi profile. Lệnh xóa fail-closed đã rollback toàn
   transaction với SQLSTATE `55000`; không tắt trigger hoặc sửa lịch sử. Danh sách và biện pháp thay
@@ -392,12 +397,14 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- C39 không còn blocker và đã hoàn tất local; chưa deploy Preview/Production.
+- C40 không còn blocker; Production stable đã trỏ candidate
+  `dpl_DePegwVo77qL5WFUiYp7vMtxKKK1`, `READY`, Functions `sin1`, hậu kiểm đạt.
+- C39 không còn blocker và đã rollout Production qua C40; chưa rollout Preview riêng.
 - C38 vẫn tạm dừng theo yêu cầu người dùng; không có blocker kỹ thuật. Heartbeat C38 đang `PAUSED`.
 - C37 không còn blocker; Production stable đã trỏ đúng candidate C37 và hậu kiểm đạt.
 - C36 không còn blocker; migration C35 và Vercel Preview rollout đã hoàn tất.
-- C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc giảm 30
-  profile kỹ thuật xuống một tài khoản QA không thể thực hiện mà không thay đổi bất biến kiến trúc
+- C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc xóa vật lý
+  30 profile kỹ thuật cũ để chỉ còn một tài khoản smoke không thể thực hiện mà không thay đổi bất biến kiến trúc
   “profile không xóa vật lý”; nếu vẫn cần xóa thật phải mở checkpoint migration có kiểm soát riêng.
 - C34 không còn blocker; stable Preview đã trỏ đúng candidate C34.
 - C33 không còn blocker; đã rollout Preview qua C34 nhưng chưa rollout Production.

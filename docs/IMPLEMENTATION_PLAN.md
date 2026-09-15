@@ -49,6 +49,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C37 | Rollout C33/C35 từ stable Preview lên Vercel Production | `COMPLETED` |
 | C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `APPROVED` |
 | C39 | Tái cấu trúc thao tác khoản vay, Thiết lập và quản trị tài khoản | `COMPLETED` |
+| C40 | Rollout C39 lên Vercel Production | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -80,6 +81,10 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   mức độ sử dụng/rủi ro và gom tài khoản vô hiệu hóa khỏi danh sách quản trị chính. Toàn bộ gate
   local đạt; không deploy hoặc thay dữ liệu/remote. Bằng chứng tại
   [C39_LOAN_ACTION_SETTINGS_ACCOUNT_UX_PLAN.md](C39_LOAN_ACTION_SETTINGS_ACCOUNT_UX_PLAN.md).
+- C40 hoàn tất ngày 2026-09-15: đúng source C39 đã lên Vercel Production qua candidate
+  `dpl_DePegwVo77qL5WFUiYp7vMtxKKK1`; immutable/stable public và authenticated smoke, console cùng
+  runtime hậu kiểm đạt, rollback không phải kích hoạt. Phạm vi và bằng chứng tại
+  [C40_C39_PRODUCTION_ROLLOUT.md](C40_C39_PRODUCTION_ROLLOUT.md).
 - C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
   candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
   Bằng chứng tại [C32_C30_PRODUCTION_ROLLOUT.md](C32_C30_PRODUCTION_ROLLOUT.md).
@@ -167,6 +172,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.182 | 2026-09-15 | Hoàn tất C40: source C39 lên Production, immutable/stable smoke đạt; tài khoản smoke đã khóa lại. |
+| 1.0.181 | 2026-09-15 | Mở C40 `IN_PROGRESS` theo phê duyệt trực tiếp: rollout C39 lên Vercel Production. |
 | 1.0.180 | 2026-09-15 | Hoàn tất C39 local với toàn bộ gate đạt; trả checkpoint hiện tại về C38 `APPROVED`, heartbeat vẫn tạm dừng. |
 | 1.0.179 | 2026-09-15 | Tạm hoãn C38 ở `APPROVED` theo yêu cầu người dùng; mở C39 `IN_PROGRESS` để ưu tiên tái cấu trúc UX. |
 | 1.0.178 | 2026-09-15 | C39 được phê duyệt và chuyển `APPROVED`; chờ C38 hoàn tất trước khi bắt đầu triển khai. |
