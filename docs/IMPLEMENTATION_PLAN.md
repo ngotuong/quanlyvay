@@ -47,8 +47,8 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C35 | Nhắc lãi lặp lại, tinh gọn thông báo, hợp nhất tài khoản và dọn QA | `COMPLETED` |
 | C36 | Rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng chung | `COMPLETED` |
 | C37 | Rollout C33/C35 từ stable Preview lên Vercel Production | `COMPLETED` |
-| C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `IN_PROGRESS` |
-| C39 | Tái cấu trúc thao tác khoản vay, Thiết lập và quản trị tài khoản | `APPROVED` |
+| C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `APPROVED` |
+| C39 | Tái cấu trúc thao tác khoản vay, Thiết lập và quản trị tài khoản | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -73,13 +73,12 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   authenticated smoke, console, runtime log đều đạt. Migration C35 không chạy lại; tài khoản test
   đã inactive/banned và không tạo dữ liệu tài chính. Bằng chứng tại
   [C37_C35_PRODUCTION_ROLLOUT.md](C37_C35_PRODUCTION_ROLLOUT.md).
-- C38 được người dùng phê duyệt trực tiếp và đang `IN_PROGRESS`: hậu kiểm read-only chu kỳ nhắc lãi
-  Production sau giờ gửi 07:00 ngày 2026-09-15, không chạy worker thủ công hoặc thay dữ liệu. Phạm vi tại
+- C38 đã được người dùng cho phép tạm hoãn và vẫn ở `APPROVED`; baseline notification read-only đã
+  đạt. Heartbeat đang `PAUSED` và phần Push sau giờ nhận chỉ tiếp tục khi người dùng yêu cầu. Phạm vi tại
   [C38_PRODUCTION_NOTIFICATION_OBSERVATION.md](C38_PRODUCTION_NOTIFICATION_OBSERVATION.md).
-- C39 đã được người dùng phê duyệt trực tiếp và đang `APPROVED`; chỉ bắt đầu sau khi C38 hoàn tất:
-  đưa **Tất toán** ra Tổng quan,
-  tái cấu trúc tab Thiết lập theo mức độ sử dụng/rủi ro và gom tài khoản vô hiệu hóa khỏi danh sách
-  quản trị chính. Phạm vi tại
+- C39 hoàn tất local ngày 2026-09-15: đưa **Tất toán** ra Tổng quan, tái cấu trúc tab Thiết lập theo
+  mức độ sử dụng/rủi ro và gom tài khoản vô hiệu hóa khỏi danh sách quản trị chính. Toàn bộ gate
+  local đạt; không deploy hoặc thay dữ liệu/remote. Bằng chứng tại
   [C39_LOAN_ACTION_SETTINGS_ACCOUNT_UX_PLAN.md](C39_LOAN_ACTION_SETTINGS_ACCOUNT_UX_PLAN.md).
 - C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
   candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
@@ -105,7 +104,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   Dashboard, danh sách khoản vay và tương tác mobile. Toàn bộ gate local đạt; C28/C29 đã rollout
   Preview và Production.
   Kế hoạch và bằng chứng tại [C27_DESIGN_SYSTEM_UIUX_PLAN.md](C27_DESIGN_SYSTEM_UIUX_PLAN.md).
-- Checkpoint hiện tại là C38 và đã được phê duyệt.
+- Checkpoint hiện tại là C38 ở `APPROVED` nhưng đang tạm dừng theo yêu cầu người dùng.
 - C26 hoàn tất ngày 2026-09-12 theo [kế hoạch C26](C26_C25_ROLLOUT.md): Preview và Production
   đã đạt public/authenticated smoke, stable alias hậu kiểm sạch, token tạm đã thu hồi. Không có
   migration hay thay đổi dữ liệu, Google resources hoặc Git remote.
@@ -168,6 +167,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.180 | 2026-09-15 | Hoàn tất C39 local với toàn bộ gate đạt; trả checkpoint hiện tại về C38 `APPROVED`, heartbeat vẫn tạm dừng. |
+| 1.0.179 | 2026-09-15 | Tạm hoãn C38 ở `APPROVED` theo yêu cầu người dùng; mở C39 `IN_PROGRESS` để ưu tiên tái cấu trúc UX. |
 | 1.0.178 | 2026-09-15 | C39 được phê duyệt và chuyển `APPROVED`; chờ C38 hoàn tất trước khi bắt đầu triển khai. |
 | 1.0.177 | 2026-09-15 | Ghi nhận C39 `AWAITING_APPROVAL`: hành động tất toán ở Tổng quan, Thiết lập có thứ bậc và quản trị tài khoản cô đọng; C38 vẫn `IN_PROGRESS`. |
 | 1.0.176 | 2026-09-14 | Mở C38 `IN_PROGRESS` sau phê duyệt: chờ chu kỳ 07:00 ngày 2026-09-15 để hậu kiểm read-only nhắc lãi Production. |

@@ -1,9 +1,9 @@
 # C39 — Tái cấu trúc thao tác khoản vay, Thiết lập và quản trị tài khoản
 
-Trạng thái: `APPROVED`
+Trạng thái: `COMPLETED` ngày 2026-09-15
 
-Yêu cầu đầu vào: người dùng yêu cầu và phê duyệt trực tiếp ngày 2026-09-15; checkpoint chỉ bắt đầu
-sau khi C38 hoàn tất theo cổng checkpoint.
+Yêu cầu đầu vào: người dùng yêu cầu và phê duyệt trực tiếp ngày 2026-09-15; đồng thời cho phép tạm
+hoãn C38 để ưu tiên hoàn tất checkpoint này.
 
 ## Vấn đề đã xác nhận
 
@@ -69,3 +69,25 @@ sau khi C38 hoàn tất theo cổng checkpoint.
 5. Không tràn ngang ở 320/375px, touch target đạt 44px, keyboard/focus/ARIA và light/dark đạt.
 6. `git diff --check`, lint, typecheck, unit tests, build, Auth và E2E hiện hành đều đạt; bổ sung
    regression cho vị trí nút tất toán, dialog xác nhận, cấu trúc Thiết lập và danh sách tài khoản.
+
+## Kết quả triển khai
+
+- Tổng quan khoản vay có hai CTA cạnh nhau; **Tất toán** dùng danger style, icon kèm nhãn và mở
+  BottomSheet riêng dùng nguyên luồng preview/xác nhận authoritative hiện có. Thiết lập không còn
+  form tất toán.
+- Thiết lập trình bày điều khoản trực tiếp, các điều chỉnh nghiệp vụ có mô tả, dữ liệu cũ/sửa sai
+  thu gọn mặc định và hoàn tác tất toán ở vùng danger riêng.
+- Quản trị người dùng dùng một card cô đọng cho mỗi tài khoản, ưu tiên tài khoản đang hoạt động;
+  tài khoản vô hiệu hóa được gom trong nhóm thu gọn có số lượng và giải thích lưu giữ audit.
+- Tài liệu thao tác và workflow đã đồng bộ. Không có thay đổi schema, RPC, dữ liệu hoặc remote.
+
+## Bằng chứng kiểm thử
+
+- `git diff --check`: đạt.
+- `pnpm lint`: đạt.
+- `pnpm typecheck`: đạt.
+- `pnpm test`: đạt 74/74.
+- `pnpm build`: đạt.
+- `pnpm test:auth`: đạt 6/6 trên Supabase test cô lập.
+- `pnpm test:e2e`: đạt 21/21, gồm mobile 375px, light/dark, keyboard/contrast, tất toán và quản trị
+  nhiều tài khoản. Database test đã reset sau khi chạy.

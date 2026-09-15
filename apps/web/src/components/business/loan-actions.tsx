@@ -2,7 +2,7 @@
 import { useBusinessAction } from "./use-business-action";
 
 import { useEffect, useRef, useState } from "react";
-import { Plus } from "lucide-react";
+import { CircleCheckBig, Plus } from "lucide-react";
 import {
   recordExpenseAction,
   recordLifecycleAction,
@@ -23,6 +23,7 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
   const [lifecycleState, lifecycleAction] = useBusinessAction(recordLifecycleAction, initialBusinessActionState);
   const [eventType, setEventType] = useState<"RATE_CHANGE" | "BAD_DEBT_START" | "INTEREST_RESUME">(status === "BAD_DEBT" ? "INTEREST_RESUME" : "RATE_CHANGE");
   const paymentDialog = useRef<HTMLDialogElement>(null);
+  const settlementDialog = useRef<HTMLDialogElement>(null);
   const paymentDirty = useRef(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoOpened = useRef(false);
@@ -56,6 +57,17 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
     }, 180);
   }
 
+  function openSettlementDialog() {
+    const dialog = settlementDialog.current;
+    if (dialog && !dialog.open) dialog.showModal();
+  }
+
+  function closeSettlementDialog() {
+    const dialog = settlementDialog.current;
+    if (!dialog?.open || dialog.querySelector('button[type="submit"]:disabled')) return;
+    dialog.close();
+  }
+
   useEffect(() => {
     if (!autoOpen || autoOpened.current || isSettled) return;
     autoOpened.current = true;
@@ -67,8 +79,11 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
   return (
     <section className="action-drawer-grid" id={mode === "payment" ? "transaction-actions" : undefined} aria-label="Ghi nhận nghiệp vụ">
       {mode !== "management" ? <div className="transaction-action">
-        <Button className="primary-button transaction-trigger" type="button" onClick={openPaymentDialog}><Plus size={18} />Ghi giao dịch</Button>
-        <p>Ghi tiền lãi hoặc tiền gốc mà không làm gián đoạn phần đối chiếu.</p>
+        <div className="loan-primary-actions">
+          <Button className="primary-button transaction-trigger" type="button" onClick={openPaymentDialog}><Plus size={18} />Ghi giao dịch</Button>
+          <Button variant="danger" className="danger-button settlement-trigger" type="button" onClick={openSettlementDialog}><CircleCheckBig size={18} />Tất toán</Button>
+        </div>
+        <p>Ghi khoản thu/trả hằng ngày hoặc kết thúc toàn bộ nghĩa vụ của khoản vay.</p>
         <BottomSheet eyebrow="Nghiệp vụ khoản vay" title="Ghi giao dịch" titleId="transaction-dialog-title" ref={paymentDialog} onRequestClose={closePaymentDialog}>
           <BusinessForm state={paymentState} action={paymentAction} className="compact-form dialog-form" onChange={() => { paymentDirty.current = true; }}>
           {context ? <p className="transaction-context"><strong>{context.name}</strong><span>Dư gốc {context.outstandingVnd} · Lãi còn lại {context.interestBalanceVnd}</span></p> : null}
@@ -81,12 +96,16 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
           <ActionMessage state={paymentState} /><div className="dialog-actions"><Button variant="secondary" className="secondary-button" type="button" onClick={closePaymentDialog}>Hủy</Button><FormSubmit>Ghi nhận</FormSubmit></div>
           </BusinessForm>
         </BottomSheet>
+        <BottomSheet eyebrow="Thao tác quan trọng" title="Tất toán khoản vay" titleId="settlement-dialog-title" ref={settlementDialog} onRequestClose={closeSettlementDialog}>
+          <div className="settlement-dialog-copy"><strong>Kiểm tra số tiền trước khi xác nhận</strong><span>Hệ thống sẽ ghi toàn bộ gốc và lãi còn lại tại ngày bạn chọn.</span></div>
+          <div className="dialog-form"><SettlementForm loanId={loanId} idempotencyKey={keys.settlement} /></div>
+        </BottomSheet>
       </div> : null}
 
-      {mode === "management" ? <div className="management-group-heading"><p className="eyebrow">Điều chỉnh</p><h2>Nghiệp vụ ít dùng</h2><span>Chi phí, lãi suất và trạng thái nợ xấu.</span></div> : null}
+      {mode === "management" ? <div className="management-group-heading"><p className="eyebrow">Trong quá trình vay</p><h2>Điều chỉnh nghiệp vụ</h2><span>Các thay đổi dưới đây ảnh hưởng chi phí, lãi suất hoặc trạng thái tính lãi.</span></div> : null}
 
       {mode !== "payment" ? <details className="action-drawer">
-        <summary>Thêm chi phí</summary>
+        <summary><span>Chi phí liên quan khoản vay<small>Ghi khoản chi phát sinh riêng cho khoản vay này.</small></span></summary>
         <BusinessForm state={expenseState} action={expenseAction} className="compact-form">
           <input name="loanId" type="hidden" value={loanId} />
           <input name="idempotencyKey" type="hidden" value={keys.expense} />
@@ -99,7 +118,7 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
       </details> : null}
 
       {mode !== "payment" ? <details className="action-drawer">
-        <summary>{status === "BAD_DEBT" ? "Bật lại tính lãi" : "Lãi suất / nợ xấu"}</summary>
+        <summary><span>{status === "BAD_DEBT" ? "Bật lại tính lãi" : "Lãi suất và trạng thái nợ xấu"}<small>{status === "BAD_DEBT" ? "Tiếp tục phát sinh lãi từ ngày hiệu lực." : "Đổi lãi suất hoặc ngừng tính lãi khi chuyển nợ xấu."}</small></span></summary>
         <BusinessForm state={lifecycleState} action={lifecycleAction} className="compact-form">
           <input name="loanId" type="hidden" value={loanId} />
           <input name="idempotencyKey" type="hidden" value={keys.lifecycle} />
@@ -111,12 +130,6 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
         </BusinessForm>
       </details> : null}
 
-      {mode === "management" ? <div className="management-group-heading danger-group-heading"><p className="eyebrow">Thao tác quan trọng</p><h2>Kết thúc khoản vay</h2><span>Kiểm tra kỹ ngày và xác nhận trước khi thực hiện.</span></div> : null}
-
-      {mode !== "payment" ? <details className="action-drawer danger-drawer">
-        <summary>Tất toán khoản vay</summary>
-        <SettlementForm loanId={loanId} idempotencyKey={keys.settlement} />
-      </details> : null}
     </section>
   );
 }

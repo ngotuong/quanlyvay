@@ -1,6 +1,6 @@
 # C38 — Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế
 
-Trạng thái: `IN_PROGRESS`
+Trạng thái: `APPROVED` — tạm hoãn theo yêu cầu người dùng ngày 2026-09-15 để ưu tiên C39.
 
 Phê duyệt: người dùng phê duyệt trực tiếp ngày 2026-09-14.
 

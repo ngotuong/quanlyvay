@@ -72,19 +72,22 @@ rõ hướng để tránh đưa khoản đi vay vào nhầm nhóm cho vay.
 
 Mở chi tiết khoản vay. Trang được chia thành bốn tab:
 
-- **Tổng quan**: hero cho biết dư gốc, lãi/hạn kế tiếp, trạng thái và nút ghi giao dịch; số liệu lịch
-  sử nằm ở dải phụ bên dưới.
+- **Tổng quan**: hero cho biết dư gốc, lãi/hạn kế tiếp và trạng thái; nút **Ghi giao dịch** cùng nút
+  đỏ **Tất toán** nằm cạnh nhau, mỗi nút mở đúng biểu mẫu riêng. Số liệu lịch sử nằm ở dải phụ bên
+  dưới.
 - **Các kỳ lãi**: danh sách kỳ và nút đóng lãi từng kỳ; dưới ba kỳ dùng summary gọn, từ ba kỳ mới
   hiện biểu đồ đối chiếu.
 - **Lịch sử**: giao dịch, thay đổi lãi suất, nợ xấu, tất toán và hoàn tác.
-- **Thông tin & thiết lập**: điều khoản, chi phí, đổi lãi suất, nợ xấu, tất toán và sửa dữ liệu.
+- **Thông tin & thiết lập**: điều khoản hiện tại, chỉnh sửa thông tin và các điều chỉnh nghiệp vụ.
+  Dữ liệu cũ/sửa sai nằm trong vùng nâng cao; hoàn tác tất toán nằm riêng trong vùng nguy hiểm.
 
 Các thao tác nghiệp vụ gồm:
 
 - **Thanh toán**: chọn tiền lãi hoặc tiền gốc, ngày và số tiền.
 - **Chi phí**: nhập ngày, số tiền, nhóm chi phí và ghi chú.
 - **Trạng thái/lãi suất**: đổi lãi suất, chuyển nợ xấu/ngừng lãi hoặc bật lại tính lãi.
-- **Tất toán**: chọn ngày tất toán khi nghĩa vụ đã kết thúc.
+- **Tất toán**: ở tab **Tổng quan**, chọn nút đỏ **Tất toán**, kiểm tra bản xem trước nghĩa vụ rồi
+  xác nhận ngày tất toán.
 
 Để nhập nhanh lịch sử chi tiết, tại **Các kỳ lãi** chọn **Ghi nhận đóng lãi**. Hệ thống điền sẵn số
 dư lãi còn phải đóng đến cuối kỳ và ngày dự kiến thu; có thể sửa số tiền, ngày thực tế và ghi chú.

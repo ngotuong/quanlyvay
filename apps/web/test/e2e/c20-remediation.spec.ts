@@ -166,15 +166,16 @@ test("login CTA at 375x667 and active colors have AA contrast", async ({page},in
   const cta=page.getByRole("button",{name:"Đăng nhập",exact:true});await expect(cta).toBeInViewport();
   await expect(page.getByText(/Quên mật khẩu/)).toBeVisible();
   await page.screenshot({path:info.outputPath("login-mobile.png"),fullPage:true});
-  await login(page);await page.setViewportSize({width:1440,height:900});await page.goto(`/loans/${loanId}?tab=settings`);
+  await login(page);await page.setViewportSize({width:1440,height:900});await page.goto(`/loans/${loanId}?tab=overview`);
   await page.emulateMedia({reducedMotion:"reduce"});
-  await page.getByText("Tất toán khoản vay",{exact:true}).click();
+  await page.getByRole("button",{name:"Tất toán",exact:true}).click();
   await expect(page.getByRole("button",{name:"Tất toán toàn bộ",exact:true})).toBeEnabled();
+  const dialog=page.getByRole("dialog",{name:"Tất toán khoản vay"});
   const checked = new Set<string>();
   for(const theme of ["light","dark"] as const){
     await page.emulateMedia({colorScheme:theme});
     for(const selector of [".primary-button:not(:disabled)",".danger-button:not(:disabled)",".primary-link",".nav-badge"]){
-      const controls=page.locator(selector+":visible");
+      const controls=dialog.locator(selector+":visible");
       for(let index=0;index<await controls.count();index++){
         const control=controls.nth(index); checked.add(selector);
         for(const state of ["normal","hover","focus"]){
@@ -221,7 +222,7 @@ test("counterparty deletion reports success and refuses financial history", asyn
 test("settlement date preview rejects stale confirmation and can recover", async ({page}) => {
   const cp=await owner.rpc("create_counterparty",{p_name:"A C20 settlement",p_notes:null});if(cp.error)throw cp.error;
   const result=await owner.rpc("create_loan_v3",{p_counterparty_id:cp.data,p_name:"C20 settlement race",p_direction:"LENDING",p_original_principal_vnd:"1000000",p_disbursement_date:"2026-08-01",p_term_days:null,p_interest_cycle_days:30,p_initial_period_rate_percent:"3",p_interest_reminder_offset_days:0,p_idempotency_key:randomUUID(),p_notes:null});if(result.error)throw result.error;
-  await login(page);await page.goto(`/loans/${result.data}?tab=settings`);await page.getByText("Tất toán khoản vay",{exact:true}).click();
+  await login(page);await page.goto(`/loans/${result.data}?tab=overview`);await page.getByRole("button",{name:"Tất toán",exact:true}).click();
   const date=page.getByLabel("Ngày tất toán",{exact:true}), preview=page.locator(".settlement-preview");
   await date.fill("2026-07-31");await expect(page.getByText(/Chưa thể tính tất toán/)).toBeVisible();
   await expect(page.getByRole("button",{name:"Tất toán toàn bộ",exact:true})).toBeDisabled();
@@ -257,6 +258,7 @@ test("DB errors differ from missing records, retry recovers and offline is expli
     await page.goto("/expenses");await expect(page.getByRole("heading",{name:"Chưa thể tải dữ liệu"})).toBeVisible();
     expect(await page.locator("#main-content").innerText()).not.toMatch(/permission denied|PGRST|postgres/i);
     sql("grant execute on function public.get_general_expenses_page(integer,integer) to authenticated;");
+    await expect.poll(async()=>Boolean((await owner.rpc("get_general_expenses_page",{p_page:1,p_size:1})).error)).toBe(false);
     await page.getByRole("button",{name:"Thử lại",exact:true}).click();await expect(page.getByText("Tổng chi phí",{exact:true})).toBeVisible();
   } finally {sql("grant execute on function public.get_general_expenses_page(integer,integer) to authenticated;");}
   try{

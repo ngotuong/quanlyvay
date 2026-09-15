@@ -32,8 +32,10 @@ không hiển thị. Đây là đối chiếu triệu chứng, không kết lu�
   đóng lãi và ba chỉ số authoritative: dư nợ gốc, lãi phải thu/trả, lãi đã thu/trả. Thẻ
   `SETTLED` thay lịch đóng lãi bằng `settled_on` với nhãn **Ngày tất toán**.
 - Chi tiết khoản vay chia bốn tab URL: Tổng quan, Các kỳ lãi, Lịch sử, Thiết lập. Tổng quan có hero
-  dư nợ/việc kế tiếp/trạng thái và CTA; modal giao dịch lặp lại ngữ cảnh khoản vay. Dưới ba kỳ dùng
-  summary thay chart. Tab thiết lập tách rõ Thông tin khoản vay, Điều chỉnh và Kết thúc khoản vay.
+  dư nợ/việc kế tiếp/trạng thái, nút **Ghi giao dịch** và nút đỏ **Tất toán** cạnh nhau; mỗi thao tác
+  mở một sheet riêng và lặp lại ngữ cảnh khoản vay. Dưới ba kỳ dùng summary thay chart. Tab thiết
+  lập chỉ chứa điều khoản hiện tại, chỉnh sửa thông tin, điều chỉnh nghiệp vụ và vùng nâng cao cho
+  dữ liệu cũ/sửa sai; hoàn tác tất toán được cô lập trong vùng nguy hiểm.
 - Quản lý đối tác tại `/counterparties`; OWNER chỉ xóa được đối tác chưa có lịch sử khoản vay.
 - Ghi nhận tiền lãi, tiền gốc, chi phí, thay đổi lãi suất, nợ xấu, bật lại tính lãi và tất toán.
 - Mỗi card kỳ lãi có form điền nhanh số dư lãi còn phải đóng và ngày dự kiến thu. Người dùng được
@@ -45,7 +47,8 @@ không hiển thị. Đây là đối chiếu triệu chứng, không kết lu�
 - Giao dịch tài chính chỉ được sửa sai bằng thao tác đảo; giao dịch gốc vẫn còn trong timeline.
 - OWNER xem audit log sanitized tại `/audit`, phân trang 25 dòng qua URL; EDITOR và VIEWER không
   truy cập được. UI không đọc raw `endpoint`, `p256dh` hoặc `auth_secret`.
-- OWNER quản lý các tài khoản EDITOR/VIEWER và mật khẩu tạm tại `/settings`.
+- OWNER quản lý các tài khoản EDITOR/VIEWER và mật khẩu tạm tại `/settings`; tài khoản đang hoạt
+  động được ưu tiên, còn tài khoản ngừng hoạt động được thu gọn trong nhóm lưu dấu vết/audit.
 - VIEWER xem được toàn bộ nghiệp vụ nhưng không thấy các biểu mẫu thay đổi dữ liệu.
 - C20 bỏ hoàn toàn VietQR/phiếu văn bản; giữ các form ghi nhận tiền và lịch sử.
 - `/account` dành cho mọi vai trò; quản trị tại `/settings` vẫn chỉ OWNER.

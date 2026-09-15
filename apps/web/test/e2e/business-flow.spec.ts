@@ -61,7 +61,9 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await page.getByRole("button", { name: "Ghi giao dịch" }).click();
   await expect(page.getByRole("dialog", { name: "Ghi giao dịch" })).toBeVisible();
   await page.getByRole("dialog", { name: "Ghi giao dịch" }).getByRole("button", { name: "Hủy" }).click();
+  await expect(page.getByRole("button", { name: "Tất toán", exact: true })).toBeVisible();
   await loanTabs.getByRole("link", { name: "Thiết lập" }).click();
+  await expect(page.getByRole("button", { name: "Tất toán", exact: true })).toHaveCount(0);
   await expect(page.getByText("3%", { exact: true }).first()).toBeVisible();
   await expect(page.getByText("Lãi kỳ đầu đủ 30 ngày", { exact: true })).toBeVisible();
   await expect(page.getByText("300.000 ₫", { exact: true }).first()).toBeVisible();
@@ -86,8 +88,8 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await expect(page.getByText("Thanh toán lãi")).toBeVisible();
 
   await loanTabs.getByRole("link", { name: "Thiết lập" }).click();
-  const lifecycleForm = page.locator("details").filter({ hasText: "Lãi suất / nợ xấu" });
-  await lifecycleForm.getByText("Lãi suất / nợ xấu", { exact: true }).click();
+  const lifecycleForm = page.locator("details").filter({ hasText: "Lãi suất và trạng thái nợ xấu" });
+  await lifecycleForm.locator("summary").click();
   await lifecycleForm.getByLabel("Thao tác").selectOption("BAD_DEBT_START");
   await lifecycleForm.getByLabel("Ghi chú").fill("Khách chậm thanh toán");
   await lifecycleForm.getByRole("button", { name: "Cập nhật", exact: true }).click();
@@ -140,14 +142,16 @@ test("owner settles and reverses the whole settlement without deleting history",
   await page.getByRole("button", { name: "Tạo khoản vay" }).click();
   await expect(page.getByRole("heading", { name: "C16 hoàn tác tất toán" })).toBeVisible();
   await expect(page.getByText(/Nhắc lãi/)).toBeVisible();
-  await page.getByRole("navigation", { name: "Nội dung khoản vay" }).getByRole("link", { name: "Thiết lập" }).click();
-  const settlementForm = page.locator("details").filter({ hasText: "Tất toán khoản vay" });
-  await settlementForm.getByText("Tất toán khoản vay").click();
+  const settlementTrigger = page.getByRole("button", { name: "Tất toán", exact: true });
+  await expect(settlementTrigger).toBeVisible();
+  await settlementTrigger.click();
+  const settlementForm = page.getByRole("dialog", { name: "Tất toán khoản vay" });
   await settlementForm.getByLabel("Ghi chú").fill("Tất toán để kiểm thử hoàn tác C16");
   await settlementForm.getByText(/Tôi xác nhận hệ thống sẽ ghi toàn bộ/).click();
   await settlementForm.getByRole("button", { name: "Tất toán toàn bộ" }).click();
   await expect(page.getByText("Đã tất toán", { exact: true }).first()).toBeVisible();
 
+  await page.getByRole("navigation", { name: "Nội dung khoản vay" }).getByRole("link", { name: "Thiết lập" }).click();
   await page.getByText("Hoàn tác toàn bộ tất toán").click();
   await page.getByLabel("Lý do").fill("Tất toán nhầm trong kiểm thử C16");
   await page.getByLabel(/Tôi đã kiểm tra và muốn hoàn tác nguyên lần tất toán này/).check();
@@ -303,6 +307,7 @@ test("owner can manage more than one additional account", async ({ page }) => {
   await page.goto("/settings");
 
   await expect(page.getByRole("heading", { name: "Tài khoản c13_editor_e2e" })).toBeVisible();
+  await page.getByText("Tạo tài khoản phụ", { exact: true }).click();
   await page.getByLabel("Tên đăng nhập").fill("c16_viewer_e2e");
   await page.getByLabel("Tên hiển thị").first().fill("C16 Viewer E2E");
   await page.getByLabel("Vai trò").first().selectOption("VIEWER");

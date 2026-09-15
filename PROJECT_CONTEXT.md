@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.178
-last_updated: 2026-09-15 10:59:19 +07
+roadmap_version: 1.0.180
+last_updated: 2026-09-15 11:30:58 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C38
-current_status: IN_PROGRESS
-last_completed_checkpoint: C37
-next_checkpoint: C39
+current_status: APPROVED
+last_completed_checkpoint: C39
+next_checkpoint: C38
 ---
 
 # Project Context
@@ -23,11 +23,15 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 - C37 `COMPLETED` ngày 2026-09-14 theo `docs/C37_C35_PRODUCTION_ROLLOUT.md`: source C33/C35 đã lên
   Vercel Production; immutable/stable đạt toàn bộ gate, public/authenticated smoke, console và
   runtime hậu kiểm. Migration C35 không chạy lại; tài khoản EDITOR tạm đã inactive/banned.
-- C38 được người dùng phê duyệt trực tiếp và đang `IN_PROGRESS`: hậu kiểm read-only chu kỳ nhắc lãi
-  Production sau giờ gửi 07:00 ngày 2026-09-15; không chạy worker thủ công hoặc thay dữ liệu.
-- C39 đã được người dùng phê duyệt trực tiếp và đang `APPROVED`, chưa bắt đầu khi C38 còn `IN_PROGRESS`:
-  đưa **Tất toán** ra Tổng quan, tái cấu trúc Thiết lập và gom tài khoản vô hiệu hóa khỏi danh sách
-  quản trị chính. Kế hoạch tại `docs/C39_LOAN_ACTION_SETTINGS_ACCOUNT_UX_PLAN.md`.
+- C39 `COMPLETED` local ngày 2026-09-15: **Tất toán** là nút danger cạnh **Ghi giao dịch** ở Tổng
+  quan và mở BottomSheet riêng; tab Thiết lập được chia theo điều khoản, điều chỉnh, dữ liệu cũ/sửa
+  sai và vùng danger; quản trị người dùng ưu tiên tài khoản hoạt động, gom tài khoản vô hiệu hóa vào
+  nhóm thu gọn. Không đổi RPC, dữ liệu, schema hoặc quyền. Gate đạt `git diff --check`, lint,
+  typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E 21/21. Bằng chứng tại
+  `docs/C39_LOAN_ACTION_SETTINGS_ACCOUNT_UX_PLAN.md`.
+- C38 đã được người dùng cho phép tạm hoãn ngày 2026-09-15 và vẫn ở `APPROVED`; baseline read-only
+  đã xác nhận notification đúng. Heartbeat C38 vẫn `PAUSED`; chỉ tiếp tục phần Push sau giờ nhận khi
+  người dùng yêu cầu tiếp tục, không tự động nối checkpoint.
 - Supabase chỉ có 1 tài khoản OWNER đang hoạt động; 30 tài khoản kỹ thuật đã vô hiệu hóa/ban, gồm
   tài khoản smoke C36. Ba tài khoản C21 có tham
   chiếu tài chính `ON DELETE RESTRICT`; 26 tài khoản đã audit ở C35 và tài khoản smoke C36 không có
@@ -388,8 +392,8 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- C38 chưa có blocker kỹ thuật; đang chờ chu kỳ nhắc lãi Production theo lịch thực tế lúc 07:00
-  ngày 2026-09-15 để thu thập bằng chứng read-only.
+- C39 không còn blocker và đã hoàn tất local; chưa deploy Preview/Production.
+- C38 vẫn tạm dừng theo yêu cầu người dùng; không có blocker kỹ thuật. Heartbeat C38 đang `PAUSED`.
 - C37 không còn blocker; Production stable đã trỏ đúng candidate C37 và hậu kiểm đạt.
 - C36 không còn blocker; migration C35 và Vercel Preview rollout đã hoàn tất.
 - C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc giảm 30
