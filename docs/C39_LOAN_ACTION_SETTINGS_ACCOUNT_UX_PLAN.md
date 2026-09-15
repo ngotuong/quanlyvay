@@ -1,9 +1,9 @@
 # C39 — Tái cấu trúc thao tác khoản vay, Thiết lập và quản trị tài khoản
 
-Trạng thái: `AWAITING_APPROVAL`
+Trạng thái: `APPROVED`
 
-Yêu cầu đầu vào: người dùng yêu cầu trực tiếp ngày 2026-09-15; checkpoint chỉ bắt đầu sau khi C38
-hoàn tất và C39 được phê duyệt rõ theo cổng checkpoint.
+Yêu cầu đầu vào: người dùng yêu cầu và phê duyệt trực tiếp ngày 2026-09-15; checkpoint chỉ bắt đầu
+sau khi C38 hoàn tất theo cổng checkpoint.
 
 ## Vấn đề đã xác nhận
 
@@ -69,4 +69,3 @@ hoàn tất và C39 được phê duyệt rõ theo cổng checkpoint.
 5. Không tràn ngang ở 320/375px, touch target đạt 44px, keyboard/focus/ARIA và light/dark đạt.
 6. `git diff --check`, lint, typecheck, unit tests, build, Auth và E2E hiện hành đều đạt; bổ sung
    regression cho vị trí nút tất toán, dialog xác nhận, cấu trúc Thiết lập và danh sách tài khoản.
-
