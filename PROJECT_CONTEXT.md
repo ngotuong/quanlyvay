@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.182
-last_updated: 2026-09-15 12:25:44 +07
+roadmap_version: 1.0.185
+last_updated: 2026-09-16 12:08:30 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C38
 current_status: APPROVED
-last_completed_checkpoint: C40
-next_checkpoint: C38
+last_completed_checkpoint: C41
+next_checkpoint: C42
 ---
 
 # Project Context
@@ -37,6 +37,14 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 - C38 đã được người dùng cho phép tạm hoãn ngày 2026-09-15 và vẫn ở `APPROVED`; baseline read-only
   đã xác nhận notification đúng. Heartbeat C38 vẫn `PAUSED`; chỉ tiếp tục phần Push sau giờ nhận khi
   người dùng yêu cầu tiếp tục, không tự động nối checkpoint.
+- C41 `COMPLETED` local ngày 2026-09-16: một card hiện hành cho mỗi nghĩa vụ nhắc hạn nhưng vẫn giữ
+  notification/Push lịch sử theo revision; notification lãi mở form với số tiền authoritative;
+  trang Khoản vay chỉ còn một CTA màu xanh dùng chung desktop/mobile. Gate đạt `git diff --check`,
+  lint, typecheck, 74/74 unit/script tests, build, Auth 6/6, E2E 21/21, reset sạch 32 migration, DB
+  lint và pgTAP 455/455. Chưa áp migration hoặc deploy remote; bằng chứng tại
+  `docs/C41_NOTIFICATION_PAYMENT_LOAN_CTA_PLAN.md`.
+- C42 `AWAITING_APPROVAL`: áp migration C41 lên Supabase dùng chung và rollout đúng source C41 lên
+  stable Preview; không gồm Production. Kế hoạch tại `docs/C42_C41_PREVIEW_ROLLOUT.md`.
 - Supabase chỉ có 1 tài khoản OWNER đang hoạt động; 31 tài khoản kỹ thuật đã vô hiệu hóa/ban, gồm
   tài khoản smoke C36 được giữ để tái sử dụng. Ba tài khoản C21 có tham chiếu tài chính
   `ON DELETE RESTRICT`; các tài khoản còn lại không có
@@ -117,8 +125,9 @@ ra yêu cầu đang chờ, quyền thao tác remote hay checkpoint mới.
 - Giao dịch tài chính không xóa vật lý; sửa sai bằng reversal/correction và audit append-only.
 - Tiền VND dùng số nguyên, lãi suất dùng decimal; ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`, audit UTC.
 - Web Push và Google Sync phải idempotent; secret chỉ nằm trong kho secret của môi trường.
-- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 31 migration; bộ pgTAP local có
-  448 assertions.
+- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 31 migration; source/local có 32
+  migration và bộ pgTAP local có 455 assertions. Migration thứ 32 chỉ được rollout trong C42 sau
+  khi người dùng phê duyệt.
 
 ## 4. Tài khoản và tài nguyên remote
 
@@ -157,6 +166,16 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
   tệp backup sạch.
 
 ## 6. Gate và thay đổi gần nhất
+
+- C41 hoàn tất local với migration thứ 32: card notification hiện hành được upsert theo nghĩa vụ,
+  bản cũ được supersede không xóa và Push delivery tách theo revision. Notification lãi mở form
+  giao dịch với loại/số tiền authoritative nhưng không tự submit; trang Khoản vay chỉ còn một CTA
+  chính trên mọi breakpoint. Việc áp dụng UI/UX giữ touch target 44 px, focus/phân quyền và bỏ CTA
+  trùng mà không đổi nghiệp vụ tài chính.
+- Gate C41 đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E
+  21/21. Reset database cô lập chạy đủ 32 migration, DB lint sạch và pgTAP đạt 455/455. Một lượt E2E
+  đầu phát hiện selector cũ không còn duy nhất; selector được thu hẹp theo đúng nhãn, sau đó full
+  suite đạt. Không có remote migration/deploy, mutation tài chính, đổi secret/tài khoản/Google/Git.
 
 - C37 hoàn tất rollout source C33/C35 lên Production. Rollback target C32
   `dpl_3zLcZo3vQgGiAAjgzpgNTz3p8bzX` đã được xác minh. Candidate
@@ -397,6 +416,8 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
+- C41 không còn blocker và đã hoàn tất local. C42 đang chờ phê duyệt để áp migration thứ 32 lên
+  Supabase dùng chung và rollout Preview; chưa có thay đổi remote.
 - C40 không còn blocker; Production stable đã trỏ candidate
   `dpl_DePegwVo77qL5WFUiYp7vMtxKKK1`, `READY`, Functions `sin1`, hậu kiểm đạt.
 - C39 không còn blocker và đã rollout Production qua C40; chưa rollout Preview riêng.

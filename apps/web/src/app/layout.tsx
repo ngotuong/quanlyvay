@@ -66,7 +66,7 @@ export default async function RootLayout({
           <PwaRegister unreadCount={unreadCount} />
           <NetworkStatus />
           <Suspense fallback={null}><NavigationFeedback /></Suspense>
-          {showAppShell && profile ? <AppShell profile={profile} showCreateLoan unreadCount={unreadCount}>{children}</AppShell> : children}
+          {showAppShell && profile ? <AppShell profile={profile} unreadCount={unreadCount}>{children}</AppShell> : children}
         </PrivacyProvider>
       </body>
     </html>

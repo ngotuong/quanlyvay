@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(34);
+select plan(41);
 
 insert into auth.users (id, email, email_confirmed_at, raw_user_meta_data)
 values
@@ -31,15 +31,17 @@ reset role;
 set local role service_role;
 select is(public.generate_due_notifications('2026-08-03'), 6, 'due day creates lending, borrowing and overdue notifications for both active users');
 select is(public.generate_due_notifications('2026-08-03'), 0, 'same-day retry creates no duplicate notifications');
-select is(public.generate_due_notifications('2026-08-04'), 6, 'unpaid interest and overdue principal reminders repeat on the following day');
-select is((select count(*) from public.notifications), 12::bigint, 'notification rows remain unique by user loan type and day');
-select is((select count(*) from public.notifications where type = 'INTEREST_DUE'), 8::bigint, 'unpaid interest reminder is generated daily after the due date');
-select is((select count(*) from public.notifications where type = 'LOAN_OVERDUE'), 4::bigint, 'overdue reminder is generated daily');
+select is(public.generate_due_notifications('2026-08-04'), 6, 'unpaid obligations update their existing cards on the following day');
+select is((select count(*) from public.notifications where superseded_at is null), 6::bigint, 'one active notification card remains per user loan obligation');
+select is((select count(*) from public.notifications where type = 'INTEREST_DUE' and superseded_at is null), 4::bigint, 'interest reminders update instead of duplicating cards');
+select is((select count(*) from public.notifications where type = 'LOAN_OVERDUE' and superseded_at is null), 2::bigint, 'overdue principal reminders update instead of duplicating cards');
+select is((select min(revision) from public.notifications where superseded_at is null), 2, 'following-day refresh increments every active card revision');
+select is((select count(distinct thread_key) from public.notifications where superseded_at is null), 6::bigint, 'every active obligation has a distinct stable thread key');
 select is((select notification.title from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'LENDING' limit 1), 'Đến ngày thu lãi', 'lending reminder uses collection title');
 select is((select notification.title from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'BORROWING' limit 1), 'Đến ngày đóng lãi', 'borrowing reminder uses payment title');
-select is((select notification.body from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'LENDING' limit 1), E'Đối tác thông báo • 10.000.000\nGiải ngân : 20/07/2026\nSố lãi phải thu : 150.000', 'lending body uses three concise lines and the authoritative amount');
-select is((select notification.body from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'BORROWING' limit 1), E'Đối tác thông báo • 6.000.000\nGiải ngân : 20/07/2026\nSố lãi phải trả : 90.000', 'borrowing body uses three concise lines and the authoritative amount');
-select is((select notification.body from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'LOAN_OVERDUE' and notification.notification_date = '2026-08-03' and loan.name = 'Khoản quá hạn' limit 1), E'Đối tác thông báo • 4.000.000\nGiải ngân : 01/07/2026\nDư gốc quá hạn : 4.000.000\nQuá hạn : 14 ngày', 'overdue body adds an accurate overdue-day line');
+select is((select notification.body from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'LENDING' limit 1), E'Đối tác thông báo • 10.000.000\nGiải ngân : 20/07/2026\nSố lãi phải thu : 150.000\nQuá hạn : 1 ngày', 'lending card updates with the authoritative amount and overdue day');
+select is((select notification.body from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and loan.direction = 'BORROWING' limit 1), E'Đối tác thông báo • 6.000.000\nGiải ngân : 20/07/2026\nSố lãi phải trả : 90.000\nQuá hạn : 1 ngày', 'borrowing card updates with the authoritative amount and overdue day');
+select is((select notification.body from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'LOAN_OVERDUE' and notification.notification_date = '2026-08-04' and loan.name = 'Khoản quá hạn' limit 1), E'Đối tác thông báo • 4.000.000\nGiải ngân : 01/07/2026\nDư gốc quá hạn : 4.000.000\nQuá hạn : 15 ngày', 'overdue body updates the accurate overdue-day line on the same card');
 select is((select notification.body from public.notifications as notification join public.loans as loan on loan.id = notification.loan_id where notification.type = 'INTEREST_DUE' and notification.notification_date = '2026-08-04' and loan.direction = 'LENDING' limit 1), E'Đối tác thông báo • 10.000.000\nGiải ngân : 20/07/2026\nSố lãi phải thu : 150.000\nQuá hạn : 1 ngày', 'repeated interest reminder adds the accurate overdue-day line');
 
 reset role;
@@ -70,7 +72,7 @@ select lives_ok(
 );
 
 reset role;
-update public.notifications set created_at = now() - interval '2 seconds';
+update public.notifications set created_at = now() - interval '2 seconds', updated_at = now() - interval '2 seconds';
 update public.push_subscriptions set created_at = now() - interval '1 second';
 set local role service_role;
 select is((select count(*) from public.claim_push_deliveries(100)), 0::bigint, 'new subscription does not receive historical notifications');
@@ -85,6 +87,12 @@ select public.complete_push_delivery((select delivery_id from claimed_delivery),
 select is((select status::text from public.push_deliveries where id = (select delivery_id from claimed_delivery)), 'SENT', 'successful delivery is marked sent');
 select is((select sent_at is not null from public.push_deliveries where id = (select delivery_id from claimed_delivery)), true, 'successful delivery records sent time');
 select is((select count(*) from public.claim_push_deliveries(100, 9::smallint) where delivery_id = (select delivery_id from claimed_delivery)), 0::bigint, 'sent delivery is never claimed again on retry');
+select is(public.generate_due_notifications('2026-08-06'), 2, 'next-day overdue refresh updates two existing recipient cards');
+create temporary table claimed_second_revision as select * from public.claim_push_deliveries(10, 9::smallint);
+select is((select count(*) from claimed_second_revision), 1::bigint, 'a newer card revision creates one new Push occurrence for the subscribed owner');
+select is((select notification_id from claimed_second_revision), (select notification_id from claimed_delivery), 'repeated Push keeps the same Notification Center card identity');
+select isnt((select delivery_id from claimed_second_revision), (select delivery_id from claimed_delivery), 'repeated Push preserves a distinct delivery history row');
+select is((select notification_type::text from claimed_second_revision), 'LOAN_OVERDUE', 'claimed occurrence exposes its notification type for deep linking');
 
 reset role;
 select set_config('request.jwt.claim.sub', '20000000-0000-0000-0000-000000000080', true);

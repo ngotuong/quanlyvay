@@ -105,6 +105,9 @@ export default async function LoanDetailPage({ params, searchParams }: { params:
   const hasGeneratedName = loan.name.startsWith(`${counterpartyName} · ${directionLabel} ·`);
   const displayName = hasGeneratedName ? counterpartyName : loan.name;
   const transactionContext = { name: displayName, outstandingVnd: formatVnd(calculation.principalOutstandingVnd), interestBalanceVnd: formatVnd(calculation.interestBalanceVnd) };
+  const notificationInterest = query.transaction === "interest" && BigInt(calculation.interestBalanceVnd) > BigInt(0)
+    ? { type: "INTEREST_PAYMENT" as const, amountVnd: calculation.interestBalanceVnd }
+    : undefined;
   const tabHref = (tab: LoanTab) => {
     const tabQuery = new URLSearchParams({ tab });
     if (returnTo !== "/loans") tabQuery.set("returnTo", returnTo);
@@ -127,7 +130,7 @@ export default async function LoanDetailPage({ params, searchParams }: { params:
           <div className="overview-next"><p>{interestBalanceLabel}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(calculation.interestBalanceVnd)} /></strong><span><CalendarDays size={16} />{loan.maturity_date ? `Đáo hạn gốc ${formatDate(loan.maturity_date)}` : `Nhắc lãi ${formatDate(loanSchedule.nextInterestDueDate)}`}</span>{!loan.maturity_date && loan.interest_reminder_offset_days > 0 ? <small>Kỳ chốt {formatDate(loanSchedule.nextInterestPeriodEndDate)}</small> : null}</div>
           <span className="status-badge overview-status" data-status={status}>{statusLabels[status]}</span>
         </section>
-        {canWrite ? <PrivacyForm><LoanActions loanId={loan.id} status={status} interestCycleDays={loan.interest_cycle_days} context={transactionContext} keys={{ payment: randomUUID(), expense: randomUUID(), lifecycle: randomUUID(), settlement: randomUUID() }} mode="payment" autoOpen={query.transaction === "1"} /></PrivacyForm> : <div className="viewer-notice">Bạn đang ở chế độ chỉ xem. Mọi dữ liệu nghiệp vụ được giữ nguyên.</div>}
+        {canWrite ? <PrivacyForm><LoanActions loanId={loan.id} status={status} interestCycleDays={loan.interest_cycle_days} context={transactionContext} keys={{ payment: randomUUID(), expense: randomUUID(), lifecycle: randomUUID(), settlement: randomUUID() }} mode="payment" autoOpen={query.transaction === "1" || Boolean(notificationInterest)} initialPayment={notificationInterest} /></PrivacyForm> : <div className="viewer-notice">Bạn đang ở chế độ chỉ xem. Mọi dữ liệu nghiệp vụ được giữ nguyên.</div>}
         <section className="overview-supporting" aria-label="Số liệu bổ sung"><div><CircleDollarSign size={18} /><span><small>{interestRecordedLabel}</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(overviewSummary.interestRecordedVnd)} /></strong></span></div><div><Percent size={18} /><span><small>Tổng lãi phát sinh</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(overviewSummary.totalAccruedInterestVnd)} /></strong></span></div><div><Landmark size={18} /><span><small>Gốc đã hoàn trả</small><strong className="privacy-amount"><PrivacyAmount value={formatVnd(overviewSummary.principalRepaidVnd)} /></strong></span></div></section>
       </> : null}
 

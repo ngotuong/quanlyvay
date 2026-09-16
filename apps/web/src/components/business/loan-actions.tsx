@@ -17,7 +17,7 @@ import { BottomSheet, Button, Input, Select, VndInput } from "@/components/ui";
 
 type Keys = { payment: string; expense: string; lifecycle: string; settlement: string };
 
-export function LoanActions({ loanId, status, interestCycleDays, keys, context, mode = "all", autoOpen = false }: { loanId: string; status: LoanStatus; interestCycleDays: 15 | 30; keys: Keys; context?: { name: string; outstandingVnd: string; interestBalanceVnd: string }; mode?: "all" | "payment" | "management"; autoOpen?: boolean }) {
+export function LoanActions({ loanId, status, interestCycleDays, keys, context, mode = "all", autoOpen = false, initialPayment }: { loanId: string; status: LoanStatus; interestCycleDays: 15 | 30; keys: Keys; context?: { name: string; outstandingVnd: string; interestBalanceVnd: string }; mode?: "all" | "payment" | "management"; autoOpen?: boolean; initialPayment?: { type: "INTEREST_PAYMENT" | "PRINCIPAL_PAYMENT"; amountVnd: string } }) {
   const [paymentState, paymentAction] = useBusinessAction(recordPaymentAction, initialBusinessActionState);
   const [expenseState, expenseAction] = useBusinessAction(recordExpenseAction, initialBusinessActionState);
   const [lifecycleState, lifecycleAction] = useBusinessAction(recordLifecycleAction, initialBusinessActionState);
@@ -89,9 +89,9 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
           {context ? <p className="transaction-context"><strong>{context.name}</strong><span>Dư gốc {context.outstandingVnd} · Lãi còn lại {context.interestBalanceVnd}</span></p> : null}
           <input name="loanId" type="hidden" value={loanId} />
           <input name="idempotencyKey" type="hidden" value={keys.payment} />
-          <div className="field-group"><label htmlFor="paymentType">Loại tiền</label><Select id="paymentType" name="type"><option value="INTEREST_PAYMENT">Tiền lãi</option><option value="PRINCIPAL_PAYMENT">Tiền gốc</option></Select><FieldError state={paymentState} name="type" /></div>
+          <div className="field-group"><label htmlFor="paymentType">Loại tiền</label><Select id="paymentType" name="type" defaultValue={initialPayment?.type ?? "INTEREST_PAYMENT"}><option value="INTEREST_PAYMENT">Tiền lãi</option><option value="PRINCIPAL_PAYMENT">Tiền gốc</option></Select><FieldError state={paymentState} name="type" /></div>
           <div className="field-group"><label htmlFor="paymentDate">Ngày thanh toán</label><Input id="paymentDate" name="transactionDate" type="date" defaultValue={today} required /><FieldError state={paymentState} name="transactionDate" /></div>
-          <div className="field-group"><label htmlFor="paymentAmount">Số tiền (VND)</label><VndInput id="paymentAmount" name="amountVnd" required placeholder="1.000.000" /><FieldError state={paymentState} name="amountVnd" /></div>
+          <div className="field-group"><label htmlFor="paymentAmount">Số tiền (VND)</label><VndInput id="paymentAmount" name="amountVnd" required placeholder="1.000.000" defaultValue={initialPayment?.amountVnd} /><FieldError state={paymentState} name="amountVnd" /></div>
           <div className="field-group"><label htmlFor="paymentNote">Ghi chú</label><Input id="paymentNote" name="note" maxLength={500} /><FieldError state={paymentState} name="note" /></div>
           <ActionMessage state={paymentState} /><div className="dialog-actions"><Button variant="secondary" className="secondary-button" type="button" onClick={closePaymentDialog}>Hủy</Button><FormSubmit>Ghi nhận</FormSubmit></div>
           </BusinessForm>

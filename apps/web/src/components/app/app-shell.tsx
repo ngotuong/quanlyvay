@@ -3,7 +3,6 @@ import { LogOut } from "lucide-react";
 import { logoutAction } from "@/app/actions/auth";
 import type { AppProfile } from "@/lib/auth/types";
 import { AppNav, BrandIcon } from "./app-nav";
-import { MobileCreateLoanLink } from "./mobile-create-loan-link";
 import { PrivacyToggle } from "./privacy-provider";
 import { MobileModuleTitle } from "./mobile-module-title";
 import { ToastProvider } from "@/components/ui";
@@ -13,12 +12,10 @@ const roleLabels = { OWNER: "Chủ tài khoản", EDITOR: "Biên tập", VIEWER:
 export function AppShell({
   profile,
   children,
-  showCreateLoan = false,
   unreadCount = 0,
 }: {
   profile: AppProfile;
   children: React.ReactNode;
-  showCreateLoan?: boolean;
   unreadCount?: number;
 }) {
   return (
@@ -45,7 +42,6 @@ export function AppShell({
           <MobileModuleTitle />
           <div className="flex items-center gap-2">
             <PrivacyToggle />
-            {showCreateLoan ? <MobileCreateLoanLink canWrite={profile.role !== "VIEWER"} /> : null}
           </div>
         </header>
         <main className="app-content" id="main-content">{children}</main>

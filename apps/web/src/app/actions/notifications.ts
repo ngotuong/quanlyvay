@@ -65,10 +65,13 @@ export async function openNotificationAction(notificationId: string) {
   if (!parsed.success) redirect("/notifications");
 
   const supabase = await createClient();
-  const { data: notification, error } = await supabase.from("notifications").select("loan_id").eq("id", parsed.data).maybeSingle();
+  const { data: notification, error } = await supabase.from("notifications").select("loan_id,type,superseded_at").eq("id", parsed.data).maybeSingle();
   if (error || !notification?.loan_id) redirect("/notifications");
   await supabase.rpc("mark_notifications_read", { p_notification_ids: [parsed.data] });
   revalidatePath("/notifications");
   revalidatePath("/", "layout");
-  redirect(`/loans/${notification.loan_id}`);
+  const query = notification.type === "INTEREST_DUE" && !notification.superseded_at
+    ? "?tab=overview&transaction=interest"
+    : "?tab=overview";
+  redirect(`/loans/${notification.loan_id}${query}`);
 }

@@ -60,7 +60,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
     <>
       <div className="page-heading-row">
         <div className="page-title-lockup"><span className="page-title-icon"><ArrowLeftRight size={24} strokeWidth={1.8} /></span><div><h1>Các khoản vay</h1></div></div>
-        {profile.role !== "VIEWER" ? <Link className="primary-link desktop-only" href="/loans/new"><Plus size={18} />Tạo khoản vay</Link> : null}
+        {profile.role !== "VIEWER" ? <Link className="primary-link loan-create-link" href="/loans/new"><Plus size={18} />Tạo khoản vay</Link> : null}
       </div>
 
       <LoanFilters initial={{ query, direction: direction ?? "", status: showAllStatuses ? "ALL" : status ?? "ACTIVE", disbursedFrom: disbursedFrom ?? "", disbursedTo: disbursedTo ?? "", sort }} resultCount={loanResult.totalCount} hasFilters={hasFilters} />

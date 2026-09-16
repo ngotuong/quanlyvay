@@ -96,7 +96,7 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await expect(page.locator("#main-content").getByText("Đã cập nhật lịch sử khoản vay.")).toBeVisible();
   await expect(page.getByText("Nợ xấu").first()).toBeVisible();
   await loanTabs.getByRole("link", { name: "Lịch sử" }).click();
-  await expect(page.getByText("Chuyển nợ xấu")).toBeVisible();
+  await expect(page.getByText("Chuyển nợ xấu", { exact: true })).toBeVisible();
 
   await page.getByRole("link", { name: "Nhật ký hệ thống" }).first().click();
   await expect(page.getByRole("heading", { name: "Nhật ký hệ thống" })).toBeVisible();
@@ -176,6 +176,10 @@ test("business pages remain usable at 375px", async ({ page }) => {
   await expect(page.locator(".mobile-module-title")).toContainText("Các khoản vay");
   await expect(page.getByRole("heading", { name: "Các khoản vay" })).toBeVisible();
   await expect(page.locator(".page-heading-row h1:visible")).toHaveCount(0);
+  const createLoanCta = page.getByRole("link", { name: "Tạo khoản vay", exact: true });
+  await expect(createLoanCta).toHaveCount(1);
+  await expect(createLoanCta).toHaveClass(/loan-create-link/);
+  expect((await createLoanCta.boundingBox())!.height).toBeGreaterThanOrEqual(44);
   const [directionBox, statusBox] = await Promise.all([
     page.getByLabel("Hướng", { exact: true }).boundingBox(),
     page.getByLabel("Trạng thái", { exact: true }).boundingBox(),
@@ -595,6 +599,14 @@ test("PWA manifest, service worker and notification center are available", async
   await expect.poll(() => page.evaluate(() => (window as Window & { __testNotification?: { title: string } }).__testNotification?.title)).toBe("Đến ngày thu lãi");
   await expect.poll(() => page.evaluate(() => (window as Window & { __testNotification?: { body?: string } }).__testNotification?.body)).toBe("Duy • 50.000.000\nGiải ngân : 24/07/2024\nSố lãi phải thu : 3.000.000");
   await expect(page.getByText("Không có dữ liệu nào được ghi vào hệ thống.", { exact: false })).toBeVisible();
+  await page.getByRole("button", { name: /Đến ngày thu lãi/ }).click();
+  await expect(page).toHaveURL(/\/loans\/.*transaction=interest/);
+  const interestDialog = page.getByRole("dialog", { name: "Ghi giao dịch" });
+  await expect(interestDialog).toBeVisible();
+  await expect(interestDialog.getByLabel("Loại tiền")).toHaveValue("INTEREST_PAYMENT");
+  await expect(interestDialog.getByLabel("Số tiền \(VND\)")).not.toHaveValue("");
+  await interestDialog.getByRole("button", { name: "Hủy" }).click();
+  await page.getByRole("link", { name: /Thông báo/ }).first().click();
   const unreadBefore = Number(await page.locator(".nav-badge").first().innerText());
   await page.getByRole("button", { name: /Khoản vay đã quá hạn/ }).first().click();
   await expect(page).toHaveURL(/\/loans\//);

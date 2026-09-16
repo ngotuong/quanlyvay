@@ -14,6 +14,7 @@ type ClaimedDelivery = {
   body: string;
   loan_id: string | null;
   idempotency_key: string;
+  notification_type: "INTEREST_DUE" | "LOAN_OVERDUE";
   unread_count: number;
 };
 
@@ -61,7 +62,7 @@ async function runNotifications(request: NextRequest) {
       },
       send: (delivery: ClaimedDelivery, options: { timeout: number }) => webpush.sendNotification(
         { endpoint: delivery.endpoint, keys: { p256dh: delivery.p256dh, auth: delivery.auth_secret } },
-        JSON.stringify({ title: delivery.title, body: delivery.body, url: delivery.loan_id ? `/loans/${delivery.loan_id}` : "/notifications", tag: delivery.idempotency_key, badgeCount: delivery.unread_count }),
+        JSON.stringify({ title: delivery.title, body: delivery.body, url: delivery.loan_id ? `/loans/${delivery.loan_id}?tab=overview${delivery.notification_type === "INTEREST_DUE" ? "&transaction=interest" : ""}` : "/notifications", tag: delivery.idempotency_key, badgeCount: delivery.unread_count }),
         options,
       ),
       complete: async (delivery: ClaimedDelivery, succeeded: boolean, errorMessage: string | null) => {

@@ -50,6 +50,8 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `APPROVED` |
 | C39 | Tái cấu trúc thao tác khoản vay, Thiết lập và quản trị tài khoản | `COMPLETED` |
 | C40 | Rollout C39 lên Vercel Production | `COMPLETED` |
+| C41 | Hợp nhất nhắc quá hạn, mở nhanh thanh toán và chuẩn hóa CTA khoản vay | `COMPLETED` |
+| C42 | Rollout C41 lên Supabase dùng chung và Vercel Preview | `AWAITING_APPROVAL` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -85,6 +87,13 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   `dpl_DePegwVo77qL5WFUiYp7vMtxKKK1`; immutable/stable public và authenticated smoke, console cùng
   runtime hậu kiểm đạt, rollback không phải kích hoạt. Phạm vi và bằng chứng tại
   [C40_C39_PRODUCTION_ROLLOUT.md](C40_C39_PRODUCTION_ROLLOUT.md).
+- C41 hoàn tất local ngày 2026-09-16: mỗi nghĩa vụ chỉ có một card nhắc hiện hành được cập nhật,
+  Push giữ lịch sử theo revision; thông báo lãi mở form với số tiền authoritative và trang Khoản vay
+  chỉ còn một CTA màu xanh trên mọi breakpoint. Toàn bộ gate local/DB đạt; phạm vi và bằng chứng tại
+  [C41_NOTIFICATION_PAYMENT_LOAN_CTA_PLAN.md](C41_NOTIFICATION_PAYMENT_LOAN_CTA_PLAN.md).
+- C42 đang `AWAITING_APPROVAL`: áp migration C41 lên Supabase dùng chung và rollout đúng source C41
+  lên stable Preview theo runbook fail-closed; không gồm Production. Phạm vi tại
+  [C42_C41_PREVIEW_ROLLOUT.md](C42_C41_PREVIEW_ROLLOUT.md).
 - C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
   candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
   Bằng chứng tại [C32_C30_PRODUCTION_ROLLOUT.md](C32_C30_PRODUCTION_ROLLOUT.md).
@@ -172,6 +181,9 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.185 | 2026-09-16 | Hoàn tất C41 local với toàn bộ gate đạt; mở C42 `AWAITING_APPROVAL` cho migration và Preview rollout. |
+| 1.0.184 | 2026-09-16 | C41 được phê duyệt và chuyển `IN_PROGRESS`; C38 tiếp tục tạm dừng. |
+| 1.0.183 | 2026-09-16 | Đề xuất C41 `AWAITING_APPROVAL`: hợp nhất card nhắc hạn, mở form lãi và bỏ CTA khoản vay trùng. |
 | 1.0.182 | 2026-09-15 | Hoàn tất C40: source C39 lên Production, immutable/stable smoke đạt; tài khoản smoke đã khóa lại. |
 | 1.0.181 | 2026-09-15 | Mở C40 `IN_PROGRESS` theo phê duyệt trực tiếp: rollout C39 lên Vercel Production. |
 | 1.0.180 | 2026-09-15 | Hoàn tất C39 local với toàn bộ gate đạt; trả checkpoint hiện tại về C38 `APPROVED`, heartbeat vẫn tạm dừng. |

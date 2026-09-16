@@ -483,7 +483,6 @@ button {
 .mobile-module-title svg { flex: 0 0 auto; color: var(--primary); }
 .mobile-module-title h1 { overflow: hidden; margin: 0; font-size: .95rem; text-overflow: ellipsis; white-space: nowrap; }
 .mobile-brand svg { color: var(--primary); }
-.header-create-link { display: inline-flex; min-height: 44px; align-items: center; gap: 7px; color: var(--primary); font-size: .875rem; font-weight: 700; text-decoration: none; }
 .app-content { width: min(100%, 1280px); margin: 0 auto; padding: 28px 16px 52px; }
 .mobile-nav-wrap { position: fixed; right: 0; bottom: 0; left: 0; z-index: 30; border-top: 1px solid color-mix(in srgb, var(--border) 78%, transparent); background: color-mix(in srgb, var(--surface) 92%, transparent); padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -10px 32px rgba(20, 32, 51, .07); backdrop-filter: blur(18px) saturate(1.2); }
 .app-nav { display: flex; justify-content: space-around; gap: 3px; padding: 6px 8px; }
@@ -506,6 +505,7 @@ button {
 .primary-link, .secondary-link { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 8px; border-radius: 12px; padding: 0 17px; font-size: .9rem; font-weight: 700; text-decoration: none; transition: background var(--motion-fast) ease, color var(--motion-fast) ease, border-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease, transform var(--motion-fast) ease; }
 .primary-link { background: var(--primary); color: var(--on-primary); box-shadow: 0 4px 12px color-mix(in srgb, var(--primary) 20%, transparent); }
 .primary-link:hover { background: var(--primary-hover); }
+.loan-create-link { flex: 0 0 auto; min-height: 44px; }
 .secondary-link { border: 1px solid var(--border); color: var(--foreground); }
 .desktop-only { display: none; }
 .back-link { display: inline-flex; min-height: 44px; align-items: center; gap: 7px; margin-bottom: 12px; color: var(--foreground-muted); font-weight: 650; text-decoration: none; }
@@ -840,6 +840,7 @@ details[open] > summary::after { content: "−"; }
   .page-heading-row > .page-title-lockup, .page-heading-row > .mobile-repeated-title { display: none; }
   .page-heading-row:has(> .page-title-lockup:only-child), .page-heading-row:has(> .mobile-repeated-title:only-child) { display: none; }
   .page-heading-row:has(> .page-title-lockup) { margin-bottom: 12px; }
+  .page-heading-row:has(> .page-title-lockup) .loan-create-link { width: 100%; }
 }
 
 /* C8 PWA and notification center */
