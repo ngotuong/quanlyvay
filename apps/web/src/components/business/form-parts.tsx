@@ -9,6 +9,8 @@ const BusinessPending = createContext(false);
 const subscribeHydration = () => () => {};
 
 function focusField(form: HTMLFormElement | null | undefined, name: string) {
+  const proxy = form?.querySelector<HTMLElement>(`[data-field-name="${CSS.escape(name)}"]`);
+  if (proxy) { proxy.focus(); return; }
   const field = form?.elements.namedItem(name);
   if (field instanceof HTMLElement) field.focus();
   else if (field instanceof RadioNodeList && field[0] instanceof HTMLElement) field[0].focus();
@@ -19,7 +21,7 @@ export function FieldError({ state, name }: { state: BusinessActionState; name: 
   const id = useId();
   const ref = useRef<HTMLParagraphElement>(null);
   useEffect(() => {
-    const controls = ref.current?.closest("form")?.querySelectorAll(`[name="${CSS.escape(name)}"]`) ?? [];
+    const controls = ref.current?.closest("form")?.querySelectorAll(`[name="${CSS.escape(name)}"], [data-field-name="${CSS.escape(name)}"]`) ?? [];
     for (const input of controls) {
     input.setAttribute("aria-invalid", String(Boolean(message)));
     const descriptions = (input.getAttribute("aria-describedby") ?? "").split(" ").filter(value => value && value !== id);

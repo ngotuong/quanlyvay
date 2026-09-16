@@ -574,6 +574,15 @@ details[open] > summary::after { content: "−"; }
 .field-group input:hover, .field-group select:hover, .field-group textarea:hover { border-color: color-mix(in srgb, var(--primary) 42%, var(--border-strong)); }
 .field-group input:focus, .field-group select:focus, .field-group textarea:focus { border-color: var(--focus); background: var(--surface); box-shadow: 0 0 0 4px color-mix(in srgb, var(--focus) 17%, transparent); }
 .field-group input[aria-invalid="true"], .field-group select[aria-invalid="true"], .field-group textarea[aria-invalid="true"] { border-color: var(--error); }
+.counterparty-combobox { position: relative; min-width: 0; }
+.counterparty-combobox-input { position: relative; }
+.counterparty-combobox-input > svg { position: absolute; z-index: 1; inset-inline-start: 13px; top: 50%; color: var(--foreground-muted); pointer-events: none; transform: translateY(-50%); }
+.field-group .counterparty-combobox-input input { padding-inline-start: 42px; }
+.counterparty-options { position: absolute; z-index: var(--z-popover); inset: calc(100% + 6px) 0 auto; display: grid; max-height: min(320px, 45vh); overflow-y: auto; overscroll-behavior: contain; border: 1px solid var(--border-strong); border-radius: 12px; background: var(--surface); padding: 6px; box-shadow: var(--shadow-md); }
+.counterparty-options button { display: flex; min-height: 44px; width: 100%; align-items: center; justify-content: space-between; gap: 10px; border: 0; border-radius: 9px; background: transparent; color: var(--foreground); padding: 10px 11px; text-align: start; font: inherit; cursor: pointer; }
+.counterparty-options button:hover, .counterparty-options button.is-active { background: var(--primary-soft); color: var(--primary); }
+.counterparty-options button[aria-selected="true"] { font-weight: 700; }
+.counterparty-empty { margin: 0; padding: 12px; color: var(--foreground-muted); font-size: .9rem; }
 .field-hint, .field-error { margin: 0; font-size: .875rem; line-height: 1.5; }
 .field-hint { color: var(--foreground-muted); }
 .field-error { color: var(--error); }

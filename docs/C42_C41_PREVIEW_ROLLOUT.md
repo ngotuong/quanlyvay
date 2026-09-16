@@ -20,7 +20,8 @@ runtime thật trước khi cân nhắc Production.
    `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target Preview, trạng thái Ready và Functions `sin1`.
 5. Smoke public và authenticated trên immutable URL: Notification Center chỉ có một card hiện hành
    mỗi nghĩa vụ; notification lãi mở đúng form, loại và số tiền nhưng chưa tạo giao dịch; desktop và
-   mobile chỉ có một CTA tạo khoản vay. Không tạo giao dịch tài chính thật trong smoke.
+   mobile chỉ có một CTA tạo khoản vay; form khoản vay chỉ có một combobox tìm/chọn đối tác và thao
+   tác được bằng tap lẫn bàn phím. Không tạo giao dịch tài chính thật trong smoke.
 6. Chỉ chuyển stable alias `https://tindung-preview.vercel.app` sau khi candidate đạt toàn bộ gate;
    smoke lại alias, kiểm tra console/runtime log và rollback alias nếu hậu kiểm thất bại.
 7. Ghi deployment ID, immutable URL, alias, target, region, kết quả từng smoke và trạng thái tài

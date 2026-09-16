@@ -45,7 +45,12 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
 
   await page.getByRole("link", { name: "Khoản vay" }).first().click();
   await page.getByRole("link", { name: "Tạo khoản vay" }).first().click();
-  await page.getByRole("combobox", { name: "Đối tác" }).selectOption({ label: "Anh Nam E2E" });
+  await expect(page.getByLabel("Tìm đối tác")).toHaveCount(0);
+  const counterparty = page.getByRole("combobox", { name: "Đối tác" });
+  await counterparty.fill("Anh Nam");
+  await expect(page.getByRole("option", { name: "Anh Nam E2E" })).toBeVisible();
+  await counterparty.press("Enter");
+  await expect(counterparty).toHaveValue("Anh Nam E2E");
   await page.getByRole("radio", { name: "Cho vay", exact: true }).check();
   await page.getByLabel("Số tiền gốc (VND)").fill("10000000");
   await expect(page.getByLabel("Số tiền gốc (VND)")).toHaveValue("10.000.000");
@@ -133,7 +138,7 @@ test("owner settles and reverses the whole settlement without deleting history",
 
   await page.getByRole("link", { name: "Khoản vay" }).first().click();
   await page.getByRole("link", { name: "Tạo khoản vay" }).first().click();
-  await page.getByRole("combobox", { name: "Đối tác" }).selectOption({ label: "Anh Nam E2E" });
+  await page.getByRole("combobox", { name: "Đối tác" }).fill("Anh Nam E2E");
   await page.getByRole("radio", { name: "Đi vay", exact: true }).check();
   await page.getByLabel("Nhãn phân biệt (không bắt buộc)").fill("C16 hoàn tác tất toán");
   await page.getByLabel("Số tiền gốc (VND)").fill("1000000");

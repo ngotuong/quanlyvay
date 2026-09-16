@@ -75,7 +75,7 @@ test("form keeps values on validation/network failure; quick create, caret and u
   await dialog.getByLabel("Tên đối tác mới").fill("C20 quick created");
   await dialog.getByRole("button",{name:"Thêm và chọn"}).click();
   await expect(dialog).toBeHidden();
-  await expect(page.getByRole("combobox",{name:"Đối tác",exact:true})).toContainText("C20 quick created");
+  await expect(page.getByRole("combobox",{name:"Đối tác",exact:true})).toHaveValue("C20 quick created");
   await expect(money).toHaveValue("9.007.199.254.740.993");
   await page.getByLabel("Lãi suất mỗi kỳ (%)").fill("101");
   await page.getByLabel("Ghi chú",{exact:true}).fill("C20 retained draft");
@@ -283,7 +283,7 @@ test("large lists, exact text and concurrent export remain complete", async ({pa
   const total=(await page.getByText("Tổng chi phí",{exact:true}).locator("..").innerText()).replace(/\s/g,"");
   await page.goto("/expenses?page=41");await expect(page.getByText(/Trang 41/)).toBeVisible();expect((await page.getByText("Tổng chi phí",{exact:true}).locator("..").innerText()).replace(/\s/g,"")).toBe(total);
   await page.goto("/counterparties?page=41");await expect(page.getByText(/Trang 41/)).toBeVisible();
-  await page.goto("/loans/new");await page.getByLabel("Tìm đối tác").fill("C20 volume 1005");await page.getByRole("combobox",{name:"Đối tác",exact:true}).selectOption({label:"C20 volume 1005"});
+  await page.goto("/loans/new");await page.getByRole("combobox",{name:"Đối tác",exact:true}).fill("C20 volume 1005");
   page.once("dialog",dialog=>dialog.accept());await page.goto(`/loans/${loanId}?tab=history&page=41`);await expect(page.getByText("Giải ngân",{exact:true})).toBeVisible();
   const exact=await admin.from("loans").select("original_principal_vnd::text,initial_daily_rate_percent::text").eq("id",loanId).single();expect(exact.data?.original_principal_vnd).toBe("9007199254740993");expect(typeof exact.data?.initial_daily_rate_percent).toBe("string");
   for(let index=0;index<5;index++){

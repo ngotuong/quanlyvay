@@ -50,7 +50,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `APPROVED` |
 | C39 | Tái cấu trúc thao tác khoản vay, Thiết lập và quản trị tài khoản | `COMPLETED` |
 | C40 | Rollout C39 lên Vercel Production | `COMPLETED` |
-| C41 | Hợp nhất nhắc quá hạn, mở nhanh thanh toán và chuẩn hóa CTA khoản vay | `COMPLETED` |
+| C41 | Hợp nhất nhắc quá hạn, mở nhanh thanh toán, CTA và chọn đối tác khoản vay | `COMPLETED` |
 | C42 | Rollout C41 lên Supabase dùng chung và Vercel Preview | `AWAITING_APPROVAL` |
 
 ## 3. Trạng thái kế tiếp
@@ -87,7 +87,8 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   `dpl_DePegwVo77qL5WFUiYp7vMtxKKK1`; immutable/stable public và authenticated smoke, console cùng
   runtime hậu kiểm đạt, rollback không phải kích hoạt. Phạm vi và bằng chứng tại
   [C40_C39_PRODUCTION_ROLLOUT.md](C40_C39_PRODUCTION_ROLLOUT.md).
-- C41 hoàn tất local ngày 2026-09-16: mỗi nghĩa vụ chỉ có một card nhắc hiện hành được cập nhật,
+- C41 hoàn tất local sau phần bổ sung ngày 2026-09-16: cặp tìm kiếm + dropdown đối tác đã được thay
+  bằng một combobox có tìm kiếm và chọn trong một thao tác. Mỗi nghĩa vụ chỉ có một card nhắc hiện hành được cập nhật,
   Push giữ lịch sử theo revision; thông báo lãi mở form với số tiền authoritative và trang Khoản vay
   chỉ còn một CTA màu xanh trên mọi breakpoint. Toàn bộ gate local/DB đạt; phạm vi và bằng chứng tại
   [C41_NOTIFICATION_PAYMENT_LOAN_CTA_PLAN.md](C41_NOTIFICATION_PAYMENT_LOAN_CTA_PLAN.md).
@@ -181,6 +182,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.187 | 2026-09-16 | Hoàn tất phần bổ sung C41: một combobox tìm/chọn đối tác, toàn bộ gate đạt; C42 tiếp tục chờ duyệt. |
+| 1.0.186 | 2026-09-16 | Mở lại C41 `IN_PROGRESS` để hợp nhất tìm/chọn đối tác thành một combobox; C42 chưa bắt đầu. |
 | 1.0.185 | 2026-09-16 | Hoàn tất C41 local với toàn bộ gate đạt; mở C42 `AWAITING_APPROVAL` cho migration và Preview rollout. |
 | 1.0.184 | 2026-09-16 | C41 được phê duyệt và chuyển `IN_PROGRESS`; C38 tiếp tục tạm dừng. |
 | 1.0.183 | 2026-09-16 | Đề xuất C41 `AWAITING_APPROVAL`: hợp nhất card nhắc hạn, mở form lãi và bỏ CTA khoản vay trùng. |

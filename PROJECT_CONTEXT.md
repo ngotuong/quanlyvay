@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.185
-last_updated: 2026-09-16 12:08:30 +07
+roadmap_version: 1.0.187
+last_updated: 2026-09-16 12:24:39 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C38
 current_status: APPROVED
@@ -37,13 +37,15 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 - C38 đã được người dùng cho phép tạm hoãn ngày 2026-09-15 và vẫn ở `APPROVED`; baseline read-only
   đã xác nhận notification đúng. Heartbeat C38 vẫn `PAUSED`; chỉ tiếp tục phần Push sau giờ nhận khi
   người dùng yêu cầu tiếp tục, không tự động nối checkpoint.
-- C41 `COMPLETED` local ngày 2026-09-16: một card hiện hành cho mỗi nghĩa vụ nhắc hạn nhưng vẫn giữ
+- C41 `COMPLETED` local sau phần bổ sung ngày 2026-09-16: form khoản vay dùng một combobox **Đối
+  tác** duy nhất, hỗ trợ tap/click, lọc, Enter và tự chọn tên khớp duy nhất; backend vẫn nhận UUID
+  `counterpartyId`. Các phần còn lại gồm một card hiện hành cho mỗi nghĩa vụ nhắc hạn nhưng vẫn giữ
   notification/Push lịch sử theo revision; notification lãi mở form với số tiền authoritative;
   trang Khoản vay chỉ còn một CTA màu xanh dùng chung desktop/mobile. Gate đạt `git diff --check`,
   lint, typecheck, 74/74 unit/script tests, build, Auth 6/6, E2E 21/21, reset sạch 32 migration, DB
   lint và pgTAP 455/455. Chưa áp migration hoặc deploy remote; bằng chứng tại
   `docs/C41_NOTIFICATION_PAYMENT_LOAN_CTA_PLAN.md`.
-- C42 `AWAITING_APPROVAL`: áp migration C41 lên Supabase dùng chung và rollout đúng source C41 lên
+- C42 `AWAITING_APPROVAL` và chưa được bắt đầu: áp migration C41 lên Supabase dùng chung và rollout đúng source C41 lên
   stable Preview; không gồm Production. Kế hoạch tại `docs/C42_C41_PREVIEW_ROLLOUT.md`.
 - Supabase chỉ có 1 tài khoản OWNER đang hoạt động; 31 tài khoản kỹ thuật đã vô hiệu hóa/ban, gồm
   tài khoản smoke C36 được giữ để tái sử dụng. Ba tài khoản C21 có tham chiếu tài chính
@@ -172,8 +174,11 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
   giao dịch với loại/số tiền authoritative nhưng không tự submit; trang Khoản vay chỉ còn một CTA
   chính trên mọi breakpoint. Việc áp dụng UI/UX giữ touch target 44 px, focus/phân quyền và bỏ CTA
   trùng mà không đổi nghiệp vụ tài chính.
+- Phần bổ sung C41 thay hai control **Tìm đối tác** + **Chọn đối tác** bằng một combobox có tìm kiếm;
+  focus hiển thị danh sách, gõ lọc, tap/click hoặc Enter chọn ngay, tên khớp duy nhất được tự chọn và
+  đối tác vừa tạo được chọn sẵn. Touch target kết quả 44 px; keyboard/focus/error được giữ đầy đủ.
 - Gate C41 đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6 và E2E
-  21/21. Reset database cô lập chạy đủ 32 migration, DB lint sạch và pgTAP đạt 455/455. Một lượt E2E
+  21/21; regression combobox riêng đạt 1/1. Reset database cô lập chạy đủ 32 migration, DB lint sạch và pgTAP đạt 455/455. Một lượt E2E
   đầu phát hiện selector cũ không còn duy nhất; selector được thu hẹp theo đúng nhãn, sau đó full
   suite đạt. Không có remote migration/deploy, mutation tài chính, đổi secret/tài khoản/Google/Git.
 

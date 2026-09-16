@@ -1,6 +1,6 @@
 # C41 — Hợp nhất nhắc quá hạn, mở nhanh thanh toán và chuẩn hóa CTA khoản vay
 
-Phê duyệt: người dùng phê duyệt trực tiếp ngày 2026-09-16. Trạng thái: `COMPLETED` local.
+Phê duyệt: người dùng phê duyệt trực tiếp ngày 2026-09-16 và mở lại để bổ sung cùng ngày. Trạng thái: `COMPLETED` local.
 
 ## Bối cảnh
 
@@ -9,6 +9,8 @@ Người dùng yêu cầu ngày 2026-09-16:
 1. Nhắc lãi/gốc quá hạn không tạo thêm card gây nhầm lẫn; card của cùng nghĩa vụ phải được cập nhật.
 2. Chạm thông báo thu/trả lãi phải mở thẳng form giao dịch với số tiền cần thu/trả.
 3. Trang Khoản vay chỉ giữ một nút **Tạo khoản vay** màu xanh và dùng cùng kiểu trên mobile.
+4. Luồng chọn đối tác khi tạo/sửa khoản vay không được bắt người dùng nhập ở một ô rồi chọn lại ở
+   một dropdown riêng.
 
 Rà soát hiện trạng xác nhận `generate_due_notifications()` đang tạo một notification mới mỗi ngày
 do idempotency key chứa ngày chạy. Notification Center hiển thị trực tiếp mọi bản ghi; thao tác mở
@@ -54,6 +56,18 @@ trong nội dung ở một số breakpoint.
 - Empty state vẫn có đường dẫn tạo khoản vay hợp lệ khi danh sách thực sự trống; không tính đây là
   CTA trùng trên trạng thái danh sách thông thường.
 
+### 4. Hợp nhất tìm và chọn đối tác
+
+- Thay cặp input **Tìm đối tác** + select **Chọn đối tác** bằng một combobox duy nhất có nhãn
+  **Đối tác**.
+- Khi focus/chạm, hiển thị danh sách hiện có; gõ trực tiếp để lọc, chạm kết quả hoặc nhấn Enter để
+  chọn. Không cần mở thêm dropdown thứ hai.
+- Giá trị gửi lên Server Action vẫn là `counterpartyId`; không nhận tên tự do và không thay đổi
+  liên kết lịch sử giữa đối tác với khoản vay.
+- Giữ chức năng **Thêm đối tác mới**; đối tác vừa tạo được chọn ngay trong combobox.
+- Hỗ trợ bàn phím ArrowUp/ArrowDown/Enter/Escape, focus ring, trạng thái được chọn, empty state và
+  touch target tối thiểu 44 px trên mobile.
+
 ## Ngoài phạm vi
 
 - Không tự động ghi giao dịch khi mở notification.
@@ -73,6 +87,8 @@ trong nội dung ở một số breakpoint.
   số tiền authoritative; không tạo giao dịch trước khi xác nhận.
 - Trang Khoản vay có đúng một CTA màu xanh ở trạng thái danh sách có dữ liệu trên desktop, tablet và
   mobile; VIEWER không thấy CTA.
+- Form khoản vay chỉ có một control **Đối tác**: có thể chọn bằng tap/click hoặc lọc rồi Enter; không
+  còn bước nhập ở ô tìm kiếm và chọn lại trong select riêng.
 - Test database bao phủ due → overdue → cập nhật hằng ngày → thanh toán → kỳ kế tiếp; unit/E2E bao
   phủ deep link, phân quyền, read state, mobile 320/375 px, landscape, dark/light và keyboard.
 - Đạt `git diff --check`, lint, typecheck, unit/script tests, build, Auth, E2E, DB lint và pgTAP áp
@@ -98,7 +114,11 @@ trong nội dung ở một số breakpoint.
   xác nhận **Ghi nhận**.
 - Trang Khoản vay chỉ còn một CTA **Tạo khoản vay** màu xanh cho OWNER/EDITOR trên mọi breakpoint;
   touch target tối thiểu 44 px và VIEWER không thấy CTA.
+- Form khoản vay chỉ còn một combobox **Đối tác**: focus hiển thị danh sách, gõ để lọc, tap/click
+  hoặc Enter để chọn; tên khớp duy nhất và đối tác vừa tạo được chọn ngay. Server Action vẫn nhận
+  `counterpartyId`, không nhận tên tự do; lỗi validation trả focus về đúng combobox.
 - Gate ngày 2026-09-16 đạt: `git diff --check`, lint, typecheck, 74/74 unit/script tests, build,
-  Auth 6/6, E2E 21/21, reset sạch 32 migration, DB lint sạch và pgTAP 455/455.
+  Auth 6/6, E2E 21/21 cùng regression combobox 1/1, reset sạch 32 migration, DB lint sạch và pgTAP
+  455/455.
 - Không áp migration lên Supabase dùng chung, không deploy Preview/Production, không thay secret,
   dữ liệu tài chính, tài khoản, Google resources hoặc Git remote/push trong C41.
