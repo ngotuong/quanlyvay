@@ -47,11 +47,11 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C35 | Nhắc lãi lặp lại, tinh gọn thông báo, hợp nhất tài khoản và dọn QA | `COMPLETED` |
 | C36 | Rollout C35 lên Preview và áp migration nhắc lãi trên Supabase dùng chung | `COMPLETED` |
 | C37 | Rollout C33/C35 từ stable Preview lên Vercel Production | `COMPLETED` |
-| C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `APPROVED` |
+| C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `AWAITING_APPROVAL` |
 | C39 | Tái cấu trúc thao tác khoản vay, Thiết lập và quản trị tài khoản | `COMPLETED` |
 | C40 | Rollout C39 lên Vercel Production | `COMPLETED` |
 | C41 | Hợp nhất nhắc quá hạn, mở nhanh thanh toán, CTA và chọn đối tác khoản vay | `COMPLETED` |
-| C42 | Rollout C41 lên Supabase dùng chung và Vercel Preview | `AWAITING_APPROVAL` |
+| C42 | Rollout C41 lên Supabase dùng chung và Vercel Preview | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -76,8 +76,9 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   authenticated smoke, console, runtime log đều đạt. Migration C35 không chạy lại; tài khoản test
   đã inactive/banned và không tạo dữ liệu tài chính. Bằng chứng tại
   [C37_C35_PRODUCTION_ROLLOUT.md](C37_C35_PRODUCTION_ROLLOUT.md).
-- C38 đã được người dùng cho phép tạm hoãn và vẫn ở `APPROVED`; baseline notification read-only đã
-  đạt. Heartbeat đang `PAUSED` và phần Push sau giờ nhận chỉ tiếp tục khi người dùng yêu cầu. Phạm vi tại
+- C38 đã được người dùng cho phép tạm hoãn và trở về `AWAITING_APPROVAL`; baseline notification
+  read-only đã đạt. Heartbeat đang `PAUSED` và phần Push sau giờ nhận chỉ tiếp tục khi người dùng
+  phê duyệt tiếp tục. Phạm vi tại
   [C38_PRODUCTION_NOTIFICATION_OBSERVATION.md](C38_PRODUCTION_NOTIFICATION_OBSERVATION.md).
 - C39 hoàn tất local ngày 2026-09-15: đưa **Tất toán** ra Tổng quan, tái cấu trúc tab Thiết lập theo
   mức độ sử dụng/rủi ro và gom tài khoản vô hiệu hóa khỏi danh sách quản trị chính. Toàn bộ gate
@@ -92,8 +93,10 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   Push giữ lịch sử theo revision; thông báo lãi mở form với số tiền authoritative và trang Khoản vay
   chỉ còn một CTA màu xanh trên mọi breakpoint. Toàn bộ gate local/DB đạt; phạm vi và bằng chứng tại
   [C41_NOTIFICATION_PAYMENT_LOAN_CTA_PLAN.md](C41_NOTIFICATION_PAYMENT_LOAN_CTA_PLAN.md).
-- C42 đang `AWAITING_APPROVAL`: áp migration C41 lên Supabase dùng chung và rollout đúng source C41
-  lên stable Preview theo runbook fail-closed; không gồm Production. Phạm vi tại
+- C42 hoàn tất ngày 2026-09-17: migration C41 đã active trên Supabase dùng chung; candidate và
+  stable Preview đạt public/authenticated smoke, console và runtime log sạch. Tài khoản smoke duy
+  nhất đã inactive/banned, session và notification smoke đã xóa; không có giao dịch tài chính mới
+  và không deploy Production. Bằng chứng tại
   [C42_C41_PREVIEW_ROLLOUT.md](C42_C41_PREVIEW_ROLLOUT.md).
 - C32 được người dùng phê duyệt trực tiếp và hoàn tất ngày 2026-09-14: C30 đã lên Production qua
   candidate không gán domain; public/authenticated smoke và runtime hậu kiểm stable đều đạt.
@@ -119,7 +122,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   Dashboard, danh sách khoản vay và tương tác mobile. Toàn bộ gate local đạt; C28/C29 đã rollout
   Preview và Production.
   Kế hoạch và bằng chứng tại [C27_DESIGN_SYSTEM_UIUX_PLAN.md](C27_DESIGN_SYSTEM_UIUX_PLAN.md).
-- Checkpoint hiện tại là C38 ở `APPROVED` nhưng đang tạm dừng theo yêu cầu người dùng.
+- Checkpoint hiện tại là C38 ở `AWAITING_APPROVAL` và vẫn tạm dừng theo yêu cầu người dùng.
 - C26 hoàn tất ngày 2026-09-12 theo [kế hoạch C26](C26_C25_ROLLOUT.md): Preview và Production
   đã đạt public/authenticated smoke, stable alias hậu kiểm sạch, token tạm đã thu hồi. Không có
   migration hay thay đổi dữ liệu, Google resources hoặc Git remote.
@@ -182,6 +185,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.189 | 2026-09-17 | Hoàn tất C42: migration C41 active, stable Preview đạt smoke/runtime; C38 trở lại chờ phê duyệt. |
+| 1.0.188 | 2026-09-16 | C42 được phê duyệt và chuyển `IN_PROGRESS`: migration C41 và Preview rollout fail-closed. |
 | 1.0.187 | 2026-09-16 | Hoàn tất phần bổ sung C41: một combobox tìm/chọn đối tác, toàn bộ gate đạt; C42 tiếp tục chờ duyệt. |
 | 1.0.186 | 2026-09-16 | Mở lại C41 `IN_PROGRESS` để hợp nhất tìm/chọn đối tác thành một combobox; C42 chưa bắt đầu. |
 | 1.0.185 | 2026-09-16 | Hoàn tất C41 local với toàn bộ gate đạt; mở C42 `AWAITING_APPROVAL` cho migration và Preview rollout. |

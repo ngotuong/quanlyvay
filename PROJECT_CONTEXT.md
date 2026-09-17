@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.187
-last_updated: 2026-09-16 12:24:39 +07
+roadmap_version: 1.0.189
+last_updated: 2026-09-17 09:26:20 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C38
-current_status: APPROVED
-last_completed_checkpoint: C41
-next_checkpoint: C42
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C42
+next_checkpoint: C38
 ---
 
 # Project Context
@@ -34,9 +34,9 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
   runtime hậu kiểm đạt. Stable `https://tindung.vercel.app` trỏ đúng candidate, rollback không phải
   kích hoạt; tài khoản smoke đã inactive/banned. Bằng chứng tại
   `docs/C40_C39_PRODUCTION_ROLLOUT.md`.
-- C38 đã được người dùng cho phép tạm hoãn ngày 2026-09-15 và vẫn ở `APPROVED`; baseline read-only
-  đã xác nhận notification đúng. Heartbeat C38 vẫn `PAUSED`; chỉ tiếp tục phần Push sau giờ nhận khi
-  người dùng yêu cầu tiếp tục, không tự động nối checkpoint.
+- C38 đã được người dùng cho phép tạm hoãn ngày 2026-09-15 và trở về `AWAITING_APPROVAL`; baseline
+  read-only đã xác nhận notification đúng. Heartbeat C38 vẫn `PAUSED`; chỉ tiếp tục phần Push sau
+  giờ nhận khi người dùng phê duyệt tiếp tục, không tự động nối checkpoint.
 - C41 `COMPLETED` local sau phần bổ sung ngày 2026-09-16: form khoản vay dùng một combobox **Đối
   tác** duy nhất, hỗ trợ tap/click, lọc, Enter và tự chọn tên khớp duy nhất; backend vẫn nhận UUID
   `counterpartyId`. Các phần còn lại gồm một card hiện hành cho mỗi nghĩa vụ nhắc hạn nhưng vẫn giữ
@@ -45,8 +45,11 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
   lint, typecheck, 74/74 unit/script tests, build, Auth 6/6, E2E 21/21, reset sạch 32 migration, DB
   lint và pgTAP 455/455. Chưa áp migration hoặc deploy remote; bằng chứng tại
   `docs/C41_NOTIFICATION_PAYMENT_LOAN_CTA_PLAN.md`.
-- C42 `AWAITING_APPROVAL` và chưa được bắt đầu: áp migration C41 lên Supabase dùng chung và rollout đúng source C41 lên
-  stable Preview; không gồm Production. Kế hoạch tại `docs/C42_C41_PREVIEW_ROLLOUT.md`.
+- C42 `COMPLETED` ngày 2026-09-17: migration C41 đã active trên Supabase dùng chung và đúng source
+  C41 đã lên stable Preview qua candidate `dpl_Eo2gQT4WVwWBFEaorQD8i9rAkyA9`. Immutable/stable
+  public và authenticated smoke, console cùng runtime hậu kiểm đạt; session/notification smoke đã
+  xóa và tài khoản smoke duy nhất đã inactive/banned. Không deploy Production. Bằng chứng tại
+  `docs/C42_C41_PREVIEW_ROLLOUT.md`.
 - Supabase chỉ có 1 tài khoản OWNER đang hoạt động; 31 tài khoản kỹ thuật đã vô hiệu hóa/ban, gồm
   tài khoản smoke C36 được giữ để tái sử dụng. Ba tài khoản C21 có tham chiếu tài chính
   `ON DELETE RESTRICT`; các tài khoản còn lại không có
@@ -127,9 +130,8 @@ ra yêu cầu đang chờ, quyền thao tác remote hay checkpoint mới.
 - Giao dịch tài chính không xóa vật lý; sửa sai bằng reversal/correction và audit append-only.
 - Tiền VND dùng số nguyên, lãi suất dùng decimal; ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`, audit UTC.
 - Web Push và Google Sync phải idempotent; secret chỉ nằm trong kho secret của môi trường.
-- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 31 migration; source/local có 32
-  migration và bộ pgTAP local có 455 assertions. Migration thứ 32 chỉ được rollout trong C42 sau
-  khi người dùng phê duyệt.
+- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có đủ 32 migration; source/local có
+  32 migration và bộ pgTAP local đạt 455/455 assertions.
 
 ## 4. Tài khoản và tài nguyên remote
 
@@ -168,6 +170,19 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
   tệp backup sạch.
 
 ## 6. Gate và thay đổi gần nhất
+
+- C42 hoàn tất rollout C41 lên Supabase dùng chung và stable Preview. Remote có đủ 32 migration,
+  DB lint sạch, reset cô lập và pgTAP đạt 455/455; 38 khoản vay và 381 giao dịch không đổi, Push
+  delivery giữ nguyên 31, không còn luồng notification hiện hành trùng nghĩa vụ.
+- Candidate `dpl_Eo2gQT4WVwWBFEaorQD8i9rAkyA9`, immutable
+  `https://quan-ly-vay-ca-nhan-8oo3r6ycr-ngotuong2105.vercel.app`, Preview/`READY`, 44 output
+  Function ở `sin1`. Stable `https://tindung-preview.vercel.app` trỏ đúng candidate; rollback target
+  C36 `dpl_m5ubMxZxidzgnjawrxyLEVUL5CvA` không phải kích hoạt.
+- Gate sạch cuối đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6
+  và E2E 21/21. Immutable/stable authenticated smoke đạt deep link form lãi authoritative không tự
+  submit, một CTA khoản vay desktop/mobile, combobox đối tác bằng bàn phím, không tràn ngang; console
+  và runtime sạch. Notification/session smoke đã xóa, tài khoản smoke duy nhất inactive/banned; 1
+  OWNER hoạt động và 381 giao dịch không đổi. Không Production, secret/Google/Git push.
 
 - C41 hoàn tất local với migration thứ 32: card notification hiện hành được upsert theo nghĩa vụ,
   bản cũ được supersede không xóa và Push delivery tách theo revision. Notification lãi mở form
@@ -421,12 +436,13 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- C41 không còn blocker và đã hoàn tất local. C42 đang chờ phê duyệt để áp migration thứ 32 lên
-  Supabase dùng chung và rollout Preview; chưa có thay đổi remote.
+- C42 không còn blocker; migration thứ 32 và stable Preview rollout đã hoàn tất. Chưa mở checkpoint
+  Production mới.
 - C40 không còn blocker; Production stable đã trỏ candidate
   `dpl_DePegwVo77qL5WFUiYp7vMtxKKK1`, `READY`, Functions `sin1`, hậu kiểm đạt.
 - C39 không còn blocker và đã rollout Production qua C40; chưa rollout Preview riêng.
-- C38 vẫn tạm dừng theo yêu cầu người dùng; không có blocker kỹ thuật. Heartbeat C38 đang `PAUSED`.
+- C38 vẫn tạm dừng ở `AWAITING_APPROVAL` theo yêu cầu người dùng; không có blocker kỹ thuật.
+  Heartbeat C38 đang `PAUSED`.
 - C37 không còn blocker; Production stable đã trỏ đúng candidate C37 và hậu kiểm đạt.
 - C36 không còn blocker; migration C35 và Vercel Preview rollout đã hoàn tất.
 - C35 không còn blocker triển khai local và đã hoàn tất theo ngoại lệ acceptance. Việc xóa vật lý

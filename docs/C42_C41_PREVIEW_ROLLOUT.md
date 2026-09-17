@@ -1,6 +1,7 @@
 # C42 — Rollout C41 lên Supabase dùng chung và Vercel Preview
 
-Trạng thái: `AWAITING_APPROVAL`.
+Phê duyệt: người dùng phê duyệt trực tiếp ngày 2026-09-16. Trạng thái: `COMPLETED` ngày
+2026-09-17.
 
 ## Mục tiêu
 
@@ -43,3 +44,47 @@ runtime thật trước khi cân nhắc Production.
   trên desktop/mobile và tuân thủ phân quyền.
 - Có rollback target được xác minh; nếu bất kỳ gate nào thất bại thì không đổi alias hoặc trả alias
   về deployment tốt trước đó.
+
+## Kết quả hoàn tất
+
+### Supabase dùng chung
+
+- Đã áp migration `20260916120000_c41_notification_threads.sql`; remote có đủ 32 migration và
+  migration mới nhất là `20260916120000`.
+- DB lint sạch; reset database cô lập chạy đủ 32 migration và pgTAP đạt 20 file/455 assertion.
+- Hậu kiểm quyền/hàm đạt fingerprint `f|t|t|f|2cffed3e3412fc0cd5ccb51dbc614978`;
+  không mở quyền thực thi ngoài contract.
+- Baseline tài chính không đổi trong rollout: 38 khoản vay và 381 giao dịch. Push delivery giữ
+  nguyên 31; không còn luồng notification hiện hành trùng nghĩa vụ.
+- Notification smoke tạm và session tạm đã xóa sau khi người dùng xác nhận. Hậu kiểm có 0 bản ghi
+  `c42-smoke:notification`, 0 session smoke, 1 OWNER hoạt động và tài khoản smoke C36 duy nhất được
+  đưa lại về inactive/banned. Tổng notification còn 36 bản ghi không mang khóa smoke; toàn bộ được
+  giữ lại để tránh xóa nhầm dữ liệu vận hành.
+
+### Vercel Preview
+
+- Candidate `dpl_Eo2gQT4WVwWBFEaorQD8i9rAkyA9`, immutable
+  `https://quan-ly-vay-ca-nhan-8oo3r6ycr-ngotuong2105.vercel.app`, target Preview, trạng thái
+  `READY`, đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; 44 output Function ở `sin1`.
+- Rollback target đã xác minh: `dpl_m5ubMxZxidzgnjawrxyLEVUL5CvA`, immutable
+  `https://quan-ly-vay-ca-nhan-ohjwewlit-ngotuong2105.vercel.app`.
+- Candidate đạt public/authenticated smoke. Notification lãi mở đúng BottomSheet
+  `INTEREST_PAYMENT` với số tiền authoritative 600.000 VND và không tự submit; trang Khoản vay có
+  đúng một CTA desktop/mobile, không tràn ngang; form tạo khoản vay chỉ có một combobox **Đối tác**
+  và chọn được bằng Enter. Browser console sạch.
+- Stable alias `https://tindung-preview.vercel.app` chỉ được chuyển sau khi candidate đạt gate;
+  authenticated smoke lặp lại đạt cùng kết quả. Runtime log candidate/stable có 0 error và 0 HTTP
+  500; alias trỏ đúng candidate nên không kích hoạt rollback.
+
+### Gate và ngoại lệ quan sát
+
+- Lượt candidate sạch cuối đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build,
+  Auth 6/6 và E2E 21/21; promotion bằng `pnpm deploy:preview` chạy lại cùng bộ gate và tiếp tục đạt
+  E2E 21/21.
+- Một lượt gate ban đầu chỉ đạt E2E 19/21 do toast biến mất trước assertion và retry expense chậm;
+  alias không bị thay đổi ở lượt đó. Lượt chạy sạch kế tiếp đạt 21/21 trước khi tạo/promote
+  candidate.
+- Thêm `apps/web/scripts/c42-preview-smoke.mjs` để kiểm chứng authenticated smoke có thể lặp lại mà
+  không ghi secret vào repository hoặc tạo giao dịch tài chính.
+- Không deploy Production, không đổi scheduler/VAPID/secret, không thao tác Google resources và
+  không Git push.
