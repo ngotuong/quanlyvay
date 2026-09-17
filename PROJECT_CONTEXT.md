@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.191
-last_updated: 2026-09-17 12:37:24 +07
+roadmap_version: 1.0.193
+last_updated: 2026-09-17 17:15:00 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C44
+current_checkpoint: C38
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C43
-next_checkpoint: C44
+last_completed_checkpoint: C44
+next_checkpoint: C38
 ---
 
 # Project Context
@@ -18,11 +18,20 @@ phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên l
 
 - C43 `COMPLETED` local ngày 2026-09-17: nhắc lãi lặp hằng ngày theo ngày thu/đóng thực tế; ngày
   chốt kỳ và công thức lãi không đổi. Regression đúng hai khoản 700/400 đạt; toàn bộ gate gồm pgTAP
-  477/477 và E2E 21/21 đạt. Chưa áp migration/deploy remote. Bằng chứng tại
+  477/477 và E2E 21/21 đạt. Migration và web đã rollout qua C44. Bằng chứng tại
   `docs/C43_OPERATIONAL_INTEREST_REMINDERS.md`.
-- C44 `AWAITING_APPROVAL`: rollout migration C43 lên Supabase dùng chung và source lên stable
-  Preview theo runbook fail-closed; không gồm deploy Production web. Kế hoạch tại
+- C44 `COMPLETED` ngày 2026-09-17: migration C43 đã active trên Supabase dùng chung; stable Preview
+  và Production đã rollout source C41/C43 bằng candidate, authenticated smoke và rollback
+  fail-closed. Kế hoạch/kết quả tại
   `docs/C44_C43_PREVIEW_ROLLOUT.md`.
+- Stable Preview trỏ `dpl_AjvS8ir8eeq8t4V4YmKc12ymedWu`; Production trỏ
+  `dpl_9KogDrgcDVQnpqhr7TPobpNwTmAi`. Cả immutable/stable đạt public/authenticated smoke, mobile
+  390 px, console và runtime error log sạch; rollback không kích hoạt. Remote giữ 38 khoản vay,
+  381 giao dịch, 36 notification và 0 thread trùng. Tài khoản C36 đã inactive/banned, 0 session,
+  0 refresh token; chỉ 1 OWNER hoạt động.
+- Supabase Cron hourly active và lần đọc gần nhất thành công. Do rollout sau giờ nhận 12:00, 10
+  Push delivery revision mới đang `PENDING` đến lần 12:00 kế tiếp; không gọi worker thủ công ngoài
+  giờ. C38 trở lại `AWAITING_APPROVAL` để quan sát kết quả thực tế.
 
 - C36 `COMPLETED` ngày 2026-09-14 theo `docs/C36_C35_PREVIEW_ROLLOUT.md`: migration C35 đã active
   trên Supabase dùng chung và source C33/C35 đã lên stable Preview. Candidate/stable đạt toàn bộ
@@ -138,8 +147,9 @@ ra yêu cầu đang chờ, quyền thao tác remote hay checkpoint mới.
 - Giao dịch tài chính không xóa vật lý; sửa sai bằng reversal/correction và audit append-only.
 - Tiền VND dùng số nguyên, lãi suất dùng decimal; ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`, audit UTC.
 - Web Push và Google Sync phải idempotent; secret chỉ nằm trong kho secret của môi trường.
-- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 32 migration; source/local có
-  33 migration và bộ pgTAP local đạt 477/477 assertions. Migration thứ 33 chưa áp remote.
+- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có đủ 33 migration như source/local;
+  bộ pgTAP local đạt 477/477 assertions. Preview và Production đều đã rollout source C41/C43 qua
+  C44.
 
 ## 4. Tài khoản và tài nguyên remote
 
@@ -452,8 +462,9 @@ chưa được push; trạng thái chính xác luôn lấy từ `git status --sh
 
 ## 7. Blocker và việc chờ
 
-- C43 không còn blocker local. C44 chờ phê duyệt riêng vì migration lên Supabase dùng chung sẽ ảnh
-  hưởng cả Preview và Production; chưa áp migration hoặc deploy web.
+- C44 không còn blocker; Preview và Production đã rollout, tài khoản smoke đã dọn sạch. C38 đang
+  `AWAITING_APPROVAL`; còn 10 Push delivery `PENDING` do giờ nhận 12:00 hôm nay đã qua trước lúc
+  migration tạo revision, cần quan sát ở lần 12:00 kế tiếp thay vì gửi thủ công ngoài giờ.
 
 - C42 không còn blocker; migration thứ 32 và stable Preview rollout đã hoàn tất. Chưa mở checkpoint
   Production mới.

@@ -53,7 +53,7 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C41 | Hợp nhất nhắc quá hạn, mở nhanh thanh toán, CTA và chọn đối tác khoản vay | `COMPLETED` |
 | C42 | Rollout C41 lên Supabase dùng chung và Vercel Preview | `COMPLETED` |
 | C43 | Sửa nhắc lại lãi theo ngày thu/đóng thực tế | `COMPLETED` |
-| C44 | Rollout C43 lên Supabase dùng chung và Vercel Preview | `AWAITING_APPROVAL` |
+| C44 | Rollout C41/C43 lên Supabase dùng chung, Preview và Production | `COMPLETED` |
 
 ## 3. Trạng thái kế tiếp
 
@@ -61,8 +61,10 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
   thanh toán, tính số ngày quá hạn từ ngày đó; ngày chốt kỳ và công thức lãi giữ nguyên. Gate đạt
   E2E 21/21, DB lint sạch và pgTAP 477/477; chưa rollout remote. Bằng chứng tại
   [C43_OPERATIONAL_INTEREST_REMINDERS.md](C43_OPERATIONAL_INTEREST_REMINDERS.md).
-- C44 `AWAITING_APPROVAL`: áp migration C43 lên Supabase dùng chung và rollout stable Preview có
-  smoke, đối chiếu lịch nhắc/Push và rollback alias. Phạm vi tại
+- C44 `COMPLETED` ngày 2026-09-17: migration C43 đã active; stable Preview và Production đã trỏ
+  đúng source C41/C43 sau public/authenticated smoke, console/runtime log sạch. Tài khoản smoke đã
+  inactive/banned và không còn phiên. C38 trở lại `AWAITING_APPROVAL` để quan sát 10 Push revision
+  đang chờ đúng giờ 12:00 kế tiếp; không gửi worker thủ công ngoài giờ. Bằng chứng tại
   [C44_C43_PREVIEW_ROLLOUT.md](C44_C43_PREVIEW_ROLLOUT.md).
 
 - C33 được người dùng phê duyệt trực tiếp và hoàn tất local ngày 2026-09-14: hai trường ngày
@@ -195,6 +197,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.193 | 2026-09-17 | Hoàn tất C44: migration C43, stable Preview và Production đạt smoke/runtime; trả C38 về chờ quan sát Push đúng giờ. |
+| 1.0.192 | 2026-09-17 | Mở rộng C44 sang Production theo yêu cầu trực tiếp; triển khai fail-closed qua Preview. |
 | 1.0.191 | 2026-09-17 | Hoàn tất C43 local, toàn bộ gate đạt; mở C44 chờ duyệt rollout Supabase dùng chung/Preview. |
 | 1.0.190 | 2026-09-17 | Mở C43 `IN_PROGRESS` local theo yêu cầu sửa nhắc lãi vận hành; C38 vẫn tạm dừng. |
 | 1.0.189 | 2026-09-17 | Hoàn tất C42: migration C41 active, stable Preview đạt smoke/runtime; C38 trở lại chờ phê duyệt. |
