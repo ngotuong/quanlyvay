@@ -5,8 +5,7 @@ Google Apps Script.
 
 ## Trạng thái
 
-- C0–C37 và C39–C44 đã hoàn tất.
-- C45 đã hoàn tất dọn local nhưng đang `BLOCKED` ở bước push do phiên GitHub hết hiệu lực.
+- C0–C37 và C39–C45 đã hoàn tất.
 - C38 đang `AWAITING_APPROVAL`: hậu kiểm read-only chu kỳ nhắc lãi Production theo lịch thực tế.
 - Production: <https://tindung.vercel.app>.
 - Stable Preview: <https://tindung-preview.vercel.app>.

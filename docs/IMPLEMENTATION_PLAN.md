@@ -21,16 +21,9 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C30–C37 | Notification, bộ lọc/biểu đồ, tài khoản/cài đặt và rollout | `COMPLETED` |
 | C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `AWAITING_APPROVAL` |
 | C39–C44 | UX khoản vay, hợp nhất nhắc hạn, nhắc lãi vận hành và rollout | `COMPLETED` |
-| C45 | Dọn repository, tài liệu hiện hành và đồng bộ GitHub | `BLOCKED` |
+| C45 | Dọn repository, tài liệu hiện hành và đồng bộ GitHub | `COMPLETED` |
 
-## 3. Checkpoint đang mở: C45
-
-Phần dọn repository, thu gọn tài liệu, kiểm tra gate và tạo commit local đã hoàn tất. Bước còn lại:
-đăng nhập lại GitHub, push `main` và xác minh SHA `origin/main`. Không thay đổi remote khác.
-
-Sau khi C45 hoàn tất, C38 tiếp tục ở `AWAITING_APPROVAL`.
-
-## 4. Checkpoint chờ sau C45: C38
+## 3. Checkpoint đang mở: C38
 
 Mục tiêu: kiểm chứng read-only chu kỳ scheduler kế tiếp tạo/làm mới nhắc lãi đúng hạn và ghi nhận
 kết quả Push thực tế.
@@ -47,7 +40,7 @@ Acceptance criteria:
 
 Phạm vi chi tiết: `docs/C38_PRODUCTION_NOTIFICATION_OBSERVATION.md`.
 
-## 5. Contract không được phá vỡ
+## 4. Contract không được phá vỡ
 
 ```text
 LoanDirection: LENDING | BORROWING
@@ -62,7 +55,7 @@ TransactionType: DISBURSEMENT | INTEREST_PAYMENT | PRINCIPAL_PAYMENT | EXPENSE |
 - Ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`; audit timestamp UTC.
 - Notification và sync idempotent; secret không vào Git/log.
 
-## 6. Gate chuẩn
+## 5. Gate chuẩn
 
 ```text
 pnpm lint

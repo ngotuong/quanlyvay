@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.194
-last_updated: 2026-09-17 18:52:14 +07
+last_updated: 2026-09-17 18:59:00 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C45
-current_status: BLOCKED
-last_completed_checkpoint: C44
-next_checkpoint: C45
+current_checkpoint: C38
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C45
+next_checkpoint: C38
 ---
 
 # Project Context
@@ -21,8 +21,8 @@ history, migration, test và các contract/runbook chuyên biệt.
   Production trỏ `dpl_9KogDrgcDVQnpqhr7TPobpNwTmAi`. Public/authenticated smoke, mobile
   390 px, console và runtime error log đều sạch; rollback không kích hoạt.
 - C45 đã dọn tài liệu lịch sử khỏi cây làm việc, giữ tài liệu kỹ thuật và checkpoint đang mở;
-  xóa cache/test artifact được ignore và xác nhận không có lệnh build/test/deploy bị treo. Commit
-  local đã tạo nhưng push bị chặn vì credential HTTPS/GitHub CLI hết hiệu lực.
+  xóa cache/test artifact được ignore và xác nhận không có lệnh build/test/deploy bị treo. GitHub
+  đã xác thực lại và branch `main` đã nhận đầy đủ chuỗi commit qua `09c0d67`.
 - Checkpoint hiện tại là C38 `AWAITING_APPROVAL`: hậu kiểm read-only chu kỳ nhắc lãi Production.
   Không tự gọi worker, gửi Push thủ công hoặc thay đổi dữ liệu.
 - Supabase Cron chạy hằng giờ. 10 Push delivery revision ở trạng thái `PENDING` là hàng đợi vận
@@ -104,8 +104,7 @@ runtime; các gate đó gần nhất đã đạt ở C44 như ghi trên.
 
 ## 7. Việc chờ
 
-- C45 chờ người dùng cho phép đăng nhập lại GitHub, sau đó push và xác minh remote.
-- C38 vẫn chờ người dùng phê duyệt tiếp tục sau khi C45 hoàn tất. Phạm vi nằm tại
+- C38 chờ người dùng phê duyệt tiếp tục. Phạm vi nằm tại
   `docs/C38_PRODUCTION_NOTIFICATION_OBSERVATION.md`.
 - Heartbeat quan sát C38 đang `PAUSED`; không tự khởi động lại.
-- Không có lệnh terminal dự án đang chạy dở; blocker duy nhất là xác thực GitHub.
+- Không có blocker repository hoặc lệnh terminal dự án đang chạy dở.
