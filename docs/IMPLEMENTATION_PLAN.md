@@ -52,8 +52,18 @@ Git history, migration, test và các contract/runbook chuyên biệt; không d�
 | C40 | Rollout C39 lên Vercel Production | `COMPLETED` |
 | C41 | Hợp nhất nhắc quá hạn, mở nhanh thanh toán, CTA và chọn đối tác khoản vay | `COMPLETED` |
 | C42 | Rollout C41 lên Supabase dùng chung và Vercel Preview | `COMPLETED` |
+| C43 | Sửa nhắc lại lãi theo ngày thu/đóng thực tế | `COMPLETED` |
+| C44 | Rollout C43 lên Supabase dùng chung và Vercel Preview | `AWAITING_APPROVAL` |
 
 ## 3. Trạng thái kế tiếp
+
+- C43 hoàn tất local ngày 2026-09-17: nhắc lãi từ ngày thu/đóng thực tế, lặp hằng ngày nếu chưa
+  thanh toán, tính số ngày quá hạn từ ngày đó; ngày chốt kỳ và công thức lãi giữ nguyên. Gate đạt
+  E2E 21/21, DB lint sạch và pgTAP 477/477; chưa rollout remote. Bằng chứng tại
+  [C43_OPERATIONAL_INTEREST_REMINDERS.md](C43_OPERATIONAL_INTEREST_REMINDERS.md).
+- C44 `AWAITING_APPROVAL`: áp migration C43 lên Supabase dùng chung và rollout stable Preview có
+  smoke, đối chiếu lịch nhắc/Push và rollback alias. Phạm vi tại
+  [C44_C43_PREVIEW_ROLLOUT.md](C44_C43_PREVIEW_ROLLOUT.md).
 
 - C33 được người dùng phê duyệt trực tiếp và hoàn tất local ngày 2026-09-14: hai trường ngày
   `Từ`/`Đến` cùng hàng, đồng đều trên mobile; cột dòng tiền xem được bằng tap/click/keyboard và
@@ -185,6 +195,8 @@ git diff --check
 
 | Phiên bản | Ngày | Thay đổi |
 |---|---|---|
+| 1.0.191 | 2026-09-17 | Hoàn tất C43 local, toàn bộ gate đạt; mở C44 chờ duyệt rollout Supabase dùng chung/Preview. |
+| 1.0.190 | 2026-09-17 | Mở C43 `IN_PROGRESS` local theo yêu cầu sửa nhắc lãi vận hành; C38 vẫn tạm dừng. |
 | 1.0.189 | 2026-09-17 | Hoàn tất C42: migration C41 active, stable Preview đạt smoke/runtime; C38 trở lại chờ phê duyệt. |
 | 1.0.188 | 2026-09-16 | C42 được phê duyệt và chuyển `IN_PROGRESS`: migration C41 và Preview rollout fail-closed. |
 | 1.0.187 | 2026-09-16 | Hoàn tất phần bổ sung C41: một combobox tìm/chọn đối tác, toàn bộ gate đạt; C42 tiếp tục chờ duyệt. |

@@ -140,6 +140,10 @@ trường hợp cron dự phòng Vercel trùng với Supabase Cron lúc 07:00.
 
 ## Kiểm thử
 
+- Ngày thu/đóng lãi vận hành là ngày chốt kỳ trừ số ngày nhắc sớm, không trước ngày đầu kỳ. Từ
+  ngày này, nghĩa vụ chưa thanh toán được nhắc lại mỗi ngày; dòng `Quá hạn : N ngày` đếm từ ngày
+  thu/đóng vận hành. Ngày chốt kỳ vẫn quyết định số lãi authoritative và khóa luồng notification,
+  nên trạng thái nhắc quá hạn không tự đổi trạng thái tài chính của khoản vay.
 - pgTAP kiểm tra đúng ngày đến hạn, nhắc lãi/quá hạn hằng ngày, dừng sau khi thanh toán hoặc dừng lãi,
   mọi active user, preference giờ, idempotency,
   subscription upsert, không phát lịch sử cho subscription mới, đánh dấu đã đọc và delivery không

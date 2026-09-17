@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.189
-last_updated: 2026-09-17 09:26:20 +07
+roadmap_version: 1.0.191
+last_updated: 2026-09-17 12:37:24 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C38
+current_checkpoint: C44
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C42
-next_checkpoint: C38
+last_completed_checkpoint: C43
+next_checkpoint: C44
 ---
 
 # Project Context
@@ -15,6 +15,14 @@ Tệp này chỉ chứa trạng thái hiện hành để handoff. Nhật ký chi
 phê duyệt cũ nằm trong Git history, không phải chỉ dẫn cho phiên làm việc mới.
 
 ## 1. Trạng thái hiện tại
+
+- C43 `COMPLETED` local ngày 2026-09-17: nhắc lãi lặp hằng ngày theo ngày thu/đóng thực tế; ngày
+  chốt kỳ và công thức lãi không đổi. Regression đúng hai khoản 700/400 đạt; toàn bộ gate gồm pgTAP
+  477/477 và E2E 21/21 đạt. Chưa áp migration/deploy remote. Bằng chứng tại
+  `docs/C43_OPERATIONAL_INTEREST_REMINDERS.md`.
+- C44 `AWAITING_APPROVAL`: rollout migration C43 lên Supabase dùng chung và source lên stable
+  Preview theo runbook fail-closed; không gồm deploy Production web. Kế hoạch tại
+  `docs/C44_C43_PREVIEW_ROLLOUT.md`.
 
 - C36 `COMPLETED` ngày 2026-09-14 theo `docs/C36_C35_PREVIEW_ROLLOUT.md`: migration C35 đã active
   trên Supabase dùng chung và source C33/C35 đã lên stable Preview. Candidate/stable đạt toàn bộ
@@ -130,8 +138,8 @@ ra yêu cầu đang chờ, quyền thao tác remote hay checkpoint mới.
 - Giao dịch tài chính không xóa vật lý; sửa sai bằng reversal/correction và audit append-only.
 - Tiền VND dùng số nguyên, lãi suất dùng decimal; ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`, audit UTC.
 - Web Push và Google Sync phải idempotent; secret chỉ nằm trong kho secret của môi trường.
-- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có đủ 32 migration; source/local có
-  32 migration và bộ pgTAP local đạt 455/455 assertions.
+- Production/Preview dùng Supabase `hmfxnstrqfqpvsgfmjmd`, hiện có 32 migration; source/local có
+  33 migration và bộ pgTAP local đạt 477/477 assertions. Migration thứ 33 chưa áp remote.
 
 ## 4. Tài khoản và tài nguyên remote
 
@@ -170,6 +178,14 @@ trong macOS Keychain/Vercel/Supabase Vault tương ứng.
   tệp backup sạch.
 
 ## 6. Gate và thay đổi gần nhất
+
+- C43 hoàn tất local: migration thứ 33 dùng ngày thu/đóng vận hành làm mốc nhắc lại và hiển thị
+  `Quá hạn : N ngày`, nhưng tiếp tục dùng ngày chốt kỳ cho tính lãi authoritative và khóa nghĩa vụ.
+  Bài test 700/400 đạt 22/22: hai card cùng cập nhật ngày kế tiếp, retry không trùng, thanh toán đủ
+  dừng nhắc đúng khoản.
+- Gate cuối C43 đạt `git diff --check`, lint, typecheck, 74/74 unit/script tests, build, Auth 6/6,
+  E2E 21/21, DB lint sạch và pgTAP 21 file/477 assertions. Không đổi tài chính, remote database,
+  Vercel/Google/secret hoặc Git remote.
 
 - C42 hoàn tất rollout C41 lên Supabase dùng chung và stable Preview. Remote có đủ 32 migration,
   DB lint sạch, reset cô lập và pgTAP đạt 455/455; 38 khoản vay và 381 giao dịch không đổi, Push
@@ -435,6 +451,9 @@ Commit C19: `eed24e4` — `C19: scrub lịch sử và rotate Web Push`. Các com
 chưa được push; trạng thái chính xác luôn lấy từ `git status --short --branch`.
 
 ## 7. Blocker và việc chờ
+
+- C43 không còn blocker local. C44 chờ phê duyệt riêng vì migration lên Supabase dùng chung sẽ ảnh
+  hưởng cả Preview và Production; chưa áp migration hoặc deploy web.
 
 - C42 không còn blocker; migration thứ 32 và stable Preview rollout đã hoàn tất. Chưa mở checkpoint
   Production mới.
