@@ -1,56 +1,40 @@
 # Quản Lý Vay Cá Nhân
 
-Webapp/PWA quản lý các khoản đi vay và cho vay cá nhân, sử dụng Next.js, Supabase, Vercel và Google Apps Script.
+Webapp/PWA quản lý các khoản đi vay và cho vay cá nhân, sử dụng Next.js, Supabase, Vercel và
+Google Apps Script.
 
 ## Trạng thái
 
-- C0 — Quản trị dự án: hoàn tất.
-- C1 — Monorepo Next.js: hoàn tất.
-- C2 — Đặc tả nghiệp vụ: hoàn tất.
-- C3 — Supabase local: hoàn tất.
-- C4 — Bộ máy tài chính: hoàn tất.
-- C5 — Auth và phân quyền local: hoàn tất.
-- C6 — Nghiệp vụ web: hoàn tất.
-- C7 — Dashboard và UX: hoàn tất.
-- C8 — PWA và thông báo local: hoàn tất.
-- C9 — Google Sync local: hoàn tất.
-- C10 — Supabase remote: hoàn tất.
-- C11 — Google/Clasp remote: hoàn tất.
-- C12 — Vercel Preview: hoàn tất.
-- C13 — Production/UAT: hoàn tất; restore/cleanup, Production deploy, OWNER, Google Sync, snapshot và
-  Web Push delivery thật đều đã được kiểm thử.
-- C14 — Hiệu năng và độ mượt UX: hoàn tất.
-- C15 — Sửa dữ liệu khoản vay và trình bày lãi theo kỳ: hoàn tất.
-- C16–C19 — Remediation, CI/provenance, bảo vệ audit secret và cleanup vòng đời Push: hoàn tất.
-- Chưa có checkpoint mới hoặc hạng mục chờ phê duyệt.
-- GitHub private, Supabase Singapore, Google/Clasp và Vercel Production đã liên kết; Production chạy tại `https://tindung.vercel.app`.
+- C0–C37 và C39–C44 đã hoàn tất.
+- C45 đã hoàn tất dọn local nhưng đang `BLOCKED` ở bước push do phiên GitHub hết hiệu lực.
+- C38 đang `AWAITING_APPROVAL`: hậu kiểm read-only chu kỳ nhắc lãi Production theo lịch thực tế.
+- Production: <https://tindung.vercel.app>.
+- Stable Preview: <https://tindung-preview.vercel.app>.
+- GitHub private, Supabase Singapore, Google/Clasp và Vercel đã được liên kết.
 
-Trạng thái hiện tại luôn được lấy từ `PROJECT_CONTEXT.md`; roadmap tóm tắt nằm trong
-`docs/IMPLEMENTATION_PLAN.md`. Kế hoạch đã hoàn tất và Git history chỉ dùng để truy vết, không phải
-yêu cầu đang chờ.
+Trạng thái hiện hành luôn lấy từ `PROJECT_CONTEXT.md`. Roadmap tóm tắt nằm trong
+`docs/IMPLEMENTATION_PLAN.md`; tài liệu checkpoint đã hoàn tất được lưu trong Git history.
 
-## Kiến trúc đích
+## Kiến trúc
 
 ```text
 apps/web             Next.js PWA
 apps/google-sync     Apps Script đồng bộ Google Sheets/Drive
+packages             Contract dùng chung
 supabase             Migration, RLS, database/Edge Functions
-docs                 Kế hoạch và tài liệu kỹ thuật
+docs                 Tài liệu kỹ thuật và checkpoint hiện hành
 ```
 
-Supabase là nguồn dữ liệu chuẩn. Google Sheets chỉ là bản đối chiếu một chiều; Google Drive lưu snapshot định kỳ.
+Supabase là nguồn dữ liệu chuẩn. Google Sheets chỉ là bản đối chiếu một chiều; Google Drive lưu
+snapshot định kỳ.
 
-Đặc tả nghiệp vụ chuẩn nằm trong `docs/DOMAIN_SPEC.md`; contract database authoritative nằm
-trong `docs/FINANCIAL_ENGINE.md`; fixture dùng lại cho database engine nằm tại
-`packages/domain-contract/fixtures`.
+Tài liệu chính:
 
-Luồng Auth/RBAC nằm trong `docs/AUTH.md`; các màn hình và workflow nghiệp vụ web nằm trong
-`docs/WEB_WORKFLOWS.md`.
-
-Quy tắc PWA/Web Push nằm trong `docs/PWA_NOTIFICATIONS.md`; contract đồng bộ Sheet một chiều,
-snapshot và phục hồi nằm trong `docs/GOOGLE_SYNC.md`.
-
-Hướng dẫn thao tác dành cho người dùng nằm trong `docs/USER_GUIDE.md`.
+- Nghiệp vụ và database: `docs/DOMAIN_SPEC.md`, `docs/FINANCIAL_ENGINE.md`
+- Auth và workflow: `docs/AUTH.md`, `docs/WEB_WORKFLOWS.md`, `docs/DASHBOARD.md`
+- PWA/Push và đồng bộ: `docs/PWA_NOTIFICATIONS.md`, `docs/GOOGLE_SYNC.md`
+- Vận hành: `docs/CI.md`, `docs/BACKUP_RESTORE.md`, `docs/VERCEL_PREVIEW_RUNBOOK.md`
+- UI/UX và hướng dẫn: `docs/DESIGN_SYSTEM.md`, `docs/USER_GUIDE.md`
 
 ## Phát triển local
 
@@ -68,24 +52,22 @@ pnpm lint
 pnpm typecheck
 pnpm test
 pnpm build
-supabase start
-supabase db reset
-supabase db lint --level warning
-supabase test db
 pnpm test:auth
 pnpm test:e2e
+supabase db lint --level warning
+supabase test db
 ```
 
-`supabase start` và các lệnh database trên chỉ thao tác môi trường Docker local. Không chạy
-`supabase login`, `supabase link`, `supabase db push` hoặc migration remote nếu chưa có xác nhận riêng.
+Các lệnh Supabase database ở trên mặc định dành cho môi trường Docker local. Không đăng nhập, liên
+kết, migrate hoặc deploy remote nếu chưa có phạm vi được người dùng phê duyệt.
 
 ## Tiếp tục dự án
 
-Agent hoặc kỹ sư bắt đầu bằng cách đọc:
+Đọc theo thứ tự:
 
 1. `AGENTS.md`
 2. `PROJECT_CONTEXT.md`
 3. Checkpoint liên quan trong `docs/IMPLEMENTATION_PLAN.md`
-4. Kết quả `git status --short --branch`
+4. `git status --short --branch`
 
 Không triển khai checkpoint đang chờ nếu chưa có phê duyệt rõ của người dùng.

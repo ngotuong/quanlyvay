@@ -68,7 +68,7 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
 - Light/dark được kiểm tra độc lập; trạng thái không truyền đạt chỉ bằng màu.
 - `prefers-reduced-motion` tắt gần như toàn bộ animation/transition không thiết yếu.
 
-## C20 — Primitive và quyền riêng tư
+## Primitive và quyền riêng tư
 
 - Primary/danger có `--on-primary`/`--on-danger` theo theme; không mặc định chữ trắng trên nền sáng ở dark mode.
 - `PrivacyAmount` che tiền; `PrivacyRegion` che nguyên khối text tự do; `PrivacyForm` yêu cầu chủ động hiện tiền trước khi ghi nghiệp vụ.
@@ -76,7 +76,7 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
 - `BusinessForm` giữ giá trị khi lỗi, liên kết lỗi với input, focus lỗi đầu và cảnh báo rời trang chưa lưu. Bản nháp chỉ trong bộ nhớ.
 - Tài khoản cá nhân nằm trong menu “Thêm” mobile cho mọi vai trò; menu đóng bằng Escape, click ngoài hoặc chọn route.
 
-## C27 — Primitives và luồng nhanh
+## Primitives và luồng nhanh
 
 - `Button`, `Input`, `VndInput`, `Badge`, `Card`, `BottomSheet`, `Toast` và `Tabs` là primitives
   chuẩn. Trang Dashboard, khoản vay, đối tác, chi phí và cài đặt dùng trực tiếp các primitive này.

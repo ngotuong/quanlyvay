@@ -1,10 +1,11 @@
 # C38 — Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế
 
-Trạng thái: `APPROVED` — tạm hoãn theo yêu cầu người dùng ngày 2026-09-15 để ưu tiên C39.
+Trạng thái: `AWAITING_APPROVAL` — đã tạm hoãn theo yêu cầu người dùng; không tự tiếp tục.
 
 Phê duyệt: người dùng phê duyệt trực tiếp ngày 2026-09-14.
 
-Cửa sổ quan sát: sau giờ gửi 07:00 (`Asia/Ho_Chi_Minh`) ngày 2026-09-15.
+Cửa sổ quan sát: chu kỳ kế tiếp sau giờ nhận thông báo hiện được cấu hình là 12:00
+(`Asia/Ho_Chi_Minh`), tính từ lúc người dùng phê duyệt tiếp tục.
 
 ## Mục tiêu
 

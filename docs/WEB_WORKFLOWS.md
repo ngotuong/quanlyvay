@@ -1,6 +1,6 @@
 # Web Workflows
 
-### Ghi chú cập nhật giao diện C20
+### Ghi chú giao diện hiện hành
 
 Server Actions nghiệp vụ và quản trị tài khoản đã gọi `revalidatePath` và trả cây RSC mới;
 không gọi thêm `router.refresh()` ngay khi nhận thành công. Thanh điều hướng không ép full

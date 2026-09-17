@@ -1,6 +1,6 @@
 # Hướng dẫn sử dụng Quản Lý Vay Cá Nhân
 
-## Thay đổi C20 (bản local, chờ rollout)
+## Thay đổi giao diện hiện hành
 
 - Đã bỏ VietQR, tạo phiếu văn bản và sao chép phiếu; ghi nhận đóng lãi/gốc vẫn hoạt động.
 - Nút hình mắt che tiền và nội dung nhạy cảm trên các trang. Khi chưa chọn, mặc định che; bấm
@@ -18,7 +18,7 @@
 
 Mở Production tại:
 
-`https://quan-ly-vay-ca-nhan.vercel.app`
+`https://tindung.vercel.app`
 
 Đăng nhập bằng **tên đăng nhập**, không dùng email. Tài khoản OWNER hiện tại là `ngotuong`.
 Mật khẩu không được ghi trong repository; nếu quên mật khẩu, OWNER cần dùng quy trình quản trị đã
