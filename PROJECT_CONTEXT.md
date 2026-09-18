@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.194
-last_updated: 2026-09-17 18:59:00 +07
+roadmap_version: 1.0.196
+last_updated: 2026-09-18 00:20:00 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C38
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C45
+last_completed_checkpoint: C46
 next_checkpoint: C38
 ---
 
@@ -23,6 +23,11 @@ history, migration, test và các contract/runbook chuyên biệt.
 - C45 đã dọn tài liệu lịch sử khỏi cây làm việc, giữ tài liệu kỹ thuật và checkpoint đang mở;
   xóa cache/test artifact được ignore và xác nhận không có lệnh build/test/deploy bị treo. GitHub
   đã xác thực lại và branch `main` đã nhận đầy đủ chuỗi commit qua `09c0d67`.
+- C46 `COMPLETED` ngày 2026-09-18: nâng `next`/`eslint-config-next` từ 16.2.12 lên 16.3.5
+  (bản đã vá RCE), cập nhật override `nanoid`, `sharp`, `js-yaml` lên bản đã vá và thêm
+  health-check retry có giới hạn trước khi Playwright tạo user E2E. Local audit sạch; toàn bộ gate
+  gồm pgTAP 477/477, Auth 6/6 và Playwright 21/21 đạt. Không deploy, migrate remote, thay secret
+  hoặc dữ liệu Production.
 - Checkpoint hiện tại là C38 `AWAITING_APPROVAL`: hậu kiểm read-only chu kỳ nhắc lãi Production.
   Không tự gọi worker, gửi Push thủ công hoặc thay đổi dữ liệu.
 - Supabase Cron chạy hằng giờ. 10 Push delivery revision ở trạng thái `PENDING` là hàng đợi vận
@@ -101,6 +106,15 @@ C45 đã đạt:
 
 Không chạy lại Auth E2E, browser E2E hoặc database test vì C45 không đổi code, schema, dữ liệu hay
 runtime; các gate đó gần nhất đã đạt ở C44 như ghi trên.
+
+C46 đã đạt:
+
+- `pnpm audit --audit-level high`: không còn advisory
+- `pnpm lint`, `pnpm typecheck`, `pnpm test`: 74/74
+- `pnpm build`
+- database lint sạch và pgTAP 477/477
+- `pnpm test:auth`: 6/6
+- `pnpm test:e2e`: 21/21
 
 ## 7. Việc chờ
 

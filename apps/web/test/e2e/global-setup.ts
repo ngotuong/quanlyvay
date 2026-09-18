@@ -2,10 +2,45 @@ import { createClient } from "@supabase/supabase-js";
 import { randomUUID } from "node:crypto";
 import { localSupabaseEnvironment, resetLocalDatabase } from "./helpers";
 
+const AUTH_READY_ATTEMPTS = 30;
+const AUTH_READY_INTERVAL_MS = 500;
+const AUTH_HEALTH_TIMEOUT_MS = 2_000;
+
+async function waitForLocalAuth(apiUrl: string, serviceKey: string) {
+  let lastFailure = "unknown error";
+
+  for (let attempt = 1; attempt <= AUTH_READY_ATTEMPTS; attempt += 1) {
+    try {
+      const response = await fetch(`${apiUrl}/auth/v1/health`, {
+        headers: {
+          apikey: serviceKey,
+          authorization: `Bearer ${serviceKey}`,
+        },
+        signal: AbortSignal.timeout(AUTH_HEALTH_TIMEOUT_MS),
+      });
+
+      if (response.ok) return;
+      lastFailure = `HTTP ${response.status}`;
+    } catch (error) {
+      lastFailure = error instanceof Error ? error.message : String(error);
+    }
+
+    if (attempt < AUTH_READY_ATTEMPTS) {
+      await new Promise((resolve) => setTimeout(resolve, AUTH_READY_INTERVAL_MS));
+    }
+  }
+
+  throw new Error(
+    `Local Supabase Auth was not ready after ${AUTH_READY_ATTEMPTS} attempts: ${lastFailure}`,
+  );
+}
+
 export default async function globalSetup() {
   resetLocalDatabase();
   const local = localSupabaseEnvironment();
-  const admin = createClient(local.API_URL, local.SECRET_KEY || local.SERVICE_ROLE_KEY, {
+  const serviceKey = local.SECRET_KEY || local.SERVICE_ROLE_KEY;
+  await waitForLocalAuth(local.API_URL, serviceKey);
+  const admin = createClient(local.API_URL, serviceKey, {
     auth: { autoRefreshToken: false, detectSessionInUrl: false, persistSession: false },
   });
   const { data, error } = await admin.auth.admin.createUser({

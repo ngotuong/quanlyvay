@@ -22,6 +22,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `AWAITING_APPROVAL` |
 | C39–C44 | UX khoản vay, hợp nhất nhắc hạn, nhắc lãi vận hành và rollout | `COMPLETED` |
 | C45 | Dọn repository, tài liệu hiện hành và đồng bộ GitHub | `COMPLETED` |
+| C46 | Vá dependency và ổn định Supabase Auth E2E/CI | `COMPLETED` |
 
 ## 3. Checkpoint đang mở: C38
 
