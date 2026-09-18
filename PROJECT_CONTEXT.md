@@ -27,7 +27,8 @@ history, migration, test và các contract/runbook chuyên biệt.
   (bản đã vá RCE), cập nhật override `nanoid`, `sharp`, `js-yaml` lên bản đã vá và thêm
   health-check retry có giới hạn trước khi Playwright tạo user E2E. Local audit sạch; toàn bộ gate
   gồm pgTAP 477/477, Auth 6/6 và Playwright 21/21 đạt. Không deploy, migrate remote, thay secret
-  hoặc dữ liệu Production.
+  hoặc dữ liệu Production. GitHub Actions run `35353744921` cho commit `760d59c` đã đạt cả
+  Required CI gate.
 - Checkpoint hiện tại là C38 `AWAITING_APPROVAL`: hậu kiểm read-only chu kỳ nhắc lãi Production.
   Không tự gọi worker, gửi Push thủ công hoặc thay đổi dữ liệu.
 - Supabase Cron chạy hằng giờ. 10 Push delivery revision ở trạng thái `PENDING` là hàng đợi vận
@@ -94,6 +95,7 @@ C44 đã đạt:
 - `pnpm build`
 - `pnpm test:auth`: 6/6
 - `pnpm test:e2e`: 21/21
+- GitHub Actions CI: run `35353744921` đạt Required CI gate
 - database lint sạch và pgTAP 477/477
 
 C45 đã đạt:
