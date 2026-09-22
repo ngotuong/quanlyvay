@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.201
-last_updated: 2026-09-22 15:47:29 +07
+roadmap_version: 1.0.203
+last_updated: 2026-09-22 16:54:14 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C38
-current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C49
-next_checkpoint: C38
+current_checkpoint: C50
+current_status: COMPLETED
+last_completed_checkpoint: C50
+next_checkpoint: NONE
 ---
 
 # Project Context
@@ -16,6 +16,17 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
+- C50 `COMPLETED` ngày 2026-09-22: đã bỏ C38 khỏi roadmap hiện hành và rollout C49 lên
+  Production. Candidate `dpl_DzRdBx1TLmsPHxDZMhYMXWKqkbUC`, URL bất biến
+  <https://quan-ly-vay-ca-nhan-nqhmlw9kq-ngotuong2105.vercel.app>, target Production,
+  `Ready`, Functions `sin1`. Public smoke `/login`, manifest và route khoản vay đạt.
+  Authenticated smoke trên khoản vay Ngân ở viewport thực 367 px xác nhận **Giao dịch** và
+  **Tất toán** cùng hàng 149×48 px, **Giảm gốc** hàng dưới 305×48 px, không tràn ngang; preview
+  400 triệu → trả 300 triệu + lãi chốt 2,8 triệu → kỳ mới 100 triệu cuộn tới nút xác nhận.
+  Dialog đã đóng mà không xác nhận hoặc ghi giao dịch; runtime error log sạch.
+  `tindung.vercel.app` đã promote và inspect trỏ đúng deployment mới; rollback target là
+  `dpl_8Jju8tmv12o8tZ8tQ6ZXWbk6PcFS`, không cần rollback. Không migration, đổi secret hoặc
+  push GitHub.
 - C49 `COMPLETED` ngày 2026-09-22: nhóm thao tác khoản vay nay có **Giao dịch** và **Tất toán**
   cùng hàng, đồng kích thước; **Giảm gốc** ở hàng riêng bên dưới trên cả mobile và desktop.
   Dialog vẫn dùng tiêu đề đầy đủ **Giảm gốc và mở kỳ mới**, cuộn dọc được sau khi preview dài
@@ -57,8 +68,6 @@ history, migration, test và các contract/runbook chuyên biệt.
   gồm pgTAP 477/477, Auth 6/6 và Playwright 21/21 đạt. Không deploy, migrate remote, thay secret
   hoặc dữ liệu Production. GitHub Actions run `35353744921` cho commit `760d59c` đã đạt cả
   Required CI gate.
-- C38 `AWAITING_APPROVAL` vẫn chờ riêng: hậu kiểm read-only chu kỳ nhắc lãi Production. Không tự
-  gọi worker, gửi Push thủ công hoặc thay đổi dữ liệu.
 - Supabase Cron chạy hằng giờ. 10 Push delivery revision ở trạng thái `PENDING` là hàng đợi vận
   hành hợp lệ sau lần rollout ngoài giờ nhận 12:00, không phải lệnh terminal bị treo và không được
   xóa trong công việc dọn repository.
@@ -178,12 +187,18 @@ C49 đã đạt:
 - Không chạy lại Auth E2E hoặc pgTAP vì C49 chỉ đổi nhãn, bố cục, CSS cuộn và E2E UI; không đổi
   Auth, schema, RPC hay nghiệp vụ tài chính.
 
+C50 đã đạt:
+
+- `git diff --check`, `pnpm lint`, `pnpm typecheck`, `pnpm test`: 74/74, `pnpm build`
+- `pnpm test:e2e`: 22/22
+- Candidate đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target Production, `Ready`,
+  Functions `sin1`; authenticated smoke không ghi dữ liệu và runtime log đạt.
+- Alias Production đã chuyển và public hậu kiểm đạt; không cần rollback.
+
 ## 7. Việc chờ
 
-- C49 đã hoàn tất local; Preview/Production và GitHub push chưa được phê duyệt trong checkpoint này.
+- Không còn checkpoint đang chờ phê duyệt trong roadmap hiện hành.
+- Hai commit local C49/C50 chưa push GitHub vì GitHub push không nằm trong yêu cầu C50.
 - Bản `apps/google-sync/src/Config.js` C47 đã có hai bảng đối chiếu mới trong Git nhưng chưa
   `clasp push`; rollout Apps Script không nằm trong acceptance criteria C48 và cần duyệt riêng.
-- C38 chờ người dùng phê duyệt tiếp tục. Phạm vi nằm tại
-  `docs/C38_PRODUCTION_NOTIFICATION_OBSERVATION.md`.
-- Heartbeat quan sát C38 đang `PAUSED`; không tự khởi động lại.
 - Không có blocker hoặc lệnh terminal dự án bị treo.

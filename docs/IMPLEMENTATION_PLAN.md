@@ -19,13 +19,13 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C0–C19 | Nền tảng, nghiệp vụ, Auth, PWA, đồng bộ, Production và hardening | `COMPLETED` |
 | C20–C29 | Remediation, dữ liệu/hiệu năng, UI/UX, nhận diện và rollout | `COMPLETED` |
 | C30–C37 | Notification, bộ lọc/biểu đồ, tài khoản/cài đặt và rollout | `COMPLETED` |
-| C38 | Hậu kiểm chu kỳ nhắc lãi Production theo lịch thực tế | `AWAITING_APPROVAL` |
 | C39–C44 | UX khoản vay, hợp nhất nhắc hạn, nhắc lãi vận hành và rollout | `COMPLETED` |
 | C45 | Dọn repository, tài liệu hiện hành và đồng bộ GitHub | `COMPLETED` |
 | C46 | Vá dependency và ổn định Supabase Auth E2E/CI | `COMPLETED` |
 | C47 | Giảm gốc và tái lập chu kỳ lãi không chồng ngày | `COMPLETED` |
 | C48 | Rollout C47 lên Production và đồng bộ GitHub | `COMPLETED` |
 | C49 | Bố cục nút khoản vay và cuộn modal giảm gốc trên mobile | `COMPLETED` |
+| C50 | Rollout C49 lên Production | `COMPLETED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -81,22 +81,21 @@ Acceptance criteria:
    typecheck, unit test, build và E2E áp dụng. Không đổi tính lãi, RPC, dữ liệu hay schema.
 4. Chỉ sửa và kiểm chứng local; Preview/Production và GitHub push cần phê duyệt riêng.
 
-## 6. Checkpoint đang chờ phê duyệt: C38
+## 6. Checkpoint hoàn tất: C50
 
-Mục tiêu: kiểm chứng read-only chu kỳ scheduler kế tiếp tạo/làm mới nhắc lãi đúng hạn và ghi nhận
-kết quả Push thực tế.
+Mục tiêu: đưa thay đổi UI C49 lên Production an toàn, có khả năng rollback và không tác động dữ
+liệu tài chính.
 
 Acceptance criteria:
 
-1. Đọc lịch sử scheduler/worker và runtime log sau giờ gửi đã cấu hình.
-2. Đối chiếu notification `INTEREST_DUE`, ngày nhắc, idempotency/dedupe và nghĩa vụ lãi còn dư
-   với dữ liệu authoritative.
-3. Đối chiếu `push_deliveries` và subscription để phân biệt không tạo nhắc, không có thiết bị,
-   delivery lỗi hoặc delivery thành công.
-4. Chỉ đọc; không gọi runner thủ công, thay giờ nhận, tạo giao dịch hoặc sửa dữ liệu.
-5. Ghi kết quả vào `PROJECT_CONTEXT.md`, cập nhật trạng thái và dừng.
-
-Phạm vi chi tiết: `docs/C38_PRODUCTION_NOTIFICATION_OBSERVATION.md`.
+1. `git diff --check`, lint, typecheck, unit test, build và E2E đạt trước deployment.
+2. Candidate thuộc project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target Production, trạng thái
+   Ready và toàn bộ Functions ở `sin1`.
+3. Public smoke và authenticated smoke route khoản vay ở 375/390 px xác nhận đúng bố cục ba nút,
+   dialog preview cuộn tới nút xác nhận, không ghi giao dịch và không có browser/runtime error.
+4. Chỉ promote sau khi candidate đạt; hậu kiểm `tindung.vercel.app` trỏ đúng deployment. Nếu hậu
+   kiểm thất bại, rollback alias về deployment Production tốt trước đó.
+5. Ghi bằng chứng triển khai vào `PROJECT_CONTEXT.md`; không migration, đổi secret hoặc push GitHub.
 
 ## 7. Contract không được phá vỡ
 
