@@ -829,8 +829,6 @@ details[open] > summary::after { content: "−"; }
   .metric-card > span { flex: 0 0 auto; margin: 0; }
   .metric-card strong { font-size: 1rem; }
   .action-drawer-grid { grid-template-columns: 1fr 1fr; align-items: start; }
-  .loan-primary-actions { grid-template-columns: repeat(3, max-content); width: auto; }
-  .restructure-trigger { grid-column: auto; }
   .detail-grid { grid-template-columns: minmax(0, 1.25fr) minmax(320px, .75fr); align-items: start; }
   .timeline-heading { flex-direction: row; align-items: baseline; justify-content: space-between; gap: 16px; }
 }

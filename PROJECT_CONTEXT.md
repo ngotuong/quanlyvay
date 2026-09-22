@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.199
-last_updated: 2026-09-22 15:16:29 +07
+roadmap_version: 1.0.201
+last_updated: 2026-09-22 15:47:29 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C38
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C48
+last_completed_checkpoint: C49
 next_checkpoint: C38
 ---
 
@@ -16,6 +16,12 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
+- C49 `COMPLETED` ngày 2026-09-22: nhóm thao tác khoản vay nay có **Giao dịch** và **Tất toán**
+  cùng hàng, đồng kích thước; **Giảm gốc** ở hàng riêng bên dưới trên cả mobile và desktop.
+  Dialog vẫn dùng tiêu đề đầy đủ **Giảm gốc và mở kỳ mới**, cuộn dọc được sau khi preview dài
+  xuất hiện, chặn overscroll ra trang và chừa safe area cuối màn hình. E2E kiểm tra hình học ở
+  375/390/1024 px, cuộn thực tới nút xác nhận ở 375/390 px, không tràn ngang và luồng ghi nguyên
+  tử vẫn đạt. Không đổi tính lãi, RPC, schema hoặc dữ liệu Production; chưa deploy hay push.
 - C48 `COMPLETED` ngày 2026-09-22: rollout C47 lên Supabase/Vercel Production, hậu kiểm không ghi
   dữ liệu tài chính và đồng bộ source/bằng chứng lên GitHub. GitHub CI run `35701912815` lần 2
   đạt Required CI gate.
@@ -160,8 +166,21 @@ C48 đã đạt:
   tất cả job và Required CI gate, gồm pgTAP/Auth/Playwright E2E. Lần đầu Auth local của runner
   trả HTTP 502 trong 15 giây sau reset (trước khi Playwright chạy); rerun không lặp lại.
 
+C49 đã đạt:
+
+- `git diff --check`
+- `pnpm lint`
+- `pnpm typecheck`
+- `pnpm test`: 74/74
+- `pnpm build`
+- `pnpm test:e2e`: 22/22, gồm bố cục nút ở 375/390/1024 px và cuộn tới nút xác nhận ở
+  375/390 px sau preview
+- Không chạy lại Auth E2E hoặc pgTAP vì C49 chỉ đổi nhãn, bố cục, CSS cuộn và E2E UI; không đổi
+  Auth, schema, RPC hay nghiệp vụ tài chính.
+
 ## 7. Việc chờ
 
+- C49 đã hoàn tất local; Preview/Production và GitHub push chưa được phê duyệt trong checkpoint này.
 - Bản `apps/google-sync/src/Config.js` C47 đã có hai bảng đối chiếu mới trong Git nhưng chưa
   `clasp push`; rollout Apps Script không nằm trong acceptance criteria C48 và cần duyệt riêng.
 - C38 chờ người dùng phê duyệt tiếp tục. Phạm vi nằm tại

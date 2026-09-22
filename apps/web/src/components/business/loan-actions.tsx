@@ -93,9 +93,9 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
     <section className="action-drawer-grid" id={mode === "payment" ? "transaction-actions" : undefined} aria-label="Ghi nhận nghiệp vụ">
       {mode !== "management" ? <div className="transaction-action">
         <div className="loan-primary-actions">
-          <Button className="primary-button transaction-trigger" type="button" onClick={openPaymentDialog}><Plus size={18} />Ghi giao dịch</Button>
-          <Button variant="secondary" className="secondary-button restructure-trigger" type="button" onClick={openRestructureDialog}><RefreshCw size={18} />Giảm gốc & mở kỳ mới</Button>
+          <Button className="primary-button transaction-trigger" type="button" onClick={openPaymentDialog}><Plus size={18} />Giao dịch</Button>
           <Button variant="danger" className="danger-button settlement-trigger" type="button" onClick={openSettlementDialog}><CircleCheckBig size={18} />Tất toán</Button>
+          <Button variant="secondary" className="secondary-button restructure-trigger" type="button" onClick={openRestructureDialog}><RefreshCw size={18} />Giảm gốc</Button>
         </div>
         <p>Ghi khoản thu/trả hằng ngày, giảm gốc để bắt đầu kỳ lãi mới hoặc tất toán toàn bộ.</p>
         <BottomSheet eyebrow="Nghiệp vụ khoản vay" title="Ghi giao dịch" titleId="transaction-dialog-title" ref={paymentDialog} onRequestClose={closePaymentDialog}>

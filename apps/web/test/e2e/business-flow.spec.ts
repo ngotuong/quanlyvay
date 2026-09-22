@@ -63,7 +63,7 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await expect(page.locator(".loan-detail-heading").getByText(/Giải ngân/)).not.toContainText("Anh Nam E2E");
   const loanTabs = page.getByRole("navigation", { name: "Nội dung khoản vay" });
   await expect(page.getByText("Lãi đã thu", { exact: true })).toBeVisible();
-  await page.getByRole("button", { name: "Ghi giao dịch" }).click();
+  await page.getByRole("button", { name: "Giao dịch", exact: true }).click();
   await expect(page.getByRole("dialog", { name: "Ghi giao dịch" })).toBeVisible();
   await page.getByRole("dialog", { name: "Ghi giao dịch" }).getByRole("button", { name: "Hủy" }).click();
   await expect(page.getByRole("button", { name: "Tất toán", exact: true })).toBeVisible();
@@ -191,10 +191,25 @@ test("owner reduces principal and starts a new interest cycle without overlappin
   await page.getByLabel("Lãi suất mỗi kỳ (%)").fill("2.1");
   await page.getByRole("button", { name: "Tạo khoản vay" }).click();
 
+  const actions = page.locator(".loan-primary-actions");
+  for (const width of [375, 390, 1024]) {
+    await page.setViewportSize({ width, height: 844 });
+    const [payment, settlement, restructure] = await Promise.all([
+      actions.getByRole("button", { name: "Giao dịch", exact: true }).boundingBox(),
+      actions.getByRole("button", { name: "Tất toán", exact: true }).boundingBox(),
+      actions.getByRole("button", { name: "Giảm gốc", exact: true }).boundingBox(),
+    ]);
+    expect(payment && settlement && restructure).toBeTruthy();
+    expect(Math.abs(payment!.y - settlement!.y)).toBeLessThan(2);
+    expect(Math.abs(payment!.width - settlement!.width)).toBeLessThan(2);
+    expect(restructure!.y).toBeGreaterThan(payment!.y + payment!.height);
+    expect(restructure!.width).toBeGreaterThan(payment!.width + settlement!.width);
+    expect(payment!.height).toBeGreaterThanOrEqual(44);
+  }
   await page.setViewportSize({ width: 390, height: 844 });
-  await expect(page.getByRole("button", { name: "Giảm gốc & mở kỳ mới" })).toBeVisible();
+  await expect(actions.getByRole("button")).toHaveText(["Giao dịch", "Tất toán", "Giảm gốc"]);
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
-  await page.getByRole("button", { name: "Giảm gốc & mở kỳ mới" }).click();
+  await actions.getByRole("button", { name: "Giảm gốc", exact: true }).click();
   const dialog = page.getByRole("dialog", { name: "Giảm gốc và mở kỳ mới" });
   await expect(dialog).toBeVisible();
   await dialog.getByLabel("Số gốc thực trả (VND)").fill("300000000");
@@ -202,6 +217,19 @@ test("owner reduces principal and starts a new interest cycle without overlappin
   await expect(dialog.getByText("300.280.000 ₫", { exact: true })).toBeVisible();
   await expect(dialog.getByText("100.000.000 ₫", { exact: true })).toBeVisible();
   await expect(dialog.getByText("2.100.000 ₫", { exact: true })).toBeVisible();
+  for (const width of [375, 390]) {
+    await page.setViewportSize({ width, height: 844 });
+    await dialog.evaluate((element) => { element.scrollTop = 0; });
+    const bounds = await dialog.boundingBox();
+    expect(bounds).not.toBeNull();
+    await page.mouse.move(bounds!.x + bounds!.width / 2, bounds!.y + bounds!.height / 2);
+    await page.mouse.wheel(0, 2000);
+    await expect.poll(() => dialog.evaluate((element) => element.scrollTop)).toBeGreaterThan(0);
+    const submit = await dialog.getByRole("button", { name: "Xác nhận giảm gốc" }).boundingBox();
+    expect(submit).not.toBeNull();
+    expect(submit!.y + submit!.height).toBeLessThanOrEqual(bounds!.y + bounds!.height);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+  }
   await dialog.getByLabel(/Tôi xác nhận gốc thực trả/).check();
   await dialog.getByRole("button", { name: "Xác nhận giảm gốc" }).click();
   await expect(dialog.getByText("Đã giảm gốc, đóng lãi cũ và mở kỳ lãi mới.")).toBeVisible();
@@ -308,14 +336,14 @@ test("business pages remain usable at 375px", async ({ page }) => {
   await expect(mobileTabs.getByRole("link")).toHaveCount(4);
   const tabTops = await mobileTabs.getByRole("link").evaluateAll((links) => links.map((link) => Math.round(link.getBoundingClientRect().top)));
   expect(new Set(tabTops).size).toBe(1);
-  await page.getByRole("button", { name: "Ghi giao dịch" }).click();
+  await page.getByRole("button", { name: "Giao dịch", exact: true }).click();
   const transactionDialog = page.getByRole("dialog", { name: "Ghi giao dịch" });
   await expect(transactionDialog).toBeVisible();
   expect(await transactionDialog.evaluate((element) => getComputedStyle(element).animationName)).toBe("dialog-enter");
   await transactionDialog.getByRole("button", { name: "Đóng" }).click();
   await expect(transactionDialog).toHaveClass(/is-closing/);
   await expect(transactionDialog).toBeHidden();
-  await page.getByRole("button", { name: "Ghi giao dịch" }).click();
+  await page.getByRole("button", { name: "Giao dịch", exact: true }).click();
   await expect(transactionDialog).toBeVisible();
   await transactionDialog.evaluate(async (element) => Promise.all(element.getAnimations().map((animation) => animation.finished)));
   expect(await transactionDialog.evaluate((dialog) => {

@@ -25,6 +25,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C46 | Vá dependency và ổn định Supabase Auth E2E/CI | `COMPLETED` |
 | C47 | Giảm gốc và tái lập chu kỳ lãi không chồng ngày | `COMPLETED` |
 | C48 | Rollout C47 lên Production và đồng bộ GitHub | `COMPLETED` |
+| C49 | Bố cục nút khoản vay và cuộn modal giảm gốc trên mobile | `COMPLETED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -64,7 +65,23 @@ Acceptance criteria:
 5. Nếu hậu kiểm web thất bại, rollback alias về deployment Production tốt trước đó; nếu migration
    thất bại thì dừng và không deploy web phụ thuộc schema.
 
-## 5. Checkpoint đang chờ phê duyệt: C38
+## 5. Checkpoint hoàn tất gần nhất: C49
+
+Mục tiêu: làm rõ nhóm thao tác khoản vay và bảo đảm người dùng có thể đọc, cuộn, xác nhận phương
+án giảm gốc trên điện thoại.
+
+Acceptance criteria:
+
+1. "Giao dịch" và "Tất toán" cùng hàng, kích thước đồng đều; nút "Giảm gốc" ở hàng dưới, rộng
+   theo nhóm. Dialog vẫn ghi rõ nghiệp vụ đầy đủ "Giảm gốc và mở kỳ mới" trước xác nhận.
+2. Dialog dài cuộn dọc được bằng thao tác vuốt trên mobile; phần cuối và nút xác nhận luôn tiếp cận
+   được ở 375/390 px, kể cả sau khi preview xuất hiện. Không gây cuộn ngang, không che bởi safe area
+   hoặc bàn phím; nút đóng và keyboard navigation vẫn hoạt động.
+3. Có kiểm thử hồi quy cho thứ tự/nội dung nút và khả năng cuộn tới nút xác nhận; đạt lint,
+   typecheck, unit test, build và E2E áp dụng. Không đổi tính lãi, RPC, dữ liệu hay schema.
+4. Chỉ sửa và kiểm chứng local; Preview/Production và GitHub push cần phê duyệt riêng.
+
+## 6. Checkpoint đang chờ phê duyệt: C38
 
 Mục tiêu: kiểm chứng read-only chu kỳ scheduler kế tiếp tạo/làm mới nhắc lãi đúng hạn và ghi nhận
 kết quả Push thực tế.
@@ -81,7 +98,7 @@ Acceptance criteria:
 
 Phạm vi chi tiết: `docs/C38_PRODUCTION_NOTIFICATION_OBSERVATION.md`.
 
-## 6. Contract không được phá vỡ
+## 7. Contract không được phá vỡ
 
 ```text
 LoanDirection: LENDING | BORROWING
@@ -96,7 +113,7 @@ TransactionType: DISBURSEMENT | INTEREST_PAYMENT | PRINCIPAL_PAYMENT | EXPENSE |
 - Ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`; audit timestamp UTC.
 - Notification và sync idempotent; secret không vào Git/log.
 
-## 7. Gate chuẩn
+## 8. Gate chuẩn
 
 ```text
 pnpm lint
