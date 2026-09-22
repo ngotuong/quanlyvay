@@ -81,7 +81,7 @@ test("partial sheet failure preserves last success and blocks snapshots until fu
 
 test("sheet contract includes every reconciliation dataset", () => {
   const context = makeContext();
-  assert.deepEqual(Array.from(call(context, "SYNC_SHEETS.map(item => item.name)")), ["Đối tác", "Khoản vay", "Giao dịch", "Sự kiện", "Điều chỉnh khoản vay", "Hoàn tác tất toán", "Khởi tạo khoản cũ", "Kỳ lãi", "Chi phí", "Thông báo", "Lịch sử"]);
+  assert.deepEqual(Array.from(call(context, "SYNC_SHEETS.map(item => item.name)")), ["Đối tác", "Khoản vay", "Giao dịch", "Sự kiện", "Điều chỉnh khoản vay", "Hoàn tác tất toán", "Giảm gốc mở kỳ mới", "Hoàn tác giảm gốc", "Khởi tạo khoản cũ", "Kỳ lãi", "Chi phí", "Thông báo", "Lịch sử"]);
 });
 
 test("row mapping keeps IDs as text and VND as numeric when safe", () => {
@@ -97,7 +97,7 @@ test("unsafe VND integers remain text to avoid JavaScript precision loss", () =>
 
 test("audit bigint identifiers remain exact text", () => {
   const context = makeContext();
-  const row = call(context, `buildSheetRows_(SYNC_SHEETS[10], [{id:"9007199254740993"}])[0]`);
+  const row = call(context, `buildSheetRows_(SYNC_SHEETS[12], [{id:"9007199254740993"}])[0]`);
   assert.equal(row[0], "9007199254740993");
 });
 
@@ -145,7 +145,7 @@ test("full snapshot writes overview and all data tabs idempotently", () => {
   context.payload = { schemaVersion: 3, sourceVersion: "v1", generatedAt: "2026-08-01T00:00:00Z", tables: { counterparties: [{ id: "c1", name: "A" }], loans: [], transactions: [], lifecycleEvents: [], loanTermCorrections: [], settlementReversals: [], interestPeriods: [], expenses: [], notifications: [], auditLogs: [] } };
   call(context, "applyPayloadToSpreadsheet_(spreadsheet, payload)");
   call(context, "applyPayloadToSpreadsheet_(spreadsheet, payload)");
-  assert.equal(spreadsheet.sheets.length, 12);
+  assert.equal(spreadsheet.sheets.length, 14);
   assert.equal(spreadsheet.getSheetByName("Đối tác").cells["2,1"], "c1");
   assert.equal(spreadsheet.getSheetByName("Đối tác").clearCount, 2);
   assert.equal(spreadsheet.getSheetByName("Đối tác").filterCount, 1);
@@ -179,7 +179,7 @@ test("contract refresh repairs timezone and headers without clearing data", () =
   const context = makeContext({ SpreadsheetApp: { getActive: () => spreadsheet } });
   const result = call(context, "refreshGoogleSheetContract()");
   assert.equal(result.timeZone, "Asia/Ho_Chi_Minh");
-  assert.equal(result.sheetCount, 11);
+  assert.equal(result.sheetCount, 13);
   assert.equal(spreadsheet.getSheetByName("Khoản vay").cells["1,8"], "Số ngày (nếu có)");
   assert.equal(spreadsheet.getSheetByName("Khoản vay").cells["2,1"], "loan-kept");
 });
@@ -245,6 +245,6 @@ test("infrastructure setup defers hourly sync until API configuration exists", (
   const configuredResult = call(context, "installGoogleSyncInfrastructure()");
   assert.equal(configuredResult.triggerCount, 2);
   assert.equal(configuredResult.syncTriggerInstalled, true);
-  assert.equal(folderCreates, 1); assert.equal(triggers.length, 2); assert.equal(spreadsheet.sheets.length, 12);
+  assert.equal(folderCreates, 1); assert.equal(triggers.length, 2); assert.equal(spreadsheet.sheets.length, 14);
   assert.equal(spreadsheet.getSheetByName("Sheet1"), null);
 });

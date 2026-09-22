@@ -12,6 +12,7 @@ import {
   lifecycleSchema,
   legacyOnboardingSchema,
   paymentSchema,
+  principalRestructureSchema,
   reversalSchema,
   settlementReversalSchema,
   settlementSchema,
@@ -281,6 +282,34 @@ export async function settleLoanAction(
   revalidatePath("/loans");
   revalidatePath("/dashboard");
   return { ok: true, message: "Khoản vay đã được tất toán." };
+}
+
+export async function restructureLoanPrincipalAction(
+  _state: BusinessActionState,
+  formData: FormData,
+): Promise<BusinessActionState> {
+  await requireWriterProfile();
+  const parsed = principalRestructureSchema.safeParse(values(formData));
+  if (!parsed.success) return validationFailure(parsed.error);
+  const supabase = await createClient();
+  const { error } = await supabase.rpc("restructure_loan_principal", {
+    p_loan_id: parsed.data.loanId,
+    p_effective_date: parsed.data.effectiveDate,
+    p_principal_payment_vnd: parsed.data.principalPaymentVnd,
+    p_expected_principal_before_vnd: parsed.data.expectedPrincipalBeforeVnd,
+    p_expected_interest_vnd: parsed.data.expectedInterestVnd,
+    p_idempotency_key: parsed.data.idempotencyKey,
+    p_note: parsed.data.note,
+  });
+  if (error?.code === "40001") return databaseFailure("Số dư đã thay đổi sau khi xem trước. Hãy tải lại và kiểm tra lại số tiền.");
+  if (error?.message.includes("Later loan activity")) return databaseFailure("Đã có nghiệp vụ sau ngày được chọn. Hãy hoàn tác nghiệp vụ đó hoặc chọn ngày mới hơn.");
+  if (error?.message.includes("Use settlement")) return databaseFailure("Số gốc nhập vào sẽ trả hết khoản vay. Hãy dùng chức năng Tất toán.");
+  if (error) return databaseFailure("Không thể giảm gốc và mở kỳ mới. Hãy kiểm tra ngày hiệu lực, số gốc và trạng thái khoản vay.");
+  revalidatePath(`/loans/${parsed.data.loanId}`);
+  revalidatePath("/loans");
+  revalidatePath("/dashboard");
+  revalidatePath("/notifications");
+  return { ok: true, message: "Đã giảm gốc, đóng lãi cũ và mở kỳ lãi mới." };
 }
 
 export async function reverseTransactionAction(

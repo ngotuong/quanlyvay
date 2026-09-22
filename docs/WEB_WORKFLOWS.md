@@ -32,8 +32,9 @@ không hiển thị. Đây là đối chiếu triệu chứng, không kết lu�
   đóng lãi và ba chỉ số authoritative: dư nợ gốc, lãi phải thu/trả, lãi đã thu/trả. Thẻ
   `SETTLED` thay lịch đóng lãi bằng `settled_on` với nhãn **Ngày tất toán**.
 - Chi tiết khoản vay chia bốn tab URL: Tổng quan, Các kỳ lãi, Lịch sử, Thiết lập. Tổng quan có hero
-  dư nợ/việc kế tiếp/trạng thái, nút **Ghi giao dịch** và nút đỏ **Tất toán** cạnh nhau; mỗi thao tác
-  mở một sheet riêng và lặp lại ngữ cảnh khoản vay. Dưới ba kỳ dùng summary thay chart. Tab thiết
+  dư nợ/việc kế tiếp/trạng thái, các nút **Ghi giao dịch**, **Giảm gốc & mở kỳ mới** và nút đỏ
+  **Tất toán**; mỗi thao tác mở một sheet riêng và lặp lại ngữ cảnh khoản vay. Nghiệp vụ giảm gốc
+  bắt buộc xem trước lãi chốt đến D-1 và kỳ mới từ D. Dưới ba kỳ dùng summary thay chart. Tab thiết
   lập chỉ chứa điều khoản hiện tại, chỉnh sửa thông tin, điều chỉnh nghiệp vụ và vùng nâng cao cho
   dữ liệu cũ/sửa sai; hoàn tác tất toán được cô lập trong vùng nguy hiểm.
 - Quản lý đối tác tại `/counterparties`; OWNER chỉ xóa được đối tác chưa có lịch sử khoản vay.
@@ -79,6 +80,9 @@ PostgreSQL; frontend không tự tính dư nợ hoặc lãi. Migration C6 bổ s
   khoản vay, ngày, số tiền, nhóm chi phí và ghi chú
 - `reverse_settlement`: hoàn tác nguyên lần tất toán bằng các reversal đúng batch và một ledger
   append-only; không cho đảo lẻ gốc/lãi do tất toán tạo ra
+- `preview_principal_restructure` / `restructure_loan_principal`: chốt lãi đến D-1, ghi số gốc thực
+  trả và mở kỳ mới từ D trên dư gốc còn lại, có stale-preview guard và idempotency
+- `reverse_principal_restructure`: hoàn tác nguyên batch giảm gốc/mở kỳ mới; không cho đảo lẻ thành phần
 - `get_general_expenses_page`: tổng và category đầy đủ, xác định reversal ở server, page 25.
 - `list_loan_summaries_page`: filter/sort ổn định, tổng số đếm, không gửi periods trong card.
 - `preview_settlement` / `settle_loan_confirmed`: xem gốc/lãi/tổng theo ngày; lúc ghi khóa khoản

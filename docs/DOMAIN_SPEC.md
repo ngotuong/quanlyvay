@@ -94,12 +94,19 @@ closing_interest_balance =
 - Trả gốc một phần không được vượt dư nợ đầu ngày.
 - Dư nợ gốc không bao giờ âm.
 - Khoản vay bình thường hoặc nợ xấu đều có thể trả gốc một phần.
+- Nghiệp vụ **giảm gốc và mở kỳ mới** tại ngày D chốt lãi của dư gốc cũ đến hết D-1, ghi đúng số
+  gốc thực trả và bắt đầu chu kỳ mới trên dư gốc còn lại từ D. Đây không phải tất toán/mở khoản vay
+  mới và không tạo giao dịch giải ngân giả.
+- Với nghiệp vụ này, ngày D chỉ tính lãi trên dư gốc mới. Giao dịch lãi được phân bổ vào kỳ vừa chốt;
+  không có ngày bị tính trùng hoặc bỏ trống.
 - Tất toán là thao tác nguyên tử gồm số gốc còn lại và số lãi cần thanh toán đến hết ngày tất toán.
 - Khi gốc hoặc lãi đã được trả đủ trước đó, tất toán chỉ tạo thành phần còn dương; vẫn ghi lifecycle
   `SETTLEMENT` nếu cả hai số dư đều bằng 0 và không tạo giao dịch 0 VND.
 - Sau tất toán, trạng thái là `SETTLED`; không cho thêm giao dịch mới ngoài reversal/correction có kiểm soát.
 - Không đảo lẻ gốc/lãi do tất toán tạo. Hoàn tác tất toán là một workflow nguyên khối: giữ event và
   transaction cũ, thêm reversal cho đúng batch, thêm ledger `loan_settlement_reversals`, rồi tính lại.
+- Không đảo lẻ các thành phần do giảm gốc/mở kỳ mới tạo. Hoàn tác phải qua workflow kiểm soát để đảo
+  đúng giao dịch gốc/lãi và vô hiệu mốc chu kỳ trong khi vẫn giữ audit.
 
 ## 7. Nợ xấu, quá hạn và bật lại lãi
 

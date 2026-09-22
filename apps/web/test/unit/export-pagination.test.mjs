@@ -16,6 +16,7 @@ test("Google Sync selects cast every money, rate and bigint identifier to text",
     transactions: ["amount_vnd::text"],
     lifecycleEvents: ["daily_rate_percent::text"],
     loanTermCorrections: ["original_principal_vnd::text", "initial_period_rate_percent::text"],
+    principalRestructures: ["principal_before_vnd::text", "principal_payment_vnd::text", "principal_after_vnd::text", "interest_settled_vnd::text"],
     interestPeriods: [
       "opening_principal_vnd::text",
       "closing_principal_vnd::text",

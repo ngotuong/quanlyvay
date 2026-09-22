@@ -6,6 +6,7 @@ import { cx } from "./utils";
 
 type VndInputProps = Omit<ComponentPropsWithoutRef<"input">, "type" | "inputMode" | "value" | "defaultValue" | "onChange"> & {
   defaultValue?: string | number;
+  onValueChange?: (normalizedValue: string) => void;
 };
 
 export function formatVndInput(value: string | number) {
@@ -13,7 +14,7 @@ export function formatVndInput(value: string | number) {
   return /^\d*$/.test(digits) ? formatVndDigits(digits) : String(value);
 }
 
-export function VndInput({ className, defaultValue = "", ...props }: VndInputProps) {
+export function VndInput({ className, defaultValue = "", onValueChange, ...props }: VndInputProps) {
   const [value, setValue] = useState(() => formatVndInput(defaultValue));
   const inputRef = useRef<HTMLInputElement>(null);
   const selection = useRef<number | null>(null);
@@ -54,5 +55,6 @@ export function VndInput({ className, defaultValue = "", ...props }: VndInputPro
       input.value = formatted;
       input.setSelectionRange(cursor, cursor);
       setValue(formatted);
+      onValueChange?.(formatted.replaceAll(".", ""));
     }} />;
 }

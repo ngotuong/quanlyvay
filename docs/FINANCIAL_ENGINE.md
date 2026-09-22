@@ -42,6 +42,15 @@ idempotency.
 - Nếu resume không truyền lãi suất, database dùng mức có hiệu lực gần nhất; caller có thể truyền
   mức mới để thay thế.
 
+### `preview_principal_restructure(...)` / `restructure_loan_principal(...)`
+
+- Preview authoritative tính dư gốc trước thay đổi, lãi đến D-1, dư gốc mới và kỳ lãi mới từ D.
+- Lúc xác nhận, RPC khóa khoản vay và từ chối nếu số gốc/lãi khác preview đã duyệt.
+- Ghi nguyên tử tiền gốc thực trả và tiền lãi thực thu/trả; không sinh giải ngân hoặc khoản vay giả.
+- Gốc mới có hiệu lực từ đầu ngày D, còn lãi thanh toán ngày D được phân bổ vào kỳ kết thúc D-1.
+- Retry cùng idempotency key không tạo dữ liệu trùng; thành phần chỉ được đảo qua
+  `reverse_principal_restructure`.
+
 ### `reverse_transaction(...)`
 
 - Chỉ thêm một dòng `REVERSAL`; không sửa hoặc xóa giao dịch gốc.

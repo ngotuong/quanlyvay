@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.196
-last_updated: 2026-09-18 00:20:00 +07
+roadmap_version: 1.0.198
+last_updated: 2026-09-22 12:44:09 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C38
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C46
+last_completed_checkpoint: C47
 next_checkpoint: C38
 ---
 
@@ -16,6 +16,11 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
+- C47 `COMPLETED` ngày 2026-09-22: bổ sung nghiệp vụ nguyên tử **Giảm gốc & mở kỳ mới**. Ngày
+  hiệu lực D chốt lãi đến D-1, ghi đúng gốc/lãi thực tế và mở kỳ mới trên dư gốc còn lại từ D;
+  không tạo khoản vay/giải ngân giả, không tính trùng ngày. UI có preview authoritative, xác nhận,
+  stale-preview guard, bố cục mobile 390 px và lịch sử gộp dễ đối chiếu. Lịch nhắc, dashboard,
+  danh sách và Google Sheets dùng/nhận mốc cùng ledger mới. Chưa migrate hoặc deploy remote.
 - C44 đã rollout source C41/C43 và migration `20260917100000` lên Supabase dùng chung, stable
   Preview và Production. Preview trỏ deployment `dpl_AjvS8ir8eeq8t4V4YmKc12ymedWu`;
   Production trỏ `dpl_9KogDrgcDVQnpqhr7TPobpNwTmAi`. Public/authenticated smoke, mobile
@@ -118,8 +123,19 @@ C46 đã đạt:
 - `pnpm test:auth`: 6/6
 - `pnpm test:e2e`: 21/21
 
+C47 đã đạt:
+
+- migration được tái tạo sạch từ đầu; database lint không lỗi
+- pgTAP 504/504, gồm kịch bản 400 triệu → trả 300 triệu + lãi chốt → kỳ mới 100 triệu
+- `pnpm lint`, `pnpm typecheck`, `pnpm test`: 74/74
+- `pnpm build`
+- `pnpm test:auth`: 6/6
+- `pnpm test:e2e`: 22/22, gồm workflow mới trên viewport 390 px
+- `git diff --check`
+
 ## 7. Việc chờ
 
+- C47 đã hoàn tất local; migration và web chưa được rollout lên Supabase/Vercel remote.
 - C38 chờ người dùng phê duyệt tiếp tục. Phạm vi nằm tại
   `docs/C38_PRODUCTION_NOTIFICATION_OBSERVATION.md`.
 - Heartbeat quan sát C38 đang `PAUSED`; không tự khởi động lại.

@@ -23,8 +23,29 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C39–C44 | UX khoản vay, hợp nhất nhắc hạn, nhắc lãi vận hành và rollout | `COMPLETED` |
 | C45 | Dọn repository, tài liệu hiện hành và đồng bộ GitHub | `COMPLETED` |
 | C46 | Vá dependency và ổn định Supabase Auth E2E/CI | `COMPLETED` |
+| C47 | Giảm gốc và tái lập chu kỳ lãi không chồng ngày | `COMPLETED` |
 
-## 3. Checkpoint đang mở: C38
+## 3. Checkpoint hoàn tất gần nhất: C47
+
+Mục tiêu: cung cấp một nghiệp vụ nguyên tử để ghi khoản gốc thực trả, tự chốt lãi đến ngày trước
+ngày hiệu lực và mở chu kỳ lãi mới trên dư gốc còn lại mà không tạo dòng tiền giải ngân giả.
+
+Acceptance criteria:
+
+1. Bản xem trước authoritative hiển thị gốc trước điều chỉnh, lãi chốt đến D-1, gốc thực trả, dư
+   gốc mới, ngày bắt đầu/kết thúc kỳ mới và lãi dự kiến của kỳ mới.
+2. RPC ghi nguyên tử giao dịch gốc thực tế, lãi phải trả/thu đến D-1 và mốc tái lập chu kỳ; retry
+   cùng idempotency key không tạo dữ liệu trùng và dữ liệu thay đổi sau preview bị từ chối.
+3. Ngày D chỉ tính lãi trên dư gốc mới. Không có ngày bị tính hai lần hoặc bỏ trống; tiền lãi đã
+   thanh toán không sinh lãi và không tự chuyển thành tiền gốc.
+4. Lịch nhắc, dashboard và danh sách khoản vay dùng mốc chu kỳ mới; biểu đồ dòng tiền chỉ phản ánh
+   số gốc và lãi thực tế, không có khoản giải ngân tổng hợp.
+5. UI có một thao tác rõ nghĩa, touch target tối thiểu 44 px, nhãn và lỗi truy cập được, bản xem
+   trước bắt buộc xác nhận trước khi ghi và hoạt động ở viewport mobile 375/390 px.
+6. Có migration, pgTAP cho ngày cắt kỳ/idempotency/stale preview/quyền và unit/E2E phù hợp; toàn bộ
+   gate áp dụng đạt trước khi hoàn tất checkpoint.
+
+## 4. Checkpoint đang chờ phê duyệt: C38
 
 Mục tiêu: kiểm chứng read-only chu kỳ scheduler kế tiếp tạo/làm mới nhắc lãi đúng hạn và ghi nhận
 kết quả Push thực tế.
@@ -41,7 +62,7 @@ Acceptance criteria:
 
 Phạm vi chi tiết: `docs/C38_PRODUCTION_NOTIFICATION_OBSERVATION.md`.
 
-## 4. Contract không được phá vỡ
+## 5. Contract không được phá vỡ
 
 ```text
 LoanDirection: LENDING | BORROWING
@@ -56,7 +77,7 @@ TransactionType: DISBURSEMENT | INTEREST_PAYMENT | PRINCIPAL_PAYMENT | EXPENSE |
 - Ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`; audit timestamp UTC.
 - Notification và sync idempotent; secret không vào Git/log.
 
-## 5. Gate chuẩn
+## 6. Gate chuẩn
 
 ```text
 pnpm lint

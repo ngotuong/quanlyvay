@@ -20,6 +20,7 @@ import type {
   LoanManagementSummary,
   LoanTermSummary,
   LoanTransaction,
+  PrincipalRestructure,
   SettlementReversal,
   AppNotification,
   ManagementAnalytics,
@@ -221,7 +222,7 @@ export async function getLoanWorkspace(id: string, section: LoanWorkspaceSection
   const asOfDate = todayInVietnam();
   const loadTransactions = section === "history" || section === "settings";
   const loadEvents = section === "history" || section === "settings";
-  const [loanResult, transactionsResult, eventsResult, settlementReversalsResult, onboardingResult, calculationResult, termSummaryResult, scheduleResult, managementSummaryResult] = await Promise.all([
+  const [loanResult, transactionsResult, eventsResult, settlementReversalsResult, principalRestructuresResult, onboardingResult, calculationResult, termSummaryResult, scheduleResult, managementSummaryResult] = await Promise.all([
     supabase
       .from("loans")
       .select("id, counterparty_id, name, direction, status, original_principal_vnd::text, disbursement_date, term_days, maturity_date, interest_cycle_days, interest_reminder_offset_days, initial_daily_rate_percent::text, settled_on, notes, created_at, counterparties(name)")
@@ -243,6 +244,11 @@ export async function getLoanWorkspace(id: string, section: LoanWorkspaceSection
       .select("id, settlement_event_id, reversal_date, reason, created_at")
       .eq("loan_id", id)
       .order("reversal_date", { ascending: false }).order("id").range(from, to)) : Promise.resolve({ data: [], error: null }),
+    section === "history" ? fetchAllRows((from, to) => supabase
+      .from("loan_principal_restructures")
+      .select("id, effective_date, principal_before_vnd::text, principal_payment_vnd::text, principal_after_vnd::text, interest_settled_vnd::text, principal_transaction_id, interest_transaction_id, note, idempotency_key, created_at")
+      .eq("loan_id", id)
+      .order("effective_date", { ascending: false }).order("id").range(from, to)) : Promise.resolve({ data: [], error: null }),
     (section === "history" || section === "settings") ? supabase
       .from("legacy_loan_onboardings")
       .select("id, as_of_date, principal_outstanding_vnd::text, interest_collected_vnd::text, bad_debt_since, note, idempotency_key, created_at")
@@ -259,7 +265,7 @@ export async function getLoanWorkspace(id: string, section: LoanWorkspaceSection
 
   if (loanResult.error) throw new Error("Không thể tải khoản vay. Hãy thử lại.");
   if (!loanResult.data) notFound();
-  if (transactionsResult.error || eventsResult.error || settlementReversalsResult.error || onboardingResult.error) {
+  if (transactionsResult.error || eventsResult.error || settlementReversalsResult.error || principalRestructuresResult.error || onboardingResult.error) {
     throw new Error("Không thể tải đầy đủ lịch sử khoản vay.");
   }
   if (calculationResult.error || termSummaryResult.error || scheduleResult.error || managementSummaryResult.error) {
@@ -274,6 +280,7 @@ export async function getLoanWorkspace(id: string, section: LoanWorkspaceSection
     transactions: (transactionsResult.data ?? []) as unknown as LoanTransaction[],
     events: (eventsResult.data ?? []) as LifecycleEvent[],
     settlementReversals: (settlementReversalsResult.data ?? []) as SettlementReversal[],
+    principalRestructures: (principalRestructuresResult.data ?? []) as PrincipalRestructure[],
     periods: section === "interest" ? currentInterestPeriods(calculation, id) : [],
     onboarding: onboardingResult.data,
     termSummary: termSummaryResult.data as LoanTermSummary | null,

@@ -2,7 +2,7 @@
 import { useBusinessAction } from "./use-business-action";
 
 import { useEffect, useRef, useState } from "react";
-import { CircleCheckBig, Plus } from "lucide-react";
+import { CircleCheckBig, Plus, RefreshCw } from "lucide-react";
 import {
   recordExpenseAction,
   recordLifecycleAction,
@@ -13,9 +13,10 @@ import { todayInVietnam } from "@/lib/business/format";
 import type { LoanStatus } from "@/lib/business/types";
 import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
 import { SettlementForm } from "./settlement-form";
+import { PrincipalRestructureForm } from "./principal-restructure-form";
 import { BottomSheet, Button, Input, Select, VndInput } from "@/components/ui";
 
-type Keys = { payment: string; expense: string; lifecycle: string; settlement: string };
+type Keys = { payment: string; expense: string; lifecycle: string; settlement: string; restructure: string };
 
 export function LoanActions({ loanId, status, interestCycleDays, keys, context, mode = "all", autoOpen = false, initialPayment }: { loanId: string; status: LoanStatus; interestCycleDays: 15 | 30; keys: Keys; context?: { name: string; outstandingVnd: string; interestBalanceVnd: string }; mode?: "all" | "payment" | "management"; autoOpen?: boolean; initialPayment?: { type: "INTEREST_PAYMENT" | "PRINCIPAL_PAYMENT"; amountVnd: string } }) {
   const [paymentState, paymentAction] = useBusinessAction(recordPaymentAction, initialBusinessActionState);
@@ -24,6 +25,7 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
   const [eventType, setEventType] = useState<"RATE_CHANGE" | "BAD_DEBT_START" | "INTEREST_RESUME">(status === "BAD_DEBT" ? "INTEREST_RESUME" : "RATE_CHANGE");
   const paymentDialog = useRef<HTMLDialogElement>(null);
   const settlementDialog = useRef<HTMLDialogElement>(null);
+  const restructureDialog = useRef<HTMLDialogElement>(null);
   const paymentDirty = useRef(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const autoOpened = useRef(false);
@@ -68,6 +70,17 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
     dialog.close();
   }
 
+  function openRestructureDialog() {
+    const dialog = restructureDialog.current;
+    if (dialog && !dialog.open) dialog.showModal();
+  }
+
+  function closeRestructureDialog() {
+    const dialog = restructureDialog.current;
+    if (!dialog?.open || dialog.querySelector('button[type="submit"]:disabled')) return;
+    dialog.close();
+  }
+
   useEffect(() => {
     if (!autoOpen || autoOpened.current || isSettled) return;
     autoOpened.current = true;
@@ -81,9 +94,10 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
       {mode !== "management" ? <div className="transaction-action">
         <div className="loan-primary-actions">
           <Button className="primary-button transaction-trigger" type="button" onClick={openPaymentDialog}><Plus size={18} />Ghi giao dịch</Button>
+          <Button variant="secondary" className="secondary-button restructure-trigger" type="button" onClick={openRestructureDialog}><RefreshCw size={18} />Giảm gốc & mở kỳ mới</Button>
           <Button variant="danger" className="danger-button settlement-trigger" type="button" onClick={openSettlementDialog}><CircleCheckBig size={18} />Tất toán</Button>
         </div>
-        <p>Ghi khoản thu/trả hằng ngày hoặc kết thúc toàn bộ nghĩa vụ của khoản vay.</p>
+        <p>Ghi khoản thu/trả hằng ngày, giảm gốc để bắt đầu kỳ lãi mới hoặc tất toán toàn bộ.</p>
         <BottomSheet eyebrow="Nghiệp vụ khoản vay" title="Ghi giao dịch" titleId="transaction-dialog-title" ref={paymentDialog} onRequestClose={closePaymentDialog}>
           <BusinessForm state={paymentState} action={paymentAction} className="compact-form dialog-form" onChange={() => { paymentDirty.current = true; }}>
           {context ? <p className="transaction-context"><strong>{context.name}</strong><span>Dư gốc {context.outstandingVnd} · Lãi còn lại {context.interestBalanceVnd}</span></p> : null}
@@ -95,6 +109,10 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
           <div className="field-group"><label htmlFor="paymentNote">Ghi chú</label><Input id="paymentNote" name="note" maxLength={500} /><FieldError state={paymentState} name="note" /></div>
           <ActionMessage state={paymentState} /><div className="dialog-actions"><Button variant="secondary" className="secondary-button" type="button" onClick={closePaymentDialog}>Hủy</Button><FormSubmit>Ghi nhận</FormSubmit></div>
           </BusinessForm>
+        </BottomSheet>
+        <BottomSheet eyebrow="Tái cơ cấu dư gốc" title="Giảm gốc và mở kỳ mới" titleId="restructure-dialog-title" ref={restructureDialog} onRequestClose={closeRestructureDialog}>
+          <div className="settlement-dialog-copy"><strong>Không tạo khoản vay giả hoặc dòng tiền giải ngân mới</strong><span>Ngày hiệu lực bắt đầu kỳ mới; lãi của dư gốc cũ được chốt tự động đến hết ngày liền trước.</span></div>
+          <div className="dialog-form"><PrincipalRestructureForm loanId={loanId} idempotencyKey={keys.restructure} /></div>
         </BottomSheet>
         <BottomSheet eyebrow="Thao tác quan trọng" title="Tất toán khoản vay" titleId="settlement-dialog-title" ref={settlementDialog} onRequestClose={closeSettlementDialog}>
           <div className="settlement-dialog-copy"><strong>Kiểm tra số tiền trước khi xác nhận</strong><span>Hệ thống sẽ ghi toàn bộ gốc và lãi còn lại tại ngày bạn chọn.</span></div>

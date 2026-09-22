@@ -67,6 +67,22 @@ export type LoanScheduleSummary = {
   interestReminderOffsetDays: number;
 };
 
+export type PrincipalRestructurePreview = {
+  loanId: string;
+  effectiveDate: string;
+  interestThroughDate: string;
+  principalBeforeVnd: string;
+  principalPaymentVnd: string;
+  principalAfterVnd: string;
+  interestBalanceBeforeVnd: string;
+  interestToSettleVnd: string;
+  newPeriodStartDate: string;
+  newPeriodEndDate: string;
+  newPeriodDayCount: number;
+  newPeriodInterestVnd: string;
+  dailyRatePercent: string;
+};
+
 export type LegacyLoanOnboarding = {
   id: string;
   as_of_date: string;
@@ -105,6 +121,20 @@ export type SettlementReversal = {
   settlement_event_id: string;
   reversal_date: string;
   reason: string;
+  created_at: string;
+};
+
+export type PrincipalRestructure = {
+  id: string;
+  effective_date: string;
+  principal_before_vnd: string;
+  principal_payment_vnd: string;
+  principal_after_vnd: string;
+  interest_settled_vnd: string;
+  principal_transaction_id: string;
+  interest_transaction_id: string | null;
+  note: string | null;
+  idempotency_key: string;
   created_at: string;
 };
 

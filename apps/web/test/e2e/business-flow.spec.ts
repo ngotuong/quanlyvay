@@ -167,6 +167,47 @@ test("owner settles and reverses the whole settlement without deleting history",
   await expect(page.getByText("Hoàn tác tất toán", { exact: true }).last()).toBeVisible();
 });
 
+test("owner reduces principal and starts a new interest cycle without overlapping days", async ({ page }) => {
+  const vietnamToday = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Ho_Chi_Minh",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).format(new Date());
+  const disbursement = new Date(`${vietnamToday}T00:00:00Z`);
+  disbursement.setUTCDate(disbursement.getUTCDate() - 1);
+
+  await page.goto("/login");
+  await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e");
+  await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
+  await page.getByRole("button", { name: "Đăng nhập" }).click();
+  await page.getByRole("link", { name: "Khoản vay" }).first().click();
+  await page.getByRole("link", { name: "Tạo khoản vay" }).first().click();
+  await page.getByRole("combobox", { name: "Đối tác" }).fill("Anh Nam E2E");
+  await page.getByRole("radio", { name: "Đi vay", exact: true }).check();
+  await page.getByLabel("Nhãn phân biệt (không bắt buộc)").fill("C47 giảm gốc mở kỳ mới");
+  await page.getByLabel("Số tiền gốc (VND)").fill("400000000");
+  await page.getByLabel("Ngày giải ngân").fill(disbursement.toISOString().slice(0, 10));
+  await page.getByLabel("Lãi suất mỗi kỳ (%)").fill("2.1");
+  await page.getByRole("button", { name: "Tạo khoản vay" }).click();
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await expect(page.getByRole("button", { name: "Giảm gốc & mở kỳ mới" })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+  await page.getByRole("button", { name: "Giảm gốc & mở kỳ mới" }).click();
+  const dialog = page.getByRole("dialog", { name: "Giảm gốc và mở kỳ mới" });
+  await expect(dialog).toBeVisible();
+  await dialog.getByLabel("Số gốc thực trả (VND)").fill("300000000");
+  await expect(dialog.getByText("280.000 ₫", { exact: true })).toBeVisible();
+  await expect(dialog.getByText("300.280.000 ₫", { exact: true })).toBeVisible();
+  await expect(dialog.getByText("100.000.000 ₫", { exact: true })).toBeVisible();
+  await expect(dialog.getByText("2.100.000 ₫", { exact: true })).toBeVisible();
+  await dialog.getByLabel(/Tôi xác nhận gốc thực trả/).check();
+  await dialog.getByRole("button", { name: "Xác nhận giảm gốc" }).click();
+  await expect(dialog.getByText("Đã giảm gốc, đóng lãi cũ và mở kỳ lãi mới.")).toBeVisible();
+  await expect(page.locator(".overview-primary").getByText("100.000.000 ₫", { exact: true })).toBeVisible();
+});
+
 test("business pages remain usable at 375px", async ({ page }) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await page.goto("/login");
@@ -642,6 +683,8 @@ test("Google Sync export requires its secret and supports an unchanged cursor", 
     "loanTermCorrections",
     "loans",
     "notifications",
+    "principalRestructureReversals",
+    "principalRestructures",
     "settlementReversals",
     "transactions",
   ]);

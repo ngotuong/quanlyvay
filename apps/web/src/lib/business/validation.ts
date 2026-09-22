@@ -179,6 +179,17 @@ export const settlementSchema = z.object({
   confirmation: z.literal("confirmed", { error: "Hãy xác nhận số tiền tất toán." }),
 });
 
+export const principalRestructureSchema = z.object({
+  loanId: uuid,
+  effectiveDate: businessDate,
+  principalPaymentVnd: vndAmount,
+  expectedPrincipalBeforeVnd: vndAmount,
+  expectedInterestVnd: vndNonnegative,
+  note: optionalText,
+  confirmation: z.literal("confirmed", { error: "Hãy xác nhận số tiền và kỳ lãi mới." }),
+  idempotencyKey: uuid,
+});
+
 export const reversalSchema = z.object({
   loanId: z.union([uuid, z.literal("")]).transform((value) => value || null),
   transactionId: uuid,
