@@ -24,8 +24,9 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C45 | Dọn repository, tài liệu hiện hành và đồng bộ GitHub | `COMPLETED` |
 | C46 | Vá dependency và ổn định Supabase Auth E2E/CI | `COMPLETED` |
 | C47 | Giảm gốc và tái lập chu kỳ lãi không chồng ngày | `COMPLETED` |
+| C48 | Rollout C47 lên Production và đồng bộ GitHub | `COMPLETED` |
 
-## 3. Checkpoint hoàn tất gần nhất: C47
+## 3. Checkpoint đã hoàn tất: C47
 
 Mục tiêu: cung cấp một nghiệp vụ nguyên tử để ghi khoản gốc thực trả, tự chốt lãi đến ngày trước
 ngày hiệu lực và mở chu kỳ lãi mới trên dư gốc còn lại mà không tạo dòng tiền giải ngân giả.
@@ -45,7 +46,25 @@ Acceptance criteria:
 6. Có migration, pgTAP cho ngày cắt kỳ/idempotency/stale preview/quyền và unit/E2E phù hợp; toàn bộ
    gate áp dụng đạt trước khi hoàn tất checkpoint.
 
-## 4. Checkpoint đang chờ phê duyệt: C38
+## 4. Checkpoint hoàn tất gần nhất: C48
+
+Mục tiêu: rollout migration và web C47 lên Production, hậu kiểm public/authenticated runtime và
+đồng bộ đầy đủ source cùng bằng chứng triển khai lên GitHub.
+
+Acceptance criteria:
+
+1. Có logical backup Production trước migration; migration `20260922090000` áp đúng project
+   `hmfxnstrqfqpvsgfmjmd` và remote migration history khớp local.
+2. Deployment Production thuộc đúng Vercel project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, ở trạng
+   thái Ready, Functions `sin1` và alias `tindung.vercel.app` trỏ đúng deployment mới.
+3. Public smoke, authenticated smoke trên route khoản vay đã đổi, mobile 390 px, browser console
+   và runtime error log đều đạt; không tạo giao dịch tài chính thật.
+4. Ghi deployment/migration/smoke vào `PROJECT_CONTEXT.md`, commit và push `main` lên GitHub; CI
+   Required gate đạt.
+5. Nếu hậu kiểm web thất bại, rollback alias về deployment Production tốt trước đó; nếu migration
+   thất bại thì dừng và không deploy web phụ thuộc schema.
+
+## 5. Checkpoint đang chờ phê duyệt: C38
 
 Mục tiêu: kiểm chứng read-only chu kỳ scheduler kế tiếp tạo/làm mới nhắc lãi đúng hạn và ghi nhận
 kết quả Push thực tế.
@@ -62,7 +81,7 @@ Acceptance criteria:
 
 Phạm vi chi tiết: `docs/C38_PRODUCTION_NOTIFICATION_OBSERVATION.md`.
 
-## 5. Contract không được phá vỡ
+## 6. Contract không được phá vỡ
 
 ```text
 LoanDirection: LENDING | BORROWING
@@ -77,7 +96,7 @@ TransactionType: DISBURSEMENT | INTEREST_PAYMENT | PRINCIPAL_PAYMENT | EXPENSE |
 - Ngày nghiệp vụ theo `Asia/Ho_Chi_Minh`; audit timestamp UTC.
 - Notification và sync idempotent; secret không vào Git/log.
 
-## 6. Gate chuẩn
+## 7. Gate chuẩn
 
 ```text
 pnpm lint
