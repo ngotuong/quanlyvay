@@ -34,8 +34,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C56 | Đồng bộ source C55 lên GitHub và xác nhận Required CI gate | `COMPLETED` |
 | C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `COMPLETED` |
 | C58 | Hậu kiểm Production readiness sau remediation C51–C57 | `COMPLETED` |
-| C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `IN_PROGRESS` |
-| C60 | Hậu kiểm chu kỳ backup tự động đầu tiên | `NOT_STARTED` |
+| C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `COMPLETED` |
+| C60 | Hậu kiểm chu kỳ backup tự động đầu tiên | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -417,7 +417,7 @@ Kết quả:
 
 Trạng thái: `COMPLETED` ngày 2026-09-26.
 
-## 17. Checkpoint đang thực hiện: C59
+## 17. Checkpoint hoàn tất: C59
 
 Mục tiêu: đóng hai rủi ro Production readiness mức `MEDIUM` và giảm lỗi CI giả đã được C58 chứng
 minh, không yêu cầu nâng cấp gói GitHub trả phí.
@@ -448,11 +448,14 @@ Kết quả:
 - Commit `66e2e8d88d6bb92d2b8b4fdc8c0ccc7e7c8ff7a5` đã push fast-forward. GitHub Actions run
   `36241173845` đạt ngay attempt 1 tất cả job và `Required CI gate`; secret/dependency scan sạch.
 
-Trạng thái: `IN_PROGRESS`. Run triển khai `36241173845` đạt attempt 1; run tài liệu
-`36241927827` tái hiện Auth health 502 lâu hơn deadline 60 giây. Remediation bổ sung bỏ reset đầu
-Auth integration đã được CI chuẩn bị và tăng readiness deadline lên 180 giây đang chờ gate cuối.
+Run triển khai `36241173845` đạt attempt 1. Run tài liệu `36241927827` sau đó tái hiện Auth health
+502 lâu hơn deadline 60 giây; remediation bổ sung bỏ reset đầu Auth integration đã được workflow
+chuẩn bị và tăng readiness deadline lên 180 giây. Commit `0c7dca7e891290f76d8014c09c0640cb952423f1`
+đã push fast-forward; run `36242767835` đạt attempt 1 toàn bộ job và `Required CI gate`.
 
-## 18. Checkpoint dự kiến: C60
+Trạng thái: `COMPLETED` ngày 2026-09-26.
+
+## 18. Checkpoint chờ phê duyệt: C60
 
 Mục tiêu: hậu kiểm chu kỳ backup đầu tiên được LaunchAgent tự tạo sau khi đủ ngưỡng, không thay đổi
 schema, dữ liệu nghiệp vụ hoặc cấu hình Production.
@@ -470,4 +473,4 @@ Acceptance criteria:
 5. Chỉ chạy gate tài liệu/script bị tác động; cập nhật context/roadmap và dừng ở checkpoint tiếp
    theo. Không deploy, migration, push runtime hoặc sửa dữ liệu tài chính.
 
-Trạng thái: `NOT_STARTED`.
+Trạng thái: `AWAITING_APPROVAL`.
