@@ -159,7 +159,8 @@ test("local Auth session and application roles", async (t) => {
       password: ownerCredentials.password,
     })).error);
     assert.ifError((await ownerClient.auth.updateUser({ password: "123456" })).error);
-    assert.ifError((await ownerClient.rpc("complete_password_change")).error);
+    const deniedCompletion = await ownerClient.rpc("complete_password_change");
+    assert.equal(deniedCompletion.error?.code, "42501");
 
     const { data: profile, error: profileError } = await ownerClient
       .from("profiles")
@@ -167,7 +168,7 @@ test("local Auth session and application roles", async (t) => {
       .eq("user_id", owner.id)
       .single();
     assert.ifError(profileError);
-    assert.equal(profile.must_change_password, false);
+    assert.equal(profile.must_change_password, true);
 
     await ownerClient.auth.signOut();
     const { data: login, error: loginError } = await ownerClient.auth.signInWithPassword({

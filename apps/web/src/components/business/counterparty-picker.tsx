@@ -18,6 +18,7 @@ export function CounterpartyPicker({ items, id, defaultValue = "" }: { items: Co
   const [dialogOpen, setDialogOpen] = useState(false);
   const [state, setState] = useState(initialBusinessActionState);
   const nameInput = useRef<HTMLInputElement>(null);
+  const optionsList = useRef<HTMLDivElement>(null);
   const combobox = useRef<HTMLInputElement>(null);
   const [pending, startTransition] = useTransition();
   const dialog = useRef<HTMLDialogElement>(null);
@@ -33,6 +34,11 @@ export function CounterpartyPicker({ items, id, defaultValue = "" }: { items: Co
   useEffect(() => {
     combobox.current?.setCustomValidity(selected ? "" : "Hãy chọn một đối tác trong danh sách.");
   }, [selected]);
+
+  useEffect(() => {
+    if (!listOpen) return;
+    optionsList.current?.querySelector<HTMLElement>(`[role="option"][aria-selected="false"].is-active`)?.scrollIntoView({ block: "nearest" });
+  }, [activeIndex, listOpen]);
 
   function select(row: { id: string; name: string }) {
     setSelected(row.id);
@@ -102,7 +108,7 @@ export function CounterpartyPicker({ items, id, defaultValue = "" }: { items: Co
         />
       </div>
       <input name="counterpartyId" type="hidden" value={selected} />
-      {listOpen ? <div className="counterparty-options" id={listboxId} role="listbox" aria-label="Danh sách đối tác">
+      {listOpen ? <div ref={optionsList} className="counterparty-options" id={listboxId} role="listbox" aria-label="Danh sách đối tác">
         {matches.length ? matches.map((row, index) => <button
           id={`${id}-option-${row.id}`}
           key={row.id}

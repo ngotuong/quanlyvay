@@ -5,6 +5,7 @@ import { internalEmailForUsername } from "@/lib/auth/config";
 import type { AuthActionState } from "@/lib/auth/types";
 import { changePasswordSchema, loginSchema } from "@/lib/auth/validation";
 import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export async function loginAction(
   _previousState: AuthActionState,
@@ -99,7 +100,12 @@ export async function changePasswordAction(
     };
   }
 
-  const { error: profileError } = await supabase.rpc("complete_password_change");
+  const admin = createAdminClient();
+  const { error: profileError } = await admin
+    .from("profiles")
+    .update({ must_change_password: false })
+    .eq("user_id", user.id)
+    .eq("must_change_password", true);
 
   if (profileError) {
     return {

@@ -115,7 +115,7 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
   const result = await supabase.rpc("get_management_dashboard_bundle_v3", args);
   let data = result.data as Record<string, unknown> | null;
   let error = result.error;
-  if (error) {
+  if (error?.code === "PGRST202") {
     const fallback = await supabase.rpc("get_management_dashboard_bundle_v2", {
       p_period_start: periodStart,
       p_period_end: periodEnd,

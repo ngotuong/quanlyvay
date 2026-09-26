@@ -52,3 +52,15 @@ Hai cổng remote độc lập:
    rồi đóng hoặc sửa revision đó mà không đưa fixture lỗi vào `main`.
 
 K04 chỉ hoàn tất sau cả hai cổng và hậu kiểm. K05 không được bắt đầu trước thời điểm đó.
+
+### GitHub Free với private repository
+
+Project hiện dùng GitHub Free và OWNER không có nhu cầu nâng gói. API branch protection/ruleset trả
+HTTP 403, nên repository không thể enforce required check cho `main`. Kiểm soát bù bắt buộc là:
+
+1. Chỉ push revision đã đạt các gate local áp dụng và `git diff --check`.
+2. Sau push, đối chiếu đúng commit SHA và chờ job `Required CI gate` đạt `success`.
+3. Không deploy/promote revision khi CI của SHA đó chưa xanh; ghi run ID/SHA vào
+   `PROJECT_CONTEXT.md` trong checkpoint rollout.
+4. Không coi kiểm soát bù này tương đương branch protection: direct push vẫn có thể xảy ra, nên
+   OWNER chấp nhận rủi ro vận hành còn lại khi tiếp tục dùng private repository trên GitHub Free.

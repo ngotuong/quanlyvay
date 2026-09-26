@@ -4,9 +4,11 @@
 
 Dashboard quản trị gọi một lần RPC
 `public.get_management_dashboard_bundle_v3(period_start, period_end, previous_start, previous_end, balance_start, balance_end)`.
-Bundle dùng một snapshot authoritative chung cho KPI và analytics kỳ hiện tại, một snapshot so sánh
-dòng tiền/lãi và một snapshot số dư đầu kỳ; không gọi lại engine qua RPC analytics riêng. `get_management_analytics` được giữ
-làm projection tương thích ngược. Các hàm yêu cầu người dùng đang hoạt động, nhưng cho
+Bundle dùng một snapshot authoritative chung cho KPI và analytics kỳ hiện tại, một projection
+authoritative cho dòng tiền/lãi so sánh và một projection số dư đầu kỳ lấy từ facts đã harden.
+Hai projection chỉ tính các chỉ số so sánh mà giao diện sử dụng, tránh lặp lại lịch nhắc, dự báo và
+biểu đồ không được hiển thị cho kỳ nền. `get_management_analytics` được giữ làm projection tương
+thích ngược. Các hàm yêu cầu người dùng đang hoạt động, nhưng cho
 phép cả `OWNER`, `EDITOR` và `VIEWER` đọc số liệu. Frontend chỉ định dạng, tính chênh lệch hiển thị
 và trực quan hóa kết quả; mọi phép tổng hợp tiền nằm trong PostgreSQL. RPC C7
 `get_dashboard(as_of_date, months)` được giữ để tương thích, không còn là contract của giao diện chính.

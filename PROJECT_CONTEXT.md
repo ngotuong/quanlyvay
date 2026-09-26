@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.203
-last_updated: 2026-09-22 16:54:14 +07
+roadmap_version: 1.0.207
+last_updated: 2026-09-26 12:32:12 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C50
-current_status: COMPLETED
-last_completed_checkpoint: C50
-next_checkpoint: NONE
+current_checkpoint: C54
+current_status: IN_PROGRESS
+last_completed_checkpoint: C52
+next_checkpoint: C54
 ---
 
 # Project Context
@@ -73,6 +73,56 @@ history, migration, test và các contract/runbook chuyên biệt.
   xóa trong công việc dọn repository.
 - Production: <https://tindung.vercel.app>.
 - Stable Preview: <https://tindung-preview.vercel.app>.
+- C52 audit ngày 2026-09-25: project Supabase `ACTIVE_HEALTHY`; remote migration mới nhất là
+  `20260922090000`. Job `qlv-notification-runner-hourly` đang `active`, lịch `0 * * * *`, và 10
+  lần chạy gần nhất trong `cron.job_run_details` đều `succeeded` đến 09:00 UTC. Production
+  `/login` và manifest trả 200, `/api/notifications/run` không có secret trả 401; Vercel inspect
+  cho thấy deployment Production `dpl_DzRdBx1TLmsPHxDZMhYMXWKqkbUC` `READY`, Functions `sin1`,
+  alias `tindung.vercel.app` trỏ đúng deployment. Runtime log có POST runner trả 200 lúc
+  `2026-09-25T09:00:00.494Z` và GET không secret trả 401 lúc `2026-09-25T09:10:44.053Z`.
+- `pnpm ci:validate` đạt; GitHub CI run `35704013587` trên `origin/main` SHA
+  `71a7509146db42c7cd754f76d6533c45f66653ea` đạt toàn bộ job và Required CI gate. API branch
+  protection trả HTTP 403 vì GitHub Free không hỗ trợ private repository này. OWNER xác nhận không
+  nâng gói; kiểm soát bù là chỉ phát hành revision sau khi Required CI gate của đúng SHA đạt.
+  Tại thời điểm audit ban đầu, backup full gần nhất là
+  `qlv-prod-20260922T074535Z`, tạo `2026-09-22T07:45:35Z`, checksum hợp lệ nhưng tuổi 73,45 giờ,
+  vượt RPO 24 giờ và chỉ tới migration `20260917100000`; retention mới chạy dry-run, không xóa.
+- C52 `COMPLETED` ngày 2026-09-25: tạo khóa AES-256-GCM trong macOS Keychain với service
+  `com.ngotuong.quanlyvay.backup`, tạo backup Production mã hóa trực tiếp tại
+  `.backups/qlv-prod-20260925T093801Z/`, không ghi SQL thuần. Manifest
+  `qlv-prod-20260925T093801Z` gồm sáu file auth/private/public/supabase_migrations, migration
+  `20260922090000`; checksum, GCM, SQL shape và RPO 24 giờ đều đạt. Retention dry-run giữ bản mới,
+  không có candidate.
+- Restore rehearsal dùng image Supabase PostgreSQL `17.6.1.155` trong container cô lập đã đạt.
+  Số dòng của 13 bảng trọng yếu khớp Production (gồm 40 khoản vay, 390 giao dịch, 551 kỳ lãi,
+  715 audit log, 32 Auth user và 34 migration); toàn bộ 59 khóa ngoại không có orphan, chín nhóm
+  bất biến tài chính/audit đều 0 lỗi. `calculate_loan` chạy được cho 40/40 khoản, không có dư gốc
+  hoặc lãi âm; RLS trả 0 khoản vay cho role authenticated không có identity. Database tạm và log
+  tạm đã được hủy sau rehearsal; thời gian toàn bộ phiên rehearsal dưới RTO 4 giờ.
+- C53 đã áp migration `20260925100000_c51_integrity_remediation.sql` lên đúng Supabase Production
+  và đối chiếu remote history/quyền RPC. Candidate Vercel
+  `dpl_CBcpZCoGkZ8CwwcsB6heNt7pxE2C`, URL bất biến
+  <https://quan-ly-vay-ca-nhan-m27mmv1p1-ngotuong2105.vercel.app>, target Production, `READY`,
+  Functions `sin1`. Public smoke đạt; authenticated smoke đạt luồng đổi mật khẩu bắt buộc,
+  dashboard 390/1440 px, chọn đối tác bằng bàn phím và preview giảm gốc chỉ đọc, không ghi giao
+  dịch. Tài khoản smoke đã thu hồi toàn bộ session và trả về inactive/banned.
+- C53 bị chặn trước khi promote: runtime log candidate có `dashboard.read_failed` mã PostgreSQL
+  `57014`. Ba probe qua role authenticated đều bị statement timeout sau 8.147–8.391 ms;
+  `EXPLAIN ANALYZE` quyền quản trị cho cùng bundle mất khoảng 8.074 ms với 882.665 shared buffer
+  hits. Alias `tindung.vercel.app` vẫn trỏ deployment tốt trước đó
+  `dpl_DzRdBx1TLmsPHxDZMhYMXWKqkbUC`; candidate chưa được promote, source chưa commit/push.
+- C54 đã loại bỏ blocker bằng hai projection authoritative chỉ tính phần so sánh giao diện dùng.
+  Migration `20260926001000_c54_dashboard_bundle_performance.sql` đã áp đúng Production; các chỉ số
+  cash/accrual profit và số dư đối chiếu khớp implementation cũ. Bundle Production giảm từ khoảng
+  8,074 ms xuống 5,093 ms; ba probe authenticated đạt 5,168–5,555 ms, không còn `57014`.
+- Backup trước migration C54 là `qlv-prod-20260925T170915Z`, gồm migration C51
+  `20260925100000`; sáu ciphertext đạt checksum, GCM, SQL shape và RPO 24 giờ. Candidate mới
+  `dpl_2EoTbJAzcGYvdieQWiWUphwMnbT6`, URL bất biến
+  <https://quan-ly-vay-ca-nhan-jwuqab8e3-ngotuong2105.vercel.app>, đúng project, target Production,
+  `READY`, Functions `sin1`. Public và authenticated smoke đạt; dashboard render đủ KPI/dòng tiền/
+  lịch dự kiến, browser/runtime error bằng 0, không ghi tài chính. Alias `tindung.vercel.app` đã
+  promote và hậu kiểm authenticated đạt; rollback target là
+  `dpl_DzRdBx1TLmsPHxDZMhYMXWKqkbUC` nhưng không cần kích hoạt.
 
 ## 2. Dữ liệu và tài khoản
 
@@ -195,10 +245,58 @@ C50 đã đạt:
   Functions `sin1`; authenticated smoke không ghi dữ liệu và runtime log đạt.
 - Alias Production đã chuyển và public hậu kiểm đạt; không cần rollback.
 
+C51 đã đạt:
+
+- `git diff --check`, lint, typecheck, unit test, build, Auth 6/6, Playwright E2E 22/22
+- database lint và toàn bộ pgTAP local đạt
+
+C52 đã đạt:
+
+- `pnpm ci:validate`, GitHub CI run `35704013587`, Production public smoke và notification runner
+- backup Production mã hóa: checksum, GCM, SQL shape, manifest/RPO và retention dry-run
+- restore rehearsal cô lập: row count, toàn bộ khóa ngoại, invariant tài chính, calculation và RLS
+- `git diff --check`; không deploy, migrate remote, push GitHub hoặc thay đổi dữ liệu nghiệp vụ
+
+C53 đã đạt trước khi gặp blocker:
+
+- Backup trước migration `qlv-prod-20260925T093801Z`: checksum, GCM, SQL shape và RPO 24 giờ đạt
+- `git diff --check`, `pnpm ci:validate`, lint, typecheck, unit test 74/74 và build đạt
+- database reset/lint đạt; pgTAP 514/514, Auth 6/6 và Playwright E2E 22/22 đạt
+- Migration C51 đã áp Production; notification Cron tiếp tục `succeeded` sau migration
+- Candidate đúng project/target/region và các public/authenticated smoke C51 không ghi tài chính đạt
+- Runtime log **không đạt** do dashboard RPC bị `57014`; alias/push/CI vì vậy chưa thực hiện
+
+C54 đã đạt trước cổng GitHub CI:
+
+- Full local gate: `git diff --check`, CI policy/actionlint, lint, typecheck, unit 74/74, build,
+  database reset/lint, pgTAP 527/527, Auth 6/6 và Playwright 22/22
+- Regression 40 khoản chạy bundle dưới budget 6 giây; Production giảm khoảng 37% xuống 5,093 ms,
+  ba probe authenticated liên tiếp đều đạt và số liệu so sánh khớp implementation cũ
+- Backup `qlv-prod-20260925T170915Z` đạt checksum/GCM/SQL shape/RPO; remote history khớp đến
+  migration `20260926001000`
+- Candidate/alias Production đúng project, target, region; public/authenticated smoke và log đạt;
+  notification Cron tiếp tục `succeeded`; tài khoản smoke inactive/banned, 0 session/refresh token
+- Còn commit/push fast-forward và Required CI gate đúng SHA trước khi hoàn tất
+
 ## 7. Việc chờ
 
-- Không còn checkpoint đang chờ phê duyệt trong roadmap hiện hành.
+- C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
+  soát bù phù hợp GitHub Free/private; notification runner, Production smoke và runtime log đạt.
+  Không deploy, migrate remote, push GitHub, `clasp push` hoặc thay đổi dữ liệu nghiệp vụ.
+- C51 `COMPLETED` ngày 2026-09-25: preview/commit giảm gốc xét payment cùng ngày; reversal bị
+  chặn khi còn nghiệp vụ phụ thuộc; `complete_password_change` chỉ còn service role và Server Action
+  cập nhật cờ sau Auth update; Push endpoint được validate, delivery nghĩa vụ đã xử lý được đóng,
+  worker trả lỗi gửi chính xác; combobox cuộn lựa chọn active và dashboard chỉ fallback khi RPC thiếu.
+  Đã thêm migration `20260925100000_c51_integrity_remediation.sql` và pgTAP C51. Chưa deploy,
+  migrate remote, push GitHub hoặc thay đổi dữ liệu Production.
 - Hai commit local C49/C50 chưa push GitHub vì GitHub push không nằm trong yêu cầu C50.
 - Bản `apps/google-sync/src/Config.js` C47 đã có hai bảng đối chiếu mới trong Git nhưng chưa
   `clasp push`; rollout Apps Script không nằm trong acceptance criteria C48 và cần duyệt riêng.
-- Không có blocker hoặc lệnh terminal dự án bị treo.
+- Backup Production mới `qlv-prod-20260925T093801Z` đạt RPO và restore rehearsal. Khóa mã hóa nằm
+  trong macOS Keychain, không nằm trong Git hoặc manifest. Migration C51 local
+  `20260925100000` chưa rollout nên không thuộc backup Production hiện tại.
+- OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
+  enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
+- Không còn blocker C52 hoặc lệnh terminal dự án bị treo.
+- C53/C54 `IN_PROGRESS`: blocker dashboard đã được khắc phục và Production đã promote an toàn.
+  Đang chờ commit/push fast-forward và GitHub Required CI gate xanh trên đúng SHA để hoàn tất.

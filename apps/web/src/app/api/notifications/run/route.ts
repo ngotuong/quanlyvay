@@ -29,6 +29,18 @@ function currentHourInVietnam() {
   return Number(hour);
 }
 
+function isAllowedPushEndpoint(value: string) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:" && url.username === "" && url.password === ""
+      && (url.port === "" || url.port === "443")
+      && !["localhost", "127.0.0.1", "::1"].includes(url.hostname)
+      && !/^(10\.|127\.|169\.254\.|192\.168\.|172\.(1[6-9]|2\d|3[0-1])\.)/.test(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
 function required(name: string) {
   const value = process.env[name]?.trim();
   if (!value) throw new Error(`Thiếu biến môi trường ${name}.`);
@@ -51,6 +63,8 @@ async function runNotifications(request: NextRequest) {
   const deliveryHour = currentHourInVietnam();
   const { data: generated, error: generationError } = await supabase.rpc("generate_due_notifications", { p_notification_date: date });
   if (generationError) return NextResponse.json({ error: "Không thể tạo thông báo" }, { status: 500 });
+  const { error: cleanupError } = await supabase.rpc("close_resolved_notification_deliveries", { p_notification_date: date });
+  if (cleanupError) return NextResponse.json({ error: "Không thể đồng bộ trạng thái thông báo" }, { status: 500 });
 
   try {
     const result = await drainPushQueue({
@@ -60,11 +74,14 @@ async function runNotifications(request: NextRequest) {
         if (error) throw new Error("claim failed");
         return (data ?? []) as ClaimedDelivery[];
       },
-      send: (delivery: ClaimedDelivery, options: { timeout: number }) => webpush.sendNotification(
+      send: (delivery: ClaimedDelivery, options: { timeout: number }) => {
+        if (!isAllowedPushEndpoint(delivery.endpoint)) throw Object.assign(new Error("Push endpoint rejected"), { statusCode: 400 });
+        return webpush.sendNotification(
         { endpoint: delivery.endpoint, keys: { p256dh: delivery.p256dh, auth: delivery.auth_secret } },
         JSON.stringify({ title: delivery.title, body: delivery.body, url: delivery.loan_id ? `/loans/${delivery.loan_id}?tab=overview${delivery.notification_type === "INTEREST_DUE" ? "&transaction=interest" : ""}` : "/notifications", tag: delivery.idempotency_key, badgeCount: delivery.unread_count }),
         options,
-      ),
+        );
+      },
       complete: async (delivery: ClaimedDelivery, succeeded: boolean, errorMessage: string | null) => {
         const { error } = await supabase.rpc("complete_push_delivery", { p_delivery_id: delivery.delivery_id, p_succeeded: succeeded, p_error: errorMessage });
         return !error;
@@ -75,7 +92,7 @@ async function runNotifications(request: NextRequest) {
       },
     });
     return NextResponse.json({ date, deliveryHour, generated: Number(generated ?? 0), ...result },
-      { status: result.stateUpdateFailed > 0 || result.queueRemaining ? 500 : 200 });
+      { status: result.stateUpdateFailed > 0 || result.queueRemaining || result.failed > 0 ? 500 : 200 });
   } catch {
     return NextResponse.json({ error: "Không thể nhận lượt gửi thông báo" }, { status: 500 });
   }

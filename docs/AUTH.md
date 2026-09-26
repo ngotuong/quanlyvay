@@ -21,6 +21,8 @@
 - Chỉ có một OWNER hoạt động và OWNER không thể tự hạ quyền hoặc tự vô hiệu hóa.
 - OWNER quản lý các tài khoản tại `/settings`: tạo tài khoản, đổi tên hiển thị/vai trò/trạng
   thái hoạt động và cấp lại mật khẩu tạm. Mật khẩu tạm luôn buộc đổi ở lần đăng nhập kế tiếp.
+  Cờ `must_change_password` chỉ được xóa bởi Server Action sau khi Supabase Auth xác nhận đổi mật khẩu;
+  RPC tương ứng không cấp quyền cho client `authenticated`.
 - Mật khẩu cần tối thiểu 6 ký tự và chỉ gồm chữ cái ASCII hoặc chữ số; không bắt buộc chữ hoa,
   chữ thường hay phối hợp cả chữ và số.
 - Supabase Auth local/remote phải đặt minimum length bằng 6 và không cấu hình required-character

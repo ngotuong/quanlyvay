@@ -48,14 +48,16 @@ select throws_ok(
 select set_config('request.jwt.claim.sub', '10000000-0000-0000-0000-000000000052', true);
 set local role authenticated;
 
-select lives_ok(
+select throws_ok(
   $$select public.complete_password_change()$$,
-  'active user can complete their required password change'
+  '42501',
+  null,
+  'authenticated clients cannot clear first-login enforcement directly'
 );
 select is(
   (select must_change_password from public.profiles where user_id = auth.uid()),
-  false,
-  'password completion clears the current user flag'
+  true,
+  'first-login enforcement remains until the server-side password workflow completes'
 );
 select throws_ok(
   $$select public.manage_profile('10000000-0000-0000-0000-000000000052', 'Viewer đổi quyền', 'EDITOR', true)$$,
