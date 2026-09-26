@@ -34,7 +34,7 @@ project Google ở C11 và cũng không commit.
 
 ## Contract Sheet
 
-Payload local hiện dùng `schemaVersion: 3`. Workbook gồm tab `Tổng quan` và mười một tab dữ liệu:
+Payload local hiện dùng `schemaVersion: 3`. Workbook gồm tab `Tổng quan` và mười ba tab dữ liệu:
 
 1. `Đối tác`
 2. `Khoản vay`
@@ -42,11 +42,13 @@ Payload local hiện dùng `schemaVersion: 3`. Workbook gồm tab `Tổng quan` 
 4. `Sự kiện`
 5. `Điều chỉnh khoản vay`
 6. `Hoàn tác tất toán`
-7. `Khởi tạo khoản cũ`
-8. `Kỳ lãi`
-9. `Chi phí`
-10. `Thông báo`
-11. `Lịch sử`
+7. `Giảm gốc mở kỳ mới`
+8. `Hoàn tác giảm gốc`
+9. `Khởi tạo khoản cũ`
+10. `Kỳ lãi`
+11. `Chi phí`
+12. `Thông báo`
+13. `Lịch sử`
 
 Mỗi lần nguồn thay đổi, dữ liệu trong các tab đối chiếu được thay thế toàn bộ. Không nhập dữ
 liệu thủ công vào những tab này vì lần sync tiếp theo sẽ ghi đè. Header được cố định, có filter;
@@ -73,8 +75,9 @@ Hai hàm bảo trì không chạy theo trigger:
 
 - `refreshGoogleSheetContract()` đặt timezone workbook về `Asia/Ho_Chi_Minh` và cập nhật lại header,
   kể cả khi `sourceVersion` không đổi.
-- `runGoogleSheetFullSync()` chỉ xóa `SYNC_CURSOR` rồi tải lại snapshot canonical; dùng sau khi sửa
-  timezone/contract để các ô ngày đã ghi trước đó được tạo lại đúng ngày nghiệp vụ.
+- `runGoogleSheetFullSync()` (menu `Quản Lý Vay` → `Đồng bộ đầy đủ`) chỉ xóa `SYNC_CURSOR` rồi tải
+  lại snapshot canonical; dùng sau khi sửa timezone/contract để các ô ngày đã ghi trước đó được tạo
+  lại đúng ngày nghiệp vụ.
 
 Không xóa dữ liệu tab thủ công để ép sync. Hai hàm trên vẫn giữ luồng một chiều và không ghi ngược
 vào Supabase.

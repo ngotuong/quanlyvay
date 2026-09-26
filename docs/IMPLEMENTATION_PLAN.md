@@ -30,7 +30,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C52 | Production readiness: backup/PITR, CI trên GitHub Free và notification runner | `COMPLETED` |
 | C53 | Rollout remediation C51 lên Production và đồng bộ GitHub | `COMPLETED` |
 | C54 | Khắc phục timeout dashboard Production và hoàn tất rollout C53 | `COMPLETED` |
-| C55 | Rollout Google Apps Script/Sheets cho schema đối chiếu C47 | `AWAITING_APPROVAL` |
+| C55 | Rollout Google Apps Script/Sheets cho schema đối chiếu C47 | `COMPLETED` |
+| C56 | Đồng bộ source C55 lên GitHub và xác nhận Required CI gate | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -280,7 +281,7 @@ Commit `91a16565599a14dc739c5af6880c999e9b8febf6` đã push fast-forward lên `m
 khớp SHA. GitHub Actions run `36221129972` đạt toàn bộ job và `Required CI gate`. Hậu kiểm sau
 push xác nhận alias Production vẫn trỏ đúng candidate C54. Trạng thái: `COMPLETED`.
 
-## 13. Checkpoint chờ phê duyệt: C55
+## 13. Checkpoint hoàn tất gần nhất: C55
 
 Mục tiêu: rollout phần Google Apps Script/Sheets của C47 lên Apps Script project hiện hữu và xác
 minh đồng bộ một chiều phục vụ đối chiếu, không ghi ngược vào Supabase.
@@ -298,4 +299,36 @@ Acceptance criteria:
 5. Ghi Apps Script version/project, Sheet smoke, log và rollback procedure vào context; không đưa
    secret hoặc dữ liệu tài chính thật vào Git/log.
 
-Trạng thái: `AWAITING_APPROVAL`. Không thực hiện C55 trước khi người dùng phê duyệt rõ.
+Kết quả:
+
+- Source/dist đã khớp và được push vào đúng Apps Script project hiện hữu; immutable version 6 được
+  tạo, HEAD deployment giữ nguyên. Không tạo project, Sheet, thư mục Drive hoặc trigger mới.
+- Workbook hiện hữu đã full sync thành 13 tab dữ liệu. Hai tab C47 có đúng cột và số dòng nguồn;
+  header có filter/frozen row và chiều rộng tối thiểu dễ đọc. Lần incremental kế tiếp giữ nguyên
+  source version và số dòng, không tạo bản ghi trùng.
+- Gate đạt: `git diff --check`, lint, typecheck, unit test, build; riêng Google Sync đạt 18/18 test
+  và source/dist exact. Không chạy E2E/Auth/database vì không đổi các bề mặt đó.
+- Không ghi ngược Supabase, không đổi dữ liệu authoritative và không đưa secret hoặc dữ liệu tài
+  chính vào Git/log. Rollback dùng source trước C55 hoặc immutable version 3 để build và push lại;
+  chưa cần kích hoạt.
+
+Trạng thái: `COMPLETED` ngày 2026-09-26.
+
+## 14. Checkpoint chờ phê duyệt: C56
+
+Mục tiêu: đồng bộ thay đổi source/tài liệu C55 lên GitHub và xác nhận kiểm soát bù Required CI gate
+trên đúng revision vì repository private dùng GitHub Free.
+
+Acceptance criteria:
+
+1. Xác minh local commit C55, `git diff --check`, secret scan áp dụng và trạng thái Apps
+   Script/workbook; commit không chứa `dist`, `.clasp.json`, secret hoặc dữ liệu tài chính.
+2. Chỉ push fast-forward branch `main` khi `origin/main` chưa thay đổi; đối chiếu local/remote đúng
+   cùng SHA sau push.
+3. Chờ GitHub Actions của đúng SHA hoàn tất và `Required CI gate` xanh; nếu lỗi hạ tầng có bằng
+   chứng rõ thì chỉ rerun job thất bại, không bỏ qua gate.
+4. Hậu kiểm Apps Script HEAD/version và workbook vẫn hoạt động; không deploy Vercel, chạy migration,
+   thay secret, tạo tài nguyên Google hoặc sửa dữ liệu.
+5. Cập nhật context với commit, CI run và kết quả hậu kiểm, sau đó đánh dấu C56 hoàn tất.
+
+Trạng thái: `AWAITING_APPROVAL`.

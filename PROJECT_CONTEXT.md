@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.208
-last_updated: 2026-09-26 12:46:45 +07
+roadmap_version: 1.0.210
+last_updated: 2026-09-26 13:59:24 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C55
+current_checkpoint: C56
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C54
-next_checkpoint: C55
+last_completed_checkpoint: C55
+next_checkpoint: C56
 ---
 
 # Project Context
@@ -129,6 +129,17 @@ history, migration, test và các contract/runbook chuyên biệt.
   policy, Supabase/Auth/pgTAP/E2E và `Required CI gate`. Hậu kiểm sau push xác nhận alias
   `tindung.vercel.app` vẫn trỏ đúng `dpl_2EoTbJAzcGYvdieQWiWUphwMnbT6` `Ready`, target Production,
   Functions `sin1`.
+- C55 `COMPLETED` ngày 2026-09-26: source/dist khớp đã được push lên Apps Script project hiện hữu
+  `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`; immutable version 6 là
+  `C55 readable Google Sync reconciliation tabs`. HEAD deployment vẫn là
+  `AKfycbzgUCt7yolAjpgaoCrj7GtvyA1df29E2975-AxfTuM`; không tạo project, workbook, thư mục Drive
+  hoặc trigger mới.
+- Workbook hiện hữu `QuanLyVayCaNhanSync` đã full sync một chiều thành công: `Tổng quan` ghi 13
+  tab dữ liệu; hai tab C47 đúng contract, lần giảm gốc hiện hữu có đúng một dòng và tab hoàn tác
+  không có dòng dữ liệu. Header cố định, có filter và chiều rộng tối thiểu dễ đọc. Log ghi
+  `runGoogleSheetFullSync` lúc 13:57:18 hoàn tất trong 68,927 giây; lần `runGoogleSheetSync` kế tiếp
+  lúc 13:58:36 hoàn tất trong 4,311 giây, giữ nguyên source version và số dòng, xác nhận retry không
+  tạo bản ghi trùng. Không có đường ghi ngược Supabase.
 
 ## 2. Dữ liệu và tài khoản
 
@@ -176,6 +187,11 @@ quyền thực hiện thao tác remote mới.
 - Vercel project ID: `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; Functions region `sin1`.
 - Preview bắt buộc chạy từ repository root bằng `pnpm deploy:preview`.
 - Google Apps Script/Sheets/Drive, Vercel, Supabase và secret chỉ thao tác khi checkpoint cho phép.
+- Google Apps Script project C55: `1M6AgyI5BMXz4D7xsMCQyF0-FkpA__MWveWKdzrVyityWoxlCVt2EdmJT`,
+  version 6. Workbook smoke:
+  <https://docs.google.com/spreadsheets/d/1Q12dJCgCvDIjEQyRpeFVtbepGzTl6AsJ_KimAnEvjA8/edit>.
+  Rollback: checkout source Google Sync của commit trước C55 (hoặc đối chiếu immutable version 3),
+  build để tái tạo `dist`, rồi `clasp push`; version 6 được giữ làm bằng chứng. Không cần rollback.
 
 ## 6. Kiểm thử gần nhất
 
@@ -285,6 +301,16 @@ C54 đã đạt:
 - Commit `91a16565599a14dc739c5af6880c999e9b8febf6` đã push fast-forward; local/remote khớp SHA và
   GitHub run `36221129972` đạt toàn bộ job cùng `Required CI gate`
 
+C55 đã đạt:
+
+- `git diff --check`, `pnpm lint`, `pnpm typecheck`, `pnpm test` và `pnpm build`
+- Google Sync typecheck, 18/18 unit test, build và so khớp exact source/dist
+- `clasp push` đúng project; immutable Apps Script version 6 và HEAD deployment được xác minh
+- Full sync/smoke workbook 13 tab đạt; hai tab C47 đúng contract, header đọc được và retry giữ
+  nguyên số dòng/source version
+- Không chạy Auth E2E, browser E2E hoặc database test vì C55 chỉ đổi Apps Script/Sheet đối chiếu
+  một chiều và tài liệu; không đổi web, Auth, schema, RPC hoặc dữ liệu authoritative
+
 ## 7. Việc chờ
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
@@ -293,10 +319,12 @@ C54 đã đạt:
 - C53/C54 `COMPLETED` ngày 2026-09-26: migration C51/C54, backup, rollout Vercel Production,
   authenticated smoke, runtime log, commit/push và Required CI gate đúng SHA đều đạt. Không còn
   blocker dashboard hoặc source local chưa đồng bộ GitHub.
-- C55 `AWAITING_APPROVAL`: rollout phần Google Apps Script/Sheets của C47 đang có trong
-  `apps/google-sync/src/Config.js`; chưa chạy `clasp push` hoặc đồng bộ Sheet remote. Phạm vi dự
-  kiến chỉ xác minh target, build, đẩy Apps Script và smoke đồng bộ một chiều sang Sheet hiện hữu;
-  không ghi ngược Supabase và không sửa dữ liệu tài chính.
+- C55 `COMPLETED` ngày 2026-09-26: Apps Script version 6 và workbook hiện hữu đã nhận schema đối
+  chiếu C47; full sync, log, hiển thị và retry idempotent đều đạt. Không ghi ngược Supabase, không
+  tạo tài nguyên Google mới và không đưa secret/dữ liệu tài chính vào Git.
+- C56 `AWAITING_APPROVAL`: commit source/tài liệu C55, push fast-forward `main` và chỉ kết thúc khi
+  GitHub `Required CI gate` của đúng SHA đạt. Không deploy Vercel, chạy migration, thay secret hoặc
+  sửa dữ liệu.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.

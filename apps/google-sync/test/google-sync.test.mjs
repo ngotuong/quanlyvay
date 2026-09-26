@@ -16,12 +16,13 @@ class MockRange {
   setNumberFormat() { return this; } createFilter() { this.sheet.filterCount += 1; return this; } merge() { return this; } setFontSize() { return this; }
 }
 class MockSheet {
-  constructor(name, dataValues = [[""]]) { this.name = name; this.dataValues = dataValues; this.cells = {}; this.clearCount = 0; this.filterCount = 0; }
+  constructor(name, dataValues = [[""]]) { this.name = name; this.dataValues = dataValues; this.cells = {}; this.clearCount = 0; this.filterCount = 0; this.columnWidths = new Map(); }
   getName() { return this.name; } clear() { this.cells = {}; this.clearCount += 1; return this; }
   getRange(row, column, rows, columns) { return typeof row === "string" ? new MockRange(this) : new MockRange(this, row, column, rows, columns); }
   getFilter() { return this.filterCount ? { remove: () => { this.filterCount = 0; } } : null; }
   getDataRange() { return new MockRange(this); } setFrozenRows() { return this; } setHiddenGridlines() { return this; }
-  autoResizeColumns() { return this; } setColumnWidth() { return this; }
+  autoResizeColumns() { return this; } getColumnWidth(column) { return this.columnWidths.get(column) || 50; }
+  setColumnWidth(column, width) { this.columnWidths.set(column, width); return this; }
 }
 class MockSpreadsheet {
   constructor(id = "target") { this.id = id; this.sheets = []; this.timeZone = null; }
@@ -39,6 +40,21 @@ function makeContext(overrides = {}) {
   return context;
 }
 function call(context, expression) { return vm.runInContext(expression, context); }
+
+test("owner menu exposes incremental, full and snapshot operations", () => {
+  const items = [];
+  const menu = {
+    addItem(label, handler) { items.push([label, handler]); return this; },
+    addToUi() { return this; },
+  };
+  const context = makeContext({ SpreadsheetApp: { getUi: () => ({ createMenu: (name) => { assert.equal(name, "Quản Lý Vay"); return menu; } }) } });
+  call(context, "onOpen()");
+  assert.deepEqual(items, [
+    ["Đồng bộ ngay", "runGoogleSheetSync"],
+    ["Đồng bộ đầy đủ", "runGoogleSheetFullSync"],
+    ["Tạo snapshot tuần", "runWeeklySnapshot"],
+  ]);
+});
 
 test("sync, snapshot and restore refuse work while the common lock is held", () => {
   let reads = 0;
@@ -149,6 +165,7 @@ test("full snapshot writes overview and all data tabs idempotently", () => {
   assert.equal(spreadsheet.getSheetByName("Đối tác").cells["2,1"], "c1");
   assert.equal(spreadsheet.getSheetByName("Đối tác").clearCount, 2);
   assert.equal(spreadsheet.getSheetByName("Đối tác").filterCount, 1);
+  assert.equal(spreadsheet.getSheetByName("Hoàn tác giảm gốc").columnWidths.get(5), 150);
 });
 
 test("sync stores source cursor then skips unchanged payload", () => {

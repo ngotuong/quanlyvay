@@ -1,6 +1,7 @@
 function onOpen() {
   SpreadsheetApp.getUi().createMenu("Quản Lý Vay")
     .addItem("Đồng bộ ngay", "runGoogleSheetSync")
+    .addItem("Đồng bộ đầy đủ", "runGoogleSheetFullSync")
     .addItem("Tạo snapshot tuần", "runWeeklySnapshot")
     .addToUi();
 }
@@ -176,6 +177,11 @@ function formatDataSheet_(sheet, definition, rowCount) {
     if (type === "text") range.setNumberFormat("@");
   });
   sheet.autoResizeColumns(1, definition.headers.length);
+  /** @type {Record<string, number>} */
+  const minimumWidths = { text: 150, money: 120, integer: 100, rate: 120, date: 105, datetime: 165 };
+  definition.types.forEach(function (type, index) {
+    sheet.setColumnWidth(index + 1, Math.max(sheet.getColumnWidth(index + 1), minimumWidths[type] || 100));
+  });
   sheet.getRange(1, 1, Math.max(rowCount + 1, 1), definition.headers.length).createFilter();
 }
 
