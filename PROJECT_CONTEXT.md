@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.215
-last_updated: 2026-09-26 15:45:00 +07
+roadmap_version: 1.0.216
+last_updated: 2026-09-26 19:24:06 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C59
-current_status: IN_PROGRESS
-last_completed_checkpoint: C58
-next_checkpoint: C59
+current_checkpoint: C60
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C59
+next_checkpoint: C60
 ---
 
 # Project Context
@@ -149,6 +149,20 @@ history, migration, test và các contract/runbook chuyên biệt.
   được tự động hóa/cảnh báo và Production thiếu HTTP security headers. Supabase Auth E2E còn một
   lỗi flaky `LOW`; branch protection GitHub Free/private và biên hiệu năng dashboard được ghi nhận
   là `ACCEPTED_RISK` có kiểm soát bù.
+- C59 `COMPLETED` ngày 2026-09-26: Production đã trả CSP có `frame-ancestors 'none'`, header
+  chống MIME sniffing, referrer/permissions policy, X-Frame-Options và COOP. Candidate
+  `dpl_QQ4ymp6KrfYHngugdMdv4zu5bRrJ`, URL bất biến
+  <https://quan-ly-vay-ca-nhan-8ewqm47qv-ngotuong2105.vercel.app>, target Production,
+  `READY`, Functions `sin1`; public và authenticated smoke desktop/mobile/PWA đạt, console và
+  runtime error/500 sạch. Alias `tindung.vercel.app` đã promote; rollback target là
+  `dpl_2EoTbJAzcGYvdieQWiWUphwMnbT6`, chưa cần kích hoạt.
+- Backup Production mã hóa `qlv-prod-20260926T115433Z`, migration `20260926001000`, gồm sáu
+  ciphertext đã đạt checksum, GCM, SQL shape và RPO. LaunchAgent
+  `com.ngotuong.quanlyvay.backup` chạy mỗi giờ trên máy vận hành, ngưỡng tạo 20 giờ, dùng khóa
+  Keychain hiện hữu; lần kickstart kết thúc mã 0 với `not-due`. Retention chỉ dry-run, không xóa.
+- Commit triển khai `66e2e8d88d6bb92d2b8b4fdc8c0ccc7e7c8ff7a5` đã push fast-forward. GitHub Actions run
+  `36241173845` đạt lần đầu toàn bộ job và `Required CI gate`; E2E dùng database đã chuẩn bị,
+  readiness Auth có deadline/backoff và regression 502.
 
 ## 2. Dữ liệu và tài khoản
 
@@ -356,6 +370,18 @@ C58 đã đạt:
 - Không chạy lại full local test vì source runtime không đổi và CI của đúng SHA đã đạt full gate;
   C58 chỉ thêm tài liệu audit
 
+C59 đã đạt:
+
+- `git diff --check`, `pnpm ci:validate`, `pnpm audit --audit-level high`, lint, typecheck, unit
+  test 79/79 và build; Gitleaks trên diff và toàn bộ history trong CI không phát hiện secret
+- database reset/lint đạt; pgTAP 527/527, Auth 6/6 và Playwright E2E 23/23
+- Backup `qlv-prod-20260926T115433Z` đạt checksum/GCM/SQL shape/RPO; LaunchAgent chạy thử mã 0,
+  lịch mỗi giờ và ngưỡng 20 giờ đã được nạp
+- Candidate/alias Production đúng project, target, region; public/authenticated smoke, PWA,
+  security headers, console và runtime log đạt; rollback không cần kích hoạt
+- Commit `66e2e8d88d6bb92d2b8b4fdc8c0ccc7e7c8ff7a5` đã push fast-forward; GitHub run
+  `36241173845` attempt 1 đạt toàn bộ job cùng `Required CI gate`
+
 ## 7. Việc chờ
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
@@ -374,8 +400,11 @@ C58 đã đạt:
   `36228136823` đạt `Required CI gate`, không cò cảnh báo Node.js 20 hay annotation job.
 - C58 `COMPLETED` ngày 2026-09-26: ma trận Production readiness đã chốt tại
   `docs/PRODUCTION_READINESS.md`; không còn phát hiện CRITICAL/HIGH, còn hai MEDIUM và một LOW.
-- C59 `IN_PROGRESS`: đóng hai rủi ro MEDIUM về HTTP security headers và RPO backup bền vững,
-  đồng thời ổn định readiness gate Supabase Auth E2E. Không tự động thực hiện khi chưa được duyệt.
+- C59 `COMPLETED` ngày 2026-09-26: hai rủi ro MEDIUM về HTTP headers/backup và lỗi flaky Auth E2E
+  đã đóng; Production, lịch backup và Required CI của đúng SHA đều đạt.
+- C60 `AWAITING_APPROVAL`: hậu kiểm lần backup đầu tiên do LaunchAgent tự tạo sau khi đủ ngưỡng
+  20 giờ, xác minh RPO/retention/log và chốt khả năng vận hành lịch dài hạn. Không tự động thực hiện
+  khi chưa được duyệt.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.

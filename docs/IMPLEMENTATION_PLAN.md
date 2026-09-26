@@ -34,7 +34,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C56 | Đồng bộ source C55 lên GitHub và xác nhận Required CI gate | `COMPLETED` |
 | C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `COMPLETED` |
 | C58 | Hậu kiểm Production readiness sau remediation C51–C57 | `COMPLETED` |
-| C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `IN_PROGRESS` |
+| C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `COMPLETED` |
+| C60 | Hậu kiểm chu kỳ backup tự động đầu tiên | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -416,7 +417,7 @@ Kết quả:
 
 Trạng thái: `COMPLETED` ngày 2026-09-26.
 
-## 17. Checkpoint đang thực hiện: C59
+## 17. Checkpoint hoàn tất: C59
 
 Mục tiêu: đóng hai rủi ro Production readiness mức `MEDIUM` và giảm lỗi CI giả đã được C58 chứng
 minh, không yêu cầu nâng cấp gói GitHub trả phí.
@@ -434,4 +435,37 @@ Acceptance criteria:
 5. Full gate phù hợp đạt; rollout Vercel, bật lịch backup, thay secret hoặc push chỉ thực hiện trong
    phạm vi C59 sau khi checkpoint được duyệt và có rollback rõ ràng.
 
-Trạng thái: `IN_PROGRESS`.
+Kết quả:
+
+- Production trả đầy đủ CSP/frame policy, nosniff, referrer, permissions và COOP. Candidate
+  `dpl_QQ4ymp6KrfYHngugdMdv4zu5bRrJ` `READY`, Functions `sin1`; public/authenticated smoke,
+  mobile/PWA, browser console và runtime log đều đạt. Alias chính đã promote, rollback không cần.
+- Backup mã hóa `qlv-prod-20260926T115433Z` gồm sáu ciphertext đạt checksum, GCM, SQL shape và
+  RPO. LaunchAgent trên máy vận hành chạy mỗi giờ, tạo bản mới từ tuổi 20 giờ, thông báo khi lỗi;
+  lần kickstart trả `not-due` và mã 0. Retention luôn dry-run, không tự xóa.
+- CI chỉ reset database một lần trước E2E; readiness Auth dùng deadline 60 giây và backoff có giới
+  hạn. Regression 502 đạt. Full local gate gồm unit 79/79, pgTAP 527/527, Auth 6/6 và E2E 23/23.
+- Commit `66e2e8d88d6bb92d2b8b4fdc8c0ccc7e7c8ff7a5` đã push fast-forward. GitHub Actions run
+  `36241173845` đạt ngay attempt 1 tất cả job và `Required CI gate`; secret/dependency scan sạch.
+
+Trạng thái: `COMPLETED` ngày 2026-09-26.
+
+## 18. Checkpoint chờ phê duyệt: C60
+
+Mục tiêu: hậu kiểm chu kỳ backup đầu tiên được LaunchAgent tự tạo sau khi đủ ngưỡng, không thay đổi
+schema, dữ liệu nghiệp vụ hoặc cấu hình Production.
+
+Acceptance criteria:
+
+1. Sau khi backup C59 đủ 20 giờ, LaunchAgent tự tạo một backup mới mà không cần chạy tay; log ghi
+   lần chạy, exit code 0 và không còn thư mục `.partial`.
+2. Manifest mới khớp project/migration hiện hành; cả sáu ciphertext đạt checksum, GCM, SQL shape
+   và tuổi dưới RPO 24 giờ.
+3. Retention dry-run 7 daily/4 weekly/12 monthly trả danh sách keep/candidate hợp lệ và không xóa
+   bất kỳ backup nào trong checkpoint.
+4. Xác minh LaunchAgent vẫn loaded, lịch 3.600 giây, Keychain/secret không vào Git/log; nếu lần tự
+   động thất bại thì ghi bằng chứng cảnh báo và khắc phục nguyên nhân trước khi hoàn tất.
+5. Chỉ chạy gate tài liệu/script bị tác động; cập nhật context/roadmap và dừng ở checkpoint tiếp
+   theo. Không deploy, migration, push runtime hoặc sửa dữ liệu tài chính.
+
+Trạng thái: `AWAITING_APPROVAL`.
