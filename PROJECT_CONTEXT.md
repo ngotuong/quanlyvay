@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.211
-last_updated: 2026-09-26 14:30:21 +07
+last_updated: 2026-09-26 14:49:46 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C57
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 last_completed_checkpoint: C56
 next_checkpoint: C57
 ---
@@ -339,9 +339,9 @@ C56 đã đạt:
 - C56 `COMPLETED` ngày 2026-09-26: commit C55 đã push fast-forward, local/remote khớp SHA,
   GitHub run `36226393389` đạt `Required CI gate`; Apps Script version 6/HEAD và workbook được
   hậu kiểm chỉ đọc thành công.
-- C57 `AWAITING_APPROVAL`: loại bỏ cảnh báo Node.js 20 từ action Supabase trong CI bằng
-  revision upstream chính thức, pin full SHA và xác nhận lại toàn bộ Required CI gate; không
-  deploy, migration, thay secret hoặc sửa dữ liệu.
+- C57 `IN_PROGRESS` sau khi OWNER phê duyệt ngày 2026-09-26: loại bỏ cảnh báo Node.js 20
+  từ action Supabase trong CI bằng revision upstream chính thức, pin full SHA và xác nhận
+  lại toàn bộ Required CI gate; không deploy, migration, thay secret hoặc sửa dữ liệu.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.

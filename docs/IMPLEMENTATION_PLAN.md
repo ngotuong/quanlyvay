@@ -32,7 +32,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C54 | Khắc phục timeout dashboard Production và hoàn tất rollout C53 | `COMPLETED` |
 | C55 | Rollout Google Apps Script/Sheets cho schema đối chiếu C47 | `COMPLETED` |
 | C56 | Đồng bộ source C55 lên GitHub và xác nhận Required CI gate | `COMPLETED` |
-| C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `AWAITING_APPROVAL` |
+| C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -346,7 +346,7 @@ Kết quả:
 
 Trạng thái: `COMPLETED` ngày 2026-09-26.
 
-## 15. Checkpoint chờ phê duyệt: C57
+## 15. Checkpoint đang thực hiện: C57
 
 Mục tiêu: loại bỏ cảnh báo GitHub Actions về Node.js 20 deprecated từ action thiết lập
 Supabase, trong khi giữ nguyên kiểm soát pin full SHA và Required CI gate trên GitHub Free/private.
@@ -364,4 +364,4 @@ Acceptance criteria:
 5. Không deploy Vercel/Apps Script, chạy migration, thay secret, tạo tài nguyên remote hoặc
    sửa dữ liệu.
 
-Trạng thái: `AWAITING_APPROVAL`.
+Trạng thái: `IN_PROGRESS`. OWNER đã phê duyệt C57 trong hội thoại ngày 2026-09-26.

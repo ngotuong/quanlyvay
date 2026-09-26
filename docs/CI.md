@@ -19,6 +19,12 @@ Concurrency tự hủy revision cũ trên cùng PR/ref. Mọi action bên ngoài
 actionlint và Gitleaks được pin digest. Toolchain hiện khóa Node 24.15.0, pnpm 11.9.0, Supabase CLI
 2.109.0 và Playwright 1.62.1.
 
+Action cài Supabase CLI được pin vào full SHA
+`45a513f8c64c0bc8e0e3dfe572b5c95be85f6359` của bản phát hành chính thức
+[`supabase/setup-cli` v3.0.1](https://github.com/supabase/setup-cli/releases/tag/v3.0.1). Revision
+này dùng composite action với Node.js 24 và giữ input phiên bản CLI cố định; policy local chặn
+việc quay lại revision cũ chỉ hỗ trợ Node.js 20.
+
 ## Kiểm tra local
 
 ```bash

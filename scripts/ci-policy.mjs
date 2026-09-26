@@ -29,6 +29,10 @@ requireText(/pnpm test:e2e/, "Thiếu Playwright E2E.");
 requireText(/pnpm audit --audit-level high/, "Thiếu dependency audit fail-closed.");
 requireText(/ghcr\.io\/gitleaks\/gitleaks:v8\.30\.1@sha256:[0-9a-f]{64}/, "Gitleaks image phải pin bằng digest.");
 requireText(/rhysd\/actionlint:1\.7\.9@sha256:[0-9a-f]{64}/, "Actionlint image phải pin bằng digest.");
+requireText(
+  /supabase\/setup-cli@45a513f8c64c0bc8e0e3dfe572b5c95be85f6359/,
+  "Supabase setup action phải pin v3.0.1 hỗ trợ Node.js 24.",
+);
 requireText(/^\s+gate:\s*$/m, "Thiếu job gate tổng hợp.");
 
 if (/continue-on-error\s*:\s*true/i.test(source)) {
