@@ -33,7 +33,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C55 | Rollout Google Apps Script/Sheets cho schema đối chiếu C47 | `COMPLETED` |
 | C56 | Đồng bộ source C55 lên GitHub và xác nhận Required CI gate | `COMPLETED` |
 | C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `COMPLETED` |
-| C58 | Hậu kiểm Production readiness sau remediation C51–C57 | `AWAITING_APPROVAL` |
+| C58 | Hậu kiểm Production readiness sau remediation C51–C57 | `COMPLETED` |
+| C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -380,7 +381,7 @@ Kết quả:
 
 Trạng thái: `COMPLETED` ngày 2026-09-26.
 
-## 16. Checkpoint chờ phê duyệt: C58
+## 16. Checkpoint hoàn tất: C58
 
 Mục tiêu: audit lại Production readiness sau chuỗi remediation C51–C57, dùng bằng chứng
 hiện hành để chốt trạng thái phát hiện cũ và rủi ro còn lại.
@@ -395,8 +396,42 @@ Acceptance criteria:
 3. Chạy các gate local chỉ khi cần để xác minh source hiện hành; `git diff --check`,
    secret/dependency scan và trạng thái local/remote phải được ghi nhận.
 4. Kết luận mức sẵn sàng Production, liệt kê rủi ro còn lại theo mức độ nghiêm trọng
-   và đề xuất checkpoint tiếp theo chỉ khi cò bằng chứng cần remediation.
+   và đề xuất checkpoint tiếp theo chỉ khi còn bằng chứng cần remediation.
 5. Không deploy, migration, thay secret, tạo tài nguyên remote, push code runtime hoặc sửa
    dữ liệu trong checkpoint này.
+
+Kết quả:
+
+- Không còn phát hiện `CRITICAL` hoặc `HIGH`; nghiệp vụ/tài chính, database, Auth/RLS, Push,
+  UI/UX/accessibility, notification và rollout hiện hành ở trạng thái `RESOLVED`.
+- Vercel Production, Supabase/migration, notification runner, Apps Script/version, GitHub CI/SHA
+  và backup/RPO được kiểm tra chỉ đọc. Backup hiện tại đạt RPO nhưng chưa có automation daily.
+- Hai rủi ro `MEDIUM` còn mở: thiếu HTTP security headers và RPO phụ thuộc backup thủ công. Auth
+  local sau reset E2E còn flaky mức `LOW`.
+- Branch protection GitHub Free/private và biên hiệu năng dashboard là `ACCEPTED_RISK` với kiểm
+  soát bù hiện có. Chi tiết và bằng chứng nằm trong `docs/PRODUCTION_READINESS.md`.
+- Gate C58 đạt: `git diff --check`, CI policy/actionlint, dependency audit mức high và Gitleaks
+  toàn bộ Git history. Không deploy, migration, đổi secret, tạo tài nguyên remote, push hoặc ghi
+  dữ liệu.
+
+Trạng thái: `COMPLETED` ngày 2026-09-26.
+
+## 17. Checkpoint chờ phê duyệt: C59
+
+Mục tiêu: đóng hai rủi ro Production readiness mức `MEDIUM` và giảm lỗi CI giả đã được C58 chứng
+minh, không yêu cầu nâng cấp gói GitHub trả phí.
+
+Acceptance criteria:
+
+1. Production trả CSP có `frame-ancestors`, chính sách chống MIME sniffing, referrer và permissions
+   phù hợp; login, Supabase Auth/session, Server Actions, PWA/Push và các route chính không bị phá.
+2. Có daily logical backup mã hóa fail-closed dùng secret store hiện hữu, tự kiểm checksum, GCM và
+   SQL shape; cảnh báo trước khi vượt RPO 24 giờ, retention chỉ xóa sau gate và có runbook rollback.
+3. Giải pháp backup không commit secret/dump và không yêu cầu nâng gói GitHub; môi trường chạy cùng
+   nơi lưu bản mã hóa phải được OWNER phê duyệt trước khi bật lịch remote/local.
+4. E2E không reset database dư thừa hoặc có readiness deadline/backoff đủ cho Auth; regression tái
+   hiện điều kiện 502 và Required CI đạt mà không cần bỏ qua job.
+5. Full gate phù hợp đạt; rollout Vercel, bật lịch backup, thay secret hoặc push chỉ thực hiện trong
+   phạm vi C59 sau khi checkpoint được duyệt và có rollback rõ ràng.
 
 Trạng thái: `AWAITING_APPROVAL`.

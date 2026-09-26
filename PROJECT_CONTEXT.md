@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.212
-last_updated: 2026-09-26 15:06:27 +07
+roadmap_version: 1.0.214
+last_updated: 2026-09-26 15:38:04 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C58
+current_checkpoint: C59
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C57
-next_checkpoint: C58
+last_completed_checkpoint: C58
+next_checkpoint: C59
 ---
 
 # Project Context
@@ -140,6 +140,15 @@ history, migration, test và các contract/runbook chuyên biệt.
   `runGoogleSheetFullSync` lúc 13:57:18 hoàn tất trong 68,927 giây; lần `runGoogleSheetSync` kế tiếp
   lúc 13:58:36 hoàn tất trong 4,311 giây, giữ nguyên source version và số dòng, xác nhận retry không
   tạo bản ghi trùng. Không có đường ghi ngược Supabase.
+- C58 `COMPLETED` ngày 2026-09-26: hậu kiểm xác nhận Supabase `ACTIVE_HEALTHY`, 36 migration
+  local/remote khớp, Vercel Production `READY`, notification runner gần nhất trả 200, Apps Script
+  version 6/HEAD còn hiện hữu và GitHub Required CI của đúng SHA đạt. Backup mới nhất tuổi 15,48
+  giờ đạt checksum/GCM/SQL shape và RPO 24 giờ. Báo cáo hiện hành nằm tại
+  `docs/PRODUCTION_READINESS.md`.
+- C58 không còn phát hiện `CRITICAL`/`HIGH`. Hai phát hiện `MEDIUM` còn mở là daily backup chưa
+  được tự động hóa/cảnh báo và Production thiếu HTTP security headers. Supabase Auth E2E còn một
+  lỗi flaky `LOW`; branch protection GitHub Free/private và biên hiệu năng dashboard được ghi nhận
+  là `ACCEPTED_RISK` có kiểm soát bù.
 
 ## 2. Dữ liệu và tài khoản
 
@@ -338,6 +347,15 @@ C57 đã đạt:
 - Integration log không cò cảnh báo Node.js 20 deprecated; API annotations của job rỗng
 - Không deploy Vercel/Apps Script, migration, thay secret, tạo tài nguyên remote hoặc sửa dữ liệu
 
+C58 đã đạt:
+
+- `git diff --check`, `pnpm ci:validate`, dependency audit mức high và Gitleaks toàn bộ 113 commit
+- GitHub run `36228844410` attempt 2 trên đúng SHA `fe32304a` đạt toàn bộ job và Required CI gate
+- Supabase/Vercel/notification/Apps Script được hậu kiểm chỉ đọc; backup checksum, GCM, SQL shape,
+  RPO và retention dry-run đạt
+- Không chạy lại full local test vì source runtime không đổi và CI của đúng SHA đã đạt full gate;
+  C58 chỉ thêm tài liệu audit
+
 ## 7. Việc chờ
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
@@ -354,9 +372,10 @@ C57 đã đạt:
   hậu kiểm chỉ đọc thành công.
 - C57 `COMPLETED` ngày 2026-09-26: action Supabase đã pin v3.0.1/full SHA; run
   `36228136823` đạt `Required CI gate`, không cò cảnh báo Node.js 20 hay annotation job.
-- C58 `AWAITING_APPROVAL`: audit lại Production readiness sau C51–C57 bằng bằng chứng hiện
-  hành, đối chiếu các phát hiện cũ và chốt rủi ro còn lại; chỉ kiểm tra đọc, không
-  deploy, migration, thay secret hoặc sửa dữ liệu.
+- C58 `COMPLETED` ngày 2026-09-26: ma trận Production readiness đã chốt tại
+  `docs/PRODUCTION_READINESS.md`; không còn phát hiện CRITICAL/HIGH, còn hai MEDIUM và một LOW.
+- C59 `AWAITING_APPROVAL`: đóng hai rủi ro MEDIUM về HTTP security headers và RPO backup bền vững,
+  đồng thời ổn định readiness gate Supabase Auth E2E. Không tự động thực hiện khi chưa được duyệt.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.
