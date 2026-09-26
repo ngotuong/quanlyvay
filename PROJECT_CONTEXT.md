@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.217
-last_updated: 2026-09-26 19:54:00 +07
+roadmap_version: 1.0.218
+last_updated: 2026-09-26 20:40:00 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C60
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 last_completed_checkpoint: C59
 next_checkpoint: C60
 ---
@@ -406,10 +406,10 @@ C59 đã đạt:
   `docs/PRODUCTION_READINESS.md`; không còn phát hiện CRITICAL/HIGH, còn hai MEDIUM và một LOW.
 - C59 `COMPLETED` ngày 2026-09-26: HTTP headers, lịch backup và Auth readiness đã đạt; Production,
   local full gate và Required CI của revision sửa cuối đều xanh.
-- C60 `AWAITING_APPROVAL`: hậu kiểm lần backup đầu tiên do LaunchAgent tự tạo sau khi đủ ngưỡng
-  20 giờ, xác minh RPO/retention/log và chốt khả năng vận hành lịch dài hạn. Không tự động thực hiện
-  20 giờ, xác minh RPO/retention/log và chốt khả năng vận hành lịch dài hạn. Không tự động thực hiện
-  khi chưa được duyệt.
+- C60 `IN_PROGRESS`: OWNER đã phê duyệt trong hội thoại hiện tại. LaunchAgent đã tự chạy chu kỳ
+  thứ ba, exit 0 và trả `not-due` khi backup C59 mới 1,76 giờ tuổi; không có thư mục `.partial`.
+  Chờ bản `qlv-prod-20260926T115433Z` đủ 20 giờ để quan sát lần tự tạo đầu tiên, dự kiến sau
+  14:54 ngày 2026-09-27 theo `Asia/Ho_Chi_Minh`.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.

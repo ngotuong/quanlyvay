@@ -35,7 +35,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `COMPLETED` |
 | C58 | Hậu kiểm Production readiness sau remediation C51–C57 | `COMPLETED` |
 | C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `COMPLETED` |
-| C60 | Hậu kiểm chu kỳ backup tự động đầu tiên | `AWAITING_APPROVAL` |
+| C60 | Hậu kiểm chu kỳ backup tự động đầu tiên | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -443,7 +443,7 @@ Kết quả:
 - Backup mã hóa `qlv-prod-20260926T115433Z` gồm sáu ciphertext đạt checksum, GCM, SQL shape và
   RPO. LaunchAgent trên máy vận hành chạy mỗi giờ, tạo bản mới từ tuổi 20 giờ, thông báo khi lỗi;
   lần kickstart trả `not-due` và mã 0. Retention luôn dry-run, không tự xóa.
-- CI chỉ reset database một lần trước E2E; readiness Auth dùng deadline 60 giây và backoff có giới
+- CI chỉ reset database một lần trước E2E; readiness Auth dùng deadline 180 giây và backoff có giới
   hạn. Regression 502 đạt. Full local gate gồm unit 79/79, pgTAP 527/527, Auth 6/6 và E2E 23/23.
 - Commit `66e2e8d88d6bb92d2b8b4fdc8c0ccc7e7c8ff7a5` đã push fast-forward. GitHub Actions run
   `36241173845` đạt ngay attempt 1 tất cả job và `Required CI gate`; secret/dependency scan sạch.
@@ -455,7 +455,7 @@ chuẩn bị và tăng readiness deadline lên 180 giây. Commit `0c7dca7e891290
 
 Trạng thái: `COMPLETED` ngày 2026-09-26.
 
-## 18. Checkpoint chờ phê duyệt: C60
+## 18. Checkpoint đang thực hiện: C60
 
 Mục tiêu: hậu kiểm chu kỳ backup đầu tiên được LaunchAgent tự tạo sau khi đủ ngưỡng, không thay đổi
 schema, dữ liệu nghiệp vụ hoặc cấu hình Production.
@@ -473,4 +473,5 @@ Acceptance criteria:
 5. Chỉ chạy gate tài liệu/script bị tác động; cập nhật context/roadmap và dừng ở checkpoint tiếp
    theo. Không deploy, migration, push runtime hoặc sửa dữ liệu tài chính.
 
-Trạng thái: `AWAITING_APPROVAL`.
+Trạng thái: `IN_PROGRESS`. OWNER phê duyệt trong hội thoại hiện tại. LaunchAgent đã tự chạy thêm
+một chu kỳ `not-due`, exit 0; chờ backup C59 đủ ngưỡng 20 giờ để xác minh lần tự tạo đầu tiên.
