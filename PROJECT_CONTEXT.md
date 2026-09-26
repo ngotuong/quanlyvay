@@ -3,10 +3,10 @@ project: QuanLyVayCaNhan
 roadmap_version: 1.0.216
 last_updated: 2026-09-26 19:24:06 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C60
-current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C59
-next_checkpoint: C60
+current_checkpoint: C59
+current_status: IN_PROGRESS
+last_completed_checkpoint: C58
+next_checkpoint: C59
 ---
 
 # Project Context
@@ -149,7 +149,7 @@ history, migration, test và các contract/runbook chuyên biệt.
   được tự động hóa/cảnh báo và Production thiếu HTTP security headers. Supabase Auth E2E còn một
   lỗi flaky `LOW`; branch protection GitHub Free/private và biên hiệu năng dashboard được ghi nhận
   là `ACCEPTED_RISK` có kiểm soát bù.
-- C59 `COMPLETED` ngày 2026-09-26: Production đã trả CSP có `frame-ancestors 'none'`, header
+- C59 `IN_PROGRESS`: Production đã trả CSP có `frame-ancestors 'none'`, header
   chống MIME sniffing, referrer/permissions policy, X-Frame-Options và COOP. Candidate
   `dpl_QQ4ymp6KrfYHngugdMdv4zu5bRrJ`, URL bất biến
   <https://quan-ly-vay-ca-nhan-8ewqm47qv-ngotuong2105.vercel.app>, target Production,
@@ -161,8 +161,9 @@ history, migration, test và các contract/runbook chuyên biệt.
   `com.ngotuong.quanlyvay.backup` chạy mỗi giờ trên máy vận hành, ngưỡng tạo 20 giờ, dùng khóa
   Keychain hiện hữu; lần kickstart kết thúc mã 0 với `not-due`. Retention chỉ dry-run, không xóa.
 - Commit triển khai `66e2e8d88d6bb92d2b8b4fdc8c0ccc7e7c8ff7a5` đã push fast-forward. GitHub Actions run
-  `36241173845` đạt lần đầu toàn bộ job và `Required CI gate`; E2E dùng database đã chuẩn bị,
-  readiness Auth có deadline/backoff và regression 502.
+  `36241173845` đạt lần đầu toàn bộ job và `Required CI gate`. Run tài liệu `36241927827` sau đó
+  tái hiện Auth health 502 lâu hơn 60 giây; C59 đang bỏ reset đầu Auth bị trùng và tăng deadline
+  readiness lên 180 giây trước khi đóng lại.
 
 ## 2. Dữ liệu và tài khoản
 
@@ -400,11 +401,11 @@ C59 đã đạt:
   `36228136823` đạt `Required CI gate`, không cò cảnh báo Node.js 20 hay annotation job.
 - C58 `COMPLETED` ngày 2026-09-26: ma trận Production readiness đã chốt tại
   `docs/PRODUCTION_READINESS.md`; không còn phát hiện CRITICAL/HIGH, còn hai MEDIUM và một LOW.
-- C59 `COMPLETED` ngày 2026-09-26: hai rủi ro MEDIUM về HTTP headers/backup và lỗi flaky Auth E2E
-  đã đóng; Production, lịch backup và Required CI của đúng SHA đều đạt.
-- C60 `AWAITING_APPROVAL`: hậu kiểm lần backup đầu tiên do LaunchAgent tự tạo sau khi đủ ngưỡng
+- C59 `IN_PROGRESS`: HTTP headers và lịch backup đã rollout đạt; đang đóng lần tái hiện Auth 502
+  trên run `36241927827` trước khi công nhận checkpoint hoàn tất.
+- C60 `NOT_STARTED`: hậu kiểm lần backup đầu tiên do LaunchAgent tự tạo sau khi đủ ngưỡng
   20 giờ, xác minh RPO/retention/log và chốt khả năng vận hành lịch dài hạn. Không tự động thực hiện
-  khi chưa được duyệt.
+  và chỉ chuyển sang `AWAITING_APPROVAL` sau khi C59 đạt CI cuối.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.

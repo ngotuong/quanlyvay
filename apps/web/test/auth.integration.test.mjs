@@ -46,7 +46,7 @@ async function provisionUser(credentials, displayName, role) {
 }
 
 test("local Auth session and application roles", async (t) => {
-  resetLocalDatabase();
+  if (process.env.AUTH_DATABASE_PREPARED !== "true") resetLocalDatabase();
   t.after(resetLocalDatabase);
   const { count, error: countError } = await admin
     .from("profiles")

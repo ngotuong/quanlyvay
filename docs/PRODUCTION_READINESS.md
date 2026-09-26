@@ -1,13 +1,13 @@
 # Production readiness
 
-Đây là báo cáo hiện hành sau checkpoint C59, đối chiếu Production với source runtime SHA
+Đây là báo cáo hiện hành trong checkpoint C59, đối chiếu Production với source runtime SHA
 `66e2e8d88d6bb92d2b8b4fdc8c0ccc7e7c8ff7a5` lúc `2026-09-26 19:24 +07`.
 
 ## Kết luận
 
-Production ở trạng thái **READY WITH ACCEPTED RISK**. Không còn phát hiện `CRITICAL`, `HIGH` hoặc
-`MEDIUM` đang mở từ audit C51/C58. Hai rủi ro đã được OWNER chấp nhận là giới hạn branch protection
-của GitHub Free/private và biên hiệu năng dashboard sẽ giảm khi dữ liệu tăng.
+Production runtime ở trạng thái **READY WITH ACCEPTED RISK**. HTTP và backup đã rollout đạt;
+checkpoint C59 vẫn đang đóng một lần tái hiện Auth health 502 của CI trước khi công nhận toàn bộ
+remediation hoàn tất.
 
 ## Ma trận hiện hành
 
@@ -19,7 +19,7 @@ của GitHub Free/private và biên hiệu năng dashboard sẽ giảm khi dữ 
 | UI/UX mobile–desktop và accessibility | `RESOLVED` | — | E2E bao phủ các viewport chính, keyboard, focus, contrast và touch target; authenticated smoke candidate và alias đạt trên desktop/mobile, không tràn ngang hoặc console error. |
 | Hiệu năng dashboard | `ACCEPTED_RISK` | `LOW` | C54 giảm bundle từ khoảng 8.074 ms xuống 5.093 ms; ba probe authenticated đạt 5.168–5.555 ms dưới timeout 8 giây. Cần theo dõi khi dữ liệu tăng. |
 | Thông báo và PWA | `RESOLVED` | — | Manifest/PWA và notification UI qua E2E/smoke; Production endpoint không secret trả 401; CSP cho phép worker/blob và kết nối Supabase cần thiết. |
-| Kiểm thử | `RESOLVED` | — | Auth readiness dùng deadline 60 giây/backoff và có regression cho 502; CI không reset database lần hai trước Playwright. Run `36241173845` đạt ngay attempt 1. |
+| Kiểm thử | `PENDING_CI` | `LOW` | Auth readiness nay dùng deadline 180 giây/backoff; CI bỏ reset đầu Auth integration đã được workflow chuẩn bị và không reset lần hai trước Playwright. Local Auth 6/6 + E2E 23/23 đạt; chờ CI cuối. |
 | CI/CD | `ACCEPTED_RISK` | `MEDIUM` | GitHub Free/private không enforce branch protection. Kiểm soát bù hiện hành chỉ phát hành đúng SHA có `Required CI gate` xanh; SHA C59 đã đạt. |
 | Vercel Production | `RESOLVED` | — | Alias `tindung.vercel.app` trỏ `dpl_QQ4ymp6KrfYHngugdMdv4zu5bRrJ`, target Production, `READY`; Functions `sin1`; public/authenticated smoke và runtime error/500 check đạt. |
 | Google Sync/Apps Script | `RESOLVED` | — | Version 6 và HEAD deployment hiện hữu; C55 đã full sync 13 tab và retry không tạo trùng. C59 không đổi bề mặt này. |

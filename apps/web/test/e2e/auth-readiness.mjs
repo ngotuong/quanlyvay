@@ -1,7 +1,7 @@
 export async function waitForAuthReady({
   healthUrl,
   headers,
-  timeoutMs = 60_000,
+  timeoutMs = 180_000,
   requestTimeoutMs = 2_000,
   fetchImpl = fetch,
   sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay)),

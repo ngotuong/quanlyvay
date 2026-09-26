@@ -134,6 +134,8 @@ jobs:
         run: supabase test db
       - name: Auth integration
         run: pnpm test:auth
+        env:
+          AUTH_DATABASE_PREPARED: "true"
       - name: Install pinned Playwright browser
         run: |
           test "$(pnpm --filter @quan-ly-vay-ca-nhan/web exec playwright --version)" = "Version ${PLAYWRIGHT_VERSION}"
