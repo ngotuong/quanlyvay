@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.211
-last_updated: 2026-09-26 14:49:46 +07
+roadmap_version: 1.0.212
+last_updated: 2026-09-26 15:06:27 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C57
-current_status: IN_PROGRESS
-last_completed_checkpoint: C56
-next_checkpoint: C57
+current_checkpoint: C58
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C57
+next_checkpoint: C58
 ---
 
 # Project Context
@@ -325,6 +325,19 @@ C56 đã đạt:
   với các tab đối chiếu C47
 - Không deploy Vercel, chạy migration, thay secret, tạo tài nguyên Google hoặc sửa dữ liệu
 
+C57 đã đạt:
+
+- Xác minh release chính thức `supabase/setup-cli` v3.0.1, commit ký hợp lệ
+  `45a513f8c64c0bc8e0e3dfe572b5c95be85f6359`, dùng composite action và Node.js 24
+- Workflow pin full SHA v3.0.1; policy local chặn revision cũ. Supabase CLI vẫn khóa 2.109.0,
+  không đổi permission, secret hoặc các phiên bản toolchain khác
+- Gate local đạt: `git diff --check`, `pnpm ci:validate`, `pnpm test` (75 test workspace/script),
+  dependency audit và Gitleaks trên diff không phát hiện secret
+- Commit `a24bcafdfa90c975ff465ed78422094f587d42ad` đã push fast-forward; GitHub Actions run
+  `36228136823` đạt tất cả job và `Required CI gate`
+- Integration log không cò cảnh báo Node.js 20 deprecated; API annotations của job rỗng
+- Không deploy Vercel/Apps Script, migration, thay secret, tạo tài nguyên remote hoặc sửa dữ liệu
+
 ## 7. Việc chờ
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
@@ -339,9 +352,11 @@ C56 đã đạt:
 - C56 `COMPLETED` ngày 2026-09-26: commit C55 đã push fast-forward, local/remote khớp SHA,
   GitHub run `36226393389` đạt `Required CI gate`; Apps Script version 6/HEAD và workbook được
   hậu kiểm chỉ đọc thành công.
-- C57 `IN_PROGRESS` sau khi OWNER phê duyệt ngày 2026-09-26: loại bỏ cảnh báo Node.js 20
-  từ action Supabase trong CI bằng revision upstream chính thức, pin full SHA và xác nhận
-  lại toàn bộ Required CI gate; không deploy, migration, thay secret hoặc sửa dữ liệu.
+- C57 `COMPLETED` ngày 2026-09-26: action Supabase đã pin v3.0.1/full SHA; run
+  `36228136823` đạt `Required CI gate`, không cò cảnh báo Node.js 20 hay annotation job.
+- C58 `AWAITING_APPROVAL`: audit lại Production readiness sau C51–C57 bằng bằng chứng hiện
+  hành, đối chiếu các phát hiện cũ và chốt rủi ro còn lại; chỉ kiểm tra đọc, không
+  deploy, migration, thay secret hoặc sửa dữ liệu.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.

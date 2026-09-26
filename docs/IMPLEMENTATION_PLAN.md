@@ -32,7 +32,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C54 | Khắc phục timeout dashboard Production và hoàn tất rollout C53 | `COMPLETED` |
 | C55 | Rollout Google Apps Script/Sheets cho schema đối chiếu C47 | `COMPLETED` |
 | C56 | Đồng bộ source C55 lên GitHub và xác nhận Required CI gate | `COMPLETED` |
-| C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `IN_PROGRESS` |
+| C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `COMPLETED` |
+| C58 | Hậu kiểm Production readiness sau remediation C51–C57 | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -346,7 +347,7 @@ Kết quả:
 
 Trạng thái: `COMPLETED` ngày 2026-09-26.
 
-## 15. Checkpoint đang thực hiện: C57
+## 15. Checkpoint hoàn tất gần nhất: C57
 
 Mục tiêu: loại bỏ cảnh báo GitHub Actions về Node.js 20 deprecated từ action thiết lập
 Supabase, trong khi giữ nguyên kiểm soát pin full SHA và Required CI gate trên GitHub Free/private.
@@ -364,4 +365,38 @@ Acceptance criteria:
 5. Không deploy Vercel/Apps Script, chạy migration, thay secret, tạo tài nguyên remote hoặc
    sửa dữ liệu.
 
-Trạng thái: `IN_PROGRESS`. OWNER đã phê duyệt C57 trong hội thoại ngày 2026-09-26.
+Kết quả:
+
+- Xác minh release chính thức v3.0.1 và commit upstream được ký hợp lệ. Workflow đã pin
+  `supabase/setup-cli@45a513f8c64c0bc8e0e3dfe572b5c95be85f6359`; policy local chặn quay lại
+  revision cũ.
+- Supabase CLI vẫn pin 2.109.0; không nới permission, thay secret hay đổi toolchain khác.
+- Gate local đạt: `git diff --check`, `pnpm ci:validate`, `pnpm test`, dependency audit và
+  Gitleaks trên diff.
+- Commit `a24bcafdfa90c975ff465ed78422094f587d42ad` đã push fast-forward. GitHub Actions run
+  `36228136823` đạt toàn bộ job và `Required CI gate`; integration log không cò cảnh báo
+  Node.js 20, API annotations rỗng.
+- Không deploy Vercel/Apps Script, migration, thay secret, tạo tài nguyên remote hoặc sửa dữ liệu.
+
+Trạng thái: `COMPLETED` ngày 2026-09-26.
+
+## 16. Checkpoint chờ phê duyệt: C58
+
+Mục tiêu: audit lại Production readiness sau chuỗi remediation C51–C57, dùng bằng chứng
+hiện hành để chốt trạng thái phát hiện cũ và rủi ro còn lại.
+
+Acceptance criteria:
+
+1. Đối chiếu từng nhóm phát hiện audit về nghiệp vụ/tài chính, database, bảo mật,
+   UI/UX/accessibility, hiệu năng, thông báo, kiểm thử, CI/CD và vận hành; ghi rõ
+   `RESOLVED`, `ACCEPTED_RISK` hoặc `OPEN` cùng bằng chứng.
+2. Kiểm tra chỉ đọc trạng thái GitHub CI/SHA, Vercel Production, Supabase/migration,
+   notification runner, backup/RPO và Google Sync/Apps Script; không kích hoạt ghi dữ liệu.
+3. Chạy các gate local chỉ khi cần để xác minh source hiện hành; `git diff --check`,
+   secret/dependency scan và trạng thái local/remote phải được ghi nhận.
+4. Kết luận mức sẵn sàng Production, liệt kê rủi ro còn lại theo mức độ nghiêm trọng
+   và đề xuất checkpoint tiếp theo chỉ khi cò bằng chứng cần remediation.
+5. Không deploy, migration, thay secret, tạo tài nguyên remote, push code runtime hoặc sửa
+   dữ liệu trong checkpoint này.
+
+Trạng thái: `AWAITING_APPROVAL`.
