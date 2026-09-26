@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.210
-last_updated: 2026-09-26 13:59:24 +07
+roadmap_version: 1.0.211
+last_updated: 2026-09-26 14:30:21 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C56
+current_checkpoint: C57
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C55
-next_checkpoint: C56
+last_completed_checkpoint: C56
+next_checkpoint: C57
 ---
 
 # Project Context
@@ -311,6 +311,20 @@ C55 đã đạt:
 - Không chạy Auth E2E, browser E2E hoặc database test vì C55 chỉ đổi Apps Script/Sheet đối chiếu
   một chiều và tài liệu; không đổi web, Auth, schema, RPC hoặc dữ liệu authoritative
 
+C56 đã đạt:
+
+- Commit C55 `fdd7254d97a58231bf918f110c23aa53257c2ded` đã push fast-forward lên `main`;
+  local/remote khớp SHA sau push
+- `git diff --check`, `pnpm ci:validate`, Gitleaks toàn bộ 110 commit và `pnpm audit
+  --audit-level high` đều đạt; commit không chứa `dist`, `.clasp.json`, secret hoặc dữ liệu
+  tài chính
+- GitHub Actions run `36226393389` của đúng SHA đạt Workflow policy, Dependency and secret scan,
+  Quality and build, Supabase Auth/pgTAP/E2E và `Required CI gate`
+- Hậu kiểm chỉ đọc xác nhận Apps Script version 6, HEAD deployment
+  `AKfycbzgUCt7yolAjpgaoCrj7GtvyA1df29E2975-AxfTuM` và workbook hiện hữu vẫn mở được
+  với các tab đối chiếu C47
+- Không deploy Vercel, chạy migration, thay secret, tạo tài nguyên Google hoặc sửa dữ liệu
+
 ## 7. Việc chờ
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
@@ -322,9 +336,12 @@ C55 đã đạt:
 - C55 `COMPLETED` ngày 2026-09-26: Apps Script version 6 và workbook hiện hữu đã nhận schema đối
   chiếu C47; full sync, log, hiển thị và retry idempotent đều đạt. Không ghi ngược Supabase, không
   tạo tài nguyên Google mới và không đưa secret/dữ liệu tài chính vào Git.
-- C56 `AWAITING_APPROVAL`: commit source/tài liệu C55, push fast-forward `main` và chỉ kết thúc khi
-  GitHub `Required CI gate` của đúng SHA đạt. Không deploy Vercel, chạy migration, thay secret hoặc
-  sửa dữ liệu.
+- C56 `COMPLETED` ngày 2026-09-26: commit C55 đã push fast-forward, local/remote khớp SHA,
+  GitHub run `36226393389` đạt `Required CI gate`; Apps Script version 6/HEAD và workbook được
+  hậu kiểm chỉ đọc thành công.
+- C57 `AWAITING_APPROVAL`: loại bỏ cảnh báo Node.js 20 từ action Supabase trong CI bằng
+  revision upstream chính thức, pin full SHA và xác nhận lại toàn bộ Required CI gate; không
+  deploy, migration, thay secret hoặc sửa dữ liệu.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.

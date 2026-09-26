@@ -31,7 +31,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C53 | Rollout remediation C51 lên Production và đồng bộ GitHub | `COMPLETED` |
 | C54 | Khắc phục timeout dashboard Production và hoàn tất rollout C53 | `COMPLETED` |
 | C55 | Rollout Google Apps Script/Sheets cho schema đối chiếu C47 | `COMPLETED` |
-| C56 | Đồng bộ source C55 lên GitHub và xác nhận Required CI gate | `AWAITING_APPROVAL` |
+| C56 | Đồng bộ source C55 lên GitHub và xác nhận Required CI gate | `COMPLETED` |
+| C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -314,7 +315,7 @@ Kết quả:
 
 Trạng thái: `COMPLETED` ngày 2026-09-26.
 
-## 14. Checkpoint chờ phê duyệt: C56
+## 14. Checkpoint hoàn tất gần nhất: C56
 
 Mục tiêu: đồng bộ thay đổi source/tài liệu C55 lên GitHub và xác nhận kiểm soát bù Required CI gate
 trên đúng revision vì repository private dùng GitHub Free.
@@ -330,5 +331,37 @@ Acceptance criteria:
 4. Hậu kiểm Apps Script HEAD/version và workbook vẫn hoạt động; không deploy Vercel, chạy migration,
    thay secret, tạo tài nguyên Google hoặc sửa dữ liệu.
 5. Cập nhật context với commit, CI run và kết quả hậu kiểm, sau đó đánh dấu C56 hoàn tất.
+
+Kết quả:
+
+- Commit C55 `fdd7254d97a58231bf918f110c23aa53257c2ded` đã push fast-forward lên `main` và
+  local/remote khớp SHA.
+- Gate local đạt: `git diff --check`, CI policy/actionlint, Gitleaks toàn bộ lịch sử và audit
+  dependency mức high. Commit không chứa build artifact, `.clasp.json`, secret hoặc dữ liệu
+  tài chính.
+- GitHub Actions run `36226393389` của đúng SHA đạt tất cả job và `Required CI gate`.
+- Hậu kiểm chỉ đọc xác nhận Apps Script version 6, HEAD deployment và workbook có các
+  tab đối chiếu C47. Không deploy Vercel, migration, thay secret, tạo tài nguyên Google hoặc
+  sửa dữ liệu.
+
+Trạng thái: `COMPLETED` ngày 2026-09-26.
+
+## 15. Checkpoint chờ phê duyệt: C57
+
+Mục tiêu: loại bỏ cảnh báo GitHub Actions về Node.js 20 deprecated từ action thiết lập
+Supabase, trong khi giữ nguyên kiểm soát pin full SHA và Required CI gate trên GitHub Free/private.
+
+Acceptance criteria:
+
+1. Xác minh revision chính thức của `supabase/setup-cli` hỗ trợ runtime Node.js hiện hành;
+   ghi nguồn và full commit SHA, không dùng floating tag.
+2. Cập nhật workflow và allowlist/policy liên quan mà không nới quyền, thay secret hoặc đổi
+   phiên bản Supabase CLI đã pin ngoài phạm vi cần thiết.
+3. `git diff --check`, `pnpm ci:validate` và các gate local bị tác động đều đạt; secret
+   scan không phát hiện credential.
+4. Push fast-forward revision đã duyệt lên `main`, chờ GitHub Actions của đúng SHA đạt
+   tất cả job và `Required CI gate`, đồng thời cảnh báo Node.js 20 không còn.
+5. Không deploy Vercel/Apps Script, chạy migration, thay secret, tạo tài nguyên remote hoặc
+   sửa dữ liệu.
 
 Trạng thái: `AWAITING_APPROVAL`.
