@@ -28,8 +28,9 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C50 | Rollout C49 lên Production | `COMPLETED` |
 | C51 | Remediation tính toàn vẹn nghiệp vụ, Auth, Push và bằng chứng vận hành | `COMPLETED` |
 | C52 | Production readiness: backup/PITR, CI trên GitHub Free và notification runner | `COMPLETED` |
-| C53 | Rollout remediation C51 lên Production và đồng bộ GitHub | `IN_PROGRESS` |
-| C54 | Khắc phục timeout dashboard Production và hoàn tất rollout C53 | `IN_PROGRESS` |
+| C53 | Rollout remediation C51 lên Production và đồng bộ GitHub | `COMPLETED` |
+| C54 | Khắc phục timeout dashboard Production và hoàn tất rollout C53 | `COMPLETED` |
+| C55 | Rollout Google Apps Script/Sheets cho schema đối chiếu C47 | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -201,7 +202,7 @@ Bằng chứng ngày 2026-09-25:
 Trạng thái: `COMPLETED`. Không deploy, migrate remote, push GitHub, `clasp push` hoặc thay đổi dữ
 liệu nghiệp vụ; checkpoint kế tiếp không được tự động thực hiện.
 
-## 11. Checkpoint đang hoàn tất: C53
+## 11. Checkpoint hoàn tất: C53
 
 Mục tiêu: rollout remediation C51 lên Supabase/Vercel Production và đồng bộ source/bằng chứng lên
 GitHub theo kiểm soát bù của GitHub Free.
@@ -236,10 +237,11 @@ Kết quả đến khi dừng ngày 2026-09-25:
   criterion 4 chưa đạt, alias `tindung.vercel.app` vẫn ở rollback target
   `dpl_DzRdBx1TLmsPHxDZMhYMXWKqkbUC`; chưa commit hoặc push.
 
-Blocker trên đã được C54 khắc phục. C53 tiếp tục ở `IN_PROGRESS` cho đến khi source được push và
-Required CI gate của đúng SHA đạt.
+Blocker trên đã được C54 khắc phục. Source đã push fast-forward tại commit
+`91a16565599a14dc739c5af6880c999e9b8febf6`; GitHub Actions run `36221129972` đạt toàn bộ job và
+`Required CI gate`. Trạng thái: `COMPLETED`.
 
-## 12. Checkpoint đang thực hiện: C54
+## 12. Checkpoint hoàn tất: C54
 
 Mục tiêu: khắc phục nguyên nhân dashboard Production vượt statement timeout mà không tăng timeout
 để che chi phí truy vấn, sau đó tạo candidate mới và hoàn tất các gate rollout còn lại của C53.
@@ -274,4 +276,26 @@ Kết quả rollout trước cổng GitHub CI:
   authenticated smoke đạt, log sạch, không ghi giao dịch. Alias Production đã chuyển và hậu kiểm
   dashboard authenticated đạt; rollback không cần kích hoạt.
 
-Trạng thái: `IN_PROGRESS`, còn commit/push và Required CI gate đúng SHA.
+Commit `91a16565599a14dc739c5af6880c999e9b8febf6` đã push fast-forward lên `main`; local/remote
+khớp SHA. GitHub Actions run `36221129972` đạt toàn bộ job và `Required CI gate`. Hậu kiểm sau
+push xác nhận alias Production vẫn trỏ đúng candidate C54. Trạng thái: `COMPLETED`.
+
+## 13. Checkpoint chờ phê duyệt: C55
+
+Mục tiêu: rollout phần Google Apps Script/Sheets của C47 lên Apps Script project hiện hữu và xác
+minh đồng bộ một chiều phục vụ đối chiếu, không ghi ngược vào Supabase.
+
+Acceptance criteria:
+
+1. Xác minh phiên `clasp`, project đích và cấu hình không chứa secret trong Git; source/dist Apps
+   Script khớp trước khi đẩy.
+2. Chạy các gate local áp dụng cho workspace Google Sync và xác nhận thay đổi chỉ mở rộng schema
+   đối chiếu C47, không thay đổi nguồn dữ liệu chuẩn hoặc công thức quyết toán authoritative.
+3. Chạy `clasp push` vào đúng Apps Script project hiện hữu; không tạo project, Sheet, thư mục Drive
+   hoặc trigger mới nếu không có phê duyệt riêng.
+4. Chạy smoke đồng bộ một chiều vào Google Sheet hiện hữu, xác nhận hai bảng đối chiếu C47 có đúng
+   cột/dữ liệu và retry không tạo bản ghi trùng; không ghi ngược hoặc mutate Supabase.
+5. Ghi Apps Script version/project, Sheet smoke, log và rollback procedure vào context; không đưa
+   secret hoặc dữ liệu tài chính thật vào Git/log.
+
+Trạng thái: `AWAITING_APPROVAL`. Không thực hiện C55 trước khi người dùng phê duyệt rõ.

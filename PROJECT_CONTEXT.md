@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.207
-last_updated: 2026-09-26 12:32:12 +07
+roadmap_version: 1.0.208
+last_updated: 2026-09-26 12:46:45 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C54
-current_status: IN_PROGRESS
-last_completed_checkpoint: C52
-next_checkpoint: C54
+current_checkpoint: C55
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C54
+next_checkpoint: C55
 ---
 
 # Project Context
@@ -123,6 +123,12 @@ history, migration, test và các contract/runbook chuyên biệt.
   lịch dự kiến, browser/runtime error bằng 0, không ghi tài chính. Alias `tindung.vercel.app` đã
   promote và hậu kiểm authenticated đạt; rollback target là
   `dpl_DzRdBx1TLmsPHxDZMhYMXWKqkbUC` nhưng không cần kích hoạt.
+- C53 và C54 `COMPLETED` ngày 2026-09-26. Commit triển khai
+  `91a16565599a14dc739c5af6880c999e9b8febf6` đã push fast-forward lên `main`; local và remote
+  khớp SHA. GitHub Actions run `36221129972` đạt Dependency/secret scan, Quality/build, Workflow
+  policy, Supabase/Auth/pgTAP/E2E và `Required CI gate`. Hậu kiểm sau push xác nhận alias
+  `tindung.vercel.app` vẫn trỏ đúng `dpl_2EoTbJAzcGYvdieQWiWUphwMnbT6` `Ready`, target Production,
+  Functions `sin1`.
 
 ## 2. Dữ liệu và tài khoản
 
@@ -266,7 +272,7 @@ C53 đã đạt trước khi gặp blocker:
 - Candidate đúng project/target/region và các public/authenticated smoke C51 không ghi tài chính đạt
 - Runtime log **không đạt** do dashboard RPC bị `57014`; alias/push/CI vì vậy chưa thực hiện
 
-C54 đã đạt trước cổng GitHub CI:
+C54 đã đạt:
 
 - Full local gate: `git diff --check`, CI policy/actionlint, lint, typecheck, unit 74/74, build,
   database reset/lint, pgTAP 527/527, Auth 6/6 và Playwright 22/22
@@ -276,27 +282,21 @@ C54 đã đạt trước cổng GitHub CI:
   migration `20260926001000`
 - Candidate/alias Production đúng project, target, region; public/authenticated smoke và log đạt;
   notification Cron tiếp tục `succeeded`; tài khoản smoke inactive/banned, 0 session/refresh token
-- Còn commit/push fast-forward và Required CI gate đúng SHA trước khi hoàn tất
+- Commit `91a16565599a14dc739c5af6880c999e9b8febf6` đã push fast-forward; local/remote khớp SHA và
+  GitHub run `36221129972` đạt toàn bộ job cùng `Required CI gate`
 
 ## 7. Việc chờ
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
   soát bù phù hợp GitHub Free/private; notification runner, Production smoke và runtime log đạt.
   Không deploy, migrate remote, push GitHub, `clasp push` hoặc thay đổi dữ liệu nghiệp vụ.
-- C51 `COMPLETED` ngày 2026-09-25: preview/commit giảm gốc xét payment cùng ngày; reversal bị
-  chặn khi còn nghiệp vụ phụ thuộc; `complete_password_change` chỉ còn service role và Server Action
-  cập nhật cờ sau Auth update; Push endpoint được validate, delivery nghĩa vụ đã xử lý được đóng,
-  worker trả lỗi gửi chính xác; combobox cuộn lựa chọn active và dashboard chỉ fallback khi RPC thiếu.
-  Đã thêm migration `20260925100000_c51_integrity_remediation.sql` và pgTAP C51. Chưa deploy,
-  migrate remote, push GitHub hoặc thay đổi dữ liệu Production.
-- Hai commit local C49/C50 chưa push GitHub vì GitHub push không nằm trong yêu cầu C50.
-- Bản `apps/google-sync/src/Config.js` C47 đã có hai bảng đối chiếu mới trong Git nhưng chưa
-  `clasp push`; rollout Apps Script không nằm trong acceptance criteria C48 và cần duyệt riêng.
-- Backup Production mới `qlv-prod-20260925T093801Z` đạt RPO và restore rehearsal. Khóa mã hóa nằm
-  trong macOS Keychain, không nằm trong Git hoặc manifest. Migration C51 local
-  `20260925100000` chưa rollout nên không thuộc backup Production hiện tại.
+- C53/C54 `COMPLETED` ngày 2026-09-26: migration C51/C54, backup, rollout Vercel Production,
+  authenticated smoke, runtime log, commit/push và Required CI gate đúng SHA đều đạt. Không còn
+  blocker dashboard hoặc source local chưa đồng bộ GitHub.
+- C55 `AWAITING_APPROVAL`: rollout phần Google Apps Script/Sheets của C47 đang có trong
+  `apps/google-sync/src/Config.js`; chưa chạy `clasp push` hoặc đồng bộ Sheet remote. Phạm vi dự
+  kiến chỉ xác minh target, build, đẩy Apps Script và smoke đồng bộ một chiều sang Sheet hiện hữu;
+  không ghi ngược Supabase và không sửa dữ liệu tài chính.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
-- Không còn blocker C52 hoặc lệnh terminal dự án bị treo.
-- C53/C54 `IN_PROGRESS`: blocker dashboard đã được khắc phục và Production đã promote an toàn.
-  Đang chờ commit/push fast-forward và GitHub Required CI gate xanh trên đúng SHA để hoàn tất.
+- Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.
