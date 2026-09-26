@@ -100,6 +100,31 @@ restore Auth (`create extension if not exists citext with schema extensions`). D
 Một dump duy nhất bao gồm đồng thời `auth`, `private`, `public` và `supabase_migrations` cho phép
 `pg_dump` tự sắp xếp dependency schema/function/trigger và giữ một snapshot nhất quán.
 
+## Lịch backup Production trên máy vận hành
+
+Checkpoint C59 dùng macOS LaunchAgent trên chính máy đang giữ khóa Keychain và thư mục `.backups/`.
+Không cần GitHub Actions trả phí và không đưa khóa, database password hoặc dump vào Git. Mỗi giờ,
+LaunchAgent chạy `scripts/run-production-backup.sh`; script chỉ tạo backup khi bản mới nhất đã đủ
+20 giờ tuổi. Khoảng đệm bốn giờ cho phép cảnh báo trước khi vượt RPO 24 giờ.
+
+```text
+node scripts/production-backup.mjs check   # checksum và RPO 24 giờ
+node scripts/production-backup.mjs ensure  # tạo nếu tuổi >= 20 giờ
+node scripts/production-backup.mjs run     # tạo ngay
+```
+
+Mỗi lần tạo gồm sáu dump schema/data của `public,private`, `auth` và `supabase_migrations`. SQL chỉ
+tồn tại trong bộ nhớ tiến trình trước khi được chuyển ngay cho AES-256-GCM; không tạo file SQL
+thuần. Chỉ sau khi cả GCM tag, SQL-shape gate, checksum, project ref và migration version đạt thì
+thư mục `.partial` mới được đổi tên thành backup hoàn chỉnh. Retention luôn là dry-run; không tự
+xóa candidate.
+
+LaunchAgent dùng template `scripts/com.ngotuong.quanlyvay.backup.plist`, ghi log vào
+`.backups/logs/` và hiển thị macOS notification nếu backup thất bại. Để rollback lịch, chạy
+`launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.ngotuong.quanlyvay.backup.plist` rồi
+xóa bản plist đã cài; việc này không xóa bất kỳ backup nào. Source template trong Git vẫn được giữ
+để cài lại và audit.
+
 ## Restore rehearsal
 
 Không restore thử vào Production. Dùng database local/temporary riêng và:

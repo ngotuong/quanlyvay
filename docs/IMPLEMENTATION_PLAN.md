@@ -34,7 +34,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C56 | Đồng bộ source C55 lên GitHub và xác nhận Required CI gate | `COMPLETED` |
 | C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `COMPLETED` |
 | C58 | Hậu kiểm Production readiness sau remediation C51–C57 | `COMPLETED` |
-| C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `AWAITING_APPROVAL` |
+| C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -416,7 +416,7 @@ Kết quả:
 
 Trạng thái: `COMPLETED` ngày 2026-09-26.
 
-## 17. Checkpoint chờ phê duyệt: C59
+## 17. Checkpoint đang thực hiện: C59
 
 Mục tiêu: đóng hai rủi ro Production readiness mức `MEDIUM` và giảm lỗi CI giả đã được C58 chứng
 minh, không yêu cầu nâng cấp gói GitHub trả phí.
@@ -434,4 +434,4 @@ Acceptance criteria:
 5. Full gate phù hợp đạt; rollout Vercel, bật lịch backup, thay secret hoặc push chỉ thực hiện trong
    phạm vi C59 sau khi checkpoint được duyệt và có rollback rõ ràng.
 
-Trạng thái: `AWAITING_APPROVAL`.
+Trạng thái: `IN_PROGRESS`.

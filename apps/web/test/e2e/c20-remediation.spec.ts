@@ -207,6 +207,16 @@ test("login CTA at 375x667 and active colors have AA contrast", async ({page},in
   }
 });
 
+test("responses include the browser security policy", async ({ request }) => {
+  const response = await request.get("/login");
+  const headers = response.headers();
+  expect(headers["content-security-policy"]).toContain("frame-ancestors 'none'");
+  expect(headers["x-frame-options"]).toBe("DENY");
+  expect(headers["x-content-type-options"]).toBe("nosniff");
+  expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
+  expect(headers["permissions-policy"]).toContain("camera=()");
+});
+
 test("counterparty deletion reports success and refuses financial history", async ({page}) => {
   const created=await owner.rpc("create_counterparty",{p_name:"A C20 delete safely",p_notes:null});if(created.error)throw created.error;
   await login(page);await page.goto("/counterparties");

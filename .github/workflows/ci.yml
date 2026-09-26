@@ -140,6 +140,8 @@ jobs:
           pnpm --filter @quan-ly-vay-ca-nhan/web exec playwright install --with-deps chrome
       - name: Playwright E2E
         run: pnpm test:e2e
+        env:
+          E2E_DATABASE_PREPARED: "true"
       - name: Stop local Supabase
         if: always()
         run: supabase stop --no-backup

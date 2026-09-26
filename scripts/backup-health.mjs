@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
-import { readFile, readdir, writeFile } from "node:fs/promises";
+import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { createBackupManifest, planRetention, verifyBackupManifest } from "./lib/backup-health.mjs";
+import { readBackupManifests } from "./lib/backup-schedule.mjs";
 
 function fail(message) {
   process.stderr.write(`${message}\n`);
@@ -83,9 +84,9 @@ async function retention(args) {
   const directoryArg = valueAfter(args, "--directory");
   if (!directoryArg) fail("retention cần --directory.");
   const directory = resolve(directoryArg);
-  const names = (await readdir(directory)).filter((name) => name.endsWith(".manifest.json")).sort();
-  if (names.length === 0) fail("Không tìm thấy file *.manifest.json.");
-  const manifests = await Promise.all(names.map((name) => readJson(resolve(directory, name))));
+  const entries = await readBackupManifests(directory);
+  if (entries.length === 0) fail("Không tìm thấy backup.manifest.json.");
+  const manifests = entries.map((entry) => entry.manifest);
   const result = planRetention(manifests, {
     daily: Number(valueAfter(args, "--daily") ?? 7),
     weekly: Number(valueAfter(args, "--weekly") ?? 4),

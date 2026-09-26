@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.214
-last_updated: 2026-09-26 15:38:04 +07
+roadmap_version: 1.0.215
+last_updated: 2026-09-26 15:45:00 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C59
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 last_completed_checkpoint: C58
 next_checkpoint: C59
 ---
@@ -374,7 +374,7 @@ C58 đã đạt:
   `36228136823` đạt `Required CI gate`, không cò cảnh báo Node.js 20 hay annotation job.
 - C58 `COMPLETED` ngày 2026-09-26: ma trận Production readiness đã chốt tại
   `docs/PRODUCTION_READINESS.md`; không còn phát hiện CRITICAL/HIGH, còn hai MEDIUM và một LOW.
-- C59 `AWAITING_APPROVAL`: đóng hai rủi ro MEDIUM về HTTP security headers và RPO backup bền vững,
+- C59 `IN_PROGRESS`: đóng hai rủi ro MEDIUM về HTTP security headers và RPO backup bền vững,
   đồng thời ổn định readiness gate Supabase Auth E2E. Không tự động thực hiện khi chưa được duyệt.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
