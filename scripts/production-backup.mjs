@@ -38,35 +38,23 @@ function waitForExit(child) {
 }
 
 async function encryptedDump(args, output, key) {
-  const fifo = `${output}.fifo`;
-  safeRun("mkfifo", ["-m", "600", fifo]);
-  let encrypt;
-  try {
-    encrypt = spawn(process.execPath, [join(repositoryRoot, "scripts/backup-crypto.mjs"), "encrypt", fifo, output], {
-      cwd: repositoryRoot,
-      env: { ...process.env, QLV_BACKUP_KEY_BASE64: key },
-      stdio: ["ignore", "ignore", "pipe"],
-    });
-    const encryptError = collectStderr(encrypt.stderr);
-    const encryptExitPromise = waitForExit(encrypt);
-    const dump = spawn("supabase", ["db", "dump", "--linked", ...args, "--file", fifo], {
-      cwd: repositoryRoot,
-      env: { ...process.env, SUPABASE_TELEMETRY_DISABLED: "1" },
-      stdio: ["ignore", "ignore", "pipe"],
-    });
-    const dumpError = collectStderr(dump.stderr);
-    const dumpExit = await waitForExit(dump);
-    if (dumpExit.code !== 0) {
-      encrypt.kill("SIGTERM");
-      await encryptExitPromise;
-      fail(`Dump thất bại: ${dumpError() || `exit ${dumpExit.code ?? dumpExit.signal}`}`);
-    }
-    const encryptExit = await encryptExitPromise;
-    if (encryptExit.code !== 0) fail(`Mã hóa dump thất bại: ${encryptError() || `exit ${encryptExit.code ?? encryptExit.signal}`}`);
-  } finally {
-    if (encrypt?.exitCode === null) encrypt.kill("SIGTERM");
-    await rm(fifo, { force: true });
-  }
+  const dump = spawn("supabase", ["db", "dump", "--linked", ...args], {
+    cwd: repositoryRoot,
+    env: { ...process.env, SUPABASE_TELEMETRY_DISABLED: "1" },
+    stdio: ["ignore", "pipe", "pipe"],
+  });
+  const encrypt = spawn(process.execPath, [join(repositoryRoot, "scripts/backup-crypto.mjs"), "encrypt", "-", output], {
+    cwd: repositoryRoot,
+    env: { ...process.env, QLV_BACKUP_KEY_BASE64: key },
+    stdio: ["pipe", "ignore", "pipe"],
+  });
+  const dumpError = collectStderr(dump.stderr);
+  const encryptError = collectStderr(encrypt.stderr);
+  dump.stdout.pipe(encrypt.stdin);
+
+  const [dumpExit, encryptExit] = await Promise.all([waitForExit(dump), waitForExit(encrypt)]);
+  if (dumpExit.code !== 0) fail(`Dump thất bại: ${dumpError() || `exit ${dumpExit.code ?? dumpExit.signal}`}`);
+  if (encryptExit.code !== 0) fail(`Mã hóa dump thất bại: ${encryptError() || `exit ${encryptExit.code ?? encryptExit.signal}`}`);
 }
 
 async function verifyCiphertext(path, kind, key) {

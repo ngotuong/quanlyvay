@@ -119,9 +119,10 @@ thuần. Chỉ sau khi cả GCM tag, SQL-shape gate, checksum, project ref và m
 thư mục `.partial` mới được đổi tên thành backup hoàn chỉnh. Retention luôn là dry-run; không tự
 xóa candidate.
 
-Trong LaunchAgent, mỗi dump ghi vào FIFO quyền `0600` nằm trong thư mục `.partial`; tiến trình mã
-hóa đọc đồng thời và FIFO bị xóa ngay khi hai tiến trình kết thúc. Cách này giữ backpressure mà
-không phụ thuộc `/dev/stdout` của phiên launchd và không tạo tệp SQL thuần trên đĩa.
+Trong LaunchAgent, lệnh `supabase db dump` không truyền `--file`; SQL từ stdout mặc định được pipe
+trực tiếp sang tiến trình mã hóa với backpressure. Không dùng `/dev/stdout` làm giá trị `--file`
+vì Supabase CLI coi đó là đường dẫn xuất và từ chối thiết bị/FIFO dưới launchd. Luồng này không tạo
+tệp SQL thuần trên đĩa.
 
 LaunchAgent dùng template `scripts/com.ngotuong.quanlyvay.backup.plist`, ghi log vào
 `.backups/logs/` và hiển thị macOS notification nếu backup thất bại. Để rollback lịch, chạy
