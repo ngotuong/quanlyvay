@@ -414,8 +414,11 @@ C59 đã đạt:
   vẫn kiểm tra độc lập exit code/stderr của cả hai tiến trình. Chu kỳ tự động kế tiếp loại trừ nghẽn
   buffer nhưng xác nhận mọi giá trị `--file` trỏ tới thiết bị/FIFO đều không dùng được dưới launchd
   (`FileSystem.writeAll (13)`). Remediation hiện bỏ `--file` để Supabase CLI xuất SQL qua stdout
-  mặc định theo contract chính thức, pipe trực tiếp vào mã hóa và giữ backpressure; chờ chính
-  LaunchAgent xác minh ở chu kỳ kế tiếp, không chạy backup thủ công.
+  mặc định theo contract chính thức, pipe trực tiếp vào mã hóa và giữ backpressure. Chu kỳ kế tiếp
+  đã tạo/xác minh đủ sáu ciphertext trong `.partial` nhưng fail-closed trước publish vì
+  `migration list` dưới launchd trả bảng thay vì JSON; parser nay chấp nhận có kiểm thử cả hai định
+  dạng. Backup C59 vừa vượt RPO khoảng 0,01 giờ; chờ chính LaunchAgent phục hồi ở chu kỳ kế tiếp,
+  không chạy backup thủ công.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.

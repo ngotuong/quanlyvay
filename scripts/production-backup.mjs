@@ -5,7 +5,7 @@ import { mkdir, rename, rm } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createBackupManifest, planRetention, verifyBackupManifest } from "./lib/backup-health.mjs";
-import { backupAgeHours, newestBackup, readBackupManifests } from "./lib/backup-schedule.mjs";
+import { backupAgeHours, latestRemoteMigration, newestBackup, readBackupManifests } from "./lib/backup-schedule.mjs";
 
 const repositoryRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const backupRoot = join(repositoryRoot, ".backups");
@@ -70,10 +70,9 @@ async function verifyCiphertext(path, kind, key) {
 
 function latestMigration() {
   const raw = safeRun("supabase", ["migration", "list", "--linked"]);
-  const payload = JSON.parse(raw.slice(raw.indexOf("{")));
-  const versions = payload.migrations.map((row) => row.remote).filter(Boolean).sort();
-  if (versions.length === 0) fail("Không đọc được remote migration version.");
-  return versions.at(-1);
+  const version = latestRemoteMigration(raw);
+  if (!version) fail("Không đọc được remote migration version.");
+  return version;
 }
 
 async function createProductionBackup() {

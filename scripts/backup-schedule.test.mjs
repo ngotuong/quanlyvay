@@ -3,7 +3,7 @@ import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
-import { backupAgeHours, discoverBackupManifests, newestBackup } from "./lib/backup-schedule.mjs";
+import { backupAgeHours, discoverBackupManifests, latestRemoteMigration, newestBackup } from "./lib/backup-schedule.mjs";
 
 test("backup discovery reads nested immutable backup directories", async () => {
   const root = await mkdtemp(join(tmpdir(), "qlv-backup-schedule-"));
@@ -25,4 +25,15 @@ test("newest backup and age use manifest creation time", () => {
   ];
   assert.equal(newestBackup(entries), entries[1]);
   assert.equal(backupAgeHours(entries[1].manifest, new Date("2026-09-26T06:00:00Z")), 20);
+});
+
+test("latest migration accepts both agent JSON and human-readable table output", () => {
+  const json = 'status line\n{"migrations":[{"remote":"20260925100000"},{"remote":"20260926001000"}]}';
+  const table = [
+    " Local            | Remote           | Time (UTC)",
+    " `20260925100000` | `20260925100000` | `2026-09-25 10:00:00`",
+    " `20260926001000` | `20260926001000` | `2026-09-26 00:10:00`",
+  ].join("\n");
+  assert.equal(latestRemoteMigration(json), "20260926001000");
+  assert.equal(latestRemoteMigration(table), "20260926001000");
 });

@@ -30,3 +30,24 @@ export function newestBackup(entries) {
 export function backupAgeHours(manifest, now = new Date()) {
   return (now.getTime() - Date.parse(manifest.createdAt)) / 3_600_000;
 }
+
+export function latestRemoteMigration(raw) {
+  const jsonStart = raw.indexOf("{");
+  if (jsonStart >= 0) {
+    try {
+      const payload = JSON.parse(raw.slice(jsonStart));
+      const versions = payload.migrations?.map((row) => row.remote).filter(Boolean).sort() ?? [];
+      if (versions.length > 0) return versions.at(-1);
+    } catch {
+      // Fall through to the human-readable table emitted outside agent mode.
+    }
+  }
+
+  const versions = raw
+    .split("\n")
+    .map((line) => line.match(/\b\d{14}\b/g))
+    .filter((matches) => matches && matches.length >= 2)
+    .map((matches) => matches[1])
+    .sort();
+  return versions.at(-1);
+}

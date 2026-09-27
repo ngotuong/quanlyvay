@@ -478,5 +478,7 @@ Trạng thái: `IN_PROGRESS`. OWNER phê duyệt trong hội thoại hiện tạ
 exit 1, không để lại `.partial` và đã phát cảnh báo. Pipeline streaming đã loại trừ nghẽn buffer
 nhưng hai chu kỳ kế tiếp xác nhận mọi giá trị `--file` trỏ tới thiết bị/FIFO đều không tương thích
 với launchd. Remediation hiện bỏ `--file`, dùng stdout mặc định theo contract Supabase CLI và pipe
-trực tiếp sang mã hóa với backpressure/exit-code gate; chờ chính LaunchAgent chạy lại để xác minh,
-không tạo backup thủ công.
+trực tiếp sang mã hóa với backpressure/exit-code gate. Chu kỳ sau đã qua đủ sáu dump/gate nhưng
+fail-closed trước publish vì `migration list` trả bảng thay vì JSON dưới launchd; parser có regression
+cho cả hai định dạng. Backup cũ vừa vượt RPO; chờ chính LaunchAgent phục hồi ở chu kỳ kế tiếp, không
+tạo backup thủ công.
