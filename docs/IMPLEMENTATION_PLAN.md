@@ -473,5 +473,8 @@ Acceptance criteria:
 5. Chỉ chạy gate tài liệu/script bị tác động; cập nhật context/roadmap và dừng ở checkpoint tiếp
    theo. Không deploy, migration, push runtime hoặc sửa dữ liệu tài chính.
 
-Trạng thái: `IN_PROGRESS`. OWNER phê duyệt trong hội thoại hiện tại. LaunchAgent đã tự chạy thêm
-một chu kỳ `not-due`, exit 0; chờ backup C59 đủ ngưỡng 20 giờ để xác minh lần tự tạo đầu tiên.
+Trạng thái: `IN_PROGRESS`. OWNER phê duyệt trong hội thoại hiện tại. Lần tự động đầu tiên sau ngưỡng
+20 giờ thất bại fail-closed khi Supabase CLI ghi dump vào pipe đồng bộ (`FileSystem.writeAll (14)`),
+exit 1, không để lại `.partial` và đã phát cảnh báo. Remediation chuyển dump sang pipeline streaming
+có backpressure, tắt telemetry và giữ kiểm tra exit code riêng; chờ chính LaunchAgent chạy lại để
+xác minh, không tạo backup thủ công.

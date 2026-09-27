@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.218
-last_updated: 2026-09-26 20:40:00 +07
+roadmap_version: 1.0.219
+last_updated: 2026-09-27 15:55:00 +07
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C60
 current_status: IN_PROGRESS
@@ -407,9 +407,12 @@ C59 đã đạt:
 - C59 `COMPLETED` ngày 2026-09-26: HTTP headers, lịch backup và Auth readiness đã đạt; Production,
   local full gate và Required CI của revision sửa cuối đều xanh.
 - C60 `IN_PROGRESS`: OWNER đã phê duyệt trong hội thoại hiện tại. LaunchAgent đã tự chạy chu kỳ
-  thứ ba, exit 0 và trả `not-due` khi backup C59 mới 1,76 giờ tuổi; không có thư mục `.partial`.
-  Chờ bản `qlv-prod-20260926T115433Z` đủ 20 giờ để quan sát lần tự tạo đầu tiên, dự kiến sau
-  14:54 ngày 2026-09-27 theo `Asia/Ho_Chi_Minh`.
+  đầu tiên sau ngưỡng 20 giờ nhưng thất bại fail-closed với `FileSystem.writeAll (14)` khi Supabase
+  CLI ghi dump vào pipe được `spawnSync` thu toàn bộ trong bộ nhớ; mã thoát 1, cảnh báo macOS đã
+  kích hoạt, thư mục `.partial` được dọn và backup C59 vẫn nguyên vẹn. Script đã chuyển sang pipeline
+  streaming có backpressure từ Supabase CLI sang AES-256-GCM, tắt telemetry cho tiến trình dump và
+  vẫn kiểm tra độc lập exit code/stderr của cả hai tiến trình. Chờ chu kỳ LaunchAgent tự động kế tiếp
+  xác minh remediation; không chạy backup thủ công.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.

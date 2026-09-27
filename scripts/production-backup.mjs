@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { spawnSync } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { mkdir, rename, rm } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -24,28 +24,37 @@ function safeRun(executable, args, options = {}) {
   return result.stdout.trim();
 }
 
+function collectStderr(stream) {
+  const chunks = [];
+  stream.on("data", (chunk) => chunks.push(chunk));
+  return () => Buffer.concat(chunks).toString("utf8").trim();
+}
+
+function waitForExit(child) {
+  return new Promise((resolveExit, rejectExit) => {
+    child.once("error", rejectExit);
+    child.once("close", (code, signal) => resolveExit({ code, signal }));
+  });
+}
+
 async function encryptedDump(args, output, key) {
-  const dump = spawnSync("supabase", ["db", "dump", "--linked", ...args, "--file", "/dev/stdout"], {
+  const dump = spawn("supabase", ["db", "dump", "--linked", ...args, "--file", "/dev/stdout"], {
     cwd: repositoryRoot,
-    encoding: null,
-    maxBuffer: 100 * 1024 * 1024,
+    env: { ...process.env, SUPABASE_TELEMETRY_DISABLED: "1" },
     stdio: ["ignore", "pipe", "pipe"],
   });
-  if (dump.status !== 0) fail(`Dump thất bại: ${dump.stderr.toString("utf8").trim()}`);
-  const plaintext = dump.stdout;
-  try {
-    const encrypt = spawnSync(process.execPath, [join(repositoryRoot, "scripts/backup-crypto.mjs"), "encrypt", "-", output], {
-      cwd: repositoryRoot,
-      env: { ...process.env, QLV_BACKUP_KEY_BASE64: key },
-      input: plaintext,
-      encoding: null,
-      maxBuffer: 100 * 1024 * 1024,
-      stdio: ["pipe", "ignore", "pipe"],
-    });
-    if (encrypt.status !== 0) fail(`Mã hóa dump thất bại: ${encrypt.stderr.toString("utf8").trim()}`);
-  } finally {
-    plaintext.fill(0);
-  }
+  const encrypt = spawn(process.execPath, [join(repositoryRoot, "scripts/backup-crypto.mjs"), "encrypt", "-", output], {
+    cwd: repositoryRoot,
+    env: { ...process.env, QLV_BACKUP_KEY_BASE64: key },
+    stdio: ["pipe", "ignore", "pipe"],
+  });
+  const dumpError = collectStderr(dump.stderr);
+  const encryptError = collectStderr(encrypt.stderr);
+  dump.stdout.pipe(encrypt.stdin);
+
+  const [dumpExit, encryptExit] = await Promise.all([waitForExit(dump), waitForExit(encrypt)]);
+  if (dumpExit.code !== 0) fail(`Dump thất bại: ${dumpError() || `exit ${dumpExit.code ?? dumpExit.signal}`}`);
+  if (encryptExit.code !== 0) fail(`Mã hóa dump thất bại: ${encryptError() || `exit ${encryptExit.code ?? encryptExit.signal}`}`);
 }
 
 async function verifyCiphertext(path, kind, key) {
