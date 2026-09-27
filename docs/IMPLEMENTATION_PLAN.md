@@ -35,7 +35,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C57 | Nâng action Supabase CI khỏi Node.js 20 deprecated | `COMPLETED` |
 | C58 | Hậu kiểm Production readiness sau remediation C51–C57 | `COMPLETED` |
 | C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `COMPLETED` |
-| C60 | Hậu kiểm chu kỳ backup tự động đầu tiên | `IN_PROGRESS` |
+| C60 | Hậu kiểm chu kỳ backup tự động đầu tiên | `COMPLETED` |
+| C61 | Đồng bộ remediation backup C60 lên GitHub và xác nhận CI | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -455,7 +456,7 @@ chuẩn bị và tăng readiness deadline lên 180 giây. Commit `0c7dca7e891290
 
 Trạng thái: `COMPLETED` ngày 2026-09-26.
 
-## 18. Checkpoint đang thực hiện: C60
+## 18. Checkpoint hoàn tất: C60
 
 Mục tiêu: hậu kiểm chu kỳ backup đầu tiên được LaunchAgent tự tạo sau khi đủ ngưỡng, không thay đổi
 schema, dữ liệu nghiệp vụ hoặc cấu hình Production.
@@ -473,12 +474,36 @@ Acceptance criteria:
 5. Chỉ chạy gate tài liệu/script bị tác động; cập nhật context/roadmap và dừng ở checkpoint tiếp
    theo. Không deploy, migration, push runtime hoặc sửa dữ liệu tài chính.
 
-Trạng thái: `IN_PROGRESS`. OWNER phê duyệt trong hội thoại hiện tại. Lần tự động đầu tiên sau ngưỡng
-20 giờ thất bại fail-closed khi Supabase CLI ghi dump vào pipe đồng bộ (`FileSystem.writeAll (14)`),
-exit 1, không để lại `.partial` và đã phát cảnh báo. Pipeline streaming đã loại trừ nghẽn buffer
-nhưng hai chu kỳ kế tiếp xác nhận mọi giá trị `--file` trỏ tới thiết bị/FIFO đều không tương thích
-với launchd. Remediation hiện bỏ `--file`, dùng stdout mặc định theo contract Supabase CLI và pipe
-trực tiếp sang mã hóa với backpressure/exit-code gate. Chu kỳ sau đã qua đủ sáu dump/gate nhưng
-fail-closed trước publish vì `migration list` trả bảng thay vì JSON dưới launchd; parser có regression
-cho cả hai định dạng. Backup cũ vừa vượt RPO; chờ chính LaunchAgent phục hồi ở chu kỳ kế tiếp, không
-tạo backup thủ công.
+Kết quả:
+
+- LaunchAgent tự tạo `qlv-prod-20260927T120432Z` ở chu kỳ 26, exit 0; manifest đúng project và
+  migration hiện hành. Sáu ciphertext đạt checksum, GCM và SQL-shape; RPO phục hồi với tuổi hậu
+  kiểm 0,83 giờ. Không còn `.partial`, FIFO hoặc SQL thuần.
+- Retention 7/4/12 chạy dry-run, giữ bốn bản và trả một candidate; không xóa file. LaunchAgent vẫn
+  loaded với interval 3.600 giây, threshold 20 giờ; quyền backup/manifest/ciphertext là `0700/0600`.
+  Keychain không vào Git/log và scan log không thấy connection string, token hoặc key.
+- Ba lớp lỗi môi trường đều fail-closed và phát cảnh báo: thu dump đồng bộ, dùng thiết bị/FIFO làm
+  `--file`, và parser chỉ nhận JSON. Implementation cuối stream stdout mặc định trực tiếp sang
+  AES-256-GCM với backpressure, kiểm exit code riêng và nhận cả JSON/bảng migration. Regression
+  scripts đạt 22/22; riêng backup/schedule đạt 10/10.
+- Backup C59 vượt RPO khoảng 10 phút trong khi remediation, sau đó bản tự động mới phục hồi RPO.
+  Không chạy backup thủ công, deploy, migration, push runtime hoặc sửa dữ liệu tài chính.
+
+Trạng thái: `COMPLETED` ngày 2026-09-27.
+
+## 19. Checkpoint chờ phê duyệt: C61
+
+Mục tiêu: đồng bộ source và bằng chứng C60 lên GitHub, rồi xác nhận kiểm soát bù Required CI trên
+đúng revision cho repository private dùng GitHub Free.
+
+Acceptance criteria:
+
+1. Đối chiếu toàn bộ commit local C60, `git diff --check`, test script, secret/dependency scan; không
+   chứa backup, ciphertext, SQL thuần, credential hoặc dữ liệu tài chính.
+2. Chỉ push fast-forward `main` khi `origin/main` vẫn ở revision C59 đã xác minh; local/remote phải
+   khớp cùng SHA sau push.
+3. GitHub Actions của đúng SHA đạt toàn bộ job và `Required CI gate`; không bỏ qua job thất bại.
+4. Hậu kiểm LaunchAgent vẫn loaded, lần chạy sau backup mới trả `not-due`, exit 0 và RPO còn đạt.
+5. Không deploy Vercel/Apps Script, chạy migration, thay secret, xóa backup hoặc sửa dữ liệu.
+
+Trạng thái: `AWAITING_APPROVAL`.

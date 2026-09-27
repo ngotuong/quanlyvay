@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.219
-last_updated: 2026-09-27 15:55:00 +07
+roadmap_version: 1.0.220
+last_updated: 2026-09-27 19:55:00 +07
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C60
-current_status: IN_PROGRESS
-last_completed_checkpoint: C59
-next_checkpoint: C60
+current_checkpoint: C61
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C60
+next_checkpoint: C61
 ---
 
 # Project Context
@@ -406,19 +406,18 @@ C59 đã đạt:
   `docs/PRODUCTION_READINESS.md`; không còn phát hiện CRITICAL/HIGH, còn hai MEDIUM và một LOW.
 - C59 `COMPLETED` ngày 2026-09-26: HTTP headers, lịch backup và Auth readiness đã đạt; Production,
   local full gate và Required CI của revision sửa cuối đều xanh.
-- C60 `IN_PROGRESS`: OWNER đã phê duyệt trong hội thoại hiện tại. LaunchAgent đã tự chạy chu kỳ
-  đầu tiên sau ngưỡng 20 giờ nhưng thất bại fail-closed với `FileSystem.writeAll (14)` khi Supabase
-  CLI ghi dump vào pipe được `spawnSync` thu toàn bộ trong bộ nhớ; mã thoát 1, cảnh báo macOS đã
-  kích hoạt, thư mục `.partial` được dọn và backup C59 vẫn nguyên vẹn. Script đã chuyển sang pipeline
-  streaming có backpressure từ Supabase CLI sang AES-256-GCM, tắt telemetry cho tiến trình dump và
-  vẫn kiểm tra độc lập exit code/stderr của cả hai tiến trình. Chu kỳ tự động kế tiếp loại trừ nghẽn
-  buffer nhưng xác nhận mọi giá trị `--file` trỏ tới thiết bị/FIFO đều không dùng được dưới launchd
-  (`FileSystem.writeAll (13)`). Remediation hiện bỏ `--file` để Supabase CLI xuất SQL qua stdout
-  mặc định theo contract chính thức, pipe trực tiếp vào mã hóa và giữ backpressure. Chu kỳ kế tiếp
-  đã tạo/xác minh đủ sáu ciphertext trong `.partial` nhưng fail-closed trước publish vì
-  `migration list` dưới launchd trả bảng thay vì JSON; parser nay chấp nhận có kiểm thử cả hai định
-  dạng. Backup C59 vừa vượt RPO khoảng 0,01 giờ; chờ chính LaunchAgent phục hồi ở chu kỳ kế tiếp,
-  không chạy backup thủ công.
+- C60 `COMPLETED` ngày 2026-09-27: LaunchAgent tự tạo backup
+  `qlv-prod-20260927T120432Z`, exit 0, đúng project `hmfxnstrqfqpvsgfmjmd` và migration
+  `20260926001000`. Cả sáu ciphertext đạt checksum/GCM/SQL shape, quyền file `0600`, tuổi khi hậu
+  kiểm 0,83 giờ; không còn `.partial`, FIFO hoặc SQL thuần. Retention 7 daily/4 weekly/12 monthly
+  chỉ dry-run: giữ bốn bản và nêu một candidate, không xóa. LaunchAgent vẫn loaded, chu kỳ 3.600
+  giây; secret/log/Git scan sạch. Các lần đầu fail-closed đã phơi bày hai sai lệch môi trường:
+  `--file` không nhận thiết bị/FIFO dưới launchd và `migration list` có thể trả bảng; pipeline nay
+  dùng stdout mặc định và parser có regression cho JSON/bảng. RPO vượt khoảng 10 phút trong lúc
+  remediation rồi đã phục hồi; cảnh báo hoạt động đúng và không mất backup hợp lệ.
+- C61 `AWAITING_APPROVAL`: đồng bộ năm commit remediation C60 và commit closure lên GitHub bằng
+  fast-forward, xác nhận secret/dependency scan và `Required CI gate` của đúng SHA; không deploy,
+  migration, thay secret hoặc sửa dữ liệu.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.
