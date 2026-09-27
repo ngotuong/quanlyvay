@@ -411,8 +411,10 @@ C59 đã đạt:
   CLI ghi dump vào pipe được `spawnSync` thu toàn bộ trong bộ nhớ; mã thoát 1, cảnh báo macOS đã
   kích hoạt, thư mục `.partial` được dọn và backup C59 vẫn nguyên vẹn. Script đã chuyển sang pipeline
   streaming có backpressure từ Supabase CLI sang AES-256-GCM, tắt telemetry cho tiến trình dump và
-  vẫn kiểm tra độc lập exit code/stderr của cả hai tiến trình. Chờ chu kỳ LaunchAgent tự động kế tiếp
-  xác minh remediation; không chạy backup thủ công.
+  vẫn kiểm tra độc lập exit code/stderr của cả hai tiến trình. Chu kỳ tự động kế tiếp loại trừ nghẽn
+  buffer nhưng xác nhận `/dev/stdout` không dùng được dưới launchd (`FileSystem.writeAll (13)`).
+  Remediation hiện dùng FIFO quyền `0600` trong `.partial`, mã hóa đọc đồng thời và luôn dọn FIFO;
+  chờ chính LaunchAgent xác minh ở chu kỳ kế tiếp, không chạy backup thủ công.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.

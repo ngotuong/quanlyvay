@@ -475,6 +475,7 @@ Acceptance criteria:
 
 Trạng thái: `IN_PROGRESS`. OWNER phê duyệt trong hội thoại hiện tại. Lần tự động đầu tiên sau ngưỡng
 20 giờ thất bại fail-closed khi Supabase CLI ghi dump vào pipe đồng bộ (`FileSystem.writeAll (14)`),
-exit 1, không để lại `.partial` và đã phát cảnh báo. Remediation chuyển dump sang pipeline streaming
-có backpressure, tắt telemetry và giữ kiểm tra exit code riêng; chờ chính LaunchAgent chạy lại để
-xác minh, không tạo backup thủ công.
+exit 1, không để lại `.partial` và đã phát cảnh báo. Pipeline streaming đã loại trừ nghẽn buffer
+nhưng chu kỳ kế tiếp xác nhận `/dev/stdout` không tương thích với launchd. Remediation hiện dùng
+FIFO quyền `0600` trong `.partial`, mã hóa đọc đồng thời, giữ kiểm tra exit code riêng và luôn dọn
+FIFO; chờ chính LaunchAgent chạy lại để xác minh, không tạo backup thủ công.
