@@ -6,10 +6,16 @@ import { useEffect, useState } from "react";
 export function NavigationFeedback() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const [pendingTarget, setPendingTarget] = useState<string | null>(null);
+  const [transition, setTransition] = useState<{ source: string; target: string } | null>(null);
+  const [slow, setSlow] = useState(false);
   const query = searchParams.toString();
   const routeKey = `${pathname}${query ? `?${query}` : ""}`;
-  const pending = pendingTarget !== null && pendingTarget !== routeKey;
+  const pending = transition !== null && transition.source === routeKey && transition.target !== routeKey;
+  // A committed route, including a redirect, completes the previous transition.
+  if (transition && transition.source !== routeKey) {
+    setTransition(null);
+    setSlow(false);
+  }
 
   useEffect(() => {
     const handleClick = (event: MouseEvent) => {
@@ -19,23 +25,38 @@ export function NavigationFeedback() {
       const destination = new URL(anchor.href, window.location.href);
       if (destination.origin !== window.location.origin) return;
       if (`${destination.pathname}${destination.search}` === `${window.location.pathname}${window.location.search}`) return;
-      setPendingTarget(`${destination.pathname}${destination.search}`);
+      const target = `${destination.pathname}${destination.search}`;
+      window.setTimeout(() => {
+        if (!(event as MouseEvent & { appNavigationCancelled?: boolean }).appNavigationCancelled) {
+          setSlow(false);
+          setTransition({ source: routeKey, target });
+        }
+      }, 0);
+    };
+
+    const handleHistoryNavigation = () => {
+      setSlow(false);
+      setTransition({ source: routeKey, target: `${window.location.pathname}${window.location.search}` });
     };
 
     document.addEventListener("click", handleClick, true);
-    return () => document.removeEventListener("click", handleClick, true);
-  }, []);
+    window.addEventListener("popstate", handleHistoryNavigation);
+    return () => {
+      document.removeEventListener("click", handleClick, true);
+      window.removeEventListener("popstate", handleHistoryNavigation);
+    };
+  }, [routeKey]);
 
   useEffect(() => {
     if (!pending) return;
-    const timeout = window.setTimeout(() => setPendingTarget(null), 8000);
+    const timeout = window.setTimeout(() => setSlow(true), 8000);
     return () => window.clearTimeout(timeout);
   }, [pending]);
 
   return (
     <>
       <span className="route-progress global-route-progress" data-visible={pending} aria-hidden="true" />
-      {pending ? <span className="sr-only" role="status" aria-live="polite">Đang mở nội dung…</span> : null}
+      {pending ? <span className="sr-only" role="status" aria-live="polite">{slow ? "Nội dung đang tải lâu hơn dự kiến…" : "Đang mở nội dung…"}</span> : null}
     </>
   );
 }

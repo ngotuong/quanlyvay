@@ -1,0 +1,1560 @@
+{
+  "routes": [
+    {
+      "width": 375,
+      "route": "/dashboard",
+      "ms": 525,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Tổng quan",
+        "Tổng quan",
+        "Chọn ngày tùy chỉnh",
+        "Lịch Dự Kiến",
+        "Xu hướng dòng tiền",
+        "Phát sinh và thanh toán lãi",
+        "Cơ cấu dư nợ",
+        "Mức tập trung theo đối tác",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Tùy chỉnh",
+          "height": 43
+        },
+        {
+          "text": "Xem các khoản nợ xấu",
+          "height": 36
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "route": "/loans",
+      "ms": 257,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Các khoản vay",
+        "Các khoản vay",
+        " Tìm và lọc",
+        "Ngày giải ngân và sắp xếp",
+        "Khoản thông báo E2E • 1.000.000 ₫",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Xóa tất cả",
+          "height": 40
+        },
+        {
+          "text": "Đang hoạt động",
+          "height": 38
+        },
+        {
+          "text": "Ghi giao dịch",
+          "height": 42
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "route": "/loans/new",
+      "ms": 244,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Tạo khoản vay",
+        "Tạo khoản vay",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "route": "/counterparties",
+      "ms": 211,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Đối tác",
+        "Đối tác",
+        "Thêm đối tác",
+        "Đối tác thông báo E2E",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "height": 26
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "route": "/expenses",
+      "ms": 219,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Chi phí",
+        "Chi phí chung",
+        "Thêm chi phí",
+        "Chưa có chi phí chung",
+        "Tiện ích khác"
+      ],
+      "smallTargets": []
+    },
+    {
+      "width": 375,
+      "route": "/notifications",
+      "ms": 248,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Thông báo",
+        "Thông báo",
+        "Thông báo trên thiết bị",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Tất cả",
+          "height": 38
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "height": 38
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "route": "/account",
+      "ms": 321,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Cài đặt",
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 13
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "route": "/settings",
+      "ms": 230,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Cài đặt",
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 13
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "route": "/audit",
+      "ms": 267,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Nhật ký hệ thống",
+        "Nhật ký hệ thống",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "/dashboard",
+      "ms": 275,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Tổng quan",
+        "Tổng quan",
+        "Chọn ngày tùy chỉnh",
+        "Lịch Dự Kiến",
+        "Xu hướng dòng tiền",
+        "Phát sinh và thanh toán lãi",
+        "Cơ cấu dư nợ",
+        "Mức tập trung theo đối tác",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Tùy chỉnh",
+          "height": 43
+        },
+        {
+          "text": "Xem các khoản nợ xấu",
+          "height": 36
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "/loans",
+      "ms": 238,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Các khoản vay",
+        "Các khoản vay",
+        " Tìm và lọc",
+        "Ngày giải ngân và sắp xếp",
+        "Khoản thông báo E2E • 1.000.000 ₫",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Xóa tất cả",
+          "height": 40
+        },
+        {
+          "text": "Đang hoạt động",
+          "height": 38
+        },
+        {
+          "text": "Ghi giao dịch",
+          "height": 42
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "/loans/new",
+      "ms": 236,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Tạo khoản vay",
+        "Tạo khoản vay",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "/counterparties",
+      "ms": 231,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Đối tác",
+        "Đối tác",
+        "Thêm đối tác",
+        "Đối tác thông báo E2E",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "height": 26
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "/expenses",
+      "ms": 191,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Chi phí",
+        "Chi phí chung",
+        "Thêm chi phí",
+        "Chưa có chi phí chung",
+        "Tiện ích khác"
+      ],
+      "smallTargets": []
+    },
+    {
+      "width": 390,
+      "route": "/notifications",
+      "ms": 223,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Thông báo",
+        "Thông báo",
+        "Thông báo trên thiết bị",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Tất cả",
+          "height": 38
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "height": 38
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "/account",
+      "ms": 306,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Cài đặt",
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 13
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "/settings",
+      "ms": 251,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Cài đặt",
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 13
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "route": "/audit",
+      "ms": 226,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Nhật ký hệ thống",
+        "Nhật ký hệ thống",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "route": "/dashboard",
+      "ms": 404,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Tổng quan",
+        "Tổng quan",
+        "Chọn ngày tùy chỉnh",
+        "Lịch Dự Kiến",
+        "Xu hướng dòng tiền",
+        "Phát sinh và thanh toán lãi",
+        "Cơ cấu dư nợ",
+        "Mức tập trung theo đối tác",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Tùy chỉnh",
+          "height": 43
+        },
+        {
+          "text": "Xem các khoản nợ xấu",
+          "height": 36
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "route": "/loans",
+      "ms": 268,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Các khoản vay",
+        "Các khoản vay",
+        " Tìm và lọc",
+        "Ngày giải ngân và sắp xếp",
+        "Khoản thông báo E2E • 1.000.000 ₫",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Xóa tất cả",
+          "height": 40
+        },
+        {
+          "text": "Đang hoạt động",
+          "height": 38
+        },
+        {
+          "text": "Ghi giao dịch",
+          "height": 42
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "route": "/loans/new",
+      "ms": 226,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Tạo khoản vay",
+        "Tạo khoản vay",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "route": "/counterparties",
+      "ms": 214,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Đối tác",
+        "Đối tác",
+        "Thêm đối tác",
+        "Đối tác thông báo E2E",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "height": 26
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "route": "/expenses",
+      "ms": 218,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Chi phí",
+        "Chi phí chung",
+        "Thêm chi phí",
+        "Chưa có chi phí chung",
+        "Tiện ích khác"
+      ],
+      "smallTargets": []
+    },
+    {
+      "width": 768,
+      "route": "/notifications",
+      "ms": 264,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Thông báo",
+        "Thông báo",
+        "Thông báo trên thiết bị",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Tất cả",
+          "height": 38
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "height": 38
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "route": "/account",
+      "ms": 278,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Cài đặt",
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 13
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "route": "/settings",
+      "ms": 202,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Cài đặt",
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 13
+        }
+      ]
+    },
+    {
+      "width": 768,
+      "route": "/audit",
+      "ms": 226,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Nhật ký hệ thống",
+        "Nhật ký hệ thống",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "route": "/dashboard",
+      "ms": 520,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Tổng quan",
+        "Tổng quan",
+        "Chọn ngày tùy chỉnh",
+        "Lịch Dự Kiến",
+        "Xu hướng dòng tiền",
+        "Phát sinh và thanh toán lãi",
+        "Cơ cấu dư nợ",
+        "Mức tập trung theo đối tác",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Tùy chỉnh",
+          "height": 43
+        },
+        {
+          "text": "Xem các khoản nợ xấu",
+          "height": 36
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "route": "/loans",
+      "ms": 205,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Các khoản vay",
+        "Các khoản vay",
+        " Tìm và lọc",
+        "Ngày giải ngân và sắp xếp",
+        "Khoản thông báo E2E • 1.000.000 ₫",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Xóa tất cả",
+          "height": 40
+        },
+        {
+          "text": "Đang hoạt động",
+          "height": 38
+        },
+        {
+          "text": "Ghi giao dịch",
+          "height": 42
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "route": "/loans/new",
+      "ms": 282,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Tạo khoản vay",
+        "Tạo khoản vay",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "route": "/counterparties",
+      "ms": 203,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Đối tác",
+        "Đối tác",
+        "Thêm đối tác",
+        "Đối tác thông báo E2E",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "height": 26
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "route": "/expenses",
+      "ms": 219,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Chi phí",
+        "Chi phí chung",
+        "Thêm chi phí",
+        "Chưa có chi phí chung",
+        "Tiện ích khác"
+      ],
+      "smallTargets": []
+    },
+    {
+      "width": 1024,
+      "route": "/notifications",
+      "ms": 201,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Thông báo",
+        "Thông báo",
+        "Thông báo trên thiết bị",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Tất cả",
+          "height": 38
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "height": 38
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "route": "/account",
+      "ms": 273,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Cài đặt",
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 13
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "route": "/settings",
+      "ms": 228,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Cài đặt",
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 13
+        }
+      ]
+    },
+    {
+      "width": 1024,
+      "route": "/audit",
+      "ms": 223,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Nhật ký hệ thống",
+        "Nhật ký hệ thống",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "route": "/dashboard",
+      "ms": 508,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Tổng quan",
+        "Tổng quan",
+        "Chọn ngày tùy chỉnh",
+        "Lịch Dự Kiến",
+        "Xu hướng dòng tiền",
+        "Phát sinh và thanh toán lãi",
+        "Cơ cấu dư nợ",
+        "Mức tập trung theo đối tác",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Tùy chỉnh",
+          "height": 43
+        },
+        {
+          "text": "Xem các khoản nợ xấu",
+          "height": 36
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "route": "/loans",
+      "ms": 217,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Các khoản vay",
+        "Các khoản vay",
+        " Tìm và lọc",
+        "Ngày giải ngân và sắp xếp",
+        "Khoản thông báo E2E • 1.000.000 ₫",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Xóa tất cả",
+          "height": 40
+        },
+        {
+          "text": "Đang hoạt động",
+          "height": 38
+        },
+        {
+          "text": "Ghi giao dịch",
+          "height": 42
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "route": "/loans/new",
+      "ms": 213,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Tạo khoản vay",
+        "Tạo khoản vay",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        },
+        {
+          "text": "",
+          "height": 48
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "route": "/counterparties",
+      "ms": 185,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Đối tác",
+        "Đối tác",
+        "Thêm đối tác",
+        "Đối tác thông báo E2E",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "height": 26
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "route": "/expenses",
+      "ms": 194,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Chi phí",
+        "Chi phí chung",
+        "Thêm chi phí",
+        "Chưa có chi phí chung",
+        "Tiện ích khác"
+      ],
+      "smallTargets": []
+    },
+    {
+      "width": 1440,
+      "route": "/notifications",
+      "ms": 197,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Thông báo",
+        "Thông báo",
+        "Thông báo trên thiết bị",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Tất cả",
+          "height": 38
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "height": 38
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "route": "/account",
+      "ms": 262,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Cài đặt",
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 13
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "route": "/settings",
+      "ms": 213,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Cài đặt",
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "",
+          "height": 13
+        }
+      ]
+    },
+    {
+      "width": 1440,
+      "route": "/audit",
+      "ms": 206,
+      "overflow": false,
+      "headings": [
+        "Tiện ích khác",
+        "Nhật ký hệ thống",
+        "Nhật ký hệ thống",
+        "Tiện ích khác"
+      ],
+      "smallTargets": [
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        },
+        {
+          "text": "Xem dữ liệu thay đổi",
+          "height": 26
+        }
+      ]
+    }
+  ],
+  "observations": {
+    "loanUrl": "http://127.0.0.1:3101/loans/4952658b-26ee-4fa4-bff1-74250ceaf43c?returnTo=%2Floans",
+    "payment": {
+      "ms": 464,
+      "dialogOpen": true,
+      "message": "Đã ghi nhận thanh toán.",
+      "amount": ""
+    },
+    "restructureLabels": "TÁI CƠ CẤU DƯ GỐC\n\nGiảm gốc và mở kỳ mới\nKhông tạo khoản vay giả hoặc dòng tiền giải ngân mới\nNgày hiệu lực bắt đầu kỳ mới; lãi của dư gốc cũ được chốt tự động đến hết ngày liền trước.\nDư gốc mới có hiệu lực từ ngày\n\nHệ thống tự chốt lãi đến hết ngày liền trước, không tính trùng ngày.\n\nSố gốc thực trả (VND)\nGhi chú\nXác nhận giảm gốc",
+    "offline": "Bỏ qua đến nội dung chính\n\nĐang mất kết nối. Dữ liệu có thể chưa cập nhật; hãy giữ trang mở và thử lại khi có mạng.\n\nCác khoản vay\nTạo khoản vay\nTìm và lọc\nXóa tất cả\nTên khoản vay hoặc đối tác\nHướng\nHướng: Tất cả\nCho vay\nĐi vay\nTrạng thái\nTrạng thái: Tất cả\nĐang hoạt động\nNợ xấu\nQuá hạn\nĐã tất toán\n1 kết quả\nNâng cao\nĐang hoạt động\nKhoản thông báo E2E • 1.000.000 ₫\nCho vay\nĐang hoạt động\nGiải ngân\n1/8/2026\nLãi suất\n3%/30 ngày\nNgày đóng lãi\n29/9/2026\nDư nợ gốc\n1.000.000 ₫\nLãi phải thu\n59.000 ₫\nLãi đã thu\n1.000 ₫\nGhi giao dịch\n\nTrang 1 / 1 · 1 bản ghi\n\nTổng quan\nKhoản vay\nĐối tác\nThông báo\n1\nThêm",
+    "landscape": {
+      "overflow": false,
+      "dialog": {
+        "x": 142,
+        "y": 19.5,
+        "width": 560,
+        "height": 351,
+        "top": 19.5,
+        "right": 702,
+        "bottom": 370.5,
+        "left": 142
+      }
+    },
+    "dirtyRestructure": {
+      "confirmations": 0,
+      "open": 0
+    },
+    "mobileMore": "Tiện ích khác\nChi phí\nNhật ký hệ thống\nCài đặt",
+    "cancelNavigation": {
+      "confirmations": 1,
+      "url": "http://127.0.0.1:3101/counterparties",
+      "progress": "true"
+    },
+    "slowNavigation": {
+      "url": "http://127.0.0.1:3101/dashboard",
+      "progress": "false"
+    },
+    "text200": {
+      "overflow": false
+    }
+  },
+  "timings": [
+    {
+      "route": "dashboard→loans",
+      "pendingAt120ms": "true",
+      "ms": 1997,
+      "delayMs": 1800
+    },
+    {
+      "route": "dashboard→loans",
+      "pendingAt120ms": "true",
+      "ms": 1985,
+      "delayMs": 1800
+    },
+    {
+      "route": "dashboard→loans",
+      "pendingAt120ms": "true",
+      "ms": 2046,
+      "delayMs": 1800
+    }
+  ]
+}

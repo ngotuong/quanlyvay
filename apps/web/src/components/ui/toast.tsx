@@ -33,7 +33,7 @@ export function ToastProvider() {
   if (!toast) return <div className="ui-toast-region" aria-live="polite" aria-atomic="true" />;
   const Icon = toast.tone === "error" ? CircleAlert : CheckCircle2;
   return <div className="ui-toast-region" aria-live={toast.tone === "error" ? "assertive" : "polite"} aria-atomic="true">
-    <div className="ui-toast" data-tone={toast.tone ?? "info"} role="status" aria-label={toast.message} key={toast.id}>
+    <div className="ui-toast" data-tone={toast.tone ?? "info"} role="group" aria-label={toast.message} key={toast.id}>
       <Icon size={20} aria-hidden="true" />
       <span className="ui-toast-copy" data-message={toast.message} aria-hidden="true" />
       <Button variant="ghost" className="ui-toast-close" aria-label="Đóng thông báo" onClick={() => setToast(null)}><X size={18} /></Button>

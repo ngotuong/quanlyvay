@@ -59,7 +59,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
   return (
     <>
       <div className="page-heading-row">
-        <div className="page-title-lockup"><span className="page-title-icon"><ArrowLeftRight size={24} strokeWidth={1.8} /></span><div><h1>Các khoản vay</h1></div></div>
+        <div className="page-title-lockup"><span className="page-title-icon"><ArrowLeftRight size={24} strokeWidth={1.8} /></span><div><h1>Các khoản vay</h1><p className="page-description">Tìm theo đối tác, trạng thái hoặc thời điểm giải ngân.</p></div></div>
         {profile.role !== "VIEWER" ? <Link className="primary-link loan-create-link" href="/loans/new"><Plus size={18} />Tạo khoản vay</Link> : null}
       </div>
 
@@ -100,7 +100,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
                 <div className="loan-card-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins /> : <Landmark />}</div>
                 <div className="loan-card-main">
                   <div className="loan-card-heading">
-                    <h2><PrivacyRegion>{displayName}</PrivacyRegion><span aria-hidden="true"> • </span><span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.original_principal_vnd)} /></span></h2>
+                    <div className="loan-card-title"><h2><PrivacyRegion>{displayName}</PrivacyRegion></h2><p>Gốc ban đầu <span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.original_principal_vnd)} /></span></p></div>
                     <div className="loan-card-tags"><Badge className="direction-badge" tone={loan.direction === "LENDING" ? "lending" : "borrowing"} data-direction={loan.direction}>{directionText}</Badge><Badge className="status-badge" tone={status === "ACTIVE" ? "success" : status === "SETTLED" ? "neutral" : status === "OVERDUE" ? "warning" : "danger"} data-status={status}>{statusLabels[status]}</Badge></div>
                   </div>
                   <dl className="loan-card-details">

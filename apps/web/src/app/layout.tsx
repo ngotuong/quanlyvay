@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
-import { Suspense } from "react";
+import { Suspense, type ReactNode } from "react";
 import { cookies } from "next/headers";
 import "./globals.css";
 import { PwaRegister } from "@/components/pwa-register";
@@ -44,14 +44,29 @@ export const viewport: Viewport = { themeColor: [
 
 import { PrivacyProvider } from "@/components/app/privacy-provider";
 
-export default async function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  const profile = await getAuthenticatedProfile();
+function InitialApplicationLoading() {
+  return <div className="initial-app-loading" id="initial-app-loading" role="status" aria-busy="true" aria-live="polite">
+    <div className="initial-app-loading-mark" aria-hidden="true" />
+    <strong>Đang mở không gian tài chính…</strong>
+    <span>Đang kiểm tra phiên đăng nhập và chuẩn bị dữ liệu an toàn.</span>
+  </div>;
+}
+
+async function ResolvedApplication({ children }: { children: ReactNode }) {
+  const [profile, cookieStore] = await Promise.all([getAuthenticatedProfile(), cookies()]);
   const showAppShell = Boolean(profile && !profile.must_change_password);
   const unreadCount = showAppShell ? await getUnreadNotificationCount() : 0;
+
+  return <PrivacyProvider initialPrivacy={cookieStore.get("qlv_privacy_mode")?.value !== "false"}>
+    <a className="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
+    <PwaRegister unreadCount={unreadCount} />
+    <NetworkStatus />
+    <Suspense fallback={null}><NavigationFeedback /></Suspense>
+    {showAppShell && profile ? <AppShell profile={profile} unreadCount={unreadCount}>{children}</AppShell> : children}
+  </PrivacyProvider>;
+}
+
+export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
 
   return (
     <html
@@ -59,15 +74,7 @@ export default async function RootLayout({
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <PrivacyProvider initialPrivacy={(await cookies()).get("qlv_privacy_mode")?.value !== "false"}>
-          <a className="skip-link" href="#main-content">
-            Bỏ qua đến nội dung chính
-          </a>
-          <PwaRegister unreadCount={unreadCount} />
-          <NetworkStatus />
-          <Suspense fallback={null}><NavigationFeedback /></Suspense>
-          {showAppShell && profile ? <AppShell profile={profile} unreadCount={unreadCount}>{children}</AppShell> : children}
-        </PrivacyProvider>
+        <Suspense fallback={<InitialApplicationLoading />}><ResolvedApplication>{children}</ResolvedApplication></Suspense>
       </body>
     </html>
   );

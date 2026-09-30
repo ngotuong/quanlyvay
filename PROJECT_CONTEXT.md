@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.220
-last_updated: 2026-09-27 19:55:00 +07
+roadmap_version: 1.0.225
+last_updated: 2026-09-30
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C61
-current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C60
-next_checkpoint: C61
+current_checkpoint: C65
+current_status: IN_PROGRESS
+last_completed_checkpoint: C64
+next_checkpoint: C65
 ---
 
 # Project Context
@@ -219,6 +219,40 @@ quyền thực hiện thao tác remote mới.
 
 ## 6. Kiểm thử gần nhất
 
+C62 ngày 2026-09-30:
+
+- `pnpm lint`, `pnpm typecheck`, `git diff --check`: PASS.
+- Audit opt-in `C62_AUDIT=true pnpm test:e2e c62-audit.spec.ts`: 1/1 PASS (1,7 phút).
+- `pnpm test:e2e`: 23/23 PASS (2,7 phút), 1 skip đúng chủ đích là harness audit opt-in.
+  Hai lần đều build Next production qua Playwright webServer; không sửa code runtime.
+- Mockup payment smoke đạt close + toast. 45 route/width samples, 30 ảnh tổng hợp; secret pattern
+  scan sạch. Database test 55321/55322 được guard/reset, không dùng DB Production/Preview.
+- Không chạy lại unit/pgTAP/Auth standalone vì phạm vi chỉ tài liệu/mockup/harness. Không tuyên bố
+  kiểm xong thiết bị thật, screen reader, cold auth/expiry/PWA resume hoặc browser zoom thật.
+
+C63 ngày 2026-09-30:
+
+- `git diff --check`, `pnpm lint`, `pnpm typecheck`, `pnpm test` (80/80) và `pnpm build`: PASS.
+- `pnpm test:e2e`: 32/32 bài chạy PASS trong 4,0 phút; 1 skip đúng chủ đích là harness audit
+  C62 opt-in. Playwright build/start Next production và chỉ reset database local cô lập
+  `QuanLyVayCaNhan-C20-test` trên API 55321/database 55322.
+- Ma trận C63 kiểm payment → giảm gốc → tất toán tại 375/390/1440 px; 390×480 dark mô phỏng
+  viewport bàn phím thấp, reduced-motion, focus trap/restore, dirty/pending, submit trùng, toast,
+  preview stale/read-after-write, navigation 10 giây và Auth 2/10 giây đều đạt.
+- Không đổi migration, RPC, schema hoặc công thức tài chính. VoiceOver/TalkBack, bàn phím mềm và
+  PWA resume trên thiết bị thật vẫn là giới hạn đã ghi tại `docs/UI_UX_REMEDIATION_C63.md`.
+
+C64 ngày 2026-09-30:
+
+- `git diff --check`, `pnpm lint`, `pnpm typecheck`, `pnpm test` (80/80) và `pnpm build`: PASS.
+- `C64_EVIDENCE=true pnpm test:e2e`: 35 bài chạy PASS; 1 skip đúng chủ đích là harness C62 opt-in.
+  Playwright dùng production build/start và database local cô lập.
+- Dashboard/list/detail/filter/đối tác được kiểm tại 390/1440 px, light/dark, reduced-motion và
+  200% text; ảnh tại `docs/audit-c64/`. Drawer C63, stale guard và số liệu tài chính không đổi.
+- Chưa kiểm screen reader, bàn phím mềm, safe-area và browser zoom trên thiết bị thật; giới hạn chi
+  tiết tại `docs/UI_UX_REMEDIATION_C64.md`.
+
+
 C44 đã đạt:
 
 - `git diff --check`
@@ -387,6 +421,29 @@ C59 đã đạt:
   `36242767835` đạt ngay attempt 1 toàn bộ job cùng `Required CI gate`
 
 ## 7. Việc chờ
+
+- C62 `COMPLETED` ngày 2026-09-30: audit UI/UX local và mockup hoàn tất; báo cáo
+  `docs/UI_UX_AUDIT_C62.md`, bằng chứng `docs/audit-c62/`, harness opt-in
+  `apps/web/test/e2e/c62-audit.spec.ts`. Có 12 phát hiện: 2 HIGH (một runtime, một nguy cơ cold auth),
+  9 MEDIUM, 1 LOW. Đã tái hiện payment success vẫn mở drawer, đóng draft giảm gốc không confirm,
+  progress sai khi cancel/chờ hơn 8s. Không kết luận mất draft hoặc sai tiền từ các hiện tượng này.
+  45 route/viewport không tràn ngang không có nghĩa UI đạt; report tách lỗi, nguy cơ source và
+  NOT_TESTED. Cold auth, thiết bị thật, screen reader, zoom browser thật còn cần bằng chứng.
+  Thay đổi chỉ gồm tài liệu, fixture evidence/mockup và harness; không sửa code sản phẩm, không
+  ghi dữ liệu remote/deploy/push. Sáu commit C60 chưa đồng bộ giữ nguyên; C62 chưa local commit.
+- C63 `COMPLETED` ngày 2026-09-30: payment/tất toán/giảm gốc đóng và reset sau server commit,
+  giữ draft khi lỗi, chặn submit trùng, toast sau dialog, focus hợp lý và preview mới khi mở lại.
+  Progress bám transition thật; fallback Auth không chứa dữ liệu riêng tư. Regression phát hiện
+  preview tất toán được tải khi drawer ẩn và đã sửa bằng lifecycle mount theo lần mở. Toàn bộ gate
+  local đạt; không deploy, push, migration hoặc ghi dữ liệu remote.
+- C64 `COMPLETED` ngày 2026-09-30: dashboard ưu tiên việc đến hạn, filter/card khoản vay gọn, detail
+  giữ hierarchy số dư/action, đối tác list-first có search và drawer thêm/sửa, retry preview chỉ hiện
+  khi lỗi/stale. Full local gate và ảnh evidence đạt; không đổi schema/RPC/công thức, không deploy,
+  push hoặc ghi dữ liệu remote.
+- C65 `IN_PROGRESS`: OWNER phê duyệt trong hội thoại ngày 2026-09-30. Đang rà soát và push
+  fast-forward cả sáu commit C60 đang ahead cùng commit local C62–C64, xác nhận GitHub CI rồi
+  rollout Preview/stable alias theo Vercel runbook; C65 hoàn tất luôn mục tiêu C61.
+
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
   soát bù phù hợp GitHub Free/private; notification runner, Production smoke và runtime log đạt.

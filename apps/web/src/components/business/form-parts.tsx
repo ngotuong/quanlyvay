@@ -6,6 +6,7 @@ import type { BusinessActionState } from "@/lib/business/action-state";
 import { Button, notifyToast } from "@/components/ui";
 
 const BusinessPending = createContext(false);
+const ManagedSuccess = createContext(false);
 const subscribeHydration = () => () => {};
 
 function focusField(form: HTMLFormElement | null | undefined, name: string) {
@@ -33,47 +34,72 @@ export function FieldError({ state, name }: { state: BusinessActionState; name: 
   return <p ref={ref} id={id} className="field-error" role={message ? "alert" : undefined} hidden={!message}>{message}</p>;
 }
 
-export function BusinessForm({ state, children, action, ...props }: Omit<ComponentProps<"form">, "action"> & { state: BusinessActionState & { pending?: boolean }; action: (data: FormData) => void }) {
+type BusinessFormProps = Omit<ComponentProps<"form">, "action"> & {
+  state: BusinessActionState & { pending?: boolean };
+  action: (data: FormData) => void;
+  onDirtyChange?: (dirty: boolean) => void;
+  onPendingChange?: (pending: boolean) => void;
+  onSuccess?: (message: string) => void;
+};
+
+export function BusinessForm({ state, children, action, onDirtyChange, onPendingChange, onSuccess, ...props }: BusinessFormProps) {
   const interactive = useSyncExternalStore(subscribeHydration, () => true, () => false);
   const ref = useRef<HTMLFormElement>(null);
   const dirty = useRef(false);
+  const handledSubmission = useRef(0);
   useEffect(() => {
-    if (!state.message || state.pending) return;
-    if (state.ok) { dirty.current = false; ref.current?.reset(); return; }
+    if (!state.submissionId || handledSubmission.current === state.submissionId || !state.message || state.pending) return;
+    handledSubmission.current = state.submissionId;
+    if (state.ok) {
+      dirty.current = false;
+      onDirtyChange?.(false);
+      ref.current?.reset();
+      onSuccess?.(state.message);
+      return;
+    }
     const form = ref.current;
     if (!form) return;
     const firstName = Object.keys(state.fieldErrors ?? {})[0];
     if (firstName) focusField(form, firstName);
-  }, [state]);
+    else form.querySelector<HTMLElement>(".action-message")?.focus();
+  }, [onDirtyChange, onSuccess, state.fieldErrors, state.message, state.ok, state.pending, state.submissionId]);
+  useEffect(() => { onPendingChange?.(Boolean(state.pending)); }, [onPendingChange, state.pending]);
   useEffect(() => {
     const beforeUnload = (event: BeforeUnloadEvent) => { if (dirty.current) { event.preventDefault(); event.returnValue = ""; } };
     window.addEventListener("beforeunload", beforeUnload);
     const navigation = (event: MouseEvent) => {
       const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
       if (dirty.current && link && link.getAttribute("href")?.startsWith("/") && !window.confirm("Bạn có thay đổi chưa lưu. Rời trang và bỏ các thay đổi này?")) {
+        (event as MouseEvent & { appNavigationCancelled?: boolean }).appNavigationCancelled = true;
         event.preventDefault(); event.stopPropagation();
       }
     };
     document.addEventListener("click", navigation, true);
     return () => { window.removeEventListener("beforeunload", beforeUnload); document.removeEventListener("click", navigation, true); };
   }, []);
-  return <BusinessPending.Provider value={Boolean(state.pending)}><form {...props} ref={ref} onChange={event => { dirty.current = true; props.onChange?.(event); }} onSubmit={(event) => {
+  return <ManagedSuccess.Provider value={Boolean(onSuccess)}><BusinessPending.Provider value={Boolean(state.pending)}><form {...props} ref={ref} aria-busy={Boolean(state.pending)} onChange={event => {
+    if (!dirty.current) onDirtyChange?.(true);
+    dirty.current = true;
+    props.onChange?.(event);
+  }} onSubmit={(event) => {
     props.onSubmit?.(event);
     const cancelled = event.defaultPrevented;
     event.preventDefault();
     if (!cancelled && !state.pending) action(new FormData(event.currentTarget));
-  }}><fieldset className="business-form-fields" disabled={!interactive || Boolean(state.pending)}>{children}</fieldset></form></BusinessPending.Provider>;
+  }}><fieldset className="business-form-fields" disabled={!interactive || Boolean(state.pending)}>{children}</fieldset></form></BusinessPending.Provider></ManagedSuccess.Provider>;
 }
 
 export function ActionMessage({ state, hiddenFields = [] }: { state: BusinessActionState; hiddenFields?: string[] }) {
-  const announced = useRef<string | null>(null);
+  const managed = useContext(ManagedSuccess);
+  const announced = useRef<number | string | null>(null);
   useEffect(() => {
-    if (!state.message || announced.current === state.message) return;
-    announced.current = state.message;
-    notifyToast(state.message, state.ok ? "success" : "error");
-  }, [state.message, state.ok]);
+    const identity = state.submissionId ?? state.message;
+    if (managed || !state.ok || !state.message || announced.current === identity) return;
+    announced.current = identity;
+    notifyToast(state.message, "success");
+  }, [managed, state.message, state.ok, state.submissionId]);
   if (!state.message) return null;
-  return <div className="action-message" data-success={state.ok} role="status" aria-live="polite"><p>{state.message}</p>
+  return <div className="action-message" tabIndex={-1} data-success={state.ok} role={state.ok ? undefined : "status"} aria-live={state.ok ? "off" : "polite"}><p>{state.message}</p>
     {state.fieldErrors ? <ul>{Object.entries(state.fieldErrors).filter(([name]) => !hiddenFields.includes(name)).flatMap(([name, errors]) => errors.map(message => <li key={`${name}-${message}`}><button type="button" className="error-field-link" onClick={event => {
       focusField(event.currentTarget.closest("form"), name);
     }}>{message}</button></li>))}</ul> : null}

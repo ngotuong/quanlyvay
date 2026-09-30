@@ -156,6 +156,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
     const monthMaximum = BigInt(row.inflowVnd) > BigInt(row.outflowVnd) ? BigInt(row.inflowVnd) : BigInt(row.outflowVnd);
     return monthMaximum > current ? monthMaximum : current;
   }, BigInt(0));
+  const hasCashFlow = rows.some(row => BigInt(row.inflowVnd) !== BigInt(0) || BigInt(row.outflowVnd) !== BigInt(0));
 
   return (
     <Card className="surface-card cash-flow-card" aria-labelledby="cash-flow-title">
@@ -163,7 +164,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
         <div><p className="eyebrow">{periodLabel}</p><h2 id="cash-flow-title">Xu hướng dòng tiền</h2></div>
         <div className="chart-legend" aria-label="Chú giải"><span data-series="inflow">Tiền vào</span><span data-series="outflow">Tiền ra</span></div>
       </div>
-      <div className="cash-flow-plot">
+      {hasCashFlow ? <><div className="cash-flow-plot">
         <div className="chart-y-axis" aria-hidden="true"><span className="privacy-amount">{compactVnd(maximum)}</span><span className="privacy-amount">{compactVnd(maximum / BigInt(2))}</span><span>0 ₫</span></div>
         <div className="cash-flow-chart-scroll">
           <CashFlowBars rows={rows} maximum={maximum.toString()} />
@@ -172,7 +173,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
       <details className="cash-flow-details chart-data-details">
         <summary>Xem bảng số liệu</summary>
         <div className="table-scroll"><table><thead><tr><th>Tháng</th><th>Tiền vào</th><th>Tiền ra</th><th>Ròng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.month}><th>{monthLabel(row.month)}</th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.inflowVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.outflowVnd)} /></td><td className="privacy-amount" data-negative={BigInt(row.netVnd) < BigInt(0)}><PrivacyAmount value={formatVnd(row.netVnd)} /></td></tr>)}</tbody></table></div>
-      </details>
+      </details></> : <div className="dashboard-empty"><strong>Chưa có dòng tiền trong kỳ</strong><span>Các khoản thu, chi sẽ xuất hiện sau khi giao dịch được ghi nhận.</span></div>}
     </Card>
   );
 }
@@ -188,9 +189,9 @@ function AttentionList({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; ov
   ];
   return (
     <Card className="surface-card due-card attention-card" aria-labelledby="schedule-title">
-      <div className="dashboard-section-heading"><h2 id="schedule-title">Lịch Dự Kiến</h2><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>
-      {total === 0 ? <p className="dashboard-empty">Chưa có lịch thu, trả lãi hoặc gốc quá hạn trong 30 ngày tới.</p> : <div className="attention-groups">
-        <div className="due-list schedule-list">{rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}`} className="due-item" key={`${kind}-${loan.id}`}>
+      <div className="dashboard-section-heading"><div><p className="eyebrow">Ưu tiên hôm nay</p><h2 id="schedule-title">Việc cần xử lý</h2></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>
+      {total === 0 ? <div className="dashboard-empty"><strong>Không có việc đến hạn</strong><span>Chưa có lãi cần thu, trả hoặc gốc quá hạn trong 30 ngày tới.</span></div> : <div className="attention-groups">
+        <div className="due-list schedule-list">{rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item" key={`${kind}-${loan.id}`}>
           <span className="due-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins size={19} /> : <Landmark size={19} />}</span>
           <span className="due-main"><strong><PrivacyRegion>{loan.name}</PrivacyRegion></strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
           <span className="due-value"><strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong><small>{kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
@@ -229,7 +230,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
   return (
     <>
-      <div className="page-heading-row dashboard-heading"><div className="page-title-lockup"><span className="page-title-icon"><ChartSpline size={24} strokeWidth={1.8} /></span><div><h1>Tổng quan</h1></div></div></div>
+      <div className="page-heading-row dashboard-heading"><div className="page-title-lockup"><span className="page-title-icon"><ChartSpline size={24} strokeWidth={1.8} /></span><div><h1>Tổng quan</h1><p className="page-description">Ưu tiên việc đến hạn trước khi xem báo cáo.</p></div></div></div>
 
       <DashboardPeriodFilter period={period} periodLabel={periodLabel} />
 

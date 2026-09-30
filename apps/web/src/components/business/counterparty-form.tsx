@@ -6,10 +6,15 @@ import { initialBusinessActionState } from "@/lib/business/action-state";
 import type { Counterparty } from "@/lib/business/types";
 import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
 
-export function CounterpartyForm({ counterparty }: { counterparty?: Counterparty }) {
+export function CounterpartyForm({ counterparty, onDirtyChange, onPendingChange, onSuccess }: {
+  counterparty?: Counterparty;
+  onDirtyChange?: (dirty: boolean) => void;
+  onPendingChange?: (pending: boolean) => void;
+  onSuccess?: (message: string) => void;
+}) {
   const [state, action] = useBusinessAction(saveCounterpartyAction, initialBusinessActionState);
   return (
-    <BusinessForm state={state} action={action} className="business-form">
+    <BusinessForm state={state} action={action} className="business-form" onDirtyChange={onDirtyChange} onPendingChange={onPendingChange} onSuccess={onSuccess}>
       {counterparty ? <input name="id" type="hidden" value={counterparty.id} /> : null}
       <div className="field-group">
         <label htmlFor={`counterparty-name-${counterparty?.id ?? "new"}`}>Tên đối tác <span aria-hidden="true">*</span></label>

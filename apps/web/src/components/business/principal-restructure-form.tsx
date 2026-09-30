@@ -11,8 +11,14 @@ import { useBusinessAction } from "./use-business-action";
 
 type PreviewResult = { error: string; preview: PrincipalRestructurePreview | null };
 
-export function PrincipalRestructureForm({ loanId, idempotencyKey }: { loanId: string; idempotencyKey: string }) {
-  const [state, action] = useBusinessAction(restructureLoanPrincipalAction, initialBusinessActionState);
+export function PrincipalRestructureForm({ loanId, idempotencyKey, onDirtyChange, onPendingChange, onSuccess }: {
+  loanId: string;
+  idempotencyKey: string;
+  onDirtyChange?: (dirty: boolean) => void;
+  onPendingChange?: (pending: boolean) => void;
+  onSuccess?: (message: string) => void;
+}) {
+  const [state, action, , reset] = useBusinessAction(restructureLoanPrincipalAction, initialBusinessActionState);
   const [effectiveDate, setEffectiveDate] = useState(todayInVietnam());
   const [principalPaymentVnd, setPrincipalPaymentVnd] = useState("");
   const [reload, setReload] = useState(0);
@@ -38,7 +44,10 @@ export function PrincipalRestructureForm({ loanId, idempotencyKey }: { loanId: s
     ? (BigInt(preview.principalPaymentVnd) + BigInt(preview.interestToSettleVnd)).toString()
     : "0", [preview]);
 
-  return <BusinessForm state={state} action={action} className="compact-form restructure-form">
+  const hasPrincipal = principalPaymentVnd.length > 0;
+  const validPrincipal = /^\d+$/.test(principalPaymentVnd) && BigInt(principalPaymentVnd) > BigInt(0);
+
+  return <BusinessForm state={state} action={action} className="compact-form restructure-form" onDirtyChange={onDirtyChange} onPendingChange={onPendingChange} onSuccess={onSuccess}>
     <input name="loanId" type="hidden" value={loanId} />
     <input name="idempotencyKey" type="hidden" value={idempotencyKey} />
     <div className="field-group">
@@ -53,9 +62,10 @@ export function PrincipalRestructureForm({ loanId, idempotencyKey }: { loanId: s
       <FieldError state={state} name="principalPaymentVnd" />
     </div>
 
-    {principalPaymentVnd && !result ? <p role="status">Đang tính phương án chính xác…</p> : null}
+    {hasPrincipal && !validPrincipal ? <p className="field-error" role="alert">Số gốc thực trả phải lớn hơn 0.</p> : null}
+    {validPrincipal && !result ? <p role="status">Đang tính phương án chính xác…</p> : null}
     {result?.error ? <p className="action-message" role="alert">{result.error}</p> : null}
-    {principalPaymentVnd ? <button className="secondary-button" type="button" onClick={() => { setResult(null); setReload(value => value + 1); }}>Tính lại phương án</button> : null}
+    {(result?.error || (!state.ok && state.message)) && validPrincipal ? <button className="secondary-button" type="button" onClick={() => { reset(); setResult(null); setReload(value => value + 1); }}>Thử tính lại phương án</button> : null}
 
     {preview ? <fieldset key={`${effectiveDate}-${principalPaymentVnd}-${reload}`} className="settlement-preview restructure-preview">
       <legend>Phương án tại ngày {formatDate(preview.effectiveDate)}</legend>

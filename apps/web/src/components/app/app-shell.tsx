@@ -44,7 +44,7 @@ export function AppShell({
             <PrivacyToggle />
           </div>
         </header>
-        <main className="app-content" id="main-content">{children}</main>
+        <main className="app-content" id="main-content" tabIndex={-1}>{children}</main>
         <div className="mobile-nav-wrap"><AppNav isOwner={profile.role === "OWNER"} unreadCount={unreadCount} /></div>
       </div>
     </div>

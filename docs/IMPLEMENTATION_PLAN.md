@@ -37,6 +37,10 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `COMPLETED` |
 | C60 | Hậu kiểm chu kỳ backup tự động đầu tiên | `COMPLETED` |
 | C61 | Đồng bộ remediation backup C60 lên GitHub và xác nhận CI | `AWAITING_APPROVAL` |
+| C62 | Audit sâu UI/UX và thiết kế lại trải nghiệm thao tác | `COMPLETED` |
+| C63 | Sửa vòng đời drawer, thông báo và trạng thái tải | `COMPLETED` |
+| C64 | Thiết kế lại shell, dashboard, danh sách và chi tiết | `COMPLETED` |
+| C65 | Đồng bộ backlog local và rollout UI/UX C62–C64 | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -507,3 +511,198 @@ Acceptance criteria:
 5. Không deploy Vercel/Apps Script, chạy migration, thay secret, xóa backup hoặc sửa dữ liệu.
 
 Trạng thái: `AWAITING_APPROVAL`.
+
+
+## 20. Checkpoint đã hoàn tất: C62
+
+Mục tiêu: đánh giá sâu chất lượng trải nghiệm thực tế, thẩm mỹ và hiệu quả thao tác của webapp;
+chuyển phản hồi OWNER ngày 2026-09-29 thành backlog remediation có bằng chứng và tiêu chí đo được.
+Đề xuất ưu tiên C62 trước C61 theo yêu cầu mới; C61 vẫn chờ duyệt, không tự push các commit C60.
+Đây là checkpoint audit và thiết kế đề xuất, chưa phải checkpoint triển khai UI.
+
+Phạm vi:
+
+- Lập inventory toàn bộ route, màn hình theo quyền và component tương tác; bao gồm đăng nhập/đổi
+  mật khẩu, dashboard, danh sách/chi tiết khoản vay, đối tác, giao dịch, tất toán, giảm gốc, đảo/sửa
+  giao dịch, chi phí, lịch nhắc/thông báo, báo cáo và quản trị hiện có. Ghi rõ màn hình không áp dụng.
+- Theo dõi hành trình từ mở URL/PWA, kiểm tra phiên đăng nhập, đăng nhập, điều hướng menu/tab trong
+  app, quay lại bằng browser, đổi bộ lọc và quay lại tab trình duyệt. Kiểm loading/skeleton/progress,
+  màn trắng, nháy login, giữ vị trí cuộn/bộ lọc, dữ liệu cũ, timeout, mất mạng và phục hồi kết nối.
+- Audit toàn bộ form/drawer/modal: mở → nhập → validate → gửi → thành công/thất bại → đóng/mở lại;
+  ghi nhận số click/tap/cuộn/nhập lặp, trạng thái pending, chặn gửi trùng, lỗi field, dữ liệu chưa lưu,
+  bàn phím mobile, focus, toast và dữ liệu danh sách sau lưu. Tái hiện ưu tiên lỗi lưu xong drawer
+  không đóng; phân biệt hành vi đã tái hiện, nguy cơ từ code và phản hồi chưa tái hiện.
+- Đánh giá hệ thống thị giác: hierarchy, mật độ, typography tiếng Việt, cách đọc tiền/ngày, màu
+  semantic, khoảng cách, căn chỉnh, icon, bảng/card, CTA chính/phụ, tính nhất quán giữa màn hình,
+  trạng thái empty/error/disabled và chuyển động. Đối chiếu docs/DESIGN_SYSTEM.md với giao diện thật.
+- Mobile 375/390 px, tablet 768 px, desktop 1024/1440 px; thêm mobile landscape, zoom 200%,
+  reduced-motion, bàn phím, focus trap/restore, nhãn/lỗi/live region, contrast và vùng chạm.
+  Audit WCAG 2.2 AA các tiêu chí áp dụng, không suy ra toàn bộ compliance từ một công cụ tự động.
+- Đo hiệu năng cảm nhận: thời gian phản hồi click, xuất hiện loading, hoàn tất điều hướng/lưu,
+  giật layout, render/scroll và network waterfall trên luồng trọng yếu; ghi cấu hình mạng/CPU,
+  số lần đo và môi trường, tách thời gian backend khỏi khả năng phản hồi giao diện.
+
+Acceptance criteria:
+
+1. Có báo cáo docs/UI_UX_AUDIT_C62.md ghi revision local, diff chưa đồng bộ GitHub, môi trường,
+   ma trận màn hình × viewport × trạng thái với PASS/FAIL/BLOCKED/NOT_TESTED; không dùng CI xanh
+   hoặc audit C58 làm bằng chứng thay cho kiểm tra trải nghiệm hiện tại.
+2. Mỗi phát hiện có ID, mức CRITICAL/HIGH/MEDIUM/LOW, loại functional/usability/visual/accessibility/
+   performance, bước tái hiện, expected/actual, file:dòng, tác động, nguyên nhân đã xác minh hoặc
+   giả thuyết, hướng sửa và regression/acceptance criteria. Bằng chứng ảnh/video/trace dùng dữ liệu
+   tổng hợp hoặc che thông tin cá nhân; ghi rõ nguồn local/browser/Production và độ chắc chắn.
+3. Ba nhóm OWNER phản ánh phải được kiểm tra rõ: trải nghiệm tải lúc mở/đăng nhập/chuyển tab;
+   vòng đời drawer sau lưu; thao tác thừa và bố cục. Lập baseline số thao tác ít nhất cho tạo khoản
+   vay, ghi thanh toán, tất toán, giảm gốc, sửa đối tác và tìm khoản đến hạn; đề xuất luồng ít thao
+   tác hơn nhưng giữ xác nhận cần thiết cho nghiệp vụ tài chính.
+4. Có đặc tả trạng thái mục tiêu: phản hồi pending nhìn thấy khi đang chờ; không báo thành công
+   hoặc tự đóng trước server xác nhận; lưu thành công đóng drawer của tác vụ đã hoàn tất, cập nhật
+   danh sách/toast và trả focus hợp lý; lưu lỗi giữ drawer và nội dung nhập, đưa focus tới lỗi;
+   đóng khi còn dữ liệu chưa lưu/pending có hành vi nhất quán. Luồng nhập liên tiếp là ngoại lệ
+   cần nêu rõ. Không thêm delay giả hoặc splash bắt buộc cho mọi chuyển tab.
+5. Có đề xuất design system và wireframe/mockup dùng dữ liệu tổng hợp cho tối thiểu app shell,
+   dashboard, danh sách/chi tiết khoản vay, drawer giao dịch và loading/auth; thể hiện cả mobile
+   và desktop, giải thích hierarchy/spacing/CTA và trạng thái tương tác. Đây là phương án để duyệt,
+   không tự thay theme hoặc viết lại giao diện.
+6. Xếp backlog theo tác động/tần suất/rủi ro/chi phí; đề xuất checkpoint remediation tiếp theo có
+   phạm vi, thứ tự và acceptance criteria kiểm chứng được. Nêu rõ các thiếu hụt E2E hiện tại.
+7. Kiểm browser và luồng ghi bằng fixture tổng hợp trên local/test DB cô lập đã xác minh đích;
+   không reset database chưa xác minh, không mutate Production/Preview dùng chung. Remote chỉ đọc
+   với phiên sẵn có; nếu thiếu phiên thì ghi blocker, không tự đổi tài khoản/secret. Không deploy,
+   push, migration remote hoặc sửa code sản phẩm trong audit. Có thể tạo tài liệu, mockup và
+   harness kiểm tra local phục vụ bằng chứng. Chạy gate hiện hữu liên quan; ghi test thực chạy,
+   kết quả và phần chưa kiểm chứng, kiểm git diff --check/status trước khi kết thúc.
+
+Trạng thái: `COMPLETED` ngày 2026-09-30. OWNER đã phê duyệt trong hội thoại hiện tại.
+Báo cáo `docs/UI_UX_AUDIT_C62.md` gồm 12 phát hiện, matrix PASS/FAIL/NOT_TESTED, 45 lượt layout,
+30 ảnh synthetic, mockup tương tác và backlog. Audit riêng 1/1, full E2E 23/23 (audit opt-in skip),
+lint/typecheck/build qua E2E và diff check đạt. Giới hạn thiết bị thật/cold auth/screen reader/zoom
+thật được ghi rõ, không chứng nhận toàn UI đạt. Chỉ thêm tài liệu/mockup/harness, không code sản phẩm,
+remote mutation, commit/push/deploy. C63 chờ duyệt; C61 vẫn chờ riêng.
+
+
+## 21. Checkpoint đề xuất: C63
+
+**C63 — Sửa vòng đời drawer, thông báo và trạng thái tải.** Trạng thái: `COMPLETED`.
+OWNER đã phê duyệt trong hội thoại ngày 2026-09-30.
+Nguồn: audit C62, UX01–05/UX09. Ưu tiên làm thao tác đúng và rõ trước khi thay bố cục diện rộng.
+
+Phạm vi được đề xuất:
+
+- Payment, tất toán, giảm gốc: nối kết quả server với lifecycle drawer; success đóng/reset đúng
+  tác vụ, cập nhật nội dung và focus; lỗi giữ input. Chuẩn hóa dirty/pending cho nút đóng, Escape,
+  backdrop và drag; không dùng nút disabled làm đại diện duy nhất cho pending.
+- Sửa trạng thái preview giảm gốc rỗng/0/invalid; giữ stale-preview, validation, idempotency và
+  tính toán authoritative hiện có. Không thay công thức lãi, schema, RPC hoặc chính sách tài chính.
+- Toast/live region dựa trên lần thao tác, hai lần thành công cùng message vẫn phản hồi; không
+  thông báo hai lần hoặc đặt phản hồi thiết yếu sau dialog đang inert.
+- Progress chỉ chạy khi điều hướng được thực hiện, kết thúc theo kết quả; cancel không treo,
+  request lâu vẫn báo chờ. Kiểm click/menu/query/back/forward.
+- Tái hiện cold auth 2s/10s, mở deep-link, hết phiên và quay lại tab. Nếu xác nhận khoảng trống
+  feedback, bổ sung fallback auth/shell tối thiểu không chứa dữ liệu riêng tư; không splash giả hay
+  làm lại toàn app mỗi lần chuyển tab. Nếu cần đổi kiến trúc Auth thì ghi đề xuất riêng và dừng phần đó.
+- Bổ sung regression E2E có ý nghĩa, cập nhật context/roadmap cùng bằng chứng. Có thể local commit.
+  Không deploy, push, migration remote, thay secret hoặc ghi dữ liệu Production/Preview.
+
+Acceptance criteria:
+
+1. Ở 375/390/1440 px, payment/tất toán/giảm gốc thành công đóng đúng một lần sau server commit;
+   dữ liệu mới nhìn thấy, toast đọc được và focus về trigger hoặc vị trí thay thế hợp lý. Mở lại
+   không giữ thông báo/preview thành công cũ; luồng nhập liên tiếp nếu có phải là lựa chọn rõ ràng.
+2. Validation, network failure và stale preview không tự close/reset; input còn nguyên, focus tới
+   lỗi hợp lý. Double-click không ghi trùng. Draft hỏi giữ/bỏ một lần; form rỗng đóng được; pending
+   hiển thị rõ, không có nút đóng vô hiệu mà không phản hồi.
+3. Hai thao tác hợp lệ liên tiếp cùng message đều báo kết quả một lần. Rỗng/0/vượt gốc/đổi ngày/
+   nhập nhanh không để spinner vô hạn hoặc dùng preview cũ; giữ xác nhận tài chính.
+4. Hủy navigation không còn progress sau frame tiếp theo; delay 10s vẫn có feedback trước khi
+   kết thúc. Kiểm back/forward/query-only/same-route, không progress giả hay mất bộ lọc bất ngờ.
+5. Có bằng chứng cold auth, hết phiên và resume; nếu cần fallback thì thấy trạng thái chờ khi
+   response bị giữ 2s/10s, không flash login sai và không lộ dữ liệu trước Auth. Không thêm delay.
+6. Keyboard focus, Escape, reduced-motion, viewport bàn phím thấp đạt E2E; đối chiếu dark/light.
+   Ghi rõ phần screen reader/thiết bị thật còn cần kiểm, không tự tuyên bố WCAG toàn app.
+7. `git diff --check`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm build`, `pnpm test:e2e`
+   đạt. Chỉ fixture trong test DB cô lập đã xác minh; giữ nguyên code nghiệp vụ authoritative.
+
+Sau C63 mới đề xuất checkpoint triển khai visual UX06–08/10–11: shell/dashboard/list/detail,
+filter compact, list-first đối tác, typography/vùng chạm và trạng thái empty theo mockup C62.
+Checkpoint visual chưa được phê duyệt; C61 đồng bộ GitHub vẫn chờ riêng.
+
+Kết quả: hoàn tất local ngày 2026-09-30. Báo cáo và giới hạn bằng chứng tại
+`docs/UI_UX_REMEDIATION_C63.md`. Gate đạt: diff check, lint, typecheck, 80 unit/script test,
+production build và Playwright 32/32 bài chạy (1 audit harness skip đúng chủ đích). Không thay
+schema/RPC/công thức tài chính, không deploy hoặc push.
+
+## 22. Checkpoint đề xuất: C64
+
+**C64 — Thiết kế lại shell, dashboard, danh sách và chi tiết.** Trạng thái: `COMPLETED`.
+OWNER đã phê duyệt trong hội thoại ngày 2026-09-30.
+Nguồn: audit C62 UX06–08/10–11 và mockup `docs/audit-c62/proposal.html`.
+
+Phạm vi đề xuất:
+
+- Chuẩn hóa shell desktop/mobile, hierarchy, typography, spacing, surface và vùng chạm theo design
+  system cobalt sáng hiện hữu; giữ dark mode và privacy mode.
+- Làm dashboard ưu tiên việc cần xử lý, CTA đúng ngữ cảnh và empty state gọn; giảm card/border và
+  nội dung lặp nhưng không đổi số liệu authoritative.
+- Làm danh sách khoản vay có filter compact, trạng thái bộ lọc rõ và không mất query/back-forward;
+  chi tiết khoản vay ưu tiên số dư, hành động và lịch sử theo hierarchy mới.
+- Chuyển đối tác sang list-first có search; form thêm chỉ mở theo CTA. Edit thành công thu gọn và
+  giữ đúng page/search; lỗi giữ draft.
+- Nâng hit area hành động thường dùng lên tối thiểu 44 px theo contract nội bộ, giữ keyboard/focus,
+  reduced-motion, light/dark và responsive 320–1440 px.
+- Chỉnh UX10: retry preview chỉ hiện khi lỗi/stale; không thay xác nhận tài chính, RPC, schema hoặc
+  công thức. Bổ sung E2E/visual evidence local. Không deploy, push hay ghi dữ liệu remote.
+
+Acceptance criteria:
+
+1. Dashboard ở 375/390/768/1024/1440 px cho thấy việc đến hạn và CTA chính trước báo cáo; dataset
+   rỗng/ít/nhiều không tạo khối chart vô nghĩa, không đổi giá trị tài chính.
+2. Danh sách khoản vay dùng filter compact, query deep-link/back-forward ổn định; không tràn ngang,
+   không che nội dung khi bàn phím mở và thao tác chính không vượt quá baseline C62.
+3. Chi tiết khoản vay có hierarchy rõ cho trạng thái, dư gốc/lãi, action và lịch sử; drawer C63 vẫn
+   đạt toàn bộ lifecycle, idempotency, focus và stale guard.
+4. Đối tác list-first có tìm kiếm; thêm/sửa/cancel/error giữ đúng draft và page/search; thao tác sửa
+   một đối tác đã tìm không quá 3 quyết định click/tap ngoài nhập liệu.
+5. Control thường dùng đạt hit area nội bộ >=44 px; keyboard, focus visible, Escape, reduced-motion,
+   privacy mode, light/dark và 200% text không mất chức năng.
+6. Retry tất toán/giảm gốc chỉ xuất hiện khi lỗi hoặc stale; happy path tự tải preview và giữ bước
+   xác nhận tiền rõ ràng.
+7. Có ảnh/evidence đối chiếu mockup ở mobile/desktop và ghi rõ giới hạn thiết bị thật/screen reader;
+   không tự tuyên bố WCAG toàn app.
+8. `git diff --check`, lint, typecheck, unit, build và full E2E đạt trên DB test cô lập. Cập nhật
+   context/roadmap cùng thay đổi; dừng chờ checkpoint rollout riêng nếu cần Production/GitHub.
+
+Kết quả: hoàn tất local ngày 2026-09-30. Dashboard ưu tiên việc cần xử lý và không dựng chart rỗng;
+filter khoản vay compact; card/detail có hierarchy rõ; đối tác list-first có search và form theo CTA;
+retry preview chỉ hiện khi lỗi/stale. Báo cáo và ảnh tại `docs/UI_UX_REMEDIATION_C64.md` và
+`docs/audit-c64/`. Gate đạt: diff check, lint, typecheck, 80/80 unit/script test, production build,
+Playwright 35 bài chạy PASS và 1 audit harness skip đúng chủ đích. Không đổi nghiệp vụ tài chính,
+schema/RPC, không deploy hoặc push.
+
+## 23. Checkpoint đề xuất: C65
+
+**C65 — Đồng bộ backlog local và rollout UI/UX C62–C64.** Trạng thái: `IN_PROGRESS`.
+OWNER đã phê duyệt trong hội thoại ngày 2026-09-30.
+
+Phạm vi đề xuất:
+
+- Rà soát sáu commit C60 đang ahead `origin/main` cùng diff local C62–C64, secret/data scan và tạo
+  commit UI/UX có thể review; push toàn chuỗi fast-forward lên GitHub sau khi local gate vẫn đạt.
+  C65 hoàn tất luôn mục tiêu đồng bộ của C61, không tạo push song song hoặc bỏ sót lịch sử C60.
+- Xác nhận Required CI gate của đúng SHA trước rollout.
+- Tạo Vercel Preview theo `pnpm deploy:preview`, smoke public/authenticated mobile–desktop và chỉ
+  chuyển stable alias sau khi candidate đạt toàn bộ gate bắt buộc trong `AGENTS.md`.
+- Hậu kiểm alias, runtime logs, UI chính và rollback target. Không migration, đổi secret, Apps
+  Script/Sheets hoặc sửa dữ liệu tài chính.
+
+Acceptance criteria:
+
+1. Sáu commit C60 hiện hữu được giữ nguyên; commit mới chỉ chứa C62–C64. Toàn chuỗi không chứa
+   secret, dump, dữ liệu tài chính thật hoặc artifact test tạm; GitHub fast-forward và Required CI
+   đúng SHA đạt.
+2. Preview candidate đúng project/target/region, immutable URL Ready và đạt public/authenticated
+   smoke ở dashboard, khoản vay, chi tiết, đối tác cùng các drawer tài chính.
+3. Stable alias chỉ đổi sau gate; hậu kiểm alias, console/runtime log và rollback target đạt. Nếu
+   hậu kiểm lỗi, alias được trả về deployment tốt trước đó.
+4. Context/roadmap ghi commit, run CI, deployment ID/URL/alias/region và kết quả smoke; không thay
+   schema, secret, Apps Script/Sheets hoặc dữ liệu nghiệp vụ.

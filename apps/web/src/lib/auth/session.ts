@@ -2,10 +2,17 @@ import "server-only";
 
 import { cache } from "react";
 import { redirect } from "next/navigation";
+import { headers } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 import type { AppProfile } from "./types";
 
 export const getAuthenticatedProfile = cache(async (): Promise<AppProfile | null> => {
+  if (process.env.E2E_AUTH_DELAY_ENABLED === "true" && ["http://127.0.0.1:55321", "http://127.0.0.1:54321"].includes(process.env.NEXT_PUBLIC_SUPABASE_URL ?? "")) {
+    const requestedDelay = Number((await headers()).get("x-e2e-auth-delay-ms") ?? 0);
+    if (Number.isFinite(requestedDelay) && requestedDelay > 0 && requestedDelay <= 10_000) {
+      await new Promise(resolve => setTimeout(resolve, requestedDelay));
+    }
+  }
   const supabase = await createClient();
   const {
     data: { user },

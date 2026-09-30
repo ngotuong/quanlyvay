@@ -35,9 +35,12 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await expect(page.getByRole("heading", { name: "Tổng quan" })).toBeVisible();
 
   await page.getByRole("link", { name: "Đối tác" }).first().click();
-  await page.getByLabel("Tên đối tác").first().fill("Anh Nam E2E");
-  await page.getByLabel("Ghi chú").first().fill("Đối tác được tạo bởi Playwright");
-  await page.getByRole("button", { name: "Thêm đối tác" }).click();
+  await page.getByRole("button", { name: "Thêm đối tác", exact: true }).click();
+  const counterpartyDialog = page.getByRole("dialog", { name: "Thêm đối tác" });
+  await counterpartyDialog.getByLabel("Tên đối tác").fill("Anh Nam E2E");
+  await counterpartyDialog.getByLabel("Ghi chú").fill("Đối tác được tạo bởi Playwright");
+  await counterpartyDialog.getByRole("button", { name: "Thêm đối tác", exact: true }).click();
+  await expect(counterpartyDialog).toBeHidden();
   await expect(page.getByRole("heading", { name: "Anh Nam E2E" })).toBeVisible();
   const createdToast = page.locator(".ui-toast");
   await expect(createdToast).toHaveAttribute("aria-label", "Đã thêm đối tác.");
@@ -232,7 +235,8 @@ test("owner reduces principal and starts a new interest cycle without overlappin
   }
   await dialog.getByLabel(/Tôi xác nhận gốc thực trả/).check();
   await dialog.getByRole("button", { name: "Xác nhận giảm gốc" }).click();
-  await expect(dialog.getByText("Đã giảm gốc, đóng lãi cũ và mở kỳ lãi mới.")).toBeVisible();
+  await expect(dialog).toBeHidden();
+  await expect(page.locator(".ui-toast")).toHaveAttribute("aria-label", "Đã giảm gốc, đóng lãi cũ và mở kỳ lãi mới.");
   await expect(page.locator(".overview-primary").getByText("100.000.000 ₫", { exact: true })).toBeVisible();
 });
 
@@ -440,7 +444,7 @@ test("dashboard is responsive and readable in light and dark modes", async ({ pa
     await expect(comparisons.first()).toHaveAttribute("aria-label", /^(Tăng|Giảm|Không đổi) .* so với /);
     expect(await comparisons.allInnerTexts()).toEqual(expect.not.arrayContaining([expect.stringMatching(/Tăng|Giảm|so với/)]));
     await expect(page.getByRole("heading", { name: "Xu hướng dòng tiền" })).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Lịch Dự Kiến" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "Việc cần xử lý" })).toBeVisible();
     await expect(page.getByText("Hành động còn tồn tại", { exact: true })).toHaveCount(0);
     await expect(page.getByText("Lãi sắp đến lịch", { exact: true })).toHaveCount(0);
     const [attentionBox, cashFlowBox] = await Promise.all([
@@ -569,7 +573,7 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
 
   await page.goto("/loans?status=BAD_DEBT");
   await expect(page.getByLabel("Trạng thái")).toHaveValue("BAD_DEBT");
-  await expect(page.getByRole("link", { name: "Xóa tất cả" }).first()).toBeVisible();
+  await expect(page.getByRole("link", { name: "Xóa lọc" }).first()).toBeVisible();
   await expect(page.locator(".filter-pills").first()).toHaveCSS("flex-wrap", "nowrap");
 
   await page.getByLabel("Trạng thái").selectOption("ALL");

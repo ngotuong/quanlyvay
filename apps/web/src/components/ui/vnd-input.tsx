@@ -45,7 +45,7 @@ export function VndInput({ className, defaultValue = "", onValueChange, ...props
       const input = event.currentTarget;
       const raw = input.value;
       input.setCustomValidity("");
-      if (!/^[\d.]*$/.test(raw)) { setValue(raw); return; }
+      if (!/^[\d.]*$/.test(raw)) { setValue(raw); onValueChange?.(raw); return; }
       const digitsBefore = raw.slice(0, input.selectionStart ?? raw.length).replaceAll(".", "").length;
       const formatted = formatVndDigits(raw.replaceAll(".", ""));
       let cursor = 0;
