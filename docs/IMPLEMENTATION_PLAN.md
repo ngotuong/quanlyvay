@@ -36,11 +36,12 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C58 | Hậu kiểm Production readiness sau remediation C51–C57 | `COMPLETED` |
 | C59 | HTTP hardening, backup RPO bền vững và ổn định Auth E2E | `COMPLETED` |
 | C60 | Hậu kiểm chu kỳ backup tự động đầu tiên | `COMPLETED` |
-| C61 | Đồng bộ remediation backup C60 lên GitHub và xác nhận CI | `AWAITING_APPROVAL` |
+| C61 | Đồng bộ remediation backup C60 lên GitHub và xác nhận CI | `COMPLETED` |
 | C62 | Audit sâu UI/UX và thiết kế lại trải nghiệm thao tác | `COMPLETED` |
 | C63 | Sửa vòng đời drawer, thông báo và trạng thái tải | `COMPLETED` |
 | C64 | Thiết kế lại shell, dashboard, danh sách và chi tiết | `COMPLETED` |
-| C65 | Đồng bộ backlog local và rollout UI/UX C62–C64 | `IN_PROGRESS` |
+| C65 | Đồng bộ backlog local và rollout UI/UX C62–C64 | `COMPLETED` |
+| C66 | Hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -495,7 +496,7 @@ Kết quả:
 
 Trạng thái: `COMPLETED` ngày 2026-09-27.
 
-## 19. Checkpoint chờ phê duyệt: C61
+## 19. Checkpoint đã hoàn tất: C61
 
 Mục tiêu: đồng bộ source và bằng chứng C60 lên GitHub, rồi xác nhận kiểm soát bù Required CI trên
 đúng revision cho repository private dùng GitHub Free.
@@ -510,7 +511,10 @@ Acceptance criteria:
 4. Hậu kiểm LaunchAgent vẫn loaded, lần chạy sau backup mới trả `not-due`, exit 0 và RPO còn đạt.
 5. Không deploy Vercel/Apps Script, chạy migration, thay secret, xóa backup hoặc sửa dữ liệu.
 
-Trạng thái: `AWAITING_APPROVAL`.
+Kết quả: `COMPLETED` qua C65 ngày 2026-09-30. Chuỗi C60 được push fast-forward nguyên vẹn;
+full-history secret scan, dependency audit và GitHub `Required CI gate` của đúng revision đều đạt.
+Hậu kiểm LaunchAgent/backup đã hoàn tất trong C60; không deploy Production, migration, thay secret,
+xóa backup hoặc sửa dữ liệu nghiệp vụ.
 
 
 ## 20. Checkpoint đã hoàn tất: C62
@@ -679,9 +683,9 @@ retry preview chỉ hiện khi lỗi/stale. Báo cáo và ảnh tại `docs/UI_U
 Playwright 35 bài chạy PASS và 1 audit harness skip đúng chủ đích. Không đổi nghiệp vụ tài chính,
 schema/RPC, không deploy hoặc push.
 
-## 23. Checkpoint đề xuất: C65
+## 23. Checkpoint đã hoàn tất: C65
 
-**C65 — Đồng bộ backlog local và rollout UI/UX C62–C64.** Trạng thái: `IN_PROGRESS`.
+**C65 — Đồng bộ backlog local và rollout UI/UX C62–C64.** Trạng thái: `COMPLETED`.
 OWNER đã phê duyệt trong hội thoại ngày 2026-09-30.
 
 Phạm vi đề xuất:
@@ -706,3 +710,55 @@ Acceptance criteria:
    hậu kiểm lỗi, alias được trả về deployment tốt trước đó.
 4. Context/roadmap ghi commit, run CI, deployment ID/URL/alias/region và kết quả smoke; không thay
    schema, secret, Apps Script/Sheets hoặc dữ liệu nghiệp vụ.
+
+Kết quả: hoàn tất ngày 2026-09-30.
+
+- Commit `9a1497b54a62b42ca93e79a518a7dcfc178fc155` giữ nguyên sáu commit C60 và chứa C62–C64;
+  full-history gitleaks cùng `pnpm audit --audit-level high` sạch sau khi pin hai dải
+  `brace-expansion` đã vá. GitHub run `36697102128` attempt 2 đạt toàn bộ job và `Required CI gate`
+  trên đúng SHA; attempt 1 đã dừng fail-closed do Supabase Auth local trả HTTP 502 trước E2E.
+- Gate rollout đạt: `pnpm ci:validate`, diff check, lint, typecheck, 80/80 unit/script, build 19
+  route, Playwright 35 PASS + 1 audit skip có chủ đích, DB lint sạch, pgTAP 527/527 và Auth 6/6.
+- Candidate `dpl_FrsRPc3CqyKpkdkutFGCZ16Foq5u`, immutable URL
+  <https://quan-ly-vay-ca-nhan-nbkpg4jcj-ngotuong2105.vercel.app>, project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target `preview`, `Ready`, Functions `sin1`. Public và
+  authenticated smoke đạt trên candidate và <https://tindung-preview.vercel.app> ở 1440×960 và
+  390×844: dashboard, danh sách/chi tiết khoản vay, đối tác và bốn drawer đối tác/giao dịch/tất
+  toán/giảm gốc đều hoạt động. Không xác nhận thao tác tài chính; tài khoản kỹ thuật được
+  deactive/ban sau smoke.
+- App console sạch; 9 CSP message được tách riêng là Vercel Toolbar chèn vào Preview. Runtime error
+  và HTTP 500 log của deployment đều rỗng. Alias trỏ đúng candidate; rollback target đã xác minh
+  `dpl_AjvS8ir8eeq8t4V4YmKc12ymedWu`, không kích hoạt rollback. Không đổi schema/migration,
+  secret, Apps Script/Sheets, dữ liệu nghiệp vụ hoặc Production alias.
+
+## 24. Checkpoint chờ phê duyệt: C66
+
+**C66 — Hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ.** Trạng thái:
+`AWAITING_APPROVAL`.
+
+Mục tiêu: khép các giới hạn bằng chứng còn lại sau C62–C65 bằng kiểm tra trực tiếp trên thiết bị,
+trình duyệt và công nghệ hỗ trợ thật; chuyển mọi sai lệch tái hiện được thành backlog có mức độ,
+phạm vi và acceptance criteria rõ ràng.
+
+Phạm vi đề xuất:
+
+- Kiểm VoiceOver trên Safari/iPhone và TalkBack trên Chrome/Android cho đăng nhập, shell, dashboard,
+  danh sách/chi tiết khoản vay, đối tác và các drawer tài chính; đối chiếu thứ tự đọc, tên/role,
+  trạng thái, focus, thông báo lỗi và thao tác bằng bàn phím/switch.
+- Kiểm bàn phím mềm, safe-area, xoay màn hình, zoom trình duyệt 200–400%, cỡ chữ hệ thống và các
+  viewport mobile/desktop thực; đo che khuất CTA, tràn ngang, mất focus và thao tác thừa.
+- Kiểm cold auth, chuyển tab, mạng chậm/mất mạng/khôi phục, submit đang chờ và thông báo; không xác
+  nhận thao tác tài chính hoặc sửa dữ liệu thật.
+- Lưu evidence đã khử dữ liệu nhạy cảm, phân loại phát hiện và đề xuất checkpoint remediation riêng;
+  không sửa code, migration, secret, deploy hoặc push runtime trong checkpoint audit này.
+
+Acceptance criteria:
+
+1. Có ma trận thiết bị/trình duyệt/công nghệ hỗ trợ và trạng thái PASS/FAIL/NOT_TESTED cho các hành
+   trình ưu tiên; giới hạn thiếu thiết bị/tài khoản được ghi rõ, không suy diễn.
+2. Mỗi lỗi có bước tái hiện, route/viewport, bằng chứng, tác động, mức độ và hướng sửa; dữ liệu/tài
+   khoản kỹ thuật được dọn sau kiểm tra và không có giao dịch tài chính mới.
+3. Các luồng focus, screen reader, bàn phím mềm, zoom và mạng chậm được kiểm trên môi trường phù hợp;
+   console/runtime log được đối chiếu khi có lỗi.
+4. Context/roadmap được cập nhật cùng thay đổi, `git diff --check` đạt và checkpoint remediation kế
+   tiếp chỉ đặt `AWAITING_APPROVAL` sau khi audit hoàn tất.

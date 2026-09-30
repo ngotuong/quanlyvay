@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.225
-last_updated: 2026-09-30
+roadmap_version: 1.0.226
+last_updated: 2026-09-30T18:50:30+07:00
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C65
-current_status: IN_PROGRESS
-last_completed_checkpoint: C64
-next_checkpoint: C65
+current_checkpoint: C66
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C65
+next_checkpoint: C66
 ---
 
 # Project Context
@@ -440,9 +440,25 @@ C59 đã đạt:
   giữ hierarchy số dư/action, đối tác list-first có search và drawer thêm/sửa, retry preview chỉ hiện
   khi lỗi/stale. Full local gate và ảnh evidence đạt; không đổi schema/RPC/công thức, không deploy,
   push hoặc ghi dữ liệu remote.
-- C65 `IN_PROGRESS`: OWNER phê duyệt trong hội thoại ngày 2026-09-30. Đang rà soát và push
-  fast-forward cả sáu commit C60 đang ahead cùng commit local C62–C64, xác nhận GitHub CI rồi
-  rollout Preview/stable alias theo Vercel runbook; C65 hoàn tất luôn mục tiêu C61.
+- C65 `COMPLETED` ngày 2026-09-30: giữ nguyên sáu commit C60, gom C62–C64 cùng dependency override
+  vá `brace-expansion` vào commit `9a1497b54a62b42ca93e79a518a7dcfc178fc155` và push
+  fast-forward; C65 hoàn tất luôn mục tiêu C61. Full-history gitleaks và `pnpm audit --audit-level
+  high` sạch. GitHub Actions run `36697102128` attempt 1 dừng fail-closed khi Supabase Auth local
+  trả 502; rerun attempt 2 trên đúng SHA đạt Integration, security, policy, quality/build và
+  `Required CI gate`.
+- Stable Preview hiện trỏ deployment `dpl_FrsRPc3CqyKpkdkutFGCZ16Foq5u`, immutable URL
+  <https://quan-ly-vay-ca-nhan-nbkpg4jcj-ngotuong2105.vercel.app>, project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target `preview`, trạng thái `Ready`, Functions `sin1`;
+  alias <https://tindung-preview.vercel.app> đã được promote sau gate. Public và authenticated
+  smoke ở 1440×960/390×844 đạt cho dashboard, danh sách/chi tiết khoản vay, đối tác cùng drawer
+  đối tác, giao dịch, tất toán và giảm gốc; không ghi giao dịch tài chính, tài khoản kỹ thuật đã
+  deactive/ban. App console không có lỗi; Vercel Toolbar do Preview chèn tạo 9 CSP message riêng,
+  không ảnh hưởng luồng app. Runtime error và HTTP 500 log đều rỗng. Rollback target đã xác minh là
+  `dpl_AjvS8ir8eeq8t4V4YmKc12ymedWu`; không cần rollback. Không đổi schema/migration, secret,
+  Apps Script/Sheets, dữ liệu nghiệp vụ hoặc Production alias.
+- C66 `AWAITING_APPROVAL`: hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ, tập trung
+  VoiceOver/TalkBack, bàn phím mềm, safe-area, zoom trình duyệt và mạng chậm/mất mạng; chỉ lập bằng
+  chứng và backlog sửa có acceptance criteria, không tự deploy hay sửa ngoài phạm vi được duyệt.
 
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
@@ -472,9 +488,9 @@ C59 đã đạt:
   `--file` không nhận thiết bị/FIFO dưới launchd và `migration list` có thể trả bảng; pipeline nay
   dùng stdout mặc định và parser có regression cho JSON/bảng. RPO vượt khoảng 10 phút trong lúc
   remediation rồi đã phục hồi; cảnh báo hoạt động đúng và không mất backup hợp lệ.
-- C61 `AWAITING_APPROVAL`: đồng bộ năm commit remediation C60 và commit closure lên GitHub bằng
-  fast-forward, xác nhận secret/dependency scan và `Required CI gate` của đúng SHA; không deploy,
-  migration, thay secret hoặc sửa dữ liệu.
+- C61 `COMPLETED` qua C65 ngày 2026-09-30: toàn bộ commit remediation C60 đã được push
+  fast-forward; secret/dependency scan và `Required CI gate` của đúng SHA đạt. Không migration,
+  thay secret hoặc sửa dữ liệu.
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.
