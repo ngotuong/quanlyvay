@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.232
+roadmap_version: 1.0.234
 last_updated: 2026-10-01
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C69
+current_checkpoint: C70
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C68
-next_checkpoint: C69
+last_completed_checkpoint: C69
+next_checkpoint: C70
 ---
 
 # Project Context
@@ -482,9 +482,25 @@ C59 đã đạt:
   `aria-expanded` đúng. Stable alias đã chuyển sau gate và smoke lại đạt; runtime error/HTTP 500
   đều 0. Rollback target `dpl_FrsRPc3CqyKpkdkutFGCZ16Foq5u` không cần kích hoạt. Tài khoản smoke
   đã inactive/banned; Git không chứa credential/cache. Production không đổi.
-- C69 `AWAITING_APPROVAL`: rollout remediation accessibility C67/C68 lên Vercel Production theo
-  runbook, với candidate bất biến, public/authenticated smoke, hậu kiểm log/alias và rollback rõ
-  ràng. Chưa được phép deploy hoặc đổi alias Production.
+- C69 `COMPLETED` ngày 2026-10-01: revision `039be56a2fba3e2acc60adb4c4f10b85c14b0fbe`
+  có GitHub Actions run `36827783372` đạt toàn bộ job và `Required CI gate`. Preflight local đạt
+  dependency audit, CI policy/actionlint, lint, typecheck, 80/80 unit/script, build 19 route,
+  full E2E 39 PASS + 1 audit skip và Gitleaks toàn bộ 133 commit.
+- Production candidate `dpl_HZHgS3m93v2MoYNQSPVHi9vGwZ1T`, immutable URL
+  <https://quan-ly-vay-ca-nhan-6ghj4fitw-ngotuong2105.vercel.app>, đúng project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target `production`, `Ready`, Functions `sin1`. Public smoke
+  đạt `/login`/manifest 200 và hai API không secret 401. Authenticated Chrome smoke đạt privacy,
+  heading H1→H2, modal focus/state và reflow 500/390/320 px; Safari tải đúng login trên candidate.
+  Một phép đo focus tự động timeout lần đầu, chạy lại cùng candidate/tài khoản đạt và không có lỗi
+  console/runtime.
+- Alias <https://tindung.vercel.app> đã promote sau gate, inspect trỏ đúng candidate; public,
+  authenticated Chrome và Safari login smoke sau promote đều đạt. Runtime error và HTTP 500 đều
+  0. Rollback target `dpl_QQ4ymp6KrfYHngugdMdv4zu5bRrJ` không cần kích hoạt. Tài khoản smoke đã
+  inactive/banned; không đổi schema/RPC, công thức tài chính, Supabase data/secret, Apps
+  Script/Sheets hoặc ghi giao dịch tài chính.
+- C70 `AWAITING_APPROVAL`: hậu kiểm accessibility Production bằng screen reader và môi trường
+  mobile thực/emulator để khép các mục C66 còn `NOT_TESTED`; chỉ audit và lập backlog, không sửa
+  code hay thay đổi dữ liệu trong cùng checkpoint.
 
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm

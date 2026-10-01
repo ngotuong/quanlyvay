@@ -44,7 +44,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C66 | Hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ | `COMPLETED` |
 | C67 | Sửa privacy accessibility, reflow zoom và modal navigation | `COMPLETED` |
 | C68 | Đồng bộ và rollout remediation accessibility C67 | `COMPLETED` |
-| C69 | Rollout remediation accessibility lên Production | `AWAITING_APPROVAL` |
+| C69 | Rollout remediation accessibility lên Production | `COMPLETED` |
+| C70 | Hậu kiểm accessibility Production trên screen reader/mobile | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -868,9 +869,10 @@ Kết quả: hoàn tất ngày 2026-10-01.
   `dpl_FrsRPc3CqyKpkdkutFGCZ16Foq5u` không cần kích hoạt. Tài khoản kỹ thuật đã inactive/banned;
   không secret/cache/dump vào Git, không đổi schema, dữ liệu tài chính hoặc Production.
 
-## 27. Checkpoint chờ phê duyệt: C69
+## 27. Checkpoint đã hoàn tất: C69
 
-**C69 — Rollout remediation accessibility lên Production.** Trạng thái: `AWAITING_APPROVAL`.
+**C69 — Rollout remediation accessibility lên Production.** Trạng thái: `COMPLETED`.
+OWNER phê duyệt trong hội thoại ngày 2026-10-01.
 
 Mục tiêu: phát hành đúng revision C68 đã đạt Required CI và Preview runtime lên Vercel Production,
 giữ dữ liệu/nghiệp vụ không đổi và có đường rollback đã kiểm chứng.
@@ -897,3 +899,50 @@ Acceptance criteria:
    tài khoản smoke được thu hồi.
 5. Context/roadmap ghi deployment ID/URL, commit/CI, smoke, log và rollback; diff check, status và
    Required CI của commit tài liệu cuối được xác nhận trước khi kết thúc.
+
+Kết quả: hoàn tất ngày 2026-10-01.
+
+- Source SHA `039be56a2fba3e2acc60adb4c4f10b85c14b0fbe` có GitHub Actions run
+  `36827783372` đạt toàn bộ job và `Required CI gate`. Preflight local đạt dependency audit,
+  CI policy/actionlint, lint, typecheck, 80/80 unit/script, build 19 route, full E2E 39 PASS +
+  1 audit skip và Gitleaks toàn bộ 133 commit.
+- Candidate `dpl_HZHgS3m93v2MoYNQSPVHi9vGwZ1T`, immutable URL
+  <https://quan-ly-vay-ca-nhan-6ghj4fitw-ngotuong2105.vercel.app>, đúng project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target `production`, `Ready`, Functions `sin1`. Public smoke
+  `/login`/manifest 200, hai API không secret 401; authenticated Chrome smoke đạt privacy,
+  H1→H2, modal focus/state và reflow 500/390/320 px. Safari tải đúng trang login trên candidate.
+- Alias <https://tindung.vercel.app> chỉ promote sau gate; inspect trỏ đúng candidate. Public,
+  authenticated Chrome và Safari login smoke lại đạt; runtime error/HTTP 500 đều 0. Một lần focus
+  timing của harness timeout trên candidate, retry cùng bản dựng/tài khoản đạt; không có app
+  console/runtime error tương ứng.
+- Rollback target `dpl_QQ4ymp6KrfYHngugdMdv4zu5bRrJ` đã xác minh và không cần kích hoạt. Tài khoản
+  smoke đã inactive/banned; không đổi schema/RPC, công thức tài chính, Supabase data/secret,
+  Apps Script/Sheets hoặc ghi giao dịch tài chính.
+
+## 28. Checkpoint chờ phê duyệt: C70
+
+**C70 — Hậu kiểm accessibility Production trên screen reader/mobile.** Trạng thái:
+`AWAITING_APPROVAL`.
+
+Mục tiêu: khép các giới hạn `NOT_TESTED` còn lại từ C66 trên chính Production sau C69 và chuyển
+mọi sai lệch tái hiện được thành backlog remediation riêng.
+
+Phạm vi đề xuất:
+
+- Kiểm VoiceOver với Safari/macOS và, nếu có môi trường phù hợp, TalkBack trên Android thật hoặc
+  emulator cho login, shell, dashboard, danh sách/chi tiết khoản vay và sheet **Thêm**.
+- Kiểm cỡ chữ hệ thống, bàn phím mềm, safe-area, xoay màn hình và focus indicator ở viewport
+  mobile; không xác nhận giao dịch hoặc sửa dữ liệu thật.
+- Ghi ma trận PASS/FAIL/NOT_TESTED, bước tái hiện, mức độ, tác động và đề xuất sửa; checkpoint này
+  chỉ audit, không sửa code, deploy, migration, secret hay dữ liệu.
+
+Acceptance criteria:
+
+1. Mỗi môi trường/assistive technology có trạng thái và bằng chứng rõ; thiếu thiết bị giữ
+   `NOT_TESTED`, không suy diễn PASS.
+2. Login, navigation, privacy mode, heading, modal focus/announcement và reflow được kiểm bằng
+   thao tác thực trên Production; console/runtime log được đối chiếu khi có lỗi.
+3. Không tạo giao dịch tài chính; mọi tài khoản kỹ thuật được inactive/banned sau kiểm tra và không
+   có secret/dữ liệu nhạy cảm trong evidence hoặc Git.
+4. Phát hiện mới có severity, route/viewport, nguyên nhân, tác động và remediation scope; context/
+   roadmap cập nhật cùng thay đổi, diff check và test gate tài liệu phù hợp đạt.
