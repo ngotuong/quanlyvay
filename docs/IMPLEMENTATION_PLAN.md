@@ -42,7 +42,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C64 | Thiết kế lại shell, dashboard, danh sách và chi tiết | `COMPLETED` |
 | C65 | Đồng bộ backlog local và rollout UI/UX C62–C64 | `COMPLETED` |
 | C66 | Hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ | `COMPLETED` |
-| C67 | Sửa privacy accessibility, reflow zoom và modal navigation | `AWAITING_APPROVAL` |
+| C67 | Sửa privacy accessibility, reflow zoom và modal navigation | `COMPLETED` |
+| C68 | Đồng bộ và rollout remediation accessibility C67 | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -771,10 +772,10 @@ nhảy cấp. Safari login có semantic/focus đúng và reflow đạt ở 200%.
 1 audit skip. VoiceOver/TalkBack, bàn phím mềm và safe-area trên điện thoại thật giữ `NOT_TESTED`
 do không có thiết bị/simulator phù hợp. Không sửa code, dữ liệu, deploy hoặc push.
 
-## 25. Checkpoint chờ phê duyệt: C67
+## 25. Checkpoint đã hoàn tất: C67
 
-**C67 — Sửa privacy accessibility, reflow zoom và modal navigation.** Trạng thái:
-`AWAITING_APPROVAL`.
+**C67 — Sửa privacy accessibility, reflow zoom và modal navigation.** Trạng thái: `COMPLETED`.
+OWNER phê duyệt trong hội thoại ngày 2026-10-01.
 
 Mục tiêu: khắc phục năm phát hiện C66 mà không thay đổi nghiệp vụ tài chính, schema/RPC, quyền hoặc
 dữ liệu Production.
@@ -799,3 +800,40 @@ Acceptance criteria:
    icon hoặc CSS.
 5. Regression mới chứng minh lỗi baseline và bản sửa; diff check, lint, typecheck, unit, build và
    full E2E đạt. Thiết bị/công nghệ hỗ trợ chưa có vẫn ghi `NOT_TESTED`, không suy diễn PASS.
+
+Kết quả: hoàn tất local ngày 2026-10-01. Privacy accessible name/tooltip, reflow bottom nav,
+focus/semantic sheet **Thêm** và heading dashboard đã được sửa. Chrome thật đạt ở zoom 400%; Safari
+thật đạt ở mức zoom tối đa trình duyệt hỗ trợ và được trả về kích cỡ thực. Regression C67 4/4,
+full E2E 39 PASS + 1 audit skip, lint, typecheck, 80/80 unit/script và build 19 route đều đạt.
+Tài khoản/DB test synthetic đã dọn; không đổi schema/RPC/nghiệp vụ, remote data, deploy hoặc push.
+Bằng chứng và giới hạn tại `docs/UI_UX_REMEDIATION_C67.md`.
+
+## 26. Checkpoint chờ phê duyệt: C68
+
+**C68 — Đồng bộ và rollout remediation accessibility C67.** Trạng thái: `AWAITING_APPROVAL`.
+
+Mục tiêu: đưa commit tài liệu C66 và source C67 đã qua gate lên GitHub/Vercel, xác minh runtime thật
+và giữ đường rollback rõ ràng.
+
+Phạm vi đề xuất:
+
+- Rà diff/secret/data, tạo local commit C67 và push fast-forward chuỗi C66–C67 lên GitHub.
+- Xác nhận Required CI gate của đúng SHA trước rollout.
+- Tạo Vercel Preview bằng `pnpm deploy:preview`, smoke immutable URL ở Chrome/Safari cho privacy
+  accessible name, heading, bottom nav zoom 200–400% hoặc mức tối đa trình duyệt và sheet **Thêm**.
+- Chỉ chuyển stable alias sau toàn bộ gate; hậu kiểm alias, runtime log và rollback target. Nếu
+  OWNER muốn đưa thẳng Production trong C68, phải nêu rõ trước khi thực hiện phần Production.
+- Không migration, đổi secret, Apps Script/Sheets hoặc xác nhận giao dịch tài chính.
+
+Acceptance criteria:
+
+1. GitHub nhận đúng chuỗi C66–C67, không secret/dump/dữ liệu tài chính thật; Required CI của đúng
+   SHA đạt toàn bộ job.
+2. Candidate đúng Vercel project/target/region, `Ready`; public/authenticated smoke đạt và không có
+   runtime error mới.
+3. Privacy mode không lộ tiền qua accessibility tree/tooltip; bottom nav không chồng ở Chrome 400%
+   và mức zoom tối đa Safari; modal focus/state và heading outline khớp C67.
+4. Stable Preview alias chỉ đổi sau gate và smoke lại đạt; rollback target được xác minh. Production
+   không đổi nếu chưa được OWNER phê duyệt rõ trong C68.
+5. Context/roadmap ghi commit, CI run, deployment/alias/region/smoke; `git diff --check` và status
+   cuối được đối chiếu.

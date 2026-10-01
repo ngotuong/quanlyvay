@@ -39,7 +39,7 @@ function compactVnd(value: bigint) {
   return `${tenths / BigInt(10)}${decimal === BigInt(0) ? "" : `,${decimal}`} ${unit.label}`;
 }
 
-import { PrivacyAmount, PrivacyRegion } from "@/components/app/privacy-provider";
+import { PrivacyAccessibleValue, PrivacyAmount, PrivacyRegion } from "@/components/app/privacy-provider";
 
 function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; overdue: DashboardDueLoan[] }) {
   const overdueCount = overdue.length;
@@ -62,7 +62,7 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
         <div className="hero-banner-content">
           <span className="hero-banner-badge" data-status="clean">Đúng hạn</span>
           <div>
-            <h3>Tất cả các khoản vay đều đúng hạn</h3>
+            <h2>Tất cả các khoản vay đều đúng hạn</h2>
             <p>Không có khoản nợ quá hạn hoặc lịch thu/trả lãi cần xử lý trong tháng này.</p>
           </div>
         </div>
@@ -76,7 +76,7 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
         <div className="hero-banner-content">
           <span className="hero-banner-badge" data-status="alert"><CircleAlert size={16} /> Cần xử lý gấp</span>
           <div>
-            <h3>Có {overdueCount} khoản quá hạn gốc với tổng dư nợ <PrivacyAmount value={formatVnd(totalOverdueVnd)} /></h3>
+            <h2>Có {overdueCount} khoản quá hạn gốc với tổng dư nợ <PrivacyAmount value={formatVnd(totalOverdueVnd)} /></h2>
             <p>Hãy kiểm tra và ghi nhận xử lý hoặc gia hạn khoản nợ để giữ tính chính xác cho số liệu.</p>
           </div>
         </div>
@@ -90,7 +90,7 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
       <div className="hero-banner-content">
         <span className="hero-banner-badge" data-status="warning"><CalendarClock size={16} /> Lịch nhắc tháng này</span>
         <div>
-          <h3>Có {upcomingCount} giao dịch trong tháng này</h3>
+          <h2>Có {upcomingCount} giao dịch trong tháng này</h2>
           <p className="monthly-reminder-summary"><span>{lendingCount} khoản phải thu: <PrivacyAmount value={formatVnd(lendingInterestVnd)} /></span><span>{borrowingCount} khoản phải trả: <PrivacyAmount value={formatVnd(borrowingInterestVnd)} /></span></p>
         </div>
       </div>
@@ -107,7 +107,9 @@ function MetricComparison({ current, previous, comparisonLabel }: { current: str
   const label = difference > BigInt(0) ? "Tăng" : difference < BigInt(0) ? "Giảm" : "Không đổi";
   const absolute = difference < BigInt(0) ? -difference : difference;
   const amount = formatVnd(absolute.toString());
-  return <span className="metric-comparison" data-direction={difference > BigInt(0) ? "up" : difference < BigInt(0) ? "down" : "flat"} aria-label={`${label} ${amount} so với ${comparisonLabel}`} title={`${label} ${amount} so với ${comparisonLabel}`}><Icon size={14} aria-hidden="true" /><PrivacyAmount value={amount} /></span>;
+  const accessibleLabel = `${label} ${amount} so với ${comparisonLabel}`;
+  const privateLabel = `${label} so với ${comparisonLabel}; số tiền đang ẩn`;
+  return <PrivacyAccessibleValue className="metric-comparison" label={accessibleLabel} privateLabel={privateLabel} data-direction={difference > BigInt(0) ? "up" : difference < BigInt(0) ? "down" : "flat"}><Icon size={14} aria-hidden="true" /><PrivacyAmount value={amount} /></PrivacyAccessibleValue>;
 }
 
 function HorizontalBarChart({ title, eyebrow, rows }: { title: string; eyebrow: string; rows: { label: string; value: string; tone: string }[] }) {

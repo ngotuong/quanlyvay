@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.228
+roadmap_version: 1.0.230
 last_updated: 2026-10-01
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C67
+current_checkpoint: C68
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C66
-next_checkpoint: C67
+last_completed_checkpoint: C67
+next_checkpoint: C68
 ---
 
 # Project Context
@@ -462,8 +462,14 @@ C59 đã đạt:
   thái mở là backlog còn lại. Safari login/zoom 200% đạt; full E2E đạt 35 PASS + 1 audit skip. Không
   có iPhone/Android hay screen reader bật nên VoiceOver/TalkBack, bàn phím mềm và safe-area thiết bị
   thật giữ `NOT_TESTED`. Không sửa code, dữ liệu, deploy hoặc push.
-- C67 `AWAITING_APPROVAL`: sửa privacy accessibility, reflow zoom 400%, focus/semantic của sheet
-  **Thêm** và heading dashboard; không đổi nghiệp vụ tài chính, schema/RPC hoặc dữ liệu Production.
+- C67 `COMPLETED` ngày 2026-10-01: privacy mode không còn đưa tiền thật vào accessible name/tooltip;
+  bottom nav reflow không chồng nhãn ở Chrome zoom 400% và mức zoom tối đa Safari; sheet **Thêm**
+  có focus loop, focus return, `aria-expanded`/`aria-controls`; action banner dùng heading cấp 2.
+  Regression C67 4/4 và full E2E 39 PASS + 1 audit skip; lint, typecheck, 80/80 unit/script và build
+  19 route đạt. Tài khoản/DB test synthetic đã dọn; không đổi nghiệp vụ/schema/dữ liệu remote,
+  deploy hoặc push. Chi tiết tại `docs/UI_UX_REMEDIATION_C67.md`.
+- C68 `AWAITING_APPROVAL`: đồng bộ commit C66–C67, xác nhận Required CI, rollout Vercel theo runbook
+  và smoke privacy/zoom/modal trên runtime; không migration, đổi secret hoặc ghi dữ liệu tài chính.
 
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm

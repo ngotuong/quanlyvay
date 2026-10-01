@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { ArrowLeftRight, BellDot, ContactRound, LayoutGrid, MoreHorizontal, ScrollText, SlidersHorizontal, WalletCards } from "lucide-react";
 import { BottomSheet, Button } from "@/components/ui";
 
@@ -23,7 +23,10 @@ const secondaryItems = [
 export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadCount?: number }) {
   const pathname = usePathname();
   const more = useRef<HTMLDialogElement>(null);
+  const moreTrigger = useRef<HTMLButtonElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const moreDialogId = useId();
+  const [moreOpen, setMoreOpen] = useState(false);
   useEffect(() => {
     if (more.current?.open) more.current.close();
   }, [pathname]);
@@ -31,7 +34,11 @@ export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadC
   function openMore() {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     more.current?.classList.remove("is-closing");
-    if (more.current && !more.current.open) more.current.showModal();
+    if (more.current && !more.current.open) {
+      more.current.showModal();
+      setMoreOpen(true);
+      requestAnimationFrame(() => more.current?.querySelector<HTMLElement>("[data-bottom-sheet-close]")?.focus());
+    }
   }
   function closeMore() {
     const dialog = more.current;
@@ -41,6 +48,8 @@ export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadC
       dialog.close();
       dialog.classList.remove("is-closing");
       closeTimer.current = null;
+      setMoreOpen(false);
+      requestAnimationFrame(() => moreTrigger.current?.focus());
     }, 180);
   }
   const visibleSecondaryItems = secondaryItems.filter((item) => !item.ownerOnly || isOwner);
@@ -72,8 +81,8 @@ export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadC
         return <Link className="nav-link desktop-secondary-nav-item" data-active={active} href={item.href} key={item.href} aria-current={active ? "page" : undefined} prefetch={false}><Icon aria-hidden="true" size={20} strokeWidth={1.8} /><span>{item.label}</span></Link>;
       })}
       <div className="mobile-more-nav">
-        <Button variant="ghost" className="nav-link mobile-more-trigger" data-active={secondaryActive} aria-haspopup="dialog" onClick={openMore}><MoreHorizontal aria-hidden="true" size={20} strokeWidth={1.8} /><span>Thêm</span></Button>
-        <BottomSheet className="mobile-more-sheet" title="Tiện ích khác" ref={more} onRequestClose={closeMore}>
+        <Button ref={moreTrigger} variant="ghost" className="nav-link mobile-more-trigger" data-active={secondaryActive} aria-haspopup="dialog" aria-expanded={moreOpen} aria-controls={moreDialogId} onClick={openMore}><MoreHorizontal aria-hidden="true" size={20} strokeWidth={1.8} /><span>Thêm</span></Button>
+        <BottomSheet id={moreDialogId} className="mobile-more-sheet" title="Tiện ích khác" ref={more} onClose={() => setMoreOpen(false)} onRequestClose={closeMore}>
           <div className="mobile-more-sheet-links">
           {visibleSecondaryItems.map((item) => {
             const active = pathname.startsWith(item.href);

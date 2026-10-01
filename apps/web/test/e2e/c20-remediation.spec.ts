@@ -48,6 +48,7 @@ test("privacy hides free text and money across routes, reload and pre-hydration"
     // URL metadata is not an accessible name; privacy is presentation, not URL/devtools redaction.
     expect((await page.locator("#main-content").ariaSnapshot()).split("\n").filter(line=>!line.trimStart().startsWith("- /url:")).join("\n")).not.toContain("9.007.199.254.740.993");
     expect(await page.locator('[title*="9.007.199"], [aria-label*="9.007.199"]')).toHaveCount(0);
+    expect(await page.locator('#main-content [title*="₫"], #main-content [aria-label*="₫"]')).toHaveCount(0);
   }
   const noJs = await context.browser()!.newContext({javaScriptEnabled:false,storageState:await context.storageState()});
   const ssr=await noJs.newPage(); await ssr.goto(`http://127.0.0.1:3101/loans/${loanId}?tab=settings`);

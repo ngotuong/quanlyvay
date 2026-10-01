@@ -82,3 +82,33 @@ export function PrivacyAmount({
 
   return <span className={`privacy-amount ${className}`}>{value}</span>;
 }
+
+export function PrivacyAccessibleValue({
+  children,
+  label,
+  privateLabel,
+  title = label,
+  privateTitle = privateLabel,
+  className = "",
+  ...props
+}: {
+  children: React.ReactNode;
+  label: string;
+  privateLabel: string;
+  title?: string;
+  privateTitle?: string;
+  className?: string;
+} & Omit<React.HTMLAttributes<HTMLSpanElement>, "children" | "aria-label" | "title">) {
+  const { isPrivacyMode } = usePrivacy();
+
+  return (
+    <span
+      {...props}
+      className={className}
+      aria-label={isPrivacyMode ? privateLabel : label}
+      title={isPrivacyMode ? privateTitle : title}
+    >
+      {children}
+    </span>
+  );
+}
