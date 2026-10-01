@@ -63,6 +63,7 @@ test("mobile more sheet exposes state, traps focus and restores its trigger", as
   const links = dialog.getByRole("link");
   const lastLink = links.last();
   await lastLink.focus();
+  await expect(lastLink).toBeFocused();
   await page.keyboard.press("Tab");
   await expect(close).toBeFocused();
   await page.keyboard.press("Shift+Tab");

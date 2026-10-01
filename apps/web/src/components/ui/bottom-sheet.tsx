@@ -53,7 +53,10 @@ export const BottomSheet = forwardRef<HTMLDialogElement, BottomSheetProps>(funct
     }
     const first = controls[0];
     const last = controls.at(-1)!;
-    const active = document.activeElement;
+    // The key event target is the element that owned focus when Tab was
+    // pressed. document.activeElement can already be the dialog/body while a
+    // native modal is moving focus, which makes the boundary check racy.
+    const active = event.target instanceof HTMLElement ? event.target : document.activeElement;
     if (event.shiftKey && (active === first || !event.currentTarget.contains(active))) {
       event.preventDefault();
       last.focus();
