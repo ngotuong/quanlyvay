@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.230
+roadmap_version: 1.0.231
 last_updated: 2026-10-01
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C68
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 last_completed_checkpoint: C67
 next_checkpoint: C68
 ---
@@ -468,8 +468,19 @@ C59 đã đạt:
   Regression C67 4/4 và full E2E 39 PASS + 1 audit skip; lint, typecheck, 80/80 unit/script và build
   19 route đạt. Tài khoản/DB test synthetic đã dọn; không đổi nghiệp vụ/schema/dữ liệu remote,
   deploy hoặc push. Chi tiết tại `docs/UI_UX_REMEDIATION_C67.md`.
-- C68 `AWAITING_APPROVAL`: đồng bộ commit C66–C67, xác nhận Required CI, rollout Vercel theo runbook
+- C68 `IN_PROGRESS`: đồng bộ commit C66–C67, xác nhận Required CI, rollout Vercel theo runbook
   và smoke privacy/zoom/modal trên runtime; không migration, đổi secret hoặc ghi dữ liệu tài chính.
+  Preflight ngày 2026-10-01: `pnpm ci:validate`, `git diff --check` và gitleaks toàn bộ 128 commit
+  đạt, không có secret. `pnpm audit --audit-level high` chặn rollout vì `next@16.3.5` thuộc dải
+  `>=16.2.0 <16.3.6` của `GHSA-vcvr-r3jv-pc5j` (RCE mức critical, bản vá `16.3.6`). Chưa push,
+  chưa tạo Vercel candidate và chưa đổi alias. OWNER đã duyệt mở rộng C68 trong hội thoại hiện tại
+  để nâng patch `next`/`eslint-config-next`, cập nhật lockfile và chạy lại toàn bộ gate trước
+  rollout. Bản tối thiểu `16.3.6` audit sạch nhưng ba lượt full E2E không đạt do lỗi đọc Server
+  Component/focus không ổn định. C68 chuyển sang stable patch mới nhất `16.3.8` (phát hành
+  2026-09-30, bao gồm thêm các security backport). `16.3.8` đã đạt audit sạch, CI policy, lint,
+  typecheck, 80/80 unit/script, build 19 route, stress focus trap 10/10 và full E2E 39 PASS + 1 audit
+  skip. Focus trap được chuyển sang keyboard capture phase sau khi stress test tái hiện flake 1/5 ở
+  bubble phase. Chưa push, chưa tạo Vercel candidate và chưa đổi alias.
 
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm

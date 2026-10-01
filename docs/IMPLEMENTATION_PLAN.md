@@ -43,7 +43,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C65 | Đồng bộ backlog local và rollout UI/UX C62–C64 | `COMPLETED` |
 | C66 | Hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ | `COMPLETED` |
 | C67 | Sửa privacy accessibility, reflow zoom và modal navigation | `COMPLETED` |
-| C68 | Đồng bộ và rollout remediation accessibility C67 | `AWAITING_APPROVAL` |
+| C68 | Đồng bộ và rollout remediation accessibility C67 | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -808,9 +808,9 @@ full E2E 39 PASS + 1 audit skip, lint, typecheck, 80/80 unit/script và build 19
 Tài khoản/DB test synthetic đã dọn; không đổi schema/RPC/nghiệp vụ, remote data, deploy hoặc push.
 Bằng chứng và giới hạn tại `docs/UI_UX_REMEDIATION_C67.md`.
 
-## 26. Checkpoint chờ phê duyệt: C68
+## 26. Checkpoint đang thực hiện: C68
 
-**C68 — Đồng bộ và rollout remediation accessibility C67.** Trạng thái: `AWAITING_APPROVAL`.
+**C68 — Đồng bộ và rollout remediation accessibility C67.** Trạng thái: `IN_PROGRESS`.
 
 Mục tiêu: đưa commit tài liệu C66 và source C67 đã qua gate lên GitHub/Vercel, xác minh runtime thật
 và giữ đường rollback rõ ràng.
@@ -837,3 +837,14 @@ Acceptance criteria:
    không đổi nếu chưa được OWNER phê duyệt rõ trong C68.
 5. Context/roadmap ghi commit, CI run, deployment/alias/region/smoke; `git diff --check` và status
    cuối được đối chiếu.
+
+Blocker preflight 2026-10-01: chính sách CI và gitleaks toàn lịch sử đạt, nhưng dependency audit
+fail-closed vì `next@16.3.5` dính `GHSA-vcvr-r3jv-pc5j` mức critical; bản vá tối thiểu là `16.3.6`.
+Không push/deploy khi gate còn đỏ. OWNER đã duyệt phạm vi remediation trong hội thoại hiện tại:
+chỉ nâng `next` và `eslint-config-next` trong dòng patch 16.3, cập nhật lockfile, xác minh audit/
+lint/typecheck/unit/build/E2E rồi tiếp tục đúng rollout C68; không đổi schema, nghiệp vụ, secret,
+dữ liệu hoặc Production. `16.3.6` audit sạch nhưng không qua full E2E ổn định; dùng `16.3.8`, stable
+patch mới nhất ngày 2026-09-30 có thêm security backport, và vẫn giữ gate fail-closed.
+Kết quả remediation local: `16.3.8` audit sạch; CI policy, lint, typecheck, 80/80 unit/script, build
+19 route, stress focus trap 10/10 và full E2E 39 PASS + 1 audit skip đạt. Focus trap dùng keyboard
+capture phase để loại flake đã tái hiện 1/5 ở bubble phase. Chưa push/deploy hoặc đổi alias.

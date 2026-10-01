@@ -35,8 +35,7 @@ export const BottomSheet = forwardRef<HTMLDialogElement, BottomSheetProps>(funct
   const headingId = titleId ?? generatedTitleId;
 
   function trapFocus(event: KeyboardEvent<HTMLDialogElement>) {
-    onKeyDown?.(event);
-    if (event.defaultPrevented || event.key !== "Tab") return;
+    if (event.key !== "Tab") return;
     const controls = [...event.currentTarget.querySelectorAll<HTMLElement>(
       'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])',
     )].filter((element) => element.getClientRects().length > 0 && element.getAttribute("aria-hidden") !== "true");
@@ -59,7 +58,8 @@ export const BottomSheet = forwardRef<HTMLDialogElement, BottomSheetProps>(funct
 
   return <dialog {...props} aria-labelledby={headingId} className={cx("transaction-dialog", "ui-bottom-sheet", className)} ref={ref}
     tabIndex={-1}
-    onKeyDown={trapFocus}
+    onKeyDown={onKeyDown}
+    onKeyDownCapture={trapFocus}
     onCancel={(event) => { event.preventDefault(); if (!closeDisabled) onRequestClose(); }}
     onClick={(event) => { if (event.target === event.currentTarget && !closeDisabled) onRequestClose(); }}>
     <div className="ui-bottom-sheet-surface" ref={surface}>
