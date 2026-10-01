@@ -41,7 +41,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C63 | Sửa vòng đời drawer, thông báo và trạng thái tải | `COMPLETED` |
 | C64 | Thiết kế lại shell, dashboard, danh sách và chi tiết | `COMPLETED` |
 | C65 | Đồng bộ backlog local và rollout UI/UX C62–C64 | `COMPLETED` |
-| C66 | Hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ | `AWAITING_APPROVAL` |
+| C66 | Hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ | `COMPLETED` |
+| C67 | Sửa privacy accessibility, reflow zoom và modal navigation | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -731,10 +732,10 @@ Kết quả: hoàn tất ngày 2026-09-30.
   `dpl_AjvS8ir8eeq8t4V4YmKc12ymedWu`, không kích hoạt rollback. Không đổi schema/migration,
   secret, Apps Script/Sheets, dữ liệu nghiệp vụ hoặc Production alias.
 
-## 24. Checkpoint chờ phê duyệt: C66
+## 24. Checkpoint đã hoàn tất: C66
 
-**C66 — Hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ.** Trạng thái:
-`AWAITING_APPROVAL`.
+**C66 — Hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ.** Trạng thái: `COMPLETED`.
+OWNER phê duyệt trong hội thoại ngày 2026-10-01.
 
 Mục tiêu: khép các giới hạn bằng chứng còn lại sau C62–C65 bằng kiểm tra trực tiếp trên thiết bị,
 trình duyệt và công nghệ hỗ trợ thật; chuyển mọi sai lệch tái hiện được thành backlog có mức độ,
@@ -762,3 +763,39 @@ Acceptance criteria:
    console/runtime log được đối chiếu khi có lỗi.
 4. Context/roadmap được cập nhật cùng thay đổi, `git diff --check` đạt và checkpoint remediation kế
    tiếp chỉ đặt `AWAITING_APPROVAL` sau khi audit hoàn tất.
+
+Kết quả: hoàn tất ngày 2026-10-01. Báo cáo `docs/UI_UX_AUDIT_C66.md` ghi 2 HIGH, 2 MEDIUM và
+1 LOW. Chrome thật tái hiện privacy mode lộ số tiền qua accessible name, bottom navigation chồng
+chữ ở zoom 400% và focus thoát sheet **Thêm**; accessibility tree cũng xác nhận heading dashboard
+nhảy cấp. Safari login có semantic/focus đúng và reflow đạt ở 200%. Full E2E cô lập đạt 35 PASS +
+1 audit skip. VoiceOver/TalkBack, bàn phím mềm và safe-area trên điện thoại thật giữ `NOT_TESTED`
+do không có thiết bị/simulator phù hợp. Không sửa code, dữ liệu, deploy hoặc push.
+
+## 25. Checkpoint chờ phê duyệt: C67
+
+**C67 — Sửa privacy accessibility, reflow zoom và modal navigation.** Trạng thái:
+`AWAITING_APPROVAL`.
+
+Mục tiêu: khắc phục năm phát hiện C66 mà không thay đổi nghiệp vụ tài chính, schema/RPC, quyền hoặc
+dữ liệu Production.
+
+Phạm vi đề xuất:
+
+- Loại số tiền thật khỏi accessible name/title khi privacy mode bật và rà các bề mặt tiền tương tự.
+- Sửa bottom navigation để reflow đến zoom trình duyệt thật 400% mà không chồng chữ hoặc che CTA.
+- Giữ focus trong sheet **Thêm**, khôi phục focus về trigger và công bố trạng thái/quan hệ dialog.
+- Sửa outline heading dashboard và bổ sung regression semantic cho ba trạng thái banner.
+- Chỉ triển khai local và test trong checkpoint này; rollout/deploy/push cần checkpoint riêng.
+
+Acceptance criteria:
+
+1. Privacy accessibility snapshot/tooltip không chứa giá trị tiền thật khi đang ẩn; khi hiện vẫn
+   đọc đúng số tiền và ngữ cảnh trên dashboard, khoản vay, chi tiết và thông báo.
+2. Chrome/Safari ở zoom 200/250/300/400% không chồng chữ, tràn ngang hai chiều hoặc che CTA/nav;
+   focus indicator luôn nhìn thấy và điều hướng chính dùng được bằng bàn phím.
+3. Sheet **Thêm** giữ Tab/Shift+Tab trong dialog; Escape/backdrop/nút đóng hoạt động, focus trả về
+   trigger và `aria-expanded`/`aria-controls` đồng bộ đúng.
+4. Dashboard có outline heading liên tục cho ba trạng thái banner; tên/role/state không phụ thuộc
+   icon hoặc CSS.
+5. Regression mới chứng minh lỗi baseline và bản sửa; diff check, lint, typecheck, unit, build và
+   full E2E đạt. Thiết bị/công nghệ hỗ trợ chưa có vẫn ghi `NOT_TESTED`, không suy diễn PASS.

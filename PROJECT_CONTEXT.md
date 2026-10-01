@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.226
-last_updated: 2026-09-30T18:50:30+07:00
+roadmap_version: 1.0.228
+last_updated: 2026-10-01
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C66
+current_checkpoint: C67
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C65
-next_checkpoint: C66
+last_completed_checkpoint: C66
+next_checkpoint: C67
 ---
 
 # Project Context
@@ -456,9 +456,14 @@ C59 đã đạt:
   không ảnh hưởng luồng app. Runtime error và HTTP 500 log đều rỗng. Rollback target đã xác minh là
   `dpl_AjvS8ir8eeq8t4V4YmKc12ymedWu`; không cần rollback. Không đổi schema/migration, secret,
   Apps Script/Sheets, dữ liệu nghiệp vụ hoặc Production alias.
-- C66 `AWAITING_APPROVAL`: hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ, tập trung
-  VoiceOver/TalkBack, bàn phím mềm, safe-area, zoom trình duyệt và mạng chậm/mất mạng; chỉ lập bằng
-  chứng và backlog sửa có acceptance criteria, không tự deploy hay sửa ngoài phạm vi được duyệt.
+- C66 `COMPLETED` ngày 2026-10-01: audit Safari/Chrome thật và E2E cô lập ghi nhận 2 HIGH, 2 MEDIUM,
+  1 LOW tại `docs/UI_UX_AUDIT_C66.md`. HIGH gồm privacy mode còn lộ số tiền qua accessible name và
+  bottom navigation chồng chữ ở zoom 400%. Focus sheet **Thêm**, outline heading và semantic trạng
+  thái mở là backlog còn lại. Safari login/zoom 200% đạt; full E2E đạt 35 PASS + 1 audit skip. Không
+  có iPhone/Android hay screen reader bật nên VoiceOver/TalkBack, bàn phím mềm và safe-area thiết bị
+  thật giữ `NOT_TESTED`. Không sửa code, dữ liệu, deploy hoặc push.
+- C67 `AWAITING_APPROVAL`: sửa privacy accessibility, reflow zoom 400%, focus/semantic của sheet
+  **Thêm** và heading dashboard; không đổi nghiệp vụ tài chính, schema/RPC hoặc dữ liệu Production.
 
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
