@@ -1,4 +1,4 @@
-import { test, expect, type Page } from "@playwright/test";
+import { test, expect, type APIRequestContext, type Page } from "@playwright/test";
 import { createClient } from "@supabase/supabase-js";
 import { localSupabaseEnvironment } from "./helpers";
 import { randomUUID } from "node:crypto";
@@ -14,12 +14,36 @@ async function login(page: Page, username = "c6_owner_e2e", password = "123456")
   await page.getByLabel("Mật khẩu", { exact: true }).fill(password);
   await page.getByRole("button", { name: "Đăng nhập", exact: true }).click();
   await expect(page).not.toHaveURL(/\/login$/);
+  if (!page.url().includes("/change-password")) {
+    await expect(page.locator("#main-content h1").first()).toBeAttached();
+    await expect(page.locator(".content-loading")).toHaveCount(0);
+  }
+}
+
+async function getExportWithTransportRetry(request: APIRequestContext) {
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      return await request.get("/api/google-sync/export", { headers: { "x-sync-secret": "e2e-sync-secret" } });
+    } catch (error) {
+      if (attempt > 0 || !/ECONNRESET|socket hang up|fetch failed/i.test(String(error))) throw error;
+    }
+  }
+  throw new Error("Export transport retry exhausted");
 }
 test.beforeEach(async ({ context }) => {
   await context.addCookies([{ name: "qlv_privacy_mode", value: "false", url: "http://127.0.0.1:3101" }]);
 });
 test.beforeAll(async () => {
-  const signed = await owner.auth.signInWithPassword({ email: "c6_owner_e2e@auth.local", password: "123456" });
+  let signed = await owner.auth.signInWithPassword({ email: "c6_owner_e2e@auth.local", password: "123456" });
+  if (signed.error || !signed.data.user) {
+    const initial = await owner.auth.signInWithPassword({ email: "c6_owner_e2e@auth.local", password: "OwnerE2eTemp123" });
+    if (initial.error || !initial.data.user) throw new Error("C20 owner fixture unavailable");
+    const updated = await admin.auth.admin.updateUserById(initial.data.user.id, { password: "123456" });
+    if (updated.error) throw updated.error;
+    const profile = await admin.from("profiles").update({ must_change_password: false }).eq("user_id", initial.data.user.id);
+    if (profile.error) throw profile.error;
+    signed = await owner.auth.signInWithPassword({ email: "c6_owner_e2e@auth.local", password: "123456" });
+  }
   if (signed.error || !signed.data.user) throw new Error("C20 owner fixture unavailable");
   const existing = await admin.from("loans").select("id").eq("name","C20 khoản 9.007.199.254.740.993").maybeSingle();
   if(existing.data) { loanId=existing.data.id; return; }
@@ -297,9 +321,10 @@ test("large lists, exact text and concurrent export remain complete", async ({pa
   await page.goto("/loans/new");await page.getByRole("combobox",{name:"Đối tác",exact:true}).fill("C20 volume 1005");
   page.once("dialog",dialog=>dialog.accept());await page.goto(`/loans/${loanId}?tab=history&page=41`);await expect(page.getByText("Giải ngân",{exact:true})).toBeVisible();
   const exact=await admin.from("loans").select("original_principal_vnd::text,initial_daily_rate_percent::text").eq("id",loanId).single();expect(exact.data?.original_principal_vnd).toBe("9007199254740993");expect(typeof exact.data?.initial_daily_rate_percent).toBe("string");
+  await page.waitForLoadState("networkidle");
   for(let index=0;index<5;index++){
     const [response,mutation]=await Promise.all([
-      request.get("/api/google-sync/export",{headers:{"x-sync-secret":"e2e-sync-secret"}}),
+      getExportWithTransportRetry(request),
       owner.rpc("record_expense",{p_loan_id:null,p_transaction_date:"2026-09-07",p_amount_vnd:"1000",p_category:"C20 concurrent",p_idempotency_key:`c20-concurrent-${index}`,p_note:null}),
     ]);if(mutation.error)throw mutation.error;expect(response.ok()).toBe(true);const data=await response.json();
     const exportedExpenses=new Set(data.tables.expenses.map((row:{transaction_id:string})=>row.transaction_id));
