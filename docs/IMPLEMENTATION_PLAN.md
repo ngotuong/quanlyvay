@@ -43,7 +43,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C65 | Đồng bộ backlog local và rollout UI/UX C62–C64 | `COMPLETED` |
 | C66 | Hậu kiểm UI/UX trên thiết bị thật và công nghệ hỗ trợ | `COMPLETED` |
 | C67 | Sửa privacy accessibility, reflow zoom và modal navigation | `COMPLETED` |
-| C68 | Đồng bộ và rollout remediation accessibility C67 | `IN_PROGRESS` |
+| C68 | Đồng bộ và rollout remediation accessibility C67 | `COMPLETED` |
+| C69 | Rollout remediation accessibility lên Production | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -808,9 +809,9 @@ full E2E 39 PASS + 1 audit skip, lint, typecheck, 80/80 unit/script và build 19
 Tài khoản/DB test synthetic đã dọn; không đổi schema/RPC/nghiệp vụ, remote data, deploy hoặc push.
 Bằng chứng và giới hạn tại `docs/UI_UX_REMEDIATION_C67.md`.
 
-## 26. Checkpoint đang thực hiện: C68
+## 26. Checkpoint đã hoàn tất: C68
 
-**C68 — Đồng bộ và rollout remediation accessibility C67.** Trạng thái: `IN_PROGRESS`.
+**C68 — Đồng bộ và rollout remediation accessibility C67.** Trạng thái: `COMPLETED`.
 
 Mục tiêu: đưa commit tài liệu C66 và source C67 đã qua gate lên GitHub/Vercel, xác minh runtime thật
 và giữ đường rollback rõ ràng.
@@ -848,3 +849,51 @@ patch mới nhất ngày 2026-09-30 có thêm security backport, và vẫn giữ
 Kết quả remediation local: `16.3.8` audit sạch; CI policy, lint, typecheck, 80/80 unit/script, build
 19 route, stress focus trap 10/10 và full E2E 39 PASS + 1 audit skip đạt. Focus trap dùng keyboard
 capture phase để loại flake đã tái hiện 1/5 ở bubble phase. Chưa push/deploy hoặc đổi alias.
+
+Kết quả: hoàn tất ngày 2026-10-01.
+
+- Các commit `27125e9`, `993bfb6`, `f448a6b` và
+  `d2bd90d1872ca31aedf592019662904794b251f5` đã push fast-forward. GitHub Actions run
+  `36818958055` đạt toàn bộ job và `Required CI gate` trên đúng SHA cuối; dependency audit sạch,
+  lint, typecheck, 80/80 unit/script, build 19 route, stress focus 20/20, drawer tài chính 9/9 và
+  full E2E 39 PASS + 1 audit skip đều đạt.
+- Candidate `dpl_6JfpS3eqM89Jtjr2b8JVzvZHLaZw`, immutable URL
+  <https://quan-ly-vay-ca-nhan-rj9pn2zao-ngotuong2105.vercel.app>, đúng project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target `preview`, `Ready`, Functions `sin1`. Public và
+  authenticated smoke đạt trên candidate; Chrome thật đạt zoom 400%, Safari thật đạt mức zoom tối
+  đa. Privacy accessible name/tooltip không lộ tiền, heading H1→H2, bottom nav không chồng và
+  modal giữ focus/đóng Escape/trả focus/đồng bộ `aria-expanded`.
+- Alias <https://tindung-preview.vercel.app> chỉ chuyển sau khi full gate đạt và authenticated
+  smoke lại thành công. Runtime error và HTTP 500 đều 0; rollback target
+  `dpl_FrsRPc3CqyKpkdkutFGCZ16Foq5u` không cần kích hoạt. Tài khoản kỹ thuật đã inactive/banned;
+  không secret/cache/dump vào Git, không đổi schema, dữ liệu tài chính hoặc Production.
+
+## 27. Checkpoint chờ phê duyệt: C69
+
+**C69 — Rollout remediation accessibility lên Production.** Trạng thái: `AWAITING_APPROVAL`.
+
+Mục tiêu: phát hành đúng revision C68 đã đạt Required CI và Preview runtime lên Vercel Production,
+giữ dữ liệu/nghiệp vụ không đổi và có đường rollback đã kiểm chứng.
+
+Phạm vi đề xuất:
+
+- Xác minh source sạch, Required CI của đúng SHA và toàn bộ preflight Production theo runbook.
+- Tạo candidate Production thuộc đúng project bằng quy trình deploy hiện hành; không migration,
+  đổi secret, Apps Script/Sheets hoặc ghi giao dịch tài chính.
+- Smoke public/authenticated trên immutable URL cho login, dashboard, privacy accessibility,
+  heading, bottom navigation zoom/reflow và sheet **Thêm** ở desktop/mobile Chrome/Safari.
+- Chỉ chuyển `tindung.vercel.app` sau khi candidate đạt; smoke lại alias, kiểm runtime log và giữ
+  deployment Production hiện tại làm rollback target.
+
+Acceptance criteria:
+
+1. Candidate dùng đúng source SHA có Required CI xanh, đúng project/target/region, trạng thái
+   `Ready`, Functions `sin1`; secret/dump/dữ liệu thật không vào Git hoặc log.
+2. Public và authenticated smoke đạt trên immutable URL; privacy mode không lộ tiền, heading,
+   modal focus/state và bottom nav zoom/reflow khớp bằng chứng C68; không xác nhận giao dịch.
+3. Production alias chỉ đổi sau toàn bộ gate; hậu kiểm alias và runtime error/HTTP 500 đạt. Nếu
+   hậu kiểm lỗi, alias được trả về deployment tốt trước đó.
+4. Không đổi schema/RPC, công thức tài chính, Supabase data/secret, Apps Script hoặc Google Sheets;
+   tài khoản smoke được thu hồi.
+5. Context/roadmap ghi deployment ID/URL, commit/CI, smoke, log và rollback; diff check, status và
+   Required CI của commit tài liệu cuối được xác nhận trước khi kết thúc.

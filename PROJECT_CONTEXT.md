@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.231
+roadmap_version: 1.0.232
 last_updated: 2026-10-01
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C68
-current_status: IN_PROGRESS
-last_completed_checkpoint: C67
-next_checkpoint: C68
+current_checkpoint: C69
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C68
+next_checkpoint: C69
 ---
 
 # Project Context
@@ -446,15 +446,15 @@ C59 đã đạt:
   high` sạch. GitHub Actions run `36697102128` attempt 1 dừng fail-closed khi Supabase Auth local
   trả 502; rerun attempt 2 trên đúng SHA đạt Integration, security, policy, quality/build và
   `Required CI gate`.
-- Stable Preview hiện trỏ deployment `dpl_FrsRPc3CqyKpkdkutFGCZ16Foq5u`, immutable URL
-  <https://quan-ly-vay-ca-nhan-nbkpg4jcj-ngotuong2105.vercel.app>, project
+- Stable Preview hiện trỏ deployment `dpl_6JfpS3eqM89Jtjr2b8JVzvZHLaZw`, immutable URL
+  <https://quan-ly-vay-ca-nhan-rj9pn2zao-ngotuong2105.vercel.app>, project
   `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target `preview`, trạng thái `Ready`, Functions `sin1`;
   alias <https://tindung-preview.vercel.app> đã được promote sau gate. Public và authenticated
-  smoke ở 1440×960/390×844 đạt cho dashboard, danh sách/chi tiết khoản vay, đối tác cùng drawer
-  đối tác, giao dịch, tất toán và giảm gốc; không ghi giao dịch tài chính, tài khoản kỹ thuật đã
-  deactive/ban. App console không có lỗi; Vercel Toolbar do Preview chèn tạo 9 CSP message riêng,
-  không ảnh hưởng luồng app. Runtime error và HTTP 500 log đều rỗng. Rollback target đã xác minh là
-  `dpl_AjvS8ir8eeq8t4V4YmKc12ymedWu`; không cần rollback. Không đổi schema/migration, secret,
+  smoke ở Chrome/Safari đạt cho privacy mode, heading, modal focus/state và bottom nav ở Chrome
+  zoom 400%/mức zoom tối đa Safari; không ghi giao dịch tài chính, tài khoản kỹ thuật đã
+  deactive/ban. App console không có lỗi; CSP message của Vercel Toolbar được tách riêng, không ảnh
+  hưởng luồng app. Runtime error và HTTP 500 log đều rỗng. Rollback target đã xác minh là
+  `dpl_FrsRPc3CqyKpkdkutFGCZ16Foq5u`; không cần rollback. Không đổi schema/migration, secret,
   Apps Script/Sheets, dữ liệu nghiệp vụ hoặc Production alias.
 - C66 `COMPLETED` ngày 2026-10-01: audit Safari/Chrome thật và E2E cô lập ghi nhận 2 HIGH, 2 MEDIUM,
   1 LOW tại `docs/UI_UX_AUDIT_C66.md`. HIGH gồm privacy mode còn lộ số tiền qua accessible name và
@@ -468,19 +468,23 @@ C59 đã đạt:
   Regression C67 4/4 và full E2E 39 PASS + 1 audit skip; lint, typecheck, 80/80 unit/script và build
   19 route đạt. Tài khoản/DB test synthetic đã dọn; không đổi nghiệp vụ/schema/dữ liệu remote,
   deploy hoặc push. Chi tiết tại `docs/UI_UX_REMEDIATION_C67.md`.
-- C68 `IN_PROGRESS`: đồng bộ commit C66–C67, xác nhận Required CI, rollout Vercel theo runbook
-  và smoke privacy/zoom/modal trên runtime; không migration, đổi secret hoặc ghi dữ liệu tài chính.
-  Preflight ngày 2026-10-01: `pnpm ci:validate`, `git diff --check` và gitleaks toàn bộ 128 commit
-  đạt, không có secret. `pnpm audit --audit-level high` chặn rollout vì `next@16.3.5` thuộc dải
-  `>=16.2.0 <16.3.6` của `GHSA-vcvr-r3jv-pc5j` (RCE mức critical, bản vá `16.3.6`). Chưa push,
-  chưa tạo Vercel candidate và chưa đổi alias. OWNER đã duyệt mở rộng C68 trong hội thoại hiện tại
-  để nâng patch `next`/`eslint-config-next`, cập nhật lockfile và chạy lại toàn bộ gate trước
-  rollout. Bản tối thiểu `16.3.6` audit sạch nhưng ba lượt full E2E không đạt do lỗi đọc Server
-  Component/focus không ổn định. C68 chuyển sang stable patch mới nhất `16.3.8` (phát hành
-  2026-09-30, bao gồm thêm các security backport). `16.3.8` đã đạt audit sạch, CI policy, lint,
-  typecheck, 80/80 unit/script, build 19 route, stress focus trap 10/10 và full E2E 39 PASS + 1 audit
-  skip. Focus trap được chuyển sang keyboard capture phase sau khi stress test tái hiện flake 1/5 ở
-  bubble phase. Chưa push, chưa tạo Vercel candidate và chưa đổi alias.
+- C68 `COMPLETED` ngày 2026-10-01: nâng `next`/`eslint-config-next` lên `16.3.8` để vá
+  `GHSA-vcvr-r3jv-pc5j`, ổn định focus trap/bottom-sheet và full E2E. Các commit cuối
+  `27125e9`, `993bfb6`, `f448a6b`, `d2bd90d1872ca31aedf592019662904794b251f5` đã push
+  fast-forward; GitHub Actions run `36818958055` đạt toàn bộ job và `Required CI gate` trên đúng
+  SHA cuối. Local đạt audit sạch, CI policy, lint, typecheck, 80/80 unit/script, build 19 route,
+  stress focus 20/20, drawer tài chính 9/9 và full E2E 39 PASS + 1 audit skip.
+- Candidate Preview `dpl_6JfpS3eqM89Jtjr2b8JVzvZHLaZw`, immutable URL
+  <https://quan-ly-vay-ca-nhan-rj9pn2zao-ngotuong2105.vercel.app>, đúng project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target `preview`, `Ready`, Functions `sin1`. Chrome/Safari
+  thật và authenticated smoke xác nhận privacy accessible name không lộ tiền, heading H1→H2,
+  bottom nav không chồng ở zoom 400%/mức tối đa Safari, focus loop/Escape/focus return và
+  `aria-expanded` đúng. Stable alias đã chuyển sau gate và smoke lại đạt; runtime error/HTTP 500
+  đều 0. Rollback target `dpl_FrsRPc3CqyKpkdkutFGCZ16Foq5u` không cần kích hoạt. Tài khoản smoke
+  đã inactive/banned; Git không chứa credential/cache. Production không đổi.
+- C69 `AWAITING_APPROVAL`: rollout remediation accessibility C67/C68 lên Vercel Production theo
+  runbook, với candidate bất biến, public/authenticated smoke, hậu kiểm log/alias và rollback rõ
+  ràng. Chưa được phép deploy hoặc đổi alias Production.
 
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
