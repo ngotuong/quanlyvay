@@ -1281,3 +1281,8 @@ Acceptance criteria:
    Cảnh báo Chrome C73 và AT/mobile vật lý không được tự kết luận đã đóng nếu thiếu bằng chứng.
 5. Context/roadmap cập nhật cùng thay đổi, Required CI exact final documentation SHA nếu push
    tài liệu cuối, báo rủi ro/giới hạn và checkpoint kế tiếp AWAITING_APPROVAL rồi dừng.
+
+C76 preflight 2026-10-02: source C74–C75 đã push b58b0e8, local full E2E48PASS/5SKIP.
+Dry-run upload phát hiện .backups ciphertext/manifest/log chưa được .vercelignore loại trừ;
+đang sửa blocker payload và xác minh manifest/Required CI SHA sửa trước tạo candidate.
+Không upload trong dry-run, chưa chuyển alias. Browser chờ OWNER mở khóa Mac.

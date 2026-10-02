@@ -630,9 +630,12 @@ C59 đã đạt:
   Desktop compact G2/cảnh báo Chrome C73 OPEN ngoài phạm vi; Safari/Firefox/AT/mobile vật lý
   chưa kiểm mới, không coi đây là chứng nhận accessibility.
 - C76 `IN_PROGRESS` (người dùng phê duyệt ngày 2026-10-02): đồng bộ C74–C75 và rollout Preview/Production theo mục34 roadmap.
-  Source hiện còn local chưa commit/push; Production tiếp tục deployment C73. Preflight PASS: policy/actionlint, lint/typecheck, unit80/80, build19 routes, audit sạch,
+  Source b58b0e85964116d5200a50f9e18e149b0d2920f6 đã commit/push; Required CI
+  36992357820 đang chạy. Production tiếp tục deployment C73. Preflight PASS: policy/actionlint, lint/typecheck, unit80/80, build19 routes, audit sạch,
   full E2E48PASS/5opt-inSKIP; DB teardown0/0/0. Secret scan history/artifact PASS; chưa tạo
-  candidate hoặc đổi alias. Bằng chứng trong docs/release-c76/report.md.
+  candidate hoặc đổi alias. Dry-run Vercel phát hiện backup/log ignored vẫn được đóng gói;
+  đang bổ sung .vercelignore và kiểm lại upload manifest/CI trước deploy.
+  Bằng chứng trong docs/release-c76/report.md.
 
 
 

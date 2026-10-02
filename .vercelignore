@@ -11,3 +11,20 @@
 # Defense in depth for local-only identifiers and build caches.
 **/.clasp.json
 **/*.tsbuildinfo
+
+# Git ignore is not a substitute for Vercel upload exclusions.
+/.backups/
+/.cache/
+
+# Test artifacts and local credentials must never enter deployment payloads.
+**/test-results/
+**/playwright-report/
+**/coverage/
+**/*.log
+**/.env
+**/.env.*
+!**/.env.example
+**/*.pem
+**/*.key
+/.tmp/
+/.c55-remote-head/

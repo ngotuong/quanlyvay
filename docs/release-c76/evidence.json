@@ -1,0 +1,61 @@
+{
+  "checkpoint": "C76",
+  "status": "IN_PROGRESS",
+  "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+  "localGates": {
+    "policy": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unitScriptTests": 80,
+    "buildRoutes": 19,
+    "e2ePassed": 48,
+    "e2eOptInSkipped": 5,
+    "testDbAfter": [
+      0,
+      0,
+      0
+    ],
+    "dependencyAudit": "PASS",
+    "historyAndStagedSecretScan": "PASS"
+  },
+  "rollback": {
+    "preview": {
+      "id": "dpl_6NT5NEUN86VPVZXhvZTqwNFyqgFb",
+      "url": "https://quan-ly-vay-ca-nhan-c6pft4h1k-ngotuong2105.vercel.app",
+      "target": "preview",
+      "readyState": "READY",
+      "name": "quan-ly-vay-ca-nhan",
+      "functions": 43,
+      "functionRegions": [
+        "sin1"
+      ]
+    },
+    "production": {
+      "id": "dpl_Bqox7V6oqX63ufyhgY1sYTFmENhx",
+      "url": "https://quan-ly-vay-ca-nhan-7g0uxlwrm-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "name": "quan-ly-vay-ca-nhan",
+      "functions": 43,
+      "functionRegions": [
+        "sin1"
+      ]
+    }
+  },
+  "candidates": {},
+  "smoke": {},
+  "initialSourceSha": "b58b0e85964116d5200a50f9e18e149b0d2920f6",
+  "initialSourceCiRun": 36992357820,
+  "uploadDryRun": {
+    "initialFileEntries": 341,
+    "initialBytes": 29206057,
+    "finalFileEntries": 206,
+    "finalRegularFiles": 197,
+    "finalBytes": 4516731,
+    "forbiddenRegularFiles": 0,
+    "nonTrackedRegularFiles": [
+      "apps/web/next-env.d.ts"
+    ],
+    "uploaded": false
+  }
+}
