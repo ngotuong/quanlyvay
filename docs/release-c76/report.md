@@ -172,3 +172,61 @@ full local E2E trước log-priority refinement48PASS/5SKIP5,6m. DB test teardow
 Chuẩn bị commit/push diagnostics rồi Required CI đúng source mới; chưa retry đọc hoặc
 mutation, chưa thay SQL/RPC/Auth/tiền. Source mới chỉ tăng quan sát lỗi và kiểm thử bảo mật
 log, không khẳng định đã đóng root cause của read failures. C76 vẫn IN_PROGRESS.
+
+C76 diagnostics commit32fb6413eeeee68b3bfde36c832cd563db716f1f đã push,
+Required CI37003852476 đang chạy đúng SHA. Source47cfc9c bị thay thế cho phát hành do CI
+FAIL2 attempts. Local read diagnostics/final build/unit86 đạt; E2E48/5 như bằng chứng
+đã nêu. Chưa có candidate32fb641, chưa promote; Mac vẫn cần OWNER mở khóa cho Auth smoke.
+
+## Source cuối32fb641 đạt CI, bắt đầu candidate thay thế
+
+Required CI37003852476 attempt1 SUCCESS cả5 jobs đúng32fb6413eeeee68b3bfde36c832cd563db716f1f,
+HEAD=origin/main=CIheadSHA được đối chiếu trước pipeline. pgTAP527/Auth6/E2E47PASS6SKIP8,7m.
+Không read failure tái hiện ở run này; không coi root cause các run trước đã sửa chỉ vì green.
+Root E2E_DATABASE_PREPARED=true pnpm deploy:preview bắt đầu, baseline DB test0/0/0 và
+Authhealth200; vẫn chạy đầy đủ local gates. Chưa candidate32fb641/chưa promote alias chính.
+
+## Root pipeline gate thất bại, chưa tạo candidate thay thế
+
+Root Preview source32fb641 E2E46PASS/5SKIP/2FAIL7,2m. C63 financial drawer375px
+không thấy Giao dịch do get_loan_management_summary read status502/kindunknown/code null.
+Gateway test log ghi upstream prematurely closed connection, không hiển thị URI/headers.
+C67 Tab từ link cuối về close thất bại lần nữa. Pipeline fail-closed trước Vercel deploy.
+Targeted focus8/8 PASS trên cùng source; chưa đóng lỗi. Bổ sung diagnostic vào failure
+attachment của test synthetic, giữ assert/timeouts, chạy lặp20 lần để bắt event/focus.
+Không thêm retry giao dịch/query, không sửa RPC/tiền; alias chính vẫn C73.
+
+Targeted focus instrumented20/20 PASS1,8m; chưa tái hiện riêng. Full suite với diagnostic
+attachment đang chạy để bắt focus/event state nếu lỗi lại xuất hiện. Attachment chỉ tag/role/
+close-marker/relative route/tabIndex của synthetic test, không account/financial data.
+
+C76 focus investigation: targeted8/8 + instrumented20/20 PASS, full synthetic suite
+with temporary diagnostic48PASS/5SKIP5,6m. Không tái hiện lần này, root cause chưa đóng.
+Instrumentation tạm được gỡ về nguyên test assertion của source32fb641; không sửa behavior
+hoặc nới timeout. Chạy lại root Preview pipeline source CI-approved một lần, giữ fail-closed
+trước deploy và giữ read/focus failures là rủi ro mở. Nếu gate fail lại không promote.
+
+C76 root pipeline recheck FAIL trước deploy:47PASS/5SKIP/1FAIL5,8m, C20 large-list
+history read calculate_loan nhận502/kindunknown, không hiện Giải ngân322. C67 focus đạt
+lần này, vẫn giữ rủi ro intermittent. Không tạo candidate32fb641. Phạm vi release blocker
+bổ sung readRpcWithGatewayRetry: whitelist8 RPC đã đối chiếu pg_proc provolatile=s (STABLE)
+trên DB test sau migration; đúng một retry100ms cho HTTP502/503/504 không SQL code/abort.
+Không retry Auth/SQL/business error hoặc mutation; tên RPC ngoài whitelist bị từ chối trước
+call. Không đổi authoritative tính tiền/RPC/schema; log chỉ operation whitelist/kind/status/code.
+Unit4 ca mới kiểm retry giới hạn, exact authoritative result, không retry Auth/SQL/abort và
+chặn mutation; lint/typecheck/unit90/build PASS trước guard abort refinement, final unit/build
+và full E2E đang chạy. Đây là giảm lỗi đọc transient, không khẳng định sửa root cause gateway.
+
+Read retry local full suite47PASS/5SKIP/1FAIL5,9m: C67 Tab-wrap tái hiện, không
+HTTP502 read failure lần này (không coi đây là proof root cause gateway đã đóng).
+Bổ sung test attachment chỉ khi focus assert fail, không đổi trước-key timing/behavior.
+Một lần khởi chạy quá sớm bị Playwright port3101 in-use chặn trước fixture; không dùng
+reuseExistingServer, chờ teardown xong rồi chạy serial full suite với failure-state capture.
+C76 chưa candidate source mới, chưa commit/push read retry, chưa promote.
+
+Read retry + failure-only focus attachment full E2E48PASS/5SKIP5,5m, exit0.
+C67 focus không tái hiện, attachment không được tạo; root cause intermittent focus vẫn OPEN.
+Không ghi đây là đã sửa focus. Source runtime read retry giữ đúng whitelist8 STABLE,
+100ms/max2 attempts gateway-only, mutation/Auth/SQL/abort không retry. Candidate mới chỉ
+được tạo khi Required CI source mới và root full gate đạt; không dùng green32fb641
+cho source đã đổi. Browser Auth smoke vẫn chờ OWNER mở khóa Mac.

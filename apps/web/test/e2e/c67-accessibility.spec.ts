@@ -44,7 +44,7 @@ test("privacy mode removes money from accessible names and titles", async ({ pag
   await expect(comparison).toHaveAttribute("title", /₫/);
 });
 
-test("mobile more sheet exposes state, traps focus and restores its trigger", async ({ page }) => {
+test("mobile more sheet exposes state, traps focus and restores its trigger", async ({ page }, testInfo) => {
   await page.setViewportSize({ width: 375, height: 812 });
   await login(page);
   const trigger = page.getByRole("button", { name: "Thêm", exact: true });
@@ -65,7 +65,21 @@ test("mobile more sheet exposes state, traps focus and restores its trigger", as
   await lastLink.focus();
   await expect(lastLink).toBeFocused();
   await page.keyboard.press("Tab");
-  await expect(close).toBeFocused();
+  try {
+    await expect(close).toBeFocused();
+  } catch (error) {
+    const state = await dialog.evaluate(element => {
+      const describe = (node: Element | null) => node instanceof HTMLElement ? {
+        tag: node.tagName, close: node.hasAttribute("data-bottom-sheet-close"), href: node.getAttribute("href"),
+        tabIndex: node.tabIndex, rects: node.getClientRects().length,
+        display: getComputedStyle(node).display, visibility: getComputedStyle(node).visibility,
+      } : null;
+      return { active: describe(document.activeElement), open: (element as HTMLDialogElement).open,
+        controls: [...element.querySelectorAll('a[href],button,[tabindex]')].map(describe) };
+    });
+    await testInfo.attach("more-focus-failure-state", { body: JSON.stringify(state), contentType: "application/json" });
+    throw error;
+  }
   await page.keyboard.press("Shift+Tab");
   await expect(lastLink).toBeFocused();
 

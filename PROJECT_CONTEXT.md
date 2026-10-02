@@ -629,26 +629,27 @@ C59 đã đạt:
   để tránh gateway stale, không tác động project anh em. Không blocker local.
   Desktop compact G2/cảnh báo Chrome C73 OPEN ngoài phạm vi; Safari/Firefox/AT/mobile vật lý
   chưa kiểm mới, không coi đây là chứng nhận accessibility.
-- C76 `IN_PROGRESS` (OWNER phê duyệt 2026-10-02): C74–C75 đã commit/push; source mới
-  `47cfc9ce6e150ce770223946bff786f043aa7ae8` đã push; Required CI `36999282322` FAIL cả hai attempt ở các lỗi đọc khác nhau; đang bổ sung
-  chẩn đoán an toàn để điều tra, chưa thay đổi nghiệp vụ.
-  Source trước `9001479`, Required CI `36993707917` attempt2 PASS cả5 jobs,
-  pgTAP527/Auth6/E2E47PASS6SKIP. Attempt1 fail font loader và Auth502 trước E2E; rerun cùng SHA
-  đạt, không đổi font/bundler/nới timeout/bỏ gate. Initial source b58b0e8/run36992357820 đã hủy
-  khi config packaging sửa thay thế. Local preflight policy/lint/typecheck/unit80/build19/full
-  E2E48PASS5SKIP, DB teardown0/0/0; history/staged/artifact secret scan và audit sạch.
-  Dry-run phát hiện backup/log/test artifacts vào payload; .vercelignore đã loại trừ. Dry-run
-  cuối197 regular files/4.516.731bytes;196 tracked SHA-1 khớp source commit, chỉ next-env.d.ts
-  generated ngoài Git. Inventory cảhai rollback C73 có77 backup files/60 test artifacts trong
-  src, không out; HEAD ba đường dẫn mỗi môi trường404, chưa kết luận mọi public exposure.
-  Không tải nội dung hoặc xóa rollback. Hai candidate9001479 đã Ready, inventory mỗi candidate241 leaves/0 forbidden; chưa promote.
-  Review ảnh desktop phát hiện card dòng tiền stretch do min-height:100%; đang sửa CSS và
-  regression chiều cao trong phạm vi release blocker. Source9001479 bị thay thế cho phát hành;
-  phải xác nhận CI SHA sửa mới trước candidate mới. Alias Preview/Production vẫn C73. Browser smoke chờ OWNER mở khóa Mac; chưa tạo
-  fixture/ghi tài chính/mark-read/thay setting remote. Bằng chứng: docs/release-c76/report.md.
-
-
-
+- C76 `IN_PROGRESS` (OWNER phê duyệt 2026-10-02): source32fb641 đã push và Required CI
+  37003852476 PASS cả5 jobs/pgTAP527/Auth6/E2E47PASS6SKIP. Local hiện có remediation thêm
+  read retry giới hạn và test focus failure attachment, cần commit/push/CI SHA mới trước release.
+  C74–C75 được bảo toàn/đồng bộ; .vercelignore chặn backup/cache/log/test artifacts/secrets.
+  Sửa cash-flow-card min-height:0 scoped grid, six matrix25tasks overflow0/clipped0, chart
+  desktop429,234375px delta0 trước/sau mở/thu. Local cuối lint/typecheck/unit90/build19 routes
+  PASS, full E2E48PASS5SKIP5,5m; DB test55322 teardown profiles/loans/transactions0/0/0.
+  Root Preview gate32fb641 từng FAIL trước deploy: gateway502 calculate_loan/management và
+  intermittent C67 Tab wrap. Kong test ghi upstream prematurely closed connection. Thêm retry
+  chỉ8 RPC đã xác minh STABLE, tối đa2 attempts/100ms cho502/503/504 không SQL code/abort;
+  mutation/Auth/SQL không retry. Không đổi authoritative tiền/schema/RPC/secrets.
+  Log chẩn đoán chỉ kind/status/code lọc; không message/SQL/args/URL/financial/credentials.
+  Focus riêng8+20 lần PASS, full suite lúc đạt/lúc fail; failure-only attachment không đổi
+  trước-key timing. Root cause focus OPEN; không coi retry suite là đã sửa focus/gateway.
+  Dry-run read-retry201 regular files/4.525.732bytes/0 forbidden. Hai candidate9001479 Ready
+  superseded, inventory0 forbidden, chưa promote; chưa candidate từ source sửa cuối.
+  Alias chính Preview/Production vẫn C73. Cảhai rollback C73 giữ77 backup/60 test artifacts
+  trong source (không out); HEAD3 paths mỗi môi trường404 chưa chứng minh mọi URL an toàn;
+  chưa tải/xóa artifact cũ. Blocker: cần CI source mới/root full gate ổn định, focus intermittent
+  và browser Auth smoke chờ OWNER mở khóa Mac. Không ghi tài chính/mark-read/thay push remote.
+  C76 chưa COMPLETED, không mở checkpoint kế tiếp. Chi tiết: docs/release-c76/report.md/evidence.json.
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
   soát bù phù hợp GitHub Free/private; notification runner, Production smoke và runtime log đạt.
@@ -690,64 +691,8 @@ không sửa runtime/deploy/push. C73 final SHA4c84d671721b0ad38691f1c7c3691e53e
 Required CI36968146353 attempt2 đạt toàn bộ job/E2E44 PASS4 SKIP; attempt1 timeout C63 375px
 sau payment render loan.summary_failed không có code. Rerun cùng SHA đạt, không sửa test/runtime.
 
-C76 bổ sung 2026-10-02: Required CI36993707917 attempt2 của9001479 đạt cả5 job
-(pgTAP527, Auth6, E2E47PASS/6SKIP). Preview candidate dpl_CpaHTRzr19EYFFrA6upUM5WLrNHr
-đã Ready sau root pipeline full gate48PASS/5SKIP. Khi review ảnh desktop recapture, phát hiện
-CSS cũ globals.css min-height:100% kéo card dòng tiền theo danh sách25 việc. Candidate9001479
-chưa qua Auth smoke và không được promote; đang sửa min-height riêng grid và bổ sung regression
-đo chiều cao card trước/sau expand/collapse. Hai alias chính giữ deployment C73. Mac khóa,
-Auth smoke vẫn chờ OWNER mở khóa; không phát hành khi thiếu gate.
-
-C76 chart correction gate lần1: policy/lint/typecheck/unit80/build19 PASS; full E2E
-47PASS/5SKIP/1FAIL5,8m. Lỗi C67 mobile-more sheet Tab cuối→đầu không focus close
-(c67-accessibility.spec.ts68); CSS sửa chỉ cash-flow-card. Không đổi/skipping assertion,
-đang rerun full suite cùng source để xác định khả năng tái hiện; chưa kết luận root cause.
-C75 regression3/3 đạt:6 matrix25tasks overflow0/clipped0; chart desktop429,234375px
-giữ nguyên trước/expanded/collapsed sáng/tối, mobile479,46875px giữ nguyên. Ảnh desktop
-sau sửa đã xem, chart không còn stretch. Test teardown baseline profiles/loans/transactions0.
-
-C76 chart correction gate lần2 cùng source: full E2E48PASS/5SKIP5,5m, exit0;
-C67 focus wrap đạt không thay assertion/timeout. C75 six matrix25tasks/chart desktop
-429,234375px delta0 trước/sau mở/thu; mobile479,46875px delta0; overflow0/clipped0.
-DB test hậu kiểm profiles/loans/transactions0/0/0. Policy/actionlint, lint/typecheck,
-unit80, build19 routes, diff-check, C76 secret scan PASS; dry-run197 regular files
-4517294bytes/0 forbidden. Chuẩn bị commit/push bản sửa, cần Required CI SHA mới trước
-candidate mới. C76 vẫn IN_PROGRESS, Mac khóa khiến Auth smoke chưa thực hiện.
-
-C76 bản sửa chart đã commit/push47cfc9ce6e150ce770223946bff786f043aa7ae8;
-Required CI36999282322 đang chạy đúng SHA. Local working tree sạch ngay sau push,
-không promote candidate9001479. C76 IN_PROGRESS; đợi CI source mới và authenticated
-smoke khi OWNER mở khóa Mac.
-
-Required CI36999282322/47cfc9c attempt1 FAIL: policy/security/quality PASS; pgTAP527/527,
-Auth6/6 PASS; E2E45PASS/6SKIP/2FAIL11,2m. business-flow137 thất bại trạng thái sau
-hoàn tác tất toán169 khi loan.summary_failed chỉ có code undefined; C72 dirtyBack/Forward54
-thất bại click Tạo khoản vay55 sau lỗi tải danh sách, ngay sau reset fixture test. Không
-đủ thông tin để kết luận network/DB/root cause; không gắn lỗi với CSS hoặc khẳng định
-nghiệp vụ an toàn chỉ từ retry. C75 chart matrix/privacy/navigation và C67 focus đạt.
-Đã rerun failed jobs cùng SHA attempt2; không đổi RPC/schema/assertion/timeout hoặc bypass
-gate. Chưa tạo candidate mới, alias chính vẫn C73; C76 IN_PROGRESS chờ CI và mở khóa Mac.
-
-Required CI36999282322/47cfc9c attempt2 FAIL: E2E46PASS/6SKIP/1FAIL9,5m,
-business-flow dashboard periods552/559 không thấy tab sau login, server
-dashboard.read_failed code empty. Hai lỗi attempt1 không tái hiện; C75/C67 đều đạt.
-Chưa có root cause đủ bằng chứng, không rerun tiếp chỉ để lấy green. Bổ sung chẩn đoán
-read-failure-diagnostics.mjs vào điểm lỗi dashboard/list/summary: chỉ kind/status và
-SQLSTATE/PostgREST code được lọc, không message/details/URL/SQL/args/financial payload.
-Không retry query hoặc đổi RPC/tiền/Auth/schema. Unit4 ca mới bảo đảm lọc dữ liệu nhạy cảm,
-84 unit/script tests/lint/typecheck/build PASS; full E2E source mới đang chạy. C76 IN_PROGRESS,
-chưa tạo candidate mới/chưa promote; Auth smoke còn chờ OWNER mở khóa Mac.
-
-Safe read diagnostics: full local E2E48PASS/5SKIP5,6m, exit0, C75 matrix delta0.
-Sau build của suite có điều chỉnh thuần phân loại log ưu tiên SQL code thay vì từ khóa
-trong message riêng tư; lint/typecheck/unit85 PASS, final build đang tái kiểm. Không
-đổi read/mutation/retry logic. CI source mới sẽ chạy E2E trên đúng source cuối và root
-Preview pipeline vẫn bắt buộc full gates trước tạo candidate. Không gọi đây là đã
-sửa xong nguyên nhân các read failures; đang bổ sung bằng chứng chẩn đoán.
-
-Safe read diagnostics final: lint/typecheck PASS, unit/script86/86 PASS (6 diagnostic
-cases, gồm actual Supabase SDK với fetch mock không gọi mạng), final build19 routes PASS;
-full local E2E trước log-priority refinement48PASS/5SKIP5,6m. DB test teardown0/0/0.
-Chuẩn bị commit/push diagnostics rồi Required CI đúng source mới; chưa retry đọc hoặc
-mutation, chưa thay SQL/RPC/Auth/tiền. Source mới chỉ tăng quan sát lỗi và kiểm thử bảo mật
-log, không khẳng định đã đóng root cause của read failures. C76 vẫn IN_PROGRESS.
+C76 focus investigation: targeted8/8 + instrumented20/20 PASS, full synthetic suite
+with temporary diagnostic48PASS/5SKIP5,6m. Không tái hiện lần này, root cause chưa đóng.
+Instrumentation tạm được gỡ về nguyên test assertion của source32fb641; không sửa behavior
+hoặc nới timeout. Chạy lại root Preview pipeline source CI-approved một lần, giữ fail-closed
+trước deploy và giữ read/focus failures là rủi ro mở. Nếu gate fail lại không promote.

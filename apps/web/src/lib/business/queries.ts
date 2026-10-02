@@ -4,6 +4,7 @@ import { fetchAllRows } from "@/lib/export/pagination.mjs";
 import { buildLegacyGeneralExpensesPage } from "./expense-list-pagination.mjs";
 import { paginateLegacyLoanSummaries } from "./loan-list-pagination.mjs";
 import { readFailureDiagnostic } from "./read-failure-diagnostics.mjs";
+import { readRpcWithGatewayRetry } from "./read-rpc-retry.mjs";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import type { AppProfile } from "@/lib/auth/types";
@@ -113,17 +114,17 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
     p_balance_start: balanceStart,
     p_balance_end: balanceEnd,
   };
-  const result = await supabase.rpc("get_management_dashboard_bundle_v3", args);
+  const result = await readRpcWithGatewayRetry("get_management_dashboard_bundle_v3", () => supabase.rpc("get_management_dashboard_bundle_v3", args));
   let diagnosticResult = result;
   let data = result.data as Record<string, unknown> | null;
   let error = result.error;
   if (error?.code === "PGRST202") {
-    const fallback = await supabase.rpc("get_management_dashboard_bundle_v2", {
+    const fallback = await readRpcWithGatewayRetry("get_management_dashboard_bundle_v2", () => supabase.rpc("get_management_dashboard_bundle_v2", {
       p_period_start: periodStart,
       p_period_end: periodEnd,
       p_previous_start: previousStart,
       p_previous_end: previousEnd,
-    });
+    }));
     diagnosticResult = fallback;
     data = fallback.data ? {
       ...fallback.data as Record<string, unknown>,
@@ -174,12 +175,12 @@ export async function listLoans(filters: LoanListFilters = {}, page = 1) {
     p_page: page,
     p_size: 25,
   };
-  const pageResult = await supabase.rpc("list_loan_summaries_page", args);
+  const pageResult = await readRpcWithGatewayRetry("list_loan_summaries_page", () => supabase.rpc("list_loan_summaries_page", args));
   let data: unknown = pageResult.data;
 
   if (pageResult.error?.code === "PGRST202") {
     console.warn("loan.list_page_rpc_missing", { fallback: "list_loan_summaries" });
-    const legacyResult = await supabase.rpc("list_loan_summaries", {
+    const legacyResult = await readRpcWithGatewayRetry("list_loan_summaries", () => supabase.rpc("list_loan_summaries", {
       p_as_of_date: args.p_as_of_date,
       p_query: args.p_query,
       p_direction: args.p_direction,
@@ -187,7 +188,7 @@ export async function listLoans(filters: LoanListFilters = {}, page = 1) {
       p_disbursed_from: args.p_disbursed_from,
       p_disbursed_to: args.p_disbursed_to,
       p_sort: args.p_sort,
-    });
+    }));
     if (legacyResult.error || !legacyResult.data) {
       console.error("loan.list_read_failed", readFailureDiagnostic(legacyResult));
       throw new Error("Không thể tải danh sách khoản vay.");
@@ -261,13 +262,13 @@ export async function getLoanWorkspace(id: string, section: LoanWorkspaceSection
       .select("id, as_of_date, principal_outstanding_vnd::text, interest_collected_vnd::text, bad_debt_since, note, idempotency_key, created_at")
       .eq("loan_id", id)
       .maybeSingle() : Promise.resolve({ data: null, error: null }),
-    supabase.rpc("calculate_loan", {
+    readRpcWithGatewayRetry("calculate_loan", () => supabase.rpc("calculate_loan", {
       p_loan_id: id,
       p_as_of_date: asOfDate,
-    }),
-    section === "settings" ? supabase.rpc("get_loan_term_summary", { p_loan_id: id }) : Promise.resolve({ data: null, error: null }),
-    section === "overview" ? supabase.rpc("get_loan_schedule_summary", { p_loan_id: id, p_as_of_date: asOfDate }) : Promise.resolve({ data: null, error: null }),
-    section === "overview" ? supabase.rpc("get_loan_management_summary", { p_loan_id: id, p_as_of_date: asOfDate }) : Promise.resolve({ data: null, error: null }),
+    })),
+    section === "settings" ? readRpcWithGatewayRetry("get_loan_term_summary", () => supabase.rpc("get_loan_term_summary", { p_loan_id: id })) : Promise.resolve({ data: null, error: null }),
+    section === "overview" ? readRpcWithGatewayRetry("get_loan_schedule_summary", () => supabase.rpc("get_loan_schedule_summary", { p_loan_id: id, p_as_of_date: asOfDate })) : Promise.resolve({ data: null, error: null }),
+    section === "overview" ? readRpcWithGatewayRetry("get_loan_management_summary", () => supabase.rpc("get_loan_management_summary", { p_loan_id: id, p_as_of_date: asOfDate })) : Promise.resolve({ data: null, error: null }),
   ]);
 
   if (loanResult.error) throw new Error("Không thể tải khoản vay. Hãy thử lại.");

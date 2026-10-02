@@ -6,7 +6,7 @@
     "policy": "PASS",
     "lint": "PASS",
     "typecheck": "PASS",
-    "unitScriptTests": 80,
+    "unitScriptTests": 90,
     "buildRoutes": 19,
     "e2ePassed": 48,
     "e2eOptInSkipped": 5,
@@ -16,7 +16,8 @@
       0
     ],
     "dependencyAudit": "PASS",
-    "historyAndStagedSecretScan": "PASS"
+    "historyAndStagedSecretScan": "PASS",
+    "e2eScopeNote": "Final runtime source including bounded read retry, original focus assertion with failure-only attachment; 48PASS5SKIP5.5m; intermittent focus remains OPEN"
   },
   "rollback": {
     "preview": {
@@ -59,8 +60,8 @@
     "uploaded": false,
     "trackedPayloadHashMatches": 196
   },
-  "sourceSha": "47cfc9ce6e150ce770223946bff786f043aa7ae8",
-  "sourceCiRun": 36999282322,
+  "sourceSha": "32fb6413eeeee68b3bfde36c832cd563db716f1f",
+  "sourceCiRun": 37003852476,
   "oldDeploymentArtifacts": {
     "preview": {
       "backupFiles": 77,
@@ -121,31 +122,7 @@
       ]
     }
   },
-  "sourceCiStatus": "FAILURE",
-  "ciAttempt1": {
-    "run": 36993707917,
-    "sha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
-    "quality": "FAIL next/font/google queries have exactly one entry (35 errors)",
-    "databaseTests": 527,
-    "database": "PASS",
-    "authTests": 6,
-    "auth": "PASS",
-    "e2e": "NOT_STARTED Auth readiness HTTP502 after93 attempts",
-    "requiredGate": "FAIL"
-  },
-  "ciAttempt2": {
-    "run": 36993707917,
-    "sha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
-    "quality": "PASS",
-    "security": "PASS",
-    "policy": "PASS",
-    "databaseTests": 527,
-    "authTests": 6,
-    "e2ePassed": 47,
-    "e2eSkipped": 6,
-    "requiredGate": "PASS",
-    "jobs": 5
-  },
+  "sourceCiStatus": "SUCCESS",
   "supersededCandidates": {
     "sourceSHA": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
     "reason": "Desktop chart stretches with expanded task grid; held before authenticated smoke/promotion",
@@ -263,8 +240,6 @@
       "result": "PASS"
     }
   },
-  "previousSourceSha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
-  "previousSourceCiRun": 36993707917,
   "chartSourceCiAttempts": [
     {
       "attempt": 1,
@@ -299,7 +274,7 @@
     }
   ],
   "safeReadDiagnostics": {
-    "status": "LOCAL_GATES_PASS_SOURCE_CI_PENDING",
+    "status": "SOURCE_CI_PASS_ROOT_PREVIEW_GATE_IN_PROGRESS",
     "unitTests": 6,
     "totalUnitScriptTests": 86,
     "emittedFields": [
@@ -330,6 +305,202 @@
       0,
       0,
       0
-    ]
+    ],
+    "uploadFinal": {
+      "regularFiles": 199,
+      "bytes": 4521812,
+      "forbiddenFiles": 0,
+      "trackedHashMatches": 198,
+      "mismatches": [],
+      "nonTracked": [
+        "apps/web/next-env.d.ts"
+      ]
+    }
+  },
+  "chartSourceSha": "47cfc9ce6e150ce770223946bff786f043aa7ae8",
+  "chartSourceCiRun": 36999282322,
+  "packagingSource": {
+    "sourceSha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
+    "ciRun": 36993707917,
+    "ciAttempt1": {
+      "run": 36993707917,
+      "sha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
+      "quality": "FAIL next/font/google queries have exactly one entry (35 errors)",
+      "databaseTests": 527,
+      "database": "PASS",
+      "authTests": 6,
+      "auth": "PASS",
+      "e2e": "NOT_STARTED Auth readiness HTTP502 after93 attempts",
+      "requiredGate": "FAIL"
+    },
+    "ciAttempt2": {
+      "run": 36993707917,
+      "sha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
+      "quality": "PASS",
+      "security": "PASS",
+      "policy": "PASS",
+      "databaseTests": 527,
+      "authTests": 6,
+      "e2ePassed": 47,
+      "e2eSkipped": 6,
+      "requiredGate": "PASS",
+      "jobs": 5
+    }
+  },
+  "initialLocalGates": {
+    "policy": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unitScriptTests": 80,
+    "buildRoutes": 19,
+    "e2ePassed": 48,
+    "e2eOptInSkipped": 5,
+    "testDbAfter": [
+      0,
+      0,
+      0
+    ],
+    "dependencyAudit": "PASS",
+    "historyAndStagedSecretScan": "PASS"
+  },
+  "currentUploadDryRun": {
+    "regularFiles": 199,
+    "bytes": 4521812,
+    "forbiddenFiles": 0,
+    "trackedHashMatches": 198,
+    "mismatches": [],
+    "nonTracked": [
+      "apps/web/next-env.d.ts"
+    ],
+    "sourceSha": "32fb6413eeeee68b3bfde36c832cd563db716f1f",
+    "uploaded": false
+  },
+  "currentSourceCi": {
+    "run": 37003852476,
+    "attempt": 1,
+    "sourceSha": "32fb6413eeeee68b3bfde36c832cd563db716f1f",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "Dependency and secret scan",
+        "conclusion": "success",
+        "databaseId": 110827434599
+      },
+      {
+        "name": "Workflow policy",
+        "conclusion": "success",
+        "databaseId": 110827434853
+      },
+      {
+        "name": "Supabase Auth pgTAP and E2E",
+        "conclusion": "success",
+        "databaseId": 110827434885
+      },
+      {
+        "name": "Quality and build",
+        "conclusion": "success",
+        "databaseId": 110827434952
+      },
+      {
+        "name": "Required CI gate",
+        "conclusion": "success",
+        "databaseId": 110831957701
+      }
+    ],
+    "pgTAP": 527,
+    "authTests": 6,
+    "e2e": {
+      "passed": 47,
+      "skipped": 6,
+      "failed": 0,
+      "minutes": 8.7
+    },
+    "originHeadMatches": true
+  },
+  "rootPreviewFinalGate": {
+    "sourceSha": "32fb6413eeeee68b3bfde36c832cd563db716f1f",
+    "status": "FAILURE_BEFORE_DEPLOY",
+    "e2e": {
+      "passed": 46,
+      "skipped": 5,
+      "failed": 2,
+      "minutes": 7.2
+    },
+    "readFailure": {
+      "operation": "get_loan_management_summary",
+      "status": 502,
+      "kind": "unknown",
+      "code": null,
+      "gatewayEvidence": "upstream prematurely closed connection"
+    },
+    "focusFailure": "C67 Tab from last link to close line68",
+    "candidateCreated": false,
+    "focusTargetedInitial": {
+      "passed": 8,
+      "failed": 0
+    },
+    "investigation": "Full local suite with focus-event attachment on failure; behavior/assertions/timeouts unchanged",
+    "focusTargetedInstrumented": {
+      "passed": 20,
+      "failed": 0,
+      "minutes": 1.8
+    },
+    "focusDiagnosticFullSuite": {
+      "passed": 48,
+      "skipped": 5,
+      "failed": 0,
+      "minutes": 5.6
+    },
+    "temporaryInstrumentationRemoved": true,
+    "retryStatus": "ROOT_PIPELINE_IN_PROGRESS; runtime source and original assertions unchanged; root causes remain open",
+    "secondPipeline": {
+      "passed": 47,
+      "skipped": 5,
+      "failed": 1,
+      "minutes": 5.8,
+      "failure": "calculate_loan HTTP502 at C20 large-list history line322",
+      "candidateCreated": false
+    }
+  },
+  "boundedReadRetry": {
+    "status": "LOCAL_GATES_PASS_SOURCE_CI_PENDING",
+    "allowedRpcCount": 8,
+    "databaseVolatility": "all STABLE verified pg_proc local migrated test DB",
+    "attemptsMaximum": 2,
+    "pauseMs": 100,
+    "retryStatus": [
+      502,
+      503,
+      504
+    ],
+    "excluded": [
+      "mutations",
+      "Auth",
+      "SQL codes",
+      "aborted requests"
+    ],
+    "totalUnitScriptTests": 90,
+    "rootGatewayCauseFixed": false,
+    "localFullSuite": {
+      "passed": 47,
+      "skipped": 5,
+      "failed": 1,
+      "minutes": 5.9,
+      "failure": "C67 Tab wrap",
+      "read502Observed": false
+    },
+    "finalLocalFullSuite": {
+      "passed": 48,
+      "skipped": 5,
+      "failed": 0,
+      "minutes": 5.5
+    }
+  },
+  "focusInvestigation": {
+    "status": "OPEN_INTERMITTENT_NOT_REPRODUCED_IN_LAST_RUN",
+    "method": "attachment after failed focus assertion only; no pre-key timing changes",
+    "fullSuiteRunning": false,
+    "lastFullSuitePassed": 48
   }
 }

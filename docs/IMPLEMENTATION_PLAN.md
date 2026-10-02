@@ -1283,69 +1283,15 @@ Acceptance criteria:
 5. Context/roadmap cập nhật cùng thay đổi, Required CI exact final documentation SHA nếu push
    tài liệu cuối, báo rủi ro/giới hạn và checkpoint kế tiếp AWAITING_APPROVAL rồi dừng.
 
-C76 preflight 2026-10-02: source C74–C75 đã push b58b0e8, local full E2E48PASS/5SKIP.
-Dry-run upload phát hiện .backups ciphertext/manifest/log chưa được .vercelignore loại trừ;
-đang sửa blocker payload và xác minh manifest/Required CI SHA sửa trước tạo candidate.
-Không upload trong dry-run, chưa chuyển alias. Browser chờ OWNER mở khóa Mac.
-
-C76 bổ sung 2026-10-02: Required CI36993707917 attempt2 của9001479 đạt cả5 job
-(pgTAP527, Auth6, E2E47PASS/6SKIP). Preview candidate dpl_CpaHTRzr19EYFFrA6upUM5WLrNHr
-đã Ready sau root pipeline full gate48PASS/5SKIP. Khi review ảnh desktop recapture, phát hiện
-CSS cũ globals.css min-height:100% kéo card dòng tiền theo danh sách25 việc. Candidate9001479
-chưa qua Auth smoke và không được promote; đang sửa min-height riêng grid và bổ sung regression
-đo chiều cao card trước/sau expand/collapse. Hai alias chính giữ deployment C73. Mac khóa,
-Auth smoke vẫn chờ OWNER mở khóa; không phát hành khi thiếu gate.
-
-C76 chart correction gate lần1: policy/lint/typecheck/unit80/build19 PASS; full E2E
-47PASS/5SKIP/1FAIL5,8m. Lỗi C67 mobile-more sheet Tab cuối→đầu không focus close
-(c67-accessibility.spec.ts68); CSS sửa chỉ cash-flow-card. Không đổi/skipping assertion,
-đang rerun full suite cùng source để xác định khả năng tái hiện; chưa kết luận root cause.
-C75 regression3/3 đạt:6 matrix25tasks overflow0/clipped0; chart desktop429,234375px
-giữ nguyên trước/expanded/collapsed sáng/tối, mobile479,46875px giữ nguyên. Ảnh desktop
-sau sửa đã xem, chart không còn stretch. Test teardown baseline profiles/loans/transactions0.
-
-C76 chart correction gate lần2 cùng source: full E2E48PASS/5SKIP5,5m, exit0;
-C67 focus wrap đạt không thay assertion/timeout. C75 six matrix25tasks/chart desktop
-429,234375px delta0 trước/sau mở/thu; mobile479,46875px delta0; overflow0/clipped0.
-DB test hậu kiểm profiles/loans/transactions0/0/0. Policy/actionlint, lint/typecheck,
-unit80, build19 routes, diff-check, C76 secret scan PASS; dry-run197 regular files
-4517294bytes/0 forbidden. Chuẩn bị commit/push bản sửa, cần Required CI SHA mới trước
-candidate mới. C76 vẫn IN_PROGRESS, Mac khóa khiến Auth smoke chưa thực hiện.
-
-C76 bản sửa chart đã commit/push47cfc9ce6e150ce770223946bff786f043aa7ae8;
-Required CI36999282322 đang chạy đúng SHA. Local working tree sạch ngay sau push,
-không promote candidate9001479. C76 IN_PROGRESS; đợi CI source mới và authenticated
-smoke khi OWNER mở khóa Mac.
-
-Required CI36999282322/47cfc9c attempt1 FAIL: policy/security/quality PASS; pgTAP527/527,
-Auth6/6 PASS; E2E45PASS/6SKIP/2FAIL11,2m. business-flow137 thất bại trạng thái sau
-hoàn tác tất toán169 khi loan.summary_failed chỉ có code undefined; C72 dirtyBack/Forward54
-thất bại click Tạo khoản vay55 sau lỗi tải danh sách, ngay sau reset fixture test. Không
-đủ thông tin để kết luận network/DB/root cause; không gắn lỗi với CSS hoặc khẳng định
-nghiệp vụ an toàn chỉ từ retry. C75 chart matrix/privacy/navigation và C67 focus đạt.
-Đã rerun failed jobs cùng SHA attempt2; không đổi RPC/schema/assertion/timeout hoặc bypass
-gate. Chưa tạo candidate mới, alias chính vẫn C73; C76 IN_PROGRESS chờ CI và mở khóa Mac.
-
-Required CI36999282322/47cfc9c attempt2 FAIL: E2E46PASS/6SKIP/1FAIL9,5m,
-business-flow dashboard periods552/559 không thấy tab sau login, server
-dashboard.read_failed code empty. Hai lỗi attempt1 không tái hiện; C75/C67 đều đạt.
-Chưa có root cause đủ bằng chứng, không rerun tiếp chỉ để lấy green. Bổ sung chẩn đoán
-read-failure-diagnostics.mjs vào điểm lỗi dashboard/list/summary: chỉ kind/status và
-SQLSTATE/PostgREST code được lọc, không message/details/URL/SQL/args/financial payload.
-Không retry query hoặc đổi RPC/tiền/Auth/schema. Unit4 ca mới bảo đảm lọc dữ liệu nhạy cảm,
-84 unit/script tests/lint/typecheck/build PASS; full E2E source mới đang chạy. C76 IN_PROGRESS,
-chưa tạo candidate mới/chưa promote; Auth smoke còn chờ OWNER mở khóa Mac.
-
-Safe read diagnostics: full local E2E48PASS/5SKIP5,6m, exit0, C75 matrix delta0.
-Sau build của suite có điều chỉnh thuần phân loại log ưu tiên SQL code thay vì từ khóa
-trong message riêng tư; lint/typecheck/unit85 PASS, final build đang tái kiểm. Không
-đổi read/mutation/retry logic. CI source mới sẽ chạy E2E trên đúng source cuối và root
-Preview pipeline vẫn bắt buộc full gates trước tạo candidate. Không gọi đây là đã
-sửa xong nguyên nhân các read failures; đang bổ sung bằng chứng chẩn đoán.
-
-Safe read diagnostics final: lint/typecheck PASS, unit/script86/86 PASS (6 diagnostic
-cases, gồm actual Supabase SDK với fetch mock không gọi mạng), final build19 routes PASS;
-full local E2E trước log-priority refinement48PASS/5SKIP5,6m. DB test teardown0/0/0.
-Chuẩn bị commit/push diagnostics rồi Required CI đúng source mới; chưa retry đọc hoặc
-mutation, chưa thay SQL/RPC/Auth/tiền. Source mới chỉ tăng quan sát lỗi và kiểm thử bảo mật
-log, không khẳng định đã đóng root cause của read failures. C76 vẫn IN_PROGRESS.
+C76 tiến độ 2026-10-02: source32fb641/Required CI37003852476 PASS cả5 job, pgTAP527/
+Auth6/E2E47PASS6SKIP. Root pipeline sau CI dừng trước deploy do502 đọc và intermittent
+C67 focus Tab wrap. Local thêm readRpcWithGatewayRetry: chỉ8 RPC đã đối chiếu STABLE,
+max2 attempts100ms gateway502/503/504 không SQL code/abort, không mutation/Auth/SQL retry.
+Failure-only focus attachment giữ assertion/timing; root cause focus OPEN, riêng8+20 PASS,
+full suite lúc đạt/lúc fail. Final local lint/typecheck/unit90/build19/E2E48PASS5SKIP5,5m,
+DB test teardown0/0/0; source sửa cuối phải commit/push và CI exactSHA trước candidate mới.
+Dry201 regular files4525732bytes/0 forbidden; .vercelignore loại backup/cache/log/secrets.
+Chart six matrix25tasks desktop delta0/overflow0/clipped0. Hai candidate9001479 superseded,
+chưa promote; stable aliases giữ C73. C76 IN_PROGRESS, chưa tạo checkpoint kế tiếp.
+Auth browser smoke chờ OWNER mở khóa Mac; gateway/focus vẫn ghi rủi ro mở, không coi lần
+E2E đạt là root cause đã đóng. Chi tiết history/evidence tại docs/release-c76/.
