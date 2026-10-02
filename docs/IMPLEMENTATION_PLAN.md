@@ -49,7 +49,9 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C71 | Audit sâu UI/UX và hiệu quả thao tác mobile–desktop | `COMPLETED` |
 | C72 | Remediation bản nháp, thông báo và bố cục mobile | `COMPLETED` |
 | C73 | Đồng bộ và rollout remediation C70–C72 | `COMPLETED` |
-| C74 | Audit hành trình và backlog UI/UX sau rollout | `AWAITING_APPROVAL` |
+| C74 | Audit hành trình và backlog UI/UX sau rollout | `COMPLETED` |
+| C75 | Remediation ngữ cảnh công việc và thông báo | `COMPLETED` |
+| C76 | Đồng bộ và rollout remediation C74–C75 | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1152,9 +1154,10 @@ OWNER cho phép tiếp tục dù Chrome badge Nguy hiểm sau login immutable ho
 OPEN tại `docs/C73_RELEASE_BLOCKER.md`. Không bypass hay coi đã giải quyết; stable aliases
 không hiện badge ở lượt kiểm. Screen reader/mobile vật lý không được chứng nhận PASS.
 
-## 32. Checkpoint C74 — Chờ phê duyệt
+## 32. Checkpoint C74 — Đã được phê duyệt
 
-**C74 — Audit hành trình và backlog UI/UX sau rollout.** Trạng thái: `AWAITING_APPROVAL`.
+**C74 — Audit hành trình và backlog UI/UX sau rollout.** Trạng thái: `COMPLETED` ngày02/10/2026.
+OWNER phê duyệt trong hội thoại ngày02/10/2026.
 
 Mục tiêu: đánh giá bản đã phát hành bằng hành trình thực tế, xác định thao tác thừa và điểm
 khó dùng còn lại, đưa đề xuất remediation cụ thể để OWNER duyệt. Chưa sửa sản phẩm.
@@ -1182,3 +1185,99 @@ Acceptance criteria:
    để OWNER duyệt, không tự sửa. Không yêu cầu OWNER học VoiceOver để đóng audit khả dụng.
 5. Gate tài liệu diff-check; harness nếu đổi chạy lint/typecheck và test audit liên quan trong DB
    cô lập. Context/roadmap cập nhật cùng thay đổi, báo kết quả và dừng chờ phê duyệt remediation.
+
+Kết quả C74: `docs/audit-c74/report.md`, `matrix.md`, `evidence.json`, ảnh synthetic và
+`review.html`;54 lượt, bốn phát hiện F1–F4, hai đề xuất Gu. Lint/typecheck/diff-check PASS,
+controlled audit2/2 PASS49,9s, DB test teardown0 profiles/loans/transactions. Lịch sử lỗi
+harness/Auth502 và giới hạn remote/browser/AT đã ghi rõ; không sửa runtime/deploy/push.
+Mockup HTML chưa render-verify do browser URL policy chặn file://; không workaround.
+
+## 33. Checkpoint C75 — Đã được phê duyệt
+
+**C75 — Remediation ngữ cảnh công việc và thông báo.** Trạng thái: `COMPLETED` local ngày02/10/2026.
+OWNER phê duyệt C75 trong hội thoại ngày02/10/2026.
+
+Mục tiêu: sửa F1–F4 có chứng cứ C74 và áp dụng hierarchy notifications G1. Giữ brand hiện hữu,
+không redesign toàn app. Báo cáo và mockup tham khảo `docs/audit-c74/report.md`, `review.html`.
+
+Phạm vi:
+
+- Dashboard task: tên/nhãn/hướng và ngày nhắc/kỳ chốt phân biệt được; tên custom không bị mất
+  phần thiết yếu. Không suy đoán nhãn bằng parse chuỗi tùy tiện. Có thể bổ sung dữ liệu đọc
+  cấu trúc từ nguồn hiện hữu nếu cần, không đổi ledger hoặc logic authoritative.
+- “Xem toàn bộ … việc cần xử lý” mở rộng tại dashboard cùng tập dữ liệu, thu gọn về5; giữ
+  ngữ cảnh/focus/scroll, không dẫn đến danh sách khoản vay chung.
+- Privacy metadata có khoảng cách/separator ở call site; không đổi masking toàn cục tùy tiện.
+- Empty notifications theo Tất cả/Chưa đọc; CTA về Tất cả khi đã đọc hết.
+- Đưa list/empty trước cấu hình push; cấu hình disclosure có trạng thái, keyboard và giờ nhận
+  còn truy cập được. Không tự xin quyền hoặc thay đổi setting.
+- Thay đổi local runtime và regression phù hợp; giữ ngoài phạm vi desktop row mode G2,
+  cảnh báo Chrome, migration/financial RPC mutation, credentials/secrets và tài nguyên remote.
+  Không push/deploy; rollout phải được duyệt qua checkpoint riêng.
+
+Acceptance criteria:
+
+1. Fixture ít nhất13 việc, tên chung tiền tố/nhãn khác cuối;375/390/1440 light/dark đọc và
+   phân biệt được tên/nhãn/hướng/ngày/tiền, không tràn ngang. Nếu text bị rút gọn phải có cách
+   mở đầy đủ bằng keyboard/touch, không chỉ title tooltip.
+2. Một click/activation mở đúng13 việc cùng nguồn; thu gọn5, label/count đúng, focus/scroll
+   không mất ngữ cảnh; không điều hướng loans chung, không thay số tiền/lịch authoritative.
+3. Privacy on/off ở tên generated/custom và metadata liên quan: separator đúng; masking
+   text/title/aria không hồi quy, ledger/date không đổi.
+4. Empty Chưa đọc khác Tất cả, CTA Tất cả đúng; badge/read/count giữ đúng. Không mark-read
+   hoặc gọi runner ngoài hành động người dùng.
+5. Notifications375/390 item đầu/empty trước cấu hình; disclosure keyboard dùng được và
+   push state/delivery hour vẫn truy cập được. Không tự xin quyền/change setting.
+6. Hồi quy back/query, save đóng/focus, draft/error, loading tiếp tục đạt; chạy diff-check,
+   lint, typecheck, unit, build, E2E liên quan. Không bắt OWNER học VoiceOver để đóng local.
+7. Review synthetic sau sửa; context/roadmap cập nhật cùng thay đổi, checkpoint kế tiếp
+   AWAITING_APPROVAL rồi dừng. Chưa phát hành Production trong C75.
+
+Kết quả C75: F1–F4/G1 sửa local, giữ brand/component hiện hữu, tên custom wrap không parse,
+expand/collapse tập task server; privacy metadata, empty filter, notification list-first đạt.
+Lint/typecheck/diff-check/unit80/build19 route PASS; regression C63/C67/C7219 PASS,
+business-flow11 PASS, final C75 3 PASS56,8s. Evidence6 matrix/ảnh/report/review tại
+`docs/remediation-c75/`; teardown profiles/loans/transactions0. Lịch sử harness và giới hạn
+browser/AT ghi trong report. C74 chưa commit bảo toàn; chưa push/deploy/schema/remote mutation.
+
+## 34. Checkpoint C76 — Đang thực hiện
+
+**C76 — Đồng bộ và rollout remediation C74–C75.** Trạng thái: `IN_PROGRESS`.
+
+Người dùng phê duyệt ngày 2026-10-02; bắt đầu preflight, chưa tạo candidate hoặc chuyển alias.
+
+Mục tiêu: đưa source/bằng chứng C74–C75 đã đạt gate lên GitHub và phát hành qua Preview,
+Production có authenticated smoke thực. Không mở rộng redesign hoặc thay đổi database.
+
+Phạm vi:
+
+- Kiểm toàn bộ local diff C74–C75 và bảo toàn thay đổi khác; credential/financial artifact scan,
+  dependency/policy gate, lint/typecheck/unit/build/full E2E phù hợp. Sửa blocker trong phạm vi
+  release nếu cần; sai lệch dữ liệu/kiến trúc ngoài phạm vi phải dừng.
+- Commit source/tài liệu synthetic, push fast-forward remote hiện hữu. Xác nhận Required CI của
+  đúng SHA xanh; không nâng GitHub plan, không phát hành từ run cũ hoặc candidate trước CI đạt.
+- Preview theo AGENTS4.1 và `docs/VERCEL_PREVIEW_RUNBOOK.md`: root pnpm deploy:preview,
+  đúng project/target/sin1; candidate public và authenticated read-only smoke trên immutable URL
+  trước stable alias. Hậu kiểm alias/log và rollback nếu thất bại.
+- Production root pipeline --target=production giữ alias cũ khi smoke candidate; chỉ promote khi
+  full gate/Auth smoke đạt, hậu kiểm alias/log, rollback target đúng project. Không tự bypass
+  cảnh báo browser; nếu cần OWNER đăng nhập thì chỉ handoff bước đăng nhập.
+- Smoke C75 dashboard đủ tên/expand/collapse/privacy/context, notification list/disclosure/empty
+  có sẵn, loans back/tab/loading;375/390/1440 light/dark trên browser khả dụng. Không save,
+  mark-read hoặc ghi tài chính remote để tạo empty state; trạng thái thiếu dữ liệu NOT_TESTED,
+  có regression local bổ trợ. Không tạo QA account dùng chung/secrets/migration/Apps Script/Sheets.
+
+Acceptance criteria:
+
+1. Gate local và secret/artifact scan đạt; commit không có credential/dump/dữ liệu tài chính thật.
+   Origin/main khớp source SHA, Required CI đúng SHA đạt mọi job/gate; không dùng run khác.
+2. Preview/Production candidates Ready, đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`,
+   target tương ứng, Functions sin1. Ghi ID/immutable URL/alias/SHA/rollback/từng smoke.
+3. Candidate đạt public và authenticated runtime smoke trước alias; alias hậu kiểm đạt,
+   không app console exception/runtime error/HTTP500 chưa giải thích. Toolbar/extension phải
+   phân biệt nguồn. Nếu hậu kiểm fail trả alias về deployment tốt đã xác minh.
+4. C75 behavior đọc-only đạt trên candidate/alias có dữ liệu thực hiện hữu, không lưu tài chính
+   hoặc mark-read. Thử quyền push/time chỉ local; không xin permission/change setting remote.
+   Cảnh báo Chrome C73 và AT/mobile vật lý không được tự kết luận đã đóng nếu thiếu bằng chứng.
+5. Context/roadmap cập nhật cùng thay đổi, Required CI exact final documentation SHA nếu push
+   tài liệu cuối, báo rủi ro/giới hạn và checkpoint kế tiếp AWAITING_APPROVAL rồi dừng.

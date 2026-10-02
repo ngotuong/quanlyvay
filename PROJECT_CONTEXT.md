@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.245
+roadmap_version: 1.0.250
 last_updated: 2026-10-02
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C74
-current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C73
-next_checkpoint: C74
+current_checkpoint: C76
+current_status: IN_PROGRESS
+last_completed_checkpoint: C75
+next_checkpoint: C76
 ---
 
 # Project Context
@@ -219,7 +219,16 @@ quyền thực hiện thao tác remote mới.
 
 ## 6. Kiểm thử gần nhất
 
-C72 ngày 2026-10-01 (kết quả mới nhất):
+C75 ngày 2026-10-02 (kết quả mới nhất):
+
+- Lint/typecheck/diff-check, unit/script80, build19 route PASS.
+- C63/C67/C72 regression19 PASS; business-flow11 PASS; final C75 3 PASS56,8s.
+- Six matrix375/390/1440 light/dark13 tasks không overflow/clipping; keyboard/focus/scroll,
+  privacy generated/custom, distinct empty state, query back và loading đạt.
+- Teardown DB disposable55322: profiles/loans/transactions0; không thay remote.
+- Giới hạn và lịch sử harness tại `docs/remediation-c75/report.md`; chưa CI/deploy C75.
+
+C72 ngày 2026-10-01:
 
 - `git diff --check`, lint, typecheck, build: PASS; `pnpm test`80/80 PASS.
 - Full E2E45 PASS/3 audit opt-in SKIP, 6 phút; toàn bộ6 C72 và regression hiện hữu đạt.
@@ -582,9 +591,48 @@ C59 đã đạt:
   positive/source compromise, không bypass hoặc đổi security setting. Stable aliases không hiện
   badge tại lần kiểm. Bằng chứng/rủi ro: `docs/C73_RELEASE_BLOCKER.md`.
   Screen reader/mobile vật lý và browser ngoài Chrome authenticated C73 vẫn NOT_TESTED.
-- C74 `AWAITING_APPROVAL`: audit hành trình và backlog UI/UX sau rollout, chỉ đọc remote,
-  fixture local synthetic nếu cần; không tự sửa/deploy/mutate. Phạm vi/acceptance mục32 roadmap.
-  Không blocker rollout còn lại; cảnh báo Chrome và giới hạn AT/thiết bị được giữ OPEN.
+- C74 `COMPLETED` ngày02/10/2026: audit54 lượt trên9 route/view ở375/390/1440 light/dark,
+  synthetic Chrome local build; không tràn ngang. Bốn phát hiện mới: F1/F2 MEDIUM (tên công việc
+  bị cắt/mất ngữ cảnh khi Xem tất cả), F3/F4 LOW (privacy dính chữ/empty unread sai copy).
+  Hai đề xuất hierarchy/thẩm mỹ được phân biệt rõ. Báo cáo/matrix/evidence/mockup trong
+  `docs/audit-c74/`; harness opt-in `apps/web/test/e2e/c74-audit.spec.ts`.
+  Back query, save tự đóng/focus, draft/error, progress tab và sheet keyboard được kiểm lại.
+  Lint/typecheck PASS, targeted audit2/2 PASS49,9s; matrix được giữ từ lượt chụp trước,
+  không tuyên bố chụp lại khi rerun friction. Teardown DB test xong, profiles/loans/transactions0.
+  Lượt đầu harness dismiss confirm làm abort navigation; đã sửa listener. Lượt kế local Auth502,
+  restart riêng Kong test rồi dùng baseline đã reset với E2E_DATABASE_PREPARED=true; không sửa
+  runtime/schema. Destination stream closed khi chủ động abort probe không quy là lỗi remote.
+  Git diff-check PASS; chỉ tài liệu/ảnh synthetic/harness mới, không credential/dump/ảnh dữ liệu
+  thật vào thay đổi. Không sửa sản phẩm, commit/push, deploy hoặc mutation remote.
+  Safari public login đã quan sát; authenticated Safari/Chrome remote C74 không truy cập được,
+  mobile vật lý/AT/Firefox NOT_TESTED. Browser từ chối file:// mockup, chưa xác minh render,
+  không workaround. Cảnh báo Chrome C73 vẫn OPEN, không xác nhận nguyên nhân.
+- C75 `COMPLETED` local ngày02/10/2026: OWNER phê duyệt trong hội thoại; sửa F1–F4 và G1.
+  AttentionItems mở/thu gọn toàn bộ tập server tại dashboard, giữ focus/scroll; tên custom/ngày
+  wrap đầy đủ, hướng cạnh loại việc, không parse chuỗi hoặc đổi nguồn quyết toán. Metadata
+  heading/history có separator đúng; notification empty theo filter, CTA Tất cả, list trước
+  push disclosure có trạng thái/keyboard. Không tự requestPermission/change setting.
+  Report/review/ảnh synthetic/evidence `docs/remediation-c75/`; regression C75
+  `apps/web/test/e2e/c75-remediation.spec.ts`. Six matrix375/390/1440 light/dark13 tasks,
+  overflow0/clipped0, expand13/collapse5 giữ focus/scroll. Generated/custom privacy attributes,
+  unread/all empty, explicit-back query và controlled RSC1800ms progress đạt.
+  Lint/typecheck/diff-check PASS, unit/script80 PASS, pnpm build19 route PASS; C63/C67/C72
+  regression19 PASS, business-flow11/11 PASS1,4 phút, final C75 3/3 PASS56,8s (rebuild cuối).
+  Lượt đầu C75 fail locator đổi label/fixture idempotency; sửa harness reuse counterpart,
+  stable locator. PWA filtered run thiếu suite đổi mật khẩu; full file đạt, không đổi remote.
+  C72 test first-task kiểm trên mobile nav thực thay magic650px; không bỏ kiểm ưu tiên mobile.
+  Ảnh sau đã xem, sửa clearance marker disclosure và align-start để chart không kéo dài theo
+  task list. HTML review chưa browser render-verify vì giới hạn file://; PNG app là render thật.
+  Teardown và read-only hậu kiểm profiles/loans/transactions0 trên DB test riêng55322.
+  Thay đổi C74 sẵn có được bảo toàn. Không migration/RPC/Auth/credential/data remote,
+  commit/push hoặc deployment. Chỉ fixture local synthetic mutate/reset; restart riêng Kong test
+  để tránh gateway stale, không tác động project anh em. Không blocker local.
+  Desktop compact G2/cảnh báo Chrome C73 OPEN ngoài phạm vi; Safari/Firefox/AT/mobile vật lý
+  chưa kiểm mới, không coi đây là chứng nhận accessibility.
+- C76 `IN_PROGRESS` (người dùng phê duyệt ngày 2026-10-02): đồng bộ C74–C75 và rollout Preview/Production theo mục34 roadmap.
+  Source hiện còn local chưa commit/push; Production tiếp tục deployment C73. Preflight PASS: policy/actionlint, lint/typecheck, unit80/80, build19 routes, audit sạch,
+  full E2E48PASS/5opt-inSKIP; DB teardown0/0/0. Secret scan history/artifact PASS; chưa tạo
+  candidate hoặc đổi alias. Bằng chứng trong docs/release-c76/report.md.
 
 
 
@@ -621,3 +669,9 @@ C59 đã đạt:
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.
+
+C74 khởi động ngày02/10/2026: OWNER phê duyệt rõ trong hội thoại; startup đã đọc context/roadmap,
+Git main khớp origin tại startup, không thay đổi local sẵn có. Audit read-only remote và synthetic local;
+không sửa runtime/deploy/push. C73 final SHA4c84d671721b0ad38691f1c7c3691e53efcdfa51,
+Required CI36968146353 attempt2 đạt toàn bộ job/E2E44 PASS4 SKIP; attempt1 timeout C63 375px
+sau payment render loan.summary_failed không có code. Rerun cùng SHA đạt, không sửa test/runtime.

@@ -1331,3 +1331,15 @@ details[open] > summary::after { content: "−"; }
 .loan-card-tags .ui-badge { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
 
 .loan-card-details dd { overflow-wrap: anywhere; }
+
+/* C75: keep task identity and context readable across narrow dashboard columns. */
+.schedule-list .due-main strong, .schedule-list .due-main small, .schedule-list .due-value small {
+  overflow: visible; text-overflow: clip; white-space: normal; overflow-wrap: anywhere;
+}
+.attention-toggle { width: 100%; margin-bottom: 12px; white-space: normal; }
+.loan-heading-metadata { display: flex; flex-wrap: wrap; column-gap: 4px; }
+.push-settings-disclosure { margin-top: 20px; padding: 0 16px; }
+.push-settings-disclosure > summary { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; min-height: 52px; align-items: center; padding: 12px 34px 12px 0; cursor: pointer; font-weight: 650; }
+.push-settings-disclosure > summary small { color: var(--foreground-muted); font-weight: 400; }
+.push-settings-disclosure .push-settings { border-top: 1px solid var(--border); padding: 16px 0; margin: 0; }
+.dashboard-focus-grid { align-items: start; }

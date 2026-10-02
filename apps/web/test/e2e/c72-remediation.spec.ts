@@ -153,7 +153,10 @@ test("C72 responsive hierarchy and all audited visible targets, light/dark/text 
           return { visibleControls: controls.length, overflow: document.documentElement.scrollWidth > innerWidth, small: controls.filter(e => { const r = e.getBoundingClientRect(); return r.width < 44 || r.height < 44; }).map(e => e.className), taskBottom: document.querySelector(".due-list a")?.getBoundingClientRect().bottom };
         });
         expect(data.overflow).toBe(false); expect(data.small).toEqual([]);
-        if (route === "/dashboard" && width === 390) expect(data.taskBottom).toBeLessThan(650);
+        if (route === "/dashboard" && width === 390) {
+          const navTop = await page.locator(".mobile-nav-wrap").evaluate(e => e.getBoundingClientRect().top);
+          expect(data.taskBottom).toBeLessThan(navTop);
+        }
         if (process.env.C72_EVIDENCE === "true" && [390,1440].includes(width)) { mkdirSync(out,{recursive:true}); await page.screenshot({ path: resolve(out, `${route.slice(1)}-${width}-${colorScheme}.png`), fullPage: true }); }
         await page.keyboard.press("Tab");
         const target = page.locator(".edit-details > summary:visible, .filter-pills a:visible, .loan-card-quick-action:visible, .dashboard-custom-trigger:visible").first();

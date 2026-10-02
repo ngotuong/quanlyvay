@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowDownLeft, ArrowUpRight, Banknote, CalendarClock, ChartSpline, CircleAlert, HandCoins, Landmark, Minus, ReceiptText, Scale, ShieldAlert, TrendingDown, TrendingUp, WalletCards } from "lucide-react";
 import { DashboardPeriodFilter } from "@/components/business/dashboard-period-filter";
+import { AttentionItems } from "@/components/business/attention-items";
 import { CashFlowBars } from "@/components/business/cash-flow-bars";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatVnd } from "@/lib/business/format";
@@ -182,24 +183,19 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
 
 function AttentionList({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; overdue: DashboardDueLoan[] }) {
   const total = overdue.length + upcoming.length;
-  const visibleOverdue = overdue.slice(0, 5);
-  const visibleUpcoming = upcoming.slice(0, Math.max(0, 5 - visibleOverdue.length));
   const interestAction = (loan: DashboardDueLoan) => loan.direction === "LENDING" ? "Cần thu lãi" : "Cần trả lãi";
   const rows = [
-    ...visibleOverdue.map((loan) => ({ loan, kind: "overdue" as const })),
-    ...visibleUpcoming.map((loan) => ({ loan, kind: "interest" as const })),
+    ...overdue.map((loan) => ({ loan, kind: "overdue" as const })),
+    ...upcoming.map((loan) => ({ loan, kind: "interest" as const })),
   ];
   return (
     <Card className="surface-card due-card attention-card" aria-labelledby="schedule-title">
       <div className="dashboard-section-heading"><div><p className="eyebrow">Ưu tiên hôm nay</p><h2 id="schedule-title">Việc cần xử lý</h2></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>
-      {total === 0 ? <div className="dashboard-empty"><strong>Không có việc đến hạn</strong><span>Chưa có lãi cần thu, trả hoặc gốc quá hạn trong 30 ngày tới.</span></div> : <div className="attention-groups">
-        <div className="due-list schedule-list">{rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item" key={`${kind}-${loan.id}`}>
+      {total === 0 ? <div className="dashboard-empty"><strong>Không có việc đến hạn</strong><span>Chưa có lãi cần thu, trả hoặc gốc quá hạn trong 30 ngày tới.</span></div> : <AttentionItems items={rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item" key={`${kind}-${loan.id}`}>
           <span className="due-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins size={19} /> : <Landmark size={19} />}</span>
           <span className="due-main"><strong><PrivacyRegion>{loan.name}</PrivacyRegion></strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
-          <span className="due-value"><strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong><small>{kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
-        </Link>)}</div>
-        {total > 5 ? <Link className="attention-all-link" href="/loans">Xem tất cả {total} giao dịch</Link> : null}
-      </div>}
+          <span className="due-value"><strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong><small>{loan.direction === "LENDING" ? "Cho vay" : "Đi vay"} · {kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
+        </Link>)} />}
     </Card>
   );
 }

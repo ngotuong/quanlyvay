@@ -107,7 +107,7 @@ export function PushManager({ publicKey, initialDeliveryHour, showTestButton = f
     }
   }
 
-  return <section className="surface-card push-settings" aria-labelledby="push-title">
+  return <details className="surface-card push-settings-disclosure"><summary><span>Thông báo trên thiết bị</span><small>{checking ? "Đang kiểm tra…" : enabled ? "Đã bật" : "Chưa bật"}</small></summary><section className="push-settings" aria-labelledby="push-title">
     <span className="push-settings-icon" data-enabled={enabled}>{enabled ? <BellRing /> : <BellOff />}</span>
     <div className="push-settings-copy"><h2 id="push-title">Thông báo trên thiết bị</h2><p>{enabled ? "Thiết bị này đã đăng ký nhận nhắc hạn." : "Bật để nhận nhắc đến hạn và nhắc lại mỗi ngày khi lãi chưa thanh toán."}</p></div>
     <button
@@ -134,5 +134,5 @@ export function PushManager({ publicKey, initialDeliveryHour, showTestButton = f
     </button> : null}
     {!publicKey && !enabled ? <p className="push-config-note">Chức năng gửi thông báo chưa được cấu hình.</p> : null}
     <p className="push-feedback" aria-live="polite">{message}</p>
-  </section>;
+  </section></details>;
 }

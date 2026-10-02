@@ -1,0 +1,51 @@
+{
+  "method": "Headless Chrome, local production build, synthetic isolated DB :55321",
+  "matrix": [
+    {
+      "width": 375,
+      "theme": "light",
+      "taskCount": 25,
+      "overflow": false,
+      "clipped": 0
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "taskCount": 25,
+      "overflow": false,
+      "clipped": 0
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "taskCount": 25,
+      "overflow": false,
+      "clipped": 0
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "taskCount": 25,
+      "overflow": false,
+      "clipped": 0
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "taskCount": 25,
+      "overflow": false,
+      "clipped": 0
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "taskCount": 25,
+      "overflow": false,
+      "clipped": 0
+    }
+  ],
+  "observations": {
+    "emptyState": "unread empty copy, CTA and genuinely empty All verified",
+    "navigation": "explicit back preserves query; controlled RSC1800ms shows route progress"
+  }
+}

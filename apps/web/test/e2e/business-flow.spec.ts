@@ -654,6 +654,7 @@ test("PWA manifest, service worker and notification center are available", async
   await expect(page.getByText("Đối tác thông báo E2E • 1.000.000\nGiải ngân : 01/08/2026\nDư gốc quá hạn : 1.000.000\nQuá hạn : 1 ngày", { exact: true })).toBeVisible();
   const notificationBackgrounds = await page.locator(".notification-item").evaluateAll((items) => Object.fromEntries(items.map((item) => [item.getAttribute("data-read"), getComputedStyle(item).backgroundColor])));
   expect(notificationBackgrounds.false).not.toBe(notificationBackgrounds.true);
+  await page.locator(".push-settings-disclosure > summary").click();
   await expect(page.getByRole("heading", { name: "Thông báo trên thiết bị" })).toBeVisible();
   const pushToggle = page.getByRole("switch", { name: /thông báo trên thiết bị/i });
   await expect(pushToggle).toHaveAttribute("aria-checked", /true|false/);
@@ -667,6 +668,7 @@ test("PWA manifest, service worker and notification center are available", async
   await page.getByLabel("Giờ nhận thông báo").selectOption("9");
   await expect(page.locator("#main-content").getByText("Đã đặt giờ nhận thông báo là 09:00.")).toBeVisible();
   await page.reload();
+  await page.locator(".push-settings-disclosure > summary").click();
   await expect(page.getByLabel("Giờ nhận thông báo")).toHaveValue("9");
   await page.evaluate(async () => {
     const registration = await navigator.serviceWorker.ready;

@@ -1,0 +1,766 @@
+{
+  "method": "Headless Chrome, local production build, synthetic isolated DB :55321",
+  "matrix": [
+    {
+      "route": "dashboard",
+      "width": 375,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Tổng quan",
+      "clippedTasks": [
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 1",
+          "client": 241,
+          "scroll": 681
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 10",
+          "client": 241,
+          "scroll": 691
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 11",
+          "client": 241,
+          "scroll": 687
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 12",
+          "client": 241,
+          "scroll": 691
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 2",
+          "client": 241,
+          "scroll": 684
+        }
+      ],
+      "focus": "BODY"
+    },
+    {
+      "route": "loans",
+      "width": 375,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Các khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "counterparties",
+      "width": 375,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Đối tác",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "expenses",
+      "width": 375,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi phí",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "notifications-unread=true",
+      "width": 375,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Thông báo",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-overview",
+      "width": 375,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-interest",
+      "width": 375,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-history",
+      "width": 375,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-settings",
+      "width": 375,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "dashboard",
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Tổng quan",
+      "clippedTasks": [
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 1",
+          "client": 256,
+          "scroll": 681
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 10",
+          "client": 256,
+          "scroll": 691
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 11",
+          "client": 256,
+          "scroll": 687
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 12",
+          "client": 256,
+          "scroll": 691
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 2",
+          "client": 256,
+          "scroll": 684
+        }
+      ],
+      "focus": "BODY"
+    },
+    {
+      "route": "loans",
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Các khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "counterparties",
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Đối tác",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "expenses",
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi phí",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "notifications-unread=true",
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Thông báo",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-overview",
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-interest",
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-history",
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-settings",
+      "width": 390,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "dashboard",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Tổng quan",
+      "clippedTasks": [
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 1",
+          "client": 170,
+          "scroll": 681
+        },
+        {
+          "text": "Nhắc 29/10/2026 · Kỳ chốt 29/10/2026",
+          "client": 170,
+          "scroll": 239
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 10",
+          "client": 170,
+          "scroll": 691
+        },
+        {
+          "text": "Nhắc 29/10/2026 · Kỳ chốt 29/10/2026",
+          "client": 170,
+          "scroll": 239
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 11",
+          "client": 170,
+          "scroll": 687
+        },
+        {
+          "text": "Nhắc 29/10/2026 · Kỳ chốt 29/10/2026",
+          "client": 170,
+          "scroll": 239
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 12",
+          "client": 170,
+          "scroll": 691
+        },
+        {
+          "text": "Nhắc 29/10/2026 · Kỳ chốt 29/10/2026",
+          "client": 170,
+          "scroll": 239
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 2",
+          "client": 170,
+          "scroll": 684
+        },
+        {
+          "text": "Nhắc 29/10/2026 · Kỳ chốt 29/10/2026",
+          "client": 170,
+          "scroll": 239
+        }
+      ],
+      "focus": "BODY"
+    },
+    {
+      "route": "loans",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Các khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "counterparties",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Đối tác",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "expenses",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi phí",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "notifications-unread=true",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Thông báo",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-overview",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-interest",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-history",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-settings",
+      "width": 1440,
+      "theme": "light",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "dashboard",
+      "width": 375,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Tổng quan",
+      "clippedTasks": [
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 1",
+          "client": 241,
+          "scroll": 681
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 10",
+          "client": 241,
+          "scroll": 691
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 11",
+          "client": 241,
+          "scroll": 687
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 12",
+          "client": 241,
+          "scroll": 691
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 2",
+          "client": 241,
+          "scroll": 684
+        }
+      ],
+      "focus": "BODY"
+    },
+    {
+      "route": "loans",
+      "width": 375,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Các khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "counterparties",
+      "width": 375,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Đối tác",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "expenses",
+      "width": 375,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi phí",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "notifications-unread=true",
+      "width": 375,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Thông báo",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-overview",
+      "width": 375,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-interest",
+      "width": 375,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-history",
+      "width": 375,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-settings",
+      "width": 375,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "dashboard",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Tổng quan",
+      "clippedTasks": [
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 1",
+          "client": 256,
+          "scroll": 681
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 10",
+          "client": 256,
+          "scroll": 691
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 11",
+          "client": 256,
+          "scroll": 687
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 12",
+          "client": 256,
+          "scroll": 691
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 2",
+          "client": 256,
+          "scroll": 684
+        }
+      ],
+      "focus": "BODY"
+    },
+    {
+      "route": "loans",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Các khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "counterparties",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Đối tác",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "expenses",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi phí",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "notifications-unread=true",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Thông báo",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-overview",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-interest",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-history",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-settings",
+      "width": 390,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "dashboard",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Tổng quan",
+      "clippedTasks": [
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 1",
+          "client": 170,
+          "scroll": 681
+        },
+        {
+          "text": "Nhắc 29/10/2026 · Kỳ chốt 29/10/2026",
+          "client": 170,
+          "scroll": 239
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 10",
+          "client": 170,
+          "scroll": 691
+        },
+        {
+          "text": "Nhắc 29/10/2026 · Kỳ chốt 29/10/2026",
+          "client": 170,
+          "scroll": 239
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 11",
+          "client": 170,
+          "scroll": 687
+        },
+        {
+          "text": "Nhắc 29/10/2026 · Kỳ chốt 29/10/2026",
+          "client": 170,
+          "scroll": 239
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 12",
+          "client": 170,
+          "scroll": 691
+        },
+        {
+          "text": "Nhắc 29/10/2026 · Kỳ chốt 29/10/2026",
+          "client": 170,
+          "scroll": 239
+        },
+        {
+          "text": "C74 đối tác synthetic tên dài để phân biệt khoản cho vay · Cho vay · 1.000.000 · khoản 2",
+          "client": 170,
+          "scroll": 684
+        },
+        {
+          "text": "Nhắc 29/10/2026 · Kỳ chốt 29/10/2026",
+          "client": 170,
+          "scroll": 239
+        }
+      ],
+      "focus": "BODY"
+    },
+    {
+      "route": "loans",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Các khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "counterparties",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Đối tác",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "expenses",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi phí",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "notifications-unread=true",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Thông báo",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-overview",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-interest",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-history",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    },
+    {
+      "route": "detail-settings",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": false,
+      "h1": "Chi tiết khoản vay",
+      "clippedTasks": [],
+      "focus": "BODY"
+    }
+  ],
+  "observations": {
+    "explicitBack": {
+      "retainedQuery": "C74",
+      "steps": 4
+    },
+    "dashboardAll": {
+      "count": 1,
+      "text": "Xem tất cả 13 giao dịch",
+      "href": "/loans"
+    },
+    "dashboardDestinationHeading": "Các khoản vay",
+    "privacyHeading": "Nội dung đang ẩnGiải ngân 1/8/2026",
+    "counterpartySearch": {
+      "steps": 2,
+      "count": 1
+    },
+    "counterpartySave": {
+      "autoClosed": true,
+      "focus": " Thêm đối tác",
+      "steps": 3
+    },
+    "expenseSave": {
+      "autoClosed": true,
+      "steps": 4,
+      "focus": " Thêm chi phí"
+    },
+    "expenseDraft": {
+      "confirms": 1,
+      "staysOpen": true,
+      "preserved": "Bản nháp synthetic"
+    },
+    "notificationFilter": [
+      {
+        "text": "Tất cả",
+        "current": null
+      },
+      {
+        "text": "Chưa đọc (1)",
+        "current": "page"
+      }
+    ],
+    "unreadEmpty": "Chưa có thông báo\n\nThông báo đóng lãi và quá hạn sẽ xuất hiện tại đây khi bộ nhắc lịch chạy.",
+    "expenseError": {
+      "message": "Chưa thể xác nhận thao tác. Kiểm tra kết nối rồi thử lại; giữ nguyên dữ liệu và mã giao dịch để tránh ghi trùng.",
+      "staysOpen": true,
+      "draft": "C74 lỗi synthetic"
+    },
+    "pageErrors": [],
+    "tabLoading": {
+      "routeProgress": "true",
+      "skeleton": 0,
+      "delayMs": 1800
+    },
+    "sheetKeyboard": {
+      "focusInside": true,
+      "rect": {
+        "x": 15.509994506835938,
+        "y": 162.04483032226562,
+        "width": 343.97998046875,
+        "height": 567.894775390625,
+        "top": 162.04483032226562,
+        "right": 359.48997497558594,
+        "bottom": 729.9396057128906,
+        "left": 15.509994506835938
+      },
+      "overflow": false
+    },
+    "sheetEscapeFocus": " Thêm chi phí"
+  }
+}
