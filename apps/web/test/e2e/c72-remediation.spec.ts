@@ -155,7 +155,10 @@ test("C72 responsive hierarchy and all audited visible targets, light/dark/text 
         expect(data.overflow).toBe(false); expect(data.small).toEqual([]);
         if (route === "/dashboard" && width === 390) {
           const navTop = await page.locator(".mobile-nav-wrap").evaluate(e => e.getBoundingClientRect().top);
-          expect(data.taskBottom).toBeLessThan(navTop);
+          // OWNER prefers the KPI cards before tasks; tasks remain reachable above the sticky nav.
+          const firstTask = page.locator(".due-list a").first();
+          await firstTask.scrollIntoViewIfNeeded();
+          expect((await firstTask.boundingBox())!.y + (await firstTask.boundingBox())!.height).toBeLessThan(navTop);
         }
         if (process.env.C72_EVIDENCE === "true" && [390,1440].includes(width)) { mkdirSync(out,{recursive:true}); await page.screenshot({ path: resolve(out, `${route.slice(1)}-${width}-${colorScheme}.png`), fullPage: true }); }
         await page.keyboard.press("Tab");

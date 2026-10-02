@@ -230,3 +230,23 @@ Không ghi đây là đã sửa focus. Source runtime read retry giữ đúng wh
 100ms/max2 attempts gateway-only, mutation/Auth/SQL/abort không retry. Candidate mới chỉ
 được tạo khi Required CI source mới và root full gate đạt; không dùng green32fb641
 cho source đã đổi. Browser Auth smoke vẫn chờ OWNER mở khóa Mac.
+
+Source1374946c7b954855467f053f2de77fde2e589028 đã push, Required CI37011458346 đang chạy.
+Không dùng green32fb641 cho source hiện tại. Không mark-completed/promote khi thiếu Auth smoke.
+
+## Điều chỉnh bố cục OWNER yêu cầu
+
+Mac đã mở khóa, Chrome profile hiện hữu truy cập được Production có Auth. Required CI
+37011458346 của1374946 SUCCESS cả5 job. OWNER yêu cầu các card dư nợ/lãi ròng ở trên
+Việc cần xử lý trên mọi viewport. Bỏ CSS mobile order3/2 để thứ tự hiển thị khớp DOM
+KPI→task; skeleton vốn đã có bốn card trước panel. Giữ số liệu/nguồn tiền/drawer/loading.
+Regression C75 bổ sung geometry/reading order tại375/390/1440 light/dark; C72 kiểm task
+cuộn tới được trên nav thay acceptance action-first cũ. Gate bố cục mới đang chạy; chưa
+candidate mới, chưa promote. Các ghi nhận Mac locked/CI pending phía trên là lịch sử.
+
+Gate bố cục mới: lint/typecheck/unit90/build19/policy/diff-check PASS; fullE2E48PASS5SKIP
+6,5m. Six375/390/1440 light/dark geometry KPI bottom≤task top, reading order khớp;
+C72 task cuộn tới nằm trên nav. Chart không stretch khi expand/collapse; C67 focus PASS
+lần này, root cause intermittent vẫn OPEN. Teardown/postcheck DB55322 profiles/loans/
+transactions0/0/0. Upload dry201 regular/4.527.113bytes/0 forbidden. Ảnh synthetic C75
+được recapture; đã xem mobile390light, các card KPI ở trên task; không pixel A/B với C74.

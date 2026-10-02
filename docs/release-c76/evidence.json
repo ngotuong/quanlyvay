@@ -17,7 +17,7 @@
     ],
     "dependencyAudit": "PASS",
     "historyAndStagedSecretScan": "PASS",
-    "e2eScopeNote": "Final runtime source including bounded read retry, original focus assertion with failure-only attachment; 48PASS5SKIP5.5m; intermittent focus remains OPEN"
+    "e2eScopeNote": "KPI before task in six matrix, reachable task above mobile nav; bounded read retry and original focus assertion; 48PASS5SKIP6.5m; focus root cause remains OPEN"
   },
   "rollback": {
     "preview": {
@@ -60,8 +60,8 @@
     "uploaded": false,
     "trackedPayloadHashMatches": 196
   },
-  "sourceSha": "32fb6413eeeee68b3bfde36c832cd563db716f1f",
-  "sourceCiRun": 37003852476,
+  "sourceSha": "1374946c7b954855467f053f2de77fde2e589028",
+  "sourceCiRun": 37011458346,
   "oldDeploymentArtifacts": {
     "preview": {
       "backupFiles": 77,
@@ -375,49 +375,6 @@
     "sourceSha": "32fb6413eeeee68b3bfde36c832cd563db716f1f",
     "uploaded": false
   },
-  "currentSourceCi": {
-    "run": 37003852476,
-    "attempt": 1,
-    "sourceSha": "32fb6413eeeee68b3bfde36c832cd563db716f1f",
-    "status": "completed",
-    "conclusion": "success",
-    "jobs": [
-      {
-        "name": "Dependency and secret scan",
-        "conclusion": "success",
-        "databaseId": 110827434599
-      },
-      {
-        "name": "Workflow policy",
-        "conclusion": "success",
-        "databaseId": 110827434853
-      },
-      {
-        "name": "Supabase Auth pgTAP and E2E",
-        "conclusion": "success",
-        "databaseId": 110827434885
-      },
-      {
-        "name": "Quality and build",
-        "conclusion": "success",
-        "databaseId": 110827434952
-      },
-      {
-        "name": "Required CI gate",
-        "conclusion": "success",
-        "databaseId": 110831957701
-      }
-    ],
-    "pgTAP": 527,
-    "authTests": 6,
-    "e2e": {
-      "passed": 47,
-      "skipped": 6,
-      "failed": 0,
-      "minutes": 8.7
-    },
-    "originHeadMatches": true
-  },
   "rootPreviewFinalGate": {
     "sourceSha": "32fb6413eeeee68b3bfde36c832cd563db716f1f",
     "status": "FAILURE_BEFORE_DEPLOY",
@@ -502,5 +459,80 @@
     "method": "attachment after failed focus assertion only; no pre-key timing changes",
     "fullSuiteRunning": false,
     "lastFullSuitePassed": 48
+  },
+  "diagnosticsSourceSha": "32fb6413eeeee68b3bfde36c832cd563db716f1f",
+  "diagnosticsSourceCi": {
+    "run": 37003852476,
+    "attempt": 1,
+    "sourceSha": "32fb6413eeeee68b3bfde36c832cd563db716f1f",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "Dependency and secret scan",
+        "conclusion": "success",
+        "databaseId": 110827434599
+      },
+      {
+        "name": "Workflow policy",
+        "conclusion": "success",
+        "databaseId": 110827434853
+      },
+      {
+        "name": "Supabase Auth pgTAP and E2E",
+        "conclusion": "success",
+        "databaseId": 110827434885
+      },
+      {
+        "name": "Quality and build",
+        "conclusion": "success",
+        "databaseId": 110827434952
+      },
+      {
+        "name": "Required CI gate",
+        "conclusion": "success",
+        "databaseId": 110831957701
+      }
+    ],
+    "pgTAP": 527,
+    "authTests": 6,
+    "e2e": {
+      "passed": 47,
+      "skipped": 6,
+      "failed": 0,
+      "minutes": 8.7
+    },
+    "originHeadMatches": true
+  },
+  "ownerLayoutAmendment": {
+    "status": "LOCAL_GATES_PASS",
+    "request": "Debt and net-profit KPI cards above attention card at every viewport",
+    "css": "Removed mobile visual-order override; DOM and visual order agree",
+    "matrix": [
+      375,
+      390,
+      1440
+    ],
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "browserLock": "CLEARED",
+    "browserAuthenticatedSession": "Existing Chrome profile can access Production; new candidate smoke pending",
+    "e2e": {
+      "passed": 48,
+      "skipped": 5,
+      "minutes": 6.5,
+      "databaseAfter": [
+        0,
+        0,
+        0
+      ]
+    },
+    "uploadDryRun": {
+      "regularFiles": 201,
+      "bytes": 4527113,
+      "forbidden": 0
+    }
   }
 }

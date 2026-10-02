@@ -1302,13 +1302,11 @@ details[open] > summary::after { content: "−"; }
   .auth-card { padding-top: 12px; }
 }
 
-/* C72: consistent hit areas and mobile task priority. */
+/* Consistent hit areas; dashboard visual order follows its reading order. */
 .edit-details > summary { display: flex; align-items: center; min-height: 44px; }
 .filter-pills a { min-width: 44px; min-height: 44px; }
 .dashboard-custom-trigger { min-width: 44px; min-height: 44px; }
 @media (max-width: 767px) {
-  .dashboard-primary-metrics { order: 3; }
-  .dashboard-focus-grid { order: 2; }
   .dashboard-workspace { display: flex; flex-direction: column; }
   .dashboard-period-bar { min-height: 0; margin-bottom: 8px; }
   .dashboard-workspace .dashboard-metric { margin-top: 12px; }

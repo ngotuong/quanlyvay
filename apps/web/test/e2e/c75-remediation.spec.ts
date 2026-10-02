@@ -70,6 +70,11 @@ test("C75 task identity, exact source set, focus and notifications hierarchy", a
       await page.setViewportSize({ width, height: 844 });
       await ready(page, "/dashboard");
       const card = page.locator(".attention-card");
+      const kpis = page.locator(".dashboard-primary-metrics");
+      const kpiBox = (await kpis.boundingBox())!;
+      const taskBox = (await card.boundingBox())!;
+      expect(kpiBox.y + kpiBox.height).toBeLessThanOrEqual(taskBox.y);
+      expect(await kpis.evaluate(e => Boolean(e.nextElementSibling?.querySelector(".attention-card")))).toBe(true);
       const count = Number(await card.locator(".count-badge").innerText());
       expect(count).toBeGreaterThanOrEqual(13);
       await expect(card.locator(".due-item")).toHaveCount(5);

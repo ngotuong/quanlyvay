@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.251
+roadmap_version: 1.0.252
 last_updated: 2026-10-02
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C76
@@ -629,9 +629,9 @@ C59 đã đạt:
   để tránh gateway stale, không tác động project anh em. Không blocker local.
   Desktop compact G2/cảnh báo Chrome C73 OPEN ngoài phạm vi; Safari/Firefox/AT/mobile vật lý
   chưa kiểm mới, không coi đây là chứng nhận accessibility.
-- C76 `IN_PROGRESS` (OWNER phê duyệt 2026-10-02): source32fb641 đã push và Required CI
-  37003852476 PASS cả5 jobs/pgTAP527/Auth6/E2E47PASS6SKIP. Local hiện có remediation thêm
-  read retry giới hạn và test focus failure attachment, cần commit/push/CI SHA mới trước release.
+- C76 `IN_PROGRESS` (OWNER phê duyệt 2026-10-02): source1374946c7b954855467f053f2de77fde2e589028 đã push; Required CI
+  37011458346 đã SUCCESS cả5 job; đang kiểm thay đổi bố cục mới. Source32fb641/CI37003852476 đã PASS trước
+  remediation read retry và focus failure attachment; không dùng run cũ để phát hành source mới.
   C74–C75 được bảo toàn/đồng bộ; .vercelignore chặn backup/cache/log/test artifacts/secrets.
   Sửa cash-flow-card min-height:0 scoped grid, six matrix25tasks overflow0/clipped0, chart
   desktop429,234375px delta0 trước/sau mở/thu. Local cuối lint/typecheck/unit90/build19 routes
@@ -648,7 +648,7 @@ C59 đã đạt:
   Alias chính Preview/Production vẫn C73. Cảhai rollback C73 giữ77 backup/60 test artifacts
   trong source (không out); HEAD3 paths mỗi môi trường404 chưa chứng minh mọi URL an toàn;
   chưa tải/xóa artifact cũ. Blocker: cần CI source mới/root full gate ổn định, focus intermittent
-  và browser Auth smoke chờ OWNER mở khóa Mac. Không ghi tài chính/mark-read/thay push remote.
+  và browser Auth smoke candidate mới chưa thực hiện; Mac đã mở khóa. Không ghi tài chính/mark-read/thay push remote.
   C76 chưa COMPLETED, không mở checkpoint kế tiếp. Chi tiết: docs/release-c76/report.md/evidence.json.
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
@@ -696,3 +696,19 @@ with temporary diagnostic48PASS/5SKIP5,6m. Không tái hiện lần này, root c
 Instrumentation tạm được gỡ về nguyên test assertion của source32fb641; không sửa behavior
 hoặc nới timeout. Chạy lại root Preview pipeline source CI-approved một lần, giữ fail-closed
 trước deploy và giữ read/focus failures là rủi ro mở. Nếu gate fail lại không promote.
+
+C76 source cuối1374946c7b954855467f053f2de77fde2e589028 đã push; Required CI37011458346 đã SUCCESS (source trước đổi bố cục).
+C76 IN_PROGRESS; chưa candidate từ source cuối/chưa promote; focus intermittent và
+Mac đã mở khóa; Auth smoke candidate mới chưa thực hiện. Local lint/typecheck/unit90/build/E2E48PASS5SKIP, secret scan sạch.
+
+C76 điều chỉnh theo chỉ dẫn OWNER: Mac đã mở khóa; các card dư nợ/lãi ròng phải ở
+trên Việc cần xử lý cả mobile/desktop. Bỏ CSS order đảo nhóm trên mobile, giữ DOM
+reading order. Acceptance bổ sung: KPI trước task tại375/390/1440 light/dark, task
+cuộn tới được và không bị nav che; regression focus/chart/privacy/loading giữ nguyên.
+CI37011458346 của source1374946 đã SUCCESS cả5 job; thay đổi bố cục mới phải đạt
+gate/source CI riêng trước candidate, không dùng run1374946 thay thế. C76 IN_PROGRESS.
+
+C76 bố cục KPI trước task: lint/typecheck/unit90/build19/policy/diff-check PASS;
+full E2E48PASS5SKIP6,5m, six viewport/theme đạt thứ tự KPI→task và chart/expand/focus.
+DB test55322 hậu kiểm0/0/0. Mac/profile Chrome có phiên Production hiện hữu.
+Chưa deploy bố cục mới; đang chuẩn bị source commit/CI riêng.

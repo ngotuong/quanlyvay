@@ -1245,7 +1245,7 @@ browser/AT ghi trong report. C74 chưa commit bảo toàn; chưa push/deploy/sch
 **C76 — Đồng bộ và rollout remediation C74–C75.** Trạng thái: `IN_PROGRESS`.
 
 Người dùng phê duyệt ngày 2026-10-02; đã tạo hai candidate9001479 nhưng chưa promote;
-đang sửa card dòng tiền trước source CI/candidate mới.
+đã sửa card dòng tiền; đang kiểm bố cục KPI trên task theo chỉ dẫn mới của OWNER.
 
 Mục tiêu: đưa source/bằng chứng C74–C75 đã đạt gate lên GitHub và phát hành qua Preview,
 Production có authenticated smoke thực. Không mở rộng redesign hoặc thay đổi database.
@@ -1289,9 +1289,25 @@ C67 focus Tab wrap. Local thêm readRpcWithGatewayRetry: chỉ8 RPC đã đối 
 max2 attempts100ms gateway502/503/504 không SQL code/abort, không mutation/Auth/SQL retry.
 Failure-only focus attachment giữ assertion/timing; root cause focus OPEN, riêng8+20 PASS,
 full suite lúc đạt/lúc fail. Final local lint/typecheck/unit90/build19/E2E48PASS5SKIP5,5m,
-DB test teardown0/0/0; source sửa cuối phải commit/push và CI exactSHA trước candidate mới.
+DB test teardown0/0/0; source sửa cuối1374946 đã commit/push; CI37011458346 đã SUCCESS; thay đổi bố cục mới cần CI đúng SHA trước candidate mới.
 Dry201 regular files4525732bytes/0 forbidden; .vercelignore loại backup/cache/log/secrets.
 Chart six matrix25tasks desktop delta0/overflow0/clipped0. Hai candidate9001479 superseded,
 chưa promote; stable aliases giữ C73. C76 IN_PROGRESS, chưa tạo checkpoint kế tiếp.
-Auth browser smoke chờ OWNER mở khóa Mac; gateway/focus vẫn ghi rủi ro mở, không coi lần
+Mac đã mở khóa; Auth browser smoke candidate mới chưa thực hiện; gateway/focus vẫn ghi rủi ro mở, không coi lần
 E2E đạt là root cause đã đóng. Chi tiết history/evidence tại docs/release-c76/.
+
+C76 source cuối1374946c7b954855467f053f2de77fde2e589028 đã push; Required CI37011458346 đã SUCCESS (source trước đổi bố cục).
+C76 IN_PROGRESS; chưa candidate từ source cuối/chưa promote; focus intermittent và
+Mac đã mở khóa; Auth smoke candidate mới chưa thực hiện. Local lint/typecheck/unit90/build/E2E48PASS5SKIP, secret scan sạch.
+
+C76 điều chỉnh theo chỉ dẫn OWNER: Mac đã mở khóa; các card dư nợ/lãi ròng phải ở
+trên Việc cần xử lý cả mobile/desktop. Bỏ CSS order đảo nhóm trên mobile, giữ DOM
+reading order. Acceptance bổ sung: KPI trước task tại375/390/1440 light/dark, task
+cuộn tới được và không bị nav che; regression focus/chart/privacy/loading giữ nguyên.
+CI37011458346 của source1374946 đã SUCCESS cả5 job; thay đổi bố cục mới phải đạt
+gate/source CI riêng trước candidate, không dùng run1374946 thay thế. C76 IN_PROGRESS.
+
+C76 bố cục KPI trước task: lint/typecheck/unit90/build19/policy/diff-check PASS;
+full E2E48PASS5SKIP6,5m, six viewport/theme đạt thứ tự KPI→task và chart/expand/focus.
+DB test55322 hậu kiểm0/0/0. Mac/profile Chrome có phiên Production hiện hữu.
+Chưa deploy bố cục mới; đang chuẩn bị source commit/CI riêng.
