@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.243
+roadmap_version: 1.0.245
 last_updated: 2026-10-02
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C73
-current_status: IN_PROGRESS
-last_completed_checkpoint: C72
-next_checkpoint: C73
+current_checkpoint: C74
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C73
+next_checkpoint: C74
 ---
 
 # Project Context
@@ -546,21 +546,45 @@ C59 đã đạt:
   RPC timeout thật trên fixture local giữ unread, retry đạt; teardown profiles/loans/transactions0.
   Secret/artifact scan sạch. Thay đổi C70/C71 bảo toàn; C70–C72 chưa commit/push/deploy.
   Không blocker local. Safari/Firefox, screen reader/mobile vật lý tiếp tục NOT_TESTED.
-- C73 `IN_PROGRESS`: đồng bộ C70–C72, Required CI đúng SHA, rollout Preview và Production
-  có public/authenticated smoke chỉ đọc, kiểm alias/region/runtime và rollback nếu hậu kiểm lỗi.
-  Phạm vi/acceptance tại mục31 roadmap. OWNER phê duyệt trong hội thoại ngày 02/10/2026.
-  Source đã push fast-forward tại `e0cb3956ae5ca01811f28a938eebac0ad56d0525`.
-  CI run `36960703897` thất bại ở beforeAll C72: `E2E_DATABASE_PREPARED=true` bỏ reset
-  sau volume fixtures, rồi globalSetup tạo lại user synthetic đã tồn tại (39 PASS/1 FAIL,
-  3 SKIP/5 chưa chạy). Sửa riêng fixture để gọi resetLocalDatabase có guard khi cờ prepared
-  còn bật; không đổi runtime/schema hoặc remote DB. Lint/typecheck/80 unit/build đạt,
-  full E2E với cờ prepared và CI revision sửa đang chờ xác minh.
-  Preview candidate `dpl_A5ViQwiJSrfATNwSyWq7VEvCc2Hh`, URL
-  <https://quan-ly-vay-ca-nhan-bxhs8qq9j-ngotuong2105.vercel.app>, Ready/preview/sin1,
-  đúng project. Candidate đã tạo sau local gate nhưng trước kết quả CI; chưa chuyển alias.
-  Dashboard authenticated375/390 và expense sheet mở/đóng trả focus đạt; chưa đủ ma trận smoke.
-  Console có CSP chặn Vercel toolbar và cảnh báo font preload, chưa thấy lỗi ứng dụng.
-  Stable Preview/Production chưa thay đổi; không promote khi Required CI còn đỏ.
+- C73 `COMPLETED` ngày 02/10/2026: C70–C72 đã đồng bộ và rollout Preview/Production.
+  Source `a5cd7b142ae2a8b24247537477ab6437c742be5c` có Required CI run `36961824893`
+  SUCCESS: toàn bộ job, Auth6/6, pgTAP, E2E44 PASS/4 SKIP (3 audit opt-in, 1 timeout chỉ local).
+  Run trước `36960703897` fail do fixture prepared tạo trùng Auth user; sửa riêng C72 test setup
+  gọi resetLocalDatabase có guard, không đổi runtime/schema. Local/preflight/resume root đạt
+  lint/typecheck/80 unit/build/diff-check và E2E45 PASS/3 audit SKIP.
+  Candidate sớm `dpl_A5ViQwiJSrfATNwSyWq7VEvCc2Hh` tạo trước CI xanh không được phát hành.
+- Preview C73: `dpl_6NT5NEUN86VPVZXhvZTqwNFyqgFb`, immutable URL
+  <https://quan-ly-vay-ca-nhan-c6pft4h1k-ngotuong2105.vercel.app>, target preview, Ready,
+  project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, Functions sin1. Root `pnpm deploy:preview`
+  tạo sau CI xanh; root resume đã promote <https://tindung-preview.vercel.app> sau Auth/log gate.
+  Public/authenticated candidate đạt dashboard375/390/1440 light/dark, loan detail/history,
+  counterparties, expenses, notifications/unread active filter; sheet mở/đóng/focus return đạt.
+  Stable alias inspect/public/Auth dashboard/expense sheet/unread filter đạt, runtime error/5000.
+  Console chỉ CSP Vercel Toolbar; lỗi M_ID trước đó có source chrome-extension, không phải app.
+  Rollback `dpl_6JfpS3eqM89Jtjr2b8JVzvZHLaZw` không kích hoạt.
+- Production C73: `dpl_Bqox7V6oqX63ufyhgY1sYTFmENhx`, immutable URL
+  <https://quan-ly-vay-ca-nhan-7g0uxlwrm-ngotuong2105.vercel.app>, target production, Ready,
+  cùng project/Functions sin1. Root deploy dùng --skip-domain; `tindung.vercel.app` giữ bản cũ
+  trong khi kiểm candidate. OWNER tự đăng nhập, Auth smoke dashboard/loan detail/history/đối tác/
+  expenses/notifications, sheets/return focus/filter và375/390/1440 light/dark đạt; console sạch.
+  Login/manifest200, hai API không secret401. Dashboard không cookie dùng HTTP200 streaming
+  NEXT_REDIRECT/login; browser thực về/login, không coi là bypass Auth.
+  Promote <https://tindung.vercel.app> sau gate; inspect đúng ID, public/Auth dashboard desktop/
+  mobile390dark/expense sheet/unread filter và console đạt. Skeleton dashboard xuất hiện rồi
+  render task priority, không tràn ngang; controlled-delay loading có bằng chứng local E2E.
+  Runtime error/HTTP500 trước và sau promote0, CLI exit0. Rollback
+  `dpl_HZHgS3m93v2MoYNQSPVHi9vGwZ1T` không kích hoạt.
+- C73 không migration, đổi RPC/secret/account, Apps Script/Sheets hoặc lưu/mark-read/ghi tài chính
+  remote. Browser artifact tài chính không đưa vào Git. Required CI của commit tài liệu cuối phải
+  được xác minh trước báo hoàn tất; kết quả exact SHA được báo trong hội thoại, không dùng run cũ.
+  Chrome badge Nguy hiểm xuất hiện sau login trên hai hostname immutable, nguyên nhân OPEN.
+  OWNER coi không quan trọng và phê duyệt tiếp tục; không kết luận do password toàn số/false
+  positive/source compromise, không bypass hoặc đổi security setting. Stable aliases không hiện
+  badge tại lần kiểm. Bằng chứng/rủi ro: `docs/C73_RELEASE_BLOCKER.md`.
+  Screen reader/mobile vật lý và browser ngoài Chrome authenticated C73 vẫn NOT_TESTED.
+- C74 `AWAITING_APPROVAL`: audit hành trình và backlog UI/UX sau rollout, chỉ đọc remote,
+  fixture local synthetic nếu cần; không tự sửa/deploy/mutate. Phạm vi/acceptance mục32 roadmap.
+  Không blocker rollout còn lại; cảnh báo Chrome và giới hạn AT/thiết bị được giữ OPEN.
 
 
 

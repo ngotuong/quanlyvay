@@ -48,7 +48,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C70 | Hậu kiểm accessibility Production trên screen reader/mobile | `COMPLETED` |
 | C71 | Audit sâu UI/UX và hiệu quả thao tác mobile–desktop | `COMPLETED` |
 | C72 | Remediation bản nháp, thông báo và bố cục mobile | `COMPLETED` |
-| C73 | Đồng bộ và rollout remediation C70–C72 | `IN_PROGRESS` |
+| C73 | Đồng bộ và rollout remediation C70–C72 | `COMPLETED` |
+| C74 | Audit hành trình và backlog UI/UX sau rollout | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1093,7 +1094,7 @@ Safari/Firefox/screen reader/mobile vật lý chưa kiểm; không xem ảnh là
 
 ## 31. Checkpoint C73 — Đã được phê duyệt
 
-**C73 — Đồng bộ và rollout remediation C70–C72.** Trạng thái: `IN_PROGRESS`.
+**C73 — Đồng bộ và rollout remediation C70–C72.** Trạng thái: `COMPLETED`.
 
 Mục tiêu: đưa source local đã kiểm lên GitHub, stable Preview và Production để OWNER sử dụng
 bản UI/UX mới. Không migration, đổi secret/tài khoản/kiến trúc hay ghi dữ liệu tài chính remote.
@@ -1128,8 +1129,56 @@ Acceptance criteria:
    xác minh Required CI của SHA cuối. Đánh dấu COMPLETED chỉ sau toàn bộ gate và hậu kiểm;
    checkpoint tiếp theo đặt AWAITING_APPROVAL rồi dừng. OWNER phê duyệt C73 trong hội thoại ngày 02/10/2026.
 
-Gate đang xử lý 02/10/2026: run `36960703897` của `e0cb395` đỏ do beforeAll C72 gọi
-globalSetup mà CI giữ `E2E_DATABASE_PREPARED=true`, tạo trùng user synthetic. Điều chỉnh
-chuẩn bị fixture local có guard phục vụ gate C73; không thay ứng dụng, remote DB hoặc schema.
-Candidate Preview đã Ready sau gate local, nhưng tạo trước kết quả CI; chưa promote alias,
-candidate này không được phát hành khi Required CI chưa đạt. Tạo candidate mới sau CI xanh.
+Kết quả 02/10/2026: source `a5cd7b142ae2a8b24247537477ab6437c742be5c` và Required CI
+`36961824893` SUCCESS. Fixture CI prepared được reset có guard để tránh user synthetic trùng;
+không đổi runtime/remote DB. Local/root resume lint/typecheck/80unit/build/E2E45 PASS3 SKIP đạt.
+Preview `dpl_6NT5NEUN86VPVZXhvZTqwNFyqgFb`, immutable
+<https://quan-ly-vay-ca-nhan-c6pft4h1k-ngotuong2105.vercel.app>, Ready/preview/sin1/đúng project;
+root script promote stable alias và hậu kiểm đạt. Rollback `dpl_6JfpS3eqM89Jtjr2b8JVzvZHLaZw`
+không kích hoạt. Candidate sớm `dpl_A5ViQwiJSrfATNwSyWq7VEvCc2Hh` trước CI xanh không phát hành.
+Production `dpl_Bqox7V6oqX63ufyhgY1sYTFmENhx`, immutable
+<https://quan-ly-vay-ca-nhan-7g0uxlwrm-ngotuong2105.vercel.app>, Ready/production/sin1/đúng project;
+root --skip-domain candidate trước promote; stable domain inspect/public/Auth hậu kiểm đạt.
+Rollback `dpl_HZHgS3m93v2MoYNQSPVHi9vGwZ1T` không kích hoạt.
+Public login/manifest200, API không secret401; streaming Auth redirect200 có NEXT_REDIRECT/login
+và browser về/login. Auth candidate hai môi trường kiểm đủ route/3753901440/lightdark/sheet/
+focus/filter. Alias hậu kiểm dashboard/expense sheet/unread filter; skeleton dashboard Production
+xuất hiện rồi render xong. Không có lỗi app console/runtime/HTTP500; CSP Toolbar Preview và lỗi
+extension được phân loại riêng. Không ghi tài chính, mark-read, đổi schema/secret/account.
+Chi tiết deployment/gate/giới hạn ở context; Required CI của commit tài liệu cuối được xác minh
+trước báo hoàn tất, exact SHA/run báo trong hội thoại. C74 chờ duyệt, chưa triển khai.
+
+OWNER cho phép tiếp tục dù Chrome badge Nguy hiểm sau login immutable hostname, nguyên nhân
+OPEN tại `docs/C73_RELEASE_BLOCKER.md`. Không bypass hay coi đã giải quyết; stable aliases
+không hiện badge ở lượt kiểm. Screen reader/mobile vật lý không được chứng nhận PASS.
+
+## 32. Checkpoint C74 — Chờ phê duyệt
+
+**C74 — Audit hành trình và backlog UI/UX sau rollout.** Trạng thái: `AWAITING_APPROVAL`.
+
+Mục tiêu: đánh giá bản đã phát hành bằng hành trình thực tế, xác định thao tác thừa và điểm
+khó dùng còn lại, đưa đề xuất remediation cụ thể để OWNER duyệt. Chưa sửa sản phẩm.
+
+Phạm vi:
+
+- Kiểm chỉ đọc Production/Preview trên phiên hiện hữu: tìm khoản vay → detail/tab → quay lại,
+  dashboard → việc đến hạn, đối tác/search, chi phí list/sheet, thông báo/filter.
+- Đếm bước và ghi trạng thái loading, navigation, keyboard/focus, mobile375/390 và desktop1440,
+  light/dark; kiểm Chrome/Safari khi công cụ/phiên cho phép. Mutation/draft/error chỉ ở fixture
+  local synthetic, không lưu/mark-read/ghi dữ liệu remote hoặc tạo account QA dùng chung.
+- Rà bố cục, hierarchy, nhãn, mục tiêu bấm, nội dung khi privacy bật và cảm giác phản hồi.
+  Điều tra cảnh báo Chrome chỉ đọc nếu còn tái hiện, không đổi credential/security setting.
+- Báo cáo chứng cứ redacted/synthetic, severity, file/vị trí, nguyên nhân/tác động và hướng sửa;
+  mockup khi giúp OWNER quyết định, không đổi runtime/schema/dependency/deploy/push.
+
+Acceptance criteria:
+
+1. Có ma trận hành trình, số bước/thao tác thừa và kết quả từng route/viewport/theme đã kiểm;
+   NOT_TESTED rõ cho thiết bị vật lý/AT hoặc browser không truy cập được.
+2. Không đưa dữ liệu tài chính thật, cookie/credential vào Git; chứng cứ phải synthetic/redacted.
+3. Phân biệt lỗi tái hiện với ý kiến thẩm mỹ, rủi ro source và giới hạn kiểm; không mở lại lỗi đã
+   sửa nếu không có chứng cứ mới. Mỗi phát hiện có vị trí/tác động/severity/hướng sửa.
+4. Chốt một checkpoint remediation tiếp theo có phạm vi ưu tiên và acceptance đo được; đề xuất
+   để OWNER duyệt, không tự sửa. Không yêu cầu OWNER học VoiceOver để đóng audit khả dụng.
+5. Gate tài liệu diff-check; harness nếu đổi chạy lint/typecheck và test audit liên quan trong DB
+   cô lập. Context/roadmap cập nhật cùng thay đổi, báo kết quả và dừng chờ phê duyệt remediation.
