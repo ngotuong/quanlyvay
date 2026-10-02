@@ -5,6 +5,9 @@
       "width": 375,
       "theme": "light",
       "taskCount": 25,
+      "chartHeight": 479.46875,
+      "expandedChartHeight": 479.46875,
+      "collapsedChartHeight": 479.46875,
       "overflow": false,
       "clipped": 0
     },
@@ -12,6 +15,9 @@
       "width": 390,
       "theme": "light",
       "taskCount": 25,
+      "chartHeight": 479.46875,
+      "expandedChartHeight": 479.46875,
+      "collapsedChartHeight": 479.46875,
       "overflow": false,
       "clipped": 0
     },
@@ -19,6 +25,9 @@
       "width": 1440,
       "theme": "light",
       "taskCount": 25,
+      "chartHeight": 429.234375,
+      "expandedChartHeight": 429.234375,
+      "collapsedChartHeight": 429.234375,
       "overflow": false,
       "clipped": 0
     },
@@ -26,6 +35,9 @@
       "width": 375,
       "theme": "dark",
       "taskCount": 25,
+      "chartHeight": 479.46875,
+      "expandedChartHeight": 479.46875,
+      "collapsedChartHeight": 479.46875,
       "overflow": false,
       "clipped": 0
     },
@@ -33,6 +45,9 @@
       "width": 390,
       "theme": "dark",
       "taskCount": 25,
+      "chartHeight": 479.46875,
+      "expandedChartHeight": 479.46875,
+      "collapsedChartHeight": 479.46875,
       "overflow": false,
       "clipped": 0
     },
@@ -40,6 +55,9 @@
       "width": 1440,
       "theme": "dark",
       "taskCount": 25,
+      "chartHeight": 429.234375,
+      "expandedChartHeight": 429.234375,
+      "collapsedChartHeight": 429.234375,
       "overflow": false,
       "clipped": 0
     }

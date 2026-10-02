@@ -75,6 +75,8 @@ test("C75 task identity, exact source set, focus and notifications hierarchy", a
       await expect(card.locator(".due-item")).toHaveCount(5);
       const initial = await card.locator(".due-item").evaluateAll(es => es.map(e => ({ href: e.getAttribute("href"), text: e.textContent })));
       const toggle = card.locator(".attention-toggle");
+      const chart = page.locator(".cash-flow-card");
+      const chartHeight = (await chart.boundingBox())!.height;
       await expect(toggle).toHaveText(`Xem toàn bộ ${count} việc cần xử lý`);
       await toggle.focus();
       const before = await page.evaluate(() => scrollY);
@@ -85,6 +87,8 @@ test("C75 task identity, exact source set, focus and notifications hierarchy", a
       const all = await card.locator(".due-item").evaluateAll(es => es.map(e => ({ href: e.getAttribute("href"), text: e.textContent })));
       expect(new Set(all.map(e => e.href)).size).toBe(count);
       expect(all.slice(0,5)).toEqual(initial);
+      const expandedChartHeight = (await chart.boundingBox())!.height;
+      if (width === 1440) expect(Math.abs(expandedChartHeight - chartHeight)).toBeLessThan(1);
       const metrics = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth > innerWidth, clipped: [...document.querySelectorAll<HTMLElement>(".due-main strong,.due-main small,.due-value small")].filter(e => e.scrollWidth > e.clientWidth).length }));
       expect(metrics).toEqual({ overflow: false, clipped: 0 });
       await capture(page, `dashboard-${width}-${theme}.png`);
@@ -92,6 +96,8 @@ test("C75 task identity, exact source set, focus and notifications hierarchy", a
       await expect(card.locator(".due-item")).toHaveCount(5);
       await expect(toggle).toBeFocused();
       expect(await page.evaluate(() => scrollY)).toBe(before);
+      const collapsedChartHeight = (await chart.boundingBox())!.height;
+      if (width === 1440) expect(Math.abs(collapsedChartHeight - chartHeight)).toBeLessThan(1);
       await ready(page, "/notifications");
       const list = page.locator(".notification-list");
       const disclosure = page.locator(".push-settings-disclosure");
@@ -107,7 +113,7 @@ test("C75 task identity, exact source set, focus and notifications hierarchy", a
       await expect(page.getByLabel("Giờ nhận thông báo")).not.toBeVisible();
       await capture(page, `notifications-${width}-${theme}.png`);
       expect(await page.evaluate(() => (window as Window & { __permissionRequests?: number }).__permissionRequests)).toBe(0);
-      matrix.push({ width, theme, taskCount: count, ...metrics });
+      matrix.push({ width, theme, taskCount: count, chartHeight, expandedChartHeight, collapsedChartHeight, ...metrics });
     }
   }
 });

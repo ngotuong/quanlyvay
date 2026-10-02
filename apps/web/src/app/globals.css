@@ -1343,3 +1343,4 @@ details[open] > summary::after { content: "−"; }
 .push-settings-disclosure > summary small { color: var(--foreground-muted); font-weight: 400; }
 .push-settings-disclosure .push-settings { border-top: 1px solid var(--border); padding: 16px 0; margin: 0; }
 .dashboard-focus-grid { align-items: start; }
+.dashboard-focus-grid .cash-flow-card { min-height: 0; }

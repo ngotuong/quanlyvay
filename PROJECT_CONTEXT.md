@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.250
+roadmap_version: 1.0.251
 last_updated: 2026-10-02
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C76
@@ -629,13 +629,22 @@ C59 đã đạt:
   để tránh gateway stale, không tác động project anh em. Không blocker local.
   Desktop compact G2/cảnh báo Chrome C73 OPEN ngoài phạm vi; Safari/Firefox/AT/mobile vật lý
   chưa kiểm mới, không coi đây là chứng nhận accessibility.
-- C76 `IN_PROGRESS` (người dùng phê duyệt ngày 2026-10-02): đồng bộ C74–C75 và rollout Preview/Production theo mục34 roadmap.
-  Source b58b0e85964116d5200a50f9e18e149b0d2920f6 đã commit/push; Required CI
-  36992357820 đang chạy. Production tiếp tục deployment C73. Preflight PASS: policy/actionlint, lint/typecheck, unit80/80, build19 routes, audit sạch,
-  full E2E48PASS/5opt-inSKIP; DB teardown0/0/0. Secret scan history/artifact PASS; chưa tạo
-  candidate hoặc đổi alias. Dry-run Vercel phát hiện backup/log ignored vẫn được đóng gói;
-  đang bổ sung .vercelignore và kiểm lại upload manifest/CI trước deploy.
-  Bằng chứng trong docs/release-c76/report.md.
+- C76 `IN_PROGRESS` (OWNER phê duyệt 2026-10-02): C74–C75 đã commit/push; source release
+  `9001479fa5de25fd996f3022a4e36a7f6644e9cf`, Required CI `36993707917` attempt2 PASS cả5 jobs,
+  pgTAP527/Auth6/E2E47PASS6SKIP. Attempt1 fail font loader và Auth502 trước E2E; rerun cùng SHA
+  đạt, không đổi font/bundler/nới timeout/bỏ gate. Initial source b58b0e8/run36992357820 đã hủy
+  khi config packaging sửa thay thế. Local preflight policy/lint/typecheck/unit80/build19/full
+  E2E48PASS5SKIP, DB teardown0/0/0; history/staged/artifact secret scan và audit sạch.
+  Dry-run phát hiện backup/log/test artifacts vào payload; .vercelignore đã loại trừ. Dry-run
+  cuối197 regular files/4.516.731bytes;196 tracked SHA-1 khớp source commit, chỉ next-env.d.ts
+  generated ngoài Git. Inventory cảhai rollback C73 có77 backup files/60 test artifacts trong
+  src, không out; HEAD ba đường dẫn mỗi môi trường404, chưa kết luận mọi public exposure.
+  Không tải nội dung hoặc xóa rollback. Hai candidate9001479 đã Ready, inventory mỗi candidate241 leaves/0 forbidden; chưa promote.
+  Review ảnh desktop phát hiện card dòng tiền stretch do min-height:100%; đang sửa CSS và
+  regression chiều cao trong phạm vi release blocker. Source9001479 bị thay thế cho phát hành;
+  phải xác nhận CI SHA sửa mới trước candidate mới. Alias Preview/Production vẫn C73. Browser smoke chờ OWNER mở khóa Mac; chưa tạo
+  fixture/ghi tài chính/mark-read/thay setting remote. Bằng chứng: docs/release-c76/report.md.
+
 
 
 
@@ -678,3 +687,27 @@ Git main khớp origin tại startup, không thay đổi local sẵn có. Audit 
 không sửa runtime/deploy/push. C73 final SHA4c84d671721b0ad38691f1c7c3691e53efcdfa51,
 Required CI36968146353 attempt2 đạt toàn bộ job/E2E44 PASS4 SKIP; attempt1 timeout C63 375px
 sau payment render loan.summary_failed không có code. Rerun cùng SHA đạt, không sửa test/runtime.
+
+C76 bổ sung 2026-10-02: Required CI36993707917 attempt2 của9001479 đạt cả5 job
+(pgTAP527, Auth6, E2E47PASS/6SKIP). Preview candidate dpl_CpaHTRzr19EYFFrA6upUM5WLrNHr
+đã Ready sau root pipeline full gate48PASS/5SKIP. Khi review ảnh desktop recapture, phát hiện
+CSS cũ globals.css min-height:100% kéo card dòng tiền theo danh sách25 việc. Candidate9001479
+chưa qua Auth smoke và không được promote; đang sửa min-height riêng grid và bổ sung regression
+đo chiều cao card trước/sau expand/collapse. Hai alias chính giữ deployment C73. Mac khóa,
+Auth smoke vẫn chờ OWNER mở khóa; không phát hành khi thiếu gate.
+
+C76 chart correction gate lần1: policy/lint/typecheck/unit80/build19 PASS; full E2E
+47PASS/5SKIP/1FAIL5,8m. Lỗi C67 mobile-more sheet Tab cuối→đầu không focus close
+(c67-accessibility.spec.ts68); CSS sửa chỉ cash-flow-card. Không đổi/skipping assertion,
+đang rerun full suite cùng source để xác định khả năng tái hiện; chưa kết luận root cause.
+C75 regression3/3 đạt:6 matrix25tasks overflow0/clipped0; chart desktop429,234375px
+giữ nguyên trước/expanded/collapsed sáng/tối, mobile479,46875px giữ nguyên. Ảnh desktop
+sau sửa đã xem, chart không còn stretch. Test teardown baseline profiles/loans/transactions0.
+
+C76 chart correction gate lần2 cùng source: full E2E48PASS/5SKIP5,5m, exit0;
+C67 focus wrap đạt không thay assertion/timeout. C75 six matrix25tasks/chart desktop
+429,234375px delta0 trước/sau mở/thu; mobile479,46875px delta0; overflow0/clipped0.
+DB test hậu kiểm profiles/loans/transactions0/0/0. Policy/actionlint, lint/typecheck,
+unit80, build19 routes, diff-check, C76 secret scan PASS; dry-run197 regular files
+4517294bytes/0 forbidden. Chuẩn bị commit/push bản sửa, cần Required CI SHA mới trước
+candidate mới. C76 vẫn IN_PROGRESS, Mac khóa khiến Auth smoke chưa thực hiện.

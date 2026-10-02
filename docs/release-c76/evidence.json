@@ -56,6 +56,202 @@
     "nonTrackedRegularFiles": [
       "apps/web/next-env.d.ts"
     ],
-    "uploaded": false
+    "uploaded": false,
+    "trackedPayloadHashMatches": 196
+  },
+  "sourceSha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
+  "sourceCiRun": 36993707917,
+  "oldDeploymentArtifacts": {
+    "preview": {
+      "backupFiles": 77,
+      "backupRoots": {
+        "src": 77
+      },
+      "backupExtensions": {
+        "log": 3,
+        "qlvbak": 63,
+        "json": 11
+      },
+      "testArtifacts": 60,
+      "contentDownloaded": false,
+      "publicExposure": "NOT_VERIFIED",
+      "deleted": false,
+      "headProbes": [
+        {
+          "path": "/.backups/qlv-prod-20260926T115433Z/auth-data.sql.qlvbak",
+          "status": 404
+        },
+        {
+          "path": "/.backups/logs/launchd.log",
+          "status": 404
+        },
+        {
+          "path": "/src/.backups/logs/launchd.log",
+          "status": 404
+        }
+      ]
+    },
+    "production": {
+      "backupFiles": 77,
+      "backupRoots": {
+        "src": 77
+      },
+      "backupExtensions": {
+        "log": 3,
+        "qlvbak": 63,
+        "json": 11
+      },
+      "testArtifacts": 60,
+      "contentDownloaded": false,
+      "publicExposure": "NOT_VERIFIED",
+      "deleted": false,
+      "headProbes": [
+        {
+          "path": "/.backups/qlv-prod-20260926T115433Z/auth-data.sql.qlvbak",
+          "status": 404
+        },
+        {
+          "path": "/.backups/logs/launchd.log",
+          "status": 404
+        },
+        {
+          "path": "/src/.backups/logs/launchd.log",
+          "status": 404
+        }
+      ]
+    }
+  },
+  "sourceCiStatus": "PASS",
+  "ciAttempt1": {
+    "run": 36993707917,
+    "sha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
+    "quality": "FAIL next/font/google queries have exactly one entry (35 errors)",
+    "databaseTests": 527,
+    "database": "PASS",
+    "authTests": 6,
+    "auth": "PASS",
+    "e2e": "NOT_STARTED Auth readiness HTTP502 after93 attempts",
+    "requiredGate": "FAIL"
+  },
+  "ciAttempt2": {
+    "run": 36993707917,
+    "sha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
+    "quality": "PASS",
+    "security": "PASS",
+    "policy": "PASS",
+    "databaseTests": 527,
+    "authTests": 6,
+    "e2ePassed": 47,
+    "e2eSkipped": 6,
+    "requiredGate": "PASS",
+    "jobs": 5
+  },
+  "supersededCandidates": {
+    "sourceSHA": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
+    "reason": "Desktop chart stretches with expanded task grid; held before authenticated smoke/promotion",
+    "preview": {
+      "id": "dpl_CpaHTRzr19EYFFrA6upUM5WLrNHr",
+      "url": "https://quan-ly-vay-ca-nhan-420jgyqx3-ngotuong2105.vercel.app"
+    },
+    "production": {
+      "id": "dpl_C91gArAJyXHRLQDDSLrGGuqa2qxU",
+      "url": "https://quan-ly-vay-ca-nhan-aoct86q0k-ngotuong2105.vercel.app"
+    },
+    "forbiddenUploadLeafCount": 0,
+    "stableProductionUnchanged": true,
+    "runtimeErrorLogCount": 0
+  },
+  "desktopChartCorrection": {
+    "status": "LOCAL_GATES_PASS_SOURCE_CI_PENDING",
+    "cause": "globals.css legacy desktop min-height:100% stretches the cash-flow card to the task grid row height",
+    "fix": "Scoped min-height:0 on dashboard grid cash-flow card",
+    "regression": "Desktop card height stays equal before/after expand and collapse in light/dark",
+    "matrix": [
+      {
+        "width": 375,
+        "theme": "light",
+        "taskCount": 25,
+        "chartHeight": 479.46875,
+        "expandedChartHeight": 479.46875,
+        "collapsedChartHeight": 479.46875,
+        "overflow": false,
+        "clipped": 0
+      },
+      {
+        "width": 390,
+        "theme": "light",
+        "taskCount": 25,
+        "chartHeight": 479.46875,
+        "expandedChartHeight": 479.46875,
+        "collapsedChartHeight": 479.46875,
+        "overflow": false,
+        "clipped": 0
+      },
+      {
+        "width": 1440,
+        "theme": "light",
+        "taskCount": 25,
+        "chartHeight": 429.234375,
+        "expandedChartHeight": 429.234375,
+        "collapsedChartHeight": 429.234375,
+        "overflow": false,
+        "clipped": 0
+      },
+      {
+        "width": 375,
+        "theme": "dark",
+        "taskCount": 25,
+        "chartHeight": 479.46875,
+        "expandedChartHeight": 479.46875,
+        "collapsedChartHeight": 479.46875,
+        "overflow": false,
+        "clipped": 0
+      },
+      {
+        "width": 390,
+        "theme": "dark",
+        "taskCount": 25,
+        "chartHeight": 479.46875,
+        "expandedChartHeight": 479.46875,
+        "collapsedChartHeight": 479.46875,
+        "overflow": false,
+        "clipped": 0
+      },
+      {
+        "width": 1440,
+        "theme": "dark",
+        "taskCount": 25,
+        "chartHeight": 429.234375,
+        "expandedChartHeight": 429.234375,
+        "collapsedChartHeight": 429.234375,
+        "overflow": false,
+        "clipped": 0
+      }
+    ],
+    "firstFullSuite": {
+      "passed": 47,
+      "skipped": 5,
+      "failed": 1,
+      "failure": "C67 mobile-more keyboard Tab wrap close focus assertion line68"
+    },
+    "retry": "same source full suite, assertions unchanged",
+    "uploadDryRun": {
+      "regularFiles": 197,
+      "bytes": 4517294,
+      "forbiddenRegularFiles": 0
+    },
+    "secondFullSuite": {
+      "passed": 48,
+      "skipped": 5,
+      "failed": 0,
+      "durationMinutes": 5.5,
+      "exitCode": 0
+    },
+    "testDbAfter": [
+      0,
+      0,
+      0
+    ],
+    "focusFailureRootCause": "NOT_ESTABLISHED; same-source full rerun passed without changing assertions/timeouts"
   }
 }

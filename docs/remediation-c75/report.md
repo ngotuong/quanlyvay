@@ -64,3 +64,18 @@ Skill ui-ux áp dụng sửa dòng đã chọn, dùng component/token/brand hi�
 C76 đề xuất: đồng bộ C74–C75 và rollout có gate exact SHA/CI, root preview runbook, authenticated
 smoke không ghi tài chính, Production sau candidate đạt và hậu kiểm/rollback. Chỉ bắt đầu sau
 OWNER phê duyệt checkpoint C76; không tự làm trong C75.
+
+## C76 — Nguồn ảnh sau khi chạy full suite
+
+Full E2E C76 recapture các PNG/evidence sau sửa với25 synthetic tasks (fixture C72 còn trong
+suite cùng fixture C75 và baseline). Kết quả sáu tổ hợp vẫn clipped0/overflow0; count/order/
+keyboard/privacy/empty/back regression đạt. Các số13 và thời lượng phía trên mô tả lượt gate
+riêng của C75; PNG hiện hành là lượt full suite C76. Ảnh trước C74 giữ nguyên fixture13,
+vì vậy viewer là đối chiếu hành vi/layout, không phải pixel A/B trên cùng bộ dữ liệu.
+
+C76 release review đã phát hiện và sửa thêm legacy desktop min-height:100% của card dòng tiền
+(globals.css1160): align-items:start riêng lẻ chưa đủ. Selector dashboard riêng min-height:0
+giữ chart theo nội dung. Regression C75 đo trước/sau expand/collapse ở375/390/1440, light/dark:
+desktop429,234375px không đổi, mobile479,46875px không đổi;25tasks vẫn đủ tập, overflow0/clipped0.
+Ảnh1440 recapture sau sửa được xem; ảnh lỗi trước sửa giữ tại docs/release-c76/. Trạng thái
+full suite/source CI/deployment theo C76; không dùng kết quả C75 để khẳng định rollout đã xong.
