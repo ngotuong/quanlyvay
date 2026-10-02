@@ -134,3 +134,41 @@ DB test hậu kiểm profiles/loans/transactions0/0/0. Policy/actionlint, lint/t
 unit80, build19 routes, diff-check, C76 secret scan PASS; dry-run197 regular files
 4517294bytes/0 forbidden. Chuẩn bị commit/push bản sửa, cần Required CI SHA mới trước
 candidate mới. C76 vẫn IN_PROGRESS, Mac khóa khiến Auth smoke chưa thực hiện.
+
+C76 bản sửa chart đã commit/push47cfc9ce6e150ce770223946bff786f043aa7ae8;
+Required CI36999282322 đang chạy đúng SHA. Local working tree sạch ngay sau push,
+không promote candidate9001479. C76 IN_PROGRESS; đợi CI source mới và authenticated
+smoke khi OWNER mở khóa Mac.
+
+Required CI36999282322/47cfc9c attempt1 FAIL: policy/security/quality PASS; pgTAP527/527,
+Auth6/6 PASS; E2E45PASS/6SKIP/2FAIL11,2m. business-flow137 thất bại trạng thái sau
+hoàn tác tất toán169 khi loan.summary_failed chỉ có code undefined; C72 dirtyBack/Forward54
+thất bại click Tạo khoản vay55 sau lỗi tải danh sách, ngay sau reset fixture test. Không
+đủ thông tin để kết luận network/DB/root cause; không gắn lỗi với CSS hoặc khẳng định
+nghiệp vụ an toàn chỉ từ retry. C75 chart matrix/privacy/navigation và C67 focus đạt.
+Đã rerun failed jobs cùng SHA attempt2; không đổi RPC/schema/assertion/timeout hoặc bypass
+gate. Chưa tạo candidate mới, alias chính vẫn C73; C76 IN_PROGRESS chờ CI và mở khóa Mac.
+
+Required CI36999282322/47cfc9c attempt2 FAIL: E2E46PASS/6SKIP/1FAIL9,5m,
+business-flow dashboard periods552/559 không thấy tab sau login, server
+dashboard.read_failed code empty. Hai lỗi attempt1 không tái hiện; C75/C67 đều đạt.
+Chưa có root cause đủ bằng chứng, không rerun tiếp chỉ để lấy green. Bổ sung chẩn đoán
+read-failure-diagnostics.mjs vào điểm lỗi dashboard/list/summary: chỉ kind/status và
+SQLSTATE/PostgREST code được lọc, không message/details/URL/SQL/args/financial payload.
+Không retry query hoặc đổi RPC/tiền/Auth/schema. Unit4 ca mới bảo đảm lọc dữ liệu nhạy cảm,
+84 unit/script tests/lint/typecheck/build PASS; full E2E source mới đang chạy. C76 IN_PROGRESS,
+chưa tạo candidate mới/chưa promote; Auth smoke còn chờ OWNER mở khóa Mac.
+
+Safe read diagnostics: full local E2E48PASS/5SKIP5,6m, exit0, C75 matrix delta0.
+Sau build của suite có điều chỉnh thuần phân loại log ưu tiên SQL code thay vì từ khóa
+trong message riêng tư; lint/typecheck/unit85 PASS, final build đang tái kiểm. Không
+đổi read/mutation/retry logic. CI source mới sẽ chạy E2E trên đúng source cuối và root
+Preview pipeline vẫn bắt buộc full gates trước tạo candidate. Không gọi đây là đã
+sửa xong nguyên nhân các read failures; đang bổ sung bằng chứng chẩn đoán.
+
+Safe read diagnostics final: lint/typecheck PASS, unit/script86/86 PASS (6 diagnostic
+cases, gồm actual Supabase SDK với fetch mock không gọi mạng), final build19 routes PASS;
+full local E2E trước log-priority refinement48PASS/5SKIP5,6m. DB test teardown0/0/0.
+Chuẩn bị commit/push diagnostics rồi Required CI đúng source mới; chưa retry đọc hoặc
+mutation, chưa thay SQL/RPC/Auth/tiền. Source mới chỉ tăng quan sát lỗi và kiểm thử bảo mật
+log, không khẳng định đã đóng root cause của read failures. C76 vẫn IN_PROGRESS.

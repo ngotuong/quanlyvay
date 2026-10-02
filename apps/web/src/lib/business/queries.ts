@@ -3,6 +3,7 @@ import "server-only";
 import { fetchAllRows } from "@/lib/export/pagination.mjs";
 import { buildLegacyGeneralExpensesPage } from "./expense-list-pagination.mjs";
 import { paginateLegacyLoanSummaries } from "./loan-list-pagination.mjs";
+import { readFailureDiagnostic } from "./read-failure-diagnostics.mjs";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import type { AppProfile } from "@/lib/auth/types";
@@ -113,6 +114,7 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
     p_balance_end: balanceEnd,
   };
   const result = await supabase.rpc("get_management_dashboard_bundle_v3", args);
+  let diagnosticResult = result;
   let data = result.data as Record<string, unknown> | null;
   let error = result.error;
   if (error?.code === "PGRST202") {
@@ -122,6 +124,7 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
       p_previous_start: previousStart,
       p_previous_end: previousEnd,
     });
+    diagnosticResult = fallback;
     data = fallback.data ? {
       ...fallback.data as Record<string, unknown>,
       previousBalanceDashboard: (fallback.data as Record<string, unknown>).previousDashboard,
@@ -129,7 +132,7 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
     error = fallback.error;
   }
   if (error || !data) {
-    console.error("dashboard.read_failed", { code: error?.code ?? "empty" });
+    console.error("dashboard.read_failed", readFailureDiagnostic(diagnosticResult));
     throw new Error("Không thể tải số liệu tổng quan.");
   }
   return data as unknown as { dashboard: DashboardData; analytics: ManagementAnalytics; previousDashboard: DashboardData; previousBalanceDashboard: DashboardData };
@@ -185,9 +188,13 @@ export async function listLoans(filters: LoanListFilters = {}, page = 1) {
       p_disbursed_to: args.p_disbursed_to,
       p_sort: args.p_sort,
     });
-    if (legacyResult.error || !legacyResult.data) throw new Error("Không thể tải danh sách khoản vay.");
+    if (legacyResult.error || !legacyResult.data) {
+      console.error("loan.list_read_failed", readFailureDiagnostic(legacyResult));
+      throw new Error("Không thể tải danh sách khoản vay.");
+    }
     data = paginateLegacyLoanSummaries(legacyResult.data, page, args.p_size);
   } else if (pageResult.error || !data) {
+    console.error("loan.list_read_failed", readFailureDiagnostic(pageResult));
     throw new Error("Không thể tải danh sách khoản vay.");
   }
 
@@ -269,7 +276,12 @@ export async function getLoanWorkspace(id: string, section: LoanWorkspaceSection
     throw new Error("Không thể tải đầy đủ lịch sử khoản vay.");
   }
   if (calculationResult.error || termSummaryResult.error || scheduleResult.error || managementSummaryResult.error) {
-    console.error("loan.summary_failed", { calculation: calculationResult.error?.code, terms: termSummaryResult.error?.code, schedule: scheduleResult.error?.code, management: managementSummaryResult.error?.code });
+    console.error("loan.summary_failed", {
+      calculation: calculationResult.error ? readFailureDiagnostic(calculationResult) : undefined,
+      terms: termSummaryResult.error ? readFailureDiagnostic(termSummaryResult) : undefined,
+      schedule: scheduleResult.error ? readFailureDiagnostic(scheduleResult) : undefined,
+      management: managementSummaryResult.error ? readFailureDiagnostic(managementSummaryResult) : undefined,
+    });
     throw new Error("Không thể tính trạng thái khoản vay.");
   }
 

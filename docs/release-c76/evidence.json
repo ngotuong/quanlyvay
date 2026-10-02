@@ -59,8 +59,8 @@
     "uploaded": false,
     "trackedPayloadHashMatches": 196
   },
-  "sourceSha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
-  "sourceCiRun": 36993707917,
+  "sourceSha": "47cfc9ce6e150ce770223946bff786f043aa7ae8",
+  "sourceCiRun": 36999282322,
   "oldDeploymentArtifacts": {
     "preview": {
       "backupFiles": 77,
@@ -121,7 +121,7 @@
       ]
     }
   },
-  "sourceCiStatus": "PASS",
+  "sourceCiStatus": "FAILURE",
   "ciAttempt1": {
     "run": 36993707917,
     "sha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
@@ -238,7 +238,12 @@
     "uploadDryRun": {
       "regularFiles": 197,
       "bytes": 4517294,
-      "forbiddenRegularFiles": 0
+      "forbiddenRegularFiles": 0,
+      "trackedPayloadHashMatches": 196,
+      "mismatches": 0,
+      "nonTrackedRegularFiles": [
+        "apps/web/next-env.d.ts"
+      ]
     },
     "secondFullSuite": {
       "passed": 48,
@@ -252,6 +257,79 @@
       0,
       0
     ],
-    "focusFailureRootCause": "NOT_ESTABLISHED; same-source full rerun passed without changing assertions/timeouts"
+    "focusFailureRootCause": "NOT_ESTABLISHED; same-source full rerun passed without changing assertions/timeouts",
+    "historySecretScan": {
+      "commits": 140,
+      "result": "PASS"
+    }
+  },
+  "previousSourceSha": "9001479fa5de25fd996f3022a4e36a7f6644e9cf",
+  "previousSourceCiRun": 36993707917,
+  "chartSourceCiAttempts": [
+    {
+      "attempt": 1,
+      "conclusion": "FAILURE",
+      "pgTAP": 527,
+      "authTests": 6,
+      "e2e": {
+        "passed": 45,
+        "skipped": 6,
+        "failed": 2,
+        "minutes": 11.2
+      },
+      "failures": [
+        "business-flow settlement reversal status at line169; loan.summary_failed codes undefined",
+        "C72 dirty Back/Forward creation link line55 after loans page load error"
+      ],
+      "rootCause": "NOT_ESTABLISHED"
+    },
+    {
+      "attempt": 2,
+      "status": "COMPLETED",
+      "method": "rerun failed jobs same source SHA; source/assertions/timeouts unchanged",
+      "conclusion": "FAILURE",
+      "e2e": {
+        "passed": 46,
+        "skipped": 6,
+        "failed": 1,
+        "minutes": 9.5
+      },
+      "failure": "business-flow dashboard periods line559 after login; dashboard.read_failed code empty",
+      "rootCause": "NOT_ESTABLISHED"
+    }
+  ],
+  "safeReadDiagnostics": {
+    "status": "LOCAL_GATES_PASS_SOURCE_CI_PENDING",
+    "unitTests": 6,
+    "totalUnitScriptTests": 86,
+    "emittedFields": [
+      "kind",
+      "status",
+      "filteredCode"
+    ],
+    "excludedFields": [
+      "message",
+      "details",
+      "url",
+      "sql",
+      "args",
+      "financialPayload",
+      "credentials"
+    ],
+    "readMutationRetryAdded": false,
+    "localE2E": {
+      "passed": 48,
+      "skipped": 5,
+      "failed": 0,
+      "minutes": 5.6,
+      "note": "Suite build preceded final pure log classification priority refinement; final unit tests passed, final build/CI exact source required"
+    },
+    "rootCauseFixed": false,
+    "finalBuild": "PASS",
+    "testDbAfter": [
+      0,
+      0,
+      0
+    ]
   }
 }
