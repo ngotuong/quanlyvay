@@ -1,0 +1,5657 @@
+{
+  "method": "Headless Chrome, local production build, synthetic isolated DB :55321",
+  "matrix": [
+    {
+      "route": "dashboard",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 406,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tổng quan",
+        "Có 13 giao dịch trong tháng này",
+        "Việc cần xử lý",
+        "Xu hướng dòng tiền"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tùy chỉnh",
+          "width": 129.8,
+          "height": 43.2,
+          "class": "ui-button ui-button--secondary secondary-button dashboard-custom-trigger"
+        }
+      ],
+      "sections": [
+        {
+          "class": "dashboard-period-bar",
+          "y": 94,
+          "height": 175
+        },
+        {
+          "class": "action-hero-banner",
+          "y": 281,
+          "height": 195
+        },
+        {
+          "class": "dashboard-metrics dashboard-primary-metrics",
+          "y": 492,
+          "height": 347
+        },
+        {
+          "class": "dashboard-main-grid dashboard-focus-grid",
+          "y": 856,
+          "height": 1120
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 395,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Các khoản vay",
+        "C71 khoản mẫu 12",
+        "C71 khoản mẫu 11",
+        "C71 khoản mẫu 10",
+        "C71 khoản mẫu 9",
+        "C71 khoản mẫu 8",
+        "C71 khoản mẫu 7",
+        "C71 khoản mẫu 6",
+        "C71 khoản mẫu 5",
+        "C71 khoản mẫu 4",
+        "C71 khoản mẫu 3",
+        "C71 khoản mẫu 2",
+        "C71 khoản mẫu 1",
+        "Khoản thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Đang hoạt động",
+          "width": 151.8,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "management-filters loan-filters",
+          "y": 150,
+          "height": 205
+        },
+        {
+          "class": "filter-pills active-filter-pills",
+          "y": 367,
+          "height": 44
+        },
+        {
+          "class": "loan-list",
+          "y": 431,
+          "height": 4510
+        },
+        {
+          "class": "audit-pagination",
+          "y": 4946,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "loans-new",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 387,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tạo khoản vay"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "surface-card form-surface",
+          "y": 150,
+          "height": 1407
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 356,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Đối tác",
+        "Đối tác synthetic C71",
+        "Đối tác thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 301,
+          "height": 25.6,
+          "class": ""
+        },
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 301,
+          "height": 25.6,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 46
+        },
+        {
+          "class": "counterparty-search",
+          "y": 152,
+          "height": 104
+        },
+        {
+          "class": "counterparty-list",
+          "y": 272,
+          "height": 310
+        },
+        {
+          "class": "audit-pagination",
+          "y": 585,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 351,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi phí",
+        "Thêm chi phí",
+        "Chưa có chi phí chung"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "two-panel-layout",
+          "y": 94,
+          "height": 788
+        },
+        {
+          "class": "counterparty-list",
+          "y": 672,
+          "height": 210
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 364,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Thông báo",
+        "Thông báo trên thiết bị"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tất cả",
+          "width": 67.3,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "width": 109.8,
+          "height": 38.4,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 50
+        },
+        {
+          "class": "filter-pills",
+          "y": 152,
+          "height": 44
+        },
+        {
+          "class": "surface-card push-settings",
+          "y": 216,
+          "height": 377
+        },
+        {
+          "class": "notification-list",
+          "y": 611,
+          "height": 321
+        },
+        {
+          "class": "audit-pagination",
+          "y": 936,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 371,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+          "y": 94,
+          "height": 269
+        },
+        {
+          "class": "surface-card detail-section user-management-section",
+          "y": 363,
+          "height": 405
+        }
+      ]
+    },
+    {
+      "route": "detail-overview",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 391,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "overview-hero",
+          "y": 357,
+          "height": 235
+        },
+        {
+          "class": "action-drawer-grid",
+          "y": 608,
+          "height": 184
+        },
+        {
+          "class": "overview-supporting",
+          "y": 808,
+          "height": 209
+        }
+      ]
+    },
+    {
+      "route": "detail-interest",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 376,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Phát sinh, đã đóng và còn thiếu",
+        "Các kỳ lãi"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 357,
+          "height": 1235
+        },
+        {
+          "class": "audit-pagination",
+          "y": 1595,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "detail-history",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 380,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Giao dịch và trạng thái"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "surface-card detail-section",
+          "y": 357,
+          "height": 257
+        },
+        {
+          "class": "audit-pagination",
+          "y": 617,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "detail-settings",
+      "width": 375,
+      "theme": "light",
+      "durationMs": 381,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Điều khoản hiện tại",
+        "Điều chỉnh nghiệp vụ",
+        "Dữ liệu cũ và sửa sai"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 357,
+          "height": 1248
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 432,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tổng quan",
+        "Có 13 giao dịch trong tháng này",
+        "Việc cần xử lý",
+        "Xu hướng dòng tiền"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tùy chỉnh",
+          "width": 129.8,
+          "height": 43.2,
+          "class": "ui-button ui-button--secondary secondary-button dashboard-custom-trigger"
+        }
+      ],
+      "sections": [
+        {
+          "class": "dashboard-period-bar",
+          "y": 94,
+          "height": 175
+        },
+        {
+          "class": "action-hero-banner",
+          "y": 281,
+          "height": 195
+        },
+        {
+          "class": "dashboard-metrics dashboard-primary-metrics",
+          "y": 492,
+          "height": 349
+        },
+        {
+          "class": "dashboard-main-grid dashboard-focus-grid",
+          "y": 858,
+          "height": 1120
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 352,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Các khoản vay",
+        "C71 khoản mẫu 12",
+        "C71 khoản mẫu 11",
+        "C71 khoản mẫu 10",
+        "C71 khoản mẫu 9",
+        "C71 khoản mẫu 8",
+        "C71 khoản mẫu 7",
+        "C71 khoản mẫu 6",
+        "C71 khoản mẫu 5",
+        "C71 khoản mẫu 4",
+        "C71 khoản mẫu 3",
+        "C71 khoản mẫu 2",
+        "C71 khoản mẫu 1",
+        "Khoản thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Đang hoạt động",
+          "width": 151.8,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "management-filters loan-filters",
+          "y": 150,
+          "height": 176
+        },
+        {
+          "class": "filter-pills active-filter-pills",
+          "y": 338,
+          "height": 44
+        },
+        {
+          "class": "loan-list",
+          "y": 402,
+          "height": 4510
+        },
+        {
+          "class": "audit-pagination",
+          "y": 4917,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "loans-new",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 393,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tạo khoản vay"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "surface-card form-surface",
+          "y": 150,
+          "height": 1407
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 368,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Đối tác",
+        "Đối tác synthetic C71",
+        "Đối tác thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 316,
+          "height": 25.6,
+          "class": ""
+        },
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 316,
+          "height": 25.6,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 46
+        },
+        {
+          "class": "counterparty-search",
+          "y": 152,
+          "height": 104
+        },
+        {
+          "class": "counterparty-list",
+          "y": 272,
+          "height": 310
+        },
+        {
+          "class": "audit-pagination",
+          "y": 585,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 422,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi phí",
+        "Thêm chi phí",
+        "Chưa có chi phí chung"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "two-panel-layout",
+          "y": 94,
+          "height": 788
+        },
+        {
+          "class": "counterparty-list",
+          "y": 672,
+          "height": 210
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 414,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Thông báo",
+        "Thông báo trên thiết bị"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tất cả",
+          "width": 67.3,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "width": 109.8,
+          "height": 38.4,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 50
+        },
+        {
+          "class": "filter-pills",
+          "y": 152,
+          "height": 44
+        },
+        {
+          "class": "surface-card push-settings",
+          "y": 216,
+          "height": 349
+        },
+        {
+          "class": "notification-list",
+          "y": 583,
+          "height": 321
+        },
+        {
+          "class": "audit-pagination",
+          "y": 908,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 375,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+          "y": 94,
+          "height": 213
+        },
+        {
+          "class": "surface-card detail-section user-management-section",
+          "y": 307,
+          "height": 405
+        }
+      ]
+    },
+    {
+      "route": "detail-overview",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 366,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "overview-hero",
+          "y": 357,
+          "height": 237
+        },
+        {
+          "class": "action-drawer-grid",
+          "y": 610,
+          "height": 184
+        },
+        {
+          "class": "overview-supporting",
+          "y": 810,
+          "height": 209
+        }
+      ]
+    },
+    {
+      "route": "detail-interest",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 363,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Phát sinh, đã đóng và còn thiếu",
+        "Các kỳ lãi"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 357,
+          "height": 1205
+        },
+        {
+          "class": "audit-pagination",
+          "y": 1566,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "detail-history",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 396,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Giao dịch và trạng thái"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "surface-card detail-section",
+          "y": 357,
+          "height": 257
+        },
+        {
+          "class": "audit-pagination",
+          "y": 617,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "detail-settings",
+      "width": 390,
+      "theme": "light",
+      "durationMs": 367,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Điều khoản hiện tại",
+        "Điều chỉnh nghiệp vụ",
+        "Dữ liệu cũ và sửa sai"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 357,
+          "height": 1223
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 406,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tổng quan",
+        "Có 13 giao dịch trong tháng này",
+        "Việc cần xử lý",
+        "Xu hướng dòng tiền"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tùy chỉnh",
+          "width": 129.8,
+          "height": 43.2,
+          "class": "ui-button ui-button--secondary secondary-button dashboard-custom-trigger"
+        }
+      ],
+      "sections": [
+        {
+          "class": "dashboard-period-bar",
+          "y": 100,
+          "height": 67
+        },
+        {
+          "class": "action-hero-banner",
+          "y": 179,
+          "height": 141
+        },
+        {
+          "class": "dashboard-metrics dashboard-primary-metrics",
+          "y": 336,
+          "height": 270
+        },
+        {
+          "class": "dashboard-main-grid dashboard-focus-grid",
+          "y": 621,
+          "height": 763
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 370,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Các khoản vay",
+        "C71 khoản mẫu 12",
+        "C71 khoản mẫu 11",
+        "C71 khoản mẫu 10",
+        "C71 khoản mẫu 9",
+        "C71 khoản mẫu 8",
+        "C71 khoản mẫu 7",
+        "C71 khoản mẫu 6",
+        "C71 khoản mẫu 5",
+        "C71 khoản mẫu 4",
+        "C71 khoản mẫu 3",
+        "C71 khoản mẫu 2",
+        "C71 khoản mẫu 1",
+        "Khoản thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Đang hoạt động",
+          "width": 151.8,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "management-filters loan-filters",
+          "y": 156,
+          "height": 184
+        },
+        {
+          "class": "filter-pills active-filter-pills",
+          "y": 352,
+          "height": 44
+        },
+        {
+          "class": "loan-list",
+          "y": 416,
+          "height": 3795
+        },
+        {
+          "class": "audit-pagination",
+          "y": 4215,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "loans-new",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 364,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tạo khoản vay"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "surface-card form-surface",
+          "y": 156,
+          "height": 1112
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 366,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Đối tác",
+        "Đối tác synthetic C71",
+        "Đối tác thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 670,
+          "height": 25.6,
+          "class": ""
+        },
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 670,
+          "height": 25.6,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 100,
+          "height": 46
+        },
+        {
+          "class": "counterparty-search",
+          "y": 158,
+          "height": 50
+        },
+        {
+          "class": "counterparty-list",
+          "y": 224,
+          "height": 310
+        },
+        {
+          "class": "audit-pagination",
+          "y": 537,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 368,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi phí",
+        "Thêm chi phí",
+        "Chưa có chi phí chung"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "two-panel-layout",
+          "y": 100,
+          "height": 562
+        },
+        {
+          "class": "counterparty-list",
+          "y": 100,
+          "height": 210
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 354,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Thông báo",
+        "Thông báo trên thiết bị"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tất cả",
+          "width": 67.3,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "width": 109.8,
+          "height": 38.4,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 100,
+          "height": 50
+        },
+        {
+          "class": "filter-pills",
+          "y": 158,
+          "height": 44
+        },
+        {
+          "class": "surface-card push-settings",
+          "y": 222,
+          "height": 284
+        },
+        {
+          "class": "notification-list",
+          "y": 524,
+          "height": 329
+        },
+        {
+          "class": "audit-pagination",
+          "y": 857,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 372,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+          "y": 100,
+          "height": 145
+        },
+        {
+          "class": "surface-card detail-section user-management-section",
+          "y": 245,
+          "height": 326
+        }
+      ]
+    },
+    {
+      "route": "detail-overview",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 366,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 156,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 298,
+          "height": 59
+        },
+        {
+          "class": "overview-hero",
+          "y": 377,
+          "height": 160
+        },
+        {
+          "class": "action-drawer-grid",
+          "y": 553,
+          "height": 184
+        },
+        {
+          "class": "overview-supporting",
+          "y": 754,
+          "height": 70
+        }
+      ]
+    },
+    {
+      "route": "detail-interest",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 381,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Phát sinh, đã đóng và còn thiếu",
+        "Các kỳ lãi"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 156,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 298,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 377,
+          "height": 1155
+        },
+        {
+          "class": "audit-pagination",
+          "y": 1536,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-history",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 364,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Giao dịch và trạng thái"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 156,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 298,
+          "height": 59
+        },
+        {
+          "class": "surface-card detail-section",
+          "y": 377,
+          "height": 234
+        },
+        {
+          "class": "audit-pagination",
+          "y": 615,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-settings",
+      "width": 768,
+      "theme": "light",
+      "durationMs": 394,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Điều khoản hiện tại",
+        "Điều chỉnh nghiệp vụ",
+        "Dữ liệu cũ và sửa sai"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 156,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 298,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 377,
+          "height": 1014
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 405,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tổng quan",
+        "Có 13 giao dịch trong tháng này",
+        "Việc cần xử lý",
+        "Xu hướng dòng tiền"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tùy chỉnh",
+          "width": 129.8,
+          "height": 43.2,
+          "class": "ui-button ui-button--secondary secondary-button dashboard-custom-trigger"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row dashboard-heading",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "dashboard-period-bar",
+          "y": 146,
+          "height": 67
+        },
+        {
+          "class": "action-hero-banner",
+          "y": 225,
+          "height": 141
+        },
+        {
+          "class": "dashboard-metrics dashboard-primary-metrics",
+          "y": 382,
+          "height": 211
+        },
+        {
+          "class": "dashboard-main-grid dashboard-focus-grid",
+          "y": 609,
+          "height": 521
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 380,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Các khoản vay",
+        "C71 khoản mẫu 12",
+        "C71 khoản mẫu 11",
+        "C71 khoản mẫu 10",
+        "C71 khoản mẫu 9",
+        "C71 khoản mẫu 8",
+        "C71 khoản mẫu 7",
+        "C71 khoản mẫu 6",
+        "C71 khoản mẫu 5",
+        "C71 khoản mẫu 4",
+        "C71 khoản mẫu 3",
+        "C71 khoản mẫu 2",
+        "C71 khoản mẫu 1",
+        "Khoản thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Đang hoạt động",
+          "width": 151.8,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "management-filters loan-filters",
+          "y": 160,
+          "height": 184
+        },
+        {
+          "class": "filter-pills active-filter-pills",
+          "y": 356,
+          "height": 44
+        },
+        {
+          "class": "loan-list",
+          "y": 420,
+          "height": 3795
+        },
+        {
+          "class": "audit-pagination",
+          "y": 4219,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "loans-new",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 381,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tạo khoản vay"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "page-heading-row",
+          "y": 104,
+          "height": 61
+        },
+        {
+          "class": "surface-card form-surface",
+          "y": 191,
+          "height": 1133
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 354,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Đối tác",
+        "Đối tác synthetic C71",
+        "Đối tác thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 654,
+          "height": 25.6,
+          "class": ""
+        },
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 654,
+          "height": 25.6,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "counterparty-search",
+          "y": 160,
+          "height": 50
+        },
+        {
+          "class": "counterparty-list",
+          "y": 226,
+          "height": 310
+        },
+        {
+          "class": "audit-pagination",
+          "y": 539,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 370,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi phí chung",
+        "Thêm chi phí",
+        "Chưa có chi phí chung"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "two-panel-layout",
+          "y": 135,
+          "height": 562
+        },
+        {
+          "class": "counterparty-list",
+          "y": 135,
+          "height": 210
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 362,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Thông báo",
+        "Thông báo trên thiết bị"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tất cả",
+          "width": 67.3,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "width": 109.8,
+          "height": 38.4,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "filter-pills",
+          "y": 131,
+          "height": 44
+        },
+        {
+          "class": "surface-card push-settings",
+          "y": 196,
+          "height": 284
+        },
+        {
+          "class": "notification-list",
+          "y": 498,
+          "height": 329
+        },
+        {
+          "class": "audit-pagination",
+          "y": 830,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 377,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+          "y": 135,
+          "height": 145
+        },
+        {
+          "class": "surface-card detail-section user-management-section",
+          "y": 280,
+          "height": 326
+        }
+      ]
+    },
+    {
+      "route": "detail-overview",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 380,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "overview-hero",
+          "y": 325,
+          "height": 160
+        },
+        {
+          "class": "action-drawer-grid",
+          "y": 501,
+          "height": 184
+        },
+        {
+          "class": "overview-supporting",
+          "y": 702,
+          "height": 70
+        }
+      ]
+    },
+    {
+      "route": "detail-interest",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 450,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Phát sinh, đã đóng và còn thiếu",
+        "Các kỳ lãi"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 325,
+          "height": 1155
+        },
+        {
+          "class": "audit-pagination",
+          "y": 1484,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-history",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 391,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Giao dịch và trạng thái"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "surface-card detail-section",
+          "y": 325,
+          "height": 234
+        },
+        {
+          "class": "audit-pagination",
+          "y": 563,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-settings",
+      "width": 1024,
+      "theme": "light",
+      "durationMs": 447,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Điều khoản hiện tại",
+        "Điều chỉnh nghiệp vụ",
+        "Dữ liệu cũ và sửa sai"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 325,
+          "height": 1014
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 402,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tổng quan",
+        "Có 13 giao dịch trong tháng này",
+        "Việc cần xử lý",
+        "Xu hướng dòng tiền"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tùy chỉnh",
+          "width": 129.8,
+          "height": 43.2,
+          "class": "ui-button ui-button--secondary secondary-button dashboard-custom-trigger"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row dashboard-heading",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "dashboard-period-bar",
+          "y": 146,
+          "height": 67
+        },
+        {
+          "class": "action-hero-banner",
+          "y": 225,
+          "height": 141
+        },
+        {
+          "class": "dashboard-metrics dashboard-primary-metrics",
+          "y": 382,
+          "height": 129
+        },
+        {
+          "class": "dashboard-main-grid dashboard-focus-grid",
+          "y": 527,
+          "height": 521
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 391,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Các khoản vay",
+        "C71 khoản mẫu 12",
+        "C71 khoản mẫu 11",
+        "C71 khoản mẫu 10",
+        "C71 khoản mẫu 9",
+        "C71 khoản mẫu 8",
+        "C71 khoản mẫu 7",
+        "C71 khoản mẫu 6",
+        "C71 khoản mẫu 5",
+        "C71 khoản mẫu 4",
+        "C71 khoản mẫu 3",
+        "C71 khoản mẫu 2",
+        "C71 khoản mẫu 1",
+        "Khoản thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Đang hoạt động",
+          "width": 151.8,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "management-filters loan-filters",
+          "y": 160,
+          "height": 184
+        },
+        {
+          "class": "filter-pills active-filter-pills",
+          "y": 356,
+          "height": 44
+        },
+        {
+          "class": "loan-list",
+          "y": 420,
+          "height": 3795
+        },
+        {
+          "class": "audit-pagination",
+          "y": 4219,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "loans-new",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 359,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tạo khoản vay"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "page-heading-row",
+          "y": 104,
+          "height": 61
+        },
+        {
+          "class": "surface-card form-surface",
+          "y": 191,
+          "height": 1112
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 375,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Đối tác",
+        "Đối tác synthetic C71",
+        "Đối tác thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 1070,
+          "height": 25.6,
+          "class": ""
+        },
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 1070,
+          "height": 25.6,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "counterparty-search",
+          "y": 160,
+          "height": 50
+        },
+        {
+          "class": "counterparty-list",
+          "y": 226,
+          "height": 310
+        },
+        {
+          "class": "audit-pagination",
+          "y": 539,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 361,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi phí chung",
+        "Thêm chi phí",
+        "Chưa có chi phí chung"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "two-panel-layout",
+          "y": 135,
+          "height": 562
+        },
+        {
+          "class": "counterparty-list",
+          "y": 135,
+          "height": 210
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 369,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Thông báo",
+        "Thông báo trên thiết bị"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tất cả",
+          "width": 67.3,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "width": 109.8,
+          "height": 38.4,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "filter-pills",
+          "y": 131,
+          "height": 44
+        },
+        {
+          "class": "surface-card push-settings",
+          "y": 196,
+          "height": 284
+        },
+        {
+          "class": "notification-list",
+          "y": 498,
+          "height": 329
+        },
+        {
+          "class": "audit-pagination",
+          "y": 830,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 375,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+          "y": 135,
+          "height": 145
+        },
+        {
+          "class": "surface-card detail-section user-management-section",
+          "y": 280,
+          "height": 326
+        }
+      ]
+    },
+    {
+      "route": "detail-overview",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 408,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "overview-hero",
+          "y": 325,
+          "height": 160
+        },
+        {
+          "class": "action-drawer-grid",
+          "y": 501,
+          "height": 184
+        },
+        {
+          "class": "overview-supporting",
+          "y": 702,
+          "height": 70
+        }
+      ]
+    },
+    {
+      "route": "detail-interest",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 362,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Phát sinh, đã đóng và còn thiếu",
+        "Các kỳ lãi"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 325,
+          "height": 1155
+        },
+        {
+          "class": "audit-pagination",
+          "y": 1484,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-history",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 350,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Giao dịch và trạng thái"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "surface-card detail-section",
+          "y": 325,
+          "height": 234
+        },
+        {
+          "class": "audit-pagination",
+          "y": 563,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-settings",
+      "width": 1440,
+      "theme": "light",
+      "durationMs": 365,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Điều khoản hiện tại",
+        "Điều chỉnh nghiệp vụ",
+        "Dữ liệu cũ và sửa sai"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 325,
+          "height": 997
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 411,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tổng quan",
+        "Có 13 giao dịch trong tháng này",
+        "Việc cần xử lý",
+        "Xu hướng dòng tiền"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tùy chỉnh",
+          "width": 129.8,
+          "height": 43.2,
+          "class": "ui-button ui-button--secondary secondary-button dashboard-custom-trigger"
+        }
+      ],
+      "sections": [
+        {
+          "class": "dashboard-period-bar",
+          "y": 94,
+          "height": 175
+        },
+        {
+          "class": "action-hero-banner",
+          "y": 281,
+          "height": 195
+        },
+        {
+          "class": "dashboard-metrics dashboard-primary-metrics",
+          "y": 492,
+          "height": 347
+        },
+        {
+          "class": "dashboard-main-grid dashboard-focus-grid",
+          "y": 856,
+          "height": 1120
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 381,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Các khoản vay",
+        "C71 khoản mẫu 12",
+        "C71 khoản mẫu 11",
+        "C71 khoản mẫu 10",
+        "C71 khoản mẫu 9",
+        "C71 khoản mẫu 8",
+        "C71 khoản mẫu 7",
+        "C71 khoản mẫu 6",
+        "C71 khoản mẫu 5",
+        "C71 khoản mẫu 4",
+        "C71 khoản mẫu 3",
+        "C71 khoản mẫu 2",
+        "C71 khoản mẫu 1",
+        "Khoản thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Đang hoạt động",
+          "width": 151.8,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "management-filters loan-filters",
+          "y": 150,
+          "height": 205
+        },
+        {
+          "class": "filter-pills active-filter-pills",
+          "y": 367,
+          "height": 44
+        },
+        {
+          "class": "loan-list",
+          "y": 431,
+          "height": 4510
+        },
+        {
+          "class": "audit-pagination",
+          "y": 4946,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "loans-new",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 360,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tạo khoản vay"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "surface-card form-surface",
+          "y": 150,
+          "height": 1407
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 356,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Đối tác",
+        "Đối tác synthetic C71",
+        "Đối tác thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 301,
+          "height": 25.6,
+          "class": ""
+        },
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 301,
+          "height": 25.6,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 46
+        },
+        {
+          "class": "counterparty-search",
+          "y": 152,
+          "height": 104
+        },
+        {
+          "class": "counterparty-list",
+          "y": 272,
+          "height": 310
+        },
+        {
+          "class": "audit-pagination",
+          "y": 585,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 370,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi phí",
+        "Thêm chi phí",
+        "Chưa có chi phí chung"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "two-panel-layout",
+          "y": 94,
+          "height": 788
+        },
+        {
+          "class": "counterparty-list",
+          "y": 672,
+          "height": 210
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 361,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Thông báo",
+        "Thông báo trên thiết bị"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tất cả",
+          "width": 67.3,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "width": 109.8,
+          "height": 38.4,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 50
+        },
+        {
+          "class": "filter-pills",
+          "y": 152,
+          "height": 44
+        },
+        {
+          "class": "surface-card push-settings",
+          "y": 216,
+          "height": 377
+        },
+        {
+          "class": "notification-list",
+          "y": 611,
+          "height": 321
+        },
+        {
+          "class": "audit-pagination",
+          "y": 936,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 360,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+          "y": 94,
+          "height": 269
+        },
+        {
+          "class": "surface-card detail-section user-management-section",
+          "y": 363,
+          "height": 405
+        }
+      ]
+    },
+    {
+      "route": "detail-overview",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 357,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "overview-hero",
+          "y": 357,
+          "height": 235
+        },
+        {
+          "class": "action-drawer-grid",
+          "y": 608,
+          "height": 184
+        },
+        {
+          "class": "overview-supporting",
+          "y": 808,
+          "height": 209
+        }
+      ]
+    },
+    {
+      "route": "detail-interest",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 387,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Phát sinh, đã đóng và còn thiếu",
+        "Các kỳ lãi"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 357,
+          "height": 1235
+        },
+        {
+          "class": "audit-pagination",
+          "y": 1595,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "detail-history",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 361,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Giao dịch và trạng thái"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "surface-card detail-section",
+          "y": 357,
+          "height": 257
+        },
+        {
+          "class": "audit-pagination",
+          "y": 617,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "detail-settings",
+      "width": 375,
+      "theme": "dark",
+      "durationMs": 367,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Điều khoản hiện tại",
+        "Điều chỉnh nghiệp vụ",
+        "Dữ liệu cũ và sửa sai"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 357,
+          "height": 1248
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 418,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tổng quan",
+        "Có 13 giao dịch trong tháng này",
+        "Việc cần xử lý",
+        "Xu hướng dòng tiền"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tùy chỉnh",
+          "width": 129.8,
+          "height": 43.2,
+          "class": "ui-button ui-button--secondary secondary-button dashboard-custom-trigger"
+        }
+      ],
+      "sections": [
+        {
+          "class": "dashboard-period-bar",
+          "y": 94,
+          "height": 175
+        },
+        {
+          "class": "action-hero-banner",
+          "y": 281,
+          "height": 195
+        },
+        {
+          "class": "dashboard-metrics dashboard-primary-metrics",
+          "y": 492,
+          "height": 349
+        },
+        {
+          "class": "dashboard-main-grid dashboard-focus-grid",
+          "y": 858,
+          "height": 1120
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 386,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Các khoản vay",
+        "C71 khoản mẫu 12",
+        "C71 khoản mẫu 11",
+        "C71 khoản mẫu 10",
+        "C71 khoản mẫu 9",
+        "C71 khoản mẫu 8",
+        "C71 khoản mẫu 7",
+        "C71 khoản mẫu 6",
+        "C71 khoản mẫu 5",
+        "C71 khoản mẫu 4",
+        "C71 khoản mẫu 3",
+        "C71 khoản mẫu 2",
+        "C71 khoản mẫu 1",
+        "Khoản thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Đang hoạt động",
+          "width": 151.8,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "management-filters loan-filters",
+          "y": 150,
+          "height": 176
+        },
+        {
+          "class": "filter-pills active-filter-pills",
+          "y": 338,
+          "height": 44
+        },
+        {
+          "class": "loan-list",
+          "y": 402,
+          "height": 4510
+        },
+        {
+          "class": "audit-pagination",
+          "y": 4917,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "loans-new",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 363,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tạo khoản vay"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "surface-card form-surface",
+          "y": 150,
+          "height": 1407
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 361,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Đối tác",
+        "Đối tác synthetic C71",
+        "Đối tác thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 316,
+          "height": 25.6,
+          "class": ""
+        },
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 316,
+          "height": 25.6,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 46
+        },
+        {
+          "class": "counterparty-search",
+          "y": 152,
+          "height": 104
+        },
+        {
+          "class": "counterparty-list",
+          "y": 272,
+          "height": 310
+        },
+        {
+          "class": "audit-pagination",
+          "y": 585,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 345,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi phí",
+        "Thêm chi phí",
+        "Chưa có chi phí chung"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "two-panel-layout",
+          "y": 94,
+          "height": 788
+        },
+        {
+          "class": "counterparty-list",
+          "y": 672,
+          "height": 210
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 353,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Thông báo",
+        "Thông báo trên thiết bị"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tất cả",
+          "width": 67.3,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "width": 109.8,
+          "height": 38.4,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 94,
+          "height": 50
+        },
+        {
+          "class": "filter-pills",
+          "y": 152,
+          "height": 44
+        },
+        {
+          "class": "surface-card push-settings",
+          "y": 216,
+          "height": 349
+        },
+        {
+          "class": "notification-list",
+          "y": 583,
+          "height": 321
+        },
+        {
+          "class": "audit-pagination",
+          "y": 908,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 366,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+          "y": 94,
+          "height": 213
+        },
+        {
+          "class": "surface-card detail-section user-management-section",
+          "y": 307,
+          "height": 405
+        }
+      ]
+    },
+    {
+      "route": "detail-overview",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 353,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "overview-hero",
+          "y": 357,
+          "height": 237
+        },
+        {
+          "class": "action-drawer-grid",
+          "y": 610,
+          "height": 184
+        },
+        {
+          "class": "overview-supporting",
+          "y": 810,
+          "height": 209
+        }
+      ]
+    },
+    {
+      "route": "detail-interest",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 357,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Phát sinh, đã đóng và còn thiếu",
+        "Các kỳ lãi"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 357,
+          "height": 1205
+        },
+        {
+          "class": "audit-pagination",
+          "y": 1566,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "detail-history",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 344,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Giao dịch và trạng thái"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "surface-card detail-section",
+          "y": 357,
+          "height": 257
+        },
+        {
+          "class": "audit-pagination",
+          "y": 617,
+          "height": 57
+        }
+      ]
+    },
+    {
+      "route": "detail-settings",
+      "width": 390,
+      "theme": "dark",
+      "durationMs": 373,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Điều khoản hiện tại",
+        "Điều chỉnh nghiệp vụ",
+        "Dữ liệu cũ và sửa sai"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 94,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 150,
+          "height": 106
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 278,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 357,
+          "height": 1223
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 400,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tổng quan",
+        "Có 13 giao dịch trong tháng này",
+        "Việc cần xử lý",
+        "Xu hướng dòng tiền"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tùy chỉnh",
+          "width": 129.8,
+          "height": 43.2,
+          "class": "ui-button ui-button--secondary secondary-button dashboard-custom-trigger"
+        }
+      ],
+      "sections": [
+        {
+          "class": "dashboard-period-bar",
+          "y": 100,
+          "height": 67
+        },
+        {
+          "class": "action-hero-banner",
+          "y": 179,
+          "height": 141
+        },
+        {
+          "class": "dashboard-metrics dashboard-primary-metrics",
+          "y": 336,
+          "height": 270
+        },
+        {
+          "class": "dashboard-main-grid dashboard-focus-grid",
+          "y": 621,
+          "height": 763
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 372,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Các khoản vay",
+        "C71 khoản mẫu 12",
+        "C71 khoản mẫu 11",
+        "C71 khoản mẫu 10",
+        "C71 khoản mẫu 9",
+        "C71 khoản mẫu 8",
+        "C71 khoản mẫu 7",
+        "C71 khoản mẫu 6",
+        "C71 khoản mẫu 5",
+        "C71 khoản mẫu 4",
+        "C71 khoản mẫu 3",
+        "C71 khoản mẫu 2",
+        "C71 khoản mẫu 1",
+        "Khoản thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Đang hoạt động",
+          "width": 151.8,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "management-filters loan-filters",
+          "y": 156,
+          "height": 184
+        },
+        {
+          "class": "filter-pills active-filter-pills",
+          "y": 352,
+          "height": 44
+        },
+        {
+          "class": "loan-list",
+          "y": 416,
+          "height": 3795
+        },
+        {
+          "class": "audit-pagination",
+          "y": 4215,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "loans-new",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 376,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tạo khoản vay"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "surface-card form-surface",
+          "y": 156,
+          "height": 1112
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 359,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Đối tác",
+        "Đối tác synthetic C71",
+        "Đối tác thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 670,
+          "height": 25.6,
+          "class": ""
+        },
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 670,
+          "height": 25.6,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 100,
+          "height": 46
+        },
+        {
+          "class": "counterparty-search",
+          "y": 158,
+          "height": 50
+        },
+        {
+          "class": "counterparty-list",
+          "y": 224,
+          "height": 310
+        },
+        {
+          "class": "audit-pagination",
+          "y": 537,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 367,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi phí",
+        "Thêm chi phí",
+        "Chưa có chi phí chung"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "two-panel-layout",
+          "y": 100,
+          "height": 562
+        },
+        {
+          "class": "counterparty-list",
+          "y": 100,
+          "height": 210
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 374,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Thông báo",
+        "Thông báo trên thiết bị"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tất cả",
+          "width": 67.3,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "width": 109.8,
+          "height": 38.4,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 100,
+          "height": 50
+        },
+        {
+          "class": "filter-pills",
+          "y": 158,
+          "height": 44
+        },
+        {
+          "class": "surface-card push-settings",
+          "y": 222,
+          "height": 284
+        },
+        {
+          "class": "notification-list",
+          "y": 524,
+          "height": 329
+        },
+        {
+          "class": "audit-pagination",
+          "y": 857,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 365,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+          "y": 100,
+          "height": 145
+        },
+        {
+          "class": "surface-card detail-section user-management-section",
+          "y": 245,
+          "height": 326
+        }
+      ]
+    },
+    {
+      "route": "detail-overview",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 366,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 156,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 298,
+          "height": 59
+        },
+        {
+          "class": "overview-hero",
+          "y": 377,
+          "height": 160
+        },
+        {
+          "class": "action-drawer-grid",
+          "y": 553,
+          "height": 184
+        },
+        {
+          "class": "overview-supporting",
+          "y": 754,
+          "height": 70
+        }
+      ]
+    },
+    {
+      "route": "detail-interest",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 397,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Phát sinh, đã đóng và còn thiếu",
+        "Các kỳ lãi"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 156,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 298,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 377,
+          "height": 1155
+        },
+        {
+          "class": "audit-pagination",
+          "y": 1536,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-history",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 385,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Giao dịch và trạng thái"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 156,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 298,
+          "height": 59
+        },
+        {
+          "class": "surface-card detail-section",
+          "y": 377,
+          "height": 234
+        },
+        {
+          "class": "audit-pagination",
+          "y": 615,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-settings",
+      "width": 768,
+      "theme": "dark",
+      "durationMs": 432,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi tiết khoản vay",
+        "C71 khoản mẫu 1",
+        "Điều khoản hiện tại",
+        "Điều chỉnh nghiệp vụ",
+        "Dữ liệu cũ và sửa sai"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 100,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 156,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 298,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 377,
+          "height": 1014
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 412,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tổng quan",
+        "Có 13 giao dịch trong tháng này",
+        "Việc cần xử lý",
+        "Xu hướng dòng tiền"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tùy chỉnh",
+          "width": 129.8,
+          "height": 43.2,
+          "class": "ui-button ui-button--secondary secondary-button dashboard-custom-trigger"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row dashboard-heading",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "dashboard-period-bar",
+          "y": 146,
+          "height": 67
+        },
+        {
+          "class": "action-hero-banner",
+          "y": 225,
+          "height": 141
+        },
+        {
+          "class": "dashboard-metrics dashboard-primary-metrics",
+          "y": 382,
+          "height": 211
+        },
+        {
+          "class": "dashboard-main-grid dashboard-focus-grid",
+          "y": 609,
+          "height": 521
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 416,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Các khoản vay",
+        "C71 khoản mẫu 12",
+        "C71 khoản mẫu 11",
+        "C71 khoản mẫu 10",
+        "C71 khoản mẫu 9",
+        "C71 khoản mẫu 8",
+        "C71 khoản mẫu 7",
+        "C71 khoản mẫu 6",
+        "C71 khoản mẫu 5",
+        "C71 khoản mẫu 4",
+        "C71 khoản mẫu 3",
+        "C71 khoản mẫu 2",
+        "C71 khoản mẫu 1",
+        "Khoản thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Đang hoạt động",
+          "width": 151.8,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "management-filters loan-filters",
+          "y": 160,
+          "height": 184
+        },
+        {
+          "class": "filter-pills active-filter-pills",
+          "y": 356,
+          "height": 44
+        },
+        {
+          "class": "loan-list",
+          "y": 420,
+          "height": 3795
+        },
+        {
+          "class": "audit-pagination",
+          "y": 4219,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "loans-new",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 414,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tạo khoản vay"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "page-heading-row",
+          "y": 104,
+          "height": 61
+        },
+        {
+          "class": "surface-card form-surface",
+          "y": 191,
+          "height": 1133
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 383,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Đối tác",
+        "Đối tác synthetic C71",
+        "Đối tác thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 654,
+          "height": 25.6,
+          "class": ""
+        },
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 654,
+          "height": 25.6,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "counterparty-search",
+          "y": 160,
+          "height": 50
+        },
+        {
+          "class": "counterparty-list",
+          "y": 226,
+          "height": 310
+        },
+        {
+          "class": "audit-pagination",
+          "y": 539,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 373,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi phí chung",
+        "Thêm chi phí",
+        "Chưa có chi phí chung"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "two-panel-layout",
+          "y": 135,
+          "height": 562
+        },
+        {
+          "class": "counterparty-list",
+          "y": 135,
+          "height": 210
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 358,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Thông báo",
+        "Thông báo trên thiết bị"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tất cả",
+          "width": 67.3,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "width": 109.8,
+          "height": 38.4,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "filter-pills",
+          "y": 131,
+          "height": 44
+        },
+        {
+          "class": "surface-card push-settings",
+          "y": 196,
+          "height": 284
+        },
+        {
+          "class": "notification-list",
+          "y": 498,
+          "height": 329
+        },
+        {
+          "class": "audit-pagination",
+          "y": 830,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 373,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+          "y": 135,
+          "height": 145
+        },
+        {
+          "class": "surface-card detail-section user-management-section",
+          "y": 280,
+          "height": 326
+        }
+      ]
+    },
+    {
+      "route": "detail-overview",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 362,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "overview-hero",
+          "y": 325,
+          "height": 160
+        },
+        {
+          "class": "action-drawer-grid",
+          "y": 501,
+          "height": 184
+        },
+        {
+          "class": "overview-supporting",
+          "y": 702,
+          "height": 70
+        }
+      ]
+    },
+    {
+      "route": "detail-interest",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 365,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Phát sinh, đã đóng và còn thiếu",
+        "Các kỳ lãi"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 325,
+          "height": 1155
+        },
+        {
+          "class": "audit-pagination",
+          "y": 1484,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-history",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 365,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Giao dịch và trạng thái"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "surface-card detail-section",
+          "y": 325,
+          "height": 234
+        },
+        {
+          "class": "audit-pagination",
+          "y": 563,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-settings",
+      "width": 1024,
+      "theme": "dark",
+      "durationMs": 375,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Điều khoản hiện tại",
+        "Điều chỉnh nghiệp vụ",
+        "Dữ liệu cũ và sửa sai"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 325,
+          "height": 1014
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 404,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tổng quan",
+        "Có 13 giao dịch trong tháng này",
+        "Việc cần xử lý",
+        "Xu hướng dòng tiền"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tùy chỉnh",
+          "width": 129.8,
+          "height": 43.2,
+          "class": "ui-button ui-button--secondary secondary-button dashboard-custom-trigger"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row dashboard-heading",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "dashboard-period-bar",
+          "y": 146,
+          "height": 67
+        },
+        {
+          "class": "action-hero-banner",
+          "y": 225,
+          "height": 141
+        },
+        {
+          "class": "dashboard-metrics dashboard-primary-metrics",
+          "y": 382,
+          "height": 129
+        },
+        {
+          "class": "dashboard-main-grid dashboard-focus-grid",
+          "y": 527,
+          "height": 521
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 364,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Các khoản vay",
+        "C71 khoản mẫu 12",
+        "C71 khoản mẫu 11",
+        "C71 khoản mẫu 10",
+        "C71 khoản mẫu 9",
+        "C71 khoản mẫu 8",
+        "C71 khoản mẫu 7",
+        "C71 khoản mẫu 6",
+        "C71 khoản mẫu 5",
+        "C71 khoản mẫu 4",
+        "C71 khoản mẫu 3",
+        "C71 khoản mẫu 2",
+        "C71 khoản mẫu 1",
+        "Khoản thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Đang hoạt động",
+          "width": 151.8,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        },
+        {
+          "text": "Ghi giao dịch cho khoản vay",
+          "width": 129.1,
+          "height": 42,
+          "class": "loan-card-quick-action"
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "management-filters loan-filters",
+          "y": 160,
+          "height": 184
+        },
+        {
+          "class": "filter-pills active-filter-pills",
+          "y": 356,
+          "height": 44
+        },
+        {
+          "class": "loan-list",
+          "y": 420,
+          "height": 3795
+        },
+        {
+          "class": "audit-pagination",
+          "y": 4219,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "loans-new",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 362,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Tạo khoản vay"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        },
+        {
+          "text": "",
+          "width": 1,
+          "height": 48,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "page-heading-row",
+          "y": 104,
+          "height": 61
+        },
+        {
+          "class": "surface-card form-surface",
+          "y": 191,
+          "height": 1112
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 352,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Đối tác",
+        "Đối tác synthetic C71",
+        "Đối tác thông báo E2E"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 1070,
+          "height": 25.6,
+          "class": ""
+        },
+        {
+          "text": "Chỉnh sửa thông tin",
+          "width": 1070,
+          "height": 25.6,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 86
+        },
+        {
+          "class": "counterparty-search",
+          "y": 160,
+          "height": 50
+        },
+        {
+          "class": "counterparty-list",
+          "y": 226,
+          "height": 310
+        },
+        {
+          "class": "audit-pagination",
+          "y": 539,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 360,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Chi phí chung",
+        "Thêm chi phí",
+        "Chưa có chi phí chung"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "two-panel-layout",
+          "y": 135,
+          "height": 562
+        },
+        {
+          "class": "counterparty-list",
+          "y": 135,
+          "height": 210
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 348,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Thông báo",
+        "Thông báo trên thiết bị"
+      ],
+      "targetsUnder44": [
+        {
+          "text": "Tất cả",
+          "width": 67.3,
+          "height": 38.4,
+          "class": ""
+        },
+        {
+          "text": "Chưa đọc (1)",
+          "width": 109.8,
+          "height": 38.4,
+          "class": ""
+        }
+      ],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "filter-pills",
+          "y": 131,
+          "height": 44
+        },
+        {
+          "class": "surface-card push-settings",
+          "y": 196,
+          "height": 284
+        },
+        {
+          "class": "notification-list",
+          "y": 498,
+          "height": 329
+        },
+        {
+          "class": "audit-pagination",
+          "y": 830,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 347,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "Cài đặt",
+        "C6 Owner E2E",
+        "Quản trị người dùng"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "page-heading-row",
+          "y": 48,
+          "height": 61
+        },
+        {
+          "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+          "y": 135,
+          "height": 145
+        },
+        {
+          "class": "surface-card detail-section user-management-section",
+          "y": 280,
+          "height": 326
+        }
+      ]
+    },
+    {
+      "route": "detail-overview",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 366,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "overview-hero",
+          "y": 325,
+          "height": 160
+        },
+        {
+          "class": "action-drawer-grid",
+          "y": 501,
+          "height": 184
+        },
+        {
+          "class": "overview-supporting",
+          "y": 702,
+          "height": 70
+        }
+      ]
+    },
+    {
+      "route": "detail-interest",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 373,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Phát sinh, đã đóng và còn thiếu",
+        "Các kỳ lãi"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 325,
+          "height": 1155
+        },
+        {
+          "class": "audit-pagination",
+          "y": 1484,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-history",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 374,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Giao dịch và trạng thái"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "surface-card detail-section",
+          "y": 325,
+          "height": 234
+        },
+        {
+          "class": "audit-pagination",
+          "y": 563,
+          "height": 45
+        }
+      ]
+    },
+    {
+      "route": "detail-settings",
+      "width": 1440,
+      "theme": "dark",
+      "durationMs": 378,
+      "overflow": false,
+      "title": "Quản lý vay cá nhân",
+      "headings": [
+        "C71 khoản mẫu 1",
+        "Điều khoản hiện tại",
+        "Điều chỉnh nghiệp vụ",
+        "Dữ liệu cũ và sửa sai"
+      ],
+      "targetsUnder44": [],
+      "sections": [
+        {
+          "class": "back-link",
+          "y": 48,
+          "height": 44
+        },
+        {
+          "class": "loan-detail-heading",
+          "y": 104,
+          "height": 120
+        },
+        {
+          "class": "ui-tabs loan-tabs",
+          "y": 246,
+          "height": 59
+        },
+        {
+          "class": "loan-tab-stack",
+          "y": 325,
+          "height": 997
+        }
+      ]
+    }
+  ],
+  "observations": {
+    "landscape": {
+      "rect": {
+        "x": 147.60000610351562,
+        "y": 47.00999450683594,
+        "width": 548.800048828125,
+        "height": 343.97998046875,
+        "top": 47.00999450683594,
+        "right": 696.4000549316406,
+        "bottom": 390.98997497558594,
+        "left": 147.60000610351562
+      },
+      "overflow": false,
+      "animation": "1e-05s"
+    },
+    "zoom200": {
+      "overflow": false
+    },
+    "sheetKeyboard": {
+      "focusInside": true
+    },
+    "pageErrors": [],
+    "filterBack": {
+      "query": "C71",
+      "scrollBefore": 600,
+      "scrollAfter": 402
+    },
+    "dirtyBrowserBack": {
+      "confirms": 0,
+      "route": "/loans",
+      "draftInputCount": 0
+    },
+    "notificationFilter": [
+      {
+        "text": "Tất cả",
+        "active": null,
+        "current": null,
+        "background": "rgb(255, 255, 255)"
+      },
+      {
+        "text": "Chưa đọc (1)",
+        "active": null,
+        "current": null,
+        "background": "rgb(255, 255, 255)"
+      }
+    ],
+    "notificationPending": {
+      "label": "Đánh dấu đã đọc",
+      "disabled": false
+    },
+    "expenseSave": [
+      {
+        "saveMs": 124,
+        "actionsFromEmptyForm": 3
+      },
+      {
+        "saveMs": 106,
+        "actionsFromEmptyForm": 3
+      }
+    ],
+    "tabPending": {
+      "delayMs": 1800,
+      "progress": "true",
+      "loadingCount": 0
+    },
+    "tabCommittedMs": 2006,
+    "offline": "Bỏ qua đến nội dung chính\n\nĐang mất kết nối. Dữ liệu có thể chưa cập nhật; hãy giữ trang mở và thử lại khi có mạng.\n\nChi tiết khoản vay\nQuay lại danh sách\nCho vay\nĐang hoạt động\nC71 khoản mẫu 1\n\nĐối tác synthetic C71 · Giải ngân 1/8/2026\n\nTổng quan\nCác kỳ lãi\nLịch sử\nThiết lập\n\nDÒNG THỜI GIAN\n\nGiao dịch và trạng thái\nGiải ngân\n1/8/2026\n\n1.000.000 ₫\n\nGiải ngân ban đầu\n\nTrang 1 / 1 · 1 bản ghi\n\nTổng quan\nKhoản vay\nĐối tác\nThông báo\nThêm",
+    "paymentFailure": {
+      "open": true,
+      "amount": "1.234"
+    },
+    "expenseRows": [
+      {
+        "amount_vnd": 1000
+      },
+      {
+        "amount_vnd": 2000
+      }
+    ],
+    "paymentRetry": {
+      "ms": 331,
+      "focused": true
+    },
+    "quickPayment": {
+      "actionsFromList": 3,
+      "elapsedMs": 703
+    }
+  }
+}

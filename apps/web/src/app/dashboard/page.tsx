@@ -238,10 +238,12 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
       <ActionHeroBanner upcoming={dashboard.upcoming} overdue={dashboard.overdue} />
 
+      <div className="dashboard-workspace">
       <section className="dashboard-metrics dashboard-primary-metrics" aria-label="Các chỉ số chính">{primaryMetrics.map(({ label, value, previous, comparisonLabel, icon: Icon, tone }) => <Card as="article" variant="metric" className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><MetricComparison current={value} previous={previous} comparisonLabel={comparisonLabel} /></div></Card>)}</section>
 
       <div className="dashboard-main-grid dashboard-focus-grid"><AttentionList upcoming={dashboard.upcoming} overdue={dashboard.overdue} /><CashFlowChart rows={dashboard.cashFlow} periodLabel={periodLabel} /></div>
 
+      </div>
       <details className="dashboard-analysis">
         <summary><span><strong>Phân tích chi tiết</strong></span></summary>
         <div className="dashboard-analysis-content">

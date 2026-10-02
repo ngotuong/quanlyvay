@@ -1,0 +1,862 @@
+[
+  {
+    "route": "/dashboard",
+    "width": 375,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": [],
+    "taskBottom": 648.03125
+  },
+  {
+    "route": "/dashboard",
+    "width": 375,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 375,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 375,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 375,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 375,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 375,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 375,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 375,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 375,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/dashboard",
+    "width": 390,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": [],
+    "taskBottom": 648.03125
+  },
+  {
+    "route": "/dashboard",
+    "width": 390,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 390,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 390,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 390,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 390,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 390,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 390,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 390,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 390,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/dashboard",
+    "width": 768,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": [],
+    "taskBottom": 786.984375
+  },
+  {
+    "route": "/dashboard",
+    "width": 768,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 768,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 768,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 768,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 768,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 768,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 768,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 768,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 768,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/dashboard",
+    "width": 1024,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": [],
+    "taskBottom": 774.203125
+  },
+  {
+    "route": "/dashboard",
+    "width": 1024,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 1024,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 1024,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 1024,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 1024,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 1024,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 1024,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 1024,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 1024,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/dashboard",
+    "width": 1440,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": [],
+    "taskBottom": 692.296875
+  },
+  {
+    "route": "/dashboard",
+    "width": 1440,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 1440,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 1440,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 1440,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 1440,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 1440,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 1440,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 1440,
+    "colorScheme": "light",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 1440,
+    "colorScheme": "light",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/dashboard",
+    "width": 375,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": [],
+    "taskBottom": 648.03125
+  },
+  {
+    "route": "/dashboard",
+    "width": 375,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 375,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 375,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 375,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 375,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 375,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 375,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 375,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 375,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/dashboard",
+    "width": 390,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": [],
+    "taskBottom": 648.03125
+  },
+  {
+    "route": "/dashboard",
+    "width": 390,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 390,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 390,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 390,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 390,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 390,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 390,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 390,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 390,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/dashboard",
+    "width": 768,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": [],
+    "taskBottom": 786.984375
+  },
+  {
+    "route": "/dashboard",
+    "width": 768,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 768,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 768,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 768,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 768,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 768,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 768,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 768,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 768,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/dashboard",
+    "width": 1024,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": [],
+    "taskBottom": 774.203125
+  },
+  {
+    "route": "/dashboard",
+    "width": 1024,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 1024,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 1024,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 1024,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 1024,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 1024,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 1024,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 1024,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 1024,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/dashboard",
+    "width": 1440,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": [],
+    "taskBottom": 692.296875
+  },
+  {
+    "route": "/dashboard",
+    "width": 1440,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 1440,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/loans",
+    "width": 1440,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 1440,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/counterparties",
+    "width": 1440,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 1440,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/notifications",
+    "width": 1440,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 1440,
+    "colorScheme": "dark",
+    "zoom": 100,
+    "focusVisible": true,
+    "overflow": false,
+    "small": []
+  },
+  {
+    "route": "/expenses",
+    "width": 1440,
+    "colorScheme": "dark",
+    "zoom": 200,
+    "overflow": false,
+    "small": []
+  }
+]

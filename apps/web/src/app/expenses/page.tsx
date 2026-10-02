@@ -2,7 +2,7 @@ import { RenderRevision } from "@/components/app/render-revision";
 import { Pagination, parsePage } from "@/components/business/pagination";
 import { randomUUID } from "node:crypto";
 import { ReceiptText, WalletCards } from "lucide-react";
-import { GeneralExpenseForm } from "@/components/business/general-expense-form";
+import { ExpenseCreateSheet } from "@/components/business/expense-create-sheet";
 import { ReversalForm } from "@/components/business/reversal-form";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatVnd } from "@/lib/business/format";
@@ -27,6 +27,7 @@ export default async function ExpensesPage({ searchParams }: { searchParams: Pro
       <RenderRevision />
       <div className="page-heading-row">
         <div className="page-title-lockup"><span className="page-title-icon"><WalletCards size={24} strokeWidth={1.8} /></span><div><h1>Chi phí chung</h1></div></div>
+        {canWrite ? <ExpenseCreateSheet idempotencyKey={randomUUID()} /> : null}
       </div>
 
       {result.categories.length > 0 ? (
@@ -63,8 +64,7 @@ export default async function ExpensesPage({ searchParams }: { searchParams: Pro
         </Card>
       ) : null}
 
-      <div className={canWrite ? "two-panel-layout" : undefined}>
-        {canWrite ? <Card className="surface-card sticky-panel"><h2>Thêm chi phí</h2><PrivacyForm><GeneralExpenseForm idempotencyKey={randomUUID()} /></PrivacyForm></Card> : null}
+      <div>
         <section className="counterparty-list" aria-label="Danh sách chi phí chung">
           {expenseRows.length === 0 ? <div className="empty-state compact"><ReceiptText size={26} /><h2>Chưa có chi phí chung</h2><p>Các chi phí không gắn khoản vay sẽ xuất hiện tại đây.</p></div> : expenseRows.map((expense) => (
             <Card as="article" variant="interactive" className="surface-card counterparty-card" key={expense.id}>

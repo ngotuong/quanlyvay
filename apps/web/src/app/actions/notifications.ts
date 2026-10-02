@@ -52,22 +52,25 @@ export async function updateNotificationDeliveryHourAction(hour: number) {
 export async function markNotificationsReadAction(ids?: string[]) {
   await requireAuthenticatedProfile();
   const parsed = z.array(z.string().uuid()).max(100).optional().safeParse(ids);
-  if (!parsed.success) return;
+  if (!parsed.success) return { ok: false, message: "Danh sách thông báo không hợp lệ." };
   const supabase = await createClient();
-  await supabase.rpc("mark_notifications_read", { p_notification_ids: parsed.data ?? null });
+  const { error } = await supabase.rpc("mark_notifications_read", { p_notification_ids: parsed.data ?? null });
+  if (error) return { ok: false, message: "Chưa thể đánh dấu đã đọc. Hãy thử lại." };
   revalidatePath("/notifications");
   revalidatePath("/", "layout");
+  return { ok: true, message: "Đã đánh dấu thông báo đã đọc." };
 }
 
 export async function openNotificationAction(notificationId: string) {
   await requireAuthenticatedProfile();
   const parsed = z.string().uuid().safeParse(notificationId);
-  if (!parsed.success) redirect("/notifications");
+  if (!parsed.success) return { ok: false, message: "Thông báo không hợp lệ." };
 
   const supabase = await createClient();
   const { data: notification, error } = await supabase.from("notifications").select("loan_id,type,superseded_at").eq("id", parsed.data).maybeSingle();
-  if (error || !notification?.loan_id) redirect("/notifications");
-  await supabase.rpc("mark_notifications_read", { p_notification_ids: [parsed.data] });
+  if (error || !notification?.loan_id) return { ok: false, message: "Chưa thể mở thông báo. Hãy thử lại." };
+  const marked = await supabase.rpc("mark_notifications_read", { p_notification_ids: [parsed.data] });
+  if (marked.error) return { ok: false, message: "Chưa thể đánh dấu đã đọc. Hãy thử lại." };
   revalidatePath("/notifications");
   revalidatePath("/", "layout");
   const query = notification.type === "INTEREST_DUE" && !notification.superseded_at

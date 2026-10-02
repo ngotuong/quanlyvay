@@ -4,14 +4,14 @@ import { useBusinessAction } from "./use-business-action";
 import { recordExpenseAction } from "@/app/actions/business";
 import { initialBusinessActionState } from "@/lib/business/action-state";
 import { todayInVietnam } from "@/lib/business/format";
-import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
+import { BusinessForm, ActionMessage, FieldError, FormSubmit, type BusinessFormProps } from "./form-parts";
 import { VndInput } from "./vnd-input";
 
-export function GeneralExpenseForm({ idempotencyKey }: { idempotencyKey: string }) {
+export function GeneralExpenseForm({ idempotencyKey, ...lifecycle }: { idempotencyKey: string } & Pick<BusinessFormProps, "onDirtyChange" | "onPendingChange" | "onSuccess">) {
   const [state, action] = useBusinessAction(recordExpenseAction, initialBusinessActionState);
 
   return (
-    <BusinessForm state={state} action={action} className="business-form">
+    <BusinessForm {...lifecycle} state={state} action={action} className="business-form">
       <input name="loanId" type="hidden" value="" />
       <input name="idempotencyKey" type="hidden" value={idempotencyKey} />
       <div className="field-group">

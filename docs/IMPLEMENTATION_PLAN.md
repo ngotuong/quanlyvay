@@ -45,7 +45,10 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C67 | Sửa privacy accessibility, reflow zoom và modal navigation | `COMPLETED` |
 | C68 | Đồng bộ và rollout remediation accessibility C67 | `COMPLETED` |
 | C69 | Rollout remediation accessibility lên Production | `COMPLETED` |
-| C70 | Hậu kiểm accessibility Production trên screen reader/mobile | `AWAITING_APPROVAL` |
+| C70 | Hậu kiểm accessibility Production trên screen reader/mobile | `COMPLETED` |
+| C71 | Audit sâu UI/UX và hiệu quả thao tác mobile–desktop | `COMPLETED` |
+| C72 | Remediation bản nháp, thông báo và bố cục mobile | `COMPLETED` |
+| C73 | Đồng bộ và rollout remediation C70–C72 | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -919,10 +922,10 @@ Kết quả: hoàn tất ngày 2026-10-01.
   smoke đã inactive/banned; không đổi schema/RPC, công thức tài chính, Supabase data/secret,
   Apps Script/Sheets hoặc ghi giao dịch tài chính.
 
-## 28. Checkpoint chờ phê duyệt: C70
+## 28. Checkpoint C70 — Phạm vi điều chỉnh đã được duyệt
 
 **C70 — Hậu kiểm accessibility Production trên screen reader/mobile.** Trạng thái:
-`AWAITING_APPROVAL`.
+`COMPLETED` theo phạm vi điều chỉnh OWNER đã đồng ý ngày 01/10/2026.
 
 Mục tiêu: khép các giới hạn `NOT_TESTED` còn lại từ C66 trên chính Production sau C69 và chuyển
 mọi sai lệch tái hiện được thành backlog remediation riêng.
@@ -946,3 +949,181 @@ Acceptance criteria:
    có secret/dữ liệu nhạy cảm trong evidence hoặc Git.
 4. Phát hiện mới có severity, route/viewport, nguyên nhân, tác động và remediation scope; context/
    roadmap cập nhật cùng thay đổi, diff check và test gate tài liệu phù hợp đạt.
+
+
+### Điều chỉnh được OWNER chấp thuận ngày 01/10/2026
+
+OWNER đồng ý chốt C70 với giới hạn được ghi rõ và chuyển sang đề xuất C71 audit UI/UX thông thường.
+Acceptance criteria 1–4 được áp dụng với các bổ sung sau:
+
+- Phần thao tác đã thực hiện trên Production có bằng chứng theo từng môi trường được tổng hợp;
+  không bắt buộc đầu ra VoiceOver hoặc thiết bị mobile không thể kiểm qua công cụ hiện có để
+  đóng C70. Các phép kiểm này tiếp tục ghi NOT_TESTED, không ghi PASS hoặc coi rủi ro đã khép.
+- Không yêu cầu OWNER học/vận hành VoiceOver hoặc cung cấp lời đọc. Hai quan sát chưa chứng minh
+  tác động screen reader giữ trạng thái cần xác minh, không kết luận thành lỗi đã tái hiện.
+- Đóng audit theo phạm vi điều chỉnh chỉ xác nhận báo cáo và các phép kiểm khả dụng đã hoàn tất;
+  không phải tuyên bố mọi acceptance criterion của phạm vi screen reader ban đầu đã đạt.
+
+Kết quả: `docs/UI_UX_AUDIT_C70.md` ghi Safari login semantic/focus và Chrome Production smoke
+chỉ xem đạt; privacy attributes, dashboard heading, sheet focus/state, reflow và bốn tab loan
+được kiểm. Console/pageerror = 0. Tài khoản kỹ thuật inactive/banned đã hậu kiểm. VoiceOver đã bật
+nhưng công cụ bind timeout -10005/không thu được câu đọc; mobile thật thiếu môi trường. Các mục
+này giữ NOT_TESTED. Gate tài liệu là `git diff --check`; không có thay đổi runtime/harness.
+
+
+## 29. Checkpoint đã hoàn tất: C71
+
+**C71 — Audit sâu UI/UX và hiệu quả thao tác mobile–desktop.** Trạng thái: `COMPLETED`.
+
+Mục tiêu: phát hiện vấn đề bố cục, thao tác thừa, phản hồi và độ mượt bằng thực nghiệm trên bản
+hiện tại; lập checkpoint remediation dựa trên bằng chứng. Không yêu cầu OWNER vận hành screen reader.
+
+Phạm vi đề xuất:
+
+- Audit login/cold start, shell/navigation, dashboard, khoản vay list/detail/bốn tab, đối tác,
+  chi phí, thông báo và cài đặt. So với C62–C69 để phân biệt lỗi còn tồn tại, lỗi đã sửa và regression.
+- Kiểm bố cục/hierarchy, typography, spacing, target, cuộn, zoom và focus bàn phím ở 375/390/768/
+  1024/1440 px, landscape giả lập, light/dark và reduced-motion. Ghi rõ viewport giả lập, không
+  coi là kiểm bàn phím mềm/safe-area/Dynamic Type trên thiết bị thật.
+- Kiểm loading khi mở app/login/chuyển route/tab, phản hồi pending/success/error/retry/offline,
+  back navigation, bảo toàn filter/scroll/draft và số thao tác cần thiết cho hành trình phổ biến.
+- Tái hiện lưu thành công → drawer đóng/reset/toast/focus; lỗi → giữ draft; đóng draft, submit
+  trùng, stale preview và thao tác liên tiếp chỉ trong database local cô lập với dữ liệu synthetic.
+  Xác minh guard môi trường trước khi chạy harness/reset; không reset hoặc ghi vào Supabase dùng chung.
+- Production chỉ quan sát/điều hướng không ghi nghiệp vụ; nếu cần tài khoản kỹ thuật thì chỉ VIEWER,
+  không dùng tài khoản OWNER và phải inactive/banned sau audit. Không đổi runtime/schema/RPC,
+  migration, secret, tài khoản vận hành, deploy hoặc push.
+- Cho phép tài liệu, ảnh/mockup synthetic và harness audit local để tạo bằng chứng; không triển
+  khai đề xuất giao diện trong checkpoint audit. Screen reader/thiết bị thiếu tiếp tục NOT_TESTED.
+
+Acceptance criteria:
+
+1. Có ma trận màn hình × viewport × trạng thái PASS/FAIL/NOT_TESTED, phương pháp, revision/môi
+   trường và bằng chứng tái hiện. Kiểm cả source/thay đổi local và ghi rõ khác biệt với Production.
+2. Mỗi phát hiện có severity, file/vị trí, route/viewport, bước tái hiện, expected/actual, nguyên
+   nhân có bằng chứng (hoặc chưa xác định), tác động và hướng sửa. Không gán lỗi từ cảm nhận hoặc
+   kết quả lịch sử; ảnh/code/mockup không thay thế phép kiểm hành vi.
+3. Loading/cold start/chuyển tab và drawer sau lưu có phép kiểm mới trên bản hiện tại. Ghi số
+   thao tác và thời gian quan sát được, điều kiện network/delay mô phỏng; không suy diễn chỉ số
+   Production từ benchmark local. Phân biệt thiếu phản hồi, quá nhiều bước và sai trạng thái.
+4. Đánh giá chất lượng thị giác qua ảnh synthetic mobile/desktop cùng checklist cụ thể (hierarchy,
+   spacing, contrast, consistency, target/scroll/focus); đưa phương án cải thiện có thể review.
+5. Không có giao dịch tài chính/QA data trên Production hoặc database dùng chung; tài khoản kỹ
+   thuật inactive/banned sau kiểm; artifact/Git không chứa secret hoặc dữ liệu tài chính thật.
+6. Đề xuất checkpoint remediation ưu tiên lỗi có tác động cao, có phạm vi và acceptance criteria
+   đo được, phân biệt việc sửa local và rollout cần phê duyệt. Chưa tự sửa code sản phẩm.
+7. Cập nhật context/roadmap cùng thay đổi; `git diff --check` đạt. Nếu thêm/sửa harness thì chạy
+   lint/typecheck và E2E audit liên quan bằng gate hiện có; ghi kết quả/giới hạn, không bắt buộc
+   full database suite cho thay đổi chỉ tài liệu. Chỉ đánh dấu COMPLETED sau khi gate áp dụng đạt.
+
+OWNER phê duyệt C71 trong hội thoại ngày 01/10/2026. Sau khi hoàn tất audit, đặt checkpoint
+remediation kế tiếp AWAITING_APPROVAL và dừng theo AGENTS.md mục 3.
+
+
+Kết quả C71 ngày 01/10/2026: `docs/UI_UX_AUDIT_C71.md`, ma trận/ảnh/mockup tại `docs/audit-c71/`.
+110 mẫu local +20 login public/local; 1 HIGH,4 MEDIUM,1 LOW. Lint/typecheck PASS, 16 regression
+PASS, audit2PASS và targeted friction cuối1PASS. Timeout lượt đầu là harness full-page Back chờ
+load khi native confirm bị dismiss; sửa harness rồi mới tái hiện lỗi Back SPA. Synthetic DB đã
+teardown/hậu kiểm0 profile/loan/transaction; secret scan/diff check đạt. Không sửa runtime, deploy,
+push hay dữ liệu dùng chung. Không coi PASS audit harness là PASS sản phẩm; lỗi vẫn mở ở C72.
+
+## 30. Checkpoint C72 — Đã được phê duyệt
+
+**C72 — Remediation bản nháp, thông báo và bố cục mobile.** Trạng thái: `COMPLETED` local ngày 01/10/2026.
+
+Mục tiêu: sửa sáu phát hiện C71, ưu tiên không mất công nhập và phản hồi rõ, cải thiện giao diện
+mobile dựa trên bằng chứng. Bản review `docs/audit-c71/proposal.html` chỉ là hướng bố cục; không
+thay đổi tính lãi, ledger hoặc kiến trúc nguồn dữ liệu.
+
+Phạm vi đề xuất:
+
+- C71-01: thống nhất dirty guard cho link, history Back/Forward, drawer và full-page leave. Chỉ
+  discard khi xác nhận; không lưu draft tài chính vào persistent browser storage.
+- C71-02/05: pending/success/error/retry và chặn thao tác lặp ở mark-all/read-one notification;
+  xử lý RPC error ở Server Action và active filter theo URL, không đổi nghiệp vụ/RPC nhắc hạn.
+- C71-03: hit area ≥44×44 cho counterparties disclosure, filter pills, quick payment và custom
+  period control cùng các variant visible tương ứng. Giữ nhãn/icon/focus và không tràn ngang.
+- C71-04: chi phí list-first với CTA mở sheet; success đóng/reset/toast/focus, failure giữ draft,
+  dirty dismissal và duplicate-submit guard. Giữ tổng hợp, privacy, permissions và giao dịch đảo.
+- C71-06: dashboard mobile có tác vụ cụ thể/CTA sớm hơn KPI; giữ các KPI, filter và so sánh kỳ,
+  desktop hierarchy, dark theme, reduced-motion. Không tự thay palette/brand/biểu đồ khác phạm vi.
+- Chỉ code và tests local với DB synthetic riêng; tài liệu/bằng chứng mới. Có thể local commit
+  sau gates; **không push/deploy/alias/migration/secret hoặc write remote trong C72**. Sau khi
+  sửa local đạt sẽ đề xuất checkpoint đồng bộ/Preview/Production riêng rồi dừng chờ duyệt.
+- VoiceOver/TalkBack/mobile thật vẫn ghi giới hạn; không yêu cầu OWNER tự thao tác công nghệ hỗ trợ.
+
+Acceptance criteria:
+
+1. Với loan-new, expense sheet và một editor đã sửa: Back/Forward/link/đóng khi dirty hỏi đúng một
+   lần; chọn ở lại giữ URL, field, focus và scroll; chọn bỏ đi đúng route, không history loop,
+   progress treo hay duplicate confirm. Full-page beforeunload còn hoạt động. E2E synthetic tái
+   hiện lỗi C71-01 trước sửa và chứng minh hành vi sau sửa; không chỉ test mock implementation.
+2. Notification delay POST 1200ms: sau ≤200ms có pending nhìn thấy, control disabled/busy; nhiều
+   attempt chỉ gửi một operation. Success cập nhật list/badge, error giữ state/có message/retry;
+   không báo thành công khi RPC thất bại. “Tất cả/Chưa đọc” có đúng một active theo URL và
+   aria-current; Back/Forward/reload giữ nhất quán. Inject failure chỉ local, không sửa RPC remote.
+3. Controls nêu ở C71-03 và regression inventory visible ≥44×44 ở 375/390/768/1024/1440, light/
+   dark, text200%; đo bounding boxes, keyboard focus visible, không page overflow. Không đếm
+   control trong details đóng hoặc sr-only làm bằng chứng PASS/FAIL hit area.
+4. Với2 expense fixtures, 390×844: lịch sử bắt đầu trước y=500, CTA luôn dễ tìm, form không nằm
+   trước list khi sheet đóng. Luồng tạo mặc định ≤4 thao tác ở mức select/edit-field/submit theo
+   định nghĩa C71; lưu xong sheet đóng/reset/toast/focus, lỗi giữ draft, retry không trùng và
+   duplicate submit chỉ1 row. VIEWER không được mutate, privacy vẫn bảo vệ tiền và free text.
+5. Dashboard390×844 với13 công việc synthetic: công việc đầu và CTA đầy đủ trước y=650, giữ bộ
+   lọc/KPI/so sánh, tất cả công việc còn truy cập được. Desktop1440 không giảm khả năng đối chiếu.
+   Có ảnh trước/sau light/dark và checklist hierarchy/spacing/contrast/target/scroll/focus; không
+   tuyên bố mobile thật/screen reader PASS từ ảnh hay viewport giả lập.
+6. Cold auth2s/10s, route10s, tab1800ms và financial drawer payment/settlement/restructure vẫn
+   qua regression C63/C64/C67. Không thêm splash trì hoãn login hoặc overlay che thông tin đã tải.
+   Không thay quyết toán VND authoritative, RPC/schema; preserve idempotency và stale-preview guard.
+7. `git diff --check`, `pnpm lint`, `pnpm typecheck`, `pnpm test`, `pnpm build`, `pnpm test:e2e`
+   đạt; E2E chỉ database thử nghiệm được guard trước reset/mutation. Ghi kết quả, cleanup và
+   secret/artifact scan. `supabase test db` chỉ thêm nếu thực tế thay contract/schema ngoài scope
+   thì dừng đề xuất mở rộng trước, không âm thầm thực hiện. Không tuyên bố CI/deployment mới.
+8. Cập nhật context/roadmap cùng thay đổi, ghi file/rủi ro/bằng chứng; hoàn tất local C72 rồi đặt
+   checkpoint rollout tiếp theo AWAITING_APPROVAL và dừng theo AGENTS. Không tự rollout.
+
+OWNER phê duyệt C72 trong hội thoại ngày 01/10/2026.
+
+
+Kết quả C72: sáu phát hiện C71 đã sửa local; báo cáo `docs/UI_UX_REMEDIATION_C72.md`,
+ảnh/geometry `docs/remediation-c72/`. Diff-check/lint/typecheck, unit80/80, build và full
+E2E45 PASS/3 audit opt-in SKIP đạt. Test DB cleanup0, secret scan sạch; không commit/push/deploy.
+Safari/Firefox/screen reader/mobile vật lý chưa kiểm; không xem ảnh là chứng nhận AT.
+
+## 31. Checkpoint C73 — Đã được phê duyệt
+
+**C73 — Đồng bộ và rollout remediation C70–C72.** Trạng thái: `IN_PROGRESS`.
+
+Mục tiêu: đưa source local đã kiểm lên GitHub, stable Preview và Production để OWNER sử dụng
+bản UI/UX mới. Không migration, đổi secret/tài khoản/kiến trúc hay ghi dữ liệu tài chính remote.
+
+Phạm vi:
+
+- Đọc startup/context, kiểm diff C70–C72 và artifact/secret/dependency; giữ thay đổi ngoài scope.
+  Tạo commit checkpoint, push fast-forward repository hiện hữu, không force/reset.
+- Xác minh `Required CI gate` đúng SHA; GitHub Free/private dùng kiểm soát bù hiện hữu,
+  không yêu cầu nâng gói hoặc thay branch protection.
+- Preview bắt buộc từ root qua `pnpm deploy:preview`, theo `docs/VERCEL_PREVIEW_RUNBOOK.md`:
+  preflight đủ gate, immutable candidate Ready/target preview/project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`/Functions sin1; smoke trước chuyển stable alias.
+- Sau Preview đạt, tạo candidate Production bằng luồng runbook hiện hữu; Ready/sin1,
+  smoke URL bất biến trước promote `tindung.vercel.app`, không bỏ qua authenticated route.
+- Smoke chỉ đọc trên phiên hiện hữu: dashboard/loan detail/counterparties/expenses/notifications,
+  loading/nav, theme/viewport3753901440, active filter và mở/đóng sheet sạch. Không bấm lưu,
+  mark-read hoặc ghi giao dịch trên remote để kiểm; các mutation đã kiểm trong DB synthetic.
+- Kiểm stable alias/runtime error sau mỗi rollout; lỗi thì trả alias về deployment tốt đã ghi
+  trước thay đổi. Dừng nếu dữ liệu/kiến trúc sai lệch hoặc cần login/CAPTCHA người dùng.
+
+Acceptance criteria:
+
+1. Local source/bằng chứng đúng phạm vi, không secret/dump; diff-check/lint/typecheck/unit/build/
+   E2E đạt trước candidate. Có commit SHA và Required CI xanh đúng SHA, không dùng run cũ.
+2. Preview và Production ghi deployment ID, immutable URL, target/project/region, alias và
+   rollback target; từng public/authenticated smoke, console/runtime log có kết quả rõ.
+   Ready/build không thay bằng chứng route thật; stable alias được hậu kiểm sau promote.
+3. UI C72 được xác nhận xuất hiện trên hai môi trường; không ghi tài chính/đổi schema/secret,
+   không tuyên bố screen reader hoặc mobile vật lý PASS từ viewport giả lập.
+4. Context/roadmap cùng cập nhật và source/tài liệu được đồng bộ; nếu tài liệu tạo SHA mới,
+   xác minh Required CI của SHA cuối. Đánh dấu COMPLETED chỉ sau toàn bộ gate và hậu kiểm;
+   checkpoint tiếp theo đặt AWAITING_APPROVAL rồi dừng. OWNER phê duyệt C73 trong hội thoại ngày 02/10/2026.

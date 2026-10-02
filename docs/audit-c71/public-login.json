@@ -1,0 +1,702 @@
+[
+  {
+    "environment": "local",
+    "width": 375,
+    "theme": "light",
+    "ms": 408,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 293
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 293
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 293
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "local",
+    "width": 390,
+    "theme": "light",
+    "ms": 40,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 308
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 308
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 308
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "local",
+    "width": 768,
+    "theme": "light",
+    "ms": 30,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 248
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 248
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 248
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "local",
+    "width": 1024,
+    "theme": "light",
+    "ms": 114,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 358.25
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 358.25
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 358.25
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "local",
+    "width": 1440,
+    "theme": "light",
+    "ms": 83,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 381.046875
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 381.046875
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 381.046875
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "local",
+    "width": 375,
+    "theme": "dark",
+    "ms": 56,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 293
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 293
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 293
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "local",
+    "width": 390,
+    "theme": "dark",
+    "ms": 105,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 308
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 308
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 308
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "local",
+    "width": 768,
+    "theme": "dark",
+    "ms": 41,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 248
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 248
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 248
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "local",
+    "width": 1024,
+    "theme": "dark",
+    "ms": 38,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 358.25
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 358.25
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 358.25
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "local",
+    "width": 1440,
+    "theme": "dark",
+    "ms": 37,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 381.046875
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 381.046875
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 381.046875
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "production-public",
+    "width": 375,
+    "theme": "light",
+    "ms": 1850,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 293
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 293
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 293
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "production-public",
+    "width": 390,
+    "theme": "light",
+    "ms": 255,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 308
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 308
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 308
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "production-public",
+    "width": 768,
+    "theme": "light",
+    "ms": 210,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 248
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 248
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 248
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "production-public",
+    "width": 1024,
+    "theme": "light",
+    "ms": 238,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 358.25
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 358.25
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 358.25
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "production-public",
+    "width": 1440,
+    "theme": "light",
+    "ms": 216,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 381.046875
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 381.046875
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 381.046875
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "production-public",
+    "width": 375,
+    "theme": "dark",
+    "ms": 210,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 293
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 293
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 293
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "production-public",
+    "width": 390,
+    "theme": "dark",
+    "ms": 221,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 308
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 308
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 308
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "production-public",
+    "width": 768,
+    "theme": "dark",
+    "ms": 226,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 248
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 248
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 248
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "production-public",
+    "width": 1024,
+    "theme": "dark",
+    "ms": 218,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 358.25
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 358.25
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 358.25
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  },
+  {
+    "environment": "production-public",
+    "width": 1440,
+    "theme": "dark",
+    "ms": 211,
+    "overflow": false,
+    "targets": [
+      {
+        "text": "Bỏ qua đến nội dung chính",
+        "height": 45.59375,
+        "width": 230.21875
+      },
+      {
+        "text": "username",
+        "height": 49.59375,
+        "width": 381.046875
+      },
+      {
+        "text": "password",
+        "height": 49.59375,
+        "width": 381.046875
+      },
+      {
+        "text": "Hiện mật khẩu",
+        "height": 44,
+        "width": 60
+      },
+      {
+        "text": "Đăng nhập",
+        "height": 48,
+        "width": 381.046875
+      }
+    ],
+    "title": "Quản lý vay cá nhân"
+  }
+]

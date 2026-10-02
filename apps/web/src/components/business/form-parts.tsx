@@ -5,6 +5,8 @@ import { LoaderCircle } from "lucide-react";
 import type { BusinessActionState } from "@/lib/business/action-state";
 import { Button, notifyToast } from "@/components/ui";
 
+import { registerDraft } from "@/components/app/dirty-navigation-guard";
+
 const BusinessPending = createContext(false);
 const ManagedSuccess = createContext(false);
 const subscribeHydration = () => () => {};
@@ -34,7 +36,7 @@ export function FieldError({ state, name }: { state: BusinessActionState; name: 
   return <p ref={ref} id={id} className="field-error" role={message ? "alert" : undefined} hidden={!message}>{message}</p>;
 }
 
-type BusinessFormProps = Omit<ComponentProps<"form">, "action"> & {
+export type BusinessFormProps = Omit<ComponentProps<"form">, "action"> & {
   state: BusinessActionState & { pending?: boolean };
   action: (data: FormData) => void;
   onDirtyChange?: (dirty: boolean) => void;
@@ -64,19 +66,7 @@ export function BusinessForm({ state, children, action, onDirtyChange, onPending
     else form.querySelector<HTMLElement>(".action-message")?.focus();
   }, [onDirtyChange, onSuccess, state.fieldErrors, state.message, state.ok, state.pending, state.submissionId]);
   useEffect(() => { onPendingChange?.(Boolean(state.pending)); }, [onPendingChange, state.pending]);
-  useEffect(() => {
-    const beforeUnload = (event: BeforeUnloadEvent) => { if (dirty.current) { event.preventDefault(); event.returnValue = ""; } };
-    window.addEventListener("beforeunload", beforeUnload);
-    const navigation = (event: MouseEvent) => {
-      const link = event.target instanceof Element ? event.target.closest("a[href]") : null;
-      if (dirty.current && link && link.getAttribute("href")?.startsWith("/") && !window.confirm("Bạn có thay đổi chưa lưu. Rời trang và bỏ các thay đổi này?")) {
-        (event as MouseEvent & { appNavigationCancelled?: boolean }).appNavigationCancelled = true;
-        event.preventDefault(); event.stopPropagation();
-      }
-    };
-    document.addEventListener("click", navigation, true);
-    return () => { window.removeEventListener("beforeunload", beforeUnload); document.removeEventListener("click", navigation, true); };
-  }, []);
+  useEffect(() => registerDraft(() => dirty.current), []);
   return <ManagedSuccess.Provider value={Boolean(onSuccess)}><BusinessPending.Provider value={Boolean(state.pending)}><form {...props} ref={ref} aria-busy={Boolean(state.pending)} onChange={event => {
     if (!dirty.current) onDirtyChange?.(true);
     dirty.current = true;

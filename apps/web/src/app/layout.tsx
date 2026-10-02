@@ -5,6 +5,7 @@ import { cookies } from "next/headers";
 import "./globals.css";
 import { PwaRegister } from "@/components/pwa-register";
 import { NavigationFeedback } from "@/components/app/navigation-feedback";
+import { DirtyNavigationGuard } from "@/components/app/dirty-navigation-guard";
 import { NetworkStatus } from "@/components/app/network-status";
 import { AppShell } from "@/components/app/app-shell";
 import { getAuthenticatedProfile } from "@/lib/auth/session";
@@ -74,6 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <DirtyNavigationGuard />
         <Suspense fallback={<InitialApplicationLoading />}><ResolvedApplication>{children}</ResolvedApplication></Suspense>
       </body>
     </html>

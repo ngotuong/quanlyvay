@@ -58,7 +58,7 @@
 .ui-tabs { min-width: 0; }
 .ui-tab-list { display: flex; min-width: 0; gap: 4px; overflow-x: auto; border: 1px solid var(--border); border-radius: 14px; background: var(--surface-muted); padding: 4px; scrollbar-width: none; }
 .ui-tab-list::-webkit-scrollbar { display: none; }
-.ui-tab-list > a, .ui-tab-list > button { min-height: 42px; display: inline-flex; flex: 1 0 auto; align-items: center; justify-content: center; border: 0; border-radius: 10px; background: transparent; padding: 8px 13px; color: var(--foreground-muted); font-weight: 700; text-decoration: none; transition: color var(--motion-fast), background var(--motion-fast), box-shadow var(--motion-fast); }
+.ui-tab-list > a, .ui-tab-list > button { min-height: 44px; display: inline-flex; flex: 1 0 auto; align-items: center; justify-content: center; border: 0; border-radius: 10px; background: transparent; padding: 8px 13px; color: var(--foreground-muted); font-weight: 700; text-decoration: none; transition: color var(--motion-fast), background var(--motion-fast), box-shadow var(--motion-fast); }
 .ui-tab-list > [data-active="true"] { background: var(--surface); color: var(--primary); box-shadow: var(--shadow-sm); }
 
 .ui-bottom-sheet { overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
@@ -77,7 +77,7 @@
 @keyframes ui-toast-enter { from { opacity: 0; transform: translateY(14px) scale(.98); } }
 
 .loan-card-shell { position: relative; min-width: 0; }
-.loan-card-quick-action { position: absolute; right: 14px; bottom: 14px; z-index: 2; min-height: 42px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border)); border-radius: 10px; background: var(--primary-soft); padding: 8px 11px; color: var(--primary); font-size: .8125rem; font-weight: 750; text-decoration: none; transition: background var(--motion-fast), transform var(--motion-fast); }
+.loan-card-quick-action { position: absolute; right: 14px; bottom: 14px; z-index: 2; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border)); border-radius: 10px; background: var(--primary-soft); padding: 8px 11px; color: var(--primary); font-size: .8125rem; font-weight: 750; text-decoration: none; transition: background var(--motion-fast), transform var(--motion-fast); }
 .loan-card-quick-action:hover { background: color-mix(in srgb, var(--primary) 16%, var(--surface)); transform: translateY(-1px); }
 .loan-card-shell:has(.loan-card-quick-action) .loan-card { padding-bottom: 68px; }
 .mobile-more-trigger { width: 100%; border: 0; padding: 0; }

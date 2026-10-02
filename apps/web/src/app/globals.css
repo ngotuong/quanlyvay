@@ -1301,3 +1301,33 @@ details[open] > summary::after { content: "−"; }
   .auth-intro .eyebrow { margin-top: 12px; }
   .auth-card { padding-top: 12px; }
 }
+
+/* C72: consistent hit areas and mobile task priority. */
+.edit-details > summary { display: flex; align-items: center; min-height: 44px; }
+.filter-pills a { min-width: 44px; min-height: 44px; }
+.dashboard-custom-trigger { min-width: 44px; min-height: 44px; }
+@media (max-width: 767px) {
+  .dashboard-primary-metrics { order: 3; }
+  .dashboard-focus-grid { order: 2; }
+  .dashboard-workspace { display: flex; flex-direction: column; }
+  .dashboard-period-bar { min-height: 0; margin-bottom: 8px; }
+  .dashboard-workspace .dashboard-metric { margin-top: 12px; }
+}
+
+.notification-pending { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; color: var(--primary); }
+.notification-item-button:disabled { cursor: wait; }
+@media (max-width: 767px) {
+  .dashboard-period-current { flex: 1 1 160px; }
+  .dashboard-shortcuts { width: 100%; }
+}
+
+@media (max-width: 767px) {
+  .dashboard-focus-grid { margin-top: 0; }
+  .attention-card { padding: 16px; }
+  .attention-card .dashboard-section-heading { margin-bottom: 12px; }
+}
+
+.loan-card-tags { max-width: 100%; }
+.loan-card-tags .ui-badge { max-width: 100%; white-space: normal; overflow-wrap: anywhere; }
+
+.loan-card-details dd { overflow-wrap: anywhere; }

@@ -125,6 +125,7 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   await expect(loanAudit.locator("pre")).not.toContainText('"direction"');
 
   await page.goto("/expenses");
+  await page.getByRole("button", { name: "Thêm chi phí", exact: true }).click();
   await page.getByLabel("Số tiền (VND)").fill("150000");
   await expect(page.getByLabel("Số tiền (VND)")).toHaveValue("150.000");
   await page.getByLabel("Nhóm chi phí").fill("Vận hành E2E");

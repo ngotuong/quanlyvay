@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.234
-last_updated: 2026-10-01
+roadmap_version: 1.0.243
+last_updated: 2026-10-02
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C70
-current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C69
-next_checkpoint: C70
+current_checkpoint: C73
+current_status: IN_PROGRESS
+last_completed_checkpoint: C72
+next_checkpoint: C73
 ---
 
 # Project Context
@@ -218,6 +218,17 @@ quyền thực hiện thao tác remote mới.
   build để tái tạo `dist`, rồi `clasp push`; version 6 được giữ làm bằng chứng. Không cần rollback.
 
 ## 6. Kiểm thử gần nhất
+
+C72 ngày 2026-10-01 (kết quả mới nhất):
+
+- `git diff --check`, lint, typecheck, build: PASS; `pnpm test`80/80 PASS.
+- Full E2E45 PASS/3 audit opt-in SKIP, 6 phút; toàn bộ6 C72 và regression hiện hữu đạt.
+- 100 route/width/theme/text samples, 20 ảnh synthetic, keyboard focus/target/overflow đạt.
+  Hai expense fixture list y436,86; dashboard13 task đầu bottom648,03 px.
+- Read-only hậu kiểm DB disposable :55321: profiles/loans/transactions0; secret-pattern scan sạch,
+  không SQL/dump/env staged hoặc file mới. Không chứng nhận browser/AT/thiết bị chưa kiểm.
+- Chi tiết và giới hạn tại `docs/UI_UX_REMEDIATION_C72.md`; chưa có CI/deployment C72 mới.
+
 
 C62 ngày 2026-09-30:
 
@@ -498,9 +509,47 @@ C59 đã đạt:
   0. Rollback target `dpl_QQ4ymp6KrfYHngugdMdv4zu5bRrJ` không cần kích hoạt. Tài khoản smoke đã
   inactive/banned; không đổi schema/RPC, công thức tài chính, Supabase data/secret, Apps
   Script/Sheets hoặc ghi giao dịch tài chính.
-- C70 `AWAITING_APPROVAL`: hậu kiểm accessibility Production bằng screen reader và môi trường
-  mobile thực/emulator để khép các mục C66 còn `NOT_TESTED`; chỉ audit và lập backlog, không sửa
-  code hay thay đổi dữ liệu trong cùng checkpoint.
+- C70 `COMPLETED` ngày 2026-10-01 theo phạm vi điều chỉnh OWNER đã đồng ý: tổng hợp kiểm
+  accessibility khả dụng trên Production, giữ VoiceOver/TalkBack/mobile thật NOT_TESTED.
+  Safari login semantic/keyboard/focus đạt. Chrome Production đạt privacy attributes, dashboard
+  heading, modal focus/state, reflow 320/390/500 px, loans/detail bốn tab và landscape giả lập;
+  console/pageerror = 0. Tài khoản kỹ thuật VIEWER inactive/banned đã hậu kiểm đọc-only đạt.
+  Bằng chứng/giới hạn tại `docs/UI_UX_AUDIT_C70.md`; gate tài liệu `git diff --check` đạt.
+  Không sửa runtime/harness, không cần chạy lại full suite. Cache/helper/credential bị Git ignore.
+  Giới hạn còn mở: VoiceOver đã bật nhưng bind công cụ timeout -10005/không thu được đầu ra;
+  adb/simctl không có. Không coi đóng C70 là PASS screen reader/mobile hay đóng toàn bộ rủi ro
+  accessibility. Không yêu cầu OWNER học VoiceOver. VoiceOver đã bật ở lượt trước, chưa tắt;
+  phiên chốt tài liệu này không thao tác hệ thống. Blocker đóng C70 đã được gỡ bằng phạm vi
+  OWNER điều chỉnh; giới hạn kiểm chứng vẫn được lưu, chưa có phát hiện screen reader mới đủ bằng chứng.
+- C71 `COMPLETED` ngày 2026-10-01: audit UI/UX có 110 tổ hợp screen/viewport/theme local
+  synthetic và 20 login local/Production public. Báo cáo `docs/UI_UX_AUDIT_C71.md`, ma trận/ảnh/
+  mockup tại `docs/audit-c71/`, harness opt-in `apps/web/test/e2e/c71-audit.spec.ts`.
+  Có 1 HIGH (Back SPA làm mất draft), 4 MEDIUM (pending/error thông báo, target, chi phí form-first,
+  active filter), 1 LOW (task dashboard dưới KPI mobile). Không sửa các lỗi trong audit.
+  Loading cold auth và financial drawer close/reset/toast/focus đã kiểm lại đạt; không coi lỗi
+  C62 đã sửa là hiện hành. Screen reader/mobile thật/contrast toàn bộ tiếp tục NOT_TESTED.
+  Gates: lint/typecheck PASS phiên bản cuối; 16 regression C63/C64/C67 PASS ở lượt đầu; C71
+  matrix+friction 2 PASS ở lượt rerun, friction bổ sung read-after-write/count/retry/quick journey
+  1 PASS. Lượt đầu một timeout harness do goBack chờ load khi dismiss beforeunload đã sửa ở
+  harness, không sản phẩm. Build chạy trong gate E2E; không chạy lại full unit/DB suite/CI.
+  Teardown + hậu kiểm read-only DB riêng :55321: profiles/loans/transactions đều 0; artifact
+  secret-pattern scan PASS, không SQL/dump, git diff --check PASS. Không thay runtime/schema,
+  dữ liệu dùng chung, secret, tài khoản remote, deploy, commit hoặc push. Local C70/C71 chưa
+  đồng bộ GitHub. Production inspect chỉ đọc vẫn C69 dpl_HZHgS3m93v2MoYNQSPVHi9vGwZ1T/sin1;
+  không kiểm lại authenticated Production trong C71, không tuyên bố rollout remediation.
+- C72 `COMPLETED` local ngày 01/10/2026, OWNER phê duyệt trong hội thoại: đã sửa sáu phát hiện
+  C71 về draft Back/Forward/link/close, notification pending/error/retry/active, target44px,
+  expense sheet list-first và task priority mobile. Báo cáo `docs/UI_UX_REMEDIATION_C72.md`,
+  đối chiếu ảnh `docs/remediation-c72/review.html`. Không thay RPC/schema/quyết toán VND.
+  Lint/typecheck/diff-check, 80 unit, build và full E2E45 PASS/3 audit opt-in SKIP đều đạt.
+  Geometry100 samples không overflow/target nhỏ; task bottom648,03, expense list top436,86 px.
+  RPC timeout thật trên fixture local giữ unread, retry đạt; teardown profiles/loans/transactions0.
+  Secret/artifact scan sạch. Thay đổi C70/C71 bảo toàn; C70–C72 chưa commit/push/deploy.
+  Không blocker local. Safari/Firefox, screen reader/mobile vật lý tiếp tục NOT_TESTED.
+- C73 `IN_PROGRESS`: đồng bộ C70–C72, Required CI đúng SHA, rollout Preview và Production
+  có public/authenticated smoke chỉ đọc, kiểm alias/region/runtime và rollback nếu hậu kiểm lỗi.
+  Phạm vi/acceptance tại mục31 roadmap. OWNER phê duyệt trong hội thoại ngày 02/10/2026.
+
 
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
