@@ -549,6 +549,18 @@ C59 đã đạt:
 - C73 `IN_PROGRESS`: đồng bộ C70–C72, Required CI đúng SHA, rollout Preview và Production
   có public/authenticated smoke chỉ đọc, kiểm alias/region/runtime và rollback nếu hậu kiểm lỗi.
   Phạm vi/acceptance tại mục31 roadmap. OWNER phê duyệt trong hội thoại ngày 02/10/2026.
+  Source đã push fast-forward tại `e0cb3956ae5ca01811f28a938eebac0ad56d0525`.
+  CI run `36960703897` thất bại ở beforeAll C72: `E2E_DATABASE_PREPARED=true` bỏ reset
+  sau volume fixtures, rồi globalSetup tạo lại user synthetic đã tồn tại (39 PASS/1 FAIL,
+  3 SKIP/5 chưa chạy). Sửa riêng fixture để gọi resetLocalDatabase có guard khi cờ prepared
+  còn bật; không đổi runtime/schema hoặc remote DB. Lint/typecheck/80 unit/build đạt,
+  full E2E với cờ prepared và CI revision sửa đang chờ xác minh.
+  Preview candidate `dpl_A5ViQwiJSrfATNwSyWq7VEvCc2Hh`, URL
+  <https://quan-ly-vay-ca-nhan-bxhs8qq9j-ngotuong2105.vercel.app>, Ready/preview/sin1,
+  đúng project. Candidate đã tạo sau local gate nhưng trước kết quả CI; chưa chuyển alias.
+  Dashboard authenticated375/390 và expense sheet mở/đóng trả focus đạt; chưa đủ ma trận smoke.
+  Console có CSP chặn Vercel toolbar và cảnh báo font preload, chưa thấy lỗi ứng dụng.
+  Stable Preview/Production chưa thay đổi; không promote khi Required CI còn đỏ.
 
 
 

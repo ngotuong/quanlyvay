@@ -1127,3 +1127,9 @@ Acceptance criteria:
 4. Context/roadmap cùng cập nhật và source/tài liệu được đồng bộ; nếu tài liệu tạo SHA mới,
    xác minh Required CI của SHA cuối. Đánh dấu COMPLETED chỉ sau toàn bộ gate và hậu kiểm;
    checkpoint tiếp theo đặt AWAITING_APPROVAL rồi dừng. OWNER phê duyệt C73 trong hội thoại ngày 02/10/2026.
+
+Gate đang xử lý 02/10/2026: run `36960703897` của `e0cb395` đỏ do beforeAll C72 gọi
+globalSetup mà CI giữ `E2E_DATABASE_PREPARED=true`, tạo trùng user synthetic. Điều chỉnh
+chuẩn bị fixture local có guard phục vụ gate C73; không thay ứng dụng, remote DB hoặc schema.
+Candidate Preview đã Ready sau gate local, nhưng tạo trước kết quả CI; chưa promote alias,
+candidate này không được phát hành khi Required CI chưa đạt. Tạo candidate mới sau CI xanh.

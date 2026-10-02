@@ -4,7 +4,7 @@ import { spawn } from "node:child_process";
 import { randomUUID } from "node:crypto";
 import { mkdirSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { localSupabaseEnvironment } from "./helpers";
+import { localSupabaseEnvironment, resetLocalDatabase } from "./helpers";
 import globalSetup from "./global-setup";
 
 const local = localSupabaseEnvironment();
@@ -18,7 +18,12 @@ test.beforeAll(async () => {
   // and only before this final, serial test file; the helper guards project/host/port.
   const marker = await admin.from("counterparties").select("id").eq("name", "C72 synthetic").maybeSingle();
   const transactions = await admin.from("transactions").select("id", { count: "exact", head: true });
-  if (!marker.data && (transactions.count ?? 0) > 1) await globalSetup();
+  if (!marker.data && (transactions.count ?? 0) > 1) {
+    // CI prepared the DB before the suite, but preceding tests have since mutated it.
+    // Explicitly reset this guarded, disposable local DB before recreating its users.
+    if (process.env.E2E_DATABASE_PREPARED === "true") resetLocalDatabase();
+    await globalSetup();
+  }
   const owner = createClient(local.API_URL, local.PUBLISHABLE_KEY || local.ANON_KEY, { auth: { persistSession: false } });
   let sign = await owner.auth.signInWithPassword({ email: "c6_owner_e2e@auth.local", password });
   if (sign.error) { password = "123456"; sign = await owner.auth.signInWithPassword({ email: "c6_owner_e2e@auth.local", password }); }
