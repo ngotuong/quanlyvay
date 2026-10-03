@@ -1,6 +1,6 @@
 # C76 — Đồng bộ và rollout C74–C75
 
-Trạng thái: COMPLETED ngày 2026-10-03. OWNER phê duyệt ngày 2026-10-02, bổ sung yêu cầu
+Trạng thái: IN_PROGRESS ngày 2026-10-03; rollout đạt, chờ Required CI bản sửa công cụ lint. OWNER phê duyệt ngày 2026-10-02, bổ sung yêu cầu
 đặt các card dư nợ/lãi ròng trên “Việc cần xử lý” cả mobile và desktop.
 
 ## Kết quả và source phát hành
@@ -22,7 +22,7 @@ Required CI run `37032143402` SUCCESS cả5 job trước khi tạo candidate.
 |---|---|
 | Diff-check, CI policy/actionlint, dependency audit, pinned Gitleaks | PASS |
 | Lint/typecheck | PASS |
-| Unit/script | 90 PASS |
+| Unit/script sau sửa lint dependency | 94 PASS |
 | Build | PASS, 19 routes |
 | Root Preview resume full E2E | 48 PASS, 5 opt-in SKIP, 6,5 phút, exit0 |
 | Disposable DB55322 sau root gate | profiles/loans/transactions: 0/0/0 |
@@ -128,3 +128,23 @@ Chi tiết từng run/failure/source/inventory vẫn trong `evidence.json` và G
 C77 `AWAITING_APPROVAL`: audit chỉ đọc privacy biểu đồ, focus và artifact triển khai cũ, có
 severity/file/nguyên nhân/tác động/remediation scope rõ. Scope/acceptance tại mục35 roadmap.
 Dừng sau C76; chưa thực hiện C77.
+
+## Dependency blocker khi chốt CI
+
+CI `37085353144` của `40e09d58ce4f7f3d51c6af70d646c7f7840c9a7e` phát hiện HIGH
+[GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm) trong braces3.0.3:
+Next ESLint plugin16.3.8 → fast-glob3.3.1 → micromatch4.0.8 → braces. Đây là dev lint;
+`pnpm audit --prod` sạch. Advisory chưa có bản vá published; không giả định braces3.0.4 tồn tại.
+
+Override chỉ cạnh dependency của plugin16.3.8 sang tinyglobby0.2.15 và patch get-root-dirs
+để giữ directory-only, không mở rộng directory đệ quy, normalize separator/trailing slash và
+đường dẫn absolute. Không bỏ rule hoặc allowlist advisory. Bốn regression kiểm default cwd,
+glob/file/hidden, arrays/braces/absolute/separator và rule internal-link thực đều PASS.
+Frozen install bằng pinned pnpm11.9.0, lint/typecheck,94 unit/script, build19, CI policy và
+full dependency audit PASS. Root E2E48PASS5SKIP là lượt trước patch lint; CI SHA mới kiểm lại
+full integration. Không tuyên bố local E2E được chạy lại sau patch.
+
+Đối chiếu lock với40e09d5:125 Production dependency snapshots không đổi; runtime application
+source không đổi. Vì chỉ sửa dev tooling, hai deployment đã kiểm vẫn dùng runtime d3fc370;
+không deploy lại hoặc cần OWNER đăng nhập lại. Patch gắn chính xác plugin16.3.8 cần rà soát/gỡ
+khi upstream có dependency an toàn tương thích. C76 chưa hoàn tất đến khi Required CI mới đạt.

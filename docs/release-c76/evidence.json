@@ -1,12 +1,12 @@
 {
   "checkpoint": "C76",
-  "status": "COMPLETED",
+  "status": "IN_PROGRESS",
   "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
   "localGates": {
     "policy": "PASS",
     "lint": "PASS",
     "typecheck": "PASS",
-    "unitScriptTests": 90,
+    "unitScriptTests": 94,
     "buildRoutes": 19,
     "e2ePassed": 48,
     "e2eOptInSkipped": 5,
@@ -860,5 +860,22 @@
   "finalDocumentationCi": {
     "requirement": "Verify Required CI for exact pushed closing-documentation SHA before completion response; source run is not substitute",
     "evidenceLocation": "GitHub checks on the commit containing this completion record and final conversation response; no self-referential SHA stored"
+  },
+  "lintSecurityFollowup": {
+    "blockedCommit": "40e09d58ce4f7f3d51c6af70d646c7f7840c9a7e",
+    "blockedRun": 37085353144,
+    "advisory": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+    "scope": "dev lint only",
+    "replacement": "@next/eslint-plugin-next@16.3.8>fast-glob -> npm:tinyglobby@0.2.15",
+    "compatibilityPatch": "patches/@next__eslint-plugin-next@16.3.8.patch",
+    "compatibilityTestsPassed": 4,
+    "frozenInstallPnpm": "11.9.0",
+    "audit": "PASS",
+    "productionGraphUnchanged": true,
+    "productionSnapshotsCompared": 125,
+    "runtimeApplicationSourceChanged": false,
+    "redeployed": false,
+    "closingCi": "PENDING exact pushed SHA",
+    "localE2eNote": "48 PASS/5 SKIP before dev-only lint patch; new CI reruns integration"
   }
 }

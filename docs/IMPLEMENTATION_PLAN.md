@@ -51,7 +51,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C73 | Đồng bộ và rollout remediation C70–C72 | `COMPLETED` |
 | C74 | Audit hành trình và backlog UI/UX sau rollout | `COMPLETED` |
 | C75 | Remediation ngữ cảnh công việc và thông báo | `COMPLETED` |
-| C76 | Đồng bộ và rollout remediation C74–C75 | `COMPLETED` |
+| C76 | Đồng bộ và rollout remediation C74–C75 | `IN_PROGRESS` |
 | C77 | Audit privacy biểu đồ, focus và artifact triển khai còn mở | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
@@ -1241,9 +1241,9 @@ business-flow11 PASS, final C75 3 PASS56,8s. Evidence6 matrix/ảnh/report/revie
 `docs/remediation-c75/`; teardown profiles/loans/transactions0. Lịch sử harness và giới hạn
 browser/AT ghi trong report. C74 chưa commit bảo toàn; chưa push/deploy/schema/remote mutation.
 
-## 34. Checkpoint C76 — Đã hoàn tất
+## 34. Checkpoint C76 — Đang chốt CI
 
-**C76 — Đồng bộ và rollout remediation C74–C75.** Trạng thái: `COMPLETED`.
+**C76 — Đồng bộ và rollout remediation C74–C75.** Trạng thái: `IN_PROGRESS`.
 
 Người dùng phê duyệt ngày 2026-10-02, bổ sung KPI dư nợ/lãi ròng ở trên task.
 Hoàn tất rollout và hậu kiểm 03/10/2026; đã đăng nhập hai candidate trực tiếp.
@@ -1330,3 +1330,10 @@ Acceptance criteria:
    đề xuất cleanup/rollback sạch có danh sách đích và phê duyệt riêng trước thao tác phá hủy.
 4. Có checkpoint remediation kế tiếp phạm vi và acceptance criteria rõ, AWAITING_APPROVAL rồi
    dừng. Gate phù hợp chỉ gồm diff-check/credential scan và kiểm thử local phục vụ bằng chứng.
+
+C76 follow-up 03/10: CI37085353144/40e09d5 HIGH braces dev lint đã được loại bằng scoped
+Next plugin16.3.8 tinyglobby0.2.15 alias + compatibility patch; không bỏ lint rule/audit allowlist.
+Pinned frozen install11.9, lint/typecheck/unit94/build19/policy/full audit PASS;4 regression mới
+kiểm glob semantics và internal-link rule thực. Production graph125 snapshots/runtime source
+không đổi, không redeploy. Root E2E48/5 là lượt trước patch; chờ Required CI SHA mới nên C76
+vẫn IN_PROGRESS. Chi tiết tại docs/release-c76/report.md; C77 chưa được duyệt/chưa bắt đầu.
