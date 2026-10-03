@@ -51,7 +51,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C73 | Đồng bộ và rollout remediation C70–C72 | `COMPLETED` |
 | C74 | Audit hành trình và backlog UI/UX sau rollout | `COMPLETED` |
 | C75 | Remediation ngữ cảnh công việc và thông báo | `COMPLETED` |
-| C76 | Đồng bộ và rollout remediation C74–C75 | `IN_PROGRESS` |
+| C76 | Đồng bộ và rollout remediation C74–C75 | `COMPLETED` |
+| C77 | Audit privacy biểu đồ, focus và artifact triển khai còn mở | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1240,12 +1241,14 @@ business-flow11 PASS, final C75 3 PASS56,8s. Evidence6 matrix/ảnh/report/revie
 `docs/remediation-c75/`; teardown profiles/loans/transactions0. Lịch sử harness và giới hạn
 browser/AT ghi trong report. C74 chưa commit bảo toàn; chưa push/deploy/schema/remote mutation.
 
-## 34. Checkpoint C76 — Đang thực hiện
+## 34. Checkpoint C76 — Đã hoàn tất
 
-**C76 — Đồng bộ và rollout remediation C74–C75.** Trạng thái: `IN_PROGRESS`.
+**C76 — Đồng bộ và rollout remediation C74–C75.** Trạng thái: `COMPLETED`.
 
-Người dùng phê duyệt ngày 2026-10-02; đã tạo hai candidate9001479 nhưng chưa promote;
-đã sửa card dòng tiền; đang kiểm bố cục KPI trên task theo chỉ dẫn mới của OWNER.
+Người dùng phê duyệt ngày 2026-10-02, bổ sung KPI dư nợ/lãi ròng ở trên task.
+Hoàn tất rollout và hậu kiểm 03/10/2026; đã đăng nhập hai candidate trực tiếp.
+Source d3fc370/Required CI37032143402 SUCCESS, root full gate48PASS5SKIP, hai stable aliases
+đã trỏ candidate mới. Bằng chứng và các run lịch sử tại docs/release-c76/.
 
 Mục tiêu: đưa source/bằng chứng C74–C75 đã đạt gate lên GitHub và phát hành qua Preview,
 Production có authenticated smoke thực. Không mở rộng redesign hoặc thay đổi database.
@@ -1283,31 +1286,47 @@ Acceptance criteria:
 5. Context/roadmap cập nhật cùng thay đổi, Required CI exact final documentation SHA nếu push
    tài liệu cuối, báo rủi ro/giới hạn và checkpoint kế tiếp AWAITING_APPROVAL rồi dừng.
 
-C76 tiến độ 2026-10-02: source32fb641/Required CI37003852476 PASS cả5 job, pgTAP527/
-Auth6/E2E47PASS6SKIP. Root pipeline sau CI dừng trước deploy do502 đọc và intermittent
-C67 focus Tab wrap. Local thêm readRpcWithGatewayRetry: chỉ8 RPC đã đối chiếu STABLE,
-max2 attempts100ms gateway502/503/504 không SQL code/abort, không mutation/Auth/SQL retry.
-Failure-only focus attachment giữ assertion/timing; root cause focus OPEN, riêng8+20 PASS,
-full suite lúc đạt/lúc fail. Final local lint/typecheck/unit90/build19/E2E48PASS5SKIP5,5m,
-DB test teardown0/0/0; source sửa cuối1374946 đã commit/push; CI37011458346 đã SUCCESS; thay đổi bố cục mới cần CI đúng SHA trước candidate mới.
-Dry201 regular files4525732bytes/0 forbidden; .vercelignore loại backup/cache/log/secrets.
-Chart six matrix25tasks desktop delta0/overflow0/clipped0. Hai candidate9001479 superseded,
-chưa promote; stable aliases giữ C73. C76 IN_PROGRESS, chưa tạo checkpoint kế tiếp.
-Mac đã mở khóa; Auth browser smoke candidate mới chưa thực hiện; gateway/focus vẫn ghi rủi ro mở, không coi lần
-E2E đạt là root cause đã đóng. Chi tiết history/evidence tại docs/release-c76/.
+Kết quả C76 03/10/2026: local lint/typecheck/unit90/build19/policy PASS; root Preview resume
+E2E48PASS5SKIP6,5m/exit0, DB test55322 hậu kiểm0/0/0. Required CI source
+37032143402 SUCCESS5jobs; CI pgTAP527/Auth6/E2E47PASS6SKIP. Candidate đúng project/target/
+43 Functions sin1, inventory245 regular files/0 forbidden. Preview dpl_BBavYTasgvQ51wyTQbWunqysM6Fq
+và Production dpl_AurpzZ3pUxe7Xp7dWnxuWa2fjXxw đã Auth read-only smoke thực trước promote.
+KPI trước task375/390/1440 light/dark, full task/name/context/privacy metadata/chart/list/disclosure/
+unread empty/loans/detail/history/loading/đóng drawer đạt. Alias Preview/Production hậu kiểm đạt,
+public8/8, runtime error0/HTTP5000; CSP Toolbar và exception Chrome extension đã phân biệt nguồn.
+Không save/mark-read/permission/time/DB/schema/secrets/Google mutation remote.
+Cảnh báo Chrome C73, AT/mobile vật lý, intermittent focus và artifacts rollback vẫn OPEN.
+Trục chart hiện thang tiền dù privacy bật: ghi nhận P2 ngoài phạm vi sửa C75, đưa vào C77 audit;
+không kết luận privacy toàn app đạt. Không xóa rollback hoặc tự đổi browser security.
+Commit chốt tài liệu phải đạt Required CI đúng SHA trước khi báo hoàn tất; không dùng CI source
+thay cho CI tài liệu. Dừng tại C77 AWAITING_APPROVAL.
 
-C76 source cuối1374946c7b954855467f053f2de77fde2e589028 đã push; Required CI37011458346 đã SUCCESS (source trước đổi bố cục).
-C76 IN_PROGRESS; chưa candidate từ source cuối/chưa promote; focus intermittent và
-Mac đã mở khóa; Auth smoke candidate mới chưa thực hiện. Local lint/typecheck/unit90/build/E2E48PASS5SKIP, secret scan sạch.
+## 35. Checkpoint C77 — Chờ phê duyệt
 
-C76 điều chỉnh theo chỉ dẫn OWNER: Mac đã mở khóa; các card dư nợ/lãi ròng phải ở
-trên Việc cần xử lý cả mobile/desktop. Bỏ CSS order đảo nhóm trên mobile, giữ DOM
-reading order. Acceptance bổ sung: KPI trước task tại375/390/1440 light/dark, task
-cuộn tới được và không bị nav che; regression focus/chart/privacy/loading giữ nguyên.
-CI37011458346 của source1374946 đã SUCCESS cả5 job; thay đổi bố cục mới phải đạt
-gate/source CI riêng trước candidate, không dùng run1374946 thay thế. C76 IN_PROGRESS.
+**C77 — Audit privacy biểu đồ, focus và artifact triển khai còn mở.** Trạng thái: `AWAITING_APPROVAL`.
 
-C76 bố cục KPI trước task: lint/typecheck/unit90/build19/policy/diff-check PASS;
-full E2E48PASS5SKIP6,5m, six viewport/theme đạt thứ tự KPI→task và chart/expand/focus.
-DB test55322 hậu kiểm0/0/0. Mac/profile Chrome có phiên Production hiện hữu.
-Chưa deploy bố cục mới; đang chuẩn bị source commit/CI riêng.
+Mục tiêu: làm rõ ba rủi ro còn mở bằng bằng chứng tối thiểu để đề xuất remediation cụ thể.
+
+Phạm vi được đề xuất (chưa triển khai):
+
+- Audit privacy của trục/tooltip/accessible labels biểu đồ dashboard và chi tiết khoản vay;
+  tái hiện bằng fixture synthetic tại375/390/1440 light/dark. Không đưa số/tên/UUID thật vào artifact.
+- Tái hiện C67 Tab/Shift+Tab/Escape/focus return trên menu/drawer bằng local isolated E2E và
+  browser hiện hữu; đối chiếu focus diagnostics, không nới assertion/timeout để che lỗi.
+- Chỉ đọc metadata/inventory source/out và quyền truy cập deployment C73 đang làm rollback;
+  xác định giữ/xóa thế nào sau khi có rollback sạch. Không tải nội dung backup/log/secret, không
+  xóa deployment, đổi quyền hay thực hiện cleanup trong audit.
+- Viết báo cáo severity/file/vị trí/nguyên nhân/tác động/hướng khắc phục; cập nhật context/roadmap
+  cùng thay đổi. Không sửa runtime, DB, credentials, remote settings; không deploy/push.
+
+Acceptance criteria:
+
+1. Mỗi rủi ro có nguồn chứng cứ cụ thể, phân biệt tái hiện được, suy luận source và NOT_TESTED;
+   privacy fixture không lộ tiền trong hình/DOM accessible khi bật ẩn là mục tiêu remediation,
+   không tuyên bố đạt chỉ vì một route mask đúng.
+2. Focus có bước tái hiện/trace hoặc ghi rõ chưa xác định root cause; không dùng một lần PASS
+   để đóng intermittent issue. Fixture/test DB riêng55322 được hậu kiểm không còn dữ liệu.
+3. Artifact review phân biệt source package với public HTTP exposure, không tải nội dung nhạy cảm;
+   đề xuất cleanup/rollback sạch có danh sách đích và phê duyệt riêng trước thao tác phá hủy.
+4. Có checkpoint remediation kế tiếp phạm vi và acceptance criteria rõ, AWAITING_APPROVAL rồi
+   dừng. Gate phù hợp chỉ gồm diff-check/credential scan và kiểm thử local phục vụ bằng chứng.

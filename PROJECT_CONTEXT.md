@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.252
-last_updated: 2026-10-02
+roadmap_version: 1.0.254
+last_updated: 2026-10-03
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C76
-current_status: IN_PROGRESS
-last_completed_checkpoint: C75
-next_checkpoint: C76
+current_checkpoint: C77
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C76
+next_checkpoint: C77
 ---
 
 # Project Context
@@ -15,6 +15,10 @@ Tệp này chỉ chứa trạng thái hiện hành để handoff. Chi tiết che
 history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
+
+- Checkpoint hiện tại C77 `AWAITING_APPROVAL`; chưa triển khai. C76 đã rollout C74–C75 lên
+  Preview/Production, bao gồm yêu cầu OWNER đặt dư nợ/lãi ròng trước Việc cần xử lý.
+  Không còn handoff đăng nhập/mở khóa đang chờ. Chi tiết gate/giới hạn tại bản ghi C76 mục7.
 
 - C50 `COMPLETED` ngày 2026-09-22: đã bỏ C38 khỏi roadmap hiện hành và rollout C49 lên
   Production. Candidate `dpl_DzRdBx1TLmsPHxDZMhYMXWKqkbUC`, URL bất biến
@@ -219,7 +223,12 @@ quyền thực hiện thao tác remote mới.
 
 ## 6. Kiểm thử gần nhất
 
-C75 ngày 2026-10-02 (kết quả mới nhất):
+- C76 chốt 03/10: lint/typecheck/unit90/build19, root full E2E48PASS5SKIP6,5m PASS;
+  source CI37032143402 SUCCESS5jobs (CI pgTAP527/Auth6/E2E47PASS6SKIP).
+  Candidate Auth/public và alias hậu kiểm đạt, runtime error0/HTTP5000. CI của commit tài liệu
+  chốt được kiểm exact SHA trên GitHub trước completion message; không dùng source run thay thế.
+
+C75 ngày 2026-10-02 (bằng chứng lịch sử):
 
 - Lint/typecheck/diff-check, unit/script80, build19 route PASS.
 - C63/C67/C72 regression19 PASS; business-flow11 PASS; final C75 3 PASS56,8s.
@@ -442,6 +451,10 @@ C59 đã đạt:
 
 ## 7. Việc chờ
 
+- C77 `AWAITING_APPROVAL`: audit chỉ đọc privacy biểu đồ, root cause focus không ổn định và
+  artifact source deployment cũ. Chưa được duyệt; không sửa runtime/xóa artifact/deploy/push.
+  Acceptance/scope tại mục35 roadmap. Không tự bắt đầu C77.
+
 - C62 `COMPLETED` ngày 2026-09-30: audit UI/UX local và mockup hoàn tất; báo cáo
   `docs/UI_UX_AUDIT_C62.md`, bằng chứng `docs/audit-c62/`, harness opt-in
   `apps/web/test/e2e/c62-audit.spec.ts`. Có 12 phát hiện: 2 HIGH (một runtime, một nguy cơ cold auth),
@@ -629,27 +642,36 @@ C59 đã đạt:
   để tránh gateway stale, không tác động project anh em. Không blocker local.
   Desktop compact G2/cảnh báo Chrome C73 OPEN ngoài phạm vi; Safari/Firefox/AT/mobile vật lý
   chưa kiểm mới, không coi đây là chứng nhận accessibility.
-- C76 `IN_PROGRESS` (OWNER phê duyệt 2026-10-02): source1374946c7b954855467f053f2de77fde2e589028 đã push; Required CI
-  37011458346 đã SUCCESS cả5 job; đang kiểm thay đổi bố cục mới. Source32fb641/CI37003852476 đã PASS trước
-  remediation read retry và focus failure attachment; không dùng run cũ để phát hành source mới.
-  C74–C75 được bảo toàn/đồng bộ; .vercelignore chặn backup/cache/log/test artifacts/secrets.
-  Sửa cash-flow-card min-height:0 scoped grid, six matrix25tasks overflow0/clipped0, chart
-  desktop429,234375px delta0 trước/sau mở/thu. Local cuối lint/typecheck/unit90/build19 routes
-  PASS, full E2E48PASS5SKIP5,5m; DB test55322 teardown profiles/loans/transactions0/0/0.
-  Root Preview gate32fb641 từng FAIL trước deploy: gateway502 calculate_loan/management và
-  intermittent C67 Tab wrap. Kong test ghi upstream prematurely closed connection. Thêm retry
-  chỉ8 RPC đã xác minh STABLE, tối đa2 attempts/100ms cho502/503/504 không SQL code/abort;
-  mutation/Auth/SQL không retry. Không đổi authoritative tiền/schema/RPC/secrets.
-  Log chẩn đoán chỉ kind/status/code lọc; không message/SQL/args/URL/financial/credentials.
-  Focus riêng8+20 lần PASS, full suite lúc đạt/lúc fail; failure-only attachment không đổi
-  trước-key timing. Root cause focus OPEN; không coi retry suite là đã sửa focus/gateway.
-  Dry-run read-retry201 regular files/4.525.732bytes/0 forbidden. Hai candidate9001479 Ready
-  superseded, inventory0 forbidden, chưa promote; chưa candidate từ source sửa cuối.
-  Alias chính Preview/Production vẫn C73. Cảhai rollback C73 giữ77 backup/60 test artifacts
-  trong source (không out); HEAD3 paths mỗi môi trường404 chưa chứng minh mọi URL an toàn;
-  chưa tải/xóa artifact cũ. Blocker: cần CI source mới/root full gate ổn định, focus intermittent
-  và browser Auth smoke candidate mới chưa thực hiện; Mac đã mở khóa. Không ghi tài chính/mark-read/thay push remote.
-  C76 chưa COMPLETED, không mở checkpoint kế tiếp. Chi tiết: docs/release-c76/report.md/evidence.json.
+- C76 `COMPLETED` ngày 2026-10-03: source
+  `d3fc37003ddcc551f4d9c285f1a49deb95179698`, Required CI `37032143402` SUCCESS cả5 job.
+  KPI dư nợ/lãi ròng ở trên Việc cần xử lý tại375/390/1440 light/dark, khớp DOM/reading order.
+  Root `pnpm deploy:preview` resume đạt lint/typecheck/unit90/build19/E2E48PASS5SKIP6,5m,
+  exit0; DB test riêng55322 hậu kiểm profiles/loans/transactions0/0/0. Sáu ảnh mới chỉ synthetic.
+  Preview `dpl_BBavYTasgvQ51wyTQbWunqysM6Fq`, immutable
+  <https://quan-ly-vay-ca-nhan-cadt65ibt-ngotuong2105.vercel.app>, target preview,
+  alias <https://tindung-preview.vercel.app>;
+  Production `dpl_AurpzZ3pUxe7Xp7dWnxuWa2fjXxw`, immutable
+  <https://quan-ly-vay-ca-nhan-f1v8nx2ba-ngotuong2105.vercel.app>, target production,
+  alias <https://tindung.vercel.app>. Cả hai Ready, đúng project
+  `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, 43 Functions sin1, inventory245 regular leaves/0 forbidden.
+  Candidate Auth smoke thực trước promote: dashboard/full task/name wrap/privacy metadata,
+  biểu đồ kỳ có dữ liệu/empty, notification list/disclosure/unread empty, loans/detail/history/loading,
+  counterparties/expenses và đóng drawer bằng nút; không save/mark-read/push permission/time mutation.
+  Hậu kiểm alias: dashboard mobile/desktop Production, task toggle/privacy, notifications unread,
+  loans/detail/history/loading; Preview dashboard/notification route đạt. Public mỗi alias4/4:
+  login/manifest200, export/runner401; runtime error0 và HTTP5000 sau Auth/cả hai alias.
+  Console không có app exception; CSP chặn vercel.live Toolbar trên Preview, exception M_ID
+  truy nguồn chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/200.js.
+  Rollback trước promote: Preview `dpl_6NT5NEUN86VPVZXhvZTqwNFyqgFb`, Production
+  `dpl_Bqox7V6oqX63ufyhgY1sYTFmENhx`; không cần rollback, không xóa deployment cũ.
+  Chưa chứng nhận AT/mobile vật lý/Safari/Firefox; remote save/permission/giờ chỉ regression local.
+  OPEN: intermittent C67 focus, source artifacts rollback C73, cảnh báo Chrome immutable C73;
+  thêm P2 privacy: trục chart vẫn hiện thang tiền khi ẩn (dashboard/page.tsx:171 dùng span
+  CSS privacy-amount, không PrivacyAmount). Không đưa giá trị thật vào tài liệu.
+  Đây là presentation có sẵn, không thay tiền/DB; đề xuất C77 audit trước remediation.
+  Không còn blocker C76 về mở khóa/login; không đổi auto-lock/credential/schema/secret/Google/data remote.
+  Source gate đã đạt; commit chốt tài liệu phải có Required CI đúng SHA trước báo hoàn tất.
+  Bằng chứng/source/CI/history: docs/release-c76/report.md và evidence.json.
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
   soát bù phù hợp GitHub Free/private; notification runner, Production smoke và runtime log đạt.
@@ -684,31 +706,3 @@ C59 đã đạt:
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.
-
-C74 khởi động ngày02/10/2026: OWNER phê duyệt rõ trong hội thoại; startup đã đọc context/roadmap,
-Git main khớp origin tại startup, không thay đổi local sẵn có. Audit read-only remote và synthetic local;
-không sửa runtime/deploy/push. C73 final SHA4c84d671721b0ad38691f1c7c3691e53efcdfa51,
-Required CI36968146353 attempt2 đạt toàn bộ job/E2E44 PASS4 SKIP; attempt1 timeout C63 375px
-sau payment render loan.summary_failed không có code. Rerun cùng SHA đạt, không sửa test/runtime.
-
-C76 focus investigation: targeted8/8 + instrumented20/20 PASS, full synthetic suite
-with temporary diagnostic48PASS/5SKIP5,6m. Không tái hiện lần này, root cause chưa đóng.
-Instrumentation tạm được gỡ về nguyên test assertion của source32fb641; không sửa behavior
-hoặc nới timeout. Chạy lại root Preview pipeline source CI-approved một lần, giữ fail-closed
-trước deploy và giữ read/focus failures là rủi ro mở. Nếu gate fail lại không promote.
-
-C76 source cuối1374946c7b954855467f053f2de77fde2e589028 đã push; Required CI37011458346 đã SUCCESS (source trước đổi bố cục).
-C76 IN_PROGRESS; chưa candidate từ source cuối/chưa promote; focus intermittent và
-Mac đã mở khóa; Auth smoke candidate mới chưa thực hiện. Local lint/typecheck/unit90/build/E2E48PASS5SKIP, secret scan sạch.
-
-C76 điều chỉnh theo chỉ dẫn OWNER: Mac đã mở khóa; các card dư nợ/lãi ròng phải ở
-trên Việc cần xử lý cả mobile/desktop. Bỏ CSS order đảo nhóm trên mobile, giữ DOM
-reading order. Acceptance bổ sung: KPI trước task tại375/390/1440 light/dark, task
-cuộn tới được và không bị nav che; regression focus/chart/privacy/loading giữ nguyên.
-CI37011458346 của source1374946 đã SUCCESS cả5 job; thay đổi bố cục mới phải đạt
-gate/source CI riêng trước candidate, không dùng run1374946 thay thế. C76 IN_PROGRESS.
-
-C76 bố cục KPI trước task: lint/typecheck/unit90/build19/policy/diff-check PASS;
-full E2E48PASS5SKIP6,5m, six viewport/theme đạt thứ tự KPI→task và chart/expand/focus.
-DB test55322 hậu kiểm0/0/0. Mac/profile Chrome có phiên Production hiện hữu.
-Chưa deploy bố cục mới; đang chuẩn bị source commit/CI riêng.

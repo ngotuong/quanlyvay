@@ -1,6 +1,6 @@
 {
   "checkpoint": "C76",
-  "status": "IN_PROGRESS",
+  "status": "COMPLETED",
   "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
   "localGates": {
     "policy": "PASS",
@@ -43,8 +43,129 @@
       ]
     }
   },
-  "candidates": {},
-  "smoke": {},
+  "candidates": {
+    "preview": {
+      "id": "dpl_BBavYTasgvQ51wyTQbWunqysM6Fq",
+      "url": "https://quan-ly-vay-ca-nhan-cadt65ibt-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "target": "preview",
+      "state": "READY",
+      "functions": 43,
+      "regions": [
+        "sin1"
+      ],
+      "regularLeaves": 245,
+      "forbiddenRegularLeaves": 0,
+      "emptyIgnoredDirectories": [
+        "src/.backups",
+        "src/apps/web/test-results"
+      ],
+      "runtimeErrorLines": 0
+    },
+    "production": {
+      "id": "dpl_AurpzZ3pUxe7Xp7dWnxuWa2fjXxw",
+      "url": "https://quan-ly-vay-ca-nhan-f1v8nx2ba-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "target": "production",
+      "state": "READY",
+      "functions": 43,
+      "regions": [
+        "sin1"
+      ],
+      "regularLeaves": 245,
+      "forbiddenRegularLeaves": 0,
+      "emptyIgnoredDirectories": [
+        "src/.backups",
+        "src/apps/web/test-results"
+      ],
+      "runtimeErrorLines": 0
+    }
+  },
+  "smoke": {
+    "public": [
+      {
+        "base": "https://quan-ly-vay-ca-nhan-cadt65ibt-ngotuong2105.vercel.app",
+        "path": "/login",
+        "status": 200,
+        "pass": true
+      },
+      {
+        "base": "https://quan-ly-vay-ca-nhan-cadt65ibt-ngotuong2105.vercel.app",
+        "path": "/manifest.webmanifest",
+        "status": 200,
+        "pass": true
+      },
+      {
+        "base": "https://quan-ly-vay-ca-nhan-cadt65ibt-ngotuong2105.vercel.app",
+        "path": "/api/google-sync/export",
+        "status": 401,
+        "pass": true
+      },
+      {
+        "base": "https://quan-ly-vay-ca-nhan-cadt65ibt-ngotuong2105.vercel.app",
+        "path": "/api/notifications/run",
+        "status": 401,
+        "pass": true
+      },
+      {
+        "base": "https://quan-ly-vay-ca-nhan-f1v8nx2ba-ngotuong2105.vercel.app",
+        "path": "/login",
+        "status": 200,
+        "pass": true
+      },
+      {
+        "base": "https://quan-ly-vay-ca-nhan-f1v8nx2ba-ngotuong2105.vercel.app",
+        "path": "/manifest.webmanifest",
+        "status": 200,
+        "pass": true
+      },
+      {
+        "base": "https://quan-ly-vay-ca-nhan-f1v8nx2ba-ngotuong2105.vercel.app",
+        "path": "/api/google-sync/export",
+        "status": 401,
+        "pass": true
+      },
+      {
+        "base": "https://quan-ly-vay-ca-nhan-f1v8nx2ba-ngotuong2105.vercel.app",
+        "path": "/api/notifications/run",
+        "status": 401,
+        "pass": true
+      }
+    ],
+    "authenticated": {
+      "status": "PASS_SCOPED_READ_ONLY",
+      "browser": "Existing native Chrome owner profile via CUA; owner logged in directly",
+      "candidateMatrix": {
+        "widths": [
+          375,
+          390,
+          1440
+        ],
+        "themes": [
+          "light",
+          "dark"
+        ],
+        "status": "PASS"
+      },
+      "checks": [
+        "KPI before attention in DOM and visual order",
+        "full attention expansion/collapse and identity wrapping",
+        "KPI/task metadata privacy toggle",
+        "empty and nonempty cash-flow card with independent desktop height",
+        "notification list before disclosure, disclosure toggle and existing unread empty",
+        "loans list/detail/history/back and visible loading fallback",
+        "counterparty and expense drawer close button/focus return under privacy guard"
+      ],
+      "notTested": [
+        "remote financial save/reset-after-save (local E2E only)",
+        "remote permission/time changes",
+        "native keyboard Escape in device emulation was not reliably delivered; close button verified, local E2E covers keyboard",
+        "physical mobile and screen readers",
+        "privacy chart scale remains OPEN"
+      ],
+      "realFinancialArtifactsCommitted": false
+    }
+  },
   "initialSourceSha": "b58b0e85964116d5200a50f9e18e149b0d2920f6",
   "initialSourceCiRun": 36992357820,
   "uploadDryRun": {
@@ -60,8 +181,8 @@
     "uploaded": false,
     "trackedPayloadHashMatches": 196
   },
-  "sourceSha": "1374946c7b954855467f053f2de77fde2e589028",
-  "sourceCiRun": 37011458346,
+  "sourceSha": "d3fc37003ddcc551f4d9c285f1a49deb95179698",
+  "sourceCiRun": 37032143402,
   "oldDeploymentArtifacts": {
     "preview": {
       "backupFiles": 77,
@@ -505,7 +626,7 @@
     "originHeadMatches": true
   },
   "ownerLayoutAmendment": {
-    "status": "LOCAL_GATES_PASS",
+    "status": "ROLLED_OUT_VERIFIED",
     "request": "Debt and net-profit KPI cards above attention card at every viewport",
     "css": "Removed mobile visual-order override; DOM and visual order agree",
     "matrix": [
@@ -517,8 +638,8 @@
       "light",
       "dark"
     ],
-    "browserLock": "CLEARED",
-    "browserAuthenticatedSession": "Existing Chrome profile can access Production; new candidate smoke pending",
+    "browserLock": "CLEARED_OCT3",
+    "browserAuthenticatedSession": "Both candidates and stable aliases authenticated read-only smoke verified",
     "e2e": {
       "passed": 48,
       "skipped": 5,
@@ -534,5 +655,210 @@
       "bytes": 4527113,
       "forbidden": 0
     }
+  },
+  "previousSourceCi": {
+    "sha": "1374946c7b954855467f053f2de77fde2e589028",
+    "run": 37011458346,
+    "status": "SUCCESS"
+  },
+  "rootPreviewFinalGateLatest": {
+    "date": "2026-10-03",
+    "command": "pnpm deploy:preview -- --candidate https://quan-ly-vay-ca-nhan-cadt65ibt-ngotuong2105.vercel.app --verified-authenticated-smoke",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unitScript": 90,
+    "buildRoutes": 19,
+    "e2ePassed": 48,
+    "e2eSkipped": 5,
+    "minutes": 6.5,
+    "exitCode": 0,
+    "databaseAfter": [
+      0,
+      0,
+      0
+    ],
+    "aliasPromoted": true
+  },
+  "currentSourceCi": {
+    "run": 37032143402,
+    "sourceSha": "d3fc37003ddcc551f4d9c285f1a49deb95179698",
+    "jobs": 5,
+    "status": "SUCCESS",
+    "e2ePassed": 47,
+    "e2eSkipped": 6
+  },
+  "stableAliasesAfterCandidate": {
+    "preview": "dpl_6NT5NEUN86VPVZXhvZTqwNFyqgFb",
+    "production": "dpl_Bqox7V6oqX63ufyhgY1sYTFmENhx"
+  },
+  "oct3Resume": {
+    "startup": "AGENTS/context full/C76/status read; same approved checkpoint, runtime source unchanged",
+    "mac": "UNLOCKED_CUA_CONFIRMED",
+    "candidateRecheck": {
+      "preview": {
+        "id": "dpl_BBavYTasgvQ51wyTQbWunqysM6Fq",
+        "target": "preview",
+        "state": "READY",
+        "functions": 43,
+        "regions": [
+          "sin1"
+        ],
+        "runtimeErrorLines": 0
+      },
+      "prod": {
+        "id": "dpl_AurpzZ3pUxe7Xp7dWnxuWa2fjXxw",
+        "target": "production",
+        "state": "READY",
+        "functions": 43,
+        "regions": [
+          "sin1"
+        ],
+        "runtimeErrorLines": 0
+      }
+    },
+    "browser": "Both immutable candidates and aliases accessed with owner sessions",
+    "blocker": null,
+    "authenticatedSmoke": "PASS_SCOPED_READ_ONLY",
+    "promoted": true
+  },
+  "completedDate": "2026-10-03",
+  "nextCheckpoint": {
+    "id": "C77",
+    "status": "AWAITING_APPROVAL"
+  },
+  "previousRootPreviewFinalGateLatest": {
+    "sourceSha": "d3fc37003ddcc551f4d9c285f1a49deb95179698",
+    "passed": 48,
+    "skipped": 5,
+    "minutes": 5.9,
+    "status": "PASS",
+    "pipelineExitCode": 0,
+    "pipelineStatus": "awaiting_authenticated_smoke"
+  },
+  "release": {
+    "sourceSha": "d3fc37003ddcc551f4d9c285f1a49deb95179698",
+    "preview": {
+      "id": "dpl_BBavYTasgvQ51wyTQbWunqysM6Fq",
+      "url": "https://quan-ly-vay-ca-nhan-cadt65ibt-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "target": "preview",
+      "state": "READY",
+      "functions": 43,
+      "regions": [
+        "sin1"
+      ],
+      "regularLeaves": 245,
+      "forbiddenRegularLeaves": 0,
+      "emptyIgnoredDirectories": [
+        "src/.backups",
+        "src/apps/web/test-results"
+      ],
+      "runtimeErrorLines": 0,
+      "alias": "https://tindung-preview.vercel.app",
+      "rollbackId": "dpl_6NT5NEUN86VPVZXhvZTqwNFyqgFb",
+      "promotedThrough": "root deploy:preview resume",
+      "authenticatedAlias": "PASS_dashboard_mobile_dark_notifications",
+      "errorLogLines": 0,
+      "http500LogLines": 0
+    },
+    "production": {
+      "id": "dpl_AurpzZ3pUxe7Xp7dWnxuWa2fjXxw",
+      "url": "https://quan-ly-vay-ca-nhan-f1v8nx2ba-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "target": "production",
+      "state": "READY",
+      "functions": 43,
+      "regions": [
+        "sin1"
+      ],
+      "regularLeaves": 245,
+      "forbiddenRegularLeaves": 0,
+      "emptyIgnoredDirectories": [
+        "src/.backups",
+        "src/apps/web/test-results"
+      ],
+      "runtimeErrorLines": 0,
+      "alias": "https://tindung.vercel.app",
+      "rollbackId": "dpl_Bqox7V6oqX63ufyhgY1sYTFmENhx",
+      "promotedThrough": "vercel promote existing candidate after gates/Auth/provenance",
+      "authenticatedAlias": "PASS_dashboard_375_390_dark_1440_light_attention_privacy_notifications_unread_loans_detail_history_loading",
+      "errorLogLines": 0,
+      "http500LogLines": 0
+    },
+    "rollbackPerformed": false,
+    "aliasPublic": [
+      {
+        "host": "https://tindung-preview.vercel.app",
+        "path": "/login",
+        "status": 200,
+        "expected": 200
+      },
+      {
+        "host": "https://tindung-preview.vercel.app",
+        "path": "/manifest.webmanifest",
+        "status": 200,
+        "expected": 200
+      },
+      {
+        "host": "https://tindung-preview.vercel.app",
+        "path": "/api/google-sync/export",
+        "status": 401,
+        "expected": 401
+      },
+      {
+        "host": "https://tindung-preview.vercel.app",
+        "path": "/api/notifications/run",
+        "status": 401,
+        "expected": 401
+      },
+      {
+        "host": "https://tindung.vercel.app",
+        "path": "/login",
+        "status": 200,
+        "expected": 200
+      },
+      {
+        "host": "https://tindung.vercel.app",
+        "path": "/manifest.webmanifest",
+        "status": 200,
+        "expected": 200
+      },
+      {
+        "host": "https://tindung.vercel.app",
+        "path": "/api/google-sync/export",
+        "status": 401,
+        "expected": 401
+      },
+      {
+        "host": "https://tindung.vercel.app",
+        "path": "/api/notifications/run",
+        "status": 401,
+        "expected": 401
+      }
+    ],
+    "appConsoleExceptions": 0,
+    "explainedBrowserConsole": [
+      {
+        "source": "https://vercel.live/_next-live/feedback/feedback.js",
+        "kind": "CSP_BLOCKED_VERCEL_TOOLBAR",
+        "environment": "Preview"
+      },
+      {
+        "source": "chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executors/200.js",
+        "kind": "M_ID_TYPEERROR",
+        "environment": "Chrome extension; provenance observed from DevTools source links"
+      }
+    ]
+  },
+  "openRisks": [
+    "Intermittent C67 Tab wrap root cause unresolved despite current full gate PASS",
+    "C73 rollback source backup/test artifacts retained; no plaintext/public exposure conclusion",
+    "C73 Chrome badge on immutable hosts; no interstitial bypass",
+    "Physical mobile/VoiceOver/TalkBack not verified",
+    "P2: cash-flow chart axis scale remains visible under privacy; dashboard/page.tsx:171 uses static span privacy-amount without masking component"
+  ],
+  "finalDocumentationCi": {
+    "requirement": "Verify Required CI for exact pushed closing-documentation SHA before completion response; source run is not substitute",
+    "evidenceLocation": "GitHub checks on the commit containing this completion record and final conversation response; no self-referential SHA stored"
   }
 }
