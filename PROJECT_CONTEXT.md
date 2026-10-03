@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.254
+roadmap_version: 1.0.255
 last_updated: 2026-10-03
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C76
-current_status: IN_PROGRESS
-last_completed_checkpoint: C75
-next_checkpoint: C76
+current_checkpoint: C77
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C76
+next_checkpoint: C77
 ---
 
 # Project Context
@@ -16,10 +16,10 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
-- Checkpoint hiện tại C76 `IN_PROGRESS`: CI chốt40e09d5 phát hiện HIGH braces ở dev lint.
-  Đang sửa dependency release blocker; chưa hoàn tất. C77 đề xuất chưa được duyệt. C76 đã rollout C74–C75 lên
-  Preview/Production, bao gồm yêu cầu OWNER đặt dư nợ/lãi ròng trước Việc cần xử lý.
-  Không còn handoff đăng nhập/mở khóa đang chờ. Chi tiết gate/giới hạn tại bản ghi C76 mục7.
+- Checkpoint hiện tại C77 `AWAITING_APPROVAL`: audit privacy biểu đồ, focus và artifact
+  triển khai cũ, chưa được duyệt/chưa bắt đầu. C76 đã COMPLETED: rollout và authenticated
+  hậu kiểm đạt; dependency lint blocker đã sửa và Required CI exact source đạt.
+  Card dư nợ/lãi ròng trên Việc cần xử lý cả mobile/desktop. Không còn handoff login/mở khóa.
 
 - C50 `COMPLETED` ngày 2026-09-22: đã bỏ C38 khỏi roadmap hiện hành và rollout C49 lên
   Production. Candidate `dpl_DzRdBx1TLmsPHxDZMhYMXWKqkbUC`, URL bất biến
@@ -224,7 +224,8 @@ quyền thực hiện thao tác remote mới.
 
 ## 6. Kiểm thử gần nhất
 
-- C76 chốt 03/10: lint/typecheck/unit90/build19, root full E2E48PASS5SKIP6,5m PASS;
+- C76 chốt 03/10: lint/typecheck/unit94/build19/full audit PASS sau patch dev lint;
+  root full E2E48PASS5SKIP6,5m PASS trước patch;
   source CI37032143402 SUCCESS5jobs (CI pgTAP527/Auth6/E2E47PASS6SKIP).
   Candidate Auth/public và alias hậu kiểm đạt, runtime error0/HTTP5000. CI của commit tài liệu
   chốt được kiểm exact SHA trên GitHub trước completion message; không dùng source run thay thế.
@@ -643,8 +644,8 @@ C59 đã đạt:
   để tránh gateway stale, không tác động project anh em. Không blocker local.
   Desktop compact G2/cảnh báo Chrome C73 OPEN ngoài phạm vi; Safari/Firefox/AT/mobile vật lý
   chưa kiểm mới, không coi đây là chứng nhận accessibility.
-- C76 `IN_PROGRESS` ngày 2026-10-03: rollout/Auth đạt; CI chốt phát hiện HIGH braces dev-only.
-  Production dependency audit sạch; sửa lint dependency trong C76 trước chốt. Source
+- C76 `COMPLETED` ngày 2026-10-03: rollout/Auth và sửa dependency lint blocker đạt.
+  Production dependency graph/runtime source không đổi; CI mới đạt. Runtime source
   `d3fc37003ddcc551f4d9c285f1a49deb95179698`, Required CI `37032143402` SUCCESS cả5 job.
   KPI dư nợ/lãi ròng ở trên Việc cần xử lý tại375/390/1440 light/dark, khớp DOM/reading order.
   Root `pnpm deploy:preview` resume đạt lint/typecheck/unit90/build19/E2E48PASS5SKIP6,5m,
@@ -674,6 +675,13 @@ C59 đã đạt:
   Không còn blocker C76 về mở khóa/login; không đổi auto-lock/credential/schema/secret/Google/data remote.
   Source gate đã đạt; commit chốt tài liệu phải có Required CI đúng SHA trước báo hoàn tất.
   Bằng chứng/source/CI/history: docs/release-c76/report.md và evidence.json.
+
+C76 dependency follow-up: CI37085353144/40e09d5 phát hiện HIGH braces dev lint; scoped
+Next plugin16.3.8 tinyglobby0.2.15 alias + compatibility patch đã loại dependency này, không
+bỏ rule/audit allowlist. Pinned frozen install11.9/lint/typecheck/unit94/build19/policy/full audit
+PASS,4 regression glob/internal-link PASS. Production graph125 snapshots/runtime source không
+đổi, không redeploy. Required CI 37086389279 của 437fea7f5a879372ffcba0a5d199a7eb8a61e01c SUCCESS cả5 job.
+Root local E2E48/5 trước patch; full integration CI kiểm lại patch. Chi tiết docs/release-c76/.
 
 - C52 `COMPLETED` ngày 2026-09-25: backup Production mã hóa và restore rehearsal đạt; CI dùng kiểm
   soát bù phù hợp GitHub Free/private; notification runner, Production smoke và runtime log đạt.
@@ -708,10 +716,3 @@ C59 đã đạt:
 - OWNER xác nhận tiếp tục dùng GitHub Free/private và không nâng gói. Branch protection không được
   enforce; rủi ro được giảm bằng quy tắc chỉ phát hành SHA có Required CI gate xanh.
 - Không còn blocker C52–C54 hoặc lệnh terminal dự án bị treo.
-
-C76 follow-up 03/10: CI37085353144/40e09d5 HIGH braces dev lint đã được loại bằng scoped
-Next plugin16.3.8 tinyglobby0.2.15 alias + compatibility patch; không bỏ lint rule/audit allowlist.
-Pinned frozen install11.9, lint/typecheck/unit94/build19/policy/full audit PASS;4 regression mới
-kiểm glob semantics và internal-link rule thực. Production graph125 snapshots/runtime source
-không đổi, không redeploy. Root E2E48/5 là lượt trước patch; chờ Required CI SHA mới nên C76
-vẫn IN_PROGRESS. Chi tiết tại docs/release-c76/report.md; C77 chưa được duyệt/chưa bắt đầu.

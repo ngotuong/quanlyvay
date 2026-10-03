@@ -1,6 +1,6 @@
 # C76 — Đồng bộ và rollout C74–C75
 
-Trạng thái: IN_PROGRESS ngày 2026-10-03; rollout đạt, chờ Required CI bản sửa công cụ lint. OWNER phê duyệt ngày 2026-10-02, bổ sung yêu cầu
+Trạng thái: COMPLETED ngày 2026-10-03. OWNER phê duyệt ngày 2026-10-02, bổ sung yêu cầu
 đặt các card dư nợ/lãi ròng trên “Việc cần xử lý” cả mobile và desktop.
 
 ## Kết quả và source phát hành
@@ -147,4 +147,6 @@ full integration. Không tuyên bố local E2E được chạy lại sau patch.
 Đối chiếu lock với40e09d5:125 Production dependency snapshots không đổi; runtime application
 source không đổi. Vì chỉ sửa dev tooling, hai deployment đã kiểm vẫn dùng runtime d3fc370;
 không deploy lại hoặc cần OWNER đăng nhập lại. Patch gắn chính xác plugin16.3.8 cần rà soát/gỡ
-khi upstream có dependency an toàn tương thích. C76 chưa hoàn tất đến khi Required CI mới đạt.
+khi upstream có dependency an toàn tương thích. Required CI [37086389279](https://github.com/ngotuong/quanlyvay/actions/runs/37086389279)
+cho `437fea7f5a879372ffcba0a5d199a7eb8a61e01c` SUCCESS cả5 job. Commit chốt trạng thái tài liệu tiếp theo
+cũng phải đạt Required CI exact SHA trước completion message.

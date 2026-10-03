@@ -1,6 +1,6 @@
 {
   "checkpoint": "C76",
-  "status": "IN_PROGRESS",
+  "status": "COMPLETED",
   "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
   "localGates": {
     "policy": "PASS",
@@ -875,7 +875,12 @@
     "productionSnapshotsCompared": 125,
     "runtimeApplicationSourceChanged": false,
     "redeployed": false,
-    "closingCi": "PENDING exact pushed SHA",
+    "closingCi": {
+      "sha": "437fea7f5a879372ffcba0a5d199a7eb8a61e01c",
+      "run": 37086389279,
+      "conclusion": "success",
+      "allJobs": 5
+    },
     "localE2eNote": "48 PASS/5 SKIP before dev-only lint patch; new CI reruns integration"
   }
 }
