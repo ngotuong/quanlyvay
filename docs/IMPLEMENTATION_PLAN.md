@@ -1452,3 +1452,9 @@ Acceptance criteria:
    tuyên bố F3 đóng hoặc tự đổi platform protection. Chrome badge/AT vật lý chỉ đóng khi kiểm thật.
 5. Context/roadmap/report đồng bộ; nếu push tài liệu cuối phải xác nhận Required CI đúng final SHA.
    Đặt checkpoint kế tiếp AWAITING_APPROVAL rồi dừng. Không thực hiện trước phê duyệt C79.
+
+C79 ghi nhận blocker packaging khi triển khai source fdc309f: candidate Production
+`dpl_FQzWmo7sohL4Bv9XHJWdyw8WpTBQ` ERROR do import E2E tới scripts đã exclude;
+chưa promote/alias, C76 còn phục vụ. Điều chỉnh đóng gói để test/Playwright config cùng được
+exclude, giữ typecheck/tests local và guard secret/dump. Gate/CI revision mới và retry đang chờ;
+không thay schema/nghiệp vụ/UI hoặc mở rộng cleanup. Preview đã dừng trước deploy, DB test0/0/0.

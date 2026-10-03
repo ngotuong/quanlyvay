@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.260
+roadmap_version: 1.0.261
 last_updated: 2026-10-03
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C79
@@ -18,6 +18,12 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 - Checkpoint hiện tại C79 `IN_PROGRESS`: OWNER phê duyệt03/10 trong hội thoại; rollout C78
   và cleanup đúng hai deployment C73 sau candidate/alias/Auth/inventory gate, giữ rollback C76.
+  Source fdc309f đã push; Required CI37095805773 mọi job/gate PASS (pgTAP527, Auth6,
+  E2E50PASS8SKIP). Production candidate dpl_FQzWmo7sohL4Bv9XHJWdyw8WpTBQ build ERROR:
+  payload loại scripts nhưng còn E2E/config import test-environment.cjs. Aliases vẫn C76.
+  C79 đang sửa đóng gói: loại apps/web/test và playwright.config.ts cùng scripts khỏi payload;
+  giữ typecheck/test local đầy đủ, không thay UI/nghiệp vụ. Preview chain đã dừng trước deploy;
+  isolated DB55322 profiles/loans/transactions0. Chờ gate/commit CI mới/candidates/Auth/cleanup.
 - C78 `COMPLETED` local03/10: che ba nhãn trục tiền bằng PrivacyAmount, bỏ rAF ghi đè focus menu,
   hủy timer khi reopen/navigation; thêm metadata upload guard fail-closed vào root pipeline.
   `.vercelignore` loại trừ scripts SQL và cache/backups/tmp lồng, không đọc secret/dump bằng guard.

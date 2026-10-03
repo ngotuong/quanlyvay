@@ -7,7 +7,7 @@ const ignore = readFileSync(new URL("../.vercelignore", import.meta.url), "utf8"
 const file = path => ({ path, type: "file", size: 3 });
 
 test("metadata guard rejects secret/dump/artifact paths without reading contents", () => {
-  for (const path of [".backups/a.qlvbak", "public/copy.sql", "public/a.dump", "public/secrets.json", "apps/web/.env.local", ".clasp.json", "public/key.pem", "apps/web/test-results/a.png", "a\\.cache\\x", "../outside"]) {
+  for (const path of [".backups/a.qlvbak", "public/copy.sql", "public/a.dump", "public/secrets.json", "apps/web/.env.local", ".clasp.json", "public/key.pem", "apps/web/test-results/a.png", "apps/web/test/e2e/helpers.ts", "apps/web/playwright.config.ts", "a\\.cache\\x", "../outside"]) {
     assert.throws(() => assertUploadMetadata([file(path)]), /Forbidden/);
   }
   assert.deepEqual(assertUploadMetadata([file("apps/web/src/app/page.tsx"), file("apps/web/.env.example"), file("pnpm-lock.yaml")]), { files: 3, bytes: 9 });
@@ -27,6 +27,11 @@ test("local inventory skips excluded directories and detects stray dump and syml
       mkdirSync(join(root, path), { recursive: true });
       writeFileSync(join(root, path, "excluded.sql"), "FAKE EXCLUDED FIXTURE");
     }
+    // The deployment omits scripts. Shipping E2E/config would leave TypeScript imports
+    // to scripts/test-environment.cjs dangling even though the full local tree builds.
+    mkdirSync(join(root, "apps/web/test/e2e"), { recursive: true });
+    writeFileSync(join(root, "apps/web/test/e2e/helpers.ts"), 'export {} from "../../../../scripts/test-environment.cjs";');
+    writeFileSync(join(root, "apps/web/playwright.config.ts"), 'import "./test/e2e/helpers";');
     mkdirSync(join(root, "node_modules")); writeFileSync(join(root, "node_modules/a"), "synthetic");
     mkdirSync(join(root, "public")); writeFileSync(join(root, "public/ok.svg"), "synthetic");
     assert.equal(inspectUploadMetadata(root).files, 2);

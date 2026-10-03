@@ -1,0 +1,43 @@
+{
+  "sourceSha": "fdc309faea457dab6fdff1b5c05ef3b6decf14f0",
+  "runId": 37095805773,
+  "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37095805773",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "Workflow policy",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Supabase Auth pgTAP and E2E",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Quality and build",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Dependency and secret scan",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Required CI gate",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "pgTAP": {
+    "passed": 527
+  },
+  "e2e": {
+    "passed": 50,
+    "skipped": 8,
+    "failed": 0
+  },
+  "scope": "Exact committed source CI; no Production data written"
+}

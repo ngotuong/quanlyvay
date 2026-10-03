@@ -1,9 +1,10 @@
 {
-  "scope": "Vercel deploy --dry; no upload or candidate creation",
-  "entries": 191,
-  "files": 181,
-  "bytes": 4485054,
-  "forbiddenRegularFiles": 0,
-  "hashMatches": 181,
-  "mismatches": []
+  "method": "Vercel CLI dry upload metadata only; no upload performed",
+  "fileEntries": 161,
+  "regularFiles": 150,
+  "emptyDirectoryEntries": 11,
+  "regularFileBytes": 4246478,
+  "forbiddenFilenameCount": 0,
+  "scriptsTestPlaywrightConfigExcluded": true,
+  "scopeLimitation": "Local prediction only; actual source/build-output API metadata still required"
 }

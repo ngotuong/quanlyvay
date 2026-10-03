@@ -4,6 +4,8 @@
 /supabase/
 /docs/
 /scripts/
+/apps/web/test/
+/apps/web/playwright.config.ts
 
 /AGENTS.md
 /PROJECT_CONTEXT.md
