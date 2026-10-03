@@ -55,7 +55,9 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C77 | Audit privacy biểu đồ, focus và artifact triển khai còn mở | `COMPLETED` |
 | C78 | Sửa privacy biểu đồ, initial focus và upload guard local | `COMPLETED` |
 | C79 | Đồng bộ, rollout C78 và dọn đúng hai deployment C73 cũ | `COMPLETED` |
-| C80 | Audit UX Production C79 và phương án desktop compact | `AWAITING_APPROVAL` |
+| C80 | Audit UX Production C79 và phương án desktop compact | `COMPLETED` |
+| C81 | Compact dashboard/danh sách desktop và sửa UX F1–F4, local | `COMPLETED` |
+| C82 | Đồng bộ C80/C81, CI và rollout UI compact lên Preview/Production | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1478,9 +1480,9 @@ writes/schema/RPC/secret/account/Google change. JSON/policy/actionlint/Gitleaks/
 Closing docs push phải kiểm Required CI đúng final SHA trước completion message; exact SHA/run
 được báo trong hội thoại, không dùng source run thay thế. Report/evidence docs/release-c79/.
 
-## 38. Checkpoint C80 — Chờ phê duyệt
+## 38. Checkpoint C80 — Hoàn tất
 
-**C80 — Audit UX Production C79 và phương án desktop compact.** Trạng thái: `AWAITING_APPROVAL`.
+**C80 — Audit UX Production C79 và phương án desktop compact.** Trạng thái: `COMPLETED` local03/10/2026.
 
 Mục tiêu: đánh giá trải nghiệm thực sau rollout và chọn cải tiến bố cục desktop còn mở bằng
 bằng chứng, giữ card dư nợ/lãi ròng phía trên Việc cần xử lý theo yêu cầu OWNER.
@@ -1507,4 +1509,123 @@ Acceptance criteria:
 4. Context/roadmap/report cùng thay đổi, diff/secret scan và gate harness hiện hữu phù hợp đạt;
    đề xuất remediation C81 có scope/AC cụ thể rồi đặt AWAITING_APPROVAL và dừng.
 
-Chưa phê duyệt/chưa bắt đầu C80. Không tự triển khai từ kết quả C79 hoặc lịch sử completed.
+OWNER phê duyệt C80 trong hội thoại03/10/2026; bắt đầu từ Git sạch5ad7b77. Chưa sửa runtime.
+
+Kết quả: `docs/audit-c80/report.md`, production/local/mockup/probe JSON, proposal và hai
+phương án dashboard+loans A/B. Skill Evon ui-ux nhánh V và probe dùng cho bản local.33mẫu
+Production light chỉ đọc,78mẫu local375/390/1440 light/dark,56mẫu mockup7khổ×2theme×4route;
+4sweep light55mẫu mỗi route,8probe runs cuối0P.2MEDIUM (copy lịch nhắc, drawer privacy),
+2LOW (heading mobile, placeholder chart), G1/G2 đề xuất Gu; không mở lại lỗi C78 đã đóng.
+21regression PASS; capture đầu lỗi cookie harness, sửa local setup rồi audit1/1 PASS1.8m.
+Lint/typecheck, JS/JSON, CI policy/actionlint, diff/secret scan đạt; DB55322 teardown0/0/0.
+Manual visual sửa KPI tiền vượt vùng nội dung ở1020px; thêm kiểm0clippedKpiAmounts.
+Production dark C80/physical AT/mobile/Safari/Firefox/Chrome warning chưa chứng nhận.
+Không sửa runtime/schema/remote/account/secret, commit/push/deploy. C81 AWAITING_APPROVAL.
+
+## 39. Checkpoint C81 — Hoàn tất
+
+**C81 — Compact dashboard/danh sách desktop và sửa UX F1–F4, local.** Trạng thái:
+`COMPLETED` local03/10/2026. OWNER đã phê duyệt trong hội thoại, chọn A; chưa phát hành.
+
+Mục tiêu: giảm cuộn và thao tác thừa mà vẫn đọc đủ dữ kiện khoản vay, giữ KPI dư nợ/lãi ròng
+trên Việc cần xử lý. Bằng chứng và hai phương án tại `docs/audit-c80/report.md`, `proposal.html`.
+Đề xuất mặc định **A**: dashboard task + dòng tiền cạnh nhau trên desktop, danh sách khoản vay
+thành hàng compact desktop; mobile giữ card. OWNER có thể chọn B trước khi bắt đầu.
+
+Phạm vi:
+
+- Dashboard: gọn heading/controls/KPI và lịch nhắc thường theo A; giữ báo cáo, so sánh kỳ,
+  preset/custom range/query, task identity/expand/thu gọn, analysis và chart/table hiện hữu.
+  Cảnh báo overdue thật vẫn rõ và có CTA; không bỏ cảnh báo để đạt mật độ.
+- Loans list G2: bố cục hàng trên desktop, card đọc đủ trên mobile, dùng component/link hiện
+  hữu. Giữ tên, hướng/trạng thái, gốc ban đầu/dư gốc/lãi phải/lãi đã ghi, ngày/rate, quick
+  action, filter/sort/pagination/returnTo. Không đổi dataset hoặc cách quyết toán.
+- F1: copy lịch nhắc đúng D–D+30 inclusive theo period-end hiện hữu, không gọi là giao dịch
+  đã ghi; clean/overdue/upcoming đúng ngữ cảnh. Không đổi RPC hoặc cửa sổ nghiệp vụ.
+- F2: một pattern guard cho Thêm chi phí/Thêm đối tác khi privacy hidden, giải thích và lối
+  hiển thị trước modal. Không tự tắt privacy. Giữ dirty/pending/error/success/save-close/focus.
+- F3: tên khoản là h1 trên detail; nhãn module mobile không thêm h1 thứ hai, không mất tên.
+- F4: một notice chart hidden thay26placeholder; không render geometry/button/tooltip nhạy
+  cảm, shown phục hồi chart và accessible table. Không đổi PrivacyRegion toàn cục tùy tiện.
+- Chỉ code và synthetic test/local evidence/tài liệu. Không schema/migration/financial RPC,
+  dữ liệu remote, quyền tài khoản, secret, Google, push, deploy/promote hoặc cleanup. Không
+  redesign settings/notifications, xử lý warning Chrome hoặc chứng nhận AT/thiết bị vật lý.
+
+Acceptance criteria:
+
+1. Dùng cùng fixture/reference C80 để so trước/sau:1440px task start giảm từ527 về≤460px;
+   390px từ811 về≤700px. KPI luôn hoàn toàn trên task ở375/390/768/1024/1280/1440 light/dark;
+   giữ số tiền và ngữ cảnh/so sánh kỳ chính xác, không cắt tên hoặc bỏ dữ kiện để đạt số đo.
+2. Loans1440: khoản mẫu tên thông thường hàng compact≤160px so với card281px hiện tại;
+   tên200ký tự được phép tăng chiều cao. Nếu OWNER chọn B: ít nhất3card/hàng ở1440 với cùng
+   fixture, không áp height160px của hàng A hoặc cắt dữ kiện để đạt mật độ. Hai hướng và trạng thái ACTIVE/OVERDUE/BAD_DEBT/
+   SETTLED,0/tiền≥1tỷ, empty/search-no-result, filter/sort/page/returnTo/quick action được
+   kiểm bằng fixture;375/390 không tràn trang hoặc mất lối hành động. Không ép card mobile
+   thành bảng ngang; chức năng/data source giữ nguyên.
+3. Copy default/custom/clean/overdue/upcoming có regression đúng D–D+30, phân biệt reminder
+   và period-end; không dùng phép tính frontend để thay số tiền authoritative.
+4. Privacy hidden: trigger tạo hai form không dẫn vào drawer chỉ có hướng dẫn bất khả dụng;
+   thông báo lý do/lối hiển thị truy cập được bằng phím, không tự bật số tiền. Khi shown,
+   validation/pending/dirty/error/retry/duplicate-submit/repeated-save-close/focus vẫn đạt.
+5. Detail4tab có một h1 ngữ nghĩa cho record ở mobile/desktop, light/dark, shown/hidden;
+   module label/reading order không mất. Chart hidden có một notice,0sensitive bar controls/
+   tooltips/axis values/accessible money; restore và chart/table keyboard hoạt động.
+6. Gate hiện hữu phù hợp đạt: diff-check, lint, typecheck, unit, build, full E2E trong DB test
+   cô lập (harness opt-in audit không bắt buộc capture trong full CI). Regression C63/C72/
+   C75/C78 không giảm assertion/skip để xanh; DB teardown0/0/0 và secret scan đạt. Dùng
+   Evon probe trên bản local sửa cùng visual review, phân biệt giả lập và thiết bị thật.
+7. Context/roadmap/report cùng cập nhật, bằng chứng/ảnh synthetic review được, runtime chưa
+   phát hành. Sau C81 local COMPLETED, chỉ đề xuất checkpoint rollout tiếp theo
+   AWAITING_APPROVAL rồi dừng; không tự push/deploy.
+
+Kết quả C81: reference task1440 456,53px/390 697,42px, KPI trước task12mẫu/0clipped/
+0overflow; ordinary row1440 154,16px, mobile money-nowrap và đầy đủ metadata/status/direction.
+F1–F4 đạt,78mẫu functional; C75 focus-scroll regression sửa trong attention-items, không giảm
+assertion. Lint/typecheck/unit108/build/full E2E cuối54PASS9SKIP8,3m exit0, DB55322 0/0/0,
+JSON/JS/diff/Gitleaks PASS.9SKIP chỉ capture opt-in, C81 probe đã chạy riêng/ở full capture.
+4probe cuối0P/28fixed/110sweep và manual review; Gu ngoài scope/thiết bị thật vẫn ghi giới hạn.
+6ảnh C75 harness sinh khác đã restore HEAD; C80 local bảo toàn. Report và HTML/ảnh synthetic
+ở docs/remediation-c81/. Không commit/push/deploy hoặc schema/RPC/remote/account/secret change.
+C82 AWAITING_APPROVAL, dừng theo AGENTS mục3.
+
+## 40. Checkpoint C82 — Đang thực hiện
+
+**C82 — Đồng bộ C80/C81, xác nhận CI và phát hành UI compact lên Preview/Production.**
+Trạng thái: `IN_PROGRESS`. OWNER đã phê duyệt trong hội thoại03/10/2026.
+
+Mục tiêu: đưa bản sửa đã kiểm local lên webapp thật, giữ card dư nợ/lãi ròng trên Việc cần xử lý.
+Phạm vi khi OWNER phê duyệt:
+
+- Review diff C80/C81 và tài liệu, giữ mọi thay đổi không thuộc scope; tạo commit và push GitHub,
+  xác nhận Required CI của đúng source SHA. Dùng quy trình phù hợp tài khoản GitHub hiện hữu,
+  không yêu cầu nâng cấp hoặc thay repository settings.
+- Chạy lại gate trước release; tạo Preview từ root bằng `pnpm deploy:preview`, dùng upload
+  metadata guard C78. Chỉ chuyển stable alias sau immutable candidate Auth/public smoke đạt.
+- Tạo Production candidate từ root theo contract hiện hữu; kiểm project/target/Ready/sin1,
+  public và authenticated smoke thật rồi promote. Hậu kiểm Production/default alias và runtime
+  error log; giữ C79 làm rollback, rollback nếu hậu kiểm thất bại.
+- Smoke chỉ đọc/mở/đóng: dashboard default/custom, KPI/task order, loans/detail4tab, chart
+  hidden/restore/keyboard, guard hai form, preset/custom drawer/focus ở375/390/1440 light/dark.
+  Không submit tài chính hoặc tạo đối tác/chi phí thật. OWNER tự login nếu hostname thiếu phiên;
+  không lấy credential/cookie ra file/log. Mẫu Production thiếu state giữ NOT_TESTED, bổ trợ
+  bằng fixture local, không tạo data để đạt matrix.
+- Cập nhật release report/context/roadmap với SHA, CI run, deployment ID, immutable URL,
+  alias/target/region, từng smoke/log và rollback reference. Commit/push closing docs và kiểm
+  Required CI đúng closing SHA trước hoàn tất.
+- Không schema/migration/RPC/remote secret/account/Google, cleanup deployment/backup hoặc
+  mở rộng incident/Chrome warning/physical AT. Không redesign màn mới ngoài C81.
+
+Acceptance criteria:
+
+1. Diff-check/lint/typecheck/unit/build/full E2E và DB teardown0/0/0/secret scan đạt trước candidate;
+   C63/C72/C75/C78/C81 vẫn giữ assertion. Source và closing Required CI đều SUCCESS đúng SHA.
+2. Candidate/aliases đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target tương ứng, Ready,
+   Functions sin1; upload guard không có filename cấm, không đọc/download secret/dump bodies.
+3. Immutable Preview và Production có public smoke/Auth route thật đạt; KPI trước task,
+   không tràn/cắt tiền, single detail h1, D–D+30 copy, privacy notice/restore và explicit guard
+   hoạt động. Không thay nguồn số tiền hoặc ghi dữ liệu tài chính thật để kiểm.
+4. Chỉ gán stable Preview/promote Production sau candidate gate; hậu kiểm stable Preview,
+   `tindung.vercel.app` và default alias có Auth/public smoke/log đạt, không HTTP500/pageerror
+   mới. Nếu fail, rollback alias về C79 và giữ checkpoint chưa hoàn tất với bằng chứng.
+5. Bằng chứng tách local/remote, giả lập/thiết bị thật, dữ kiện chỉ aggregate/synthetic không lộ
+   tài chính thật/secret. Context/roadmap đồng bộ; checkpoint tiếp theo AWAITING_APPROVAL rồi dừng.

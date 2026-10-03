@@ -16,7 +16,13 @@ vm.runInNewContext(`(function (exports, require, module) { ${compiled}\n})(compi
   compiledModule,
   require: (specifier) => specifier === "./format" ? { todayInVietnam: () => "2026-09-10" } : require(specifier),
 });
-const { dashboardComparisonPeriods } = compiledModule.exports;
+const { dashboardComparisonPeriods, dashboardReminderWindow } = compiledModule.exports;
+
+test("reminder copy window is inclusive D through D+30 across months and leap years", () => {
+  for (const [start, end] of [["2026-10-03", "2026-11-02"], ["2026-12-15", "2027-01-14"], ["2024-02-01", "2024-03-02"]]) {
+    assert.deepEqual(structuredClone(dashboardReminderWindow(start)), { start, end });
+  }
+});
 
 test("tháng đang chạy so sánh dòng tiền cùng số ngày tháng trước và số dư đầu kỳ", () => {
   assert.deepEqual(

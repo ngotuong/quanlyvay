@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Plus } from "lucide-react";
+import { PrivacyCreateGuard } from "@/components/app/privacy-create-guard";
 import { PrivacyForm } from "@/components/app/privacy-provider";
-import { BottomSheet, Button, notifyToast } from "@/components/ui";
+import { BottomSheet, notifyToast } from "@/components/ui";
 import { GeneralExpenseForm } from "./general-expense-form";
 
 export function ExpenseCreateSheet({ idempotencyKey }: { idempotencyKey: string }) {
@@ -23,7 +23,7 @@ export function ExpenseCreateSheet({ idempotencyKey }: { idempotencyKey: string 
   }
 
   return <>
-    <Button ref={trigger} className="expense-create-trigger" onClick={() => dialog.current?.showModal()}><Plus size={18} /> Thêm chi phí</Button>
+    <PrivacyCreateGuard triggerRef={trigger} className="expense-create-trigger" label="Thêm chi phí" onOpen={() => dialog.current?.showModal()} />
     <BottomSheet ref={dialog} title="Thêm chi phí" eyebrow="Chi phí chung" onRequestClose={() => close()} closeDisabled={pending}>
       <PrivacyForm><GeneralExpenseForm idempotencyKey={idempotencyKey} key={session} onDirtyChange={setDirty} onPendingChange={setPending} onSuccess={message => {
         close(true);

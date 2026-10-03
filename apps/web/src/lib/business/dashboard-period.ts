@@ -51,6 +51,13 @@ export function isValidBusinessDate(value: string | undefined) {
   return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
 }
 
+/** Dates for copy only: matches the RPC's inclusive period-end through +30 days. */
+export function dashboardReminderWindow(periodEnd: string) {
+  const end = new Date(`${periodEnd}T00:00:00Z`);
+  end.setUTCDate(end.getUTCDate() + 30);
+  return { start: periodEnd, end: end.toISOString().slice(0, 10) };
+}
+
 export function dashboardPresetPeriods(today = todayInVietnam()) {
   const currentMonthStart = monthStart(today);
   const previousMonthStart = shiftMonth(currentMonthStart, -1);

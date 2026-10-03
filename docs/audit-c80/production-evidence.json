@@ -1,0 +1,608 @@
+{
+  "method": "Native authenticated Codex IAB, existing Owner session, read-only DOM geometry and viewport overrides; 03/10/2026. Sanitized route labels only, no record ID/name/money/cookie retained.",
+  "production": "https://tindung.vercel.app",
+  "sourceRevision": "8c8a8843ed4ecf12063f398fb6f1736feeb0d606",
+  "matrix": [
+    {
+      "route": "dashboard",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": {
+        "h": 141,
+        "y": 225
+      },
+      "kpis": {
+        "h": 129,
+        "y": 382
+      },
+      "tasks": {
+        "h": 639,
+        "y": 527
+      },
+      "firstLoan": null
+    },
+    {
+      "route": "dashboard-custom",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": {
+        "h": 141,
+        "y": 225
+      },
+      "kpis": {
+        "h": 129,
+        "y": 382
+      },
+      "tasks": {
+        "h": 639,
+        "y": 527
+      },
+      "firstLoan": null
+    },
+    {
+      "route": "loans",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": {
+        "h": 281,
+        "y": 466
+      }
+    },
+    {
+      "route": "counterparties",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "expenses",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "notifications",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "settings",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 47,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-overview",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-interest",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-history",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-settings",
+      "requestedWidth": 1440,
+      "actualWidth": 1440,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "dashboard",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": {
+        "h": 195,
+        "y": 226
+      },
+      "kpis": {
+        "h": 370,
+        "y": 437
+      },
+      "tasks": {
+        "h": 805,
+        "y": 808
+      },
+      "firstLoan": null
+    },
+    {
+      "route": "dashboard-custom",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": {
+        "h": 195,
+        "y": 226
+      },
+      "kpis": {
+        "h": 370,
+        "y": 437
+      },
+      "tasks": {
+        "h": 805,
+        "y": 808
+      },
+      "firstLoan": null
+    },
+    {
+      "route": "loans",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": {
+        "h": 336,
+        "y": 501
+      }
+    },
+    {
+      "route": "counterparties",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "expenses",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "notifications",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "settings",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 47,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-overview",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 2,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-interest",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 2,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-history",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 2,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-settings",
+      "requestedWidth": 375,
+      "actualWidth": 375,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 2,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "dashboard",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": {
+        "h": 195,
+        "y": 226
+      },
+      "kpis": {
+        "h": 372,
+        "y": 437
+      },
+      "tasks": {
+        "h": 805,
+        "y": 810
+      },
+      "firstLoan": null
+    },
+    {
+      "route": "dashboard-custom",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": {
+        "h": 195,
+        "y": 226
+      },
+      "kpis": {
+        "h": 372,
+        "y": 437
+      },
+      "tasks": {
+        "h": 805,
+        "y": 810
+      },
+      "firstLoan": null
+    },
+    {
+      "route": "loans",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": {
+        "h": 336,
+        "y": 472
+      }
+    },
+    {
+      "route": "counterparties",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "expenses",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "notifications",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "settings",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 1,
+      "unlabelledFields": 0,
+      "smallTargets": 47,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-overview",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 2,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-interest",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 2,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-history",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 2,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    },
+    {
+      "route": "detail-settings",
+      "requestedWidth": 390,
+      "actualWidth": 390,
+      "theme": "light",
+      "privacy": "hidden",
+      "overflow": 0,
+      "visibleH1": 2,
+      "unlabelledFields": 0,
+      "smallTargets": 0,
+      "banner": null,
+      "kpis": null,
+      "tasks": null,
+      "firstLoan": null
+    }
+  ],
+  "observations": {
+    "drawers": {
+      "expenses": {
+        "width": 390,
+        "privacy": "hidden",
+        "opens": true,
+        "onlyNotice": true,
+        "escapeCloses": true,
+        "focusReturnsToTrigger": true
+      },
+      "counterparties": {
+        "width": 390,
+        "privacy": "hidden",
+        "opens": true,
+        "onlyNotice": true,
+        "escapeCloses": true,
+        "focusReturnsToTrigger": true
+      }
+    },
+    "notificationsUnread": {
+      "width": 390,
+      "empty": "Bạn đã đọc hết thông báo",
+      "markAllDisabled": true,
+      "noMarkRead": true
+    },
+    "consoleErrorCount": 0,
+    "settingsTargets": {
+      "inputPx": [
+        13,
+        13
+      ],
+      "clickableLabelsPx": [
+        260,
+        26
+      ],
+      "interpretation": "Raw input count is not 47 WCAG 2.5.8 failures; enclosing clickable labels count."
+    }
+  },
+  "notTested": [
+    "Production dark in C80; local dark matrix is separate",
+    "Physical mobile or screen reader",
+    "Native Safari/Firefox/Chrome warning causation"
+  ]
+}

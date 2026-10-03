@@ -13,7 +13,7 @@ const base = resolve(import.meta.dirname, "../../src");
 function compile(source, globals = {}, imports = {}) {
   const output = ts.transpileModule(source, { compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, jsx: ts.JsxEmit.ReactJSX } }).outputText;
   const moduleRecord = { exports: {} };
-  vm.runInNewContext(`(function(exports,require,module){${output}\n})(module.exports,require,module)`, { module: moduleRecord, ...globals, require: name => imports[name] || require(name) });
+  vm.runInNewContext(`(function(exports,require,module){${output}\n})(module.exports,require,module)`, { module: moduleRecord, URLSearchParams, ...globals, require: name => imports[name] || require(name) });
   return moduleRecord.exports;
 }
 const load = (path, imports) => compile(readFileSync(resolve(base, path), "utf8"), {}, imports);
@@ -64,5 +64,62 @@ for (const [name, rows] of [
     assert.match(visible, /1\.234\.567/);
     assert.doesNotMatch(hidden, /1\.234\.567|0 ₫|1,2 tr|600 nghìn|cash-bar-control|role="tooltip"/);
     assert.equal((hidden.match(/>—<\/span>/g) || []).length, 3);
+    assert.equal((hidden.match(/Nội dung đang ẩn/g) || []).length, 1);
   }
+});
+
+const bannerNode = dashboard.statements.find(node => ts.isFunctionDeclaration(node) && node.name?.text === "ActionHeroBanner");
+assert.ok(bannerNode);
+const { Banner } = compile(`${bannerNode.getText(dashboard)}\nexports.Banner=ActionHeroBanner;`, {
+  PrivacyAmount: privacy.PrivacyAmount, ...format,
+  Link: ({ children, ...props }) => React.createElement("a", props, children),
+  CircleAlert: () => React.createElement("svg"), CalendarClock: () => React.createElement("svg"),
+});
+test("reminder banner clean, upcoming and overdue copy distinguishes schedule from transactions", () => {
+  const reminderWindow = "03/10/2026–02/11/2026";
+  const row = { direction: "LENDING", interestVnd: "1284500", principalVnd: "1284500000" };
+  const render = (upcoming, overdue, hidden = false) => renderToStaticMarkup(React.createElement(privacy.PrivacyProvider, { initialPrivacy: hidden }, React.createElement(Banner, { upcoming, overdue, reminderWindow })));
+  const clean = render([], []);
+  assert.match(clean, /03\/10\/2026–02\/11\/2026/);
+  assert.doesNotMatch(clean, /Tất cả các khoản vay đều đúng hạn|tháng này/);
+  const upcoming = render([row], []);
+  assert.match(upcoming, /1 lịch nhắc · 03\/10\/2026–02\/11\/2026/);
+  assert.match(upcoming, /1 khoản phải thu/);
+  assert.doesNotMatch(upcoming, /giao dịch|tháng này/);
+  const overdue = render([], [row]);
+  assert.match(overdue, /1 khoản quá hạn gốc/);
+  assert.match(overdue, /href="\/loans\?status=OVERDUE"/);
+  assert.match(overdue, /1\.284\.500\.000/);
+  assert.doesNotMatch(render([row], [row], true), /1\.284\.500/);
+});
+
+// Render the actual server page with an empty query result; no DB rows are deleted.
+test("loan list distinguishes an empty dataset from search no-results and viewer actions", async () => {
+  const render = async (role, params) => {
+    const page = load("app/loans/page.tsx", {
+      "next/link": { __esModule: true, default: ({ children, ...props }) => React.createElement("a", props, children) },
+      "@/components/business/pagination": { parsePage: () => 1, Pagination: () => null },
+      "@/components/app/privacy-provider": privacy,
+      "@/lib/auth/session": { requireAuthenticatedProfile: async () => ({ role }) },
+      "@/components/business/loan-filters": { LoanFilters: () => null },
+      "@/components/business/loan-card-link": { LoanCardLink: () => null },
+      "@/lib/business/dashboard-period": { isValidBusinessDate: () => false },
+      "@/lib/business/format": format,
+      "@/lib/business/queries": { listLoans: async () => ({ items: [], totalCount: 0 }) },
+      "@/components/ui": { Badge: () => null },
+    });
+    return renderToStaticMarkup(await page.default({ searchParams: Promise.resolve(params) }));
+  };
+  const empty = await render("OWNER", { status: "ALL" });
+  assert.match(empty, /Chưa có khoản vay/);
+  assert.match(empty, /href="\/counterparties"/);
+  assert.match(empty, /href="\/loans\/new"/);
+  assert.doesNotMatch(empty, /Xóa bộ lọc/);
+  const searched = await render("OWNER", { status: "ALL", q: "không tồn tại" });
+  assert.match(searched, /Không tìm thấy khoản phù hợp/);
+  assert.match(searched, /Xóa bộ lọc/);
+  assert.doesNotMatch(searched, /Chưa có khoản vay/);
+  const viewer = await render("VIEWER", { status: "ALL" });
+  assert.match(viewer, /Chưa có khoản vay/);
+  assert.doesNotMatch(viewer, /Tạo khoản vay|Thêm đối tác/);
 });

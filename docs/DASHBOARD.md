@@ -45,13 +45,16 @@ Tiền vào gồm giải ngân của khoản đi vay và các khoản thu lãi/g
 Dashboard còn có ba biểu đồ quản trị: phát sinh so với thanh toán lãi trong kỳ, cơ cấu dư nợ tại
 ngày chốt và top 10 mức tập trung dư nợ theo đối tác. Nợ xấu luôn là chuỗi riêng, không bị gộp vào
 cho vay hoạt động. First fold giữ bốn KPI ở đầu (desktop một hàng, mobile 2×2), sau đó là card
-`Lịch Dự Kiến` trước biểu đồ dòng tiền trong thứ tự đọc. Card dùng một danh sách liên tục, đường kẻ
+`Việc cần xử lý` trước biểu đồ dòng tiền trong thứ tự đọc. Card dùng một danh sách liên tục, đường kẻ
 ngăn từng dòng, icon `HandCoins` xanh cho vay và `Landmark` đỏ cho đi vay; tối đa năm item trước liên
 kết xem thêm và không tạo vùng cuộn lồng. Tổng vốn, nợ xấu và ba phân tích phụ nằm trong vùng
 `Phân tích chi tiết`.
 
-Banner `Lịch nhắc tháng này` không tính bù trừ. Nó hiển thị tổng số giao dịch trong tháng, số khoản
-và tổng tiền phải thu, số khoản và tổng tiền phải trả; đây là hai tổng gross, không phải lãi ròng.
+Banner `Lịch thu/trả lãi` hiển thị số lịch nhắc từ ngày kết thúc báo cáo D đến D+30
+(bao gồm cả hai ngày), kèm khoảng ngày cụ thể. Đây không phải số giao dịch đã ghi hoặc chỉ
+riêng tháng hiện tại. Tổng lãi phải thu và phải trả được tách theo hướng, không tính bù trừ
+và không thay cho lãi ròng. Khi không có lịch nhắc/gốc quá hạn, copy chỉ xác nhận tập này,
+không khẳng định mọi khoản vay đều đúng hạn. Cảnh báo gốc quá hạn giữ CTA riêng.
 
 KPI dòng tiền/lãi của `Tháng này` so với cùng số ngày tháng trước; `Năm nay` so với cùng kỳ năm
 trước; kỳ khác so với kỳ liền trước cùng độ dài. KPI số dư so với ngày ngay trước đầu kỳ. Mỗi card
@@ -66,3 +69,9 @@ cùng ngày hoặc khoảng ngày so sánh.
 - Light/dark mode theo thiết lập hệ điều hành.
 - Biểu đồ không chỉ dựa vào màu: hai chuỗi dùng kiểu tô khác nhau, có chú giải, tooltip và bảng số liệu.
 - Điều khiển tương tác có vùng chạm tối thiểu 44px và tôn trọng `prefers-reduced-motion`.
+
+C81 local: KPI luôn ở trên Việc cần xử lý; từ 1280 px, danh sách khoản vay dùng hàng compact
+đọc đủ dữ kiện và hành động nhanh. Mobile giữ card. Chart cash-flow hidden có một notice,
+không render cột/tooltip; trục che tiền và bảng masked vẫn giữ, hiện lại khôi phục chart/table.
+Thêm đối tác/chi phí khi hidden giải thích trước drawer, chỉ hiện dữ liệu khi người dùng
+chọn rõ nút “Hiển thị số tiền để tiếp tục”. Đây là thay đổi local, chưa phát hành Production.

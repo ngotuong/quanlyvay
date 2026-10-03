@@ -15,7 +15,12 @@ function ratio(value: string, maximum: bigint) {
   return `${Math.max(2, Number((BigInt(value) * BigInt(100)) / maximum))}%`;
 }
 
-export function CashFlowBars({ rows, maximum }: { rows: DashboardCashFlow[]; maximum: string }) {
+export function CashFlowBars(props: { rows: DashboardCashFlow[]; maximum: string }) {
+  // One notice for the whole chart; unmounting also clears any active tooltip.
+  return <PrivacyRegion><CashFlowBarContent {...props} /></PrivacyRegion>;
+}
+
+function CashFlowBarContent({ rows, maximum }: { rows: DashboardCashFlow[]; maximum: string }) {
   const [activeBar, setActiveBar] = useState<string | null>(null);
   const maximumValue = BigInt(maximum);
 
@@ -42,23 +47,22 @@ export function CashFlowBars({ rows, maximum }: { rows: DashboardCashFlow[]; max
               const barSize = ratio(value, maximumValue);
 
               return (
-                <PrivacyRegion key={key}>
-                  <button
-                    className="cash-bar-control"
-                    type="button"
-                    aria-label={`${label} ${monthLabel(row.month)}: ${formatVnd(value)}`}
-                    aria-describedby={active ? tooltipId : undefined}
-                    aria-pressed={active}
-                    data-active={active}
-                    style={{ "--bar-size": barSize } as CSSProperties}
-                    onClick={() => setActiveBar((current) => current === key ? null : key)}
-                  >
-                    <span className="cash-bar" data-series={series} />
-                    <span id={tooltipId} className="chart-tooltip privacy-amount" role="tooltip" aria-hidden={!active}>
-                      <PrivacyAmount value={formatVnd(value)} />
-                    </span>
-                  </button>
-                </PrivacyRegion>
+                <button
+                  key={key}
+                  className="cash-bar-control"
+                  type="button"
+                  aria-label={`${label} ${monthLabel(row.month)}: ${formatVnd(value)}`}
+                  aria-describedby={active ? tooltipId : undefined}
+                  aria-pressed={active}
+                  data-active={active}
+                  style={{ "--bar-size": barSize } as CSSProperties}
+                  onClick={() => setActiveBar((current) => current === key ? null : key)}
+                >
+                  <span className="cash-bar" data-series={series} />
+                  <span id={tooltipId} className="chart-tooltip privacy-amount" role="tooltip" aria-hidden={!active}>
+                    <PrivacyAmount value={formatVnd(value)} />
+                  </span>
+                </button>
               );
             })}
           </div>

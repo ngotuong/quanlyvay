@@ -1,0 +1,1242 @@
+{
+  "method": "Evon probe.mjs on static local HTML only; no authenticated Production automation with probe",
+  "runs": [
+    {
+      "run": "dashboard-a-delivery",
+      "finalPCount": 0,
+      "fixedWidths": [
+        {
+          "width": 375,
+          "overflow": false,
+          "scrollWidth": 375,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "scrollWidth": 390,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 768,
+          "overflow": false,
+          "scrollWidth": 768,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 1024,
+          "overflow": false,
+          "scrollWidth": 1024,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 1280,
+          "overflow": false,
+          "scrollWidth": 1280,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 1440,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 1920,
+          "overflow": false,
+          "scrollWidth": 1920,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        }
+      ],
+      "sweepSamples": 55,
+      "reportPath": ".cache/c80-probe-dashboard-a-delivery/report.json"
+    },
+    {
+      "run": "dashboard-b-delivery",
+      "finalPCount": 0,
+      "fixedWidths": [
+        {
+          "width": 375,
+          "overflow": false,
+          "scrollWidth": 375,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "scrollWidth": 390,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 768,
+          "overflow": false,
+          "scrollWidth": 768,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "orphanPunctuation": [
+              {
+                "lineStart": "· Cần thu lãi",
+                "element": "div.task-right \"880.000 ₫Cho vay · Cần thu lãi\""
+              },
+              {
+                "lineStart": "· Cần trả lãi",
+                "element": "div.task-right \"460.000 ₫Đi vay · Cần trả lãi\""
+              },
+              {
+                "lineStart": "· Cần thu lãi",
+                "element": "div.task-right \"1.450.000 ₫Cho vay · Cần thu lãi\""
+              },
+              {
+                "lineStart": "· Cần thu lãi",
+                "element": "div.task-right \"2.000.000 ₫Cho vay · Cần thu lãi\""
+              }
+            ],
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 1024,
+          "overflow": false,
+          "scrollWidth": 1024,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "unevenSiblingGroups": [
+              {
+                "element": "a.task \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+                "count": 3,
+                "commonHeight": 64,
+                "otherHeights": [
+                  66
+                ]
+              }
+            ],
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 1280,
+          "overflow": false,
+          "scrollWidth": 1280,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "unevenSiblingGroups": [
+              {
+                "element": "a.task \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+                "count": 3,
+                "commonHeight": 63,
+                "otherHeights": [
+                  66
+                ]
+              }
+            ],
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 1440,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "unevenSiblingGroups": [
+              {
+                "element": "a.task \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+                "count": 3,
+                "commonHeight": 63,
+                "otherHeights": [
+                  66
+                ]
+              }
+            ],
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        },
+        {
+          "width": 1920,
+          "overflow": false,
+          "scrollWidth": 1920,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "unevenSiblingGroups": [
+              {
+                "element": "a.task \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+                "count": 3,
+                "commonHeight": 63,
+                "otherHeights": [
+                  66
+                ]
+              }
+            ],
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Khoảng báo cáo1–3/10/2026Tùy c\""
+            ]
+          }
+        }
+      ],
+      "sweepSamples": 55,
+      "reportPath": ".cache/c80-probe-dashboard-b-delivery/report.json"
+    },
+    {
+      "run": "dashboard-a-dark-delivery",
+      "finalPCount": 0,
+      "fixedWidths": [
+        {
+          "width": 375,
+          "overflow": false,
+          "scrollWidth": 375,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "darkModeProblems": [
+              "5 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "scrollWidth": 390,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "darkModeProblems": [
+              "5 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 768,
+          "overflow": false,
+          "scrollWidth": 768,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "darkModeProblems": [
+              "6 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 1024,
+          "overflow": false,
+          "scrollWidth": 1024,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "darkModeProblems": [
+              "6 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 1280,
+          "overflow": false,
+          "scrollWidth": 1280,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "darkModeProblems": [
+              "6 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 1440,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "darkModeProblems": [
+              "6 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 1920,
+          "overflow": false,
+          "scrollWidth": 1920,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "darkModeProblems": [
+              "6 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        }
+      ],
+      "sweepSamples": 0,
+      "reportPath": ".cache/c80-probe-dashboard-a-dark-delivery/report.json"
+    },
+    {
+      "run": "dashboard-b-dark-delivery",
+      "finalPCount": 0,
+      "fixedWidths": [
+        {
+          "width": 375,
+          "overflow": false,
+          "scrollWidth": 375,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "darkModeProblems": [
+              "4 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "scrollWidth": 390,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "darkModeProblems": [
+              "4 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 768,
+          "overflow": false,
+          "scrollWidth": 768,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "orphanPunctuation": [
+              {
+                "lineStart": "· Cần thu lãi",
+                "element": "div.task-right \"880.000 ₫Cho vay · Cần thu lãi\""
+              },
+              {
+                "lineStart": "· Cần trả lãi",
+                "element": "div.task-right \"460.000 ₫Đi vay · Cần trả lãi\""
+              },
+              {
+                "lineStart": "· Cần thu lãi",
+                "element": "div.task-right \"1.450.000 ₫Cho vay · Cần thu lãi\""
+              },
+              {
+                "lineStart": "· Cần thu lãi",
+                "element": "div.task-right \"2.000.000 ₫Cho vay · Cần thu lãi\""
+              }
+            ],
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "darkModeProblems": [
+              "4 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 1024,
+          "overflow": false,
+          "scrollWidth": 1024,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "unevenSiblingGroups": [
+              {
+                "element": "a.task \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+                "count": 3,
+                "commonHeight": 64,
+                "otherHeights": [
+                  66
+                ]
+              }
+            ],
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "darkModeProblems": [
+              "4 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 1280,
+          "overflow": false,
+          "scrollWidth": 1280,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "unevenSiblingGroups": [
+              {
+                "element": "a.task \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+                "count": 3,
+                "commonHeight": 63,
+                "otherHeights": [
+                  66
+                ]
+              }
+            ],
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "darkModeProblems": [
+              "4 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 1440,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "unevenSiblingGroups": [
+              {
+                "element": "a.task \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+                "count": 3,
+                "commonHeight": 63,
+                "otherHeights": [
+                  66
+                ]
+              }
+            ],
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "darkModeProblems": [
+              "4 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        },
+        {
+          "width": 1920,
+          "overflow": false,
+          "scrollWidth": 1920,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "unevenSiblingGroups": [
+              {
+                "element": "a.task \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+                "count": 3,
+                "commonHeight": 63,
+                "otherHeights": [
+                  66
+                ]
+              }
+            ],
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"So sánh\"",
+              "a \"A\"",
+              "button \"Ẩn số tiền trong mockup\"",
+              "button \"Tùy chỉnh\"",
+              "button \"Tháng này\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhNhắc 6\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnNhắc 10/10/2\""
+            ],
+            "darkModeProblems": [
+              "4 cột biểu đồ tô màu nhấn 100% (gần trắng), chói nhất màn tối: dùng --chart-fill, nền tối 70% (M32, components/charts.md): i"
+            ]
+          }
+        }
+      ],
+      "sweepSamples": 0,
+      "reportPath": ".cache/c80-probe-dashboard-b-dark-delivery/report.json"
+    },
+    {
+      "run": "loans-a-delivery",
+      "finalPCount": 0,
+      "fixedWidths": [
+        {
+          "width": 375,
+          "overflow": false,
+          "scrollWidth": 375,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "scrollWidth": 390,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 768,
+          "overflow": false,
+          "scrollWidth": 768,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 1024,
+          "overflow": false,
+          "scrollWidth": 1024,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 1280,
+          "overflow": false,
+          "scrollWidth": 1280,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 1440,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 1920,
+          "overflow": false,
+          "scrollWidth": 1920,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        }
+      ],
+      "sweepSamples": 55,
+      "reportPath": ".cache/c80-probe-loans-a-delivery/report.json"
+    },
+    {
+      "run": "loans-b-delivery",
+      "finalPCount": 0,
+      "fixedWidths": [
+        {
+          "width": 375,
+          "overflow": false,
+          "scrollWidth": 375,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "scrollWidth": 390,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 768,
+          "overflow": false,
+          "scrollWidth": 768,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 1024,
+          "overflow": false,
+          "scrollWidth": 1024,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 1280,
+          "overflow": false,
+          "scrollWidth": 1280,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 1440,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        },
+        {
+          "width": 1920,
+          "overflow": false,
+          "scrollWidth": 1920,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ],
+            "heavyDecorativeBorders": [
+              "rgb(226, 232, 240) (~1.23:1 trên trắng): section.toolbar \"Tìm khoản vayBộ lọcẨn số tiền\""
+            ]
+          }
+        }
+      ],
+      "sweepSamples": 55,
+      "reportPath": ".cache/c80-probe-loans-b-delivery/report.json"
+    },
+    {
+      "run": "loans-a-dark-delivery",
+      "finalPCount": 0,
+      "fixedWidths": [
+        {
+          "width": 375,
+          "overflow": false,
+          "scrollWidth": 375,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {}
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "scrollWidth": 390,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {}
+        },
+        {
+          "width": 768,
+          "overflow": false,
+          "scrollWidth": 768,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ]
+          }
+        },
+        {
+          "width": 1024,
+          "overflow": false,
+          "scrollWidth": 1024,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ]
+          }
+        },
+        {
+          "width": 1280,
+          "overflow": false,
+          "scrollWidth": 1280,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ]
+          }
+        },
+        {
+          "width": 1440,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ]
+          }
+        },
+        {
+          "width": 1920,
+          "overflow": false,
+          "scrollWidth": 1920,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ]
+          }
+        }
+      ],
+      "sweepSamples": 0,
+      "reportPath": ".cache/c80-probe-loans-a-dark-delivery/report.json"
+    },
+    {
+      "run": "loans-b-dark-delivery",
+      "finalPCount": 0,
+      "fixedWidths": [
+        {
+          "width": 375,
+          "overflow": false,
+          "scrollWidth": 375,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {}
+        },
+        {
+          "width": 390,
+          "overflow": false,
+          "scrollWidth": 390,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {}
+        },
+        {
+          "width": 768,
+          "overflow": false,
+          "scrollWidth": 768,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ]
+          }
+        },
+        {
+          "width": 1024,
+          "overflow": false,
+          "scrollWidth": 1024,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ]
+          }
+        },
+        {
+          "width": 1280,
+          "overflow": false,
+          "scrollWidth": 1280,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ]
+          }
+        },
+        {
+          "width": 1440,
+          "overflow": false,
+          "scrollWidth": 1440,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ]
+          }
+        },
+        {
+          "width": 1920,
+          "overflow": false,
+          "scrollWidth": 1920,
+          "contrastFailures": 0,
+          "consoleErrors": [],
+          "observations": {
+            "drawnFocusRings": [
+              "a \"Bỏ qua đến nội dung chính\"",
+              "a \"Dashboard\"",
+              "a \"So sánh\"",
+              "button \"Tạo khoản vay\"",
+              "button \"Tìm khoản vay\"",
+              "a \"Khoản mẫu An — kinh doanh gia đìnhCho va\"",
+              "a \"Khoản mẫu Bình — bổ sung vốnĐi vay · Đan\""
+            ]
+          }
+        }
+      ],
+      "sweepSamples": 0,
+      "reportPath": ".cache/c80-probe-loans-b-dark-delivery/report.json"
+    }
+  ],
+  "disposedInitialFindings": [
+    {
+      "route": "dashboard-a",
+      "codes": [
+        "P1",
+        "P2"
+      ],
+      "fix": "Muted light text4.45:1 -> darker token, final0 contrast failures"
+    },
+    {
+      "route": "dashboard-a",
+      "codes": [
+        "P3"
+      ],
+      "fix": "Inactive nav hover separate from selected"
+    },
+    {
+      "route": "loans-a",
+      "codes": [
+        "P1",
+        "P2"
+      ],
+      "fix": "Override inherited44px icon button width on textual controls"
+    },
+    {
+      "route": "loans-a",
+      "codes": [
+        "P3"
+      ],
+      "fix": "Dedicated hover token distinct from outer background"
+    },
+    {
+      "route": "loans-b",
+      "codes": [
+        "P1",
+        "P2"
+      ],
+      "fix": "Override inherited44px icon button width on textual controls"
+    },
+    {
+      "route": "dashboard A/B",
+      "source": "Manual screenshot around1020px; probe had0P but amount exceeded its card content box",
+      "fix": "KPI2columns below1280 and mobile font clamp; renderer asserts0 clippedKpiAmounts in both themes and all7fixed widths"
+    }
+  ],
+  "intentionalReviewItems": [
+    "Visible3px keyboard focus retained for project accessibility requirements; Evon preference against rings is not applied",
+    "Border/surface/brand roles based on project tokens; not treated as product faults",
+    "Static demo controls do not call APIs; no claim of implemented business interactions",
+    "Manual visual review selected fixed and breakpoint screenshots; automated sweep does not prove all overlaps absent"
+  ]
+}

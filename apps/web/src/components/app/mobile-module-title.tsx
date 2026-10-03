@@ -21,5 +21,6 @@ export function MobileModuleTitle() {
   const pathname = usePathname();
   const current = moduleRoutes.find((item) => item.match(pathname)) ?? moduleRoutes[0];
   const Icon = current.icon;
-  return <div className="mobile-module-title"><Icon size={21} strokeWidth={1.8} aria-hidden="true" /><h1>{current.label}</h1></div>;
+  const isRecord = /^\/loans\/[^/]+/.test(pathname) && pathname !== "/loans/new";
+  return <div className="mobile-module-title"><Icon size={21} strokeWidth={1.8} aria-hidden="true" />{isRecord ? <span className="mobile-module-label">{current.label}</span> : <h1>{current.label}</h1>}</div>;
 }

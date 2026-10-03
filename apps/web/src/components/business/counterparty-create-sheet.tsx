@@ -1,9 +1,9 @@
 "use client";
 
 import { useRef, useState } from "react";
-import { Plus } from "lucide-react";
+import { PrivacyCreateGuard } from "@/components/app/privacy-create-guard";
 import { PrivacyForm } from "@/components/app/privacy-provider";
-import { BottomSheet, Button, notifyToast } from "@/components/ui";
+import { BottomSheet, notifyToast } from "@/components/ui";
 import { CounterpartyForm } from "./counterparty-form";
 
 export function CounterpartyCreateSheet() {
@@ -23,7 +23,7 @@ export function CounterpartyCreateSheet() {
   }
 
   return <>
-    <Button ref={trigger} className="counterparty-create-trigger" onClick={() => dialog.current?.showModal()}><Plus size={18} /> Thêm đối tác</Button>
+    <PrivacyCreateGuard triggerRef={trigger} className="counterparty-create-trigger" label="Thêm đối tác" onOpen={() => dialog.current?.showModal()} />
     <BottomSheet ref={dialog} title="Thêm đối tác" eyebrow="Hồ sơ liên hệ" onRequestClose={() => close()} closeDisabled={pending}>
       <PrivacyForm><CounterpartyForm key={session} onDirtyChange={setDirty} onPendingChange={setPending} onSuccess={message => {
         close(true);

@@ -6,7 +6,7 @@ import { AttentionItems } from "@/components/business/attention-items";
 import { CashFlowBars } from "@/components/business/cash-flow-bars";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatVnd } from "@/lib/business/format";
-import { dashboardComparisonPeriods, resolveDashboardPeriod } from "@/lib/business/dashboard-period";
+import { dashboardComparisonPeriods, dashboardReminderWindow, resolveDashboardPeriod } from "@/lib/business/dashboard-period";
 import { getManagementDashboardBundle } from "@/lib/business/queries";
 import type { CounterpartyExposure, DashboardCashFlow, DashboardDueLoan } from "@/lib/business/types";
 import { Card } from "@/components/ui";
@@ -42,7 +42,7 @@ function compactVnd(value: bigint) {
 
 import { PrivacyAccessibleValue, PrivacyAmount, PrivacyRegion } from "@/components/app/privacy-provider";
 
-function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; overdue: DashboardDueLoan[] }) {
+function ActionHeroBanner({ upcoming, overdue, reminderWindow }: { upcoming: DashboardDueLoan[]; overdue: DashboardDueLoan[]; reminderWindow: string }) {
   const overdueCount = overdue.length;
   const upcomingCount = upcoming.length;
   const totalCount = overdueCount + upcomingCount;
@@ -61,10 +61,10 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
     return (
       <div className="action-hero-banner" data-status="clean">
         <div className="hero-banner-content">
-          <span className="hero-banner-badge" data-status="clean">Đúng hạn</span>
+          <span className="hero-banner-badge" data-status="clean">Lịch nhắc</span>
           <div>
-            <h2>Tất cả các khoản vay đều đúng hạn</h2>
-            <p>Không có khoản nợ quá hạn hoặc lịch thu/trả lãi cần xử lý trong tháng này.</p>
+            <h2>Không có gốc quá hạn hoặc lịch nhắc trong khoảng đã chọn</h2>
+            <p>Lịch thu/trả lãi: {reminderWindow}.</p>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
             <p>Hãy kiểm tra và ghi nhận xử lý hoặc gia hạn khoản nợ để giữ tính chính xác cho số liệu.</p>
           </div>
         </div>
-        <Link className="primary-button hero-banner-cta active:scale-95 transition-transform" href="/loans?status=OVERDUE">Xem khoản quá hạn</Link>
+        <Link className="primary-button hero-banner-cta" href="/loans?status=OVERDUE">Xem khoản quá hạn</Link>
       </div>
     );
   }
@@ -89,9 +89,9 @@ function ActionHeroBanner({ upcoming, overdue }: { upcoming: DashboardDueLoan[];
   return (
     <div className="action-hero-banner" data-status="warning">
       <div className="hero-banner-content">
-        <span className="hero-banner-badge" data-status="warning"><CalendarClock size={16} /> Lịch nhắc tháng này</span>
+        <span className="hero-banner-badge" data-status="warning"><CalendarClock size={16} /> Lịch thu/trả lãi</span>
         <div>
-          <h2>Có {upcomingCount} giao dịch trong tháng này</h2>
+          <h2>{upcomingCount} lịch nhắc · {reminderWindow}</h2>
           <p className="monthly-reminder-summary"><span>{lendingCount} khoản phải thu: <PrivacyAmount value={formatVnd(lendingInterestVnd)} /></span><span>{borrowingCount} khoản phải trả: <PrivacyAmount value={formatVnd(borrowingInterestVnd)} /></span></p>
         </div>
       </div>
@@ -181,7 +181,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
   );
 }
 
-function AttentionList({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; overdue: DashboardDueLoan[] }) {
+function AttentionList({ upcoming, overdue, reminderWindow }: { upcoming: DashboardDueLoan[]; overdue: DashboardDueLoan[]; reminderWindow: string }) {
   const total = overdue.length + upcoming.length;
   const interestAction = (loan: DashboardDueLoan) => loan.direction === "LENDING" ? "Cần thu lãi" : "Cần trả lãi";
   const rows = [
@@ -190,8 +190,8 @@ function AttentionList({ upcoming, overdue }: { upcoming: DashboardDueLoan[]; ov
   ];
   return (
     <Card className="surface-card due-card attention-card" aria-labelledby="schedule-title">
-      <div className="dashboard-section-heading"><div><p className="eyebrow">Ưu tiên hôm nay</p><h2 id="schedule-title">Việc cần xử lý</h2></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>
-      {total === 0 ? <div className="dashboard-empty"><strong>Không có việc đến hạn</strong><span>Chưa có lãi cần thu, trả hoặc gốc quá hạn trong 30 ngày tới.</span></div> : <AttentionItems items={rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item" key={`${kind}-${loan.id}`}>
+      <div className="dashboard-section-heading"><div><p className="eyebrow">Gốc quá hạn và lịch nhắc</p><h2 id="schedule-title">Việc cần xử lý</h2></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>
+      {total === 0 ? <div className="dashboard-empty"><strong>Không có việc đến hạn</strong><span>Không có gốc quá hạn. Lịch thu/trả lãi: {reminderWindow}.</span></div> : <AttentionItems items={rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item" key={`${kind}-${loan.id}`}>
           <span className="due-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins size={19} /> : <Landmark size={19} />}</span>
           <span className="due-main"><strong><PrivacyRegion>{loan.name}</PrivacyRegion></strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
           <span className="due-value"><strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong><small>{loan.direction === "LENDING" ? "Cho vay" : "Đi vay"} · {kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
@@ -213,6 +213,8 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     comparison.balance.end,
   );
   const periodLabel = `${formatDate(dashboard.periodStartDate)}–${formatDate(dashboard.periodEndDate)}`;
+  const reminderDates = dashboardReminderWindow(dashboard.periodEndDate);
+  const reminderWindow = `${formatDate(reminderDates.start)}–${formatDate(reminderDates.end)}`;
   const flowComparisonLabel = comparisonPeriodLabel(comparison.flow.start, comparison.flow.end);
   const balanceComparisonLabel = formatDate(comparison.balance.end);
   const primaryMetrics = [
@@ -228,16 +230,16 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
   return (
     <>
-      <div className="page-heading-row dashboard-heading"><div className="page-title-lockup"><span className="page-title-icon"><ChartSpline size={24} strokeWidth={1.8} /></span><div><h1>Tổng quan</h1><p className="page-description">Ưu tiên việc đến hạn trước khi xem báo cáo.</p></div></div></div>
+      <div className="page-heading-row dashboard-heading"><div className="page-title-lockup"><span className="page-title-icon"><ChartSpline size={24} strokeWidth={1.8} /></span><div><h1>Tổng quan</h1><p className="page-description">Số dư, lãi và lịch thu/trả lãi.</p></div></div></div>
 
       <DashboardPeriodFilter period={period} periodLabel={periodLabel} />
 
-      <ActionHeroBanner upcoming={dashboard.upcoming} overdue={dashboard.overdue} />
+      <ActionHeroBanner upcoming={dashboard.upcoming} overdue={dashboard.overdue} reminderWindow={reminderWindow} />
 
       <div className="dashboard-workspace">
       <section className="dashboard-metrics dashboard-primary-metrics" aria-label="Các chỉ số chính">{primaryMetrics.map(({ label, value, previous, comparisonLabel, icon: Icon, tone }) => <Card as="article" variant="metric" className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><MetricComparison current={value} previous={previous} comparisonLabel={comparisonLabel} /></div></Card>)}</section>
 
-      <div className="dashboard-main-grid dashboard-focus-grid"><AttentionList upcoming={dashboard.upcoming} overdue={dashboard.overdue} /><CashFlowChart rows={dashboard.cashFlow} periodLabel={periodLabel} /></div>
+      <div className="dashboard-main-grid dashboard-focus-grid"><AttentionList upcoming={dashboard.upcoming} overdue={dashboard.overdue} reminderWindow={reminderWindow} /><CashFlowChart rows={dashboard.cashFlow} periodLabel={periodLabel} /></div>
 
       </div>
       <details className="dashboard-analysis">

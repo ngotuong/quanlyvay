@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.267
+roadmap_version: 1.0.272
 last_updated: 2026-10-03
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C80
-current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C79
-next_checkpoint: C80
+current_checkpoint: C82
+current_status: IN_PROGRESS
+last_completed_checkpoint: C81
+next_checkpoint: C82
 ---
 
 # Project Context
@@ -16,9 +16,43 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
-- Checkpoint hiện tại C80 `AWAITING_APPROVAL`: đề xuất audit UX trên Production C79 và
-  phương án desktop compact; chỉ đọc dữ liệu hiện hữu, local synthetic/mockup và tài liệu.
-  Chưa được duyệt/chưa bắt đầu; scope/AC roadmap mục38. Không yêu cầu OWNER học VoiceOver.
+- Checkpoint hiện tại C82 `IN_PROGRESS`: OWNER phê duyệt trong hội thoại03/10. Đồng bộ
+  C80/C81, Required CI đúng SHA, Preview từ root và Production có Auth/public/log gate,
+  rollback C79 theo mục40 roadmap. Đã đọc đầy đủ quy tắc/context, checkpoint và kiểm Git;
+  main=origin/main tại5ad7b7735b0fa41561ac79630b343db17ed3720f. Đang review/preflight;
+  chưa tạo candidate hoặc chuyển alias. Lint/typecheck/unit108/build/CI policy/actionlint
+  và diff+new-text Gitleaks đạt; full E2E C82 đang chạy trên DB riêng. Source C80/C81
+  được commit/push để CI chạy song song; chỉ tạo candidate sau local E2E và Required CI xanh.
+- C81 `COMPLETED` local03/10: OWNER duyệt A, kết hợp Evon ui-ux. Dashboard gọn, KPI vẫn trên
+  task ở6khổ×2theme; reference C80 task1440 527→456,53px và390 811→697,42px. Loan row thường
+ 1440 154,16px≤160, mobile giữ card/số tiền nguyên dòng; trạng thái/hướng/0/tiền tỷ/tên200
+  và filter/sort/page/returnTo/quick action đạt. F1 copy D–D+30 đúng lịch nhắc, F2 explicit
+  privacy guard trước hai form, F3 single record h1, F4 one hidden chart notice/restore.
+  C75 full đầu phát hiện scroll383px do fixed nav che toggle; sửa focus reveal trong
+  attention-items, giữ nguyên assertion. Target C75 3/3 PASS; full cuối54PASS/9SKIP8,3m exit0,
+  unit108/lint/typecheck/build/diff/secret scan đạt.9SKIP là capture opt-in (7cũ+C80+Evon C81),
+  không skip regression C63/C72/C75/C78/C81.78mẫu functional và4probe cuối0P,28fixed/110sweep,
+  manual breakpoint/light/dark/hidden review. DB55322 teardown profiles/loans/transactions0.
+ 6ảnh C75 do harness ghi khác đã restore đúng HEAD, không hoàn nguyên thay đổi OWNER.
+  Report/JSON/ảnh/review docs/remediation-c81/. Không blocker local; chưa commit/push/deploy,
+  không đổi schema/RPC/remote data/secret/account/Google. C80 local được bảo toàn.
+  Native IAB HTTP review timeout/file protocol bị policy chặn; HTML/ảnh và headless picker/
+  image-load PASS, không vượt policy. Physical AT/mobile/Safari/Firefox/Chrome warning vẫn
+  chưa chứng nhận; shared Gu ngoài scope ghi rõ trong report. Production vẫn C79.
+- C80 `COMPLETED` local03/10: OWNER phê duyệt audit, bổ sung dùng Evon ui-ux.33mẫu Production
+  light chỉ đọc,78mẫu app local375/390/1440 light/dark,56mẫu mockup7khổ×2theme×4route,
+  4sweep light55mẫu/route;8probe runs final0P và manual review fixed/breakpoint.2MEDIUM:
+  copy gọi lịch nhắc thành giao dịch/tháng này; drawer privacy hướng tới nút ngoài modal.
+  2LOW: detail mobile hai h1;26placeholder chart hidden (Gu). G1/G2 là đề xuất mật độ;
+  không mở lại C78 privacy/focus đã đóng. Hai phương án dashboard+loans HTML, A khuyên dùng,
+  dữ liệu/ảnh giả. Report/evidence/review ở `docs/audit-c80/`; nguồn/lỗi/ảnh/gate/giới hạn rõ.
+  21regression PASS; audit đầu fail cookie setup, sửa harness rồi1/1 PASS1.8m/78mẫu.
+  Lint/typecheck, JS/JSON, ci:validate(policy/actionlint), diff/Gitleaks pinned PASS;
+  DB55322 profiles/loans/transactions0. Manual render phát hiện KPI bóp tiền ở1020px đã sửa
+  trong mockup;0clippedKpiAmounts, không tràn và KPI trước task. Bốn ảnh C75 harness sinh
+  lại đã restore đúng HEAD. Không runtime/schema/RPC/remote/account/secret/commit/push/deploy.
+  Production dark C80/physical AT/mobile/Safari/Firefox/Chrome warning NOT_TESTED/OPEN;
+  local dark không thay bằng chứng remote. Viewport test đã reset, không yêu cầu học VoiceOver.
 - C79 `COMPLETED`03/10: source `8c8a8843ed4ecf12063f398fb6f1736feeb0d606` push fast-forward,
   Required CI `37097003400` mọi5job PASS (pgTAP527/Auth6/E2E50PASS8SKIP). Packaging fix exclude
   test/Playwright config sau TS2307 không giảm gate local/CI hoặc đổi UI/nghiệp vụ.
@@ -48,9 +82,9 @@ history, migration, test và các contract/runbook chuyên biệt.
   gọi strict C78guard0forbidden. Failed candidate `dpl_FQzWmo7sohL4Bv9XHJWdyw8WpTBQ` giữ nguyên.
   Không schema/RPC/secret/account/Google/dữ liệu tài chính thay đổi. Physical AT/mobile/Safari/
   Firefox và post-login native Chrome badge chưa chứng nhận; lịch sử warning nguyên nhân OPEN.
-  Closing docs JSON/CI policy/actionlint/Gitleaks/diff-check PASS; push final docs phải xác minh
-  Required CI đúng final SHA trước báo completion, báo exact SHA/run trong hội thoại để tránh
-  chuỗi tự tham chiếu tài liệu. Không dùng source run thay closing CI. Report/evidence docs/release-c79/.
+  Closing docs JSON/CI policy/actionlint/Gitleaks/diff-check PASS; closing SHA5ad7b77 có Required
+  CI37109057462 SUCCESS cả5jobs, main=origin/main lúc startup C80. Không dùng source run thay
+  closing CI. Report/evidence docs/release-c79/.
 
 - C78 `COMPLETED` local03/10: che ba nhãn trục tiền bằng PrivacyAmount, bỏ rAF ghi đè focus menu,
   hủy timer khi reopen/navigation; thêm metadata upload guard fail-closed vào root pipeline.
@@ -262,6 +296,24 @@ quyền thực hiện thao tác remote mới.
   build để tái tạo `dist`, rồi `clasp push`; version 6 được giữ làm bằng chứng. Không cần rollback.
 
 ## 6. Kiểm thử gần nhất
+
+C81 đạt03/10: lint/typecheck/unit108/build; full E2E cuối54PASS/9SKIP8,3m exit0 sau sửa
+C75 toggle focus bị mobile nav che. Target C75 3/3 PASS1,5m; C81 opt-in4/4 PASS4,6m trước
+mobile money refinement, sau đó full capture C81 4test PASS nhưng toàn suite C75 fail
+(54PASS/8SKIP/1FAIL10,9m), không gọi lượt đó là gate xanh. Lượt full cuối kiểm money-nowrap,
+78mẫu functional/single h1/privacy/guard và mọi regression bắt buộc.9SKIP chỉ opt-in evidence.
+DB55322 profiles/loans/transactions0/0/0, diff/Gitleaks pinned v8.30.1 diff+tệp text mới PASS,
+JSON/JS review parse/image-load đạt.4Evon probe cuối0P,28fixed+110sweep; các Gu ngoài scope
+và lỗi harness/giới hạn ghi ở report. Không cần pgTAP/Auth riêng vì schema/Auth không đổi;
+không dùng local gate thay bằng chứng rollout. Bản runtime mới chưa phát hành.
+
+
+C80 đã đạt (03/10/2026): lint/typecheck;21test hồi quy C63/C72/C75/C78 PASS; audit opt-in
+rerun1/1 PASS1.8m/78mẫu sau sửa cookie harness; JS syntax/JSON parse, ci:validate,
+diff-check và Gitleaks trên diff+tệp text mới. DB55322 teardown0profiles/loans/transactions.
+Mockup56mẫu và8probe runs0P,4sweep55mẫu, privacy/keyboard/ca biên/0clippedKpiAmounts đạt.
+Không chạy lại full unit/pgTAP/build riêng vì runtime/schema không đổi; E2E dùng production
+build của harness. Không lấy capture PASS làm kết luận mọi UX/AT/Production đã đạt.
 
 - C79 ngày03/10: source8c8a884 Required CI37097003400 SUCCESS mọi5job, pgTAP527/Auth6/E2E50/8;
   root initial và resume lint/typecheck/unit105/build/E2E51PASS7SKIP exit0, resume6.9m, DB0/0/0.
@@ -519,11 +571,11 @@ C59 đã đạt:
 
 ## 7. Việc chờ
 
-- C80 `AWAITING_APPROVAL`: audit UX Production C79 và phương án desktop compact, scope/AC
-  roadmap mục38. Chưa bắt đầu; chỉ sau phê duyệt OWNER. C79 không còn blocker vận hành; closing
-  tài liệu/CI exact SHA phải xác minh trước completion message. Không còn yêu cầu login/Dark
-  cho C79. Giới hạn: native Chrome badge/physical AT/mobile/Safari/Firefox chưa chứng nhận,
-  provider cache/internal/external copies không kiểm hết. Không mở rộng incident/rotation tự động.
+- C82 `IN_PROGRESS`: OWNER phê duyệt03/10; đồng bộ source/bằng chứng C80/C81, Required CI
+  đúng SHA và phát hành Preview/Production theo mục40 roadmap. Quyền remote trong scope đã duyệt.
+  C81 COMPLETED local; không còn blocker local. C80/C81 còn local chưa commit/push.
+  Giới hạn Production dark audit C80/native Chrome badge/physical AT/mobile/Safari/Firefox
+  chưa chứng nhận; không mở rộng incident/rotation/AT hoặc remote resources tự động.
 - C77 `COMPLETED` local03/10:12 privacy samples375/390/1440 light/dark; dashboard scale lộ6/6,
   loan3-period chart hidden6/6. Focus64 menu cycles: eager15/32 lỗi, settled32/32 đạt;10 drawer đạt.
   Trace có focus/settings→close không key giữa; rAF initial focus vô điều kiện phù hợp timing,

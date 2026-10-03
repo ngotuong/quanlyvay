@@ -1,0 +1,48 @@
+{
+  "checkpoint": "C81",
+  "status": "COMPLETED_LOCAL",
+  "date": "2026-10-03",
+  "sourceBase": "5ad7b7735b0fa41561ac79630b343db17ed3720f",
+  "gates": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": {
+      "passed": 108,
+      "failed": 0
+    },
+    "build": "PASS",
+    "fullE2E": {
+      "passed": 54,
+      "skippedOptInEvidence": 9,
+      "failed": 0,
+      "minutes": 8.3,
+      "exitCode": 0
+    },
+    "c75Targeted": {
+      "passed": 3,
+      "failed": 0,
+      "minutes": 1.5
+    },
+    "dbTeardown": {
+      "port": 55322,
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0
+    },
+    "diffCheck": "PASS",
+    "secretScan": "Gitleaks v8.30.1 pinned, diff + all new text; PASS"
+  },
+  "evidence": {
+    "functionalSamples": 78,
+    "probeFixedSamples": 28,
+    "probeSweepSamples": 110,
+    "finalP": [
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "remoteMutation": false,
+  "next": "C82 AWAITING_APPROVAL"
+}

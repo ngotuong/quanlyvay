@@ -1,0 +1,2155 @@
+{
+  "method": "Headless Chromium local production build; guarded disposable Supabase API55321/DB55322; synthetic only",
+  "matrix": [
+    {
+      "route": "dashboard",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 343,
+        "height": 371
+      },
+      "tasks": {
+        "x": 16,
+        "y": 809,
+        "width": 343,
+        "height": 1061
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 343,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 343,
+        "height": 371
+      },
+      "tasks": {
+        "x": 16,
+        "y": 809,
+        "width": 343,
+        "height": 1061
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 343,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom-private",
+      "privacy": "hidden",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 343,
+        "height": 371
+      },
+      "tasks": {
+        "x": 16,
+        "y": 809,
+        "width": 343,
+        "height": 805
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 343,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "loans",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 343,
+        "height": 44
+      },
+      "firstLoan": {
+        "x": 16,
+        "y": 408,
+        "width": 343,
+        "height": 336
+      },
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 343,
+        "height": 46
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 343,
+        "height": 46
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 343,
+        "height": 50
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 343,
+        "height": 50
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-overview",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-interest",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-history",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-settings",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 358,
+        "height": 373
+      },
+      "tasks": {
+        "x": 16,
+        "y": 811,
+        "width": 358,
+        "height": 933
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 358,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 358,
+        "height": 373
+      },
+      "tasks": {
+        "x": 16,
+        "y": 811,
+        "width": 358,
+        "height": 933
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 358,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom-private",
+      "privacy": "hidden",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 358,
+        "height": 373
+      },
+      "tasks": {
+        "x": 16,
+        "y": 811,
+        "width": 358,
+        "height": 805
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 358,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "loans",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 358,
+        "height": 44
+      },
+      "firstLoan": {
+        "x": 16,
+        "y": 408,
+        "width": 358,
+        "height": 336
+      },
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 358,
+        "height": 46
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 358,
+        "height": 46
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 358,
+        "height": 50
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 358,
+        "height": 50
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-overview",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-interest",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-history",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-settings",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 288,
+        "y": 382,
+        "width": 1112,
+        "height": 129
+      },
+      "tasks": {
+        "x": 288,
+        "y": 527,
+        "width": 420,
+        "height": 1023
+      },
+      "banner": {
+        "x": 288,
+        "y": 225,
+        "width": 1112,
+        "height": 141
+      },
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 86
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 288,
+        "y": 382,
+        "width": 1112,
+        "height": 129
+      },
+      "tasks": {
+        "x": 288,
+        "y": 527,
+        "width": 420,
+        "height": 1023
+      },
+      "banner": {
+        "x": 288,
+        "y": 225,
+        "width": 1112,
+        "height": 141
+      },
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 86
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom-private",
+      "privacy": "hidden",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 288,
+        "y": 382,
+        "width": 1112,
+        "height": 129
+      },
+      "tasks": {
+        "x": 288,
+        "y": 527,
+        "width": 420,
+        "height": 639
+      },
+      "banner": {
+        "x": 288,
+        "y": 225,
+        "width": 1112,
+        "height": 141
+      },
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 86
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "loans",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 86
+      },
+      "firstLoan": {
+        "x": 288,
+        "y": 426,
+        "width": 1112,
+        "height": 281
+      },
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 86
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 61
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 61
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 61
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 61
+      },
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-overview",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-interest",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-history",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-settings",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 343,
+        "height": 371
+      },
+      "tasks": {
+        "x": 16,
+        "y": 809,
+        "width": 343,
+        "height": 1061
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 343,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 343,
+        "height": 371
+      },
+      "tasks": {
+        "x": 16,
+        "y": 809,
+        "width": 343,
+        "height": 1061
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 343,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom-private",
+      "privacy": "hidden",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 343,
+        "height": 371
+      },
+      "tasks": {
+        "x": 16,
+        "y": 809,
+        "width": 343,
+        "height": 805
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 343,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "loans",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 343,
+        "height": 44
+      },
+      "firstLoan": {
+        "x": 16,
+        "y": 408,
+        "width": 343,
+        "height": 336
+      },
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 343,
+        "height": 46
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 343,
+        "height": 46
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 343,
+        "height": 50
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 343,
+        "height": 50
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-overview",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-interest",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-history",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-settings",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 358,
+        "height": 373
+      },
+      "tasks": {
+        "x": 16,
+        "y": 811,
+        "width": 358,
+        "height": 933
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 358,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 358,
+        "height": 373
+      },
+      "tasks": {
+        "x": 16,
+        "y": 811,
+        "width": 358,
+        "height": 933
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 358,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom-private",
+      "privacy": "hidden",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 16,
+        "y": 437,
+        "width": 358,
+        "height": 373
+      },
+      "tasks": {
+        "x": 16,
+        "y": 811,
+        "width": 358,
+        "height": 805
+      },
+      "banner": {
+        "x": 16,
+        "y": 226,
+        "width": 358,
+        "height": 195
+      },
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "loans",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 358,
+        "height": 44
+      },
+      "firstLoan": {
+        "x": 16,
+        "y": 408,
+        "width": 358,
+        "height": 336
+      },
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 358,
+        "height": 46
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 358,
+        "height": 46
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 358,
+        "height": 50
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 16,
+        "y": 94,
+        "width": 358,
+        "height": 50
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      },
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-overview",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-interest",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-history",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-settings",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 288,
+        "y": 382,
+        "width": 1112,
+        "height": 129
+      },
+      "tasks": {
+        "x": 288,
+        "y": 527,
+        "width": 420,
+        "height": 1023
+      },
+      "banner": {
+        "x": 288,
+        "y": 225,
+        "width": 1112,
+        "height": 141
+      },
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 86
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 288,
+        "y": 382,
+        "width": 1112,
+        "height": 129
+      },
+      "tasks": {
+        "x": 288,
+        "y": 527,
+        "width": 420,
+        "height": 1023
+      },
+      "banner": {
+        "x": 288,
+        "y": 225,
+        "width": 1112,
+        "height": 141
+      },
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 86
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "dashboard-custom-private",
+      "privacy": "hidden",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": {
+        "x": 288,
+        "y": 382,
+        "width": 1112,
+        "height": 129
+      },
+      "tasks": {
+        "x": 288,
+        "y": 527,
+        "width": 420,
+        "height": 639
+      },
+      "banner": {
+        "x": 288,
+        "y": 225,
+        "width": 1112,
+        "height": 141
+      },
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 86
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "loans",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 86
+      },
+      "firstLoan": {
+        "x": 288,
+        "y": 426,
+        "width": 1112,
+        "height": 281
+      },
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 86
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 61
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 61
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 61
+      },
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": {
+        "x": 288,
+        "y": 48,
+        "width": 1112,
+        "height": 61
+      },
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-overview",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-interest",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-history",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    },
+    {
+      "route": "detail-settings",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "kpis": null,
+      "tasks": null,
+      "banner": null,
+      "heading": null,
+      "firstLoan": null,
+      "tinyTargets": [
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        },
+        {
+          "tag": "INPUT",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "clippedTaskText": 0,
+      "fontLoaded": true
+    }
+  ],
+  "observations": {
+    "chart-hidden-375-light": {
+      "repeatedPrivatePlaceholders": 26,
+      "axis": [
+        "—",
+        "—",
+        "—"
+      ],
+      "hiddenControls": 0,
+      "scrollWidth": 1300,
+      "clientWidth": 239
+    },
+    "chart-hidden-390-light": {
+      "repeatedPrivatePlaceholders": 26,
+      "axis": [
+        "—",
+        "—",
+        "—"
+      ],
+      "hiddenControls": 0,
+      "scrollWidth": 1300,
+      "clientWidth": 254
+    },
+    "chart-hidden-1440-light": {
+      "repeatedPrivatePlaceholders": 26,
+      "axis": [
+        "—",
+        "—",
+        "—"
+      ],
+      "hiddenControls": 0,
+      "scrollWidth": 1300,
+      "clientWidth": 572
+    },
+    "chart-hidden-375-dark": {
+      "repeatedPrivatePlaceholders": 26,
+      "axis": [
+        "—",
+        "—",
+        "—"
+      ],
+      "hiddenControls": 0,
+      "scrollWidth": 1300,
+      "clientWidth": 239
+    },
+    "chart-hidden-390-dark": {
+      "repeatedPrivatePlaceholders": 26,
+      "axis": [
+        "—",
+        "—",
+        "—"
+      ],
+      "hiddenControls": 0,
+      "scrollWidth": 1300,
+      "clientWidth": 254
+    },
+    "chart-hidden-1440-dark": {
+      "repeatedPrivatePlaceholders": 26,
+      "axis": [
+        "—",
+        "—",
+        "—"
+      ],
+      "hiddenControls": 0,
+      "scrollWidth": 1300,
+      "clientWidth": 572
+    },
+    "rangeDialog": {
+      "opened": true,
+      "overflow": false
+    },
+    "pageErrorCount": 0,
+    "observedCompletion": true
+  }
+}

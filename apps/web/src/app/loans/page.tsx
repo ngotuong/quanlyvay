@@ -58,7 +58,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
 
   return (
     <>
-      <div className="page-heading-row">
+      <div className="page-heading-row loans-heading">
         <div className="page-title-lockup"><span className="page-title-icon"><ArrowLeftRight size={24} strokeWidth={1.8} /></span><div><h1>Các khoản vay</h1><p className="page-description">Tìm theo đối tác, trạng thái hoặc thời điểm giải ngân.</p></div></div>
         {profile.role !== "VIEWER" ? <Link className="primary-link loan-create-link" href="/loans/new"><Plus size={18} />Tạo khoản vay</Link> : null}
       </div>
