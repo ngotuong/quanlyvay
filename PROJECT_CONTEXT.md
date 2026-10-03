@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.272
+roadmap_version: 1.0.274
 last_updated: 2026-10-03
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C82
@@ -20,9 +20,16 @@ history, migration, test và các contract/runbook chuyên biệt.
   C80/C81, Required CI đúng SHA, Preview từ root và Production có Auth/public/log gate,
   rollback C79 theo mục40 roadmap. Đã đọc đầy đủ quy tắc/context, checkpoint và kiểm Git;
   main=origin/main tại5ad7b7735b0fa41561ac79630b343db17ed3720f. Đang review/preflight;
-  chưa tạo candidate hoặc chuyển alias. Lint/typecheck/unit108/build/CI policy/actionlint
-  và diff+new-text Gitleaks đạt; full E2E C82 đang chạy trên DB riêng. Source C80/C81
-  được commit/push để CI chạy song song; chỉ tạo candidate sau local E2E và Required CI xanh.
+  Source C80/C81 ff8f7060c81609beca0b08f01240acc95369ffb1 đã push fast-forward;
+  CI37123164406 attempt1 FAILED: C72 fixture hook120s abort trong reset+Auth readiness
+  (deadline180s), C75/C78/C81 lỗi Auth theo sau. Giữ aliases C79, chưa candidate.
+  Đang sửa riêng hook C72/C81 lên300s để chứa reset+readiness; không đổi assertion,
+  RPC/runtime/schema hoặc timeout tương tác. Cần full local và CI đúng SHA mới. Local lint/typecheck/unit108/
+  build/policy/actionlint/JSON/JS/diff/Gitleaks/audit PASS; full E2E54PASS/9opt-inSKIP8,2m
+  exit0, DB riêng55322 profiles/loans/transactions0/0/0. Sáu ảnh C75 do harness ghi đã
+  restore đúng HEAD. CLI dry151source/4.258.416bytes,0forbidden (chỉ dự báo).
+  Sau push cả3stable/defaultalias vẫn C79; rollback IDs Ready/public4/4/sin1 đã kiểm.
+  Chưa tạo candidate hoặc chuyển alias; chỉ tạo sau Required CI đúng source SHA xanh.
 - C81 `COMPLETED` local03/10: OWNER duyệt A, kết hợp Evon ui-ux. Dashboard gọn, KPI vẫn trên
   task ở6khổ×2theme; reference C80 task1440 527→456,53px và390 811→697,42px. Loan row thường
  1440 154,16px≤160, mobile giữ card/số tiền nguyên dòng; trạng thái/hướng/0/tiền tỷ/tên200

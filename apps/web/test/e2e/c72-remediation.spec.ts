@@ -12,7 +12,8 @@ const admin = createClient(local.API_URL, local.SECRET_KEY || local.SERVICE_ROLE
 let password = "OwnerE2eTemp123";
 const out = resolve(process.cwd(), "../../docs/remediation-c72");
 test.beforeAll(async () => {
-  test.setTimeout(120000);
+  // Reset plus the existing 180s Auth readiness deadline must fit this fixture hook.
+  test.setTimeout(300000);
   // This file's acceptance fixtures require exactly two expenses and thirteen tasks.
   // Earlier volume tests share the disposable DB. Reset only when their fixtures remain,
   // and only before this final, serial test file; the helper guards project/host/port.

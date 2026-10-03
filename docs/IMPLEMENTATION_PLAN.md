@@ -1592,6 +1592,8 @@ C82 AWAITING_APPROVAL, dừng theo AGENTS mục3.
 
 **C82 — Đồng bộ C80/C81, xác nhận CI và phát hành UI compact lên Preview/Production.**
 Trạng thái: `IN_PROGRESS`. OWNER đã phê duyệt trong hội thoại03/10/2026.
+Gate attempt1 phát hiện fixture hook C72/C81 120s ngắn hơn reset+Auth readiness180s;
+điều chỉnh riêng hook chuẩn bị fixture300s, giữ assertion và phạm vi runtime C81.
 
 Mục tiêu: đưa bản sửa đã kiểm local lên webapp thật, giữ card dư nợ/lãi ròng trên Việc cần xử lý.
 Phạm vi khi OWNER phê duyệt:

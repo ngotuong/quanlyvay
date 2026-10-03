@@ -16,7 +16,8 @@ let counterpartyId = "";
 let loanId = "";
 let password = "OwnerE2eTemp123";
 test.beforeAll(async () => {
-  test.setTimeout(120000);
+  // Reset plus the existing 180s Auth readiness deadline must fit this fixture hook.
+  test.setTimeout(300000);
   const local = localSupabaseEnvironment();
   const admin = createClient(local.API_URL, local.SECRET_KEY || local.SERVICE_ROLE_KEY, { auth: { persistSession: false } });
   const marker = await admin.from("counterparties").select("id").eq("name", "Đối tác mẫu C81").maybeSingle();
