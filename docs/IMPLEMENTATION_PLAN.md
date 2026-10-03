@@ -54,7 +54,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C76 | Đồng bộ và rollout remediation C74–C75 | `COMPLETED` |
 | C77 | Audit privacy biểu đồ, focus và artifact triển khai còn mở | `COMPLETED` |
 | C78 | Sửa privacy biểu đồ, initial focus và upload guard local | `COMPLETED` |
-| C79 | Đồng bộ, rollout C78 và dọn đúng hai deployment C73 cũ | `IN_PROGRESS` |
+| C79 | Đồng bộ, rollout C78 và dọn đúng hai deployment C73 cũ | `COMPLETED` |
+| C80 | Audit UX Production C79 và phương án desktop compact | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1400,9 +1401,9 @@ không suy ra remote payload sạch. Report/ảnh tại docs/remediation-c78/, k
 hoặc financial source. Lỗi harness ban đầu đã sửa và full gate chạy lại; không commit/push/deploy/
 remote cleanup. F1/F2 local đóng, F3 source C73 cònOPEN. C79 AWAITING_APPROVAL rồi dừng.
 
-## 37. Checkpoint C79 — Đang triển khai
+## 37. Checkpoint C79 — Hoàn tất
 
-**C79 — Đồng bộ, rollout C78 và dọn đúng hai deployment C73 cũ.** Trạng thái: `IN_PROGRESS`.
+**C79 — Đồng bộ, rollout C78 và dọn đúng hai deployment C73 cũ.** Trạng thái: `COMPLETED`.
 
 OWNER phê duyệt03/10 trong hội thoại.
 
@@ -1456,5 +1457,54 @@ Acceptance criteria:
 C79 ghi nhận blocker packaging khi triển khai source fdc309f: candidate Production
 `dpl_FQzWmo7sohL4Bv9XHJWdyw8WpTBQ` ERROR do import E2E tới scripts đã exclude;
 chưa promote/alias, C76 còn phục vụ. Điều chỉnh đóng gói để test/Playwright config cùng được
-exclude, giữ typecheck/tests local và guard secret/dump. Gate/CI revision mới và retry đang chờ;
-không thay schema/nghiệp vụ/UI hoặc mở rộng cleanup. Preview đã dừng trước deploy, DB test0/0/0.
+exclude, giữ typecheck/tests local và guard secret/dump. Source8c8a884 đã push,
+Required CI37097003400 SUCCESS mọi5 job; root Preview gate51PASS7SKIP và lint/typecheck/unit105/
+build đạt. Candidates Preview dpl_CZj4ehKjxCmzc4VazPcMfr87eLbs và Production
+ dpl_8x3Fy2rW6detxLGbsmrGSEqjhkyG đều Ready/project đúng/43 route Functions sin1/public4/4;
+actual src/out metadata mỗi150source+44lambda0forbidden,150/150 UIDSHA1match.
+OWNER đã login cảhai; IAB actual Auth light375/390/1440 mỗi candidate, privacy axis/tooltip/
+accessible money/KPI PASS; eager focus Preview3/Production4 cycles, loan1-period summary Preview
+và3-period chart cảhai, settings/routes/console PASS; post-light error/5000.
+Kết quả03/10: candidates Auth light/dark375/390/1440 và stable aliases dark375/390/1440,
+default390dark PASS privacy axis/tooltip/accessible money/KPI/focus/loan-interest/console.
+Runtime error/HTTP5000 sau Auth/alias/cleanup; public4/4 từng alias. Root Preview resume full
+gate51PASS7SKIP6.9m/unit105/lint/typecheck/build exit0 và alias đúng candidate; Production promote
+exit0; default alias cùng Production mới. DB test0/0/0, restore chỉ4syntheticPNG harness outputs.
+CLI remove --safe từng đúng ID C73 exit0/removed1; fresh project/target/aliases0/rollback trước xóa
+đạt. Sau xóa hai ID absent inventory/inspect notfound, source metadata API404, immutable URLs404
+DEPLOYMENT_NOT_FOUND. C76 rollback vẫn Ready/public4/4, không xóa khác/backup local. F3 đóng cho
+hai deployment; không tuyên bố purge mọi provider cache/external copy. Không remote financial
+writes/schema/RPC/secret/account/Google change. JSON/policy/actionlint/Gitleaks/diff-check PASS.
+Closing docs push phải kiểm Required CI đúng final SHA trước completion message; exact SHA/run
+được báo trong hội thoại, không dùng source run thay thế. Report/evidence docs/release-c79/.
+
+## 38. Checkpoint C80 — Chờ phê duyệt
+
+**C80 — Audit UX Production C79 và phương án desktop compact.** Trạng thái: `AWAITING_APPROVAL`.
+
+Mục tiêu: đánh giá trải nghiệm thực sau rollout và chọn cải tiến bố cục desktop còn mở bằng
+bằng chứng, giữ card dư nợ/lãi ròng phía trên Việc cần xử lý theo yêu cầu OWNER.
+
+Phạm vi đề xuất:
+
+- Read-only Production hiện hữu: dashboard/range/tasks, loans/list/detail/bốn tab, đối tác,
+  chi phí, thông báo và settings; đo thao tác thừa, hierarchy, loading, overflow, focus, privacy.
+- Local synthetic kiểm các trạng thái empty/error/pending/draft/save-close có thể không tạo được
+  trên dữ liệu thật. Không ghi tài chính hoặc mark-read/đổi preference/permission/tài khoản remote.
+- Review desktop compact G2 còn mở và tính nhất quán mobile–desktop; dựng2phương án HTML/mockup
+  local với dữ liệu giả để OWNER so sánh. Không sửa runtime sản phẩm, deploy/push/cleanup/migration.
+- Không yêu cầu OWNER học VoiceOver; chỉ ghi PASS với công nghệ hỗ trợ/thiết bị có bằng chứng thật,
+  còn lại NOT_TESTED. Warning Chrome chỉ truy vết nếu khả dụng, không bypass/đổi security settings.
+
+Acceptance criteria:
+
+1. Mỗi phát hiện có mức độ/file-vị trí/trigger/bằng chứng/nguyên nhân/tác động/hướng sửa; tách lỗi
+   tái hiện với nhận xét thiết kế và giới hạn. Không mở lại lỗi C78 đã đóng nếu không có regression.
+2. Ma trận375/390/1440 light/dark và các hành trình cốt lõi được ghi phương pháp/kết quả; state
+   remote thiếu dùng local synthetic và ghi rõ nguồn, không coi giả lập là thiết bị vật lý.
+3. Hai phương án desktop compact được render/kiểm và giữ KPI trên task, mobile tương thích,
+   privacy/keyboard/reading order; chưa thay sản phẩm. Không đưa dữ liệu thật/credential vào Git.
+4. Context/roadmap/report cùng thay đổi, diff/secret scan và gate harness hiện hữu phù hợp đạt;
+   đề xuất remediation C81 có scope/AC cụ thể rồi đặt AWAITING_APPROVAL và dừng.
+
+Chưa phê duyệt/chưa bắt đầu C80. Không tự triển khai từ kết quả C79 hoặc lịch sử completed.

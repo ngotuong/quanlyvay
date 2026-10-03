@@ -1,10 +1,15 @@
 {
-  "sourceSha": "fdc309faea457dab6fdff1b5c05ef3b6decf14f0",
-  "runId": 37095805773,
-  "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37095805773",
+  "sourceSha": "8c8a8843ed4ecf12063f398fb6f1736feeb0d606",
+  "runId": 37097003400,
+  "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37097003400",
   "status": "completed",
   "conclusion": "success",
   "jobs": [
+    {
+      "name": "Dependency and secret scan",
+      "status": "completed",
+      "conclusion": "success"
+    },
     {
       "name": "Workflow policy",
       "status": "completed",
@@ -21,11 +26,6 @@
       "conclusion": "success"
     },
     {
-      "name": "Dependency and secret scan",
-      "status": "completed",
-      "conclusion": "success"
-    },
-    {
       "name": "Required CI gate",
       "status": "completed",
       "conclusion": "success"
@@ -34,10 +34,17 @@
   "pgTAP": {
     "passed": 527
   },
+  "auth": {
+    "passed": 6
+  },
   "e2e": {
     "passed": 50,
     "skipped": 8,
-    "failed": 0
+    "failed": 0,
+    "skipReasons": {
+      "auditOptIn": 7,
+      "requiresNamedDisposableLocalContainer": 1
+    }
   },
-  "scope": "Exact committed source CI; no Production data written"
+  "scope": "Exact committed source CI; no Production financial mutations"
 }

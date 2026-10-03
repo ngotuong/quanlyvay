@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.261
+roadmap_version: 1.0.267
 last_updated: 2026-10-03
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C79
-current_status: IN_PROGRESS
-last_completed_checkpoint: C78
-next_checkpoint: C79
+current_checkpoint: C80
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C79
+next_checkpoint: C80
 ---
 
 # Project Context
@@ -16,14 +16,42 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
-- Checkpoint hiện tại C79 `IN_PROGRESS`: OWNER phê duyệt03/10 trong hội thoại; rollout C78
-  và cleanup đúng hai deployment C73 sau candidate/alias/Auth/inventory gate, giữ rollback C76.
-  Source fdc309f đã push; Required CI37095805773 mọi job/gate PASS (pgTAP527, Auth6,
-  E2E50PASS8SKIP). Production candidate dpl_FQzWmo7sohL4Bv9XHJWdyw8WpTBQ build ERROR:
-  payload loại scripts nhưng còn E2E/config import test-environment.cjs. Aliases vẫn C76.
-  C79 đang sửa đóng gói: loại apps/web/test và playwright.config.ts cùng scripts khỏi payload;
-  giữ typecheck/test local đầy đủ, không thay UI/nghiệp vụ. Preview chain đã dừng trước deploy;
-  isolated DB55322 profiles/loans/transactions0. Chờ gate/commit CI mới/candidates/Auth/cleanup.
+- Checkpoint hiện tại C80 `AWAITING_APPROVAL`: đề xuất audit UX trên Production C79 và
+  phương án desktop compact; chỉ đọc dữ liệu hiện hữu, local synthetic/mockup và tài liệu.
+  Chưa được duyệt/chưa bắt đầu; scope/AC roadmap mục38. Không yêu cầu OWNER học VoiceOver.
+- C79 `COMPLETED`03/10: source `8c8a8843ed4ecf12063f398fb6f1736feeb0d606` push fast-forward,
+  Required CI `37097003400` mọi5job PASS (pgTAP527/Auth6/E2E50PASS8SKIP). Packaging fix exclude
+  test/Playwright config sau TS2307 không giảm gate local/CI hoặc đổi UI/nghiệp vụ.
+  Preview `dpl_CZj4ehKjxCmzc4VazPcMfr87eLbs` /
+  <https://quan-ly-vay-ca-nhan-abk6l77md-ngotuong2105.vercel.app>, target preview, Ready,
+  alias <https://tindung-preview.vercel.app>. Production `dpl_8x3Fy2rW6detxLGbsmrGSEqjhkyG` /
+  <https://quan-ly-vay-ca-nhan-h8muagbnq-ngotuong2105.vercel.app>, target production, Ready,
+  alias <https://tindung.vercel.app> và default <https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app>.
+  Đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`,43route Functions sin1; middleware riêng
+  Preview sin1, Production8regions gồm sin1. Returned src/out metadata mỗi150source+44lambda,
+  0forbidden filenames,150/150source UID khớp dry SHA1; không tải source/dump/bundle bodies.
+  Candidates Auth light/dark375/390/1440 privacy axis/tooltip/accessible money/KPI/focus PASS;
+  KPI dư nợ/lãi ròng ở trên Việc cần xử lý. Stable aliases Auth dark375/390/1440 và default390dark
+  PASS; loan1-period summary Preview và3-period chart cảhai/aliases hidden/restore, settings
+  routes thực đã kiểm. Public4/4 từng candidate/alias; console/error/HTTP5000 sau Auth/promote/
+  cleanup. State khác thiếu remote giữ NOT_TESTED với C78local boundary matrix bổ trợ.
+  Root Preview resume full lint/typecheck/unit105/build/E2E51PASS7SKIP6.9m exit0, DB55322 về0/0/0;
+  restore đúng4ảnh synthetic C75 do harness ghi. Production promote exit0, Preview root alias
+  exit0, không cần rollback. OWNER tự login các hostname thiếu phiên, không extract credential.
+  Cleanup CLI --safe từng ID đúng C73 Preview `dpl_6NT5NEUN86VPVZXhvZTqwNFyqgFb` và Production
+  `dpl_Bqox7V6oqX63ufyhgY1sYTFmENhx` exit0/removed1 mỗi lệnh sau aliases/Auth/log gate.
+  Hai ID absent inventory, inspect not-found, source file API404, immutable URLs404
+  DEPLOYMENT_NOT_FOUND. F3 đóng theo scope hai deployment; không tuyên bố purge mọi cache/copy.
+  Rollback C76 Preview `dpl_BBavYTasgvQ51wyTQbWunqysM6Fq` và Production
+  `dpl_AurpzZ3pUxe7Xp7dWnxuWa2fjXxw` vẫn Ready/public4/4; không xóa deployment khác/backup local.
+  C76 có hai benchmark SQL source UID khớp tracked files (known operational exception), không
+  gọi strict C78guard0forbidden. Failed candidate `dpl_FQzWmo7sohL4Bv9XHJWdyw8WpTBQ` giữ nguyên.
+  Không schema/RPC/secret/account/Google/dữ liệu tài chính thay đổi. Physical AT/mobile/Safari/
+  Firefox và post-login native Chrome badge chưa chứng nhận; lịch sử warning nguyên nhân OPEN.
+  Closing docs JSON/CI policy/actionlint/Gitleaks/diff-check PASS; push final docs phải xác minh
+  Required CI đúng final SHA trước báo completion, báo exact SHA/run trong hội thoại để tránh
+  chuỗi tự tham chiếu tài liệu. Không dùng source run thay closing CI. Report/evidence docs/release-c79/.
+
 - C78 `COMPLETED` local03/10: che ba nhãn trục tiền bằng PrivacyAmount, bỏ rAF ghi đè focus menu,
   hủy timer khi reopen/navigation; thêm metadata upload guard fail-closed vào root pipeline.
   `.vercelignore` loại trừ scripts SQL và cache/backups/tmp lồng, không đọc secret/dump bằng guard.
@@ -234,6 +262,18 @@ quyền thực hiện thao tác remote mới.
   build để tái tạo `dist`, rồi `clasp push`; version 6 được giữ làm bằng chứng. Không cần rollback.
 
 ## 6. Kiểm thử gần nhất
+
+- C79 ngày03/10: source8c8a884 Required CI37097003400 SUCCESS mọi5job, pgTAP527/Auth6/E2E50/8;
+  root initial và resume lint/typecheck/unit105/build/E2E51PASS7SKIP exit0, resume6.9m, DB0/0/0.
+  Candidate full light/dark375/390/1440; stable Auth dark375/390/1440, default390dark/privacy/focus/
+  KPI/loan-interest/console PASS; public4/4, runtime error/5000 sau Auth/alias/cleanup.
+  Actual source metadata150/150UIDSHA1match/0forbidden; hai C73 removal/404/inventory absence
+  và C76 rollback Ready/public PASS. Closing JSON/policy/actionlint/Gitleaks/diff PASS.
+  Packaging compiler before TS2307/after PASS; optional filtered Next/font harness failure không
+  dùng làm green gate, actual Vercel builds Ready. Discard inactive-tab viewport/light samples và
+  close-before-animation measurement; eager focus cycles rerun PASS. Không chứng nhận AT/physical
+  browsers hoặc source contents/cache toàn bộ. Source không đổi sau8c8a884; closing CI exact SHA
+  xác minh trước completion message, không lấy source CI thay.
 
 - C78 ngày03/10: lint/typecheck/unit105/105/build PASS; final full E2E51PASS7audit-opt-inSKIP6,5m,
   C78 riêng3PASS1,7m. Browser36 cases:6 dashboard +24 loan1/2/3/12 +6zero;32 eager focus cycles
@@ -479,10 +519,11 @@ C59 đã đạt:
 
 ## 7. Việc chờ
 
-- C79 `IN_PROGRESS`: OWNER phê duyệt03/10; scope/AC mục37 roadmap, thực hiện push/rollout/cleanup,
-  gồm chuyển default alias khỏi C73 rồi xóa đúng2 C73 IDs sau kiểm project/alias/rollback.
-  Không blocker C78 local. Runtime C76 tiếp tục phục vụ; F3 source C73 vẫn OPEN, không xóa trước
-  duyệt. Không nâng GitHub plan; Required CI đúng SHA là gate phát hành và gate tài liệu cuối.
+- C80 `AWAITING_APPROVAL`: audit UX Production C79 và phương án desktop compact, scope/AC
+  roadmap mục38. Chưa bắt đầu; chỉ sau phê duyệt OWNER. C79 không còn blocker vận hành; closing
+  tài liệu/CI exact SHA phải xác minh trước completion message. Không còn yêu cầu login/Dark
+  cho C79. Giới hạn: native Chrome badge/physical AT/mobile/Safari/Firefox chưa chứng nhận,
+  provider cache/internal/external copies không kiểm hết. Không mở rộng incident/rotation tự động.
 - C77 `COMPLETED` local03/10:12 privacy samples375/390/1440 light/dark; dashboard scale lộ6/6,
   loan3-period chart hidden6/6. Focus64 menu cycles: eager15/32 lỗi, settled32/32 đạt;10 drawer đạt.
   Trace có focus/settings→close không key giữa; rAF initial focus vô điều kiện phù hợp timing,
