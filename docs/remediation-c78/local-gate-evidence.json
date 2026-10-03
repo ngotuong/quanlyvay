@@ -1,0 +1,66 @@
+{
+  "checkpoint": "C78",
+  "scope": "local only; no commit/push/deploy/remote mutation",
+  "verifiedAtUtc": "2026-10-03T03:52:57.369560+00:00",
+  "baseGitSha": "e5fdcfa121c3723bab9191d3562bf2761bb60407",
+  "workingTreeUncommitted": true,
+  "sourceSha256": {
+    ".vercelignore": "abfe7c5219feac43d147bb850efee1c8372b4e4c5c5121d483e15bf5f4a9bc72",
+    "apps/web/src/app/dashboard/page.tsx": "afcf5494397db168af31ce85d925b875778ee5377fbb8c94cc2605390a36ec6c",
+    "apps/web/src/components/app/app-nav.tsx": "f424431407eef86f59d22ade64228a73d73cd6bece8f4c18ce221675b607aa88",
+    "scripts/deploy-preview.mjs": "cc9235f1ca1c46e8b65ce9c88f75cd2eb64efbce8c0d995387f0ea4be5495504",
+    "scripts/vercel-upload-guard.mjs": "6551c4c07e806aaa2562070a7127f7bcf68ec4f0450f8b626516d5affda08d60",
+    "apps/web/test/e2e/c78-remediation.spec.ts": "430e5902373f99fc1282d3dc432c06904c8b9aebf0d56a22485c4587fdceb9a3",
+    "apps/web/test/unit/chart-privacy.test.mjs": "942e3b9c5012701a977d63d03bde93cdf7a78d358d0446457963eebc08c457b6",
+    "scripts/vercel-upload-guard.test.mjs": "6d2fbe462cdbad5f8f46a90d70cb7bde9db893cb4cbd93116230b10b653be17b"
+  },
+  "gates": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": {
+      "pass": 105,
+      "fail": 0,
+      "domain": 11,
+      "googleSync": 18,
+      "web": 47,
+      "scripts": 29
+    },
+    "build": "PASS",
+    "fullE2E": {
+      "pass": 51,
+      "skippedAuditOptIn": 7,
+      "fail": 0,
+      "durationMinutes": 6.5,
+      "retries": 0
+    },
+    "targetedC78": {
+      "pass": 3,
+      "fail": 0,
+      "durationMinutes": 1.7
+    },
+    "uploadGuardUnit": {
+      "pass": 3,
+      "fail": 0
+    },
+    "deployScriptSyntax": "PASS",
+    "diffCheck": "PASS",
+    "credentialScan": "PASS: pinned Gitleaks redacted stdin; intended text diff and new source/evidence"
+  },
+  "uploadMetadata": {
+    "scope": "local metadata prediction; actual remote inventory remains required",
+    "files": 191,
+    "bytes": 4541300
+  },
+  "isolatedDbPort": 55322,
+  "isolatedDbAfter": {
+    "profiles": 0,
+    "loans": 0,
+    "transactions": 0
+  },
+  "notTested": [
+    "actual remote upload/source inventory",
+    "C78 remote runtime/Auth/logs",
+    "native Safari/Firefox/screen reader/physical mobile"
+  ],
+  "residual": "C77 F3 old C73 deployments remain until separately approved C79"
+}

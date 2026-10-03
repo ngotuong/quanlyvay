@@ -1,0 +1,544 @@
+{
+  "method": "Local production build, headless Chrome, synthetic guarded DB :55322; no remote rollout",
+  "matrix": [
+    {
+      "route": "dashboard",
+      "width": 375,
+      "theme": "light",
+      "beforeAxis": "106,6 tr\n53,3 tr\n0 ₫",
+      "hiddenAxis": "— / — / —",
+      "restored": true,
+      "tooltipRemoved": true,
+      "kpisAboveTasks": true
+    },
+    {
+      "route": "loan-period",
+      "width": 375,
+      "theme": "light",
+      "periods": 1,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 375,
+      "theme": "light",
+      "periods": 2,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 375,
+      "theme": "light",
+      "periods": 3,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 375,
+      "theme": "light",
+      "periods": 12,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "dashboard-zero",
+      "width": 375,
+      "theme": "light",
+      "masked": true
+    },
+    {
+      "route": "dashboard",
+      "width": 390,
+      "theme": "light",
+      "beforeAxis": "106,6 tr\n53,3 tr\n0 ₫",
+      "hiddenAxis": "— / — / —",
+      "restored": true,
+      "tooltipRemoved": true,
+      "kpisAboveTasks": true
+    },
+    {
+      "route": "loan-period",
+      "width": 390,
+      "theme": "light",
+      "periods": 1,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 390,
+      "theme": "light",
+      "periods": 2,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 390,
+      "theme": "light",
+      "periods": 3,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 390,
+      "theme": "light",
+      "periods": 12,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "dashboard-zero",
+      "width": 390,
+      "theme": "light",
+      "masked": true
+    },
+    {
+      "route": "dashboard",
+      "width": 1440,
+      "theme": "light",
+      "beforeAxis": "106,6 tr\n53,3 tr\n0 ₫",
+      "hiddenAxis": "— / — / —",
+      "restored": true,
+      "tooltipRemoved": true,
+      "kpisAboveTasks": true
+    },
+    {
+      "route": "loan-period",
+      "width": 1440,
+      "theme": "light",
+      "periods": 1,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 1440,
+      "theme": "light",
+      "periods": 2,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 1440,
+      "theme": "light",
+      "periods": 3,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 1440,
+      "theme": "light",
+      "periods": 12,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "dashboard-zero",
+      "width": 1440,
+      "theme": "light",
+      "masked": true
+    },
+    {
+      "route": "dashboard",
+      "width": 375,
+      "theme": "dark",
+      "beforeAxis": "106,6 tr\n53,3 tr\n0 ₫",
+      "hiddenAxis": "— / — / —",
+      "restored": true,
+      "tooltipRemoved": true,
+      "kpisAboveTasks": true
+    },
+    {
+      "route": "loan-period",
+      "width": 375,
+      "theme": "dark",
+      "periods": 1,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 375,
+      "theme": "dark",
+      "periods": 2,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 375,
+      "theme": "dark",
+      "periods": 3,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 375,
+      "theme": "dark",
+      "periods": 12,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "dashboard-zero",
+      "width": 375,
+      "theme": "dark",
+      "masked": true
+    },
+    {
+      "route": "dashboard",
+      "width": 390,
+      "theme": "dark",
+      "beforeAxis": "106,6 tr\n53,3 tr\n0 ₫",
+      "hiddenAxis": "— / — / —",
+      "restored": true,
+      "tooltipRemoved": true,
+      "kpisAboveTasks": true
+    },
+    {
+      "route": "loan-period",
+      "width": 390,
+      "theme": "dark",
+      "periods": 1,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 390,
+      "theme": "dark",
+      "periods": 2,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 390,
+      "theme": "dark",
+      "periods": 3,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 390,
+      "theme": "dark",
+      "periods": 12,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "dashboard-zero",
+      "width": 390,
+      "theme": "dark",
+      "masked": true
+    },
+    {
+      "route": "dashboard",
+      "width": 1440,
+      "theme": "dark",
+      "beforeAxis": "106,6 tr\n53,3 tr\n0 ₫",
+      "hiddenAxis": "— / — / —",
+      "restored": true,
+      "tooltipRemoved": true,
+      "kpisAboveTasks": true
+    },
+    {
+      "route": "loan-period",
+      "width": 1440,
+      "theme": "dark",
+      "periods": 1,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 1440,
+      "theme": "dark",
+      "periods": 2,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 1440,
+      "theme": "dark",
+      "periods": 3,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "loan-period",
+      "width": 1440,
+      "theme": "dark",
+      "periods": 12,
+      "hiddenChartRemoved": true,
+      "restored": true
+    },
+    {
+      "route": "dashboard-zero",
+      "width": 1440,
+      "theme": "dark",
+      "masked": true
+    }
+  ],
+  "focus": [
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "iteration": 0,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "iteration": 1,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "iteration": 2,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "iteration": 3,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "iteration": 4,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "iteration": 5,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "iteration": 6,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "iteration": 7,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "iteration": 0,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "iteration": 1,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "iteration": 2,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "iteration": 3,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "iteration": 4,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "iteration": 5,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "iteration": 6,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "iteration": 7,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "iteration": 0,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "iteration": 1,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "iteration": 2,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "iteration": 3,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "iteration": 4,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "iteration": 5,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "iteration": 6,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "iteration": 7,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "iteration": 0,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "iteration": 1,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "iteration": 2,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "iteration": 3,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "iteration": 4,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "iteration": 5,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "iteration": 6,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "iteration": 7,
+      "eager": true,
+      "wrapAndReturn": true
+    },
+    {
+      "keyboardOpen": true,
+      "closeBeforeFrameReopen": true,
+      "pendingCloseNavigation": true
+    }
+  ],
+  "results": [
+    {
+      "title": "C78 privacy scale, tooltips, zero/empty and period boundary matrix",
+      "status": "passed",
+      "activeOnFailure": null,
+      "failures": []
+    },
+    {
+      "title": "C78 same C77 eager focus sequence passes 32 cycles without extra waits",
+      "status": "passed",
+      "activeOnFailure": null,
+      "failures": []
+    },
+    {
+      "title": "C78 keyboard quick close/reopen and navigation cancel pending focus work",
+      "status": "passed",
+      "activeOnFailure": null,
+      "failures": []
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.255
+roadmap_version: 1.0.260
 last_updated: 2026-10-03
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C77
-current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C76
-next_checkpoint: C77
+current_checkpoint: C79
+current_status: IN_PROGRESS
+last_completed_checkpoint: C78
+next_checkpoint: C79
 ---
 
 # Project Context
@@ -16,10 +16,15 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
-- Checkpoint hiện tại C77 `AWAITING_APPROVAL`: audit privacy biểu đồ, focus và artifact
-  triển khai cũ, chưa được duyệt/chưa bắt đầu. C76 đã COMPLETED: rollout và authenticated
-  hậu kiểm đạt; dependency lint blocker đã sửa và Required CI exact source đạt.
-  Card dư nợ/lãi ròng trên Việc cần xử lý cả mobile/desktop. Không còn handoff login/mở khóa.
+- Checkpoint hiện tại C79 `IN_PROGRESS`: OWNER phê duyệt03/10 trong hội thoại; rollout C78
+  và cleanup đúng hai deployment C73 sau candidate/alias/Auth/inventory gate, giữ rollback C76.
+- C78 `COMPLETED` local03/10: che ba nhãn trục tiền bằng PrivacyAmount, bỏ rAF ghi đè focus menu,
+  hủy timer khi reopen/navigation; thêm metadata upload guard fail-closed vào root pipeline.
+  `.vercelignore` loại trừ scripts SQL và cache/backups/tmp lồng, không đọc secret/dump bằng guard.
+  KPI dư nợ/lãi ròng vẫn trên Việc cần xử lý. Lint/typecheck/unit105/build/full E2E51PASS7SKIP,
+  diff/secret scan đạt; DB55322 profiles/loans/transactions0. Không commit/push/deploy/remote mutation.
+  Report/ảnh synthetic tại `docs/remediation-c78/`. F1/F2 đã sửa local; F3 remote C73 vẫn OPEN.
+  Production vẫn bản C76, không lấy gate local làm bằng chứng rollout hoặc remote inventory sạch.
 
 - C50 `COMPLETED` ngày 2026-09-22: đã bỏ C38 khỏi roadmap hiện hành và rollout C49 lên
   Production. Candidate `dpl_DzRdBx1TLmsPHxDZMhYMXWKqkbUC`, URL bất biến
@@ -223,6 +228,21 @@ quyền thực hiện thao tác remote mới.
   build để tái tạo `dist`, rồi `clasp push`; version 6 được giữ làm bằng chứng. Không cần rollback.
 
 ## 6. Kiểm thử gần nhất
+
+- C78 ngày03/10: lint/typecheck/unit105/105/build PASS; final full E2E51PASS7audit-opt-inSKIP6,5m,
+  C78 riêng3PASS1,7m. Browser36 cases:6 dashboard +24 loan1/2/3/12 +6zero;32 eager focus cycles
+  không thêm chờ + keyboard/close-before-frame/reopen/navigation PASS. SSR period0/1/2/3/12 và
+  cash empty/zero/mixed đạt;0-period không ép RPC trái nghiệp vụ. Guard3 fixtures PASS, local
+  payload prediction191files/4.541.300bytes; actual remote inventory NOT_TESTED trong C78.
+  Diff/credential scan redacted PASS; teardown/read-only DB55322=0/0/0. Before C77 được bảo toàn,
+  ảnh lịch sử C75 do harness tự ghi lại đã trả về bản trước test. Không schema/RPC/CI remote.
+  Lượt đầu có lỗi harness readiness/fixture-idempotency/selector menu ẩn; đã sửa và chạy lại full
+  gate, không lấy lượt fail làm PASS. Native Safari/Firefox/AT/mobile vật lý chưa kiểm.
+
+- C77 ngày03/10: local audit2 tasks completed2,0m,12privacy+64menu+10drawer. Có15 eager-focus
+  failures được giữ làm evidence; không product PASS. Lint/typecheck/build qua E2E/diff/scan đạt;
+  teardown/read-only DB55322=0/0/0. Không chạy lại full unit/DB/CI vì runtime/schema không đổi.
+
 
 - C76 chốt 03/10: lint/typecheck/unit94/build19/full audit PASS sau patch dev lint;
   root full E2E48PASS5SKIP6,5m PASS trước patch;
@@ -453,9 +473,22 @@ C59 đã đạt:
 
 ## 7. Việc chờ
 
-- C77 `AWAITING_APPROVAL`: audit chỉ đọc privacy biểu đồ, root cause focus không ổn định và
-  artifact source deployment cũ. Chưa được duyệt; không sửa runtime/xóa artifact/deploy/push.
-  Acceptance/scope tại mục35 roadmap. Không tự bắt đầu C77.
+- C79 `IN_PROGRESS`: OWNER phê duyệt03/10; scope/AC mục37 roadmap, thực hiện push/rollout/cleanup,
+  gồm chuyển default alias khỏi C73 rồi xóa đúng2 C73 IDs sau kiểm project/alias/rollback.
+  Không blocker C78 local. Runtime C76 tiếp tục phục vụ; F3 source C73 vẫn OPEN, không xóa trước
+  duyệt. Không nâng GitHub plan; Required CI đúng SHA là gate phát hành và gate tài liệu cuối.
+- C77 `COMPLETED` local03/10:12 privacy samples375/390/1440 light/dark; dashboard scale lộ6/6,
+  loan3-period chart hidden6/6. Focus64 menu cycles: eager15/32 lỗi, settled32/32 đạt;10 drawer đạt.
+  Trace có focus/settings→close không key giữa; rAF initial focus vô điều kiện phù hợp timing,
+  Tab-wrap3 mẫu có targetclose nên không quy sai trap. Native remote/user/mobile incidence chưa đo.
+  Source inventory2C73 mỗi329 files gồm63ciphertext/11manifest/3log +58test artifacts. Output44
+  lambda entries0forbidden, static/bundle contents NOT_TESTED. public=false logs/source,
+  /_src/_logs307Vercel và6artifactHEAD404; không tải nội dung hoặc khẳng định khônglộtoànbộ.
+  Active aliases vẫnC76, ProdC73 còn default project alias. Đích cleanup ghi docs/audit-c77/report.md.
+  Opt-in audit lượt cuối2 tasks completed2,0m có15 lỗi ghi nhận; lint/typecheck/build E2E/diff/scan
+  PASS; DB test55322 profiles/loans/transactions0/0/0. Không runtime/RPC/schema/data remote,
+  credential/account/Google/deploy/push/commit mutation. Dữ liệu/12PNG mới đều synthetic.
+  C76 closing CI37087420173 trêne5fdcfa đã xác nhận SUCCESS5job; không CI C77 vì audit local.
 
 - C62 `COMPLETED` ngày 2026-09-30: audit UI/UX local và mockup hoàn tất; báo cáo
   `docs/UI_UX_AUDIT_C62.md`, bằng chứng `docs/audit-c62/`, harness opt-in

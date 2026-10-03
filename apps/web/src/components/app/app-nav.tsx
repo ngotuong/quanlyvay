@@ -28,16 +28,19 @@ export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadC
   const moreDialogId = useId();
   const [moreOpen, setMoreOpen] = useState(false);
   useEffect(() => {
+    if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null; }
     if (more.current?.open) more.current.close();
+    more.current?.classList.remove("is-closing");
   }, [pathname]);
   useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
   function openMore() {
-    if (closeTimer.current) clearTimeout(closeTimer.current);
+    if (closeTimer.current) { clearTimeout(closeTimer.current); closeTimer.current = null; }
     more.current?.classList.remove("is-closing");
     if (more.current && !more.current.open) {
       more.current.showModal();
       setMoreOpen(true);
-      requestAnimationFrame(() => more.current?.querySelector<HTMLElement>("[data-bottom-sheet-close]")?.focus());
+      // Focus once while opening, before subsequent keyboard/pointer interaction.
+      more.current.querySelector<HTMLElement>("[data-bottom-sheet-close]")?.focus();
     }
   }
   function closeMore() {
@@ -49,7 +52,7 @@ export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadC
       dialog.classList.remove("is-closing");
       closeTimer.current = null;
       setMoreOpen(false);
-      requestAnimationFrame(() => moreTrigger.current?.focus());
+      moreTrigger.current?.focus();
     }, 180);
   }
   const visibleSecondaryItems = secondaryItems.filter((item) => !item.ownerOnly || isOwner);

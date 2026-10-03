@@ -1,0 +1,1893 @@
+{
+  "matrix": [
+    {
+      "route": "dashboard",
+      "width": 375,
+      "theme": "light",
+      "beforeAxis": "1 tr\n500 nghìn\n0 ₫",
+      "visibleAxis": "1 tr\n500 nghìn\n0 ₫",
+      "axisLeaks": true,
+      "attrMoney": 0,
+      "tableMasks": true,
+      "accessibleAxisLeaks": false
+    },
+    {
+      "route": "loan-period",
+      "width": 375,
+      "theme": "light",
+      "visibleColumns": 3,
+      "hiddenChartRemoved": true
+    },
+    {
+      "route": "dashboard",
+      "width": 390,
+      "theme": "light",
+      "beforeAxis": "1 tr\n500 nghìn\n0 ₫",
+      "visibleAxis": "1 tr\n500 nghìn\n0 ₫",
+      "axisLeaks": true,
+      "attrMoney": 0,
+      "tableMasks": true,
+      "accessibleAxisLeaks": false
+    },
+    {
+      "route": "loan-period",
+      "width": 390,
+      "theme": "light",
+      "visibleColumns": 3,
+      "hiddenChartRemoved": true
+    },
+    {
+      "route": "dashboard",
+      "width": 1440,
+      "theme": "light",
+      "beforeAxis": "1 tr\n500 nghìn\n0 ₫",
+      "visibleAxis": "1 tr\n500 nghìn\n0 ₫",
+      "axisLeaks": true,
+      "attrMoney": 0,
+      "tableMasks": true,
+      "accessibleAxisLeaks": false
+    },
+    {
+      "route": "loan-period",
+      "width": 1440,
+      "theme": "light",
+      "visibleColumns": 3,
+      "hiddenChartRemoved": true
+    },
+    {
+      "route": "dashboard",
+      "width": 375,
+      "theme": "dark",
+      "beforeAxis": "1 tr\n500 nghìn\n0 ₫",
+      "visibleAxis": "1 tr\n500 nghìn\n0 ₫",
+      "axisLeaks": true,
+      "attrMoney": 0,
+      "tableMasks": true,
+      "accessibleAxisLeaks": false
+    },
+    {
+      "route": "loan-period",
+      "width": 375,
+      "theme": "dark",
+      "visibleColumns": 3,
+      "hiddenChartRemoved": true
+    },
+    {
+      "route": "dashboard",
+      "width": 390,
+      "theme": "dark",
+      "beforeAxis": "1 tr\n500 nghìn\n0 ₫",
+      "visibleAxis": "1 tr\n500 nghìn\n0 ₫",
+      "axisLeaks": true,
+      "attrMoney": 0,
+      "tableMasks": true,
+      "accessibleAxisLeaks": false
+    },
+    {
+      "route": "loan-period",
+      "width": 390,
+      "theme": "dark",
+      "visibleColumns": 3,
+      "hiddenChartRemoved": true
+    },
+    {
+      "route": "dashboard",
+      "width": 1440,
+      "theme": "dark",
+      "beforeAxis": "1 tr\n500 nghìn\n0 ₫",
+      "visibleAxis": "1 tr\n500 nghìn\n0 ₫",
+      "axisLeaks": true,
+      "attrMoney": 0,
+      "tableMasks": true,
+      "accessibleAxisLeaks": false
+    },
+    {
+      "route": "loan-period",
+      "width": 1440,
+      "theme": "dark",
+      "visibleColumns": 3,
+      "hiddenChartRemoved": true
+    }
+  ],
+  "focus": [
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 0,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "focusin",
+          "time": 382.90000009536743,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 386.7000000476837,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 394.40000009536743,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 396.90000009536743,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 1,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 2,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 3,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 4,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 5,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 6,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 7,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 0,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 1,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 2,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 3,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 4,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 5,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 6,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 7,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 0,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 8269.5,
+          "key": "Escape",
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 8452.200000047684,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 8652.400000095367,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 8662.700000047684,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 8663.300000190735,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 1,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 2,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 10139,
+          "key": "Escape",
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 10321.600000143051,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 10569.600000143051,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 10578.600000143051,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 10581.400000095367,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 3,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 4,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 5,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 6,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 13011.800000190735,
+          "key": "Escape",
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 13195.100000143051,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 13383.5,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 13396.900000095367,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 13397.800000190735,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "eager",
+      "iteration": 7,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 0,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 1,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 2,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 3,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 4,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 5,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 6,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "no-preference",
+      "timing": "settled",
+      "iteration": 7,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 0,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 18589.5,
+          "key": "Escape",
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 18774,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 18952.800000190735,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 18961.5,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 18964,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 1,
+      "failure": "Tab-wrap",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 19981.200000047684,
+          "key": "Escape",
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 20166.10000014305,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 20218.300000190735,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 20227.200000047684,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 20230.700000047684,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "keydown",
+          "time": 20233.400000095367,
+          "key": "Tab",
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 20233.60000014305,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/expenses"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/expenses"
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 2,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 21273.900000095367,
+          "key": "Escape",
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/expenses"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/expenses"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 21457.10000014305,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 21501.5,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 21511,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 21513,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 3,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 4,
+      "failure": "Tab-wrap",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 22792.10000014305,
+          "key": "Escape",
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 22975.300000190735,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 23099.5,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 23109.60000014305,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 23113.400000095367,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "keydown",
+          "time": 23116.5,
+          "key": "Tab",
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 23116.700000047684,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/expenses"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/expenses"
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 5,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 24138.300000190735,
+          "key": "Escape",
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/expenses"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/expenses"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 24322.900000095367,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 24367.200000047684,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 24376.700000047684,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 24379,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 6,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 25401,
+          "key": "Escape",
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 25583.800000190735,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 25634.800000190735,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 25643.5,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 25646.200000047684,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 7,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 0,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 1,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 2,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 3,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 4,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 5,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 6,
+      "failure": null
+    },
+    {
+      "width": 375,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 7,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 0,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 1,
+      "failure": "Tab-wrap",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 29903.700000047684,
+          "key": "Escape",
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 30087.60000014305,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 30133.200000047684,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 30141.800000190735,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 30146.10000014305,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "keydown",
+          "time": 30147.900000095367,
+          "key": "Tab",
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 30148,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/expenses"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/expenses"
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 2,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 3,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 31410.60000014305,
+          "key": "Escape",
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 31594.5,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 31751,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 31762.300000190735,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 31763,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 4,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 5,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 33040.10000014305,
+          "key": "Escape",
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 33222.800000190735,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 33384.5,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 33394.300000190735,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 33395.300000190735,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 6,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 34416.60000014305,
+          "key": "Escape",
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 34601.700000047684,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 34651.700000047684,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 34661.700000047684,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 34663.200000047684,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "eager",
+      "iteration": 7,
+      "failure": "last-focus",
+      "events": [
+        {
+          "event": "keydown",
+          "time": 35688.40000009537,
+          "key": "Escape",
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 35873,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": false,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 35916.5,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 35925.800000190735,
+          "key": null,
+          "target": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          },
+          "active": {
+            "tag": "A",
+            "close": false,
+            "href": "/settings"
+          }
+        },
+        {
+          "event": "focusin",
+          "time": 35928.5,
+          "key": null,
+          "target": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          },
+          "active": {
+            "tag": "BUTTON",
+            "close": true,
+            "href": null
+          }
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 0,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 1,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 2,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 3,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 4,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 5,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 6,
+      "failure": null
+    },
+    {
+      "width": 390,
+      "motion": "reduce",
+      "timing": "settled",
+      "iteration": 7,
+      "failure": null
+    },
+    {
+      "drawer": "counterparty",
+      "iteration": 0,
+      "wrap": true,
+      "escapeReturn": true
+    },
+    {
+      "drawer": "counterparty",
+      "iteration": 1,
+      "wrap": true,
+      "escapeReturn": true
+    },
+    {
+      "drawer": "counterparty",
+      "iteration": 2,
+      "wrap": true,
+      "escapeReturn": true
+    },
+    {
+      "drawer": "counterparty",
+      "iteration": 3,
+      "wrap": true,
+      "escapeReturn": true
+    },
+    {
+      "drawer": "counterparty",
+      "iteration": 4,
+      "wrap": true,
+      "escapeReturn": true
+    },
+    {
+      "drawer": "counterparty",
+      "iteration": 5,
+      "wrap": true,
+      "escapeReturn": true
+    },
+    {
+      "drawer": "counterparty",
+      "iteration": 6,
+      "wrap": true,
+      "escapeReturn": true
+    },
+    {
+      "drawer": "counterparty",
+      "iteration": 7,
+      "wrap": true,
+      "escapeReturn": true
+    },
+    {
+      "drawer": "counterparty",
+      "iteration": 8,
+      "wrap": true,
+      "escapeReturn": true
+    },
+    {
+      "drawer": "counterparty",
+      "iteration": 9,
+      "wrap": true,
+      "escapeReturn": true
+    }
+  ],
+  "focusNote": "Audit completion is not a product PASS; failures are retained by stage, unchanged 1s assertions in eager and two-frame settled experiments.",
+  "summary": {
+    "privacyMatrixSamples": 12,
+    "dashboardAxisLeakingSamples": 6,
+    "focusResults": [
+      {
+        "timing": "eager",
+        "stage": "last-focus",
+        "count": 12
+      },
+      {
+        "timing": "eager",
+        "stage": "PASS",
+        "count": 17
+      },
+      {
+        "timing": "settled",
+        "stage": "PASS",
+        "count": 32
+      },
+      {
+        "timing": "eager",
+        "stage": "Tab-wrap",
+        "count": 3
+      },
+      {
+        "timing": "drawer",
+        "stage": "PASS",
+        "count": 10
+      }
+    ],
+    "dbAfter": [
+      0,
+      0,
+      0
+    ],
+    "firstAuditRun": "privacy completed; focus assertion failed before Tab, ignored first-run log retained; first-run trace generated but overwritten by rerun; no runtime fix",
+    "finalAuditRun": "2 audit tasks completed, 2.0m; observed focus failures retained, not a product PASS",
+    "lint": "PASS",
+    "typecheck": "PASS"
+  }
+}

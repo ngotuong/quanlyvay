@@ -1,0 +1,9 @@
+{
+  "scope": "Vercel deploy --dry; no upload or candidate creation",
+  "entries": 191,
+  "files": 181,
+  "bytes": 4485054,
+  "forbiddenRegularFiles": 0,
+  "hashMatches": 181,
+  "mismatches": []
+}

@@ -10,6 +10,8 @@ import {
   parseProjectInspection,
 } from "./vercel-preview-provenance.mjs";
 
+import { inspectUploadMetadata } from "./vercel-upload-guard.mjs";
+
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 
 if (process.cwd() !== root) {
@@ -108,6 +110,8 @@ assertDeploymentProvenance(rollbackEvidence);
 
 let candidateUrl = argumentValue("--candidate");
 if (!candidateUrl) {
+  const upload = inspectUploadMetadata(root);
+  console.log(`Local upload metadata guard PASS: ${upload.files} files; remote inventory still required.`);
   console.log("Tạo candidate Preview chưa chuyển stable alias...");
   const result = captureResult("vercel", [
     "deploy",

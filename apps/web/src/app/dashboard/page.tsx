@@ -168,7 +168,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
         <div className="chart-legend" aria-label="Chú giải"><span data-series="inflow">Tiền vào</span><span data-series="outflow">Tiền ra</span></div>
       </div>
       {hasCashFlow ? <><div className="cash-flow-plot">
-        <div className="chart-y-axis" aria-hidden="true"><span className="privacy-amount">{compactVnd(maximum)}</span><span className="privacy-amount">{compactVnd(maximum / BigInt(2))}</span><span>0 ₫</span></div>
+        <div className="chart-y-axis" aria-hidden="true"><span><PrivacyAmount value={compactVnd(maximum)} fallback="—" /></span><span><PrivacyAmount value={compactVnd(maximum / BigInt(2))} fallback="—" /></span><span><PrivacyAmount value="0 ₫" fallback="—" /></span></div>
         <div className="cash-flow-chart-scroll">
           <CashFlowBars rows={rows} maximum={maximum.toString()} />
         </div>

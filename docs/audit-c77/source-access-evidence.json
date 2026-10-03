@@ -1,0 +1,50 @@
+[
+  {
+    "deployment": "preview",
+    "path": "/_src",
+    "status": "HTTP/2 307 ",
+    "redirectHost": "vercel.com",
+    "method": "HEAD",
+    "followedRedirect": false
+  },
+  {
+    "deployment": "preview",
+    "path": "/_logs",
+    "status": "HTTP/2 307 ",
+    "redirectHost": "vercel.com",
+    "method": "HEAD",
+    "followedRedirect": false
+  },
+  {
+    "deployment": "preview",
+    "path": "/login",
+    "status": "HTTP/2 200 ",
+    "redirectHost": null,
+    "method": "HEAD",
+    "followedRedirect": false
+  },
+  {
+    "deployment": "production",
+    "path": "/_src",
+    "status": "HTTP/2 307 ",
+    "redirectHost": "vercel.com",
+    "method": "HEAD",
+    "followedRedirect": false
+  },
+  {
+    "deployment": "production",
+    "path": "/_logs",
+    "status": "HTTP/2 307 ",
+    "redirectHost": "vercel.com",
+    "method": "HEAD",
+    "followedRedirect": false
+  },
+  {
+    "deployment": "production",
+    "path": "/login",
+    "status": "HTTP/2 200 ",
+    "redirectHost": null,
+    "method": "HEAD",
+    "followedRedirect": false
+  }
+]

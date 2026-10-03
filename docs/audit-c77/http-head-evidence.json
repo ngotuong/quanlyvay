@@ -1,0 +1,50 @@
+[
+  {
+    "deployment": "preview",
+    "kind": "ciphertext",
+    "pathPrefix": ".backups",
+    "method": "HEAD",
+    "status": "404",
+    "exit": 0
+  },
+  {
+    "deployment": "preview",
+    "kind": "manifest",
+    "pathPrefix": ".backups",
+    "method": "HEAD",
+    "status": "404",
+    "exit": 0
+  },
+  {
+    "deployment": "preview",
+    "kind": "test-artifact",
+    "pathPrefix": "apps/web/test-results",
+    "method": "HEAD",
+    "status": "404",
+    "exit": 0
+  },
+  {
+    "deployment": "production",
+    "kind": "ciphertext",
+    "pathPrefix": ".backups",
+    "method": "HEAD",
+    "status": "404",
+    "exit": 0
+  },
+  {
+    "deployment": "production",
+    "kind": "manifest",
+    "pathPrefix": ".backups",
+    "method": "HEAD",
+    "status": "404",
+    "exit": 0
+  },
+  {
+    "deployment": "production",
+    "kind": "test-artifact",
+    "pathPrefix": "apps/web/test-results",
+    "method": "HEAD",
+    "status": "404",
+    "exit": 0
+  }
+]

@@ -3,6 +3,7 @@
 /packages/
 /supabase/
 /docs/
+/scripts/
 
 /AGENTS.md
 /PROJECT_CONTEXT.md
@@ -15,6 +16,9 @@
 # Git ignore is not a substitute for Vercel upload exclusions.
 /.backups/
 /.cache/
+**/.backups/
+**/.cache/
+**/.tmp/
 
 # Test artifacts and local credentials must never enter deployment payloads.
 **/test-results/

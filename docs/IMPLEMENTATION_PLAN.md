@@ -52,7 +52,9 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C74 | Audit hành trình và backlog UI/UX sau rollout | `COMPLETED` |
 | C75 | Remediation ngữ cảnh công việc và thông báo | `COMPLETED` |
 | C76 | Đồng bộ và rollout remediation C74–C75 | `COMPLETED` |
-| C77 | Audit privacy biểu đồ, focus và artifact triển khai còn mở | `AWAITING_APPROVAL` |
+| C77 | Audit privacy biểu đồ, focus và artifact triển khai còn mở | `COMPLETED` |
+| C78 | Sửa privacy biểu đồ, initial focus và upload guard local | `COMPLETED` |
+| C79 | Đồng bộ, rollout C78 và dọn đúng hai deployment C73 cũ | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1308,9 +1310,11 @@ PASS,4 regression glob/internal-link PASS. Production graph125 snapshots/runtime
 đổi, không redeploy. Required CI 37086389279 của 437fea7f5a879372ffcba0a5d199a7eb8a61e01c SUCCESS cả5 job.
 Root local E2E48/5 trước patch; full integration CI kiểm lại patch. Chi tiết docs/release-c76/.
 
-## 35. Checkpoint C77 — Chờ phê duyệt
+## 35. Checkpoint C77 — Đã hoàn tất
 
-**C77 — Audit privacy biểu đồ, focus và artifact triển khai còn mở.** Trạng thái: `AWAITING_APPROVAL`.
+**C77 — Audit privacy biểu đồ, focus và artifact triển khai còn mở.** Trạng thái: `COMPLETED`.
+
+OWNER phê duyệt ngày03/10/2026 trong hội thoại.
 
 Mục tiêu: làm rõ ba rủi ro còn mở bằng bằng chứng tối thiểu để đề xuất remediation cụ thể.
 
@@ -1337,3 +1341,114 @@ Acceptance criteria:
    đề xuất cleanup/rollback sạch có danh sách đích và phê duyệt riêng trước thao tác phá hủy.
 4. Có checkpoint remediation kế tiếp phạm vi và acceptance criteria rõ, AWAITING_APPROVAL rồi
    dừng. Gate phù hợp chỉ gồm diff-check/credential scan và kiểm thử local phục vụ bằng chứng.
+
+Kết quả C77 03/10:12 route/width/theme synthetic samples, dashboard scale lộ6/6;
+loan3-period chart hidden6/6. Focus64 menu cycles: eager15/32 lỗi (12 last-focus,3 Tab target
+đã bị đổi), settled32/32 và drawer10/10 đạt. Initial focus rAF ghi đè focus đã di chuyển;
+không kết luận trap sai từ Tab thực xuất phát ởclose. Report/evidence docs/audit-c77/.
+Hai C73 deployments mỗi source329 files gồm77 backup/58 artifacts; build output metadata44
+lambda entries/0 forbidden path (static/bundle contents NOT_TESTED); public=false logs/source,
+/_src/_logs307 vềVercel,6 artifactHEAD404, không tải nội dung/khẳng định khônglộtoànbộ.
+Local audit2 tasks completed2,0m giữ15 lỗi, lint/typecheck/diff/secret scan PASS; DB riêng55322
+0/0/0. Không runtime/remote mutation/commit/push/deploy. C78 AWAITING_APPROVAL.
+
+## 36. Checkpoint C78 — Đã hoàn tất
+
+**C78 — Sửa privacy biểu đồ, initial focus và upload guard local.** Trạng thái: `COMPLETED`.
+
+OWNER phê duyệt03/10 trong hội thoại.
+
+Mục tiêu: khắc phục F1/F2 của C77 và ngăn tái upload artifact nhạy cảm; không rollout remote.
+
+Phạm vi:
+
+- Che scale/tooltip/accessible labels chứa tiền khi privacy bật trên dashboard và biểu đồ kỳ lãi;
+  reuse PrivacyAmount/PrivacyRegion, giữ layout/thứ tự KPI trên task, brand và số authoritative.
+- AppNav initial focus chỉ thực hiện một lần phù hợp lifecycle, không ghi đè thao tác đã di chuyển
+  focus; guard/cancel callback khi đóng/reopen/navigation. Không viết lại trap chung nếu không có
+  evidence mới. Giữ Tab/Shift+Tab/Escape/return focus/aria-state và dirty/pending drawers.
+- Thêm guard kiểm metadata payload local trước remote upload trong root Preview pipeline, phát
+  hiện backup/test-results/cache/credential/dump không được phép. Giữ .vercelignore exclusion;
+  kiểm bằng fixture giả an toàn, không đưa ciphertext/credential thật vào test. Không chạy deploy.
+- Bổ sung regression privacy/focus/upload guard, ảnh before/after synthetic và report/context/
+  roadmap. Có thể local commit khi hoàn tất, không push/deploy/migration/đổi dữ liệu remote.
+- Chỉ đề xuất checkpoint rollout/cleanup riêng sau C78. Đích cleanup hiện có là C73 Preview
+  dpl_6NT5NEUN86VPVZXhvZTqwNFyqgFb và Production dpl_Bqox7V6oqX63ufyhgY1sYTFmENhx;
+  chưa cấp quyền xóa/promote/đổi default alias hoặc quyền nền tảng trong C78.
+
+Acceptance criteria:
+
+1.375/390/1440 light/dark: privacy bật không có tiền thật trong text hiển thị/accessible name/
+  title/tooltip/chart scale; toggle lại phục hồi số đúng và chart tương tác. Kiểm nonzero/zero/empty,
+  kỳ lãi0/1/2/3/12; không tuyên bố privacy là bảo vệ payload/DevTools hoặc thay RLS.
+2. Cùng eager sequence C77 ít nhất32 lượt normal/reduced motion không bị focus ghi đè và không
+  thêm chờ để che lỗi; thêm keyboard open/close-before-frame/reopen/navigation cùng Tab/Shift+Tab/
+  Escape/return-focus. Có failure metadata nếu lỗi; regression C67 và financial/draft drawer đạt.
+3. Upload guard fail-closed trên fixture forbidden metadata và pass trên payload hợp lệ; chỉ liệt
+  kê metadata, không đọc file secret/dump, không remote deploy. Không suy ra remote source sạch
+  từ dry-run; inventory/Auth/log/alias là acceptance của checkpoint rollout riêng.
+4. Lint/typecheck/unit/build/full E2E/diff-check/credential scan đạt; test DB riêng55322 hậu kiểm
+  profiles/loans/transactions0. Không schema/RPC/tính lãi/financial data/Google/remote settings đổi.
+5. Report/context/roadmap cùng thay đổi; checkpoint kế tiếp AWAITING_APPROVAL rồi dừng. Không tự
+  xóa C73 trước khi OWNER duyệt checkpoint vận hành với rollback C76 sạch và default alias rõ.
+
+Kết quả C78 03/10:36 browser privacy cases375/390/1440 light/dark (dashboard/zero và loan1/2/3/12),
+SSR chart0/1/2/3/12 +cash empty/zero/mixed,32 eager cycles và keyboard/quick close/reopen/navigation
+đạt. Lint/typecheck/unit105/build/final full E2E51PASS7audit-opt-inSKIP6,5m, C78 riêng3PASS1,7m,
+diff/secret scan PASS; DB55322 hậu kiểm0/0/0. Guard fixture3/3, metadata prediction191files;
+không suy ra remote payload sạch. Report/ảnh tại docs/remediation-c78/, không đổi KPI/task order
+hoặc financial source. Lỗi harness ban đầu đã sửa và full gate chạy lại; không commit/push/deploy/
+remote cleanup. F1/F2 local đóng, F3 source C73 cònOPEN. C79 AWAITING_APPROVAL rồi dừng.
+
+## 37. Checkpoint C79 — Đang triển khai
+
+**C79 — Đồng bộ, rollout C78 và dọn đúng hai deployment C73 cũ.** Trạng thái: `IN_PROGRESS`.
+
+OWNER phê duyệt03/10 trong hội thoại.
+
+Mục tiêu: đưa bản sửa đã kiểm local lên webapp và xử lý source artifact lịch sử, giữ rollback C76.
+Phê duyệt C79 bao gồm push remote hiện hữu, tạo/smoke/promote Preview và Production,
+chuyển default project alias khỏi C73 và xóa đúng hai deployment C73 liệt kê dưới đây sau gate.
+Không bắt đầu trước OWNER phê duyệt; không nâng gói GitHub/Vercel.
+
+Phạm vi:
+
+- Review/bảo toàn toàn bộ local C77–C78; credential/artifact/dependency/CI policy và quality gate
+  thích hợp. Commit/push fast-forward main hiện hữu; Required CI đúng source SHA xanh trước rollout.
+- Root `pnpm deploy:preview` theo AGENTS4.1/runbook; upload guard local đạt, rồi inventory metadata
+  source/build output candidate thật không có backup/cache/dump/credential/test-results artifacts.
+  Không tải nội dung secret/dump cũ. Nếu metadata không đủ phải ghi NOT_TESTED/blocker, không suy
+  từ dry-run rằng upload sạch. Candidate đúng project/target/Ready/sin1; immutable URL trước alias.
+- Production root pipeline `--target=production`, giữ alias đang phục vụ trong lúc smoke. Candidate
+  public + authenticated read-only smoke privacy/tooltip/focus/KPI375/390/1440 light/dark có dữ liệu
+  hiện hữu; không ghi tài chính, tạo QA account hoặc mark-read để ép trạng thái. Handoff login cho
+  OWNER khi công cụ cần; không tự bypass cảnh báo Chrome hoặc đổi mật khẩu/auto-lock.
+- Chỉ chuyển `tindung-preview.vercel.app`/`tindung.vercel.app` sau smoke; hậu kiểm alias/Auth/log.
+  Default alias `quan-ly-vay-ca-nhan-ngotuong2105.vercel.app` phải trỏ candidate Production sạch
+  đã đạt smoke trước cleanup. Nếu không xác minh/gán an toàn được thì dừng phần cleanup.
+- Cleanup chỉ hai đích C73: Preview `dpl_6NT5NEUN86VPVZXhvZTqwNFyqgFb`, Production
+  `dpl_Bqox7V6oqX63ufyhgY1sYTFmENhx`. Trước xóa kiểm lại project/org/target/aliases, bảo đảm không
+  còn alias phục vụ/rollback/phụ thuộc và giữ deployment C76 tốt. Không dùng bulk deletion,
+  retention tự động, không xóa deployment khác hoặc backup local. Không khôi phục source C73 bẩn
+  để rollback; rollback dùng C76. Sau xóa kiểm ID/URL/alias/source metadata và ghi giới hạn cache
+  của nền tảng; không tuyên bố đã thu hồi mọi bản sao ngoài khả năng kiểm chứng.
+- Không schema/migration/remote secrets/data/Google/account setting thay đổi. Nếu thấy bằng chứng
+  exposure mới đòi hỏi rotation/incident scope, ghi blocker và xin checkpoint riêng trước mở rộng.
+
+Acceptance criteria:
+
+1. Source GitHub khớp local SHA và Required CI mọi job/gate đạt đúng SHA; không phát hành từ run cũ.
+   Upload guard/credential scan đạt; inventory candidate thật chứng minh exclusion theo metadata,
+   ghi rõ phần không kiểm contents. Không credential/dump hoặc dữ liệu thật vào Git/log/ảnh.
+2. Hai candidates Ready, project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target tương ứng,
+   Functions sin1; ghi SHA/ID/immutable URL/alias/rollback/từng smoke. Auth route được truy cập thật.
+3. Privacy scale/tooltip/accessible money và eager focus regression đạt local; candidate và alias
+   read-only smoke đạt với dữ liệu hiện hữu, KPI trên task. State thiếu dữ liệu remote ghi NOT_TESTED
+   với bằng chứng local bổ trợ, không mutate remote để tạo fixture. Browser/runtime errors/HTTP500
+   không giải thích được phải chặn promote; hậu kiểm fail trả alias về C76 tốt đã xác minh.
+4. Trước cleanup, cả stable/default alias trỏ bản sạch; hai C73 ID đúng, không được dùng làm rollback.
+   Sau cleanup không còn hai đích trong inventory/không URL cũ phục vụ app, các alias và rollback C76
+   vẫn hợp lệ. Nếu cleanup fail/thiếu quyền/bị policy chặn, giữ C79 IN_PROGRESS với blocker; không
+   tuyên bố F3 đóng hoặc tự đổi platform protection. Chrome badge/AT vật lý chỉ đóng khi kiểm thật.
+5. Context/roadmap/report đồng bộ; nếu push tài liệu cuối phải xác nhận Required CI đúng final SHA.
+   Đặt checkpoint kế tiếp AWAITING_APPROVAL rồi dừng. Không thực hiện trước phê duyệt C79.

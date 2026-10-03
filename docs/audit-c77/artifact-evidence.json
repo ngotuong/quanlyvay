@@ -1,0 +1,88 @@
+{
+  "checkedAt": "2026-10-03",
+  "method": "authenticated Vercel API metadata/source tree only; anonymous HEAD without body/redirect following",
+  "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+  "deployments": [
+    {
+      "id": "dpl_6NT5NEUN86VPVZXhvZTqwNFyqgFb",
+      "target": "preview (CLI inspect verified)",
+      "state": "READY",
+      "url": "quan-ly-vay-ca-nhan-c6pft4h1k-ngotuong2105.vercel.app",
+      "sourceAndLogsPublic": false,
+      "aliases": [],
+      "sourceFiles": 329,
+      "backupFiles": 77,
+      "ciphertext": 63,
+      "manifest": 11,
+      "logs": 3,
+      "testArtifacts": 58,
+      "testArtifactsByExtension": {
+        ".png": 55,
+        ".zip": 0,
+        ".md": 0,
+        ".json": 3
+      },
+      "containsOnlySrcTree": true,
+      "outInventory": {
+        "method": "vercel inspect --format json, build output metadata",
+        "entries": 44,
+        "types": {
+          "lambda": 44
+        },
+        "forbiddenPathEntries": 0,
+        "scopeLimitation": "44 lambda entries only; static file tree/function bundle contents NOT_TESTED; source tree is separate"
+      },
+      "downloadedContent": false
+    },
+    {
+      "id": "dpl_Bqox7V6oqX63ufyhgY1sYTFmENhx",
+      "target": "production",
+      "state": "READY",
+      "url": "quan-ly-vay-ca-nhan-7g0uxlwrm-ngotuong2105.vercel.app",
+      "sourceAndLogsPublic": false,
+      "aliases": [
+        "quan-ly-vay-ca-nhan-ngotuong2105.vercel.app"
+      ],
+      "sourceFiles": 329,
+      "backupFiles": 77,
+      "ciphertext": 63,
+      "manifest": 11,
+      "logs": 3,
+      "testArtifacts": 58,
+      "testArtifactsByExtension": {
+        ".png": 55,
+        ".zip": 0,
+        ".md": 0,
+        ".json": 3
+      },
+      "containsOnlySrcTree": true,
+      "outInventory": {
+        "method": "vercel inspect --format json, build output metadata",
+        "entries": 44,
+        "types": {
+          "lambda": 44
+        },
+        "forbiddenPathEntries": 0,
+        "scopeLimitation": "44 lambda entries only; static file tree/function bundle contents NOT_TESTED; source tree is separate"
+      },
+      "downloadedContent": false
+    }
+  ],
+  "projectProtection": {
+    "ssoProtection": null,
+    "passwordProtection": null,
+    "trustedIps": null,
+    "deploymentExpiration": {
+      "expirationDays": 30,
+      "expirationDaysProduction": 30,
+      "expirationDaysCanceled": 30,
+      "expirationDaysErrored": 30,
+      "deploymentsToKeep": 10
+    }
+  },
+  "activeAliases": {
+    "preview": "dpl_BBavYTasgvQ51wyTQbWunqysM6Fq",
+    "production": "dpl_AurpzZ3pUxe7Xp7dWnxuWa2fjXxw",
+    "verified": "Vercel inspect read-only"
+  }
+}
