@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.289
+roadmap_version: 1.0.291
 last_updated: 2026-10-04
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C85
-current_status: IN_PROGRESS
-last_completed_checkpoint: C84
-next_checkpoint: C85
+current_checkpoint: C86
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C85
+next_checkpoint: C86
 ---
 
 # Project Context
@@ -16,8 +16,10 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
-- Checkpoint hiện tại C85 `IN_PROGRESS`: OWNER phê duyệt ngày04/10; release C83/C84 đã
-  qua candidate và hậu kiểm Preview/Production/default, còn closing docs push/exact-SHA CI.
+- Checkpoint hiện tại C86 `AWAITING_APPROVAL`: đề xuất audit hiệu quả thao tác sau C85,
+  kết hợp Evon ui-ux, sáu hành trình375/390/1440Light/Dark. Chỉ đề xuất, chưa thực hiện.
+- C85 `COMPLETED`: OWNER phê duyệt ngày04/10; release C83/C84 đã qua candidate,
+  hậu kiểm Preview/Production/default và closing proof Required CI đúng SHA.
   Source198248bd3e1dcfb00598bce0b94fa3c9f65d88f2 đã push; Required CI37199726182 SUCCESS5jobs.
   Local/root create/resume lint/typecheck/unit116/build/E2E61PASS12opt-inSKIP; root resume cuối
   exit0/10,0m, không giảm assertion/retries hoặc đổi CLI/CI. Test SQL đúng C20-test55322
@@ -45,8 +47,15 @@ history, migration, test và các contract/runbook chuyên biệt.
   default Auth3mode/reload/dashboard/loans/detail/drawer đạt. Console/runtime/HTTP5000 mọihost.
   Preferences trảsystem, Preview/Production che tiền, default giữhiện như banđầu; viewportreset,
   draftclosed. Không submit finance/account/mark-read/push permission, schema/RPC/secret/Google/
-  cleanup. C82rollback giữ nguyên. Docs JSON/diff/secret gate và closing exact-SHA CI đang chốt;
-  chưa markCOMPLETED/mở C86. Report/bằng chứng docs/release-c85/ ghi cả raw failures/giới hạn.
+  cleanup. C82rollback giữ nguyên. Docs JSON/diff/secret/policy/actionlint PASS; closing proof
+  b568caeb2f83da5eae6787845652c728537aa48b/CI37213927772 attempt2 SUCCESS5jobs đúng SHA;
+  Bằng chứng lịch sử: closing proof b568cae/CI37213927772 attempt1 FAIL: E2E59PASS/
+  13SKIP/1FAIL17,8m, expense read error rồi matrix inline-reversal locator timeout240s vị trí200.
+  Không có RPCcode/status để xác lập nguyên nhân; không kết luận harness/gateway/app failure.
+  Rerun failed jobs attempt2 cùngSHA SUCCESS: E2E60PASS13SKIP15,4m/pgTAP527/Auth PASS;
+  không đổi assertion/skip/retries/runtime.13SKIP gồm12opt-in+C72SQL-lock local-only covered.
+  Final status exact-SHA CI phải xác nhận sau push trước completion message; không tự làm C86.
+  Report/bằng chứng docs/release-c85/ giữ cả raw failures/giới hạn.
 - C84 `COMPLETED` local ngày04/10, OWNER duyệt phương án A trong hội thoại: sửa F1–F7/L1,
   bộ chọn Sáng/Tối/Theo thiết bị ở Cài đặt mọi vai trò, cookie từng hostname và SSR/manual/
   system/no-flash; compact đối tác/chi phí, menu44px, phân bổ thu gọn/không dẫn xuất khi che.
@@ -700,11 +709,13 @@ C59 đã đạt:
 
 ## 7. Việc chờ
 
-- C85 `IN_PROGRESS`: sourceCI và rollout/hậu kiểm Preview/Production/default đạt trong scope
-  khả dụng; OWNER đã gỡ nativeblock, preferences/viewport/draft phục hồi. Còn closing docs
-  commit/push và Required CI đúng SHA; giữ GitHub Free/private, không dùng sourceCI thay closing.
-  C86 chỉ đề xuất audit hiệu quả thao tác, chưa bắt đầu. Giới hạn remote dirtynav/OS themechange/
-  expense distribution/physical AT được ghi report; không giấu NOT_TESTED hoặc kết luận lỗi app.
+- C86 `AWAITING_APPROVAL`: audit thao tác thừa với Evon ui-ux qua sáu hành trình,36tổ hợp
+  375/390/1440Light/Dark; đếm click/navigation/scroll, phân biệt lỗi/Gu/giới hạn và đề xuất
+  remediation có acceptance. Chưa sửa code/dữ liệu, chưa audit C86 hoặc cấp quyền remote mới.
+- C85 source/closing proof CI và rollout/hậu kiểm đạt, không còn blocker native input. Final
+  status commit có Required CI đúng SHA được xác minh sau push trước báo hoàn tất. Giới hạn
+  remote dirtynav/OS themechange/expense distribution/physical AT được ghi report, không giấu
+  NOT_TESTED hoặc kết luận lỗi app.
 - C82 release/public/Auth/log/source CI/closing proof CI đạt; không còn blocker release.
   Final closing2d040e9 có Required CI37180794295 SUCCESS đúng SHA; không còn bước chốt C82 pending.
   Physical AT/mobile/Safari/Firefox và Chrome badge lịch sử chưa chứng nhận;

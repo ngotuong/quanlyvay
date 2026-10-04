@@ -1,6 +1,6 @@
 # C85 — Phát hành UI/theme C83/C84
 
-Trạng thái: IN_PROGRESS. OWNER phê duyệt ngày04/10/2026.
+Trạng thái: COMPLETED. OWNER phê duyệt ngày04/10/2026; lịch sử các lượt gate được giữ bên dưới.
 
 Phạm vi là checkpoint43 roadmap: source C83/C84, CI đúng SHA, root Preview pipeline,
 Production candidate/public/Auth/runtime gate trước alias, hậu kiểm stable/default và rollback C82.
@@ -177,3 +177,33 @@ OS theme-change không capability và physical AT/mobile/Safari/Firefox. Local C
 regression bổ trợ; không coi đây là chứng nhận toàn bộ môi trường/remote save/business boundary.
 Không có dữ liệu tài chính/tài khoản submit. C85 vẫn IN_PROGRESS cho tới khi closing docs đã
 push và Required CI của đúng SHA đạt; không sử dụng source198248b CI thay closing CI.
+
+
+## Closing CI attempt1 không đạt; giữ C85 IN_PROGRESS
+
+Run37213927772 trên b568caeb2f83da5eae6787845652c728537aa48b attempt1: policy/security/
+quality/build/pgTAP/Auth đạt nhưng E2E59PASS13SKIP1FAIL17,8m. C84 matrix test154, vị trí200:
+server chi phí báo Không thể tải chi phí lúc15:59:29Z; harness chờ inline-reversal summary
+đến timeout240000ms. Log không ghi RPC errorcode/status nên nguyên nhân read chưa xác lập;
+không kết luận lỗi harness hoặc gateway, không gọi FAIL là PASS. Source runtime không đổi,
+sourceCI đã đạt và full local/root nhiều lượt61/12 đạt; chạy lại failed jobs một lần trên cùng
+SHA để phân biệt sự cố một lượt và tái diễn. Không tăng retries/timeouts, bỏ assertion/skip,
+đổi rule/CLI/runtime/deploy. Hậu kiểm remote không có lỗi nên không rollback chỉ vì CI test
+cô lập thất bại; C85 chưa hoàn tất, C86 chưa mở. Cả attempt1 và kết quả rerun được giữ.
+
+
+## Chốt C85 và checkpoint chờ duyệt
+
+Closing proof commit b568caeb2f83da5eae6787845652c728537aa48b đã push; Required CI37213927772
+Attempt2 SUCCESS cả5job đúng SHA, gồm policy/security/quality/build/pgTAP/Auth/E2E và gate tổng hợp.
+Attempt1 FAIL được giữ, không kết luận nguyên nhân read; không giảm assertion/skip/retries.
+CI source không thay closing CI. JSON/diff/secret pinned/policy/actionlint local đạt.
+C85 COMPLETED theo acceptance có giới hạn môi trường ghi trên, C86 AWAITING_APPROVAL; không
+thực hiện C86. Final status docs push và xác nhận Required CI đúng final SHA trước báo kết quả;
+SHA/run cuối được báo bằng chứng API trong hội thoại để không tạo vòng commit tự tham chiếu.
+
+
+Proof attempt2: E2E60PASS13SKIP15,4m; pgTAP527/24files/Auth PASS.13SKIP gồm12evidence/audit
+opt-in vàC72SQL-lock local-only đã đạtfull local, không thêm skip. Rủi ro CI đọc chi phí một
+lượt chưa xác lập nguyên nhân được giữ; không coi rerunPASS là đã sửa nguyên nhân hoặc bằng
+chứng Production lỗi. Không còn blocker acceptance C85 khi final status CI đạt đúngSHA.

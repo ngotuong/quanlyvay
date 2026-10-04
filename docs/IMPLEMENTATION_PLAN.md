@@ -60,7 +60,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C82 | Đồng bộ C80/C81, CI và rollout UI compact lên Preview/Production | `COMPLETED` |
 | C83 | Audit module còn lại và lựa chọn Sáng/Tối/Theo thiết bị với Evon ui-ux | `COMPLETED` |
 | C84 | Sửa F1–F7, lifecycle cài đặt và bộ chọn giao diện theo phương án C83 | `COMPLETED` |
-| C85 | Đồng bộ C83/C84, CI và rollout UI/theme lên Preview/Production | `IN_PROGRESS` |
+| C85 | Đồng bộ C83/C84, CI và rollout UI/theme lên Preview/Production | `COMPLETED` |
+| C86 | Audit hiệu quả thao tác sau phát hành C85 với Evon ui-ux | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1785,12 +1786,13 @@ Acceptance criteria:
 8. Context/roadmap/report cùng cập nhật; sau đủ gate đặt checkpoint phát hành tiếp theo
    AWAITING_APPROVAL rồi dừng, không tự deploy/push.
 
-## 43. Checkpoint C85 — Đang thực hiện
+## 43. Checkpoint C85 — Đã hoàn tất
 
 **C85 — Đồng bộ C83/C84, xác nhận CI và phát hành UI/theme lên Preview/Production.**
-Trạng thái: `IN_PROGRESS`. OWNER phê duyệt ngày04/10/2026. Source198248b/Required CI37199726182
-SUCCESS5jobs. Preview/Production candidates và stablePreview/tindung/default hậu kiểm đã đạt
-trong state/môi trường khả dụng; closing docs commit/push và exact-SHA CI còn pending.
+Trạng thái: `COMPLETED`. OWNER phê duyệt ngày04/10/2026. Source198248b/Required CI37199726182
+SUCCESS5jobs. Preview/Production candidates và stablePreview/tindung/default hậu kiểm đạt
+trong state/môi trường khả dụng; closing proof b568cae/CI37213927772 SUCCESS5jobs đúng SHA.
+Final status commit phải xác nhận CI đúng SHA sau push trước completion message. C86 chỉ đề xuất.
 Final root Preview resume exit0/lint/typecheck/unit116/build/E2E61PASS12SKIP10,0m, SQLsix0/
 14C75PNGrestore/runtime18unchanged. Candidate matrix120mẫu và25mẫu bổ sung,3mode/manual/
 reload/cachedhistory/meta/4detailtabs/page99/filter/390drawer/focus/closecancel-accept đạt.
@@ -1798,6 +1800,10 @@ Hai nativeconfirm từng chặninput cần OWNER đóngtab; Preview rollbackC82 
 sau phục hồi, final interactive/public/Auth/log đạt. Production promote exit0, defaultalias
 đúng candidate. Mỗi alias Ready/public4/4/consoleerror0/runtimeerror0/HTTP5000, dashboard nămkhổ
 KPI trước Việc cần xử lý. Restore system/Privacy banđầu/viewport/draftclosed. Exactinput redact,
+Closing proof b568cae/CI37213927772 attempt1 E2E59PASS13SKIP1FAIL17,8m, expense read error
+rồi inline-reversal locator timeout tạiC84test200; code/status thiếu nên nguyên nhân chưa xác lập.
+Rerun failed jobs attempt2 SUCCESS cùngSHA; không đổi assertions/retries/skips/runtime,
+giữ cả raw FAIL và nguyên nhân read chưa xác lập.
 Productiondirtynav nativeblock/OSchange/expense distribution thiếuremote giữNOT_TESTED/local
 bổ trợ, không quy lỗi sản phẩm. Không submit account/finance/mark-read/pushpermission/schema/
 RPC/secret/Google/cleanup. C82rollback giữ nguyên. Bằng chứng docs/release-c85/.
@@ -1851,3 +1857,37 @@ Acceptance criteria:
    Auth/runtime log không có HTTP500/pageerror mới. Nếu fail, rollback về C82 và giữ chưa hoàn tất.
 5. Evidence phân biệt local/remote, giả lập/thiết bị thật và state NOT_TESTED; context/roadmap
    đồng bộ, checkpoint kế tiếp AWAITING_APPROVAL rồi dừng.
+
+
+## 44. Checkpoint C86 — Chờ phê duyệt
+
+**C86 — Đánh giá hiệu quả thao tác sau phát hành C85.**
+Trạng thái: `AWAITING_APPROVAL`. Chỉ đề xuất, không thực hiện trong C85.
+
+Kết hợp skill Evon ui-ux theo yêu cầu OWNER khi audit; không mở redesign trong audit.
+
+Mục tiêu: xác định thao tác thừa còn lại bằng hành trình cụ thể, sau khi các lỗi C83/C84 đã sửa.
+
+Phạm vi khi OWNER phê duyệt:
+
+- Audit không submit dữ liệu remote; cho phép nhập nháp rồi bỏ và đổi theme/ẩn-hiện để kiểm,
+  khôi phục preference banđầu sau kiểm. Sáu hành trình: tìm khoản vay và mở giao dịch rồi hủy; công việc dashboard đến
+  detail và quay lại; tìm/sửa đối tác bằng nháp rồi bỏ; xem/lọc thông báo không mark-read;
+  xem chi phí/phân bổ/phân trang; đổi giao diện và quay lại nội dung đang xem.
+- Kiểm375/390/1440 Sáng/Tối, bàn phím và Back/Forward trên Production khi có phiên; state
+  thiếu dùng fixture C20-test local. Đếm click/navigation/scroll trong từng hành trình,
+  ghi step thừa và điểm phải nhớ thông tin; không coi thời gian runner là tốc độ người dùng.
+- Đối chiếu phản hồi OWNER đã có; findings gồm mức độ, vị trí, nguyên nhân, ảnh/số đo giả hoặc
+  metadata ẩn danh, tác động và cách sửa. Không đưa tên/tiền/ID/ảnh/cookie thật vào artifact.
+- Chỉ đề xuất remediation có scope/acceptance cụ thể khi có finding; không sửa runtime/schema/
+  dữ liệu, submit tài chính/tài khoản remote, mark-read, push permission, deploy/cleanup hoặc
+  tạo tài nguyên. Không bắt OWNER học VoiceOver, không tuyên bố thiết bị thật/AT chưa kiểm.
+
+Acceptance criteria:
+
+1. Có matrix36tổ hợp6hành trình×3khổ×2theme, ghi PASS/FAIL/NOT_TESTED và phân biệt local/remote.
+2. Mỗi kết luận thao tác thừa có chuỗi bước/số lần click/navigation/scroll quan sát được;
+   lỗi C83/C84 đã đóng chỉ mở lại khi có bằng chứng mới trên bản C85.
+3. Findings và đề xuất phân biệt lỗi/Gu/giới hạn; không tự triển khai redesign hoặc mutation.
+4. Gate tài liệu/script hiện có phù hợp đạt, context/roadmap cùng cập nhật. Đề xuất checkpoint
+   tiếp theo AWAITING_APPROVAL rồi dừng; không tự phát hành hoặc thêm automation.

@@ -1,5 +1,5 @@
 {
-  "status": "IN_PROGRESS_RELEASE_POSTCHECK_PASSED_CLOSING_CI_PENDING",
+  "status": "COMPLETED_WITH_DOCUMENTED_NOT_TESTED_LIMITS",
   "sourceSha": "198248bd3e1dcfb00598bce0b94fa3c9f65d88f2",
   "firstSourceSha": "d10c91620ab5d23f46a648dd8b5cb7012b9d922b",
   "firstCI": {
@@ -412,7 +412,8 @@
     "freshTabs": "Same login retained; viewport390 verified on fresh Preview tab",
     "interactionBlocker": "OWNER closed earlier dialog. Browser connection changed; fresh tabs restored input and viewport. Preview native close confirm handled concurrently with click: cancel stayed open, accept closed. Production later navigation from dirty draft timed out; getJsDialog undefined. OWNER requested close Production draft tab; reason not established as product fault.",
     "fullMatrix": "PASS 120 authenticated route-width-theme samples; full Production interaction flow still pending",
-    "preferenceRestore": "Preview system/hidden restored; Production currently dark and unsaved draft, requires manual dialog/tab cleanup and final restore"
+    "preferenceRestore": "Preview system/hidden restored; Production currently dark and unsaved draft, requires manual dialog/tab cleanup and final restore",
+    "phase": "HISTORICAL_INITIAL_BROWSER_BLOCKER; current completed flows and preference restore are in productionAuthFinish and final aliases"
   },
   "aliasesWhileBrowserBlocked": {
     "preview": {
@@ -502,13 +503,13 @@
     "productionChecks": {
       "threeModesManualKeyboard": "PASS choice/system actual light/manual dark opposite device/keyboard",
       "draftCloseCancel": "PASS native confirm cancel stays open",
-      "draftNavigation": "BLOCKED: click timeout/getJsDialog undefined; OWNER requested close draft tab; no PASS claim",
-      "remainingFlows": "PENDING: history/reload/loan drawer/privacy/pagination/custom/restore/console final"
+      "draftNavigation": "NOT_TESTED remote: native confirm blocked tool; Owner closed tab; input recovered. Local C84 regression covers navigation, no product failure established",
+      "remainingFlows": "PASS history/reload/loan drawer/privacy/pagination/custom/restore/console final; see productionAuthFinish"
     },
     "remoteOsChange": "NOT_TESTED: no browser capability; local C84 covers",
     "candidateGate": {
       "preview": "PASS within available remote state and declared limits",
-      "production": "PENDING_BROWSER_INPUT"
+      "production": "PASS within available remote state and declared limits; productionAuthFinish supersedes initial browser blocker"
     }
   },
   "rootPreviewResume": {
@@ -928,7 +929,7 @@
     "stillC82": true,
     "candidatePreserved": true
   },
-  "remaining": "Closing documentation commit/push and Required CI of exact closing SHA; final status/C86 awaiting approval and verification",
+  "remaining": "No implementation work; final-status exact-SHA CI verification before completion message",
   "viewportOverride": "RESET",
   "productionAuthFinish": {
     "status": "PASS_WITH_DOCUMENTED_LIMITS",
@@ -1017,5 +1018,552 @@
       "authUsers": 0
     }
   },
-  "closingCI": "PENDING"
+  "closingCI": "PASS b568caeb2f83da5eae6787845652c728537aa48b / 37213927772",
+  "closingProofAttempt1": {
+    "sha": "b568caeb2f83da5eae6787845652c728537aa48b",
+    "run": 37213927772,
+    "conclusion": "failure",
+    "e2e": {
+      "pass": 59,
+      "skip": 13,
+      "fail": 1,
+      "duration": "17.8m"
+    },
+    "failedTest": "C84 boundary text, amount, privacy and contrast matrix across both themes",
+    "position": "apps/web/test/e2e/c84-remediation.spec.ts:200",
+    "evidence": "Expenses server read error then inline-reversal summary locator timeout240000ms",
+    "rootCause": "NOT_ESTABLISHED; raw log lacks RPC error code/status",
+    "otherGates": "policy/security/quality/build/pgTAP/Auth PASS",
+    "retry": "One rerun of failed jobs on identical SHA; no changes to tests/assertions/retries/skips/runtime"
+  },
+  "closingProofCI": {
+    "attempt": 2,
+    "conclusion": "success",
+    "databaseId": 37213927772,
+    "headSha": "b568caeb2f83da5eae6787845652c728537aa48b",
+    "jobs": [
+      {
+        "completedAt": "2026-10-04T16:30:30Z",
+        "conclusion": "success",
+        "databaseId": 111475724425,
+        "name": "Supabase Auth pgTAP and E2E",
+        "startedAt": "2026-10-04T16:09:38Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-04T16:09:41Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-04T16:09:39Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:09:46Z",
+            "conclusion": "success",
+            "name": "Checkout",
+            "number": 2,
+            "startedAt": "2026-10-04T16:09:41Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:09:52Z",
+            "conclusion": "success",
+            "name": "Setup Node.js",
+            "number": 3,
+            "startedAt": "2026-10-04T16:09:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:09:53Z",
+            "conclusion": "success",
+            "name": "Install pinned pnpm",
+            "number": 4,
+            "startedAt": "2026-10-04T16:09:52Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:10:03Z",
+            "conclusion": "success",
+            "name": "Frozen install",
+            "number": 5,
+            "startedAt": "2026-10-04T16:09:53Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:10:10Z",
+            "conclusion": "success",
+            "name": "Install pinned Supabase CLI",
+            "number": 6,
+            "startedAt": "2026-10-04T16:10:03Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:10:11Z",
+            "conclusion": "success",
+            "name": "Verify Supabase CLI",
+            "number": 7,
+            "startedAt": "2026-10-04T16:10:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:12:19Z",
+            "conclusion": "success",
+            "name": "Start local Supabase",
+            "number": 8,
+            "startedAt": "2026-10-04T16:10:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:12:57Z",
+            "conclusion": "success",
+            "name": "Reset database",
+            "number": 9,
+            "startedAt": "2026-10-04T16:12:19Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:12:58Z",
+            "conclusion": "success",
+            "name": "Database lint",
+            "number": 10,
+            "startedAt": "2026-10-04T16:12:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:13:15Z",
+            "conclusion": "success",
+            "name": "pgTAP",
+            "number": 11,
+            "startedAt": "2026-10-04T16:12:58Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:14:08Z",
+            "conclusion": "success",
+            "name": "Auth integration",
+            "number": 12,
+            "startedAt": "2026-10-04T16:13:15Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:14:40Z",
+            "conclusion": "success",
+            "name": "Install pinned Playwright browser",
+            "number": 13,
+            "startedAt": "2026-10-04T16:14:08Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:30:07Z",
+            "conclusion": "success",
+            "name": "Playwright E2E",
+            "number": 14,
+            "startedAt": "2026-10-04T16:14:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:30:27Z",
+            "conclusion": "success",
+            "name": "Stop local Supabase",
+            "number": 15,
+            "startedAt": "2026-10-04T16:30:07Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:30:27Z",
+            "conclusion": "success",
+            "name": "Post Install pinned Supabase CLI",
+            "number": 28,
+            "startedAt": "2026-10-04T16:30:27Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:30:27Z",
+            "conclusion": "success",
+            "name": "Post Setup Node.js",
+            "number": 29,
+            "startedAt": "2026-10-04T16:30:27Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:30:28Z",
+            "conclusion": "success",
+            "name": "Post Checkout",
+            "number": 30,
+            "startedAt": "2026-10-04T16:30:27Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:30:28Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 31,
+            "startedAt": "2026-10-04T16:30:28Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37213927772/job/111475724425"
+      },
+      {
+        "completedAt": "2026-10-04T15:42:28Z",
+        "conclusion": "success",
+        "databaseId": 111475725048,
+        "name": "Quality and build",
+        "startedAt": "2026-10-04T15:41:09Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-04T15:41:11Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-04T15:41:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:15Z",
+            "conclusion": "success",
+            "name": "Checkout",
+            "number": 2,
+            "startedAt": "2026-10-04T15:41:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:22Z",
+            "conclusion": "success",
+            "name": "Setup Node.js",
+            "number": 3,
+            "startedAt": "2026-10-04T15:41:15Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:24Z",
+            "conclusion": "success",
+            "name": "Install pinned pnpm",
+            "number": 4,
+            "startedAt": "2026-10-04T15:41:22Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:24Z",
+            "conclusion": "success",
+            "name": "Verify toolchain",
+            "number": 5,
+            "startedAt": "2026-10-04T15:41:24Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:36Z",
+            "conclusion": "success",
+            "name": "Frozen install",
+            "number": 6,
+            "startedAt": "2026-10-04T15:41:24Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:46Z",
+            "conclusion": "success",
+            "name": "Lint",
+            "number": 7,
+            "startedAt": "2026-10-04T15:41:36Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:57Z",
+            "conclusion": "success",
+            "name": "Typecheck",
+            "number": 8,
+            "startedAt": "2026-10-04T15:41:46Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:42:01Z",
+            "conclusion": "success",
+            "name": "Unit tests",
+            "number": 9,
+            "startedAt": "2026-10-04T15:41:57Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:42:25Z",
+            "conclusion": "success",
+            "name": "Production build",
+            "number": 10,
+            "startedAt": "2026-10-04T15:42:01Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:42:25Z",
+            "conclusion": "success",
+            "name": "Post Setup Node.js",
+            "number": 19,
+            "startedAt": "2026-10-04T15:42:25Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:42:26Z",
+            "conclusion": "success",
+            "name": "Post Checkout",
+            "number": 20,
+            "startedAt": "2026-10-04T15:42:25Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:42:26Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 21,
+            "startedAt": "2026-10-04T15:42:26Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37213927772/job/111475725048"
+      },
+      {
+        "completedAt": "2026-10-04T15:41:43Z",
+        "conclusion": "success",
+        "databaseId": 111475725403,
+        "name": "Workflow policy",
+        "startedAt": "2026-10-04T15:41:09Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-04T15:41:11Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-04T15:41:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:15Z",
+            "conclusion": "success",
+            "name": "Checkout",
+            "number": 2,
+            "startedAt": "2026-10-04T15:41:11Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:21Z",
+            "conclusion": "success",
+            "name": "Setup Node.js",
+            "number": 3,
+            "startedAt": "2026-10-04T15:41:15Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:23Z",
+            "conclusion": "success",
+            "name": "Install pinned pnpm",
+            "number": 4,
+            "startedAt": "2026-10-04T15:41:21Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:34Z",
+            "conclusion": "success",
+            "name": "Frozen install",
+            "number": 5,
+            "startedAt": "2026-10-04T15:41:23Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:35Z",
+            "conclusion": "success",
+            "name": "Enforce CI policy",
+            "number": 6,
+            "startedAt": "2026-10-04T15:41:34Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:40Z",
+            "conclusion": "success",
+            "name": "Lint workflow syntax",
+            "number": 7,
+            "startedAt": "2026-10-04T15:41:35Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:40Z",
+            "conclusion": "success",
+            "name": "Post Setup Node.js",
+            "number": 13,
+            "startedAt": "2026-10-04T15:41:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:41Z",
+            "conclusion": "success",
+            "name": "Post Checkout",
+            "number": 14,
+            "startedAt": "2026-10-04T15:41:40Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:41Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 15,
+            "startedAt": "2026-10-04T15:41:41Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37213927772/job/111475725403"
+      },
+      {
+        "completedAt": "2026-10-04T15:41:39Z",
+        "conclusion": "success",
+        "databaseId": 111475754149,
+        "name": "Dependency and secret scan",
+        "startedAt": "2026-10-04T15:41:09Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-04T15:41:10Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-04T15:41:09Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:14Z",
+            "conclusion": "success",
+            "name": "Checkout full history",
+            "number": 2,
+            "startedAt": "2026-10-04T15:41:10Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:19Z",
+            "conclusion": "success",
+            "name": "Secret scan",
+            "number": 3,
+            "startedAt": "2026-10-04T15:41:14Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:25Z",
+            "conclusion": "success",
+            "name": "Setup Node.js",
+            "number": 4,
+            "startedAt": "2026-10-04T15:41:19Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:26Z",
+            "conclusion": "success",
+            "name": "Install pinned pnpm",
+            "number": 5,
+            "startedAt": "2026-10-04T15:41:25Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:36Z",
+            "conclusion": "success",
+            "name": "Frozen install",
+            "number": 6,
+            "startedAt": "2026-10-04T15:41:26Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:37Z",
+            "conclusion": "success",
+            "name": "Dependency audit",
+            "number": 7,
+            "startedAt": "2026-10-04T15:41:36Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:37Z",
+            "conclusion": "success",
+            "name": "Post Setup Node.js",
+            "number": 13,
+            "startedAt": "2026-10-04T15:41:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:37Z",
+            "conclusion": "success",
+            "name": "Post Checkout full history",
+            "number": 14,
+            "startedAt": "2026-10-04T15:41:37Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T15:41:37Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 15,
+            "startedAt": "2026-10-04T15:41:37Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37213927772/job/111475754149"
+      },
+      {
+        "completedAt": "2026-10-04T16:30:35Z",
+        "conclusion": "success",
+        "databaseId": 111479484364,
+        "name": "Required CI gate",
+        "startedAt": "2026-10-04T16:30:32Z",
+        "status": "completed",
+        "steps": [
+          {
+            "completedAt": "2026-10-04T16:30:33Z",
+            "conclusion": "success",
+            "name": "Set up job",
+            "number": 1,
+            "startedAt": "2026-10-04T16:30:33Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:30:34Z",
+            "conclusion": "success",
+            "name": "Require every job to pass",
+            "number": 2,
+            "startedAt": "2026-10-04T16:30:33Z",
+            "status": "completed"
+          },
+          {
+            "completedAt": "2026-10-04T16:30:34Z",
+            "conclusion": "success",
+            "name": "Complete job",
+            "number": 3,
+            "startedAt": "2026-10-04T16:30:34Z",
+            "status": "completed"
+          }
+        ],
+        "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37213927772/job/111479484364"
+      }
+    ],
+    "status": "completed",
+    "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37213927772"
+  },
+  "finalStatusCI": "VERIFY_EXACT_SHA_AFTER_PUSH_BEFORE_COMPLETION_MESSAGE",
+  "nextCheckpoint": {
+    "id": "C86",
+    "status": "AWAITING_APPROVAL",
+    "scope": "Evon ui-ux read-only efficiency audit; six journeys x three widths x two themes",
+    "executed": false
+  },
+  "closingProofResult": {
+    "sha": "b568caeb2f83da5eae6787845652c728537aa48b",
+    "run": 37213927772,
+    "attempt": 2,
+    "requiredGate": "SUCCESS",
+    "e2e": {
+      "pass": 60,
+      "skip": 13,
+      "duration": "15.4m"
+    },
+    "pgTAP": {
+      "files": 24,
+      "tests": 527,
+      "status": "PASS"
+    },
+    "limits": "13 skips:12 audit/evidence opt-in plus C72 SQL lock local-only covered by local full gate; no assertion/retry/skip changes",
+    "priorFailPreserved": true
+  }
 }
