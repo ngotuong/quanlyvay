@@ -1,0 +1,13 @@
+{
+  "method": "Deterministic local isolated Auth/Storage address-change diagnostic; no remote target or credential output",
+  "project": "QuanLyVayCaNhan-C20-test",
+  "port": 55321,
+  "before": 200,
+  "authAddressChanged": true,
+  "addressesExchanged": true,
+  "authContainerHealth": "healthy",
+  "directAuthHealth": 200,
+  "afterAddressChange": 502,
+  "afterGatewayRestart": 200,
+  "pass": true
+}

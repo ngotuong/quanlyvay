@@ -1596,7 +1596,12 @@ Gate attempt1 phát hiện fixture hook C72/C81 120s ngắn hơn reset+Auth read
 điều chỉnh riêng hook chuẩn bị fixture300s, giữ assertion và phạm vi runtime C81.
 04/10: C75 fullPage capture làm scroll383→640 trước click; chuyển capture sau functional
 checks, không đổi assertion/retries/runtime. Targeted C72+C75 9/9 PASS2,4m, lint/typecheck
-PASS, DB55322 0/0/0; full và Required CI source mới vẫn bắt buộc trước candidate.
+PASS, DB55322 0/0/0; full54PASS9SKIP8,3m exit0. Capture fix62cdb98 đã push;
+Required CI37169996632 attempt1 FAILED tại C81 Auth health502 sau reset (50PASS/1FAIL/
+9SKIP/3NOT_RUN14,7m). Deterministic C20-test xác nhận stale gateway: direct200/Kong502,
+restart Kong200. Thêm guarded gateway refresh+health sau reset, validate trước reset;
+unit113 gồm5guard PASS, lint/typecheck/actual reset PASS. Full/CI SHA gateway mới bắt buộc;
+không thay runtime, assertion/retries hoặc workflow/CLI version. Chưa candidate.
 
 Mục tiêu: đưa bản sửa đã kiểm local lên webapp thật, giữ card dư nợ/lãi ròng trên Việc cần xử lý.
 Phạm vi khi OWNER phê duyệt:

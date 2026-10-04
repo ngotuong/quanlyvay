@@ -62,3 +62,45 @@ Targeted C72+C75 sau capture fix:9PASS2,4m exit0; lint/typecheck exit0; DB55322
 profiles/loans/transactions0/0/0 read-only. Restore đúng7PNG C75 do targeted tự ghi
 (6dashboard và notifications390dark), giữ evidence lịch sử. Diagnostic metadata trace
 ở c75-capture-diagnostic.json; không runtime change. Full/source CI mới chưa đạt tại bước này.
+
+Capture fix source62cdb98b77ee8903a25e1e74f8ed82e9930a351d đã push fast-forward.
+Run37169996632 đang E2E sau các job quality/security/policy và pgTAP/Auth PASS;
+c5 attempt2 bị workflow concurrency hủy, không dùng làm bằng chứng xanh. Full local mới
+54PASS/9opt-in evidenceSKIP8,3m exit0; DB55322 teardown0/0/0; restore6dashboard PNG
+C75 tự ghi. CLI dry cùng source151regular files/4.258.416bytes/0forbidden.
+
+## Checkpoint kế tiếp đề xuất sau C82
+
+C83 — Audit sâu các module đối tác, chi phí, thông báo và cài đặt cùng control dùng chung,
+kết hợp Evon ui-ux; chỉ bắt đầu sau khi C82 hoàn tất và OWNER phê duyệt C83.
+
+Phạm vi đề xuất: Production chỉ đọc/mở/đóng; local synthetic kiểm tìm/lọc/phân trang,
+loading/empty/error, dirty/pending/save-close/focus, privacy, bàn phím và control dùng chung.
+Đo375/390/768/1024/1440 light/dark, tách lỗi Hỏng/Lệch hệ/Gu. Không thay runtime/brand,
+nghiệp vụ/schema/RPC/secret/account, ghi tài chính remote, push hoặc deploy.
+
+Acceptance criteria đề xuất: mỗi finding có trigger/file/vị trí/nguyên nhân/tác động/bằng
+chứng/hướng sửa; ma trận đủ hoặc ghi rõ NOT_TESTED, không lấy local thay remote. Có bảng
+ưu tiên và2–3wireframe synthetic cho phạm vi cần đổi, giữ UI nội bộ/brand. Chạy hồi quy
+hiện hữu áp dụng, lint/typecheck/diff/secret/JSON/JS; fixture DB55322 teardown0/0/0.
+Chỉ đề xuất C84 remediation với scope/AC cụ thể rồi dừng chờ duyệt; không tự sửa các finding.
+
+## Remediation gateway kiểm thử
+
+Run37169996632 attempt1 FAILED:50PASS/1FAIL/9SKIP/3NOT_RUN14,7m. C81 beforeAll reset
+xong02:23:26Z, health qua Kong vẫn502 đến02:26:28Z, chưa assertion UI C81. Các job
+security/policy/quality và pgTAP/Auth trước E2E đạt. Rerun attempt2 không thay required gate.
+
+[Supabase CLI issue6016](https://github.com/supabase/cli/issues/6016) mô tả cache DNS của Kong
+khi reset khởi động lại Auth/Storage và địa chỉ thay đổi; chỉ dùng làm hướng chẩn đoán.
+Đã tái hiện độc lập trên project disposable C20-test/port55321: trước200, Auth/Storage
+đổi địa chỉ, Auth container healthy và directhealth200 nhưng Kong502; restart đúng gateway
+trả200. Metadata không chứa credential/tiền/IP ở gateway-diagnostic.json. Không khẳng định
+đã lấy được container log của runner đã dừng; CI symptom phù hợp cơ chế đã tái hiện local.
+
+scripts/test-environment.cjs refresh đúng Kong sau mỗi guarded reset rồi bắt buộc health
+qua gateway. Kiểm http/loopback/port/config project trước reset, Docker project label trước
+restart; không wildcard hoặc chạm container khác/remote. Nếu restart/health fail thì gate
+fail. Không tăng180s deadline, bỏ assertion, thêm retries, nâng CLI hoặc đổi workflow/runtime.
+Unit113 gồm5test boundary/error PASS; lint/typecheck PASS; actual reset+gatewayhealth exit0.
+Full E2E và source CI mới vẫn phải đạt trước tạo candidate.

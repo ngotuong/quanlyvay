@@ -1,0 +1,93 @@
+{
+  "checkpoint": "C82",
+  "status": "IN_PROGRESS",
+  "date": "2026-10-04",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "sourceSha": "62cdb98b77ee8903a25e1e74f8ed82e9930a351d",
+  "sourceCI": {
+    "runId": 37169996632,
+    "status": "FAILED",
+    "exactShaVerified": true,
+    "attempt": 1,
+    "passedE2E": 50,
+    "failedE2E": 1,
+    "skippedE2E": 9,
+    "didNotRunE2E": 3,
+    "minutes": 14.7,
+    "failure": "C81 fixture routed Auth health HTTP502 after reset; UI C81 not reached"
+  },
+  "local": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unitTests": {
+      "passed": 108,
+      "basis": "C82 initial gate; runtime unchanged by hook/capture fixes"
+    },
+    "build": "PASS",
+    "fullE2E": {
+      "passed": 54,
+      "skipped": 9,
+      "failed": 0,
+      "minutes": 8.3,
+      "exitCode": 0,
+      "skips": "Optional evidence capture only; mandatory regressions ran"
+    },
+    "targetedC72C75": {
+      "passed": 9,
+      "minutes": 2.4,
+      "exitCode": 0
+    },
+    "teardown": {
+      "project": "QuanLyVayCaNhan-C20-test",
+      "port": 55322,
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0,
+      "method": "Read-only SQL after full harness teardown"
+    },
+    "secretScan": "PASS pinned Gitleaks v8.30.1 diff/new-text/staged; redacted",
+    "uploadDry": {
+      "files": 151,
+      "bytes": 4258416,
+      "forbiddenNames": 0,
+      "remoteInventoryReplaced": false
+    }
+  },
+  "rollback": {
+    "preview": "dpl_CZj4ehKjxCmzc4VazPcMfr87eLbs",
+    "production": "dpl_8x3Fy2rW6detxLGbsmrGSEqjhkyG",
+    "publicSmokePassed": 4,
+    "state": "READY",
+    "routeFunctionRegion": "sin1"
+  },
+  "preview": {
+    "status": "NOT_STARTED"
+  },
+  "production": {
+    "status": "NOT_STARTED"
+  },
+  "closingCI": {
+    "status": "NOT_STARTED"
+  },
+  "boundaries": {
+    "remoteFinancialMutation": false,
+    "remoteSchemaSecretAccountGoogleMutation": false,
+    "cleanup": false,
+    "ownerCredentialExport": false,
+    "contentsDownloaded": false,
+    "realFinancialEvidenceInGit": false,
+    "physicalATMobileSafariFirefox": "NOT_TESTED"
+  },
+  "gatewayFix": {
+    "sourceSha": "PENDING_COMMIT",
+    "diagnostic": "gateway-diagnostic.json",
+    "unitPassed": 113,
+    "newGuardTests": 5,
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "actualResetGatewayHealthExit": 0,
+    "fullE2E": "IN_PROGRESS",
+    "runtimeModified": false,
+    "workflowModified": false
+  }
+}

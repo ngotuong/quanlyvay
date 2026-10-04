@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.275
+roadmap_version: 1.0.276
 last_updated: 2026-10-04
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C82
@@ -27,11 +27,18 @@ history, migration, test và các contract/runbook chuyên biệt.
   failed jobs đang chạy. Local full mới53PASS/9SKIP/1FAIL8,0m: C75 scroll assertion sau
   fullPage capture; trace chứng minh screenshot tự383→640 trước click, không runtime toggle.
   Đã chuyển capture sau functional assertion, giữ toàn bộ assertion/retries/guard; targeted
-  C72+C75 9/9 PASS2,4m exit0, lint/typecheck PASS; full gate và CI SHA mới đang chờ. Lint/typecheck/unit108/build/policy/
-  actionlint/JSON/JS/Gitleaks/audit trước đã đạt; full local đầu54PASS/9SKIP8,2m nhưng không
-  dùng thay lượt fail. DB teardown55322 sau targeted đã kiểm0/0/0.
-  Restore7PNG C75 do targeted harness tự ghi; giữ evidence lịch sử và thay đổi OWNER.
-  CLI dry151source/4.258.416bytes0forbidden là dự báo; chưa remote candidate.
+  C72+C75 9/9 PASS2,4m exit0, lint/typecheck PASS; full54PASS/9SKIP8,3m exit0.
+  Capture fix62cdb98b77ee8903a25e1e74f8ed82e9930a351d đã push; CI37169996632 attempt1
+  FAILED50PASS/1FAIL/9SKIP/3NOT_RUN14,7m: C81 fixture Auth health502 sau reset, chưa UI C81.
+  Attempt2 rerun failed jobs; SHA sửa gateway sẽ thay bằng gate riêng. Local deterministic
+  trên đúng project C20-test đã tái hiện Auth direct200/Kong502 sau đổi IP Auth/Storage;
+  restart đúng Kong về200. scripts/test-environment.cjs làm mới gateway sau guarded reset,
+  kiểm host/port/config project/Docker label và routed health bắt buộc; guard trước reset,
+  không bỏ health180s/UI assertion/retries0 hoặc đổi runtime/workflow/CLI version.
+  Unit113 gồm5test guard mới PASS, lint/typecheck PASS; actual reset+gateway health exit0.
+  Full source gateway mới đang chạy, không lấy54PASS lượt trước thay gate mới.
+  DB full teardown trước0/0/0, restore6dashboard PNG do full harness ghi.
+  CLI dry151source/4.258.416bytes0forbidden; scripts excluded, chưa remote candidate.
   Stable/defaultaliases vẫn C79 tại hậu kiểm sau push; rollback Ready/public4/4/sin1 đã kiểm.
   Chưa tạo candidate/promote, chưa remote data/schema/account/secret/Google mutation.
 - C81 `COMPLETED` local03/10: OWNER duyệt A, kết hợp Evon ui-ux. Dashboard gọn, KPI vẫn trên
