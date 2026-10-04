@@ -58,7 +58,9 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C80 | Audit UX Production C79 và phương án desktop compact | `COMPLETED` |
 | C81 | Compact dashboard/danh sách desktop và sửa UX F1–F4, local | `COMPLETED` |
 | C82 | Đồng bộ C80/C81, CI và rollout UI compact lên Preview/Production | `COMPLETED` |
-| C83 | Audit module còn lại và lựa chọn Sáng/Tối/Theo thiết bị với Evon ui-ux | `AWAITING_APPROVAL` |
+| C83 | Audit module còn lại và lựa chọn Sáng/Tối/Theo thiết bị với Evon ui-ux | `COMPLETED` |
+| C84 | Sửa F1–F7, lifecycle cài đặt và bộ chọn giao diện theo phương án C83 | `COMPLETED` |
+| C85 | Đồng bộ C83/C84, CI và rollout UI/theme lên Preview/Production | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1664,10 +1666,10 @@ Acceptance criteria:
 5. Bằng chứng tách local/remote, giả lập/thiết bị thật, dữ kiện chỉ aggregate/synthetic không lộ
    tài chính thật/secret. Context/roadmap đồng bộ; checkpoint tiếp theo AWAITING_APPROVAL rồi dừng.
 
-## 41. Checkpoint C83 — Chờ phê duyệt
+## 41. Checkpoint C83 — Hoàn tất
 
 **C83 — Audit sâu đối tác, chi phí, thông báo, cài đặt và lựa chọn giao diện với Evon ui-ux.**
-Trạng thái: `AWAITING_APPROVAL`. Chưa được phép bắt đầu.
+Trạng thái: `COMPLETED` local ngày04/10/2026. OWNER phê duyệt trong hội thoại.
 
 Mục tiêu: xác định thao tác thừa/lỗi/bố cục và lập phương án sửa rõ ràng cho những module
 còn lại; bổ sung thiết kế lựa chọn Sáng/Tối/Theo thiết bị theo câu hỏi OWNER.
@@ -1702,3 +1704,138 @@ Acceptance criteria:
    Không giảm assertion/skip để xanh; không tạo dữ liệu QA trên Supabase dùng chung.
 5. Context/roadmap/report cùng cập nhật. Chỉ đề xuất C84 AWAITING_APPROVAL sau audit
    hoàn tất, không tự triển khai remediation, commit/push hoặc deploy.
+
+Bằng chứng hoàn tất C83:
+
+- Báo cáo/spec/prototype/evidence `docs/audit-c83/`; audit130state +20unbroken samples,
+  Production20Light readonly+page99error, app40Evonfixed+220sweep,9Pđã đối chiếu7findingcontrast/
+  2falsepositive.7findingconfirmed,1Lệch hệ,3Gu; runtime không sửa.
+- Hai phương án A/B80render+20stress0overflow/0clipped, final50fixed+55sweep0P,
+  comparison18HTTPlinksPASS và CUA mở deliverable. A khuyên dùng; không tự chọn runtime trước duyệt.
+- Audit1PASS4,8m/supplement1PASS2,3m/regressionC63/C67/C72/C75 22PASS4,1m;
+  lint/typecheck/build E2E/diff/JS/JSON đạt, DBC20-test0/0/0SQL.6C75generatedPNG restore HEAD.
+  Gitleaks raw1public RPC idempotency fixture reviewedfalsepositive/0secret thật, không nới rule.
+- Không commit/push/deploy/remote save/mark-read/account/push permission; DarkProduction,
+  physicalAT/mobile/authenticatedSafariFirefox C83NOT_TESTED. C84AWAITING_APPROVAL và dừng.
+
+## 42. Checkpoint C84 — Hoàn tất
+
+**C84 — Remediation F1–F7, lifecycle cài đặt và lựa chọn Sáng/Tối/Theo thiết bị, local.**
+Trạng thái: `COMPLETED` local ngày04/10/2026. OWNER phê duyệt ngày 04/10/2026 trong hội thoại; chọn phương án A. Báo cáo và lựa chọn tại
+`docs/audit-c83/report.md`, `proposal.html`, `theme-spec.md`.
+
+Closing C84: lint/typecheck/unit116/build/full E2E61PASS12opt-inSKIP10,7m exit0;
+critical theme/history/native2PASS2,0m.90samples0overflow/clipped/amount/target nhỏ,
+normal5,397/large6,702/focus5,169:1 min trong mẫu; cookie/SSR/no-JS/manual/system/history/
+meta/native/draft/local-account policy đạt. Evon8probe40fixed+220sweep qua3vòng hình cuốiraw4P
+đã loại có lý do; native/cached-head functional fix được kiểm riêng bằng source cuối.40ảnh/
+42HTTP200/CUA5khổ/JS/JSON/diff đạt; SQL C20-test55322 six counts0,14C75PNG restored exactHEAD.
+Secret raw2reviewfixture id/password,0OWNER/Production/external credential, không đổi rule/ignore.
+Không commit/push/deploy/remote mutation; C83 bảo toàn. Report/validation/limits docs/remediation-c84/.
+C85 AWAITING_APPROVAL; phần phạm vi dưới là lịch sử đã duyệt, không cấp thao tác C84 mới.
+
+Mục tiêu: người dùng không hiểu sai save/empty, không mất draft không báo, đọc được tiền/
+free text trên mọi khổ, chọn theme độc lập với thiết bị và giảm các hàng thao tác lặp.
+
+Phạm vi đã duyệt và thực hiện:
+
+- Sửa F1 pagination out-of-range ở đối tác/chi phí/thông báo và shared helper có liên quan;
+  giữ query/unread, canonical page, tránh redirect loop; không đổi schema/RPC hoặc tập dữ liệu.
+- Sửa F2 pending editor đối tác và F3 dirty/error/pending/success/focus của user-management.
+  Reuse lifecycle hiện hữu, giữ Auth/quyền/password policy/Server Actions; kiểm bằng tài khoản
+  giả trong C20-test, không submit tài khoản hoặc credential remote.
+- Sửa F4 semantic contrast Light/Dark trên placeholder/muted/eyebrow/unread tint và tổng chi phí;
+  giữ sắc brand. Do token chung có thể ảnh hưởng màn khác, kiểm hồi quy login/dashboard/loans/
+  detail/drawer/loading/notification/settings, không đổi nhận diện hoặc bỏ focus-visible.
+- Sửa F5 privacy phân bổ chi phí; F6 precision tỷ lệ chỉ cho trình bày, không tính lại/đổi VND;
+  F7 min-content/wrapping tên120/notes500/category80, không truncate dữ kiện hoặc che overflow.
+- Triển khai G1 + L1 theo đặc tả theme: ba lựa chọn Sáng/Tối/Theo thiết bị, cookie browser riêng,
+  manual ưu tiên hơn OS, system phản ứng device change, SSR/CSS no-flash, utility dark và native
+  color-scheme/meta cùng effective theme. Mặc định phương án **A khuyên dùng** khi duyệt C84;
+  OWNER có thể chọn B trước triển khai. Không thêm thư viện/CSP exception chỉ để đổi theme.
+- G2: đối tác/chi phí dùng hàng gọn desktop/card mobile theo A; CTA tạo giữ một chỗ, thao tác phụ
+  ít lặp nhưng luôn keyboard/accessibility/confirm. Phân bổ chi phí có thể thu gọn; tiền/ngày/
+  ghi chú/quyền/đảo giao dịch và audit semantics giữ nguyên. Summary/menu targets tối thiểu44px.
+- Thông báo giữ title/body/ngày/trạng thái đọc, pending/error/retry/mark-read semantics và push
+  disclosure hiện hữu. G3 rút ngắn nội dung, lọc mới hoặc đổi chính sách nhắc chưa thuộc scope.
+- Tài liệu/harness/ảnh đều synthetic. Không remote finance/account/push permission, Google,
+  migration/secret, cleanup, commit/push/deploy trong C84; phát hành là checkpoint riêng.
+
+Acceptance criteria:
+
+1. Regression tái hiện F1–F7 trước, đạt sau: valid/out-of-range/filter/page boundary25/26,
+   empty thật phân biệt page rỗng; URL/back/forward không loop; totals authoritative không đổi.
+2. Pending editor không hứa bỏ thao tác đã gửi; dirty cancel giữ input/focus/scroll, error giữ
+   draft/retry, success reset/close/announce/focus đúng. User-management được kiểm bằng fixtures
+   riêng, không lưu password nhạy cảm vào browser storage; không giảm quyền/validation.
+3.375/390/768/1024/1440×Light/Dark, dữ liệu thường và hợp lệ120/500/80 không khoảng trắng:
+   horizontal overflow0, text đủ/amount nguyên dòng, thao tác44px. Text normal≥4,5:1, large≥3:1;
+   contrast trên nền normal/tint/hover/selected và focus được đo; semantic roles giữ brand.
+4. Privacy chi phí không còn %/bar width/tooltip/accessible value dẫn xuất; một notice, restore
+   đầy đủ, trước hydration/reload đúng. Percentage precision documented, integer-scaled ratio,
+   zero/1÷3/nhóm nhỏ/tiền lớn; không floating-point quyết toán tiền.
+5. Theme3radio có legend/name/checked/focus/keyboard; chỉ một preference nguồn. Cookie hợp lệ/
+   sai/thiếu/bị chặn và OS trái manual/systemchange đều đạt; cold SSR/no-JS/hydration/reload/
+   route/loading/error/drawer không flash sai theme và không hydration/CSP error. Không đổi draft
+   hoặc Auth khi chọn theme. Mobile Thêm→Cài đặt và desktop Cài đặt truy cập được.
+6. Evon probe fixed/sweep và soi ảnh trước/sau synthetic: mọi P xử lý hoặc loại có lý do;
+   dashboard KPI dư nợ/lãi ròng vẫn trước Việc cần xử lý. Không chứng nhận physical AT từ emulator.
+7. Gate hiện hữu: pnpm lint/typecheck/test/build/test:e2e, diff-check/JS/JSON/secret scan; database
+   C20-test teardown profiles/loans/transactions0/0/0. Không nới assertion/skip/retries để xanh.
+8. Context/roadmap/report cùng cập nhật; sau đủ gate đặt checkpoint phát hành tiếp theo
+   AWAITING_APPROVAL rồi dừng, không tự deploy/push.
+
+## 43. Checkpoint C85 — Đang thực hiện
+
+**C85 — Đồng bộ C83/C84, xác nhận CI và phát hành UI/theme lên Preview/Production.**
+Trạng thái: `IN_PROGRESS`. OWNER phê duyệt trong hội thoại ngày04/10/2026. C84 đã hoàn tất local; C85 đang preflight, chưa phát hành.
+
+Mục tiêu: đưa các bản sửa đã kiểm local lên webapp thật, xác minh ba chế độ giao diện ở từng
+hostname và giữ mọi bất biến tài chính, quyền, privacy, focus và thứ tự KPI trước công việc.
+
+Phạm vi khi OWNER phê duyệt:
+
+- Review diff C83/C84 và tài liệu, bảo toàn thay đổi không thuộc scope; commit/push lên remote
+  GitHub hiện hữu, kiểm Required CI đúng source SHA. Giữ quy trình GitHub Free/private,
+  không nâng gói hoặc đổi repository settings. Không dùng CI của SHA cũ thay cho source mới.
+- Preflight diff-check/lint/typecheck/unit/build/full E2E, guarded C20-test teardown0/0/0 và
+  secret/upload metadata scan. C84 opt-in Evon đã có bằng chứng; regression theme/lifecycle/
+  privacy/history/native/unbroken vẫn bắt buộc, không giảm assertion/skip/retries.
+- Tạo Preview từ repository root bằng `pnpm deploy:preview` theo AGENTS4.1/runbook; immutable
+  candidate target preview, đúng project/Ready/Functions sin1. Chỉ chuyển stable alias sau
+  candidate public/Auth/runtime smoke đạt; hậu kiểm alias, rollback về C82 nếu hậu kiểm fail.
+- Tạo Production candidate từ root theo contract hiện hữu, kiểm immutable URL trước promote.
+  Theo dõi cả default alias nếu deploy tự chuyển; nếu bị chuyển trước gate, trả riêng alias
+  đó về C82 rồi kiểm. Promote/hậu kiểm `tindung.vercel.app` và default alias sau candidate đạt.
+- Smoke nghiệp vụ remote chỉ đọc/mở/đóng: dashboard default/custom và KPI-before-task;
+  counterparties/expenses/notifications/settings, loans/detail/drawer; page ngoài giới hạn
+  được canonical, empty phù hợp, text/amount/wrapping/44px/contrast ở375/390/768/1024/1440.
+  Kiểm ba lựa chọn theme, manual trái OS/system-change, SSR/reload/SPA Back-Forward/loading/
+  date/meta/keyboard và draft guard bằng nhập nháp rồi bỏ; cho phép đổi preference cookie và
+  ẩn/hiện để kiểm, không submit/mutate tài khoản/tài chính hoặc mark-read remote.
+- OWNER tự login nếu hostname chưa có phiên. Dữ liệu thật thiếu state giữ NOT_TESTED, bổ trợ
+  fixture local; không tạo dữ liệu thật để lấp matrix, không lưu tên/tiền/ID/ảnh/cookie thật
+  vào artifact Git hoặc log. Không request push permission, thay giờ nhận hay policy nhắc.
+  Nếu browser có phiên không hỗ trợ giả lập hoặc đổi OS theme, ghi remote system-change
+  NOT_TESTED và dẫn bằng chứng local C84 tương ứng; không đổi cài đặt macOS ngoài repository.
+- Báo cáo release/context/roadmap ghi exact SHA/CI run, deployment ID/immutable URL/alias/
+  target/region, từng public/Auth/log gate và rollback reference; commit/push closing docs và
+  xác nhận Required CI đúng closing SHA trước completion message.
+- Không schema/migration/RPC/remote secret/account/Google, tạo project mới, cleanup deployment/
+  backup, mở rộng physical AT/Chrome warning hoặc redesign khác C84. Lỗi release packaging
+  hoặc regression trong scope được sửa rồi kiểm lại; ngoài scope ghi đề xuất trước khi mở rộng.
+
+Acceptance criteria:
+
+1. Source và closing docs đã push, Required CI SUCCESS đúng từng SHA; tất cả preflight áp dụng
+   đạt, teardown test0/0/0, không secret/dump/ảnh thật vào Git/upload/log.
+2. Candidates đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target tương ứng, Ready,
+   Functions sin1, upload guard0forbidden regular filenames; không tải secret/dump bodies.
+3. Immutable Preview/Production public và authenticated route smoke thực đạt trước chuyển alias;
+   theme3mode/manual/system/meta/native/history/draft/focus/privacy/pagination/text đạt trong
+   phạm vi dữ liệu/môi trường có sẵn, giới hạn OS theme được ghi rõ theo phạm vi trên;
+   KPI trước Việc cần xử lý và số tiền authoritative không đổi.
+4. Stable Preview, `tindung.vercel.app` và default alias trỏ đúng candidate, hậu kiểm public/
+   Auth/runtime log không có HTTP500/pageerror mới. Nếu fail, rollback về C82 và giữ chưa hoàn tất.
+5. Evidence phân biệt local/remote, giả lập/thiết bị thật và state NOT_TESTED; context/roadmap
+   đồng bộ, checkpoint kế tiếp AWAITING_APPROVAL rồi dừng.

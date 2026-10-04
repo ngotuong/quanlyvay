@@ -1,0 +1,1095 @@
+{
+  "method": "Static synthetic proposals rendered with installed Chrome; no product mutation",
+  "matrix": [
+    {
+      "variant": "A",
+      "view": "settings",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "view": "counterparties",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "expenses",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "notifications",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "settings",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "view": "counterparties",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "expenses",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "notifications",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "settings",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "view": "counterparties",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "expenses",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "notifications",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "settings",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "view": "counterparties",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "expenses",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "notifications",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "settings",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "view": "counterparties",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "expenses",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "notifications",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "settings",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "view": "counterparties",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "expenses",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "notifications",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "settings",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "view": "counterparties",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "expenses",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "notifications",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "settings",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "view": "counterparties",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "expenses",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "notifications",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "settings",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "view": "counterparties",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "expenses",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "notifications",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "settings",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "A",
+      "view": "counterparties",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "expenses",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "A",
+      "view": "notifications",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": []
+    },
+    {
+      "variant": "B",
+      "view": "settings",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        },
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "counterparties",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "expenses",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "notifications",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "settings",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        },
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "counterparties",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "expenses",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "notifications",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "settings",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        },
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "counterparties",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "expenses",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "notifications",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "settings",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        },
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "counterparties",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "expenses",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "notifications",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "settings",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        },
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "counterparties",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "expenses",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "notifications",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "settings",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        },
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "counterparties",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "expenses",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "notifications",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "settings",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        },
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "counterparties",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "expenses",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "notifications",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "settings",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        },
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "counterparties",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "expenses",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "notifications",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "settings",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        },
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "counterparties",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "expenses",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "notifications",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "settings",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        },
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "counterparties",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "expenses",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    },
+    {
+      "variant": "B",
+      "view": "notifications",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "h1": 1,
+      "fontLoaded": true,
+      "radioGroups": [
+        {
+          "legend": "Chế độ giao diện",
+          "checked": 1
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "method": "Static docs-only localhost server, proposal links/images checked HTTP; CUA confirmed visible deliverable loaded,0brokenImages/overflow",
+  "checks": [
+    {
+      "path": "/audit-c83/prototype.html?variant=A&view=settings",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/proposal-a-settings-1440-light.png",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/prototype.html?variant=A&view=counterparties",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/prototype.html?variant=A&view=expenses",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/prototype.html?variant=A&view=notifications",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/prototype.html?variant=A&view=settings&theme=dark",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/prototype.html?variant=B&view=settings",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/proposal-b-settings-1440-light.png",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/prototype.html?variant=B&view=counterparties",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/prototype.html?variant=B&view=expenses",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/prototype.html?variant=B&view=notifications",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/prototype.html?variant=B&view=settings&theme=dark",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/settings-390-light.png",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/proposal-a-settings-390-light.png",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/counterparties-1440-light.png",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/proposal-a-counterparties-1440-light.png",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/unbroken-counterparties-390-light.png",
+      "status": 200
+    },
+    {
+      "path": "/audit-c83/proposal-stress-counterparties-390-light.png",
+      "status": 200
+    }
+  ],
+  "samples": [
+    {
+      "width": 375,
+      "overflow": 0,
+      "brokenImages": 0
+    },
+    {
+      "width": 390,
+      "overflow": 0,
+      "brokenImages": 0
+    },
+    {
+      "width": 768,
+      "overflow": 0,
+      "brokenImages": 0
+    },
+    {
+      "width": 1024,
+      "overflow": 0,
+      "brokenImages": 0
+    },
+    {
+      "width": 1440,
+      "overflow": 0,
+      "brokenImages": 0
+    }
+  ]
+}

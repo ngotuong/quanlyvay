@@ -63,14 +63,30 @@ export async function listGeneralExpenses(page = 1) {
 
 export async function getNotificationCenter(page = 1, unreadOnly = false) {
   const supabase = await createClient();
-  let query = supabase.from("notifications")
-    .select("id, loan_id, type, notification_date, title, body, read_at, created_at", { count: "exact" })
-    .is("superseded_at", null);
-  if (unreadOnly) query = query.is("read_at", null);
-  const { data, error, count } = await query.order("notification_date", { ascending: false })
+  const filteredQuery = () => {
+    let query = supabase.from("notifications").select("id, loan_id, type, notification_date, title, body, read_at, created_at");
+    query = query.is("superseded_at", null);
+    return unreadOnly ? query.is("read_at", null) : query;
+  };
+  // PostgREST rejects an out-of-range request before returning its exact count.
+  // Read the RLS-filtered count first so the route can redirect to a valid page.
+  let countQuery = supabase.from("notifications").select("id", { count: "exact", head: true }).is("superseded_at", null);
+  if (unreadOnly) countQuery = countQuery.is("read_at", null);
+  const { count, error: countError } = await countQuery;
+  if (countError) throw new Error("Không thể tải trung tâm thông báo.");
+  const totalCount = count ?? 0;
+  if ((page - 1) * 25 >= totalCount) return { items: [] as AppNotification[], totalCount };
+  const { data, error } = await filteredQuery().order("notification_date", { ascending: false })
     .order("created_at", { ascending: false }).order("id").range((page-1)*25, page*25-1);
+  if (error?.code === "PGRST103") {
+    // Another session may mark the last unread row between count and range.
+    const fresh = await countQuery;
+    if (!fresh.error && (page - 1) * 25 >= (fresh.count ?? 0)) {
+      return { items: [] as AppNotification[], totalCount: fresh.count ?? 0 };
+    }
+  }
   if (error) throw new Error("Không thể tải trung tâm thông báo.");
-  return { items: (data ?? []) as unknown as AppNotification[], totalCount: count ?? 0 };
+  return { items: (data ?? []) as unknown as AppNotification[], totalCount };
 }
 
 export async function getUnreadNotificationCount() {

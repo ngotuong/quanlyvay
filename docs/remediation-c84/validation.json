@@ -1,0 +1,107 @@
+{
+  "status": "VERIFIED",
+  "date": "2026-10-04",
+  "baseGitSha": "2d040e9f3c41cdbdc043a2c446153140f7b9f95e",
+  "runtimeSourceFiles": 18,
+  "runtimeSourceUnchangedDuringFinalGate": true,
+  "gates": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": {
+      "pass": 116,
+      "fail": 0
+    },
+    "build": "PASS",
+    "fullE2E": {
+      "pass": 61,
+      "fail": 0,
+      "skip": 12,
+      "duration": "10.7m",
+      "exit": 0,
+      "skipExplanation": "11 historical opt-in audit/evidence tests plus C84 Evon opt-in; Evon was run in three earlier shape-review rounds, latest 8 probes/40 fixed/220 sweep before isolated native and cached-head functional fixes"
+    },
+    "criticalThemeHistoryNative": {
+      "pass": 2,
+      "fail": 0,
+      "duration": "2.0m"
+    },
+    "diffJSJSON": "PASS",
+    "secretScan": "raw2/exit1 explicitly reviewed synthetic findings; no Production/OWNER/external credential; no rules or ignore list weakened"
+  },
+  "rendered": {
+    "samples": 90,
+    "byRequestedView": {
+      "counterparties": 10,
+      "expenses": 10,
+      "notifications": 10,
+      "settings": 10,
+      "dashboard": 10,
+      "loans": 10,
+      "login": 10,
+      "expenses-unbroken-page2": 10,
+      "expenses-open-reversal": 10
+    },
+    "authenticatedLoginRequestsActuallyRenderDashboard": true,
+    "publicLoginStartupSeparatelyVerifiedInBothManualModes": true,
+    "overflow": 0,
+    "clippedText": 0,
+    "clippedAmounts": 0,
+    "tinySummary": 0,
+    "normalTextSamples": 664,
+    "minimumNormalContrast": 5.397,
+    "largeTextSamples": 10,
+    "minimumLargeContrast": 6.702,
+    "focusSamples": 10,
+    "minimumFocusContrast": 5.169,
+    "themeManualOppositeOS": true,
+    "cookieValidMissingInvalidBlocked": true,
+    "SSRNoJSAndHydration": true,
+    "SPABackForwardMeta": true,
+    "nativeDrawerDateAndColdStartup": true,
+    "accountCreateResetOnlyGuardedSynthetic": true
+  },
+  "evon": {
+    "fixed": 40,
+    "sweep": 220,
+    "probes": 8,
+    "finalRawP": 4,
+    "dispositions": "Two hidden closed-details button measurements and two selected-filter hover-out reports; evidence in report.md",
+    "beforeFinalNativeAndCachedHeadFixes": true,
+    "noFurtherShapeChangesAfterProbe": true
+  },
+  "database": {
+    "identity": "QuanLyVayCaNhan-C20-test 55322",
+    "method": "read-only SQL counts after final global teardown",
+    "counts": {
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0,
+      "counterparties": 0,
+      "notifications": 0,
+      "authUsers": 0
+    }
+  },
+  "review": {
+    "images": 40,
+    "http200Links": 42,
+    "widths": [
+      375,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "brokenImages": 0,
+    "overflow": 0,
+    "CUARenderVerified": true,
+    "viewportReset": true
+  },
+  "generatedHistoricalC75ImagesRestored": 14,
+  "notTested": [
+    "Physical mobile and screen readers",
+    "Authenticated Safari/Firefox",
+    "Authenticated Production/Preview C84",
+    "New remote CI or rollout"
+  ],
+  "remoteMutationCommitPushDeploy": false
+}

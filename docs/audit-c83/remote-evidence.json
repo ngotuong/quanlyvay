@@ -1,0 +1,222 @@
+{
+  "method": "Authenticated CUA readonly Production https://tindung.vercel.app; aggregate metadata only, no amounts, names, IDs, screenshots or cookies saved",
+  "matrix": [
+    {
+      "route": "counterparties",
+      "width": 375,
+      "requestedWidth": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "counterparties",
+      "width": 390,
+      "requestedWidth": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "counterparties",
+      "width": 768,
+      "requestedWidth": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "counterparties",
+      "width": 1024,
+      "requestedWidth": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "counterparties",
+      "width": 1440,
+      "requestedWidth": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "expenses",
+      "width": 375,
+      "requestedWidth": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "expenses",
+      "width": 390,
+      "requestedWidth": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "expenses",
+      "width": 768,
+      "requestedWidth": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "expenses",
+      "width": 1024,
+      "requestedWidth": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "expenses",
+      "width": 1440,
+      "requestedWidth": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "notifications",
+      "width": 375,
+      "requestedWidth": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "notifications",
+      "width": 390,
+      "requestedWidth": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "notifications",
+      "width": 768,
+      "requestedWidth": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "notifications",
+      "width": 1024,
+      "requestedWidth": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "notifications",
+      "width": 1440,
+      "requestedWidth": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "settings",
+      "width": 375,
+      "requestedWidth": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "settings",
+      "width": 390,
+      "requestedWidth": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "settings",
+      "width": 768,
+      "requestedWidth": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "settings",
+      "width": 1024,
+      "requestedWidth": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    },
+    {
+      "route": "settings",
+      "width": 1440,
+      "requestedWidth": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "loading": 0,
+      "privacyHidden": true
+    }
+  ],
+  "observations": {
+    "counterpartyPrivacyCreateGuard": true,
+    "counterpartyEmptyDrawerOpenCloseFocus": true,
+    "notificationOutOfRange": {
+      "route": "/notifications?unread=true&page=99",
+      "heading": "Chưa thể tải dữ liệu",
+      "retryKeepsSameInvalidURL": "Source inference; no remote retry action taken"
+    },
+    "consoleErrorsNormalRoutes": 0,
+    "restoredPrivacy": "hidden",
+    "viewportReset": true
+  },
+  "notTested": [
+    "Dark Production: connected IAB provided light and no colorScheme capability; previous OWNER Dark tab is not current evidence",
+    "Remote saves, account edits, read marking and permission prompts prohibited by audit scope",
+    "Physical mobile, VoiceOver, Safari and Firefox"
+  ]
+}

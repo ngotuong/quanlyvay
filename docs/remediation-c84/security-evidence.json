@@ -1,0 +1,27 @@
+{
+  "scanner": "Pinned Gitleaks v8.30.1, diff plus all new UTF8 files; redact100",
+  "rawExit": 1,
+  "rawFindings": 2,
+  "actualSecrets": 0,
+  "meaning": "No Production/OWNER/external credential; one public local fixture password is explicitly reviewed",
+  "reviewedFalsePositives": [
+    {
+      "rule": "generic-api-key",
+      "file": "apps/web/test/e2e/c83-audit.spec.ts",
+      "line": 178,
+      "disposition": "Synthetic public RPC deduplication identifier; no credential; scanner rule/ignore/assertion unchanged"
+    },
+    {
+      "rule": "generic-api-key",
+      "file": "apps/web/test/e2e/c84-remediation.spec.ts",
+      "line": 218,
+      "disposition": "Public synthetic fixture password on guarded C20-test API55321 only; created/reset by local test, removed by teardown; no OWNER/remote credential; scanner rule/ignore/assertion unchanged"
+    }
+  ],
+  "newTextFilesScanned": 45,
+  "ownerCookieExported": false,
+  "syntheticStorageIgnored": true,
+  "remoteDataImagesAdded": false,
+  "SQLDumpsAdded": false,
+  "commitPushDeploy": false
+}

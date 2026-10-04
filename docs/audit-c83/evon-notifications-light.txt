@@ -1,0 +1,135 @@
+(node:32939) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+# Probe: 31 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c83/evon-notifications-light/375.png)
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (2 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Thông báo trên thiết bị" trơ "bị" ở dòng cuối: h2 "Thông báo trên thiết bị"
+  "Chức năng gửi thông báo chưa được cấu hì…" trơ "hình." ở dòng cuối: p.push-config-note "Chức năng gửi thông báo chưa được cấu hì"
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): dialog.transaction-dialog.ui-bottom-sheet.mobile-more-sheet.is-closing "Tiện ích khácChi phíNhật ký hệ"
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  25 mục, nhiều nhất 5 dòng chữ: form.notification-item-form "C83 nhắc thu lãi mẫu 26MớiĐối tác mẫu • "
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  4.14:1, cần 4.5:1, chữ #64748b trên nền #ebeffb "Ngày thông báo: 1/10/202": small "Ngày thông báo: 1/10/2026"
+  4.32:1, cần 4.5:1, chữ #64748b trên nền #f1f4f9 "Chức năng gửi thông báo ": p.push-config-note "Chức năng gửi thông báo chưa được cấu hì"
+
+## 390px  (ảnh: .cache/c83/evon-notifications-light/390.png)
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Chức năng gửi thông báo chưa được cấu hì…" trơ "hình." ở dòng cuối: p.push-config-note "Chức năng gửi thông báo chưa được cấu hì"
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): dialog.transaction-dialog.ui-bottom-sheet.mobile-more-sheet.is-closing "Tiện ích khácChi phíNhật ký hệ"
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  25 mục, nhiều nhất 5 dòng chữ: form.notification-item-form "C83 nhắc thu lãi mẫu 26MớiĐối tác mẫu • "
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  4.14:1, cần 4.5:1, chữ #64748b trên nền #ebeffb "Ngày thông báo: 1/10/202": small "Ngày thông báo: 1/10/2026"
+  4.32:1, cần 4.5:1, chữ #64748b trên nền #f1f4f9 "Chức năng gửi thông báo ": p.push-config-note "Chức năng gửi thông báo chưa được cấu hì"
+
+## 768px  (ảnh: .cache/c83/evon-notifications-light/768.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Đánh dấu đã đọc": viền #e2e8f0 → #1d4ed8
+  button "C83 nhắc thu lãi mẫu 26MớiĐối tá": viền #87a1e5 → #7693e3
+RÊ RA ĐÚNG MÀU MỤC ĐANG CHỌN (1 nhóm, rê qua mục nào cũng trông như đã chọn nó):
+  a "Tất cả": rê ra nền rgb(239, 246, 255), trùng nền mục đang chọn
+TAB TỚI CÒN VẼ VÒNG FOCUS (12 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đánh dấu đã đọc"
+  a "Tất cả"
+  a "Chưa đọc (28)"
+  button "C83 nhắc thu lãi mẫu 26MớiĐối tác mẫu • "
+  button "C83 nhắc thu lãi mẫu 6MớiĐối tác mẫu • 1"
+  summary "Thông báo trên thiết bịChưa bật"
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): dialog.transaction-dialog.ui-bottom-sheet.mobile-more-sheet.is-closing "Tiện ích khácChi phíNhật ký hệ"
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  25 mục, nhiều nhất 5 dòng chữ: form.notification-item-form "C83 nhắc thu lãi mẫu 26MớiĐối tác mẫu • "
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  4.14:1, cần 4.5:1, chữ #64748b trên nền #ebeffb "Ngày thông báo: 1/10/202": small "Ngày thông báo: 1/10/2026"
+  4.32:1, cần 4.5:1, chữ #64748b trên nền #f1f4f9 "Chức năng gửi thông báo ": p.push-config-note "Chức năng gửi thông báo chưa được cấu hì"
+(Đã thử rê, Tab, bấm 2 nhóm có mục đang chọn.)
+
+## 1024px  (ảnh: .cache/c83/evon-notifications-light/1024.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Đánh dấu đã đọc": viền #e2e8f0 → #1d4ed8
+  button "C83 nhắc thu lãi mẫu 26MớiĐối tá": viền #87a1e5 → #7693e3
+RÊ RA ĐÚNG MÀU MỤC ĐANG CHỌN (1 nhóm, rê qua mục nào cũng trông như đã chọn nó):
+  a "Tất cả": rê ra nền rgb(239, 246, 255), trùng nền mục đang chọn
+TAB TỚI CÒN VẼ VÒNG FOCUS (15 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Khoản vay", "Đối tác"
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  25 mục, nhiều nhất 5 dòng chữ: form.notification-item-form "C83 nhắc thu lãi mẫu 26MớiĐối tác mẫu • "
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  4.14:1, cần 4.5:1, chữ #64748b trên nền #ebeffb "Ngày thông báo: 1/10/202": small "Ngày thông báo: 1/10/2026"
+  4.32:1, cần 4.5:1, chữ #64748b trên nền #f1f4f9 "Chức năng gửi thông báo ": p.push-config-note "Chức năng gửi thông báo chưa được cấu hì"
+(Đã thử rê, Tab, bấm 2 nhóm có mục đang chọn.)
+
+## 1440px  (ảnh: .cache/c83/evon-notifications-light/1440.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Đánh dấu đã đọc": viền #e2e8f0 → #1d4ed8
+  button "C83 nhắc thu lãi mẫu 26MớiĐối tá": viền #87a1e5 → #7693e3
+RÊ RA ĐÚNG MÀU MỤC ĐANG CHỌN (1 nhóm, rê qua mục nào cũng trông như đã chọn nó):
+  a "Tất cả": rê ra nền rgb(239, 246, 255), trùng nền mục đang chọn
+TAB TỚI CÒN VẼ VÒNG FOCUS (15 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Khoản vay", "Đối tác"
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  25 mục, nhiều nhất 5 dòng chữ: form.notification-item-form "C83 nhắc thu lãi mẫu 26MớiĐối tác mẫu • "
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  4.14:1, cần 4.5:1, chữ #64748b trên nền #ebeffb "Ngày thông báo: 1/10/202": small "Ngày thông báo: 1/10/2026"
+  4.32:1, cần 4.5:1, chữ #64748b trên nền #f1f4f9 "Chức năng gửi thông báo ": p.push-config-note "Chức năng gửi thông báo chưa được cấu hì"
+(Đã thử rê, Tab, bấm 2 nhóm có mục đang chọn.)
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Quét bề rộng 1440 → 375px, bước 20px (55 ảnh ở .cache/c83/evon-notifications-light/sweep)
+Không đo ra chỗ vỡ ở bề rộng nào. Vẫn mở vài ảnh ở giữa hai khổ cố định mà xem.
+Máy không thấy chồng lấn, lệch hàng, khoảng trắng vô lý. Xem thêm các ảnh quanh ngưỡng sidebar thu và ngưỡng lưới đổi cột.
+
+# Việc phải đối chiếu: 3 mục probe xếp Hỏng
+Mỗi mục thành một dòng trong bảng giao (cột Nguồn ghi mã, ví dụ `đo P3`; cùng gốc thì gộp nhiều mã một dòng),
+hoặc một dòng dưới bảng nói vì sao loại. Không mục nào được biến mất im lặng (V5 trong review.md).
+P1 [1440px, 1024px, 768px, 375–390px] tương phản thấp: 4.14:1, cần 4.5:1, chữ #64748b trên nền #ebeffb "Ngày thông báo: 1/10/202": small "Ngày thông báo: 1/10/2026"
+P2 [1440px, 1024px, 768px, 375–390px] tương phản thấp: 4.32:1, cần 4.5:1, chữ #64748b trên nền #f1f4f9 "Chức năng gửi thông báo ": p.push-config-note "Chức năng gửi thông báo chưa được cấu hì"
+P3 [1440px, 1024px, 768px] rê ra đúng màu mục đang chọn: a "Tất cả": rê ra nền rgb(239, 246, 255), trùng nền mục đang chọn
+
+Chi tiết: .cache/c83/evon-notifications-light/report.json

@@ -1,0 +1,71 @@
+{
+  "light": 7,
+  "dark": 2,
+  "included": 7,
+  "excluded": 2,
+  "entries": [
+    {
+      "probe": "evon-counterparties-light",
+      "item": "P1",
+      "observation": "P1 [1440px, 1024px, 768px, 375–390px] tương phản thấp: 3.41:1, cần 4.5:1, chữ #888b93 trên nền #ffffff \"placeholder: Tìm tên hoặc ghi chú\": input",
+      "disposition": "F4",
+      "reason": "Tương phản đo được; đưa vào finding F4, không loại vì gần ngưỡng."
+    },
+    {
+      "probe": "evon-counterparties-light",
+      "item": "P2",
+      "observation": "P2 [1440px, 1024px] tương phản thấp: 4.45:1, cần 4.5:1, chữ #64748b trên nền #f6f7fb \"Tìm liên hệ trước, chỉ m\": p.page-description \"Tìm liên hệ trước, chỉ mở biểu mẫu khi c\"",
+      "disposition": "F4",
+      "reason": "Tương phản đo được; đưa vào finding F4, không loại vì gần ngưỡng."
+    },
+    {
+      "probe": "evon-expenses-dark",
+      "item": "P1",
+      "observation": "P1 [1440px, 1024px, 768px, 375–390px] tương phản thấp: 2.74:1, cần 3:1, chữ #4f39f6 trên nền #111827 \"1.287.575.000 ₫\": span.privacy-amount \"1.287.575.000 ₫\"",
+      "disposition": "F4",
+      "reason": "Tương phản đo được; đưa vào finding F4, không loại vì gần ngưỡng."
+    },
+    {
+      "probe": "evon-expenses-light",
+      "item": "P1",
+      "observation": "P1 [1440px, 1024px, 768px, 375–390px] tương phản thấp: 4.10:1, cần 4.5:1, chữ #0284c7 trên nền #ffffff \"Tổng quan ngân sách\": p.eyebrow \"Tổng quan ngân sách\"",
+      "disposition": "F4",
+      "reason": "Tương phản đo được; đưa vào finding F4, không loại vì gần ngưỡng."
+    },
+    {
+      "probe": "evon-notifications-dark",
+      "item": "P1",
+      "observation": "P1 [1440px, 1024px, 768px] rê ra đúng màu mục đang chọn: a \"Tất cả\": rê ra nền rgb(23, 37, 84), trùng nền mục đang chọn",
+      "disposition": "EXCLUDED",
+      "reason": "Tất cả chính là link đang chọn tại /notifications: aria-current=page và data-active=true. Rê ra giữ nền selected là đúng; probe nhận diện nhầm selected link."
+    },
+    {
+      "probe": "evon-notifications-light",
+      "item": "P1",
+      "observation": "P1 [1440px, 1024px, 768px, 375–390px] tương phản thấp: 4.14:1, cần 4.5:1, chữ #64748b trên nền #ebeffb \"Ngày thông báo: 1/10/202\": small \"Ngày thông báo: 1/10/2026\"",
+      "disposition": "F4",
+      "reason": "Tương phản đo được; đưa vào finding F4, không loại vì gần ngưỡng."
+    },
+    {
+      "probe": "evon-notifications-light",
+      "item": "P2",
+      "observation": "P2 [1440px, 1024px, 768px, 375–390px] tương phản thấp: 4.32:1, cần 4.5:1, chữ #64748b trên nền #f1f4f9 \"Chức năng gửi thông báo \": p.push-config-note \"Chức năng gửi thông báo chưa được cấu hì\"",
+      "disposition": "F4",
+      "reason": "Tương phản đo được; đưa vào finding F4, không loại vì gần ngưỡng."
+    },
+    {
+      "probe": "evon-notifications-light",
+      "item": "P3",
+      "observation": "P3 [1440px, 1024px, 768px] rê ra đúng màu mục đang chọn: a \"Tất cả\": rê ra nền rgb(239, 246, 255), trùng nền mục đang chọn",
+      "disposition": "EXCLUDED",
+      "reason": "Tất cả chính là link đang chọn tại /notifications: aria-current=page và data-active=true. Rê ra giữ nền selected là đúng; probe nhận diện nhầm selected link."
+    },
+    {
+      "probe": "evon-settings-light",
+      "item": "P1",
+      "observation": "P1 [1440px, 1024px, 768px, 375–390px] tương phản thấp: 4.10:1, cần 4.5:1, chữ #0284c7 trên nền #ffffff \"Tài khoản của tôi\": p.eyebrow \"Tài khoản của tôi\"",
+      "disposition": "F4",
+      "reason": "Tương phản đo được; đưa vào finding F4, không loại vì gần ngưỡng."
+    }
+  ]
+}

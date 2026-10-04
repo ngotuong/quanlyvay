@@ -3,6 +3,8 @@ import { Geist_Mono, Inter } from "next/font/google";
 import { Suspense, type ReactNode } from "react";
 import { cookies } from "next/headers";
 import "./globals.css";
+import { ThemeProvider } from "@/components/app/theme-provider";
+import { parseTheme, themeColors, themeCookieName } from "@/lib/app/theme.mjs";
 import { PwaRegister } from "@/components/pwa-register";
 import { NavigationFeedback } from "@/components/app/navigation-feedback";
 import { DirtyNavigationGuard } from "@/components/app/dirty-navigation-guard";
@@ -38,10 +40,10 @@ export const metadata: Metadata = {
   },
 };
 
-export const viewport: Viewport = { themeColor: [
-  { media: "(prefers-color-scheme: light)", color: "#f6f7fb" },
-  { media: "(prefers-color-scheme: dark)", color: "#090d18" },
-] };
+export async function generateViewport(): Promise<Viewport> {
+  const cookieStore = await cookies();
+  return { themeColor: themeColors(cookieStore.get(themeCookieName)?.value) };
+}
 
 import { PrivacyProvider } from "@/components/app/privacy-provider";
 
@@ -67,16 +69,20 @@ async function ResolvedApplication({ children }: { children: ReactNode }) {
   </PrivacyProvider>;
 }
 
-export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
+export default async function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
 
+  const preference = parseTheme((await cookies()).get(themeCookieName)?.value);
   return (
     <html
       lang="vi"
+      data-theme={preference}
       className={`${inter.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <ThemeProvider initialPreference={preference}>
         <DirtyNavigationGuard />
         <Suspense fallback={<InitialApplicationLoading />}><ResolvedApplication>{children}</ResolvedApplication></Suspense>
+        </ThemeProvider>
       </body>
     </html>
   );

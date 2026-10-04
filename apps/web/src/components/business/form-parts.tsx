@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useContext, useEffect, useId, useRef, useSyncExternalStore, type ComponentProps } from "react";
+import { createContext, useContext, useEffect, useLayoutEffect, useId, useRef, useSyncExternalStore, type ComponentProps } from "react";
 import { LoaderCircle } from "lucide-react";
 import type { BusinessActionState } from "@/lib/business/action-state";
 import { Button, notifyToast } from "@/components/ui";
@@ -48,6 +48,8 @@ export function BusinessForm({ state, children, action, onDirtyChange, onPending
   const interactive = useSyncExternalStore(subscribeHydration, () => true, () => false);
   const ref = useRef<HTMLFormElement>(null);
   const dirty = useRef(false);
+  const pending = useRef(false);
+  useLayoutEffect(() => { pending.current = Boolean(state.pending); }, [state.pending]);
   const handledSubmission = useRef(0);
   useEffect(() => {
     if (!state.submissionId || handledSubmission.current === state.submissionId || !state.message || state.pending) return;
@@ -66,7 +68,7 @@ export function BusinessForm({ state, children, action, onDirtyChange, onPending
     else form.querySelector<HTMLElement>(".action-message")?.focus();
   }, [onDirtyChange, onSuccess, state.fieldErrors, state.message, state.ok, state.pending, state.submissionId]);
   useEffect(() => { onPendingChange?.(Boolean(state.pending)); }, [onPendingChange, state.pending]);
-  useEffect(() => registerDraft(() => dirty.current), []);
+  useEffect(() => registerDraft(() => dirty.current, () => pending.current), []);
   return <ManagedSuccess.Provider value={Boolean(onSuccess)}><BusinessPending.Provider value={Boolean(state.pending)}><form {...props} ref={ref} aria-busy={Boolean(state.pending)} onChange={event => {
     if (!dirty.current) onDirtyChange?.(true);
     dirty.current = true;

@@ -131,6 +131,10 @@ lịch sử chính xác từng ngày thì vẫn phải nhập các giao dịch c
 Mở **Chi phí** để nhập các khoản không gắn riêng với một khoản vay, ví dụ chi phí đi lại hoặc vận
 hành. Chi phí nhập sai cũng được sửa bằng thao tác đảo.
 
+Mở **Phân bổ danh mục chi phí** khi cần xem cơ cấu chi phí. Khi che tiền, ứng dụng cũng che tỷ trọng
+và thanh phân bổ. Tỷ trọng hiển thị được làm tròn tới 0,01 điểm phần trăm; khoản rất nhỏ có thể hiện
+0% và tổng tỷ trọng làm tròn không nhất thiết bằng 100%. Số tiền gốc không bị thay đổi.
+
 ## 4. Đọc Dashboard
 
 Dashboard lấy số liệu trực tiếp từ sổ giao dịch. Chọn **Tháng này**, **Tháng trước**, **Năm nay**,
@@ -183,6 +187,14 @@ thể:
 - Đổi tên hiển thị và vai trò.
 - Vô hiệu hóa/kích hoạt lại tài khoản.
 - Cấp mật khẩu tạm mới.
+
+Trong **Giao diện**, chọn **Sáng**, **Tối** hoặc **Theo thiết bị**. Lựa chọn áp dụng ngay, không tải
+lại trang và được nhớ trên trình duyệt cho từng địa chỉ web; Preview và Production có lựa chọn
+riêng. Theo thiết bị tự cập nhật khi chế độ hệ điều hành thay đổi. Trên mobile, mở **Thêm → Cài đặt**.
+
+Form quản lý tài khoản tự đóng sau khi lưu thành công và trả focus về nút mở. Trong lúc lưu,
+hãy chờ kết quả; nếu lỗi, bản nháp được giữ để thử lại. Khi đóng một form đã sửa nhưng chưa lưu,
+ứng dụng yêu cầu xác nhận bỏ bản nháp, kể cả form cấp mật khẩu tạm.
 
 Người nhận mật khẩu tạm phải đổi mật khẩu ở lần đăng nhập tiếp theo. Không gửi mật khẩu qua kênh
 công khai và không lưu mật khẩu trong GitHub hoặc Google Sheets.

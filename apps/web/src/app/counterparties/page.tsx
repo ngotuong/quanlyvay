@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+import { clampPage, pageHref } from "@/lib/business/list-page.mjs";
 import { RenderRevision } from "@/components/app/render-revision";
 import { Pagination, parsePage } from "@/components/business/pagination";
 import { PrivacyRegion } from "@/components/app/privacy-provider";
@@ -19,6 +21,8 @@ export default async function CounterpartiesPage({ searchParams }: { searchParam
   const normalizedQuery = query.toLocaleLowerCase("vi");
   const filtered = normalizedQuery ? counterparties.filter(item => `${item.name} ${item.notes ?? ""}`.toLocaleLowerCase("vi").includes(normalizedQuery)) : counterparties;
   const paginationHref = query ? `/counterparties?q=${encodeURIComponent(query)}` : "/counterparties";
+  const canonicalPage = clampPage(page, filtered.length);
+  if (page !== canonicalPage) redirect(pageHref(paginationHref, canonicalPage));
 
   return (
     <>
@@ -31,10 +35,10 @@ export default async function CounterpartiesPage({ searchParams }: { searchParam
         <button className="secondary-button" type="submit">Tìm kiếm</button>
         {query ? <a className="secondary-link" href="/counterparties"><X size={17} /> Xóa tìm kiếm</a> : null}
       </form>
-      <section className="counterparty-list" aria-label="Danh sách đối tác" aria-live="polite">
+      <section className="counterparty-list compact-record-list" aria-label="Danh sách đối tác" aria-live="polite">
           {filtered.length === 0 ? <div className="empty-state compact"><UserRound size={26} /><h2>{query ? "Không tìm thấy đối tác" : "Chưa có đối tác"}</h2><p>{query ? "Thử tên hoặc ghi chú khác." : "Dùng nút Thêm đối tác để tạo liên hệ đầu tiên."}</p>{query ? <a className="secondary-link" href="/counterparties">Xem toàn bộ đối tác</a> : null}</div> : filtered.slice((page-1)*25, page*25).map((item) => (
             <Card as="article" variant="interactive" className="surface-card counterparty-card" key={item.id}>
-              <div className="counterparty-card-heading"><div><h2><PrivacyRegion>{item.name}</PrivacyRegion></h2><p className="notes-copy"><PrivacyRegion>{item.notes || "Không có ghi chú."}</PrivacyRegion></p></div>{profile.role === "OWNER" ? <PrivacyRegion><DeleteCounterpartyButton id={item.id} name={item.name} /></PrivacyRegion> : null}</div>
+              <div className="counterparty-card-heading"><div><h2><PrivacyRegion>{item.name}</PrivacyRegion></h2><p className="notes-copy"><PrivacyRegion>{item.notes || "Không có ghi chú."}</PrivacyRegion></p></div>{profile.role === "OWNER" ? <PrivacyRegion><DeleteCounterpartyButton menu id={item.id} name={item.name} /></PrivacyRegion> : null}</div>
               {canWrite ? <CounterpartyEditor counterparty={item} /> : null}
             </Card>
           ))}

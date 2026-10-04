@@ -245,10 +245,12 @@ test("responses include the browser security policy", async ({ request }) => {
 test("counterparty deletion reports success and refuses financial history", async ({page}) => {
   const created=await owner.rpc("create_counterparty",{p_name:"A C20 delete safely",p_notes:null});if(created.error)throw created.error;
   await login(page);await page.goto("/counterparties");
+  await page.getByLabel("Thao tác khác với A C20 delete safely",{exact:true}).click();
   page.once("dialog",dialog=>dialog.accept());await page.getByRole("button",{name:"Xóa A C20 delete safely",exact:true}).click();
   await expect(page.getByRole("status").filter({hasText:"Đã xóa đối tác chưa có lịch sử."})).toBeVisible();
   await expect(page.getByRole("heading",{name:"A C20 delete safely",exact:true})).toHaveCount(0);
   // The existing privacy fixture has a real (fake-data) loan history.
+  await page.getByLabel("Thao tác khác với C20 bí mật 9.007.199.254.740.993",{exact:true}).click();
   page.once("dialog",dialog=>dialog.accept());await page.getByRole("button",{name:"Xóa C20 bí mật 9.007.199.254.740.993",exact:true}).click();
   await expect(page.getByText(/Không thể xóa đối tác đã có lịch sử/)).toBeVisible();
   expect((await admin.from("loans").select("id").eq("id",loanId).single()).data?.id).toBe(loanId);
@@ -315,8 +317,9 @@ test("large lists, exact text and concurrent export remain complete", async ({pa
   const reverse=await owner.rpc("reverse_transaction",{p_transaction_id:expenses[0].id,p_reversal_date:"2026-09-07",p_note:"C20 volume reversal",p_idempotency_key:"c20-volume-reverse",p_recalculate_through:"2026-09-07"});if(reverse.error)throw reverse.error;
   const history=await admin.from("transactions").insert(Array.from({length:1005},(_,index)=>({loan_id:loanId,type:"INTEREST_PAYMENT",transaction_date:"2026-08-02",amount_vnd:"1",idempotency_key:`c20-history-${index}`})));if(history.error)throw history.error;
   await login(page);await page.goto("/expenses");
-  const total=(await page.getByText("Tổng chi phí",{exact:true}).locator("..").innerText()).replace(/\s/g,"");
-  await page.goto("/expenses?page=41");await expect(page.getByText(/Trang 41/)).toBeVisible();expect((await page.getByText("Tổng chi phí",{exact:true}).locator("..").innerText()).replace(/\s/g,"")).toBe(total);
+  const total=(await page.locator(".expense-budget-total").innerText()).replace(/\s/g,"");
+  expect(total).toMatch(/\d/);
+  await page.goto("/expenses?page=41");await expect(page.getByText(/Trang 41/)).toBeVisible();expect((await page.locator(".expense-budget-total").innerText()).replace(/\s/g,"")).toBe(total);
   await page.goto("/counterparties?page=41");await expect(page.getByText(/Trang 41/)).toBeVisible();
   await page.goto("/loans/new");await page.getByRole("combobox",{name:"Đối tác",exact:true}).fill("C20 volume 1005");
   page.once("dialog",dialog=>dialog.accept());await page.goto(`/loans/${loanId}?tab=history&page=41`);await expect(page.getByText("Giải ngân",{exact:true})).toBeVisible();

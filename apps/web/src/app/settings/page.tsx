@@ -1,3 +1,4 @@
+import { ThemeSettings } from "@/components/app/theme-provider";
 import { RenderRevision } from "@/components/app/render-revision";
 import Link from "next/link";
 import { KeyRound, LogOut, SlidersHorizontal } from "lucide-react";
@@ -18,6 +19,7 @@ export default async function SettingsPage() {
     <>
       <RenderRevision />
       <div className="page-heading-row"><div className="page-title-lockup"><span className="page-title-icon"><SlidersHorizontal size={24} strokeWidth={1.8} /></span><div><h1>Cài đặt</h1></div></div></div>
+      <ThemeSettings />
       <Card className="surface-card detail-section account-settings-card">
         <div><p className="eyebrow">Tài khoản của tôi</p><h2>{profile.display_name}</h2><p className="notes-copy">{profile.username} · {roleLabels[profile.role]}</p></div>
         <div className="account-settings-actions">

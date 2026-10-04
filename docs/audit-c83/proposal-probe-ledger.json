@@ -1,0 +1,71 @@
+{
+  "method": "Installed Evon probe on static synthetic proposals; final after three mockup repair passes; no product edits. Notification probes rerun after final layout repair; other source-specific measurements retained.",
+  "ledger": [
+    {
+      "label": "a-settings-dark",
+      "fixedWidths": 5,
+      "p": [],
+      "sweepSteps": 0
+    },
+    {
+      "label": "a-counterparties-dark",
+      "fixedWidths": 5,
+      "p": [],
+      "sweepSteps": 0
+    },
+    {
+      "label": "a-settings-light",
+      "fixedWidths": 5,
+      "p": [],
+      "sweepSteps": 55
+    },
+    {
+      "label": "a-expenses-dark",
+      "fixedWidths": 5,
+      "p": [],
+      "sweepSteps": 0
+    },
+    {
+      "label": "a-counterparties-light",
+      "fixedWidths": 5,
+      "p": [],
+      "sweepSteps": 0
+    },
+    {
+      "label": "a-notifications-dark",
+      "fixedWidths": 5,
+      "p": [],
+      "sweepSteps": 0
+    },
+    {
+      "label": "a-expenses-light",
+      "fixedWidths": 5,
+      "p": [],
+      "sweepSteps": 0
+    },
+    {
+      "label": "b-counterparties-dark",
+      "fixedWidths": 5,
+      "p": [],
+      "sweepSteps": 0
+    },
+    {
+      "label": "a-notifications-light",
+      "fixedWidths": 5,
+      "p": [],
+      "sweepSteps": 0
+    },
+    {
+      "label": "b-counterparties-light",
+      "fixedWidths": 5,
+      "p": [],
+      "sweepSteps": 0
+    }
+  ],
+  "beforeRepairs": {
+    "B menu": "Clipped at left on mobile; anchor corrected",
+    "B dark placeholder": "3.85:1; assigned semantic muted token",
+    "A notifications P1 light/dark": "Lone wrapped action at375; moved mark-read action to heading and reran both themes; finalP0",
+    "unreadMeaning": "Added explicit unread/read text; state not color-only"
+  }
+}

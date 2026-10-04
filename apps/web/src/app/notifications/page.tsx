@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+import { clampPage, pageHref } from "@/lib/business/list-page.mjs";
 import Link from "next/link";
 import { Pagination, parsePage } from "@/components/business/pagination";
 import { PrivacyRegion } from "@/components/app/privacy-provider";
@@ -13,6 +15,8 @@ export default async function NotificationsPage({ searchParams }: { searchParams
   const params = await searchParams;
   const page = parsePage(params.page);
   const result = await getNotificationCenter(page, params.unread === "true");
+  const canonicalPage = clampPage(page, result.totalCount);
+  if (page !== canonicalPage) redirect(pageHref(params.unread === "true" ? "/notifications?unread=true" : "/notifications", canonicalPage));
   const notifications = result.items;
   const unreadCount = await getUnreadNotificationCount();
   const publicKey = process.env.NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY?.trim() ?? "";

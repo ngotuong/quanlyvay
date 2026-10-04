@@ -1,0 +1,3287 @@
+{
+  "method": "Synthetic Chrome local production build; guarded C20-test API55321/DB55322",
+  "matrix": [
+    {
+      "route": "expenses-empty",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-empty",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-empty",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-empty",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-empty",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-empty",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-empty",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-empty",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-empty",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-empty",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page2",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 3,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page99",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-search-empty",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Không tìm thấy đối tác"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page2",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page99",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 26 bản ghi",
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 29 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-page99",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-private",
+      "privacy": "hidden",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page2",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 3,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page99",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-search-empty",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Không tìm thấy đối tác"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page2",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page99",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 26 bản ghi",
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 29 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-page99",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-private",
+      "privacy": "hidden",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page2",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 3,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page99",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-search-empty",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Không tìm thấy đối tác"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page2",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page99",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 26 bản ghi",
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 29 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-page99",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 2,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-private",
+      "privacy": "hidden",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page2",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 3,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page99",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-search-empty",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Không tìm thấy đối tác"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page2",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page99",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 26 bản ghi",
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 29 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-page99",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-private",
+      "privacy": "hidden",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page2",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 3,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page99",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-search-empty",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Không tìm thấy đối tác"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page2",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page99",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 26 bản ghi",
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 29 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-page99",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-private",
+      "privacy": "hidden",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page2",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 3,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page99",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-search-empty",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Không tìm thấy đối tác"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page2",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page99",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 26 bản ghi",
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 29 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-page99",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-private",
+      "privacy": "hidden",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page2",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 3,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page99",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-search-empty",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Không tìm thấy đối tác"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page2",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page99",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 26 bản ghi",
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 29 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-page99",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-private",
+      "privacy": "hidden",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page2",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 3,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page99",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-search-empty",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Không tìm thấy đối tác"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page2",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page99",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 26 bản ghi",
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 29 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-page99",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 2,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-private",
+      "privacy": "hidden",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page2",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 3,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page99",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-search-empty",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Không tìm thấy đối tác"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page2",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page99",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 26 bản ghi",
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 29 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-page99",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-private",
+      "privacy": "hidden",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "counterparties",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page2",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 3,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-page99",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "counterparties-search-empty",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [
+        "Không tìm thấy đối tác"
+      ],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        },
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page2",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 2 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "expenses-page99",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 99 / 2 · 26 bản ghi",
+      "empty": [
+        "Chưa có chi phí chung"
+      ],
+      "rowCount": 0,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    },
+    {
+      "route": "notifications",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 29 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-unread",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 28 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": null
+    },
+    {
+      "route": "notifications-page99",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "settings",
+      "privacy": "shown",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "empty": [],
+      "rowCount": 0,
+      "expenseTotal": null
+    },
+    {
+      "route": "expenses-private",
+      "privacy": "hidden",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 2 · 26 bản ghi",
+      "empty": [],
+      "rowCount": 25,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      }
+    }
+  ],
+  "observations": {
+    "expense-private-375-light": {
+      "percentages": [
+        "(99%)",
+        "(0%)",
+        "(0%)"
+      ],
+      "barWidths": [
+        "99%",
+        "0%",
+        "0%"
+      ],
+      "maskedAmounts": 29
+    },
+    "expense-private-390-light": {
+      "percentages": [
+        "(99%)",
+        "(0%)",
+        "(0%)"
+      ],
+      "barWidths": [
+        "99%",
+        "0%",
+        "0%"
+      ],
+      "maskedAmounts": 29
+    },
+    "expense-private-768-light": {
+      "percentages": [
+        "(99%)",
+        "(0%)",
+        "(0%)"
+      ],
+      "barWidths": [
+        "99%",
+        "0%",
+        "0%"
+      ],
+      "maskedAmounts": 29
+    },
+    "expense-private-1024-light": {
+      "percentages": [
+        "(99%)",
+        "(0%)",
+        "(0%)"
+      ],
+      "barWidths": [
+        "99%",
+        "0%",
+        "0%"
+      ],
+      "maskedAmounts": 29
+    },
+    "expense-private-1440-light": {
+      "percentages": [
+        "(99%)",
+        "(0%)",
+        "(0%)"
+      ],
+      "barWidths": [
+        "99%",
+        "0%",
+        "0%"
+      ],
+      "maskedAmounts": 29
+    },
+    "expense-private-375-dark": {
+      "percentages": [
+        "(99%)",
+        "(0%)",
+        "(0%)"
+      ],
+      "barWidths": [
+        "99%",
+        "0%",
+        "0%"
+      ],
+      "maskedAmounts": 29
+    },
+    "expense-private-390-dark": {
+      "percentages": [
+        "(99%)",
+        "(0%)",
+        "(0%)"
+      ],
+      "barWidths": [
+        "99%",
+        "0%",
+        "0%"
+      ],
+      "maskedAmounts": 29
+    },
+    "expense-private-768-dark": {
+      "percentages": [
+        "(99%)",
+        "(0%)",
+        "(0%)"
+      ],
+      "barWidths": [
+        "99%",
+        "0%",
+        "0%"
+      ],
+      "maskedAmounts": 29
+    },
+    "expense-private-1024-dark": {
+      "percentages": [
+        "(99%)",
+        "(0%)",
+        "(0%)"
+      ],
+      "barWidths": [
+        "99%",
+        "0%",
+        "0%"
+      ],
+      "maskedAmounts": 29
+    },
+    "expense-private-1440-dark": {
+      "percentages": [
+        "(99%)",
+        "(0%)",
+        "(0%)"
+      ],
+      "barWidths": [
+        "99%",
+        "0%",
+        "0%"
+      ],
+      "maskedAmounts": 29
+    },
+    "counterpartyErrorRetainsDraft": true,
+    "counterpartySaveClosesReturnsFocus": true,
+    "editorPendingClose": {
+      "closedWhilePending": true,
+      "dialog": "Bạn có thay đổi chưa lưu. Đóng và bỏ các thay đổi này?"
+    },
+    "editorPendingClosePersisted": true,
+    "expenseSaveClosesReturnsFocus": true,
+    "settingsDraftNavigation": {
+      "confirmDialogs": 0,
+      "leftPage": true
+    },
+    "settingsDraftLost": true,
+    "systemChange": {
+      "background": "rgb(9, 13, 24)",
+      "dark": true
+    },
+    "evon-counterparties-light": {
+      "fixedWidths": 5,
+      "sweepSteps": 55
+    },
+    "evon-counterparties-dark": {
+      "fixedWidths": 5,
+      "sweepSteps": 0
+    },
+    "evon-expenses-light": {
+      "fixedWidths": 5,
+      "sweepSteps": 55
+    },
+    "evon-expenses-dark": {
+      "fixedWidths": 5,
+      "sweepSteps": 0
+    },
+    "evon-notifications-light": {
+      "fixedWidths": 5,
+      "sweepSteps": 55
+    },
+    "evon-notifications-dark": {
+      "fixedWidths": 5,
+      "sweepSteps": 0
+    },
+    "evon-settings-light": {
+      "fixedWidths": 5,
+      "sweepSteps": 55
+    },
+    "evon-settings-dark": {
+      "fixedWidths": 5,
+      "sweepSteps": 0
+    },
+    "observedCompletion": true
+  }
+}

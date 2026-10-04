@@ -1,0 +1,110 @@
+(node:33068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+# Probe: 25 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c83/evon-settings-dark/375-dark.png)
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Tài khoản đang hoạt động được ưu tiên. C…" trơ "sách." ở dòng cuối: p "Tài khoản đang hoạt động được ưu tiên. C"
+DARK MODE (1 chỗ, rules-color.md M21, M31–M33):
+  color-scheme của <html> là "normal", không phải dark: thanh cuộn gốc, ô ngày, autofill, <select> vẫn vẽ bản sáng (M31)
+CHỮ DƯỚI 12px (6 chỗ):
+  11.52px "Đang hoạt động": span.managed-user-status "Đang hoạt động"
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+CONTROL CÒN KIỂU MẶC ĐỊNH CỦA TRÌNH DUYỆT (1 chỗ, dự án thiếu reset hay control chưa tự reset):
+  checkbox gốc trình duyệt: input
+
+## 390px  (ảnh: .cache/c83/evon-settings-dark/390-dark.png)
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Tài khoản đang hoạt động được ưu tiên. C…" trơ "sách." ở dòng cuối: p "Tài khoản đang hoạt động được ưu tiên. C"
+DARK MODE (1 chỗ, rules-color.md M21, M31–M33):
+  color-scheme của <html> là "normal", không phải dark: thanh cuộn gốc, ô ngày, autofill, <select> vẫn vẽ bản sáng (M31)
+CHỮ DƯỚI 12px (6 chỗ):
+  11.52px "Đang hoạt động": span.managed-user-status "Đang hoạt động"
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+CONTROL CÒN KIỂU MẶC ĐỊNH CỦA TRÌNH DUYỆT (1 chỗ, dự án thiếu reset hay control chưa tự reset):
+  checkbox gốc trình duyệt: input
+
+## 768px  (ảnh: .cache/c83/evon-settings-dark/768-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Đăng xuất": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (9 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  a "Đổi mật khẩu"
+  button "Đăng xuất"
+  summary "Tạo tài khoản phụ"
+  summary "Quản lý tài khoản"
+  a "Tổng quan"
+  a "Khoản vay"
+DARK MODE (1 chỗ, rules-color.md M21, M31–M33):
+  color-scheme của <html> là "normal", không phải dark: thanh cuộn gốc, ô ngày, autofill, <select> vẫn vẽ bản sáng (M31)
+CHỮ DƯỚI 12px (6 chỗ):
+  11.52px "Đang hoạt động": span.managed-user-status "Đang hoạt động"
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+CONTROL CÒN KIỂU MẶC ĐỊNH CỦA TRÌNH DUYỆT (1 chỗ, dự án thiếu reset hay control chưa tự reset):
+  checkbox gốc trình duyệt: input
+
+## 1024px  (ảnh: .cache/c83/evon-settings-dark/1024-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Đăng xuất": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (12 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+DARK MODE (1 chỗ, rules-color.md M21, M31–M33):
+  color-scheme của <html> là "normal", không phải dark: thanh cuộn gốc, ô ngày, autofill, <select> vẫn vẽ bản sáng (M31)
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Khoản vay", "Đối tác"
+CHỮ DƯỚI 12px (2 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+  11.52px "Đang hoạt động": span.managed-user-status "Đang hoạt động"
+CONTROL CÒN KIỂU MẶC ĐỊNH CỦA TRÌNH DUYỆT (1 chỗ, dự án thiếu reset hay control chưa tự reset):
+  checkbox gốc trình duyệt: input
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1440px  (ảnh: .cache/c83/evon-settings-dark/1440-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Đăng xuất": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (12 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+DARK MODE (1 chỗ, rules-color.md M21, M31–M33):
+  color-scheme của <html> là "normal", không phải dark: thanh cuộn gốc, ô ngày, autofill, <select> vẫn vẽ bản sáng (M31)
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Khoản vay", "Đối tác"
+CHỮ DƯỚI 12px (2 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+  11.52px "Đang hoạt động": span.managed-user-status "Đang hoạt động"
+CONTROL CÒN KIỂU MẶC ĐỊNH CỦA TRÌNH DUYỆT (1 chỗ, dự án thiếu reset hay control chưa tự reset):
+  checkbox gốc trình duyệt: input
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Việc phải đối chiếu: 0 mục probe xếp Hỏng
+Không có mục nào.
+
+Chi tiết: .cache/c83/evon-settings-dark/report.json

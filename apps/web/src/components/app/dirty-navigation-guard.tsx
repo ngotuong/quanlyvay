@@ -1,20 +1,23 @@
 "use client";
 
 import { useLayoutEffect } from "react";
+import { notifyToast } from "@/components/ui";
 
 // DOM events share the registry across independently compiled client entry chunks.
 const draftEvent = "app:check-unsaved-draft";
-export function registerDraft(isDirty: () => boolean) {
+export function registerDraft(isDirty: () => boolean, isPending: () => boolean = () => false) {
   const check = (event: Event) => {
-    if (isDirty()) (event as CustomEvent<{ dirty: boolean }>).detail.dirty = true;
+    const detail = (event as CustomEvent<{ dirty: boolean; pending: boolean }>).detail;
+    if (isDirty()) detail.dirty = true;
+    if (isPending()) detail.pending = true;
   };
   window.addEventListener(draftEvent, check);
   return () => window.removeEventListener(draftEvent, check);
 }
 function hasDraft() {
-  const detail = { dirty: false };
+  const detail = { dirty: false, pending: false };
   window.dispatchEvent(new CustomEvent(draftEvent, { detail }));
-  return detail.dirty;
+  return detail;
 }
 const message = "Bạn có thay đổi chưa lưu. Rời trang và bỏ các thay đổi này?";
 const key = "qlvHistoryIndex";
@@ -44,7 +47,9 @@ export function DirtyNavigationGuard() {
       }
       const target = event.state?.[key];
       if (typeof target !== "number" || target === index) return;
-      if (hasDraft() && !window.confirm(message)) {
+      const draft = hasDraft();
+      if (draft.pending) notifyToast("Đang lưu thay đổi. Vui lòng chờ kết quả.");
+      if (draft.pending || (draft.dirty && !window.confirm(message))) {
         event.stopImmediatePropagation();
         savedFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
         savedScroll = { x: scrollX, y: scrollY };
@@ -55,15 +60,18 @@ export function DirtyNavigationGuard() {
     const click = (event: MouseEvent) => {
       if (event.defaultPrevented || event.button || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       const link = event.target instanceof Element ? event.target.closest<HTMLAnchorElement>("a[href]") : null;
-      if (!link || link.target === "_blank" || link.hasAttribute("download") || !hasDraft()) return;
+      if (!link || link.target === "_blank" || link.hasAttribute("download")) return;
       const to = new URL(link.href, location.href);
       if (to.origin !== location.origin || (to.pathname === location.pathname && to.search === location.search)) return;
-      if (!window.confirm(message)) {
+      const draft = hasDraft();
+      if (!draft.dirty && !draft.pending) return;
+      if (draft.pending) notifyToast("Đang lưu thay đổi. Vui lòng chờ kết quả.");
+      if (draft.pending || !window.confirm(message)) {
         (event as MouseEvent & { appNavigationCancelled?: boolean }).appNavigationCancelled = true;
         event.preventDefault(); event.stopPropagation();
       }
     };
-    const unload = (event: BeforeUnloadEvent) => { if (hasDraft()) { event.preventDefault(); event.returnValue = ""; } };
+    const unload = (event: BeforeUnloadEvent) => { const draft = hasDraft(); if (draft.dirty || draft.pending) { event.preventDefault(); event.returnValue = ""; } };
     window.addEventListener("popstate", pop, true);
     document.addEventListener("click", click, true);
     window.addEventListener("beforeunload", unload);

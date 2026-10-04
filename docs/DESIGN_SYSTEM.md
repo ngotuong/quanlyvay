@@ -11,6 +11,7 @@ glassmorphism, emoji hệ thống hoặc hiệu ứng làm lu mờ dữ liệu.
 - Canvas sáng `#f6f7fb`; surface chính trắng; dark canvas `#090d18`.
 - Cobalt blue `#1d4ed8` là màu thương hiệu và hành động chính, đồng bộ biểu tượng vô cực; cyan chỉ dùng làm accent. Xanh lá,
   amber và đỏ dành cho trạng thái có nghĩa.
+- Chữ phụ sáng dùng `#536278`, accent sáng dùng `#0369a1`; placeholder dùng token chữ phụ với opacity 1.
 - Hướng khoản vay dùng semantic token riêng: cho vay xanh lá, đi vay đỏ; icon luôn đi cùng nhãn chữ
   để màu không là dấu hiệu phân biệt duy nhất.
 - Radius: `8 / 12 / 16 px`; elevation dùng thang `shadow-xs / shadow-card / shadow-floating`.
@@ -30,6 +31,8 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
 - Body mobile tối thiểu `16 px`, line-height `1.6`.
 - Helper/metadata thông thường tối thiểu `13 px`; nội dung phụ cần đọc thường xuyên tối thiểu `14 px`.
 - Số tiền dùng `font-variant-numeric: tabular-nums` và cho phép xuống dòng thay vì tràn khung.
+- Riêng dòng đối tác/chi phí, số tiền giữ một dòng; tên, danh mục và ghi chú dùng `min-width: 0` và
+  `overflow-wrap: anywhere` để nhận đủ dữ liệu hợp lệ, kể cả chuỗi dài không có khoảng trắng.
 
 ## 4. Component primitive
 
@@ -45,6 +48,8 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
 - Tabs: segmented surface có active state bằng nền, chữ và elevation; liên kết vẫn giữ deep-link.
 - Mọi disclosure `<details>` dùng dấu `+` khi đóng và `−` khi mở, nằm giữa theo trục dọc của nhãn;
   không dùng chevron hoặc marker tam giác mặc định.
+- Ngoại lệ: menu “Thao tác khác” của đối tác dùng Lucide `MoreHorizontal` trong vùng chạm 44 px.
+  Menu giữ xác nhận xóa, đóng bằng Escape/click ngoài và trả focus về nút mở khi nhấn Escape.
 - Filter mobile: giữ hai field trên một hàng khi phù hợp, mọi grid track dùng `minmax(0, 1fr)`; date,
   select và input không được có intrinsic width làm tràn card.
 
@@ -66,6 +71,15 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
 - Không cuộn ngang toàn trang; bảng/biểu đồ rộng phải có vùng cuộn riêng và bảng dữ liệu thay thế.
 - Tất cả thao tác có focus visible, nhãn accessible, keyboard path và touch target tối thiểu 44 px.
 - Light/dark được kiểm tra độc lập; trạng thái không truyền đạt chỉ bằng màu.
+- Cài đặt có ba native radio: Sáng, Tối, Theo thiết bị, cho mọi vai trò. Cookie `qlv_theme` chỉ có
+  ba lựa chọn, riêng từng hostname; SSR quyết định `data-theme` và meta `theme-color`. CSS/native
+  controls theo cùng lựa chọn ngay từ lần vẽ đầu, không dùng script khởi tạo inline hoặc reload.
+  Dialog/date dùng token `--native-color-scheme`; không dùng literal inherit vì CSS Production
+  optimizer thực tế biến nó thành normal.
+  Metadata khôi phục từ lịch sử SPA được đồng bộ lại theo preference hiện hành; observer được
+  cleanup và chỉ ghi khi giá trị khác. Chỉ “Theo thiết bị” theo dõi thay đổi OS. Nếu không lưu được cookie, trả về Theo thiết bị và báo lỗi.
+- Đối tác/chi phí dùng card ở mobile, khung danh sách chia dòng ở desktop từ 1024 px; form mở chiếm
+  toàn bộ chiều rộng. Phân trang chuẩn hóa theo tổng bản ghi sau lọc, giữ bộ lọc trên URL.
 - `prefers-reduced-motion` tắt gần như toàn bộ animation/transition không thiết yếu.
 
 ## Primitive và quyền riêng tư
@@ -74,6 +88,12 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
 - `PrivacyAmount` che tiền; `PrivacyRegion` che nguyên khối text tự do; `PrivacyForm` yêu cầu chủ động hiện tiền trước khi ghi nghiệp vụ.
 - Privacy dùng cookie đọc ở SSR. Khi chưa có lựa chọn cookie (kể cả nâng cấp từ localStorage cũ), mặc định che; không chớp tiền trước hydration.
 - `BusinessForm` giữ giá trị khi lỗi, liên kết lỗi với input, focus lỗi đầu và cảnh báo rời trang chưa lưu. Bản nháp chỉ trong bộ nhớ.
+- Khi đang lưu, đóng form/rời route bị chặn với thông báo chờ; khi lỗi giữ bản nháp để thử lại.
+  Quản lý tài khoản đóng form sau xác nhận thành công, trả focus và giữ thông báo thành công ngoài
+  form. Form mật khẩu lồng nhau có xác nhận bỏ bản nháp; không lưu mật khẩu vào storage.
+- Phân bổ chi phí thu gọn mặc định. Khi che tiền, không render tỷ trọng/thanh phân bổ hoặc chi tiết
+  accessibility suy ra số liệu. Khi hiện, tỷ trọng được tính bằng số nguyên và làm tròn 0,01 điểm
+  phần trăm để trình bày; không thay đổi số tiền authoritative hay ép tổng tỷ trọng thành 100%.
 - Tài khoản cá nhân nằm trong menu “Thêm” mobile cho mọi vai trò; menu đóng bằng Escape, click ngoài hoặc chọn route.
 
 ## Primitives và luồng nhanh

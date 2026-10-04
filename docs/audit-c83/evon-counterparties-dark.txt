@@ -1,0 +1,107 @@
+(node:32746) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+# Probe: 22 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c83/evon-counterparties-dark/375-dark.png)
+Ô NHẬP LỆCH MÉP VỚI NÚT RỘNG HẾT KHUNG (1 khung, ô và nút phải cùng mép trái phải):
+  ô 343px ở x=16, nút 335px ở x=16: form.counterparty-search "Tìm tên hoặc ghi chú đối tácTìm kiếm"
+DARK MODE (1 chỗ, rules-color.md M21, M31–M33):
+  color-scheme của <html> là "normal", không phải dark: thanh cuộn gốc, ô ngày, autofill, <select> vẫn vẽ bản sáng (M31)
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  25/25 mục chữ 700: "Lưu thay đổi", "Lưu thay đổi", "Lưu thay đổi"
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Thêm đối tác": .cache/c83/evon-counterparties-dark/375-dark-mo-0.png
+
+## 390px  (ảnh: .cache/c83/evon-counterparties-dark/390-dark.png)
+Ô NHẬP LỆCH MÉP VỚI NÚT RỘNG HẾT KHUNG (1 khung, ô và nút phải cùng mép trái phải):
+  ô 358px ở x=16, nút 350px ở x=16: form.counterparty-search "Tìm tên hoặc ghi chú đối tácTìm kiếm"
+DARK MODE (1 chỗ, rules-color.md M21, M31–M33):
+  color-scheme của <html> là "normal", không phải dark: thanh cuộn gốc, ô ngày, autofill, <select> vẫn vẽ bản sáng (M31)
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  25/25 mục chữ 700: "Lưu thay đổi", "Lưu thay đổi", "Lưu thay đổi"
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Thêm đối tác": .cache/c83/evon-counterparties-dark/390-dark-mo-0.png
+
+## 768px  (ảnh: .cache/c83/evon-counterparties-dark/768-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm đối tác": viền #93c5fd → #bfdbfe
+  button "Tìm kiếm": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (12 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Thêm đối tác"
+  button "Tìm kiếm"
+  button "Xóa C83 Đối tác mẫu 03"
+  summary "Chỉnh sửa thông tin"
+  button "Xóa C83 Đối tác mẫu 04"
+  summary "Chỉnh sửa thông tin"
+DARK MODE (1 chỗ, rules-color.md M21, M31–M33):
+  color-scheme của <html> là "normal", không phải dark: thanh cuộn gốc, ô ngày, autofill, <select> vẫn vẽ bản sáng (M31)
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1024px  (ảnh: .cache/c83/evon-counterparties-dark/1024-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm đối tác": viền #93c5fd → #bfdbfe
+  button "Tìm kiếm": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (15 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+DARK MODE (1 chỗ, rules-color.md M21, M31–M33):
+  color-scheme của <html> là "normal", không phải dark: thanh cuộn gốc, ô ngày, autofill, <select> vẫn vẽ bản sáng (M31)
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Khoản vay", "Thông báo28"
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1440px  (ảnh: .cache/c83/evon-counterparties-dark/1440-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm đối tác": viền #93c5fd → #bfdbfe
+  button "Tìm kiếm": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (15 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+DARK MODE (1 chỗ, rules-color.md M21, M31–M33):
+  color-scheme của <html> là "normal", không phải dark: thanh cuộn gốc, ô ngày, autofill, <select> vẫn vẽ bản sáng (M31)
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Khoản vay", "Thông báo28"
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Việc phải đối chiếu: 0 mục probe xếp Hỏng
+Không có mục nào.
+
+Chi tiết: .cache/c83/evon-counterparties-dark/report.json

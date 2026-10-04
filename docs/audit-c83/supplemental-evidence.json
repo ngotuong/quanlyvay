@@ -1,0 +1,792 @@
+{
+  "method": "Separate guarded synthetic fixture; valid schema-boundary unbroken text; PushManager removed before page load; no permission requested",
+  "supplemental": [
+    {
+      "route": "counterparties",
+      "width": 375,
+      "theme": "light",
+      "overflow": 4992,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 2 bản ghi",
+      "empty": [],
+      "rowCount": 2,
+      "expenseTotal": null,
+      "longContent": [
+        {
+          "class": "",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "expenses",
+      "width": 375,
+      "theme": "light",
+      "overflow": 5689,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 1 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      },
+      "longContent": [
+        {
+          "class": "",
+          "width": 981,
+          "scrollWidth": 981,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 301,
+          "scrollWidth": 6027,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [
+        {
+          "width": 301,
+          "height": 20.46875,
+          "pseudoHeight": "24px"
+        }
+      ],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "counterparties",
+      "width": 390,
+      "theme": "light",
+      "overflow": 4977,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 2 bản ghi",
+      "empty": [],
+      "rowCount": 2,
+      "expenseTotal": null,
+      "longContent": [
+        {
+          "class": "",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "expenses",
+      "width": 390,
+      "theme": "light",
+      "overflow": 5674,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 1 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      },
+      "longContent": [
+        {
+          "class": "",
+          "width": 981,
+          "scrollWidth": 981,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 316,
+          "scrollWidth": 6027,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [
+        {
+          "width": 316,
+          "height": 20.46875,
+          "pseudoHeight": "24px"
+        }
+      ],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "counterparties",
+      "width": 768,
+      "theme": "light",
+      "overflow": 4611,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 2 bản ghi",
+      "empty": [],
+      "rowCount": 2,
+      "expenseTotal": null,
+      "longContent": [
+        {
+          "class": "",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "expenses",
+      "width": 768,
+      "theme": "light",
+      "overflow": 5308,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 1 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      },
+      "longContent": [
+        {
+          "class": "",
+          "width": 981,
+          "scrollWidth": 981,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 670,
+          "scrollWidth": 6027,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [
+        {
+          "width": 670,
+          "height": 20.46875,
+          "pseudoHeight": "24px"
+        }
+      ],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "counterparties",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 4615,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 2 bản ghi",
+      "empty": [],
+      "rowCount": 2,
+      "expenseTotal": null,
+      "longContent": [
+        {
+          "class": "",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "expenses",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 5312,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 1 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      },
+      "longContent": [
+        {
+          "class": "",
+          "width": 981,
+          "scrollWidth": 981,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 654,
+          "scrollWidth": 6027,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [
+        {
+          "width": 654,
+          "height": 20.46875,
+          "pseudoHeight": "24px"
+        }
+      ],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "counterparties",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 4199,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 2 bản ghi",
+      "empty": [],
+      "rowCount": 2,
+      "expenseTotal": null,
+      "longContent": [
+        {
+          "class": "",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "expenses",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 4896,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 1 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(255, 255, 255)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      },
+      "longContent": [
+        {
+          "class": "",
+          "width": 981,
+          "scrollWidth": 981,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 1070,
+          "scrollWidth": 6027,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [
+        {
+          "width": 1070,
+          "height": 20.46875,
+          "pseudoHeight": "24px"
+        }
+      ],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "counterparties",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 4992,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 2 bản ghi",
+      "empty": [],
+      "rowCount": 2,
+      "expenseTotal": null,
+      "longContent": [
+        {
+          "class": "",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "expenses",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 5689,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 1 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      },
+      "longContent": [
+        {
+          "class": "",
+          "width": 981,
+          "scrollWidth": 981,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 301,
+          "scrollWidth": 6027,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [
+        {
+          "width": 301,
+          "height": 20.46875,
+          "pseudoHeight": "24px"
+        }
+      ],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "counterparties",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 4977,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 2 bản ghi",
+      "empty": [],
+      "rowCount": 2,
+      "expenseTotal": null,
+      "longContent": [
+        {
+          "class": "",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "expenses",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 5674,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 1 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      },
+      "longContent": [
+        {
+          "class": "",
+          "width": 981,
+          "scrollWidth": 981,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 316,
+          "scrollWidth": 6027,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [
+        {
+          "width": 316,
+          "height": 20.46875,
+          "pseudoHeight": "24px"
+        }
+      ],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "counterparties",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 4611,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 2 bản ghi",
+      "empty": [],
+      "rowCount": 2,
+      "expenseTotal": null,
+      "longContent": [
+        {
+          "class": "",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "expenses",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 5308,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 1 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      },
+      "longContent": [
+        {
+          "class": "",
+          "width": 981,
+          "scrollWidth": 981,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 670,
+          "scrollWidth": 6027,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [
+        {
+          "width": 670,
+          "height": 20.46875,
+          "pseudoHeight": "24px"
+        }
+      ],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "counterparties",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 4615,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 2 bản ghi",
+      "empty": [],
+      "rowCount": 2,
+      "expenseTotal": null,
+      "longContent": [
+        {
+          "class": "",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "expenses",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 5312,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 1 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      },
+      "longContent": [
+        {
+          "class": "",
+          "width": 981,
+          "scrollWidth": 981,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 654,
+          "scrollWidth": 6027,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [
+        {
+          "width": 654,
+          "height": 20.46875,
+          "pseudoHeight": "24px"
+        }
+      ],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "counterparties",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 4199,
+      "visibleH1": 1,
+      "tinyTargets": [],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 2 bản ghi",
+      "empty": [],
+      "rowCount": 2,
+      "expenseTotal": null,
+      "longContent": [
+        {
+          "class": "",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 5274,
+          "scrollWidth": 5274,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [],
+      "nativeColorScheme": "normal"
+    },
+    {
+      "route": "expenses",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 4896,
+      "visibleH1": 1,
+      "tinyTargets": [
+        {
+          "tag": "SUMMARY",
+          "class": ""
+        }
+      ],
+      "unlabelledFields": 0,
+      "pagination": "Trang 1 / 1 · 1 bản ghi",
+      "empty": [],
+      "rowCount": 1,
+      "expenseTotal": {
+        "color": "lab(38.4009 52.6132 -92.3857)",
+        "background": "rgb(17, 24, 39)",
+        "fontSize": "20px",
+        "fontWeight": "700"
+      },
+      "longContent": [
+        {
+          "class": "",
+          "width": 981,
+          "scrollWidth": 981,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        },
+        {
+          "class": "notes-copy",
+          "width": 1070,
+          "scrollWidth": 6027,
+          "overflowX": "visible",
+          "overflowWrap": "normal"
+        }
+      ],
+      "reversalTargets": [
+        {
+          "width": 1070,
+          "height": 20.46875,
+          "pseudoHeight": "24px"
+        }
+      ],
+      "nativeColorScheme": "normal"
+    }
+  ],
+  "push": {
+    "unsupported": true,
+    "summary": "Thông báo trên thiết bịChưa bật",
+    "switchDisabled": true,
+    "switchName": "Bật thông báo trên thiết bị",
+    "permission": "default"
+  }
+}

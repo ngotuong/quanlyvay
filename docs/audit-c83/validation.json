@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-04",
+  "scope": "C83 documentation, synthetic prototypes, isolated observation harness; runtime source unchanged",
+  "lint": "PASS",
+  "typecheck": "PASS",
+  "auditMain": {
+    "result": "PASS",
+    "tests": 1,
+    "durationMinutes": 4.8,
+    "samples": 130
+  },
+  "supplemental": {
+    "result": "PASS",
+    "tests": 1,
+    "durationMinutes": 2.3,
+    "samples": 20,
+    "findings": "Valid unbroken text overflow confirmed; not a product-pass assertion",
+    "fixtureIsolation": "Final rerun includes its own fresh local setup; teardown SQL verified 0/0/0 afterward"
+  },
+  "regression": {
+    "result": "PASS",
+    "tests": 22,
+    "durationMinutes": 4.1,
+    "files": [
+      "c63-remediation.spec.ts",
+      "c67-accessibility.spec.ts",
+      "c72-remediation.spec.ts",
+      "c75-remediation.spec.ts"
+    ]
+  },
+  "build": "Existing Playwright webServer ran next build before each E2E invocation; successful production builds",
+  "databaseTeardown": {
+    "container": "supabase_db_QuanLyVayCaNhan-C20-test",
+    "dbPort": 55322,
+    "profiles": 0,
+    "loans": 0,
+    "transactions": 0
+  },
+  "prototype": {
+    "matrix": 80,
+    "stress": 20,
+    "overflow": 0,
+    "clippedStressText": 0,
+    "evonFixed": 50,
+    "evonSweep": 55,
+    "finalP": 0,
+    "reviewHTTPLinks": 18,
+    "failedLinks": 0,
+    "CUADeliverableOpened": true
+  },
+  "appProbe": {
+    "fixed": 40,
+    "sweep": 220,
+    "rawP": 9,
+    "included": 7,
+    "excludedWithReason": 2
+  },
+  "JS": "node --check docs/audit-c83/prototype.js PASS",
+  "JSON": "All audit-c83 JSON files parsed PASS",
+  "diffCheck": "PASS",
+  "secrets": "0 actual; 1 reviewed false-positive synthetic RPC idempotency identifier; raw scanner exit1 retained, see security-evidence.json",
+  "historicalArtifacts": "Restored exactly six C75 dashboard PNG files rewritten by existing regression harness, baseline HEAD verified; no OWNER changes restored",
+  "commitPushDeploy": "Not performed; prohibited by C83 scope",
+  "remote": "Read-only UI audit; no saves, mark-read, settings/account/permission writes",
+  "limitations": [
+    "Dark Production C83 not tested",
+    "Physical mobile/AT and authenticated Safari/Firefox not tested",
+    "Remote financial saves not tested"
+  ]
+}

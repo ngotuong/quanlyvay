@@ -92,7 +92,7 @@ test("C64 counterparties stay list-first and preserve search and drafts", async 
   await card.getByText("Chỉnh sửa thông tin").click();
   await card.getByLabel("Ghi chú").fill("Đã sửa trong kết quả tìm kiếm");
   await card.getByRole("button", { name: "Lưu thay đổi" }).click();
-  await expect(card.locator("details")).not.toHaveAttribute("open", "");
+  await expect(card.locator("details.edit-details")).not.toHaveAttribute("open", "");
   await expect(page).toHaveURL(/\/counterparties\?q=C64\+search\+flow$/);
 
   await page.getByRole("button", { name: "Thêm đối tác", exact: true }).click();

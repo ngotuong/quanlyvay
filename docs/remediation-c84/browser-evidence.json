@@ -1,0 +1,5307 @@
+{
+  "method": "Chrome local production build; guarded synthetic API55321/DB55322",
+  "matrix": [
+    {
+      "route": "counterparties",
+      "theme": "light",
+      "actualPath": "/counterparties",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": "placeholder",
+          "color": "rgb(83, 98, 120)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses",
+      "theme": "light",
+      "actualPath": "/expenses",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".expense-budget-total",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(255, 255, 255)",
+          "large": true
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "notifications",
+      "theme": "light",
+      "actualPath": "/notifications",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "settings",
+      "theme": "light",
+      "actualPath": "/settings",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(17, 24, 39)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(17, 24, 39)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": {
+        "color": "rgb(37, 99, 235)",
+        "width": 3,
+        "background": "rgb(255, 255, 255)"
+      },
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "dashboard",
+      "theme": "light",
+      "actualPath": "/dashboard",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "loans",
+      "theme": "light",
+      "actualPath": "/loans",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.99451 0.995686 0.997647)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "login",
+      "theme": "light",
+      "actualPath": "/dashboard",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses-unbroken-page2",
+      "theme": "light",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "textLengths": [
+        80,
+        500
+      ],
+      "moneyHeight": 20,
+      "moneyLine": 25.6
+    },
+    {
+      "route": "expenses-open-reversal",
+      "theme": "light",
+      "width": 375,
+      "button": {
+        "height": 18,
+        "line": 17.76,
+        "width": 295
+      }
+    },
+    {
+      "route": "counterparties",
+      "theme": "light",
+      "actualPath": "/counterparties",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": "placeholder",
+          "color": "rgb(83, 98, 120)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses",
+      "theme": "light",
+      "actualPath": "/expenses",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".expense-budget-total",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(255, 255, 255)",
+          "large": true
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "notifications",
+      "theme": "light",
+      "actualPath": "/notifications",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "settings",
+      "theme": "light",
+      "actualPath": "/settings",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(17, 24, 39)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(17, 24, 39)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": {
+        "color": "rgb(37, 99, 235)",
+        "width": 3,
+        "background": "rgb(255, 255, 255)"
+      },
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "dashboard",
+      "theme": "light",
+      "actualPath": "/dashboard",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "loans",
+      "theme": "light",
+      "actualPath": "/loans",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.99451 0.995686 0.997647)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "login",
+      "theme": "light",
+      "actualPath": "/dashboard",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses-unbroken-page2",
+      "theme": "light",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "textLengths": [
+        80,
+        500
+      ],
+      "moneyHeight": 20,
+      "moneyLine": 25.6
+    },
+    {
+      "route": "expenses-open-reversal",
+      "theme": "light",
+      "width": 390,
+      "button": {
+        "height": 18,
+        "line": 17.76,
+        "width": 310
+      }
+    },
+    {
+      "route": "counterparties",
+      "theme": "light",
+      "actualPath": "/counterparties",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": "placeholder",
+          "color": "rgb(83, 98, 120)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses",
+      "theme": "light",
+      "actualPath": "/expenses",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".expense-budget-total",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(255, 255, 255)",
+          "large": true
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "notifications",
+      "theme": "light",
+      "actualPath": "/notifications",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "settings",
+      "theme": "light",
+      "actualPath": "/settings",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(17, 24, 39)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(17, 24, 39)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": {
+        "color": "rgb(37, 99, 235)",
+        "width": 3,
+        "background": "rgb(255, 255, 255)"
+      },
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "dashboard",
+      "theme": "light",
+      "actualPath": "/dashboard",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "loans",
+      "theme": "light",
+      "actualPath": "/loans",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.99451 0.995686 0.997647)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "login",
+      "theme": "light",
+      "actualPath": "/dashboard",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses-unbroken-page2",
+      "theme": "light",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "textLengths": [
+        80,
+        500
+      ],
+      "moneyHeight": 20,
+      "moneyLine": 25.6
+    },
+    {
+      "route": "expenses-open-reversal",
+      "theme": "light",
+      "width": 768,
+      "button": {
+        "height": 18,
+        "line": 17.76,
+        "width": 664
+      }
+    },
+    {
+      "route": "counterparties",
+      "theme": "light",
+      "actualPath": "/counterparties",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "rgb(83, 98, 120)",
+          "background": "rgb(246, 247, 251)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(83, 98, 120)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses",
+      "theme": "light",
+      "actualPath": "/expenses",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".expense-budget-total",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(255, 255, 255)",
+          "large": true
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "notifications",
+      "theme": "light",
+      "actualPath": "/notifications",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "settings",
+      "theme": "light",
+      "actualPath": "/settings",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(17, 24, 39)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(17, 24, 39)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": {
+        "color": "rgb(37, 99, 235)",
+        "width": 3,
+        "background": "rgb(255, 255, 255)"
+      },
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "dashboard",
+      "theme": "light",
+      "actualPath": "/dashboard",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(246, 247, 251)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "loans",
+      "theme": "light",
+      "actualPath": "/loans",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(246, 247, 251)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.99451 0.995686 0.997647)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "login",
+      "theme": "light",
+      "actualPath": "/dashboard",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(246, 247, 251)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses-unbroken-page2",
+      "theme": "light",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "textLengths": [
+        80,
+        500
+      ],
+      "moneyHeight": 20,
+      "moneyLine": 25.6
+    },
+    {
+      "route": "expenses-open-reversal",
+      "theme": "light",
+      "width": 1024,
+      "button": {
+        "height": 18,
+        "line": 17.76,
+        "width": 648
+      }
+    },
+    {
+      "route": "counterparties",
+      "theme": "light",
+      "actualPath": "/counterparties",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "rgb(83, 98, 120)",
+          "background": "rgb(246, 247, 251)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(83, 98, 120)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses",
+      "theme": "light",
+      "actualPath": "/expenses",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".expense-budget-total",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(255, 255, 255)",
+          "large": true
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "notifications",
+      "theme": "light",
+      "actualPath": "/notifications",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.920235 0.937529 0.986235)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "settings",
+      "theme": "light",
+      "actualPath": "/settings",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(3, 105, 161)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(17, 24, 39)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(17, 24, 39)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": {
+        "color": "rgb(37, 99, 235)",
+        "width": 3,
+        "background": "rgb(255, 255, 255)"
+      },
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "dashboard",
+      "theme": "light",
+      "actualPath": "/dashboard",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(246, 247, 251)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "loans",
+      "theme": "light",
+      "actualPath": "/loans",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(246, 247, 251)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(83, 98, 120)",
+          "background": "color(srgb 0.99451 0.995686 0.997647)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "login",
+      "theme": "light",
+      "actualPath": "/dashboard",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "light",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(246, 247, 251)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.286667 0.340784 0.422941)",
+          "background": "rgb(255, 255, 255)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses-unbroken-page2",
+      "theme": "light",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "textLengths": [
+        80,
+        500
+      ],
+      "moneyHeight": 20,
+      "moneyLine": 25.6
+    },
+    {
+      "route": "expenses-open-reversal",
+      "theme": "light",
+      "width": 1440,
+      "button": {
+        "height": 18,
+        "line": 17.76,
+        "width": 1064
+      }
+    },
+    {
+      "route": "counterparties",
+      "theme": "dark",
+      "actualPath": "/counterparties",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": "placeholder",
+          "color": "rgb(167, 178, 195)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses",
+      "theme": "dark",
+      "actualPath": "/expenses",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".expense-budget-total",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(17, 24, 39)",
+          "large": true
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "notifications",
+      "theme": "dark",
+      "actualPath": "/notifications",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "settings",
+      "theme": "dark",
+      "actualPath": "/settings",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(248, 250, 252)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(248, 250, 252)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": {
+        "color": "rgb(96, 165, 250)",
+        "width": 3,
+        "background": "rgb(17, 24, 39)"
+      },
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "dashboard",
+      "theme": "dark",
+      "actualPath": "/dashboard",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "loans",
+      "theme": "dark",
+      "actualPath": "/loans",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.0694118 0.0980392 0.158431)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "login",
+      "theme": "dark",
+      "actualPath": "/dashboard",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses-unbroken-page2",
+      "theme": "dark",
+      "width": 375,
+      "overflow": 0,
+      "clippedText": 0,
+      "textLengths": [
+        80,
+        500
+      ],
+      "moneyHeight": 20,
+      "moneyLine": 25.6
+    },
+    {
+      "route": "expenses-open-reversal",
+      "theme": "dark",
+      "width": 375,
+      "button": {
+        "height": 18,
+        "line": 17.76,
+        "width": 295
+      }
+    },
+    {
+      "route": "counterparties",
+      "theme": "dark",
+      "actualPath": "/counterparties",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": "placeholder",
+          "color": "rgb(167, 178, 195)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses",
+      "theme": "dark",
+      "actualPath": "/expenses",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".expense-budget-total",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(17, 24, 39)",
+          "large": true
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "notifications",
+      "theme": "dark",
+      "actualPath": "/notifications",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "settings",
+      "theme": "dark",
+      "actualPath": "/settings",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(248, 250, 252)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(248, 250, 252)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": {
+        "color": "rgb(96, 165, 250)",
+        "width": 3,
+        "background": "rgb(17, 24, 39)"
+      },
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "dashboard",
+      "theme": "dark",
+      "actualPath": "/dashboard",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "loans",
+      "theme": "dark",
+      "actualPath": "/loans",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.0694118 0.0980392 0.158431)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "login",
+      "theme": "dark",
+      "actualPath": "/",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses-unbroken-page2",
+      "theme": "dark",
+      "width": 390,
+      "overflow": 0,
+      "clippedText": 0,
+      "textLengths": [
+        80,
+        500
+      ],
+      "moneyHeight": 20,
+      "moneyLine": 25.6
+    },
+    {
+      "route": "expenses-open-reversal",
+      "theme": "dark",
+      "width": 390,
+      "button": {
+        "height": 18,
+        "line": 17.76,
+        "width": 310
+      }
+    },
+    {
+      "route": "counterparties",
+      "theme": "dark",
+      "actualPath": "/counterparties",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": "placeholder",
+          "color": "rgb(167, 178, 195)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses",
+      "theme": "dark",
+      "actualPath": "/expenses",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".expense-budget-total",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(17, 24, 39)",
+          "large": true
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "notifications",
+      "theme": "dark",
+      "actualPath": "/notifications",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "settings",
+      "theme": "dark",
+      "actualPath": "/settings",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(248, 250, 252)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(248, 250, 252)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": {
+        "color": "rgb(96, 165, 250)",
+        "width": 3,
+        "background": "rgb(17, 24, 39)"
+      },
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "dashboard",
+      "theme": "dark",
+      "actualPath": "/dashboard",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "loans",
+      "theme": "dark",
+      "actualPath": "/loans",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.0694118 0.0980392 0.158431)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "login",
+      "theme": "dark",
+      "actualPath": "/dashboard",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses-unbroken-page2",
+      "theme": "dark",
+      "width": 768,
+      "overflow": 0,
+      "clippedText": 0,
+      "textLengths": [
+        80,
+        500
+      ],
+      "moneyHeight": 20,
+      "moneyLine": 25.6
+    },
+    {
+      "route": "expenses-open-reversal",
+      "theme": "dark",
+      "width": 768,
+      "button": {
+        "height": 18,
+        "line": 17.76,
+        "width": 664
+      }
+    },
+    {
+      "route": "counterparties",
+      "theme": "dark",
+      "actualPath": "/counterparties",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "rgb(167, 178, 195)",
+          "background": "rgb(9, 13, 24)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(167, 178, 195)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses",
+      "theme": "dark",
+      "actualPath": "/expenses",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".expense-budget-total",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(17, 24, 39)",
+          "large": true
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "notifications",
+      "theme": "dark",
+      "actualPath": "/notifications",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "settings",
+      "theme": "dark",
+      "actualPath": "/settings",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(248, 250, 252)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(248, 250, 252)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": {
+        "color": "rgb(96, 165, 250)",
+        "width": 3,
+        "background": "rgb(17, 24, 39)"
+      },
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "dashboard",
+      "theme": "dark",
+      "actualPath": "/dashboard",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(9, 13, 24)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "loans",
+      "theme": "dark",
+      "actualPath": "/loans",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(9, 13, 24)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.0694118 0.0980392 0.158431)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "login",
+      "theme": "dark",
+      "actualPath": "/dashboard",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(9, 13, 24)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses-unbroken-page2",
+      "theme": "dark",
+      "width": 1024,
+      "overflow": 0,
+      "clippedText": 0,
+      "textLengths": [
+        80,
+        500
+      ],
+      "moneyHeight": 20,
+      "moneyLine": 25.6
+    },
+    {
+      "route": "expenses-open-reversal",
+      "theme": "dark",
+      "width": 1024,
+      "button": {
+        "height": 18,
+        "line": 17.76,
+        "width": 648
+      }
+    },
+    {
+      "route": "counterparties",
+      "theme": "dark",
+      "actualPath": "/counterparties",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "rgb(167, 178, 195)",
+          "background": "rgb(9, 13, 24)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(167, 178, 195)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses",
+      "theme": "dark",
+      "actualPath": "/expenses",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".expense-budget-total",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(17, 24, 39)",
+          "large": true
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "notifications",
+      "theme": "dark",
+      "actualPath": "/notifications",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".notification-main small",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.112549 0.155176 0.228471)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".unread-label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "settings",
+      "theme": "dark",
+      "actualPath": "/settings",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "rgb(56, 189, 248)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(248, 250, 252)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": ".theme-options label",
+          "color": "rgb(248, 250, 252)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": {
+        "color": "rgb(96, 165, 250)",
+        "width": 3,
+        "background": "rgb(17, 24, 39)"
+      },
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "dashboard",
+      "theme": "dark",
+      "actualPath": "/dashboard",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(9, 13, 24)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "loans",
+      "theme": "dark",
+      "actualPath": "/loans",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(9, 13, 24)",
+          "large": false
+        },
+        {
+          "selector": ".filter-pills a",
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)",
+          "large": false
+        },
+        {
+          "selector": "placeholder",
+          "color": "rgb(167, 178, 195)",
+          "background": "color(srgb 0.0694118 0.0980392 0.158431)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "login",
+      "theme": "dark",
+      "actualPath": "/dashboard",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "nativeScheme": "dark",
+      "colors": [
+        {
+          "selector": ".page-description",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(9, 13, 24)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        },
+        {
+          "selector": ".eyebrow",
+          "color": "color(srgb 0.702549 0.740392 0.798235)",
+          "background": "rgb(17, 24, 39)",
+          "large": false
+        }
+      ],
+      "focus": null,
+      "tinySummary": 0,
+      "clippedAmounts": 0
+    },
+    {
+      "route": "expenses-unbroken-page2",
+      "theme": "dark",
+      "width": 1440,
+      "overflow": 0,
+      "clippedText": 0,
+      "textLengths": [
+        80,
+        500
+      ],
+      "moneyHeight": 20,
+      "moneyLine": 25.6
+    },
+    {
+      "route": "expenses-open-reversal",
+      "theme": "dark",
+      "width": 1440,
+      "button": {
+        "height": 18,
+        "line": 17.76,
+        "width": 1064
+      }
+    }
+  ],
+  "checks": [
+    "F1 canonical filtered count 0/25/26, pagination URL/back/forward, no false empty/error",
+    "F2 pending dismiss no discard promise; error/cancel draft retained; retry acknowledged save/close/focus",
+    "F3 settings nested close/navigation guard, transport error retry, pending, success close/focus, password cleared on discard (memory only)",
+    "Theme manual overrides OS; keyboard, cookie/reload/routes/SSR no-JS, invalid/blocked fallback; settings draft/Auth unaffected",
+    "F4/F5/F6/F7 manual opposite OS 70 route-width samples; complete text/nowrap amounts/44px/contrast; derived privacy absent on reload and restored",
+    "Local synthetic create/reset acknowledgments close/clear/focus; reset Auth must-change policy preserved; viewer appearance access without user administration",
+    "Manual contrary OS present during delayed first-paint startup/login; financial drawer/date theme and Escape unchanged"
+  ]
+}

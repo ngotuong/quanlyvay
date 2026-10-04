@@ -1,0 +1,126 @@
+(node:33026) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+# Probe: 30 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c83/evon-settings-light/375.png)
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Tài khoản đang hoạt động được ưu tiên. C…" trơ "sách." ở dòng cuối: p "Tài khoản đang hoạt động được ưu tiên. C"
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.ui-card.ui-card--flat.surface-card.detail-section "Tài khoản của tôiC6 Owner E2Ec"
+CHỮ DƯỚI 12px (6 chỗ):
+  11.52px "Đang hoạt động": span.managed-user-status "Đang hoạt động"
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+CONTROL CÒN KIỂU MẶC ĐỊNH CỦA TRÌNH DUYỆT (1 chỗ, dự án thiếu reset hay control chưa tự reset):
+  checkbox gốc trình duyệt: input
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  4.10:1, cần 4.5:1, chữ #0284c7 trên nền #ffffff "Tài khoản của tôi": p.eyebrow "Tài khoản của tôi"
+
+## 390px  (ảnh: .cache/c83/evon-settings-light/390.png)
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Tài khoản đang hoạt động được ưu tiên. C…" trơ "sách." ở dòng cuối: p "Tài khoản đang hoạt động được ưu tiên. C"
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.ui-card.ui-card--flat.surface-card.detail-section "Tài khoản của tôiC6 Owner E2Ec"
+CHỮ DƯỚI 12px (6 chỗ):
+  11.52px "Đang hoạt động": span.managed-user-status "Đang hoạt động"
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+CONTROL CÒN KIỂU MẶC ĐỊNH CỦA TRÌNH DUYỆT (1 chỗ, dự án thiếu reset hay control chưa tự reset):
+  checkbox gốc trình duyệt: input
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  4.10:1, cần 4.5:1, chữ #0284c7 trên nền #ffffff "Tài khoản của tôi": p.eyebrow "Tài khoản của tôi"
+
+## 768px  (ảnh: .cache/c83/evon-settings-light/768.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Đăng xuất": viền #e2e8f0 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (9 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  a "Đổi mật khẩu"
+  button "Đăng xuất"
+  summary "Tạo tài khoản phụ"
+  summary "Quản lý tài khoản"
+  a "Tổng quan"
+  a "Khoản vay"
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.ui-card.ui-card--flat.surface-card.detail-section "Tài khoản của tôiC6 Owner E2Ec"
+CHỮ DƯỚI 12px (6 chỗ):
+  11.52px "Đang hoạt động": span.managed-user-status "Đang hoạt động"
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+CONTROL CÒN KIỂU MẶC ĐỊNH CỦA TRÌNH DUYỆT (1 chỗ, dự án thiếu reset hay control chưa tự reset):
+  checkbox gốc trình duyệt: input
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  4.10:1, cần 4.5:1, chữ #0284c7 trên nền #ffffff "Tài khoản của tôi": p.eyebrow "Tài khoản của tôi"
+
+## 1024px  (ảnh: .cache/c83/evon-settings-light/1024.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Đăng xuất": viền #e2e8f0 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (12 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.ui-card.ui-card--flat.surface-card.detail-section "Tài khoản của tôiC6 Owner E2Ec"
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Khoản vay", "Đối tác"
+CHỮ DƯỚI 12px (2 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+  11.52px "Đang hoạt động": span.managed-user-status "Đang hoạt động"
+CONTROL CÒN KIỂU MẶC ĐỊNH CỦA TRÌNH DUYỆT (1 chỗ, dự án thiếu reset hay control chưa tự reset):
+  checkbox gốc trình duyệt: input
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  4.10:1, cần 4.5:1, chữ #0284c7 trên nền #ffffff "Tài khoản của tôi": p.eyebrow "Tài khoản của tôi"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1440px  (ảnh: .cache/c83/evon-settings-light/1440.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Đăng xuất": viền #e2e8f0 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (12 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.ui-card.ui-card--flat.surface-card.detail-section "Tài khoản của tôiC6 Owner E2Ec"
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Khoản vay", "Đối tác"
+CHỮ DƯỚI 12px (2 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+  11.52px "Đang hoạt động": span.managed-user-status "Đang hoạt động"
+CONTROL CÒN KIỂU MẶC ĐỊNH CỦA TRÌNH DUYỆT (1 chỗ, dự án thiếu reset hay control chưa tự reset):
+  checkbox gốc trình duyệt: input
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  4.10:1, cần 4.5:1, chữ #0284c7 trên nền #ffffff "Tài khoản của tôi": p.eyebrow "Tài khoản của tôi"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Quét bề rộng 1440 → 375px, bước 20px (55 ảnh ở .cache/c83/evon-settings-light/sweep)
+Không đo ra chỗ vỡ ở bề rộng nào. Vẫn mở vài ảnh ở giữa hai khổ cố định mà xem.
+Máy không thấy chồng lấn, lệch hàng, khoảng trắng vô lý. Xem thêm các ảnh quanh ngưỡng sidebar thu và ngưỡng lưới đổi cột.
+
+# Việc phải đối chiếu: 1 mục probe xếp Hỏng
+Mỗi mục thành một dòng trong bảng giao (cột Nguồn ghi mã, ví dụ `đo P3`; cùng gốc thì gộp nhiều mã một dòng),
+hoặc một dòng dưới bảng nói vì sao loại. Không mục nào được biến mất im lặng (V5 trong review.md).
+P1 [1440px, 1024px, 768px, 375–390px] tương phản thấp: 4.10:1, cần 4.5:1, chữ #0284c7 trên nền #ffffff "Tài khoản của tôi": p.eyebrow "Tài khoản của tôi"
+
+Chi tiết: .cache/c83/evon-settings-light/report.json

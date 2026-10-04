@@ -1,0 +1,145 @@
+{
+  "method": "Static synthetic mockup, valid unbroken text length120/500, no API or product changes",
+  "matrix": [
+    {
+      "view": "counterparties",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "expenses",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "counterparties",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "expenses",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "counterparties",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "expenses",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "counterparties",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "expenses",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "counterparties",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "expenses",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "counterparties",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "expenses",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "counterparties",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "expenses",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "counterparties",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "expenses",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "counterparties",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "expenses",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "counterparties",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "clipped": 0
+    },
+    {
+      "view": "expenses",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "clipped": 0
+    }
+  ]
+}

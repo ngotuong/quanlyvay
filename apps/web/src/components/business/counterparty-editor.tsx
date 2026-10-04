@@ -10,12 +10,15 @@ export function CounterpartyEditor({ counterparty }: { counterparty: Counterpart
   const details = useRef<HTMLDetailsElement>(null);
   const [session, setSession] = useState(0);
   const [dirty, setDirty] = useState(false);
+  const [pending, setPending] = useState(false);
 
   return <details ref={details} className="edit-details"><summary onClick={event => {
-    if (!details.current?.open || !dirty) return;
+    if (!details.current?.open) return;
+    if (pending) { event.preventDefault(); notifyToast("Đang lưu thay đổi. Vui lòng chờ kết quả."); return; }
+    if (!dirty) return;
     if (!window.confirm("Bạn có thay đổi chưa lưu. Đóng và bỏ các thay đổi này?")) { event.preventDefault(); return; }
     setDirty(false); setSession(value => value + 1);
-  }}>Chỉnh sửa thông tin</summary><PrivacyForm><CounterpartyForm key={session} counterparty={counterparty} onDirtyChange={setDirty} onSuccess={message => {
+  }}>Chỉnh sửa thông tin</summary><PrivacyForm><CounterpartyForm key={session} counterparty={counterparty} onDirtyChange={setDirty} onPendingChange={setPending} onSuccess={message => {
     details.current?.removeAttribute("open");
     setSession(value => value + 1);
     notifyToast(message, "success");
