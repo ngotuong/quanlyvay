@@ -1,12 +1,14 @@
 # C82 — Phát hành UI compact C81
 
-Trạng thái: IN_PROGRESS. OWNER phê duyệt03/10/2026.
+Trạng thái: COMPLETED ngày04/10/2026. OWNER phê duyệt03/10/2026.
 
 Source phát hành `8ecdeb4ac5960673958ec2c75d597d1fdb1375c5` đã push;
 [Required CI source](https://github.com/ngotuong/quanlyvay/actions/runs/37171480847) SUCCESS
 cả5jobs đúng SHA. Preview/Production/default đã phát hành C82 và đạt public/Auth/log
-hậu kiểm. C82 còn IN_PROGRESS đến khi closing docs được push và Required CI đúng
-closing SHA SUCCESS. Phần dưới giữ trình tự bằng chứng/failure/giới hạn, không cấp scope mới.
+hậu kiểm. [Required CI closing proof](https://github.com/ngotuong/quanlyvay/actions/runs/37179819051)
+SUCCESS cả5jobs đúng SHA `1492fe0b0fdb7dc73a2dc50978978d933671fd19`. Commit trạng thái cuối chỉ tài liệu
+phải được xác minh CI đúng SHA trước completion message; kết quả final SHA/run được báo
+trong hội thoại. Phần dưới giữ trình tự lịch sử bằng chứng/failure/giới hạn, không cấp scope mới.
 
 Source C80/C81 `ff8f7060c81609beca0b08f01240acc95369ffb1` đã push fast-forward lên main.
 [Required CI source](https://github.com/ngotuong/quanlyvay/actions/runs/37123164406) attempt1 FAILED;
@@ -230,3 +232,12 @@ hữu dùng được, không export credential. Viewport reset. C79 rollback gi�
 release không cần kích hoạt. DB55322 đúnglabel C20-test hậu kiểm0/0/0. Restore đúng7PNG
 C75 tự ghi; không broad restore. CI policy/actionlint/JSON/script-syntax/diff PASS.
 Closing docs push và Required CI đúng SHA vẫn là gate còn lại, không dùng source CI thay.
+
+## Hoàn tất và dừng ở cổng C83
+
+Closing proof commit `1492fe0b0fdb7dc73a2dc50978978d933671fd19` push fast-forward; Required CI37179819051
+SUCCESS toàn bộ5jobs, gồm full Supabase/Auth/pgTAP/E2E và Required CI gate.
+Gate local tài liệu JSON/JS/policy/actionlint/diff/Gitleaks đạt. C82 hoàn tất,
+context/roadmap đồng bộ C83 AWAITING_APPROVAL. C83 gồm audit module còn lại và thiết kế
+Sáng/Tối/Theo thiết bị với Evon ui-ux, chưa thực hiện. Final status docs không thay runtime,
+không deploy mới hoặc ghi tài chính; CI đúng final SHA phải đạt trước báo hoàn tất.

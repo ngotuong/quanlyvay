@@ -57,7 +57,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C79 | Đồng bộ, rollout C78 và dọn đúng hai deployment C73 cũ | `COMPLETED` |
 | C80 | Audit UX Production C79 và phương án desktop compact | `COMPLETED` |
 | C81 | Compact dashboard/danh sách desktop và sửa UX F1–F4, local | `COMPLETED` |
-| C82 | Đồng bộ C80/C81, CI và rollout UI compact lên Preview/Production | `IN_PROGRESS` |
+| C82 | Đồng bộ C80/C81, CI và rollout UI compact lên Preview/Production | `COMPLETED` |
+| C83 | Audit module còn lại và lựa chọn Sáng/Tối/Theo thiết bị với Evon ui-ux | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1588,10 +1589,14 @@ JSON/JS/diff/Gitleaks PASS.9SKIP chỉ capture opt-in, C81 probe đã chạy ri�
 ở docs/remediation-c81/. Không commit/push/deploy hoặc schema/RPC/remote/account/secret change.
 C82 AWAITING_APPROVAL, dừng theo AGENTS mục3.
 
-## 40. Checkpoint C82 — Đang thực hiện
+## 40. Checkpoint C82 — Hoàn tất
 
 **C82 — Đồng bộ C80/C81, xác nhận CI và phát hành UI compact lên Preview/Production.**
-Trạng thái: `IN_PROGRESS`. OWNER đã phê duyệt trong hội thoại03/10/2026.
+Trạng thái: `COMPLETED` ngày04/10/2026. OWNER đã phê duyệt trong hội thoại03/10/2026.
+Required CI37179819051 của closing SHA1492fe0b0fdb7dc73a2dc50978978d933671fd19 SUCCESS cả5jobs.
+Source/candidate/alias/public/Auth/log và local gates đạt; chi tiết docs/release-c82/.
+Commit final status chỉ tài liệu phải có Required CI đúng SHA trước completion message.
+Phần dưới là trình tự lịch sử, không cấp thao tác mới.
 Gate attempt1 phát hiện fixture hook C72/C81 120s ngắn hơn reset+Auth readiness180s;
 điều chỉnh riêng hook chuẩn bị fixture300s, giữ assertion và phạm vi runtime C81.
 04/10: C75 fullPage capture làm scroll383→640 trước click; chuyển capture sau functional
@@ -1616,11 +1621,11 @@ stable390 guards/loans/detail4tab singleh1 đạt; browsererror/runtimeerror/HTT
 Batch CUA timeout đã discard/rerun từng phần đạt. Preview resume exit0 full54/9 8,0m,
 unit113/lint/type/build, DB0/0/0; restore7PNG C75. Stable Preview inspect đúngC82/public4/4/
 Auth dark375/390/1440 dashboard và390guards/loans/detail4tab đạt, error/HTTP5000.
-Không cần rollback final. Chỉ còn closing docs push/exact-SHA CI, C82 IN_PROGRESS. App thiếu Sáng/Tối/Theo thiết bị; chỉ ghi đề xuất C83 audit/
+Không cần rollback final. Closing proof docs push/exact-SHA CI đã đạt. App thiếu Sáng/Tối/Theo thiết bị; ghi checkpoint C83 audit/
 design preference/persistence/no-flash/a11y, không đổi runtime C82.
 Production --skip-domain tự chuyển default alias; đã rollback riêng default vềC79,
 inspect/public4/4 xác nhận. Trước release stable Preview/tindung/default cònC79; nay C82 theo hậu kiểm ở trên.
-Không thay runtime, assertion/retries hoặc workflow/CLI version. C82 chưa hoàn tất.
+Không thay runtime, assertion/retries hoặc workflow/CLI version. C82 đạt acceptance criteria.
 
 Mục tiêu: đưa bản sửa đã kiểm local lên webapp thật, giữ card dư nợ/lãi ròng trên Việc cần xử lý.
 Phạm vi khi OWNER phê duyệt:
@@ -1658,3 +1663,42 @@ Acceptance criteria:
    mới. Nếu fail, rollback alias về C79 và giữ checkpoint chưa hoàn tất với bằng chứng.
 5. Bằng chứng tách local/remote, giả lập/thiết bị thật, dữ kiện chỉ aggregate/synthetic không lộ
    tài chính thật/secret. Context/roadmap đồng bộ; checkpoint tiếp theo AWAITING_APPROVAL rồi dừng.
+
+## 41. Checkpoint C83 — Chờ phê duyệt
+
+**C83 — Audit sâu đối tác, chi phí, thông báo, cài đặt và lựa chọn giao diện với Evon ui-ux.**
+Trạng thái: `AWAITING_APPROVAL`. Chưa được phép bắt đầu.
+
+Mục tiêu: xác định thao tác thừa/lỗi/bố cục và lập phương án sửa rõ ràng cho những module
+còn lại; bổ sung thiết kế lựa chọn Sáng/Tối/Theo thiết bị theo câu hỏi OWNER.
+
+Phạm vi khi được phê duyệt:
+
+- Production chỉ đọc/mở/đóng; local dùng dữ liệu synthetic và database C20-test cô lập.
+- Audit tìm/lọc/phân trang, loading/empty/error, draft/dirty/pending/save-close/focus,
+  keyboard/privacy, thông báo và control dùng chung; không request push permission thật.
+- Ma trận375/390/768/1024/1440 light/dark. Dùng Evon ui-ux cùng brand/component hiện hữu,
+  đo và soi hình thật; không đưa dữ liệu/ảnh tài chính thật hoặc cookie vào Git.
+- Audit và thiết kế bộ chọn Sáng/Tối/Theo thiết bị: lối truy cập trên mobile/desktop,
+  lưu lựa chọn theo thiết bị/browser, ưu tiên manual so với system, cập nhật khi device đổi,
+  no-flash lúc mở app/chuyển route và trạng thái selected/focus/accessible name.
+  Đây là phương án để OWNER duyệt, chưa triển khai preference runtime hoặc đổi Auth/schema.
+- Báo cáo từng finding với severity, Hỏng/Lệch hệ/Gu, trigger, file/vị trí, nguyên nhân,
+  tác động, bằng chứng và hướng sửa. Phân biệt local/remote và NOT_TESTED rõ ràng.
+- Chuẩn bị2–3wireframe synthetic cho phạm vi cần thay đổi; đề xuất C84 remediation với
+  scope/acceptance criteria cụ thể rồi dừng. Không tự sửa finding.
+- Không runtime/schema/RPC/remote finance/secret/account/Google, push/deploy hoặc cleanup.
+
+Acceptance criteria:
+
+1. Có ma trận route/state/viewport/theme đủ hoặc ghi rõ lý do NOT_TESTED; không coi
+   fixture local là chứng nhận Production, screen reader hoặc thiết bị vật lý.
+2. Findings có bằng chứng tái hiện và file/vị trí chính xác, severity/impact/root cause/fix;
+   ưu tiên theo ảnh hưởng công việc. Lỗi đã sửa không bị mở lại chỉ vì bằng chứng lịch sử.
+3. Có bảng trước/sau và2–3phương án review được; giữ brand/KPI trước task. Bộ chọn theme
+   có specification persistence/system/manual/no-flash và keyboard/selected states rõ.
+4. Gate hiện hữu áp dụng đạt: lint/typecheck/diff-check, regression liên quan khi chạy fixture,
+   JSON/JS/secret scan; database test teardown profiles/loans/transactions0/0/0.
+   Không giảm assertion/skip để xanh; không tạo dữ liệu QA trên Supabase dùng chung.
+5. Context/roadmap/report cùng cập nhật. Chỉ đề xuất C84 AWAITING_APPROVAL sau audit
+   hoàn tất, không tự triển khai remediation, commit/push hoặc deploy.

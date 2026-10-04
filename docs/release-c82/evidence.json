@@ -1,6 +1,6 @@
 {
   "checkpoint": "C82",
-  "status": "IN_PROGRESS",
+  "status": "COMPLETED",
   "date": "2026-10-04",
   "timezone": "Asia/Ho_Chi_Minh",
   "sourceSha": "8ecdeb4ac5960673958ec2c75d597d1fdb1375c5",
@@ -645,8 +645,39 @@
     }
   },
   "closingCI": {
-    "status": "PENDING_CLOSING_COMMIT",
-    "mustVerifyExactShaBeforeCompletion": true
+    "status": "SUCCESS",
+    "sha": "1492fe0b0fdb7dc73a2dc50978978d933671fd19",
+    "runId": 37179819051,
+    "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37179819051",
+    "jobs": [
+      {
+        "name": "Workflow policy",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Dependency and secret scan",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Quality and build",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Supabase Auth pgTAP and E2E",
+        "status": "completed",
+        "conclusion": "success"
+      },
+      {
+        "name": "Required CI gate",
+        "status": "completed",
+        "conclusion": "success"
+      }
+    ],
+    "exactShaVerified": true,
+    "finalStatusCommitMustVerifyExactCIInConversation": true
   },
   "boundaries": {
     "remoteFinancialMutation": false,
@@ -2269,7 +2300,7 @@
   "candidateAuthenticatedSampleCount": 168,
   "nextCheckpointProposal": {
     "id": "C83",
-    "status": "PROPOSED_ONLY",
+    "status": "AWAITING_APPROVAL",
     "themePreferenceAudit": "Audit/design Sáng/Tối/Theo thiết bị, persistence, prepaint/no flash, browser/device change behavior and accessible selection; no C82 runtime implementation"
   },
   "closingLocal": {
