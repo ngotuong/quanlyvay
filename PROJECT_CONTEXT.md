@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.274
-last_updated: 2026-10-03
+roadmap_version: 1.0.275
+last_updated: 2026-10-04
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C82
 current_status: IN_PROGRESS
@@ -21,15 +21,19 @@ history, migration, test và các contract/runbook chuyên biệt.
   rollback C79 theo mục40 roadmap. Đã đọc đầy đủ quy tắc/context, checkpoint và kiểm Git;
   main=origin/main tại5ad7b7735b0fa41561ac79630b343db17ed3720f. Đang review/preflight;
   Source C80/C81 ff8f7060c81609beca0b08f01240acc95369ffb1 đã push fast-forward;
-  CI37123164406 attempt1 FAILED: C72 fixture hook120s abort trong reset+Auth readiness
-  (deadline180s), C75/C78/C81 lỗi Auth theo sau. Giữ aliases C79, chưa candidate.
-  Đang sửa riêng hook C72/C81 lên300s để chứa reset+readiness; không đổi assertion,
-  RPC/runtime/schema hoặc timeout tương tác. Cần full local và CI đúng SHA mới. Local lint/typecheck/unit108/
-  build/policy/actionlint/JSON/JS/diff/Gitleaks/audit PASS; full E2E54PASS/9opt-inSKIP8,2m
-  exit0, DB riêng55322 profiles/loans/transactions0/0/0. Sáu ảnh C75 do harness ghi đã
-  restore đúng HEAD. CLI dry151source/4.258.416bytes,0forbidden (chỉ dự báo).
-  Sau push cả3stable/defaultalias vẫn C79; rollback IDs Ready/public4/4/sin1 đã kiểm.
-  Chưa tạo candidate hoặc chuyển alias; chỉ tạo sau Required CI đúng source SHA xanh.
+  CI37123164406 attempt1 FAILED: C72 hook120s abort trong reset+Auth readiness180s,
+  C75/C78/C81 Auth failures theo sau. Hook C72/C81300s đã push c5f8e2b1c7eaa564c4cee881b22b9286412b9894.
+  CI37124048932 attempt1 FAILED ở globalSetup health502 sau180s, chưa E2E; attempt2 rerun
+  failed jobs đang chạy. Local full mới53PASS/9SKIP/1FAIL8,0m: C75 scroll assertion sau
+  fullPage capture; trace chứng minh screenshot tự383→640 trước click, không runtime toggle.
+  Đã chuyển capture sau functional assertion, giữ toàn bộ assertion/retries/guard; targeted
+  C72+C75 9/9 PASS2,4m exit0, lint/typecheck PASS; full gate và CI SHA mới đang chờ. Lint/typecheck/unit108/build/policy/
+  actionlint/JSON/JS/Gitleaks/audit trước đã đạt; full local đầu54PASS/9SKIP8,2m nhưng không
+  dùng thay lượt fail. DB teardown55322 sau targeted đã kiểm0/0/0.
+  Restore7PNG C75 do targeted harness tự ghi; giữ evidence lịch sử và thay đổi OWNER.
+  CLI dry151source/4.258.416bytes0forbidden là dự báo; chưa remote candidate.
+  Stable/defaultaliases vẫn C79 tại hậu kiểm sau push; rollback Ready/public4/4/sin1 đã kiểm.
+  Chưa tạo candidate/promote, chưa remote data/schema/account/secret/Google mutation.
 - C81 `COMPLETED` local03/10: OWNER duyệt A, kết hợp Evon ui-ux. Dashboard gọn, KPI vẫn trên
   task ở6khổ×2theme; reference C80 task1440 527→456,53px và390 811→697,42px. Loan row thường
  1440 154,16px≤160, mobile giữ card/số tiền nguyên dòng; trạng thái/hướng/0/tiền tỷ/tên200
@@ -580,7 +584,8 @@ C59 đã đạt:
 
 - C82 `IN_PROGRESS`: OWNER phê duyệt03/10; đồng bộ source/bằng chứng C80/C81, Required CI
   đúng SHA và phát hành Preview/Production theo mục40 roadmap. Quyền remote trong scope đã duyệt.
-  C81 COMPLETED local; không còn blocker local. C80/C81 còn local chưa commit/push.
+  C80/C81 đã push; blocker hiện tại là gate CI và harness capture C75 nêu ở phần1.
+  C82 chưa hoàn tất, chưa deploy/promote. Không yêu cầu OWNER phê duyệt lại các bước trong scope.
   Giới hạn Production dark audit C80/native Chrome badge/physical AT/mobile/Safari/Firefox
   chưa chứng nhận; không mở rộng incident/rotation/AT hoặc remote resources tự động.
 - C77 `COMPLETED` local03/10:12 privacy samples375/390/1440 light/dark; dashboard scale lộ6/6,

@@ -1594,6 +1594,9 @@ C82 AWAITING_APPROVAL, dừng theo AGENTS mục3.
 Trạng thái: `IN_PROGRESS`. OWNER đã phê duyệt trong hội thoại03/10/2026.
 Gate attempt1 phát hiện fixture hook C72/C81 120s ngắn hơn reset+Auth readiness180s;
 điều chỉnh riêng hook chuẩn bị fixture300s, giữ assertion và phạm vi runtime C81.
+04/10: C75 fullPage capture làm scroll383→640 trước click; chuyển capture sau functional
+checks, không đổi assertion/retries/runtime. Targeted C72+C75 9/9 PASS2,4m, lint/typecheck
+PASS, DB55322 0/0/0; full và Required CI source mới vẫn bắt buộc trước candidate.
 
 Mục tiêu: đưa bản sửa đã kiểm local lên webapp thật, giữ card dư nợ/lãi ròng trên Việc cần xử lý.
 Phạm vi khi OWNER phê duyệt:

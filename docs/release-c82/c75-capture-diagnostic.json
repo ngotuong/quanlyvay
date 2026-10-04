@@ -1,0 +1,12 @@
+{
+  "method": "Existing synthetic Playwright trace metadata; no real financial data or credential",
+  "width": 390,
+  "theme": "dark",
+  "scrollBeforeCapture": 383,
+  "scrollAfterCaptureBeforeClick": 640,
+  "scrollAfterClick": 640,
+  "captureCall": "call@7884",
+  "clickCall": "call@7886",
+  "runtimeModified": false,
+  "fix": "Capture evidence after functional scroll/focus assertions; assertions unchanged"
+}

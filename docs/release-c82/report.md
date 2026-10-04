@@ -38,3 +38,27 @@ Không suy đây là lỗi UI hoặc kết luận có Auth outage Production.
 + tạo fixture. Giữ retries0, timeout interaction/assertion, health deadline/backoff, guard
 project/host/port/reset và toàn bộ regression. Không sửa Next/Auth runtime, workflow hoặc
 chuyển deployment; cần full local và Required CI SHA mới trước candidate.
+
+## Tiếp tục04/10: CI health và screenshot harness
+
+Hook commit c5f8e2b1c7eaa564c4cee881b22b9286412b9894 đã push. Run37124048932 attempt1
+FAILED ở initial globalSetup: Auth health HTTP502 sau180s/93attempts; chưa chạy E2E UI.
+Registry pull cũng có Rate exceeded rồi retry; không suy đó là nguyên nhân health502.
+Attempt2 rerun failed jobs trên cùng SHA, không coi rerun là PASS trước khi xong.
+
+Full local sau hook53PASS/9SKIP/1FAIL8,0m: C75 kỳ vọng scroll383 nhưng nhận640 sau collapse.
+Trace after screenshot call@7884 ghi HTML scroll_top640, trước click call@7886; pre-capture
+scroll383 và expand giữ383. 390dark là mẫu fail. Đây là side effect của fullPage screenshot,
+không evidence toggle runtime tự cuộn. Chuyển capture sau collapse/focus/scroll/chart checks,
+không set lại scroll bằng script, không bỏ assertion, retry hoặc thêm chờ. Runtime không đổi.
+C72+C75 targeted và full release gates sẽ kiểm source mới. Sáu PNG và JSON C75 harness đã
+restore đúng HEAD để giữ bằng chứng lịch sử, không xóa/restore thay đổi OWNER.
+
+CUA native app com.openai.codex bị policy từ chối khi tìm điều khiển theme; đã dừng, không
+workaround hệ thống. Remote browser smoke vẫn chưa bắt đầu; nếu cần theme/login OWNER
+thực hiện bước UI công cụ không hỗ trợ theo AGENTS4, không xin lại approval checkpoint.
+
+Targeted C72+C75 sau capture fix:9PASS2,4m exit0; lint/typecheck exit0; DB55322
+profiles/loans/transactions0/0/0 read-only. Restore đúng7PNG C75 do targeted tự ghi
+(6dashboard và notifications390dark), giữ evidence lịch sử. Diagnostic metadata trace
+ở c75-capture-diagnostic.json; không runtime change. Full/source CI mới chưa đạt tại bước này.

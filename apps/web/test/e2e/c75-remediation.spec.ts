@@ -96,13 +96,14 @@ test("C75 task identity, exact source set, focus and notifications hierarchy", a
       if (width === 1440) expect(Math.abs(expandedChartHeight - chartHeight)).toBeLessThan(1);
       const metrics = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth > innerWidth, clipped: [...document.querySelectorAll<HTMLElement>(".due-main strong,.due-main small,.due-value small")].filter(e => e.scrollWidth > e.clientWidth).length }));
       expect(metrics).toEqual({ overflow: false, clipped: 0 });
-      await capture(page, `dashboard-${width}-${theme}.png`);
       await toggle.click();
       await expect(card.locator(".due-item")).toHaveCount(5);
       await expect(toggle).toBeFocused();
       expect(await page.evaluate(() => scrollY)).toBe(before);
       const collapsedChartHeight = (await chart.boundingBox())!.height;
       if (width === 1440) expect(Math.abs(collapsedChartHeight - chartHeight)).toBeLessThan(1);
+      // Chrome full-page capture may scroll the page; keep it outside functional scroll checks.
+      await capture(page, `dashboard-${width}-${theme}.png`);
       await ready(page, "/notifications");
       const list = page.locator(".notification-list");
       const disclosure = page.locator(".push-settings-disclosure");
