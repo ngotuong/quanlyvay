@@ -3,32 +3,59 @@
   "status": "IN_PROGRESS",
   "date": "2026-10-04",
   "timezone": "Asia/Ho_Chi_Minh",
-  "sourceSha": "62cdb98b77ee8903a25e1e74f8ed82e9930a351d",
+  "sourceSha": "8ecdeb4ac5960673958ec2c75d597d1fdb1375c5",
   "sourceCI": {
-    "runId": 37169996632,
-    "status": "FAILED",
+    "runId": 37171480847,
+    "status": "SUCCESS",
     "exactShaVerified": true,
-    "attempt": 1,
-    "passedE2E": 50,
-    "failedE2E": 1,
-    "skippedE2E": 9,
-    "didNotRunE2E": 3,
-    "minutes": 14.7,
-    "failure": "C81 fixture routed Auth health HTTP502 after reset; UI C81 not reached"
+    "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37171480847",
+    "jobs": [
+      {
+        "name": "Workflow policy",
+        "conclusion": "success"
+      },
+      {
+        "name": "Quality and build",
+        "conclusion": "success"
+      },
+      {
+        "name": "Dependency and secret scan",
+        "conclusion": "success"
+      },
+      {
+        "name": "Supabase Auth pgTAP and E2E",
+        "conclusion": "success"
+      },
+      {
+        "name": "Required CI gate",
+        "conclusion": "success"
+      }
+    ],
+    "unitPassed": 113,
+    "pgTAPPassed": 527,
+    "authPassed": 6,
+    "e2e": {
+      "passed": 53,
+      "skipped": 10,
+      "failed": 0,
+      "minutes": 12.7,
+      "skips": "Nine opt-in evidence plus existing local-only C72 SQL-lock case; that case passed local"
+    },
+    "reverifiedBeforeRelease": true
   },
   "local": {
     "lint": "PASS",
     "typecheck": "PASS",
     "unitTests": {
-      "passed": 108,
-      "basis": "C82 initial gate; runtime unchanged by hook/capture fixes"
+      "passed": 113,
+      "basis": "Gateway source unit gate including five boundary/error tests"
     },
     "build": "PASS",
     "fullE2E": {
       "passed": 54,
       "skipped": 9,
       "failed": 0,
-      "minutes": 8.3,
+      "minutes": 7.8,
       "exitCode": 0,
       "skips": "Optional evidence capture only; mandatory regressions ran"
     },
@@ -58,16 +85,568 @@
     "production": "dpl_8x3Fy2rW6detxLGbsmrGSEqjhkyG",
     "publicSmokePassed": 4,
     "state": "READY",
-    "routeFunctionRegion": "sin1"
+    "routeFunctionRegion": "sin1",
+    "activatedForFinalRelease": false
   },
   "preview": {
-    "status": "NOT_STARTED"
+    "status": "ALIASED_POSTCHECK_PASS",
+    "provenance": {
+      "checkedAt": "2026-10-04T03:04:42.338Z",
+      "sourceSha": "8ecdeb4ac5960673958ec2c75d597d1fdb1375c5",
+      "project": {
+        "orgSlug": "ngotuong2105",
+        "qualifiedProjectName": "quan-ly-vay-ca-nhan",
+        "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+        "projectName": "quan-ly-vay-ca-nhan",
+        "rootDirectory": "apps/web"
+      },
+      "id": "dpl_5nqKymiAGKqWGiVMz53B6yx5bfWM",
+      "url": "https://quan-ly-vay-ca-nhan-a9a3nuj8p-ngotuong2105.vercel.app",
+      "target": "preview",
+      "state": "READY",
+      "functions": 43,
+      "regions": [
+        "sin1"
+      ],
+      "middlewareFunctions": 1,
+      "middlewareRegions": [
+        "sin1"
+      ],
+      "pass": true
+    },
+    "publicSmoke": {
+      "label": "preview-candidate",
+      "url": "https://quan-ly-vay-ca-nhan-a9a3nuj8p-ngotuong2105.vercel.app",
+      "checkedAt": "2026-10-04T03:04:24.149Z",
+      "results": [
+        {
+          "path": "/login",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/manifest.webmanifest",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/api/google-sync/export",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        },
+        {
+          "path": "/api/notifications/run",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "method": "HTTP status only; no response bodies persisted"
+    },
+    "uploadMetadata": {
+      "method": "Vercel API file-tree metadata only; no file body/bundle contents downloaded",
+      "rootTrees": [
+        "src",
+        "out"
+      ],
+      "returnedLeafEntries": 195,
+      "regularFileLeaves": 151,
+      "lambdaEntries": 44,
+      "sourceLeaves": 151,
+      "outputLeaves": 44,
+      "forbiddenRegularLeaves": [],
+      "directoriesWithoutChildEntries": [
+        "src/.backups",
+        "src/.c55-remote-head",
+        "src/.tmp",
+        "src/apps/google-sync",
+        "src/apps/web/src/app/api/c21-preview-bootstrap",
+        "src/apps/web/test",
+        "src/apps/web/test-results",
+        "src/docs",
+        "src/packages",
+        "src/scripts",
+        "src/supabase"
+      ],
+      "contentsNotTested": true,
+      "scopeLimitation": "Returned src/out file-tree metadata; no bundle/static-body inspection"
+    },
+    "sourceHashes": {
+      "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+      "expectedSourceFiles": 151,
+      "matchedSourceFiles": 151,
+      "missingUid": [],
+      "mismatch": [],
+      "unknown": [],
+      "missingPaths": [],
+      "pass": true
+    },
+    "authenticatedSmoke": {
+      "light": "PASS",
+      "dark": "PASS",
+      "overall": "PASS",
+      "reference": [
+        "authenticatedLight",
+        "authenticatedDark"
+      ]
+    },
+    "postAuthRuntimeLogs": {
+      "phase": "After all Light/Dark route checks; final extra Production date navigation browser errors0",
+      "queryExitCode": 0,
+      "errorEntries": 0,
+      "http500Entries": 0,
+      "finalCandidateGate": "PASS"
+    },
+    "rootGate": {
+      "exitCode": 0,
+      "unitPassed": 113,
+      "e2ePassed": 54,
+      "e2eSkipped": 9,
+      "minutes": 7.8,
+      "teardown": [
+        0,
+        0,
+        0
+      ]
+    },
+    "preAuthRuntimeLogs": {
+      "queryExitCode": 0,
+      "errorEntries": 0,
+      "http500Entries": 0
+    },
+    "sourceCIGuardBeforeUpload": {
+      "sourceSha": "8ecdeb4ac5960673958ec2c75d597d1fdb1375c5",
+      "runId": 37171480847,
+      "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37171480847",
+      "status": "completed",
+      "conclusion": "success",
+      "jobs": [
+        {
+          "name": "Workflow policy",
+          "conclusion": "success"
+        },
+        {
+          "name": "Quality and build",
+          "conclusion": "success"
+        },
+        {
+          "name": "Dependency and secret scan",
+          "conclusion": "success"
+        },
+        {
+          "name": "Supabase Auth pgTAP and E2E",
+          "conclusion": "success"
+        },
+        {
+          "name": "Required CI gate",
+          "conclusion": "success"
+        }
+      ],
+      "checkedBeforeCandidate": "2026-10-04T03:01:33.475Z"
+    },
+    "resume": {
+      "command": "pnpm deploy:preview -- --candidate immutable URL --verified-authenticated-smoke",
+      "exitCode": 0,
+      "lint": "PASS",
+      "typecheck": "PASS",
+      "unitPassed": 113,
+      "build": "PASS",
+      "e2ePassed": 54,
+      "e2eSkipped": 9,
+      "e2eMinutes": 8.0,
+      "skipScope": "opt-in evidence only",
+      "databaseTeardown": [
+        0,
+        0,
+        0
+      ],
+      "generatedHistoricalPngRestored": 7
+    },
+    "aliases": [
+      {
+        "url": "https://tindung-preview.vercel.app",
+        "inspectExactDeployment": true,
+        "provenance": {
+          "checkedAt": "2026-10-04T05:23:19.218Z",
+          "sourceSha": "8ecdeb4ac5960673958ec2c75d597d1fdb1375c5",
+          "project": {
+            "orgSlug": "ngotuong2105",
+            "qualifiedProjectName": "quan-ly-vay-ca-nhan",
+            "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+            "projectName": "quan-ly-vay-ca-nhan",
+            "rootDirectory": "apps/web"
+          },
+          "id": "dpl_5nqKymiAGKqWGiVMz53B6yx5bfWM",
+          "url": "https://quan-ly-vay-ca-nhan-a9a3nuj8p-ngotuong2105.vercel.app",
+          "target": "preview",
+          "state": "READY",
+          "functions": 43,
+          "regions": [
+            "sin1"
+          ],
+          "middlewareFunctions": 1,
+          "middlewareRegions": [
+            "sin1"
+          ],
+          "pass": true
+        },
+        "publicSmoke": {
+          "label": "preview-alias",
+          "url": "https://tindung-preview.vercel.app",
+          "checkedAt": "2026-10-04T05:21:18.928Z",
+          "results": [
+            {
+              "path": "/login",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/manifest.webmanifest",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/api/google-sync/export",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            },
+            {
+              "path": "/api/notifications/run",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            }
+          ],
+          "pass": true,
+          "method": "HTTP status only; no response bodies persisted"
+        }
+      }
+    ],
+    "postAliasAuthenticated": {
+      "status": "PASS",
+      "theme": "dark",
+      "dashboardWidths": [
+        375,
+        390,
+        1440
+      ],
+      "kpiBeforeTask": true,
+      "overflow": 0,
+      "clippedMoney": 0,
+      "hiddenChart": {
+        "bars": 0,
+        "notice": 1,
+        "axisMasked": true
+      },
+      "restore": 26,
+      "guards": {
+        "width": 390,
+        "routes": [
+          "expenses",
+          "counterparties"
+        ],
+        "noticeBeforeDialog": true,
+        "explicitForm": true,
+        "escapeFocusReturn": true
+      },
+      "loanList": {
+        "width": 390,
+        "overflow": 0
+      },
+      "detail": {
+        "tabs": [
+          "overview",
+          "interest",
+          "history",
+          "settings"
+        ],
+        "width": 390,
+        "h1": 1,
+        "overflow": 0
+      },
+      "consoleErrorEntries": 0
+    },
+    "postAliasRuntimeLogs": {
+      "queryExitCode": 0,
+      "errorEntries": 0,
+      "http500Entries": 0
+    }
   },
   "production": {
-    "status": "NOT_STARTED"
+    "status": "PROMOTED_POSTCHECK_PASS",
+    "provenance": {
+      "checkedAt": "2026-10-04T03:00:56.861Z",
+      "sourceSha": "8ecdeb4ac5960673958ec2c75d597d1fdb1375c5",
+      "project": {
+        "orgSlug": "ngotuong2105",
+        "qualifiedProjectName": "quan-ly-vay-ca-nhan",
+        "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+        "projectName": "quan-ly-vay-ca-nhan",
+        "rootDirectory": "apps/web"
+      },
+      "id": "dpl_Gk37QbGPKqxohNNq4qorbHQ89Tiy",
+      "url": "https://quan-ly-vay-ca-nhan-g2w3dh0i0-ngotuong2105.vercel.app",
+      "target": "production",
+      "state": "READY",
+      "functions": 43,
+      "regions": [
+        "sin1"
+      ],
+      "middlewareFunctions": 1,
+      "middlewareRegions": [
+        "bom1",
+        "fra1",
+        "gru1",
+        "iad1",
+        "lhr1",
+        "sfo1",
+        "sin1",
+        "syd1"
+      ],
+      "pass": true
+    },
+    "publicSmoke": {
+      "label": "production-candidate",
+      "url": "https://quan-ly-vay-ca-nhan-g2w3dh0i0-ngotuong2105.vercel.app",
+      "checkedAt": "2026-10-04T03:01:00.006Z",
+      "results": [
+        {
+          "path": "/login",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/manifest.webmanifest",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/api/google-sync/export",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        },
+        {
+          "path": "/api/notifications/run",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "method": "HTTP status only; no response bodies persisted"
+    },
+    "uploadMetadata": {
+      "method": "Vercel API file-tree metadata only; no file body/bundle contents downloaded",
+      "rootTrees": [
+        "src",
+        "out"
+      ],
+      "returnedLeafEntries": 195,
+      "regularFileLeaves": 151,
+      "lambdaEntries": 44,
+      "sourceLeaves": 151,
+      "outputLeaves": 44,
+      "forbiddenRegularLeaves": [],
+      "directoriesWithoutChildEntries": [
+        "src/.backups",
+        "src/.c55-remote-head",
+        "src/.tmp",
+        "src/apps/google-sync",
+        "src/apps/web/src/app/api/c21-preview-bootstrap",
+        "src/apps/web/test",
+        "src/apps/web/test-results",
+        "src/docs",
+        "src/packages",
+        "src/scripts",
+        "src/supabase"
+      ],
+      "contentsNotTested": true,
+      "scopeLimitation": "Returned src/out file-tree metadata; no bundle/static-body inspection"
+    },
+    "sourceHashes": {
+      "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+      "expectedSourceFiles": 151,
+      "matchedSourceFiles": 151,
+      "missingUid": [],
+      "mismatch": [],
+      "unknown": [],
+      "missingPaths": [],
+      "pass": true
+    },
+    "authenticatedSmoke": {
+      "light": "PASS",
+      "dark": "PASS",
+      "overall": "PASS",
+      "reference": [
+        "authenticatedLight",
+        "authenticatedDark"
+      ]
+    },
+    "postAuthRuntimeLogs": {
+      "phase": "After all Light/Dark route checks; final extra Production date navigation browser errors0",
+      "queryExitCode": 0,
+      "errorEntries": 0,
+      "http500Entries": 0,
+      "finalCandidateGate": "PASS"
+    },
+    "defaultAliasAutoAdvance": {
+      "observedDespiteSkipDomain": true,
+      "candidate": "dpl_Gk37QbGPKqxohNNq4qorbHQ89Tiy",
+      "restoredTo": "dpl_8x3Fy2rW6detxLGbsmrGSEqjhkyG",
+      "restoreExitCode": 0,
+      "inspectVerified": true,
+      "publicSmokePassed": 4,
+      "stableTindungUnchanged": true
+    },
+    "preAuthRuntimeLogs": {
+      "queryExitCode": 0,
+      "errorEntries": 0,
+      "http500Entries": 0
+    },
+    "promoteExitCode": 0,
+    "aliases": [
+      {
+        "url": "https://tindung.vercel.app",
+        "inspectExactDeployment": true,
+        "publicSmoke": {
+          "label": "production-alias",
+          "url": "https://tindung.vercel.app",
+          "checkedAt": "2026-10-04T05:12:51.277Z",
+          "results": [
+            {
+              "path": "/login",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/manifest.webmanifest",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/api/google-sync/export",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            },
+            {
+              "path": "/api/notifications/run",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            }
+          ],
+          "pass": true,
+          "method": "HTTP status only; no response bodies persisted"
+        }
+      },
+      {
+        "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+        "inspectExactDeployment": true,
+        "publicSmoke": {
+          "label": "default-alias",
+          "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+          "checkedAt": "2026-10-04T05:12:51.384Z",
+          "results": [
+            {
+              "path": "/login",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/manifest.webmanifest",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/api/google-sync/export",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            },
+            {
+              "path": "/api/notifications/run",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            }
+          ],
+          "pass": true,
+          "method": "HTTP status only; no response bodies persisted"
+        }
+      }
+    ],
+    "postAliasAuthenticated": {
+      "status": "PASS",
+      "theme": "dark",
+      "dashboardWidths": [
+        375,
+        390,
+        1440
+      ],
+      "defaultWidth": 390,
+      "kpiBeforeTask": true,
+      "overflow": 0,
+      "clippedMoney": 0,
+      "hiddenChart": {
+        "bars": 0,
+        "notice": 1,
+        "axisMasked": true
+      },
+      "restore": 26,
+      "chartEnterEscape": true,
+      "defaultDrawerEscapeFocus": true,
+      "productionGuards": {
+        "width": 390,
+        "routes": [
+          "expenses",
+          "counterparties"
+        ],
+        "noticeBeforeDialog": true,
+        "explicitForm": true,
+        "escapeFocusReturn": true
+      },
+      "loanList": {
+        "width": 390,
+        "overflow": 0
+      },
+      "detail": {
+        "tabs": [
+          "overview",
+          "interest",
+          "history",
+          "settings"
+        ],
+        "width": 390,
+        "h1": 1,
+        "overflow": 0
+      },
+      "consoleErrorEntries": 0,
+      "timeoutDiscarded": true
+    },
+    "postAliasRuntimeLogs": {
+      "queryExitCode": 0,
+      "errorEntries": 0,
+      "http500Entries": 0
+    }
   },
   "closingCI": {
-    "status": "NOT_STARTED"
+    "status": "PENDING_CLOSING_COMMIT",
+    "mustVerifyExactShaBeforeCompletion": true
   },
   "boundaries": {
     "remoteFinancialMutation": false,
@@ -79,15 +658,1625 @@
     "physicalATMobileSafariFirefox": "NOT_TESTED"
   },
   "gatewayFix": {
-    "sourceSha": "PENDING_COMMIT",
+    "sourceSha": "8ecdeb4ac5960673958ec2c75d597d1fdb1375c5",
     "diagnostic": "gateway-diagnostic.json",
     "unitPassed": 113,
     "newGuardTests": 5,
     "lint": "PASS",
     "typecheck": "PASS",
     "actualResetGatewayHealthExit": 0,
-    "fullE2E": "IN_PROGRESS",
+    "fullE2E": {
+      "passed": 54,
+      "skipped": 9,
+      "failed": 0,
+      "minutes": 7.8,
+      "exitCode": 0
+    },
     "runtimeModified": false,
     "workflowModified": false
+  },
+  "priorSourceCI": {
+    "runId": 37169996632,
+    "status": "FAILED",
+    "exactShaVerified": true,
+    "attempt": 1,
+    "passedE2E": 50,
+    "failedE2E": 1,
+    "skippedE2E": 9,
+    "didNotRunE2E": 3,
+    "minutes": 14.7,
+    "failure": "C81 fixture routed Auth health HTTP502 after reset; UI C81 not reached"
+  },
+  "handoff": {
+    "status": "RESOLVED",
+    "ownerLogin": "CONFIRMED_BOTH",
+    "ownerDark": "CONFIRMED",
+    "workingTab": "6",
+    "currentBrowserTheme": "dark",
+    "viewportReset": true,
+    "checkpointApprovalRequiredAgain": false
+  },
+  "authenticatedLight": {
+    "status": "PASS",
+    "method": "Authenticated native IAB via CUA, OWNER sessions; aggregate geometry/counts only, no real amount/name/record ID or screenshot persisted",
+    "theme": "light",
+    "widths": [
+      375,
+      390,
+      1440
+    ],
+    "default": [
+      {
+        "host": "preview",
+        "width": 375,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      }
+    ],
+    "customDashboard": [
+      {
+        "host": "preview",
+        "width": 375,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      }
+    ],
+    "loanList": [
+      {
+        "host": "preview",
+        "width": 375,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      }
+    ],
+    "detail": [
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      }
+    ],
+    "createGuards": [
+      {
+        "host": "preview",
+        "width": 375,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      }
+    ],
+    "sampleCount": 84,
+    "presetNavigation": "PASS both hosts, actual six_months URL confirmed",
+    "customDateKeyboard": "PASS both hosts, ArrowUp updates from/to URL, pending false, Escape/focus return",
+    "browserErrorEntries": 0,
+    "browserErrorQueryLimit": 200,
+    "discardedMeasurements": "Inactive Production viewport 481px and pre-render snapshots not counted; date fill did not fire change, native ArrowUp verified actual interaction; no runtime bug inferred",
+    "limitations": [
+      "Dark NOT_TESTED pending OWNER theme selection",
+      "Real save/pending/error and absent business boundary states NOT_TESTED remote; existing C81 synthetic coverage only",
+      "Physical screen reader/mobile/Safari/Firefox NOT_TESTED"
+    ]
+  },
+  "darkSupplemental": {
+    "host": "production",
+    "width": 481,
+    "theme": "dark",
+    "kpiBeforeTask": true,
+    "overflow": false,
+    "visualReview": "PASS native screenshot inline only, no screenshot persisted",
+    "requiredResponsiveMatrix": "NOT_TESTED"
+  },
+  "authenticatedDark": {
+    "status": "PASS",
+    "method": "Authenticated native IAB via CUA, OWNER sessions; aggregate geometry/counts only, no real amount/name/record ID or screenshot persisted",
+    "theme": "dark",
+    "widths": [
+      375,
+      390,
+      1440
+    ],
+    "default": [
+      {
+        "host": "preview",
+        "width": 375,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "copyDToD30": true,
+        "cashEmpty": true
+      }
+    ],
+    "customDashboard": [
+      {
+        "host": "preview",
+        "width": 375,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "kpiBeforeTask": true,
+        "overflow": false,
+        "clippedKpiAmounts": 0,
+        "shownBars": 26,
+        "enterEscape": true,
+        "tableKeyboard": true,
+        "hidden": {
+          "notices": 1,
+          "bars": 0,
+          "axisMasked": true,
+          "tooltips": 0,
+          "moneyInTable": 0
+        },
+        "restoredBars": 26,
+        "drawerEscapeFocusReturn": true
+      }
+    ],
+    "loanList": [
+      {
+        "host": "preview",
+        "width": 375,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "privacy": "shown",
+        "overflow": false,
+        "clippedMoney": 0
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "privacy": "hidden",
+        "overflow": false,
+        "clippedMoney": 0
+      }
+    ],
+    "detail": [
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "overview",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "overview",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "interest",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "interest",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "history",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "history",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "settings",
+        "privacy": "shown",
+        "h1": 1,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "tab": "settings",
+        "privacy": "hidden",
+        "h1": 1,
+        "overflow": false
+      }
+    ],
+    "createGuards": [
+      {
+        "host": "preview",
+        "width": 375,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 375,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 390,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "preview",
+        "width": 1440,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 375,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 390,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "route": "/expenses",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      },
+      {
+        "host": "production",
+        "width": 1440,
+        "route": "/counterparties",
+        "noticeBeforeDialog": true,
+        "noDialogWhileHidden": true,
+        "explicitRevealForm": true,
+        "escapeFocusReturn": true,
+        "overflow": false
+      }
+    ],
+    "sampleCount": 84,
+    "presetNavigation": "PASS both hosts, actual six_months URL confirmed",
+    "customDateKeyboard": "PASS both hosts, ArrowUp updates from/to URL, pending false, Escape/focus return",
+    "browserErrorEntries": 0,
+    "browserErrorQueryLimit": 200,
+    "discardedMeasurements": "Pre-render viewport snapshots discarded; final measurements confirm requested width and Dark. Date keyboard navigation verified on both hosts.",
+    "limitations": [
+      "Real save/pending/error and absent business boundary states NOT_TESTED remote; existing C81 synthetic coverage only",
+      "Physical screen reader/mobile/Safari/Firefox NOT_TESTED"
+    ]
+  },
+  "candidateAuthenticatedSampleCount": 168,
+  "nextCheckpointProposal": {
+    "id": "C83",
+    "status": "PROPOSED_ONLY",
+    "themePreferenceAudit": "Audit/design Sáng/Tối/Theo thiết bị, persistence, prepaint/no flash, browser/device change behavior and accessible selection; no C82 runtime implementation"
+  },
+  "closingLocal": {
+    "ciPolicyActionlint": "PASS",
+    "jsonParse": "PASS",
+    "scriptSyntax": "PASS",
+    "diffCheck": "PASS",
+    "secretScan": "PASS pinned Gitleaks v8.30.1 diff, redacted"
   }
 }

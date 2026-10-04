@@ -2,6 +2,12 @@
 
 Trạng thái: IN_PROGRESS. OWNER phê duyệt03/10/2026.
 
+Source phát hành `8ecdeb4ac5960673958ec2c75d597d1fdb1375c5` đã push;
+[Required CI source](https://github.com/ngotuong/quanlyvay/actions/runs/37171480847) SUCCESS
+cả5jobs đúng SHA. Preview/Production/default đã phát hành C82 và đạt public/Auth/log
+hậu kiểm. C82 còn IN_PROGRESS đến khi closing docs được push và Required CI đúng
+closing SHA SUCCESS. Phần dưới giữ trình tự bằng chứng/failure/giới hạn, không cấp scope mới.
+
 Source C80/C81 `ff8f7060c81609beca0b08f01240acc95369ffb1` đã push fast-forward lên main.
 [Required CI source](https://github.com/ngotuong/quanlyvay/actions/runs/37123164406) attempt1 FAILED;
 không lấy các job riêng đã đạt để gọi gate toàn bộ xanh. SHA của sửa hook sẽ có CI riêng.
@@ -76,7 +82,9 @@ kết hợp Evon ui-ux; chỉ bắt đầu sau khi C82 hoàn tất và OWNER ph�
 
 Phạm vi đề xuất: Production chỉ đọc/mở/đóng; local synthetic kiểm tìm/lọc/phân trang,
 loading/empty/error, dirty/pending/save-close/focus, privacy, bàn phím và control dùng chung.
-Đo375/390/768/1024/1440 light/dark, tách lỗi Hỏng/Lệch hệ/Gu. Không thay runtime/brand,
+Đo375/390/768/1024/1440 light/dark, tách lỗi Hỏng/Lệch hệ/Gu. Bổ sung audit/design
+bộ chọn Sáng/Tối/Theo thiết bị theo câu hỏi OWNER: ưu tiên lưu lựa chọn, theo device
+khi chọn System, no-flash khi mở app/chuyển route và selected/focus/accessibility. Không thay runtime/brand,
 nghiệp vụ/schema/RPC/secret/account, ghi tài chính remote, push hoặc deploy.
 
 Acceptance criteria đề xuất: mỗi finding có trigger/file/vị trí/nguyên nhân/tác động/bằng
@@ -104,3 +112,121 @@ restart; không wildcard hoặc chạm container khác/remote. Nếu restart/hea
 fail. Không tăng180s deadline, bỏ assertion, thêm retries, nâng CLI hoặc đổi workflow/runtime.
 Unit113 gồm5test boundary/error PASS; lint/typecheck PASS; actual reset+gatewayhealth exit0.
 Full E2E và source CI mới vẫn phải đạt trước tạo candidate.
+
+Gateway source8ecdeb4ac5960673958ec2c75d597d1fdb1375c5 đã push, Required CI37171480847
+đang chạy. Rerun62cdb attempt2 đã bị concurrency hủy; source mới là gate cần đạt.
+
+Full local gateway source54PASS/9opt-in SKIP7,8m exit0; DB55322 hậu kiểm0/0/0.
+Restore8PNG C75 tự ghi (6dashboard+2notifications1440), giữ bằng chứng lịch sử.
+Source CI37171480847 đang E2E sau quality/security/policy/pgTAP/Auth; chưa candidate.
+
+Source CI37171480847 SUCCESS cả5jobs, đúng8ecdeb4ac5960673958ec2c75d597d1fdb1375c5.
+Unit113, pgTAP527/24files, Auth6, E2E53PASS10SKIP12,7m.10SKIP gồm9evidence opt-in và
+case SQL row-lock C72 cố định container C20-test/local-only (c72-remediation.spec.ts:189);
+case này PASS trong full local54/9. Không thêm skip hoặc giảm assertion để CI xanh.
+
+Root pnpm deploy:preview chạy gate hiện hữu. Wrapper tạm .cache chỉ chặn upload đến khi
+Required CI5jobs SUCCESS đúngSHA8ec và HEAD/source không đổi; inspect/project CLI vẫn
+ủy nhiệm Vercel chính thức. Không đổi pipeline tracked, không bypass gate. Production tạo
+từ root với --target=production --skip-domain sau local full và source CI PASS; chưa promote.
+
+## Candidates và alias isolation
+
+Root pnpm deploy:preview exit0: lint/typecheck/unit113/build/full54PASS9SKIP7,8m; DB55322
+teardown0/0/0. Wrapper cache đã xác nhận đúng source CI/HEAD trước upload, không bỏ gate.
+Restore đúng các PNG C75 do lượt root tự ghi; không hoàn nguyên thay đổi OWNER.
+
+Preview: dpl_5nqKymiAGKqWGiVMz53B6yx5bfWM,
+<https://quan-ly-vay-ca-nhan-a9a3nuj8p-ngotuong2105.vercel.app>, target preview, Ready,
+43routeFunctions exclusive sin1, middleware1sin1. Production: dpl_Gk37QbGPKqxohNNq4qorbHQ89Tiy,
+<https://quan-ly-vay-ca-nhan-g2w3dh0i0-ngotuong2105.vercel.app>, target production, Ready,
+43routeFunctions exclusive sin1, middleware1/8regions gồm sin1. Đúng project/root/org hiện hữu.
+
+Mỗi candidate public4/4. Returned API metadata src/out có151regular source+44lambda,
+0forbidden regular filenames;151/151sourceUID khớp dry SHA1, không tải source/dump/bundle body.
+11directory placeholders không có child entries, gồm tên excluded directories; không gọi
+đó là file dữ liệu, không tuyên bố static/bundle contents hoặc mọi copy đã được kiểm/purge.
+
+Production CLI --skip-domain exit0 nhưng in Aliased default; inspect chứng minh default
+đã chuyển sangdpl_Gk37 trước Auth. tindung.vercel.app vẫnC79. Đã restore riêng default
+về immutable C79dpl_8x3 bằng vercel alias set exit0; inspect và public4/4 xác nhận. Không
+promote/rollback domain tindung vì vẫn đúng target. Hậu kiểm sau Preview-create: stable
+Preview vẫnC79dpl_CZj, default vẫnC79dpl_8x3. Đây là hành vi quan sát thực; không giả định
+skip-domain tự bảo đảm default isolation, không suy nguyên nhân provider khi chưa có bằng chứng.
+
+Production pre-Auth logs query exit0, error/HTTP500 entries0; không thay hậu kiểm sau Auth.
+Hai immutable login tabs được mở để OWNER tự đăng nhập theo AGENTS4. Chưa Auth matrix,
+Preview resume/promote/postcheck hoặc closing CI; không đánh dấu COMPLETED.
+
+Preview pre-Auth error/HTTP500 queries exit0/entries0; hai candidate cùng đạt gate này.
+Root Preview đã restore7PNG C75 do harness ghi; JSON parse/JS syntax/diff/secret scan PASS.
+Bằng chứng và trạng thái hiện tại chờ OWNER login, không yêu cầu phê duyệt lại checkpoint.
+
+## Auth Light sau OWNER login — 04/10
+
+OWNER xác nhận login cảhai immutable hosts. Dùng native IAB/CUA,84mẫu aggregate ở
+375/390/1440:6default,6custom-dashboard,12loan-list shown/hidden,48detail4tab shown/hidden,
+12guard chi phí/đối tác. KPI trước task,0overflow/0clippedmoney, copy lịch nhắc D–D+30;
+custom chart26bars shown/restore, hidden1notice/0bars/0tooltip/axis—/0money trong bảng,
+Enter/Escape và bảng keyboard đạt. Bốn tab record có1h1; hai guard chỉ notice trước
+dialog, explicit reveal mở form, Escape/focus return đạt. Không submit/mark-read/permission.
+Preset six_months qua click và đổi ngày bằng ArrowUp cập nhật URL đúng haihosts.
+Date fill công cụ đổi value nhưng không phát change; không quy thành lỗi runtime,
+thao tác keyboard thật kiểm được cập nhật. Snapshot trước render và viewport inactive
+Production481px bị loại khỏi matrix; chỉ số sau render/viewport thực được giữ.
+Consoleerror0 (querylimit200); runtimeerror/HTTP500 queries exit0/0entries sau lượt Light,
+trước một số điều hướng bổ sung. Final post-candidate log vẫn phải chạy sau Dark.
+
+Không ghi tên/số tiền/recordID/cookie/ảnh thật vào Git. Screenshot chỉ inline để soi
+layout mobile/desktop; evidence.json chỉ aggregate. Boundary/error/save thực/physical
+AT/mobile/Safari/Firefox không được chứng nhận bởi smoke này; synthetic local giữ riêng.
+Dark hiện NOT_TESTED, browser matchMedia vẫn Light. Công cụ chỉ quảng bá viewport, native
+Codex control bị policy chặn ở lượt trước nên không thử lại hoặc workaround. Đã yêu cầu
+OWNER chọn Dark qua async theo AGENTS4; không yêu cầu phê duyệt lại checkpoint.
+Viewport override đã reset; stable Preview/tindung/default chưa phát hành C82.
+
+OWNER bật Dark Production tab7: native screenshot481px visual/KPI-before-task/0overflow
+đạt, không lưu ảnh thật. Tab6 dùng viewport vẫn matchMedia Light dù tab7 Dark; override
+375 áp lên6, không lên7. Required Dark matrix chưa đạt, không dùng481 thay375/390/1440.
+Đã yêu cầu bật Dark riêng tab Preview6; không workaround native policy. Hai candidate
+Ready/project/43routesin1 và source exactSHA Required CI5jobs SUCCESS được đọc lại
+trước release. Chưa alias/promote; viewport đã reset.
+
+## Candidate Auth gate đạt
+
+Tab responsive6 hiện Dark theo matchMedia, không yêu cầu OWNER đổi thêm. Dark84mẫu
+tương ứng Light84 đã chạy thực trên haihosts375/390/1440, tổng168 mẫu; không suy từ
+local matrix hoặc481px. Default/custom/chart hidden/restore/Enter/Escape/table,
+loan-list và4detailtab shown/hidden singleh1, explicit2form guards/escape-focus đạt.
+Preset six_months và date ArrowUp cập nhật URL cảhai theme/hosts. Consoleerror0;
+post-candidate queries error/HTTP500 exit0/entries0, trước final extra date navigation
+Production (console0 sau đó). Source exact CI reverified5SUCCESS, candidates Ready/
+43routeFunctions sin1 reverified. Đủ release gate; viewport reset.
+
+OWNER hỏi thiếu bộ chọn theme. Source globals.css:52/837/1093 dùng media
+prefers-color-scheme, layout.tsx:41 themeColor theo media; settings chưa có app preference.
+Đề xuất C83 audit/design Sáng/Tối/Theo thiết bị, persistence/device-change/no-flash/a11y;
+không tự triển khai runtime ngoài C82.
+
+## Production release và hậu kiểm
+
+Promote dpl_Gk37 exit0. tindung và default inspect cùng đúngC82 ID/Ready, public4/4
+mỗi alias. OWNER sessions hiện hữu dùng được, không cần xuất/copy cookie. Native Dark
+postcheck stable dashboard375/390/1440 KPI-order/0overflow/0clipped, chart shown26/hidden0/
+1notice/axis—/restore26/Enter-Escape đạt; default390 cùng privacy/restore + custom drawer
+Escape/focus đạt. Stable390 hai guard explicit reveal/form/Escape/focus, loans và4detail
+tab singleh1/0overflow đạt. Browsererror0, post-alias error/HTTP500 queries exit0/0entries.
+Batch CUA timeout60s làm REPL reset, đã kiểm state/đóng drawer rỗng và rerun nhỏ; toàn bộ
+lượt mất output không dùng làm PASS. Không data submit. Preview resume đang full E2E.
+
+## Preview release và gate chốt local
+
+Root resume exit0: lint/typecheck/unit113/build/full54PASS9opt-inSKIP8,0m. Stable alias
+tindung-preview chuyển đúng dpl_5nqK, inspect/project/43routesin1/public4/4 đạt. Native
+Auth Dark375/390/1440 dashboard KPI-before-task/0overflow/0clipped, shown26/hidden0/
+notice1/axis—/restore26;390two guards/full form/Escape/focus, loans/detail4tab singleh1
+đạt. Browsererror0 và post-alias error/HTTP500 exit0/0entries. Các session stable hiện
+hữu dùng được, không export credential. Viewport reset. C79 rollback giữ Ready, final
+release không cần kích hoạt. DB55322 đúnglabel C20-test hậu kiểm0/0/0. Restore đúng7PNG
+C75 tự ghi; không broad restore. CI policy/actionlint/JSON/script-syntax/diff PASS.
+Closing docs push và Required CI đúng SHA vẫn là gate còn lại, không dùng source CI thay.

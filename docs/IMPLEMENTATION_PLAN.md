@@ -1600,8 +1600,27 @@ PASS, DB55322 0/0/0; full54PASS9SKIP8,3m exit0. Capture fix62cdb98 đã push;
 Required CI37169996632 attempt1 FAILED tại C81 Auth health502 sau reset (50PASS/1FAIL/
 9SKIP/3NOT_RUN14,7m). Deterministic C20-test xác nhận stale gateway: direct200/Kong502,
 restart Kong200. Thêm guarded gateway refresh+health sau reset, validate trước reset;
-unit113 gồm5guard PASS, lint/typecheck/actual reset PASS. Full/CI SHA gateway mới bắt buộc;
-không thay runtime, assertion/retries hoặc workflow/CLI version. Chưa candidate.
+unit113 gồm5guard PASS, lint/typecheck/actual reset PASS. Gateway source8ecdeb4 đã push,
+CI37171480847 SUCCESS cả5jobs đúng SHA, unit113/pgTAP527/Auth6/E2E53PASS10SKIP12,7m;
+full local54PASS9SKIP7,8m exit0, DB0/0/0. Preview root preflight và Production skip-domain
+candidate Ready; root Preview full54/9 exit0 cũng Ready. Hai candidate public4/4/project/
+sin1/src151UID khớp/0forbidden đạt. OWNER xác nhận login cảhai; Auth Light84mẫu
+375/390/1440 hai hosts đạt KPI/order/0overflow/0clipped, default/custom/chart privacy/
+restore/keyboard, loans/detail4tab singleh1 shown-hidden, guards hai form/escape-focus.
+Preset/custom date keyboard URL đạt; consoleerror0, runtimeerror/HTTP5000 sau Light.
+OWNER bật Dark, tab responsive6 xác nhận dark;84mẫu Dark tương ứng Light đạt trênhai
+hosts375/390/1440, tổng168mẫu Auth. Consoleerror0/post-candidate runtimeerror/HTTP5000.
+Source exact CI5jobs reverified; viewport reset. Production promote exit0, tindung/default
+inspect đúngC82/public4/4. StableAuth dark375/390/1440 dashboard, default390 drawer,
+stable390 guards/loans/detail4tab singleh1 đạt; browsererror/runtimeerror/HTTP5000.
+Batch CUA timeout đã discard/rerun từng phần đạt. Preview resume exit0 full54/9 8,0m,
+unit113/lint/type/build, DB0/0/0; restore7PNG C75. Stable Preview inspect đúngC82/public4/4/
+Auth dark375/390/1440 dashboard và390guards/loans/detail4tab đạt, error/HTTP5000.
+Không cần rollback final. Chỉ còn closing docs push/exact-SHA CI, C82 IN_PROGRESS. App thiếu Sáng/Tối/Theo thiết bị; chỉ ghi đề xuất C83 audit/
+design preference/persistence/no-flash/a11y, không đổi runtime C82.
+Production --skip-domain tự chuyển default alias; đã rollback riêng default vềC79,
+inspect/public4/4 xác nhận. Trước release stable Preview/tindung/default cònC79; nay C82 theo hậu kiểm ở trên.
+Không thay runtime, assertion/retries hoặc workflow/CLI version. C82 chưa hoàn tất.
 
 Mục tiêu: đưa bản sửa đã kiểm local lên webapp thật, giữ card dư nợ/lãi ròng trên Việc cần xử lý.
 Phạm vi khi OWNER phê duyệt:

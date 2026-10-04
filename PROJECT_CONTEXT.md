@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.276
+roadmap_version: 1.0.278
 last_updated: 2026-10-04
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C82
@@ -16,31 +16,61 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
-- Checkpoint hiện tại C82 `IN_PROGRESS`: OWNER phê duyệt trong hội thoại03/10. Đồng bộ
-  C80/C81, Required CI đúng SHA, Preview từ root và Production có Auth/public/log gate,
-  rollback C79 theo mục40 roadmap. Đã đọc đầy đủ quy tắc/context, checkpoint và kiểm Git;
-  main=origin/main tại5ad7b7735b0fa41561ac79630b343db17ed3720f. Đang review/preflight;
-  Source C80/C81 ff8f7060c81609beca0b08f01240acc95369ffb1 đã push fast-forward;
-  CI37123164406 attempt1 FAILED: C72 hook120s abort trong reset+Auth readiness180s,
-  C75/C78/C81 Auth failures theo sau. Hook C72/C81300s đã push c5f8e2b1c7eaa564c4cee881b22b9286412b9894.
-  CI37124048932 attempt1 FAILED ở globalSetup health502 sau180s, chưa E2E; attempt2 rerun
-  failed jobs đang chạy. Local full mới53PASS/9SKIP/1FAIL8,0m: C75 scroll assertion sau
-  fullPage capture; trace chứng minh screenshot tự383→640 trước click, không runtime toggle.
-  Đã chuyển capture sau functional assertion, giữ toàn bộ assertion/retries/guard; targeted
-  C72+C75 9/9 PASS2,4m exit0, lint/typecheck PASS; full54PASS/9SKIP8,3m exit0.
-  Capture fix62cdb98b77ee8903a25e1e74f8ed82e9930a351d đã push; CI37169996632 attempt1
-  FAILED50PASS/1FAIL/9SKIP/3NOT_RUN14,7m: C81 fixture Auth health502 sau reset, chưa UI C81.
-  Attempt2 rerun failed jobs; SHA sửa gateway sẽ thay bằng gate riêng. Local deterministic
-  trên đúng project C20-test đã tái hiện Auth direct200/Kong502 sau đổi IP Auth/Storage;
-  restart đúng Kong về200. scripts/test-environment.cjs làm mới gateway sau guarded reset,
-  kiểm host/port/config project/Docker label và routed health bắt buộc; guard trước reset,
-  không bỏ health180s/UI assertion/retries0 hoặc đổi runtime/workflow/CLI version.
-  Unit113 gồm5test guard mới PASS, lint/typecheck PASS; actual reset+gateway health exit0.
-  Full source gateway mới đang chạy, không lấy54PASS lượt trước thay gate mới.
-  DB full teardown trước0/0/0, restore6dashboard PNG do full harness ghi.
-  CLI dry151source/4.258.416bytes0forbidden; scripts excluded, chưa remote candidate.
-  Stable/defaultaliases vẫn C79 tại hậu kiểm sau push; rollback Ready/public4/4/sin1 đã kiểm.
-  Chưa tạo candidate/promote, chưa remote data/schema/account/secret/Google mutation.
+- Checkpoint hiện tại C82 `IN_PROGRESS`: OWNER phê duyệt03/10; đang đồng bộ C80/C81 và
+  phát hành Preview/Production theo mục40 roadmap, remote scope đã được duyệt.
+  Source mới8ecdeb4ac5960673958ec2c75d597d1fdb1375c5 đã push fast-forward lên main;
+  Required CI37171480847 SUCCESS cả5jobs đúng SHA: unit113/pgTAP527/Auth6/
+  E2E53PASS10SKIP12,7m.10SKIP gồm9evidence opt-in và1SQL-lock C72 local-only đã PASS local.
+  Lint/typecheck/unit113/build/full local54PASS9SKIP7,8m exit0, DB55322 teardown0/0/0.
+  9SKIP chỉ evidence capture opt-in; mọi assertion C63/C72/C75/C78/C81 giữ nguyên.
+  CI cũ ff8f706/c5f8e2b/62cdb98 chưa đạt, không dùng thay gate source mới; chi tiết trong
+  docs/release-c82/report.md. C72/C81 hook300s chứa reset+health180s; C75 fullPage capture
+  chuyển sau functional checks để không làm đổi scroll trước assertion.
+  Deterministic C20-test xác nhận Auth direct200/Kong502 sau Auth/Storage đổi IP;
+  restart đúng Kong200. Guarded gateway refresh sau reset kiểm http/loopback/port/config
+  project trước reset, Docker label trước restart và health qua gateway bắt buộc.
+  Không thay runtime C81, workflow/CLI version/health180s/retries0.5test boundary/error mới PASS.
+  Restore8PNG C75 do full harness ghi; không hoàn nguyên thay đổi OWNER hoặc file khác.
+  CLI dry151source/4.258.416bytes0forbidden; scripts/tests/docs excluded; remote inventory bên dưới.
+  Trước release, stable Preview/Production/default còn C79 sau gateway-source push;
+  rollback Ready/public4/4/43routeFunctions sin1 đã xác minh.
+  Root pnpm deploy:preview exit0, full54PASS9SKIP7,8m/unit113/lint/typecheck/build PASS,
+  DB55322 teardown0/0/0; wrapper cache xác nhận source CI/HEAD trước upload, không bypass gate.
+  Preview candidate dpl_5nqKymiAGKqWGiVMz53B6yx5bfWM /
+  https://quan-ly-vay-ca-nhan-a9a3nuj8p-ngotuong2105.vercel.app, target preview, Ready,
+  43routeFunctions sin1, middleware sin1. Production candidate dpl_Gk37QbGPKqxohNNq4qorbHQ89Tiy /
+  https://quan-ly-vay-ca-nhan-g2w3dh0i0-ngotuong2105.vercel.app, target production, Ready,
+  43routeFunctions sin1, middleware8regions gồm sin1. Mỗi candidate public4/4;
+  returned src/out metadata151source+44lambda,0forbidden regular filenames,151/151UID khớp
+  dry SHA1;11directory placeholders không có child entries, bundle/static bodies NOT_TESTED.
+  Production --skip-domain vẫn tự chuyển default alias sang candidate theo inspect thực;
+  đã rollback riêng default vềC79 bằng CLI alias set exit0, inspect/public4/4 xác nhận.
+  Tại candidate-create, tindung/stable Preview/default vẫnC79 theo hậu kiểm.
+  Hai candidate pre-Auth error/HTTP500 logs0; chưa dùng thay post-Auth/post-promote gate.
+  OWNER xác nhận đã login cảhai. Auth Light84mẫu trên hai immutable hosts tại375/390/1440
+  đạt: default/custom KPI trước task/0overflow/0clipped; copy D–D+30, chart one notice/
+  axis masked/0bars-tooltip-table money/restore26/Enter-Escape/table; detail4tab singleh1
+  shown-hidden, loans và explicit guard hai form/escape-focus PASS. Preset URL và custom
+  date keyboard cập nhật đúng cảhai; consoleerror0, post-Light runtimeerror/HTTP5000.
+  Không lưu amount/name/recordID/ảnh thật vào Git. Đo inactive481px/pre-render đã loại;
+  date fill không phát change, thao tác ArrowUp thật đạt, không suy lỗi runtime.
+  OWNER bật Dark, tab responsive6 xác nhận matchMedia dark. Dark84mẫu tương ứng Light
+  đạt375/390/1440 trênhai hosts: default/custom/chart privacy/keyboard/restore/drawer,
+  loan-list/detail4tab shown-hidden, guard two forms. Tổng168mẫu Auth; consoleerror0,
+  post-candidate runtimeerror/HTTP500 queries exit0/0entries. Source exact CI5jobs reverified.
+  Viewport reset; Production promote exit0, tindung/default inspect đúngC82 ID và public4/4.
+  Auth stable dark375/390/1440 dashboard KPI/privacy/restore/keyboard đạt; default390
+  drawer/focus đạt; stable390 two guards/loan-list/detail4tab singleh1/0overflow đạt.
+  Browsererror0/post-alias runtimeerror/HTTP5000. Một batch CUA timeout đã bỏ/rerun nhỏ
+  đạt, không dùng lượt timeout làm evidence. Preview root resume exit0, lint/type/unit113/
+  build/full54PASS9SKIP8,0m; DB55322 teardown0/0/0, restore đúng7PNG C75 tự ghi.
+  Stable Preview inspect đúngC82 ID/public4/4; Auth dark375/390/1440 dashboard privacy/
+  order/0clipped/restore,390guards/loan-list/detail4tab singleh1/0overflow đạt, browsererror0
+  post-alias runtimeerror/HTTP5000. Không cần rollback final, C79 vẫn giữ.
+  Release remote đạt; closing docs đang chuẩn bị push và exact-SHA CI, C82 IN_PROGRESS.
+  App hiện chỉ theo prefers-color-scheme, chưa có Sáng/Tối/Theo thiết bị; ghi đề xuất C83
+  audit/design preference/persistence/no-flash/accessibility, không tự sửa runtime C82.
+  Chưa remote data/schema/account/secret/Google mutation; không cleanup deployment.
 - C81 `COMPLETED` local03/10: OWNER duyệt A, kết hợp Evon ui-ux. Dashboard gọn, KPI vẫn trên
   task ở6khổ×2theme; reference C80 task1440 527→456,53px và390 811→697,42px. Loan row thường
  1440 154,16px≤160, mobile giữ card/số tiền nguyên dòng; trạng thái/hướng/0/tiền tỷ/tên200
@@ -591,8 +621,9 @@ C59 đã đạt:
 
 - C82 `IN_PROGRESS`: OWNER phê duyệt03/10; đồng bộ source/bằng chứng C80/C81, Required CI
   đúng SHA và phát hành Preview/Production theo mục40 roadmap. Quyền remote trong scope đã duyệt.
-  C80/C81 đã push; blocker hiện tại là gate CI và harness capture C75 nêu ở phần1.
-  C82 chưa hoàn tất, chưa deploy/promote. Không yêu cầu OWNER phê duyệt lại các bước trong scope.
+  Source CI/candidates/public/metadata/Auth Light84mẫu đã đạt; OWNER đã login cảhai.
+  Light/Dark168mẫu candidate matrix và alias/promote/hậu kiểm đều đạt.
+  Chỉ còn closing docs push/exact-SHA CI trước hoàn tất; chưa chuyển C83. Không yêu cầu OWNER phê duyệt lại các bước trong scope.
   Giới hạn Production dark audit C80/native Chrome badge/physical AT/mobile/Safari/Firefox
   chưa chứng nhận; không mở rộng incident/rotation/AT hoặc remote resources tự động.
 - C77 `COMPLETED` local03/10:12 privacy samples375/390/1440 light/dark; dashboard scale lộ6/6,
