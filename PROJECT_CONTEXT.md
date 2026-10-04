@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.284
+roadmap_version: 1.0.289
 last_updated: 2026-10-04
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C85
@@ -16,14 +16,37 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
-- Checkpoint hiện tại C85 `IN_PROGRESS`: OWNER đã phê duyệt trong hội thoại ngày04/10.
-  Review/đồng bộ C83/C84, Required CI đúng SHA, rollout Preview/Production và hậu kiểm
-  ba lựa chọn theme theo mục43 roadmap; giữ quy trình GitHub Free/private và rollback C82.
-  Preflight lint/typecheck/unit116/build PASS, E2E đang chạy; secret diff0finding, upload
-  metadata165files/0forbidden. Harness dùng UUID idempotency/credential random memory-only
-  thay hai literal fixture trước scan; không đổi runtime C84/rule/ignore/dependency/CI.
-  Baseline remote Preview/Production/default cònC82 READY; chuẩn bị source commit/push/CI,
-  chưa deploy. Chi tiết hiện hành docs/release-c85/report.md, không blocker mới.
+- Checkpoint hiện tại C85 `IN_PROGRESS`: OWNER phê duyệt ngày04/10; release C83/C84 đã
+  qua candidate và hậu kiểm Preview/Production/default, còn closing docs push/exact-SHA CI.
+  Source198248bd3e1dcfb00598bce0b94fa3c9f65d88f2 đã push; Required CI37199726182 SUCCESS5jobs.
+  Local/root create/resume lint/typecheck/unit116/build/E2E61PASS12opt-inSKIP; root resume cuối
+  exit0/10,0m, không giảm assertion/retries hoặc đổi CLI/CI. Test SQL đúng C20-test55322
+  sáu counts0,14C75PNG generated restored exactHEAD,18runtime source hashes unchanged.
+  Preview dpl_5J776moZkFH36QxFXFP1iYWxwztt /
+  https://quan-ly-vay-ca-nhan-2wgem6s2u-ngotuong2105.vercel.app,
+  alias https://tindung-preview.vercel.app qua root pnpm deploy:preview.
+  Production dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt /
+  https://quan-ly-vay-ca-nhan-is7a4n3b9-ngotuong2105.vercel.app,
+  aliases https://tindung.vercel.app và https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app.
+  Candidates/aliases Ready/đúngproject/43routeFunctions sin1; middleware Preview sin1,
+  Production8regions gồm sin1. Candidate inventory156source+44lambda/0forbidden/156UIDmatch;
+  chỉ metadata, source/bundle bodies NOT_TESTED. Mọi candidate/alias public4/4 và Auth/runtime
+  error0/HTTP5000. Auth matrix120mẫu6routes×5khổ×2theme/haihost; thêm Preview15/Production10,
+  singleh1/geometry/KPI trước Việc cần xử lý, selected mincontrast5,793:1 đạt trong mẫu.
+  Theme3mode/manual trái deviceLight/keyboard/reload/cachedhistory/meta,4detailtabs/page99/
+  filters/empty,390Darkdrawer date/focus/Escape/return đạt. Draft closecancel cảhai/accept cảhai
+  đạt; exact input value redact và dirtynav Production native tool block NOT_TESTED remote,
+  local C84/root regression bổ trợ. OS themechange/expense distribution thiếu remote state,
+  physical AT/mobile/authenticated Safari/Firefox vẫn NOT_TESTED, không gọi là product fail.
+  Hai confirm từng chặn input cần OWNER đóngtab; Preview từng rollbackC82 do thiếu hậu kiểm,
+  provenance/public/Auth/log rollback đạt. Sau OWNER đóngtab thứhai, input phục hồi; final
+  root resume/public/Auth interactive/cachedhistory/drawer/nămkhổ dashboard Preview đạt.
+  Production promote exit0; public/Auth Settings3mode/reload/routes/drawer/nămkhổ KPI đạt;
+  default Auth3mode/reload/dashboard/loans/detail/drawer đạt. Console/runtime/HTTP5000 mọihost.
+  Preferences trảsystem, Preview/Production che tiền, default giữhiện như banđầu; viewportreset,
+  draftclosed. Không submit finance/account/mark-read/push permission, schema/RPC/secret/Google/
+  cleanup. C82rollback giữ nguyên. Docs JSON/diff/secret gate và closing exact-SHA CI đang chốt;
+  chưa markCOMPLETED/mở C86. Report/bằng chứng docs/release-c85/ ghi cả raw failures/giới hạn.
 - C84 `COMPLETED` local ngày04/10, OWNER duyệt phương án A trong hội thoại: sửa F1–F7/L1,
   bộ chọn Sáng/Tối/Theo thiết bị ở Cài đặt mọi vai trò, cookie từng hostname và SSR/manual/
   system/no-flash; compact đối tác/chi phí, menu44px, phân bổ thu gọn/không dẫn xuất khi che.
@@ -677,10 +700,11 @@ C59 đã đạt:
 
 ## 7. Việc chờ
 
-- C85 `IN_PROGRESS`: OWNER đã phê duyệt ngày04/10; review/đồng bộ C83/C84, exact-SHA CI,
-  Preview/Production candidate/stable/default alias smoke, theme và rollback C82 theo mục43.
-  C84 local đã đạt gate; chưa commit/push/deploy. Các raw fixture findings phải được đối chiếu
-  với CI thực, không dùng review local để bỏ job/rule hoặc Required CI của source mới.
+- C85 `IN_PROGRESS`: sourceCI và rollout/hậu kiểm Preview/Production/default đạt trong scope
+  khả dụng; OWNER đã gỡ nativeblock, preferences/viewport/draft phục hồi. Còn closing docs
+  commit/push và Required CI đúng SHA; giữ GitHub Free/private, không dùng sourceCI thay closing.
+  C86 chỉ đề xuất audit hiệu quả thao tác, chưa bắt đầu. Giới hạn remote dirtynav/OS themechange/
+  expense distribution/physical AT được ghi report; không giấu NOT_TESTED hoặc kết luận lỗi app.
 - C82 release/public/Auth/log/source CI/closing proof CI đạt; không còn blocker release.
   Final closing2d040e9 có Required CI37180794295 SUCCESS đúng SHA; không còn bước chốt C82 pending.
   Physical AT/mobile/Safari/Firefox và Chrome badge lịch sử chưa chứng nhận;

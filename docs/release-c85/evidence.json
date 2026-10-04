@@ -1,0 +1,1021 @@
+{
+  "status": "IN_PROGRESS_RELEASE_POSTCHECK_PASSED_CLOSING_CI_PENDING",
+  "sourceSha": "198248bd3e1dcfb00598bce0b94fa3c9f65d88f2",
+  "firstSourceSha": "d10c91620ab5d23f46a648dd8b5cb7012b9d922b",
+  "firstCI": {
+    "run": 37195657702,
+    "conclusion": "failure",
+    "qualitySecurityPolicyPgtapAuth": "PASS",
+    "e2e": {
+      "pass": 59,
+      "skip": 13,
+      "fail": 1,
+      "duration": "16.8m"
+    },
+    "failure": "matrix evaluate context destroyed during navigation; ready(/login) now waits for dashboard destination"
+  },
+  "localPreflight": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": 116,
+    "build": "PASS",
+    "e2e": {
+      "pass": 61,
+      "skip": 12,
+      "fail": 0,
+      "duration": "9.9m"
+    },
+    "db": {
+      "identity": "QuanLyVayCaNhan-C20-test",
+      "counts": {
+        "profiles": 0,
+        "loans": 0,
+        "transactions": 0,
+        "counterparties": 0,
+        "notifications": 0,
+        "authUsers": 0
+      }
+    },
+    "generatedC75Restored": 14,
+    "ciPolicy": "PASS",
+    "historySecret": {
+      "commits": 156,
+      "exit": 0,
+      "findings": 0
+    }
+  },
+  "project": {
+    "orgSlug": "ngotuong2105",
+    "qualifiedProjectName": "quan-ly-vay-ca-nhan",
+    "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+    "projectName": "quan-ly-vay-ca-nhan",
+    "rootDirectory": "apps/web"
+  },
+  "rollback": {
+    "preview": {
+      "id": "dpl_5nqKymiAGKqWGiVMz53B6yx5bfWM",
+      "url": "https://quan-ly-vay-ca-nhan-a9a3nuj8p-ngotuong2105.vercel.app",
+      "target": "preview",
+      "readyState": "READY",
+      "publicSmoke": true
+    },
+    "production": {
+      "id": "dpl_Gk37QbGPKqxohNNq4qorbHQ89Tiy",
+      "url": "https://quan-ly-vay-ca-nhan-g2w3dh0i0-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "publicSmoke": true
+    },
+    "default": {
+      "id": "dpl_Gk37QbGPKqxohNNq4qorbHQ89Tiy",
+      "url": "https://quan-ly-vay-ca-nhan-g2w3dh0i0-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "publicSmoke": true
+    }
+  },
+  "limits": [
+    "Physical AT/mobile/authenticated SafariFirefox NOT_TESTED",
+    "Remote OS change when unavailable NOT_TESTED; local C84 evidence supplements",
+    "No financial/account submit, mark-read or push permission; no remote personal data/cookies/images persisted"
+  ],
+  "localC84Followup": {
+    "pass": 7,
+    "skip": 1,
+    "fail": 0,
+    "exit": 0,
+    "dbCounts": {
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0,
+      "counterparties": 0,
+      "notifications": 0,
+      "authUsers": 0
+    }
+  },
+  "sourceCI": {
+    "run": 37199726182,
+    "sha": "198248bd3e1dcfb00598bce0b94fa3c9f65d88f2",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "Workflow policy",
+        "conclusion": "success"
+      },
+      {
+        "name": "Supabase Auth pgTAP and E2E",
+        "conclusion": "success"
+      },
+      {
+        "name": "Quality and build",
+        "conclusion": "success"
+      },
+      {
+        "name": "Dependency and secret scan",
+        "conclusion": "success"
+      },
+      {
+        "name": "Required CI gate",
+        "conclusion": "success"
+      }
+    ],
+    "unit": 116,
+    "auth": {
+      "pass": 6,
+      "fail": 0
+    },
+    "e2e": {
+      "pass": 60,
+      "skip": 13,
+      "fail": 0,
+      "duration": "16.6m"
+    },
+    "skipExplanation": "12 opt-in audit/evidence tests plus existing local-only SQL-lock test C72; local full61/12 verifies that boundary",
+    "pgtap": {
+      "files": 24,
+      "tests": 527,
+      "result": "PASS"
+    }
+  },
+  "rootPreviewPreflight": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": 116,
+    "build": "PASS",
+    "e2e": {
+      "pass": 61,
+      "skip": 12,
+      "fail": 0,
+      "duration": "9.8m"
+    },
+    "dbCounts": {
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0,
+      "counterparties": 0,
+      "notifications": 0,
+      "authUsers": 0
+    },
+    "generatedC75Restored": 14
+  },
+  "candidates": {
+    "preview": {
+      "id": "dpl_5J776moZkFH36QxFXFP1iYWxwztt",
+      "url": "https://quan-ly-vay-ca-nhan-2wgem6s2u-ngotuong2105.vercel.app",
+      "target": "preview",
+      "readyState": "READY",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "routeFunctions": 43,
+      "routeRegion": "sin1",
+      "middlewareRegions": [
+        [
+          "sin1"
+        ]
+      ],
+      "inventory": {
+        "method": "Vercel API file-tree metadata only; no file body/bundle contents downloaded",
+        "rootTrees": [
+          "src",
+          "out"
+        ],
+        "returnedLeafEntries": 200,
+        "regularFileLeaves": 156,
+        "lambdaEntries": 44,
+        "sourceLeaves": 156,
+        "outputLeaves": 44,
+        "forbiddenRegularLeaves": [],
+        "directoriesWithoutChildEntries": [
+          "src/.backups",
+          "src/.c55-remote-head",
+          "src/.tmp",
+          "src/apps/google-sync",
+          "src/apps/web/src/app/api/c21-preview-bootstrap",
+          "src/apps/web/test",
+          "src/apps/web/test-results",
+          "src/docs",
+          "src/packages",
+          "src/scripts",
+          "src/supabase"
+        ],
+        "contentsNotTested": true,
+        "scopeLimitation": "Returned src/out file-tree metadata; no bundle/static-body inspection"
+      },
+      "sourceChecksums": {
+        "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+        "expectedSourceFiles": 156,
+        "matchedSourceFiles": 156,
+        "missingUid": [],
+        "mismatch": [],
+        "unknown": [],
+        "missingPaths": [],
+        "pass": true
+      },
+      "publicSmoke": {
+        "label": "preview-candidate",
+        "url": "https://quan-ly-vay-ca-nhan-2wgem6s2u-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-04T12:19:35.878Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "authenticatedSmoke": "PASS_WITH_DECLARED_REMOTE_STATE_LIMITS",
+      "runtimePreauth": {
+        "phase": "pre-auth",
+        "url": "https://quan-ly-vay-ca-nhan-2wgem6s2u-ngotuong2105.vercel.app",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "exit": 0,
+        "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+      },
+      "runtimePartialAuth": {
+        "phase": "partial-auth-browser-blocked",
+        "url": "https://quan-ly-vay-ca-nhan-2wgem6s2u-ngotuong2105.vercel.app",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "exit": 0,
+        "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+      },
+      "runtimeAuth": {
+        "phase": "after-preview-candidate-auth",
+        "url": "https://quan-ly-vay-ca-nhan-2wgem6s2u-ngotuong2105.vercel.app",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "exit": 0,
+        "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+      }
+    },
+    "production": {
+      "id": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt",
+      "url": "https://quan-ly-vay-ca-nhan-is7a4n3b9-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "routeFunctions": 43,
+      "routeRegion": "sin1",
+      "middlewareRegions": [
+        [
+          "bom1",
+          "fra1",
+          "gru1",
+          "iad1",
+          "lhr1",
+          "sfo1",
+          "sin1",
+          "syd1"
+        ]
+      ],
+      "inventory": {
+        "method": "Vercel API file-tree metadata only; no file body/bundle contents downloaded",
+        "rootTrees": [
+          "src",
+          "out"
+        ],
+        "returnedLeafEntries": 200,
+        "regularFileLeaves": 156,
+        "lambdaEntries": 44,
+        "sourceLeaves": 156,
+        "outputLeaves": 44,
+        "forbiddenRegularLeaves": [],
+        "directoriesWithoutChildEntries": [
+          "src/.backups",
+          "src/.c55-remote-head",
+          "src/.tmp",
+          "src/apps/google-sync",
+          "src/apps/web/src/app/api/c21-preview-bootstrap",
+          "src/apps/web/test",
+          "src/apps/web/test-results",
+          "src/docs",
+          "src/packages",
+          "src/scripts",
+          "src/supabase"
+        ],
+        "contentsNotTested": true,
+        "scopeLimitation": "Returned src/out file-tree metadata; no bundle/static-body inspection"
+      },
+      "sourceChecksums": {
+        "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+        "expectedSourceFiles": 156,
+        "matchedSourceFiles": 156,
+        "missingUid": [],
+        "mismatch": [],
+        "unknown": [],
+        "missingPaths": [],
+        "pass": true
+      },
+      "publicSmoke": {
+        "label": "production-candidate",
+        "url": "https://quan-ly-vay-ca-nhan-is7a4n3b9-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-04T12:21:30.027Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "authenticatedSmoke": "PARTIAL_BROWSER_BLOCKED",
+      "runtimePreauth": {
+        "phase": "pre-auth",
+        "url": "https://quan-ly-vay-ca-nhan-is7a4n3b9-ngotuong2105.vercel.app",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "exit": 0,
+        "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+      },
+      "runtimePartialAuth": {
+        "phase": "partial-auth-browser-blocked",
+        "url": "https://quan-ly-vay-ca-nhan-is7a4n3b9-ngotuong2105.vercel.app",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "exit": 0,
+        "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+      }
+    }
+  },
+  "aliasesBeforeAuthenticatedSmoke": {
+    "default": {
+      "id": "dpl_Gk37QbGPKqxohNNq4qorbHQ89Tiy",
+      "stillC82": true
+    },
+    "production": {
+      "id": "dpl_Gk37QbGPKqxohNNq4qorbHQ89Tiy",
+      "stillC82": true
+    }
+  },
+  "promoted": {
+    "preview": true,
+    "production": true
+  },
+  "remoteFinancialAccountMutation": false,
+  "ownerLoginConfirmed": true,
+  "authenticatedSmokePartial": {
+    "dashboardBoth": "PASS: authenticated dashboard rendered, KPI before tasks, no horizontal overflow in observed samples",
+    "settingsBoth": "Rendered; three theme controls present",
+    "staleTabSamples": "Excluded from matrix; requested viewport did not apply to old tabs",
+    "freshTabs": "Same login retained; viewport390 verified on fresh Preview tab",
+    "interactionBlocker": "OWNER closed earlier dialog. Browser connection changed; fresh tabs restored input and viewport. Preview native close confirm handled concurrently with click: cancel stayed open, accept closed. Production later navigation from dirty draft timed out; getJsDialog undefined. OWNER requested close Production draft tab; reason not established as product fault.",
+    "fullMatrix": "PASS 120 authenticated route-width-theme samples; full Production interaction flow still pending",
+    "preferenceRestore": "Preview system/hidden restored; Production currently dark and unsaved draft, requires manual dialog/tab cleanup and final restore"
+  },
+  "aliasesWhileBrowserBlocked": {
+    "preview": {
+      "id": "dpl_5nqKymiAGKqWGiVMz53B6yx5bfWM",
+      "stillC82": true
+    },
+    "production": {
+      "id": "dpl_Gk37QbGPKqxohNNq4qorbHQ89Tiy",
+      "stillC82": true
+    },
+    "default": {
+      "id": "dpl_Gk37QbGPKqxohNNq4qorbHQ89Tiy",
+      "stillC82": true
+    }
+  },
+  "partialDocumentGates": {
+    "jsonParse": "PASS",
+    "diffCheck": "PASS",
+    "ciPolicyActionlint": "PASS",
+    "diffAndNewEvidenceSecretScan": {
+      "exit": 0,
+      "redacted": true
+    },
+    "fullLocalRerun": "Not rerun: this turn only status/evidence docs; existing source local/CI gates preserved",
+    "closingCI": "PENDING: checkpoint not completed",
+    "viewportOverrideReset": true
+  },
+  "candidateBrowserEvidence": {
+    "environment": "Native IAB browser automation with viewport overrides; not physical mobile or AT",
+    "matrix": {
+      "hosts": [
+        "preview",
+        "production"
+      ],
+      "routes": [
+        "/dashboard",
+        "/loans",
+        "/counterparties",
+        "/expenses",
+        "/notifications",
+        "/settings"
+      ],
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "samples": 120,
+      "allRequestedWidthsAndThemesVerified": true,
+      "overflow": 0,
+      "clippedAmounts": 0,
+      "smallVisibleSummaries": 0,
+      "visibleH1": 1,
+      "dashboardKpiBeforeTasks": true,
+      "minimumMeasuredContrast": 5.793083164211354,
+      "contrastScope": "Selected descriptions/labels/filter classes; empty expenses has no selected contrast sample; not exhaustive contrast certification"
+    },
+    "previewSupplement": {
+      "samples": 15,
+      "states": [
+        "new-loan dark five widths",
+        "existing-loan overview dark five widths",
+        "custom dashboard dark five widths"
+      ],
+      "routeMaskCorrection": "Five samples originally masked /loans/:id were /loans/new; recorded separately, not claimed existing detail"
+    },
+    "previewChecks": {
+      "nativeDraftClose": "PASS confirm cancel/open and accept/closed, no submit",
+      "draftExactValue": "NOT_TESTED: input values tool-redacted; false equality is not proof of lost draft; local C84 supplements",
+      "theme": "PASS three options, manual dark opposite actual light device, keyboard; system follows observed device",
+      "reloadSpaHistoryMeta": "PASS dark reload and cached Forward metadata repair; SPA loading observed",
+      "nativeDrawer": "PASS payment open/date dark/focus/Escape/trigger return; no submit",
+      "loanTabs": "PASS overview/interest/history/settings actual read-only",
+      "page99": "PASS counterparties/expenses/unread notification canonical; unread/filter retained",
+      "filteredEmpty": "PASS counterparties no-match copy",
+      "privacyExpenseDistribution": "NOT_TESTED: remote expense distribution data absent, C84 local covers",
+      "restore": "PASS system and hidden-money restored",
+      "consoleErrors": 0,
+      "stableInteraction": "PENDING after readonly stable Auth/public/log PASS; same native modal prevents clicks"
+    },
+    "productionChecks": {
+      "threeModesManualKeyboard": "PASS choice/system actual light/manual dark opposite device/keyboard",
+      "draftCloseCancel": "PASS native confirm cancel stays open",
+      "draftNavigation": "BLOCKED: click timeout/getJsDialog undefined; OWNER requested close draft tab; no PASS claim",
+      "remainingFlows": "PENDING: history/reload/loan drawer/privacy/pagination/custom/restore/console final"
+    },
+    "remoteOsChange": "NOT_TESTED: no browser capability; local C84 covers",
+    "candidateGate": {
+      "preview": "PASS within available remote state and declared limits",
+      "production": "PENDING_BROWSER_INPUT"
+    }
+  },
+  "rootPreviewResume": {
+    "status": "PASS",
+    "exit": 0,
+    "candidateOnly": true,
+    "createsNewDeployment": false,
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": 116,
+    "build": "PASS",
+    "e2e": {
+      "pass": 61,
+      "skip": 12,
+      "duration": "9.9m",
+      "exit": 0
+    },
+    "generatedC75Restored": 14,
+    "runtimeFilesUnchanged": 18,
+    "dbIdentity": "QuanLyVayCaNhan-C20-test:55322",
+    "dbCounts": {
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0,
+      "counterparties": 0,
+      "notifications": 0,
+      "authUsers": 0
+    }
+  },
+  "aliases": {
+    "preview": {
+      "url": "https://tindung-preview.vercel.app",
+      "id": "dpl_5J776moZkFH36QxFXFP1iYWxwztt",
+      "target": "preview",
+      "readyState": "READY",
+      "provenance": "PASS",
+      "routeFunctions": 43,
+      "routeRegion": "sin1",
+      "middlewareRegions": [
+        "sin1"
+      ],
+      "publicSmoke": {
+        "label": "preview-alias-final",
+        "url": "https://tindung-preview.vercel.app",
+        "checkedAt": "2026-10-04T15:35:07.683Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtime": {
+        "phase": "after-alias-full-available-auth",
+        "url": "https://tindung-preview.vercel.app",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "exit": 0,
+        "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+      },
+      "authenticatedSmoke": {
+        "status": "PASS_WITH_DOCUMENTED_LIMITS",
+        "settingsTheme3ModeInteraction": "PASS",
+        "darkReloadColorSchemeMeta": "PASS",
+        "dashboardWidths": [
+          375,
+          390,
+          768,
+          1024,
+          1440
+        ],
+        "kpiBeforeTask": true,
+        "geometry": "PASS",
+        "loansAndDetail": "PASS",
+        "drawer390DarkDateFocusEscapeReturn": "PASS",
+        "consoleErrors": 0,
+        "themeRestored": "system",
+        "privacyRestored": "hidden",
+        "remoteSubmit": false,
+        "additionalRoutes": "Preview 30 readonly route/width samples before rollback; final interactive settings/dashboard/loans/detail/drawer PASS",
+        "cachedHistoryMetaAfterPreferenceChange": "PASS"
+      }
+    },
+    "production": {
+      "url": "https://tindung.vercel.app",
+      "id": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt",
+      "target": "production",
+      "readyState": "READY",
+      "provenance": "PASS",
+      "routeFunctions": 43,
+      "routeRegion": "sin1",
+      "middlewareRegions": [
+        "bom1",
+        "fra1",
+        "gru1",
+        "iad1",
+        "lhr1",
+        "sfo1",
+        "sin1",
+        "syd1"
+      ],
+      "publicSmoke": {
+        "label": "production-alias-final",
+        "url": "https://tindung.vercel.app",
+        "checkedAt": "2026-10-04T15:31:11.340Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtime": {
+        "phase": "after-alias-full-available-auth",
+        "url": "https://tindung.vercel.app",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "exit": 0,
+        "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+      },
+      "authenticatedSmoke": {
+        "status": "PASS_WITH_DOCUMENTED_LIMITS",
+        "settingsTheme3ModeInteraction": "PASS",
+        "darkReloadColorSchemeMeta": "PASS",
+        "dashboardWidths": [
+          375,
+          390,
+          768,
+          1024,
+          1440
+        ],
+        "kpiBeforeTask": true,
+        "geometry": "PASS",
+        "loansAndDetail": "PASS",
+        "drawer390DarkDateFocusEscapeReturn": "PASS",
+        "consoleErrors": 0,
+        "themeRestored": "system",
+        "privacyRestored": "hidden",
+        "remoteSubmit": false,
+        "additionalRoutes": "counterparties/expenses/notifications PASS"
+      }
+    },
+    "default": {
+      "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+      "id": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt",
+      "target": "production",
+      "readyState": "READY",
+      "provenance": "PASS",
+      "routeFunctions": 43,
+      "routeRegion": "sin1",
+      "middlewareRegions": [
+        "bom1",
+        "fra1",
+        "gru1",
+        "iad1",
+        "lhr1",
+        "sfo1",
+        "sin1",
+        "syd1"
+      ],
+      "publicSmoke": {
+        "label": "default-alias-final",
+        "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-04T15:31:12.358Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtime": {
+        "phase": "after-alias-full-available-auth",
+        "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "exit": 0,
+        "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+      },
+      "authenticatedSmoke": {
+        "status": "PASS_WITH_DOCUMENTED_LIMITS",
+        "settingsTheme3ModeInteraction": "PASS",
+        "darkReloadColorSchemeMeta": "PASS",
+        "dashboardWidths": [
+          375,
+          390,
+          768,
+          1024,
+          1440
+        ],
+        "kpiBeforeTask": true,
+        "geometry": "PASS",
+        "loansAndDetail": "PASS",
+        "drawer390DarkDateFocusEscapeReturn": "PASS",
+        "consoleErrors": 0,
+        "themeRestored": "system",
+        "privacyRestored": "visible",
+        "remoteSubmit": false,
+        "additionalRoutes": "settings/dashboard/loans/detail/drawer PASS"
+      }
+    }
+  },
+  "previewPromotionBeforeRollback": {
+    "url": "https://tindung-preview.vercel.app",
+    "id": "dpl_5J776moZkFH36QxFXFP1iYWxwztt",
+    "target": "preview",
+    "readyState": "READY",
+    "publicSmoke": {
+      "label": "preview-stable",
+      "url": "https://tindung-preview.vercel.app",
+      "checkedAt": "2026-10-04T13:43:04.467Z",
+      "results": [
+        {
+          "path": "/login",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/manifest.webmanifest",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/api/google-sync/export",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        },
+        {
+          "path": "/api/notifications/run",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "method": "HTTP status only; no response bodies persisted"
+    },
+    "readonlyAuthenticatedSmoke": {
+      "status": "PASS",
+      "samples": 30,
+      "routes": [
+        "/dashboard",
+        "/loans",
+        "/counterparties",
+        "/expenses",
+        "/notifications",
+        "/settings"
+      ],
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "theme": "system effective light",
+      "overflow": 0,
+      "clippedAmounts": 0,
+      "smallVisibleSummaries": 0,
+      "visibleH1": 1,
+      "kpiBeforeTask": true,
+      "themeChoicesPresent": [
+        "light",
+        "dark",
+        "system"
+      ],
+      "consoleErrors": 0
+    },
+    "themeInteractionSmoke": "PENDING_BROWSER_INPUT: Dark click did not change preference while Production native dialog blocked; not established product failure",
+    "runtime": {
+      "phase": "after-preview-stable-readonly-auth",
+      "url": "https://tindung-preview.vercel.app",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "exit": 0,
+      "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+    }
+  },
+  "previewRollback": {
+    "id": "dpl_5nqKymiAGKqWGiVMz53B6yx5bfWM",
+    "target": "preview",
+    "readyState": "READY",
+    "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+    "region": "sin1",
+    "provenance": "PASS",
+    "alias": "https://tindung-preview.vercel.app",
+    "aliasSetExit": 0,
+    "authenticatedSmoke": {
+      "route": "/settings",
+      "visibleH1": "Cài đặt",
+      "error": false,
+      "consoleErrors": 0,
+      "themeChoices": 0,
+      "limitation": "Read-only rollback verification; C82 has no manual theme selector"
+    },
+    "publicSmoke": {
+      "label": "preview-rollback",
+      "url": "https://tindung-preview.vercel.app",
+      "checkedAt": "2026-10-04T13:53:30.925Z",
+      "results": [
+        {
+          "path": "/login",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/manifest.webmanifest",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/api/google-sync/export",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        },
+        {
+          "path": "/api/notifications/run",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "method": "HTTP status only; no response bodies persisted"
+    },
+    "runtime": {
+      "phase": "after-preview-rollback-settings-auth",
+      "url": "https://tindung-preview.vercel.app",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "exit": 0,
+      "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+    },
+    "reason": "Interactive postcheck incomplete due Production native confirm blocking input; not established product failure",
+    "stillC82": true,
+    "candidatePreserved": true
+  },
+  "remaining": "Closing documentation commit/push and Required CI of exact closing SHA; final status/C86 awaiting approval and verification",
+  "viewportOverride": "RESET",
+  "productionAuthFinish": {
+    "status": "PASS_WITH_DOCUMENTED_LIMITS",
+    "ownerClosedBlockedTab": true,
+    "authenticatedSessionRetained": true,
+    "additionalSamples": 10,
+    "customDashboardWidths": [
+      375,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "loanOverviewWidths": [
+      375,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "themeReloadAndCachedHistoryMeta": "PASS",
+    "manualOppositeDevice": "PASS",
+    "page99CanonicalExpensesNotificationsCounterparties": "PASS",
+    "unreadAndSearchRetained": "PASS",
+    "counterpartyNoMatchEmpty": "PASS",
+    "loanFourTabsSingleH1NoOverflow": "PASS",
+    "paymentDrawer390DarkDateFocusEscapeReturn": "PASS",
+    "accountDirtyCloseAcceptAndSummaryFocus": "PASS",
+    "accountDirtyCloseCancel": "PASS_FROM_PREVIOUS_NATIVE_ATTEMPT",
+    "exactInputValue": "NOT_TESTED_TOOL_REDACTION",
+    "accountDirtyNavigation": "NOT_TESTED_NATIVE_CONFIRM_TOOL_BLOCK; C84 local full regression covers navigation; no product failure established",
+    "remoteExpenseDistribution": "NOT_TESTED_NO_REMOTE_STATE; local C84 supplement",
+    "remoteOSThemeChange": "NOT_TESTED_NO_ALLOWED_CAPABILITY; local C84 supplement",
+    "restoredTheme": "system",
+    "restoredPrivacy": "hidden",
+    "draftOpen": false,
+    "consoleErrors": 0,
+    "remoteSubmit": false,
+    "viewport": "RESET",
+    "provenance": {
+      "id": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt",
+      "target": "production",
+      "readyState": "READY",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "routeFunctions": 43,
+      "routeRegion": "sin1",
+      "middlewareRegions": [
+        "bom1",
+        "fra1",
+        "gru1",
+        "iad1",
+        "lhr1",
+        "sfo1",
+        "sin1",
+        "syd1"
+      ],
+      "provenance": "PASS"
+    },
+    "runtime": {
+      "phase": "after-production-candidate-auth",
+      "url": "https://quan-ly-vay-ca-nhan-is7a4n3b9-ngotuong2105.vercel.app",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "exit": 0,
+      "method": "Vercel runtime CLI; only aggregate counts persisted; no log messages or private data retained"
+    }
+  },
+  "rootPreviewResumeFinal": {
+    "rootResumeExit": 0,
+    "e2e": {
+      "pass": 61,
+      "skip": 12,
+      "duration": "10.0m"
+    },
+    "runtimeUnchanged": 18,
+    "c75Restored": 14,
+    "dbIdentity": "QuanLyVayCaNhan-C20-test:55322",
+    "dbCounts": {
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0,
+      "counterparties": 0,
+      "notifications": 0,
+      "authUsers": 0
+    }
+  },
+  "closingCI": "PENDING"
+}

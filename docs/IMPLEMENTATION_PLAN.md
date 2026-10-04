@@ -1788,7 +1788,19 @@ Acceptance criteria:
 ## 43. Checkpoint C85 — Đang thực hiện
 
 **C85 — Đồng bộ C83/C84, xác nhận CI và phát hành UI/theme lên Preview/Production.**
-Trạng thái: `IN_PROGRESS`. OWNER phê duyệt trong hội thoại ngày04/10/2026. C84 đã hoàn tất local; C85 đang preflight, chưa phát hành.
+Trạng thái: `IN_PROGRESS`. OWNER phê duyệt ngày04/10/2026. Source198248b/Required CI37199726182
+SUCCESS5jobs. Preview/Production candidates và stablePreview/tindung/default hậu kiểm đã đạt
+trong state/môi trường khả dụng; closing docs commit/push và exact-SHA CI còn pending.
+Final root Preview resume exit0/lint/typecheck/unit116/build/E2E61PASS12SKIP10,0m, SQLsix0/
+14C75PNGrestore/runtime18unchanged. Candidate matrix120mẫu và25mẫu bổ sung,3mode/manual/
+reload/cachedhistory/meta/4detailtabs/page99/filter/390drawer/focus/closecancel-accept đạt.
+Hai nativeconfirm từng chặninput cần OWNER đóngtab; Preview rollbackC82 rồi root resume lại
+sau phục hồi, final interactive/public/Auth/log đạt. Production promote exit0, defaultalias
+đúng candidate. Mỗi alias Ready/public4/4/consoleerror0/runtimeerror0/HTTP5000, dashboard nămkhổ
+KPI trước Việc cần xử lý. Restore system/Privacy banđầu/viewport/draftclosed. Exactinput redact,
+Productiondirtynav nativeblock/OSchange/expense distribution thiếuremote giữNOT_TESTED/local
+bổ trợ, không quy lỗi sản phẩm. Không submit account/finance/mark-read/pushpermission/schema/
+RPC/secret/Google/cleanup. C82rollback giữ nguyên. Bằng chứng docs/release-c85/.
 
 Mục tiêu: đưa các bản sửa đã kiểm local lên webapp thật, xác minh ba chế độ giao diện ở từng
 hostname và giữ mọi bất biến tài chính, quyền, privacy, focus và thứ tự KPI trước công việc.
