@@ -47,7 +47,14 @@ async function login(page: Page) {
   await page.goto("/login"); await page.getByLabel("Tên đăng nhập").fill("c6_owner_e2e"); await page.getByLabel("Mật khẩu", { exact: true }).fill(password);
   await page.getByRole("button", { name: "Đăng nhập", exact: true }).click(); await expect(page).toHaveURL(/dashboard/);
 }
-async function ready(page: Page, route: string) { await page.goto(route); await expect(page.locator("#main-content")).toBeVisible(); await expect(page.locator(".content-loading")).toHaveCount(0); }
+async function ready(page: Page, route: string) {
+  await page.goto(route);
+  // Authenticated /login streams a redirect through / to /dashboard. Wait for the
+  // destination rather than measuring the temporary shell before navigation finishes.
+  if (route === "/login") await expect(page).toHaveURL(/\/dashboard$/);
+  await expect(page.locator("#main-content")).toBeVisible();
+  await expect(page.locator(".content-loading")).toHaveCount(0);
+}
 async function pendingDelay(page: Page) {
   await page.route("**/*", async route => { if (route.request().method() === "POST" && route.request().headers()["next-action"]) await new Promise(done => setTimeout(done, 2000)); await route.continue(); });
 }

@@ -14,7 +14,11 @@ Không schema/RPC/remote secret/account/Google, financial submit/mark-read/push 
   trước đây đã chuyển thành UUID idempotency và credential sinh ngẫu nhiên chỉ trong memory của
   test local guarded C20-test. Không rule/ignore mới, không giảm test/assertion/skip/retries.
   Evidence C83/C84 raw2 là lịch sử trước thay đổi harness này, không sửa lại kết quả lịch sử.
-- E2E local đang chạy; không gọi là PASS trước khi xong. Required CI của source mới chưa xác minh.
+- Full E2E local61PASS/12opt-inSKIP9,9m exit0; SQL hậu kiểm sáu bảng0, restore14ảnh C75
+  generated exactHEAD. CI37195657702/d10c916 security/quality/policy/pgTAP/Auth PASS,
+  E2E59PASS/13SKIP/1FAIL: page.evaluate context destroyed trong matrix. Harness ready(/login) có thể
+  đo shell tạm trước authenticated streaming redirect vềdashboard; thêm chờ destination URL,
+  không đổi runtime hoặc giảm assertion/retries/skip. Gate đúng source sửa phải chạy lại.
 - Local upload metadata guard:165regular files/4.329.225bytes/0forbidden; inventory remote
   chưa kiểm, không tải source/secret/dump bodies để xác minh.
 - Remote read-only baseline xác nhận stable Preview C82 dpl_5nqKymiAGKqWGiVMz53B6yx5bfWM,
