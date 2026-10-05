@@ -1,0 +1,26 @@
+[
+  {
+    "label": "preview",
+    "keys": 4,
+    "focusInside": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "pass": true,
+    "noSubmit": true
+  },
+  {
+    "label": "production",
+    "keys": 4,
+    "focusInside": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "pass": true,
+    "noSubmit": true
+  }
+]

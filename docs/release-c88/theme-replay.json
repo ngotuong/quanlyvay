@@ -1,0 +1,30 @@
+[
+  {
+    "label": "preview",
+    "darkReload": {
+      "meta": true,
+      "selected": true,
+      "theme": "dark"
+    },
+    "cachedBack": {
+      "meta": true,
+      "theme": "light"
+    },
+    "restored": true,
+    "pass": true
+  },
+  {
+    "label": "production",
+    "darkReload": {
+      "meta": true,
+      "selected": true,
+      "theme": "dark"
+    },
+    "cachedBack": {
+      "meta": true,
+      "theme": "light"
+    },
+    "restored": true,
+    "pass": true
+  }
+]

@@ -1,0 +1,1771 @@
+{
+  "samples": [
+    {
+      "host": "stable-preview",
+      "route": "/dashboard",
+      "requestedWidth": 375,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 375
+    },
+    {
+      "host": "stable-preview",
+      "route": "/dashboard",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/dashboard",
+      "requestedWidth": 1440,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 1440
+    },
+    {
+      "host": "stable-preview",
+      "route": "/loans",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/loans/:id",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/counterparties",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/expenses",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/notifications",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/settings",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/dashboard",
+      "requestedWidth": 375,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 375
+    },
+    {
+      "host": "stable-preview",
+      "route": "/dashboard",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/dashboard",
+      "requestedWidth": 1440,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 1440
+    },
+    {
+      "host": "stable-preview",
+      "route": "/loans",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/loans/:id",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/counterparties",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/expenses",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/notifications",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-preview",
+      "route": "/settings",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/dashboard",
+      "requestedWidth": 375,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 375
+    },
+    {
+      "host": "stable-production",
+      "route": "/dashboard",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/dashboard",
+      "requestedWidth": 1440,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 1440
+    },
+    {
+      "host": "stable-production",
+      "route": "/loans",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/loans/:id",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/counterparties",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/expenses",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/notifications",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/settings",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/dashboard",
+      "requestedWidth": 375,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 375
+    },
+    {
+      "host": "stable-production",
+      "route": "/dashboard",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/dashboard",
+      "requestedWidth": 1440,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 1440
+    },
+    {
+      "host": "stable-production",
+      "route": "/loans",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/loans/:id",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/counterparties",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/expenses",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/notifications",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "stable-production",
+      "route": "/settings",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": true,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/dashboard",
+      "requestedWidth": 375,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 79,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 375
+    },
+    {
+      "host": "default",
+      "route": "/dashboard",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 79,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/dashboard",
+      "requestedWidth": 1440,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 79,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 1440
+    },
+    {
+      "host": "default",
+      "route": "/loans",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 68,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/loans/:id",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 5,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/counterparties",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/expenses",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/notifications",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/settings",
+      "requestedWidth": 390,
+      "requestedTheme": "light",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(234, 240, 248)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "light",
+      "themeMeta": [
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#eaf0f8",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/dashboard",
+      "requestedWidth": 375,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 79,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 375
+    },
+    {
+      "host": "default",
+      "route": "/dashboard",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 79,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/dashboard",
+      "requestedWidth": 1440,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": true,
+      "kpiColor": "rgb(29, 78, 216)",
+      "main": true,
+      "moneyNodes": 79,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 1440
+    },
+    {
+      "host": "default",
+      "route": "/loans",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 68,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/loans/:id",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 5,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/counterparties",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/expenses",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/notifications",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    },
+    {
+      "host": "default",
+      "route": "/settings",
+      "requestedWidth": 390,
+      "requestedTheme": "dark",
+      "bodyFont": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+      "bodySize": "16px",
+      "canvas": "rgb(11, 18, 32)",
+      "fonts": "loaded",
+      "kpiBeforeTasks": null,
+      "kpiColor": null,
+      "main": true,
+      "moneyNodes": 0,
+      "openDialogs": 0,
+      "overflow": 0,
+      "privacy": false,
+      "theme": "dark",
+      "themeMeta": [
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: light)"
+        },
+        {
+          "color": "#0b1220",
+          "media": "(prefers-color-scheme: dark)"
+        }
+      ],
+      "visibleH1": 1,
+      "width": 390
+    }
+  ],
+  "initial": {
+    "stable-preview": {
+      "privacy": true,
+      "theme": "system"
+    },
+    "stable-production": {
+      "privacy": true,
+      "theme": "system"
+    },
+    "default": {
+      "privacy": false,
+      "theme": "system"
+    }
+  },
+  "checks": [
+    {
+      "host": "stable-preview",
+      "test": "Unread filter after completion",
+      "pass": true
+    },
+    {
+      "host": "stable-preview",
+      "test": "Console",
+      "errors": 0,
+      "pass": true
+    },
+    {
+      "host": "stable-preview",
+      "test": "Preference restore",
+      "pass": true
+    },
+    {
+      "host": "stable-preview",
+      "test": "Thêm chi phí: open/Escape/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true,
+      "pass": true
+    },
+    {
+      "host": "stable-production",
+      "test": "Unread filter after completion",
+      "pass": true
+    },
+    {
+      "host": "stable-production",
+      "test": "Console",
+      "errors": 0,
+      "pass": true
+    },
+    {
+      "host": "stable-production",
+      "test": "Preference restore",
+      "pass": true
+    },
+    {
+      "host": "stable-production",
+      "test": "Thêm chi phí: open/Escape/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true,
+      "pass": true
+    },
+    {
+      "host": "default",
+      "test": "Unread filter after completion",
+      "pass": true
+    },
+    {
+      "host": "default",
+      "test": "Console",
+      "errors": 0,
+      "pass": true
+    },
+    {
+      "host": "default",
+      "test": "Preference restore to original visible money",
+      "pass": true
+    },
+    {
+      "host": "default",
+      "test": "Thêm chi phí: open/Escape/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true,
+      "pass": true
+    }
+  ],
+  "notes": [
+    {
+      "kind": "NATIVE_BRANDED_STARTUP_OBSERVED",
+      "host": "stable-preview",
+      "text": "Đang mở không gian tài chính…",
+      "privateContent": false
+    },
+    {
+      "kind": "STREAM_WAIT_RETRY",
+      "host": "stable-preview",
+      "route": "/dashboard",
+      "attempt": 1
+    },
+    {
+      "kind": "STREAM_WAIT_RETRY",
+      "host": "stable-preview",
+      "route": "/dashboard",
+      "attempt": 1
+    },
+    {
+      "kind": "STREAM_WAIT_RETRY",
+      "host": "stable-production",
+      "route": "/dashboard",
+      "attempt": 1
+    },
+    {
+      "kind": "STREAM_WAIT_RETRY",
+      "host": "stable-production",
+      "route": "/dashboard",
+      "attempt": 1
+    },
+    {
+      "kind": "STREAM_WAIT_RETRY",
+      "host": "default",
+      "route": "/dashboard",
+      "attempt": 1
+    },
+    {
+      "kind": "STREAM_WAIT_RETRY",
+      "host": "default",
+      "route": "/dashboard",
+      "attempt": 1
+    }
+  ]
+}

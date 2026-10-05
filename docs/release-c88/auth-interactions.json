@@ -1,0 +1,225 @@
+{
+  "production": [
+    {
+      "test": "Task expand/collapse header control",
+      "passed": true
+    },
+    {
+      "test": "Custom range drawer close/focus without submit",
+      "passed": true
+    },
+    {
+      "test": "Privacy show/hide restored, derived chart money hidden",
+      "passed": true
+    },
+    {
+      "test": "Advanced filter Escape focus return",
+      "passed": true
+    },
+    {
+      "test": "Ghi giao dịch: open/Escape/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true
+    },
+    {
+      "test": "Tất toán khoản vay: open/button/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true
+    },
+    {
+      "test": "Giảm gốc và mở kỳ mới: open/button/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true
+    },
+    {
+      "test": "Loan tab interest read only",
+      "passed": true
+    },
+    {
+      "test": "Loan tab history read only",
+      "passed": true
+    },
+    {
+      "test": "Loan tab settings read only",
+      "passed": true
+    },
+    {
+      "test": "Loan tab overview read only",
+      "passed": true
+    },
+    {
+      "test": "Loan tab Back query",
+      "passed": true
+    },
+    {
+      "test": "Loan tab Forward query",
+      "passed": true
+    },
+    {
+      "test": "Thêm chi phí: open/Escape/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true
+    },
+    {
+      "test": "Thêm đối tác: open/button/focus no submit",
+      "dateScheme": null,
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true
+    },
+    {
+      "test": "Unread filter query/active without mark-read",
+      "passed": false
+    },
+    {
+      "test": "Notification Back restores all filter",
+      "passed": true
+    },
+    {
+      "test": "Unread filter after navigation completion",
+      "passed": true,
+      "supersedes": "Unread filter query/active without mark-read measured before transition"
+    },
+    {
+      "test": "Unread Back after completion",
+      "passed": true
+    }
+  ],
+  "preview": [
+    {
+      "test": "Task expand/collapse header control",
+      "expanded": true,
+      "focus": true,
+      "font": "14px",
+      "height": 44,
+      "passed": true
+    },
+    {
+      "test": "Custom range drawer close/focus without submit",
+      "passed": true
+    },
+    {
+      "test": "Privacy restored with money nodes removed",
+      "passed": true
+    },
+    {
+      "test": "Advanced filter Escape focus return",
+      "passed": true
+    },
+    {
+      "test": "Ghi giao dịch: open/Escape/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true
+    },
+    {
+      "test": "Tất toán khoản vay: open/button/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true
+    },
+    {
+      "test": "Giảm gốc và mở kỳ mới: open/button/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true
+    },
+    {
+      "test": "Loan tab interest read only",
+      "passed": true
+    },
+    {
+      "test": "Loan tab history read only",
+      "passed": true
+    },
+    {
+      "test": "Loan tab settings read only",
+      "passed": true
+    },
+    {
+      "test": "Loan tab overview read only",
+      "passed": true
+    },
+    {
+      "test": "Loan tab Back query",
+      "passed": true
+    },
+    {
+      "test": "Loan tab Forward query",
+      "passed": true
+    },
+    {
+      "test": "Thêm chi phí: open/Escape/focus no submit",
+      "dateScheme": "light",
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true
+    },
+    {
+      "test": "Thêm đối tác: open/button/focus no submit",
+      "dateScheme": null,
+      "open": true,
+      "overflow": false,
+      "viewport": 390,
+      "width": 366,
+      "closed": true,
+      "focus": true,
+      "passed": true
+    },
+    {
+      "test": "Unread filter after navigation completion no mark-read",
+      "passed": true
+    },
+    {
+      "test": "Unread Back after completion",
+      "passed": true
+    }
+  ]
+}

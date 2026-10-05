@@ -1,0 +1,37 @@
+[
+  {
+    "label": "preview-original",
+    "total": 0,
+    "toolbarCsp": 0,
+    "extension": 0,
+    "unclassified": 0
+  },
+  {
+    "label": "preview-fresh",
+    "total": 0,
+    "toolbarCsp": 0,
+    "extension": 0,
+    "unclassified": 0
+  },
+  {
+    "label": "preview-interactions",
+    "total": 0,
+    "toolbarCsp": 0,
+    "extension": 0,
+    "unclassified": 0
+  },
+  {
+    "label": "production-original",
+    "total": 0,
+    "toolbarCsp": 0,
+    "extension": 0,
+    "unclassified": 0
+  },
+  {
+    "label": "production-fresh",
+    "total": 0,
+    "toolbarCsp": 0,
+    "extension": 0,
+    "unclassified": 0
+  }
+]

@@ -2,10 +2,71 @@
   "status": "IN_PROGRESS",
   "approved": "2026-10-05",
   "runtimeHashesMatchC87": true,
-  "sourceSha": null,
-  "sourceCI": null,
-  "closingCI": null,
-  "remoteMutations": false,
+  "sourceSha": "b2abc255f470cd551595cbfa9978b08242e00847",
+  "sourceCI": {
+    "run": 37295262054,
+    "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37295262054",
+    "sha": "b2abc255f470cd551595cbfa9978b08242e00847",
+    "attempt": 1,
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "Workflow policy",
+        "conclusion": "success"
+      },
+      {
+        "name": "Quality and build",
+        "conclusion": "success"
+      },
+      {
+        "name": "Supabase Auth pgTAP and E2E",
+        "conclusion": "success"
+      },
+      {
+        "name": "Dependency and secret scan",
+        "conclusion": "success"
+      },
+      {
+        "name": "Required CI gate",
+        "conclusion": "success"
+      }
+    ],
+    "counts": {
+      "method": "CI integration log parsed in memory; no raw logs persisted",
+      "sourceSha": "b2abc255f470cd551595cbfa9978b08242e00847",
+      "run": 37295262054,
+      "e2e": {
+        "pass": 62,
+        "duration": "18.4m",
+        "skip": 16
+      },
+      "pgTAP": {
+        "files": 24,
+        "tests": 527
+      },
+      "authPass": 6,
+      "authFail": 0,
+      "skipExplanation": "15 opt-in audit/evidence tests; existing C72 SQL-lock test local-only, passed in C88 local full gate"
+    }
+  },
+  "closingCI": {
+    "status": "PENDING_CLOSING_PROOF_COMMIT_CI",
+    "rule": "Exact closing proof SHA all five jobs SUCCESS before status transition; exact final status SHA verified before completion message"
+  },
+  "remoteMutations": {
+    "financial": false,
+    "accountManagement": false,
+    "schema": false,
+    "secrets": false,
+    "google": false,
+    "backups": false,
+    "deploymentCleanup": false,
+    "vercelCandidates": true,
+    "aliases": true,
+    "gitPush": true,
+    "ownerLogin": true,
+    "sessionManagement": false
+  },
   "limits": [
     "Physical AT/mobile/SafariFirefox NOT_TESTED",
     "No financial/account submit, mark-read or push permission",
@@ -142,5 +203,1051 @@
   "uploadPrediction": {
     "files": 166,
     "scope": "local metadata only; actual remote inventory required"
+  },
+  "gitPush": {
+    "fastForward": true,
+    "localMatchesOrigin": true
+  },
+  "historySecret": {
+    "commits": 160,
+    "findings": 0,
+    "exit": 0
+  },
+  "aliasesAfterSourcePush": {
+    "preview": "dpl_5J776moZkFH36QxFXFP1iYWxwztt",
+    "production": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt",
+    "default": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt"
+  },
+  "rootPreviewCreate": {
+    "exit": 0,
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": 117,
+    "build": "PASS",
+    "e2e": {
+      "pass": 63,
+      "skip": 15,
+      "fail": 0,
+      "duration": "10.6m"
+    },
+    "postgate": {
+      "dbIdentity": "QuanLyVayCaNhan-C20-test",
+      "dbPort": 55322,
+      "counts": {
+        "profiles": 0,
+        "loans": 0,
+        "transactions": 0,
+        "counterparties": 0,
+        "notifications": 0,
+        "authUsers": 0
+      },
+      "runtimeHashesMatch": true,
+      "c75Restored": [
+        "docs/remediation-c75/notifications-390-dark.png",
+        "docs/remediation-c75/evidence.json",
+        "docs/remediation-c75/notifications-375-dark.png",
+        "docs/remediation-c75/dashboard-1440-light.png",
+        "docs/remediation-c75/dashboard-390-light.png",
+        "docs/remediation-c75/notifications-1440-dark.png",
+        "docs/remediation-c75/dashboard-375-light.png",
+        "docs/remediation-c75/notifications-1440-light.png",
+        "docs/remediation-c75/dashboard-1440-dark.png",
+        "docs/remediation-c75/notifications-390-light.png",
+        "docs/remediation-c75/notifications-375-light.png",
+        "docs/remediation-c75/privacy-generated.png",
+        "docs/remediation-c75/dashboard-375-dark.png",
+        "docs/remediation-c75/dashboard-390-dark.png",
+        "docs/remediation-c75/privacy-custom.png"
+      ],
+      "c75AllHashesMatch": true
+    },
+    "stableAliasSwitched": false
+  },
+  "candidates": {
+    "preview": {
+      "id": "dpl_DWAs22T33Lt69qo9kdnYbXEs6dov",
+      "url": "https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "org": "ngotuong2105",
+      "target": "preview",
+      "readyState": "READY",
+      "routeFunctions": 43,
+      "region": "sin1",
+      "middlewareRegions": [
+        [
+          "sin1"
+        ]
+      ],
+      "sourceSha": "b2abc255f470cd551595cbfa9978b08242e00847",
+      "sourceContentsConfirmedByUID": "157/157 returned UID matches CLI dry SHA1; file bodies NOT_TESTED",
+      "authenticatedSmoke": "PASS: 70 native samples + drawer/history/privacy/theme/keyboard",
+      "inventory": {
+        "method": "Vercel API file-tree metadata only; no file body/bundle contents downloaded",
+        "rootTrees": [
+          "src",
+          "out"
+        ],
+        "returnedLeafEntries": 201,
+        "regularFileLeaves": 157,
+        "lambdaEntries": 44,
+        "sourceLeaves": 157,
+        "outputLeaves": 44,
+        "forbiddenRegularLeaves": [],
+        "directoriesWithoutChildEntries": [
+          "src/.backups",
+          "src/.c55-remote-head",
+          "src/.tmp",
+          "src/apps/google-sync",
+          "src/apps/web/src/app/api/c21-preview-bootstrap",
+          "src/apps/web/test",
+          "src/apps/web/test-results",
+          "src/docs",
+          "src/packages",
+          "src/scripts",
+          "src/supabase"
+        ],
+        "contentsNotTested": true,
+        "scopeLimitation": "Returned src/out file-tree metadata; no bundle/static-body inspection"
+      },
+      "sourceChecksums": {
+        "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+        "expectedSourceFiles": 157,
+        "matchedSourceFiles": 157,
+        "missingUid": [],
+        "mismatch": [],
+        "unknown": [],
+        "missingPaths": [],
+        "pass": true
+      },
+      "publicSmoke": {
+        "label": "preview-candidate",
+        "url": "https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-05T10:52:07.494Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtimePreauth": {
+        "phase": "preview-preauth",
+        "url": "https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-05T10:52:14.800593+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      }
+    },
+    "production": {
+      "id": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
+      "url": "https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "org": "ngotuong2105",
+      "target": "production",
+      "readyState": "READY",
+      "routeFunctions": 43,
+      "region": "sin1",
+      "middlewareRegions": [
+        [
+          "bom1",
+          "fra1",
+          "gru1",
+          "iad1",
+          "lhr1",
+          "sfo1",
+          "sin1",
+          "syd1"
+        ]
+      ],
+      "sourceSha": "b2abc255f470cd551595cbfa9978b08242e00847",
+      "sourceContentsConfirmedByUID": "157/157 returned UID matches CLI dry SHA1; file bodies NOT_TESTED",
+      "authenticatedSmoke": "PASS: 70 native samples + drawer/history/privacy/theme/keyboard",
+      "inventory": {
+        "method": "Vercel API file-tree metadata only; no file body/bundle contents downloaded",
+        "rootTrees": [
+          "src",
+          "out"
+        ],
+        "returnedLeafEntries": 201,
+        "regularFileLeaves": 157,
+        "lambdaEntries": 44,
+        "sourceLeaves": 157,
+        "outputLeaves": 44,
+        "forbiddenRegularLeaves": [],
+        "directoriesWithoutChildEntries": [
+          "src/.backups",
+          "src/.c55-remote-head",
+          "src/.tmp",
+          "src/apps/google-sync",
+          "src/apps/web/src/app/api/c21-preview-bootstrap",
+          "src/apps/web/test",
+          "src/apps/web/test-results",
+          "src/docs",
+          "src/packages",
+          "src/scripts",
+          "src/supabase"
+        ],
+        "contentsNotTested": true,
+        "scopeLimitation": "Returned src/out file-tree metadata; no bundle/static-body inspection"
+      },
+      "sourceChecksums": {
+        "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+        "expectedSourceFiles": 157,
+        "matchedSourceFiles": 157,
+        "missingUid": [],
+        "mismatch": [],
+        "unknown": [],
+        "missingPaths": [],
+        "pass": true
+      },
+      "publicSmoke": {
+        "label": "production-candidate",
+        "url": "https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-05T10:54:11.082Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtimePreauth": {
+        "phase": "production-preauth",
+        "url": "https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-05T10:54:19.110736+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      }
+    }
+  },
+  "publicBrowser": {
+    "method": "Native IAB read-only public login DOM at actual innerWidth; no Auth/cold/network/physical certification",
+    "samples": [
+      {
+        "target": "preview",
+        "background": "rgb(234, 240, 248)",
+        "font": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+        "fonts": "loaded",
+        "loginButtonHeight": 48,
+        "overflow": 0,
+        "theme": "system",
+        "visibleH1": 1,
+        "width": 375
+      },
+      {
+        "target": "preview",
+        "background": "rgb(234, 240, 248)",
+        "font": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+        "fonts": "loaded",
+        "loginButtonHeight": 48,
+        "overflow": 0,
+        "theme": "system",
+        "visibleH1": 1,
+        "width": 390
+      },
+      {
+        "target": "preview",
+        "background": "rgb(234, 240, 248)",
+        "font": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+        "fonts": "loaded",
+        "loginButtonHeight": 48,
+        "overflow": 0,
+        "theme": "system",
+        "visibleH1": 1,
+        "width": 768
+      },
+      {
+        "target": "preview",
+        "background": "rgb(234, 240, 248)",
+        "font": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+        "fonts": "loaded",
+        "loginButtonHeight": 48,
+        "overflow": 0,
+        "theme": "system",
+        "visibleH1": 1,
+        "width": 1024
+      },
+      {
+        "target": "preview",
+        "background": "rgb(234, 240, 248)",
+        "font": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+        "fonts": "loaded",
+        "loginButtonHeight": 48,
+        "overflow": 0,
+        "theme": "system",
+        "visibleH1": 1,
+        "width": 1440
+      },
+      {
+        "target": "production",
+        "background": "rgb(234, 240, 248)",
+        "font": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+        "fonts": "loaded",
+        "loginButtonHeight": 48,
+        "overflow": 0,
+        "theme": "system",
+        "visibleH1": 1,
+        "width": 375
+      },
+      {
+        "target": "production",
+        "background": "rgb(234, 240, 248)",
+        "font": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+        "fonts": "loaded",
+        "loginButtonHeight": 48,
+        "overflow": 0,
+        "theme": "system",
+        "visibleH1": 1,
+        "width": 390
+      },
+      {
+        "target": "production",
+        "background": "rgb(234, 240, 248)",
+        "font": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+        "fonts": "loaded",
+        "loginButtonHeight": 48,
+        "overflow": 0,
+        "theme": "system",
+        "visibleH1": 1,
+        "width": 768
+      },
+      {
+        "target": "production",
+        "background": "rgb(234, 240, 248)",
+        "font": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+        "fonts": "loaded",
+        "loginButtonHeight": 48,
+        "overflow": 0,
+        "theme": "system",
+        "visibleH1": 1,
+        "width": 1024
+      },
+      {
+        "target": "production",
+        "background": "rgb(234, 240, 248)",
+        "font": "Inter, \"Inter Fallback\", Arial, Helvetica, sans-serif",
+        "fonts": "loaded",
+        "loginButtonHeight": 48,
+        "overflow": 0,
+        "theme": "system",
+        "visibleH1": 1,
+        "width": 1440
+      }
+    ],
+    "firstProbeError": "checkVisibility API unavailable in read-only DOM proxy; replaced with rect/visibility for public h1; viewport reset and all ten samples rerun successfully"
+  },
+  "publicConsole": {
+    "method": "Browser error log aggregate only; no log messages retained; public login phase",
+    "counts": [
+      {
+        "target": "preview",
+        "totalErrors": 0,
+        "knownToolbarOrExtension": 0,
+        "otherErrors": 0
+      },
+      {
+        "target": "production",
+        "totalErrors": 0,
+        "knownToolbarOrExtension": 0,
+        "otherErrors": 0
+      }
+    ]
+  },
+  "aliasesHeldC85": {
+    "phase": "Before successful candidate Auth/runtime gate",
+    "originalEvidence": {
+      "preview": "dpl_5J776moZkFH36QxFXFP1iYWxwztt",
+      "production": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt",
+      "default": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt"
+    }
+  },
+  "ownerLogin": "OWNER_CONFIRMED_BOTH_IMMUTABLE_HOSTS",
+  "promoted": {
+    "preview": "dpl_DWAs22T33Lt69qo9kdnYbXEs6dov",
+    "production": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
+    "default": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo"
+  },
+  "remaining": [
+    "Exact closing proof CI",
+    "Final context/roadmap transition and exact final status CI"
+  ],
+  "nativeAuth": {
+    "status": "PASS",
+    "ownerLoggedBoth": true,
+    "matrix": {
+      "file": "auth-matrix.json",
+      "samples": 140,
+      "routes": 7,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "overflow": 0,
+      "visibleH1": 1,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    "interactions": {
+      "file": "auth-interactions.json",
+      "previewFinalChecks": 17,
+      "productionFinalChecks": 18,
+      "discardedProductionEarlyQueryMeasurement": 1,
+      "financialSubmits": 0,
+      "notes": "Early unread query sampled before navigation; explicit waitForURL rerun passed. Native tab recovery/selector/closure/stream limitations preserved in matrix notes."
+    },
+    "console": [
+      {
+        "label": "preview-original",
+        "total": 0,
+        "toolbarCsp": 0,
+        "extension": 0,
+        "unclassified": 0
+      },
+      {
+        "label": "preview-fresh",
+        "total": 0,
+        "toolbarCsp": 0,
+        "extension": 0,
+        "unclassified": 0
+      },
+      {
+        "label": "preview-interactions",
+        "total": 0,
+        "toolbarCsp": 0,
+        "extension": 0,
+        "unclassified": 0
+      },
+      {
+        "label": "production-original",
+        "total": 0,
+        "toolbarCsp": 0,
+        "extension": 0,
+        "unclassified": 0
+      },
+      {
+        "label": "production-fresh",
+        "total": 0,
+        "toolbarCsp": 0,
+        "extension": 0,
+        "unclassified": 0
+      }
+    ],
+    "preferencesRestored": {
+      "preview": {
+        "theme": "system",
+        "privacy": true
+      },
+      "production": {
+        "theme": "system",
+        "privacy": true
+      }
+    },
+    "limits": [
+      "Remote expense multi-page/distribution absent; local C87 26-expense regression supplement only",
+      "Remote wide/negative/stress amounts NOT_TESTED; local C87 synthetic supplement",
+      "Physical AT/mobile/SafariFirefox/OS theme change NOT_TESTED",
+      "Natural loading fallback observed; no native controlled delay or cold-before-HTML/PWA certification"
+    ],
+    "publicRetry": {
+      "host": "production candidate",
+      "firstAttempt": "Local DNS getaddrinfo ENOTFOUND before HTTP response; no app failure inferred",
+      "rerun": "PASS 4/4"
+    },
+    "themeReplay": {
+      "status": "PASS",
+      "file": "theme-replay.json",
+      "hosts": 2
+    },
+    "keyboard": {
+      "status": "PASS",
+      "file": "auth-keyboard.json",
+      "hosts": 2
+    }
+  },
+  "previewCandidateAuthRuntime": {
+    "phase": "preview-candidate-auth",
+    "url": "https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app",
+    "checkedAt": "2026-10-05T12:10:06.928192+00:00",
+    "counts": {
+      "errors": 0,
+      "http500": 0
+    },
+    "cliExit": 0,
+    "method": "Runtime CLI, counts only, no private log messages retained"
+  },
+  "previewCandidateAuthPublic": {
+    "label": "preview-candidate-auth",
+    "url": "https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app",
+    "checkedAt": "2026-10-05T12:09:59.540Z",
+    "results": [
+      {
+        "path": "/login",
+        "status": 200,
+        "expected": 200,
+        "pass": true
+      },
+      {
+        "path": "/manifest.webmanifest",
+        "status": 200,
+        "expected": 200,
+        "pass": true
+      },
+      {
+        "path": "/api/google-sync/export",
+        "status": 401,
+        "expected": 401,
+        "pass": true
+      },
+      {
+        "path": "/api/notifications/run",
+        "status": 401,
+        "expected": 401,
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "method": "HTTP status only; no response bodies persisted"
+  },
+  "productionCandidateAuthRuntime": {
+    "phase": "production-candidate-auth",
+    "url": "https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+    "checkedAt": "2026-10-05T12:10:06.323048+00:00",
+    "counts": {
+      "errors": 0,
+      "http500": 0
+    },
+    "cliExit": 0,
+    "method": "Runtime CLI, counts only, no private log messages retained"
+  },
+  "productionCandidateAuthPublic": {
+    "label": "production-candidate-auth",
+    "url": "https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+    "checkedAt": "2026-10-05T12:10:25.508Z",
+    "results": [
+      {
+        "path": "/login",
+        "status": 200,
+        "expected": 200,
+        "pass": true
+      },
+      {
+        "path": "/manifest.webmanifest",
+        "status": 200,
+        "expected": 200,
+        "pass": true
+      },
+      {
+        "path": "/api/google-sync/export",
+        "status": 401,
+        "expected": 401,
+        "pass": true
+      },
+      {
+        "path": "/api/notifications/run",
+        "status": 401,
+        "expected": 401,
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "method": "HTTP status only; no response bodies persisted"
+  },
+  "exactProjectMetadata": [
+    {
+      "label": "preview-candidate",
+      "id": "dpl_DWAs22T33Lt69qo9kdnYbXEs6dov",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "teamId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "readyState": "READY",
+      "url": "quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app",
+      "method": "GET metadata parsed in memory; only deployment identity fields retained",
+      "rawApiTarget": null,
+      "cliTarget": "preview"
+    },
+    {
+      "label": "production-candidate",
+      "id": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "teamId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "readyState": "READY",
+      "url": "quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+      "method": "GET metadata parsed in memory; only deployment identity fields retained",
+      "rawApiTarget": "production",
+      "cliTarget": "production"
+    },
+    {
+      "label": "preview-rollback",
+      "id": "dpl_5J776moZkFH36QxFXFP1iYWxwztt",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "teamId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "readyState": "READY",
+      "url": "quan-ly-vay-ca-nhan-2wgem6s2u-ngotuong2105.vercel.app",
+      "method": "GET metadata parsed in memory; only deployment identity fields retained",
+      "rawApiTarget": null,
+      "cliTarget": "preview"
+    },
+    {
+      "label": "production-rollback",
+      "id": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "teamId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "readyState": "READY",
+      "url": "quan-ly-vay-ca-nhan-is7a4n3b9-ngotuong2105.vercel.app",
+      "method": "GET metadata parsed in memory; only deployment identity fields retained",
+      "rawApiTarget": "production",
+      "cliTarget": "production"
+    }
+  ],
+  "metadataHarnessNote": "Initial extra metadata target assertion expected literal preview; Vercel API returned null for Preview. Raw API target retained alongside scoped CLI preview/READY and exact project/team IDs; production raw target production. No weakening of repository provenance guard.",
+  "previewInventoryAfterAuth": {
+    "method": "Vercel API file-tree metadata only; no file body/bundle contents downloaded",
+    "rootTrees": [
+      "src",
+      "out"
+    ],
+    "returnedLeafEntries": 201,
+    "regularFileLeaves": 157,
+    "lambdaEntries": 44,
+    "sourceLeaves": 157,
+    "outputLeaves": 44,
+    "forbiddenRegularLeaves": [],
+    "directoriesWithoutChildEntries": [
+      "src/.backups",
+      "src/.c55-remote-head",
+      "src/.tmp",
+      "src/apps/google-sync",
+      "src/apps/web/src/app/api/c21-preview-bootstrap",
+      "src/apps/web/test",
+      "src/apps/web/test-results",
+      "src/docs",
+      "src/packages",
+      "src/scripts",
+      "src/supabase"
+    ],
+    "contentsNotTested": true,
+    "scopeLimitation": "Returned src/out file-tree metadata; no bundle/static-body inspection"
+  },
+  "previewSourceUIDAfterAuth": {
+    "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+    "expectedSourceFiles": 157,
+    "matchedSourceFiles": 157,
+    "missingUid": [],
+    "mismatch": [],
+    "unknown": [],
+    "missingPaths": [],
+    "pass": true
+  },
+  "productionInventoryAfterAuth": {
+    "method": "Vercel API file-tree metadata only; no file body/bundle contents downloaded",
+    "rootTrees": [
+      "src",
+      "out"
+    ],
+    "returnedLeafEntries": 201,
+    "regularFileLeaves": 157,
+    "lambdaEntries": 44,
+    "sourceLeaves": 157,
+    "outputLeaves": 44,
+    "forbiddenRegularLeaves": [],
+    "directoriesWithoutChildEntries": [
+      "src/.backups",
+      "src/.c55-remote-head",
+      "src/.tmp",
+      "src/apps/google-sync",
+      "src/apps/web/src/app/api/c21-preview-bootstrap",
+      "src/apps/web/test",
+      "src/apps/web/test-results",
+      "src/docs",
+      "src/packages",
+      "src/scripts",
+      "src/supabase"
+    ],
+    "contentsNotTested": true,
+    "scopeLimitation": "Returned src/out file-tree metadata; no bundle/static-body inspection"
+  },
+  "productionSourceUIDAfterAuth": {
+    "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+    "expectedSourceFiles": 157,
+    "matchedSourceFiles": 157,
+    "missingUid": [],
+    "mismatch": [],
+    "unknown": [],
+    "missingPaths": [],
+    "pass": true
+  },
+  "rootPreviewResume": {
+    "exit": 0,
+    "seconds": 676.3,
+    "command": "repository root pinned pnpm deploy:preview -- --candidate immutable-preview --verified-authenticated-smoke",
+    "unit": 117,
+    "buildRoutes": 19,
+    "e2e": {
+      "pass": 63,
+      "skip": 15,
+      "fail": 0,
+      "duration": "10.7m"
+    },
+    "postgate": {
+      "dbIdentity": "QuanLyVayCaNhan-C20-test",
+      "dbPort": 55322,
+      "counts": {
+        "profiles": 0,
+        "loans": 0,
+        "transactions": 0,
+        "counterparties": 0,
+        "notifications": 0,
+        "authUsers": 0
+      },
+      "runtimeHashesMatch": true,
+      "c75Restored": [
+        "docs/remediation-c75/notifications-390-dark.png",
+        "docs/remediation-c75/evidence.json",
+        "docs/remediation-c75/notifications-375-dark.png",
+        "docs/remediation-c75/dashboard-1440-light.png",
+        "docs/remediation-c75/dashboard-390-light.png",
+        "docs/remediation-c75/notifications-1440-dark.png",
+        "docs/remediation-c75/dashboard-375-light.png",
+        "docs/remediation-c75/notifications-1440-light.png",
+        "docs/remediation-c75/dashboard-1440-dark.png",
+        "docs/remediation-c75/notifications-390-light.png",
+        "docs/remediation-c75/notifications-375-light.png",
+        "docs/remediation-c75/privacy-generated.png",
+        "docs/remediation-c75/dashboard-375-dark.png",
+        "docs/remediation-c75/dashboard-390-dark.png",
+        "docs/remediation-c75/privacy-custom.png"
+      ],
+      "c75AllHashesMatch": true
+    },
+    "deploymentId": "dpl_DWAs22T33Lt69qo9kdnYbXEs6dov",
+    "alias": "https://tindung-preview.vercel.app"
+  },
+  "previewAliasPublic": {
+    "label": "preview-alias-post",
+    "url": "https://tindung-preview.vercel.app",
+    "checkedAt": "2026-10-05T12:26:52.060Z",
+    "results": [
+      {
+        "path": "/login",
+        "status": 200,
+        "expected": 200,
+        "pass": true
+      },
+      {
+        "path": "/manifest.webmanifest",
+        "status": 200,
+        "expected": 200,
+        "pass": true
+      },
+      {
+        "path": "/api/google-sync/export",
+        "status": 401,
+        "expected": 401,
+        "pass": true
+      },
+      {
+        "path": "/api/notifications/run",
+        "status": 401,
+        "expected": 401,
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "method": "HTTP status only; no response bodies persisted"
+  },
+  "previewAliasRuntime": {
+    "phase": "preview-alias-post",
+    "url": "https://tindung-preview.vercel.app",
+    "checkedAt": "2026-10-05T12:26:59.984134+00:00",
+    "counts": {
+      "errors": 0,
+      "http500": 0
+    },
+    "cliExit": 0,
+    "method": "Runtime CLI, counts only, no private log messages retained"
+  },
+  "productionPromote": {
+    "exit": 0,
+    "seconds": 9.7,
+    "deploymentId": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
+    "immutable": "https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+    "aliases": [
+      "https://tindung.vercel.app",
+      "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app"
+    ],
+    "rollback": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt",
+    "note": "Native Auth/public/runtime postchecks still required; no cleanup",
+    "rollbackActivated": false
+  },
+  "aliasAuth": {
+    "status": "PASS",
+    "file": "alias-auth-post.json",
+    "samples": 54,
+    "hosts": 3,
+    "routeCount": 7,
+    "checks": 12,
+    "consoleErrors": 0,
+    "preferencesRestored": {
+      "stable-preview": {
+        "privacy": true,
+        "theme": "system"
+      },
+      "stable-production": {
+        "privacy": true,
+        "theme": "system"
+      },
+      "default": {
+        "privacy": false,
+        "theme": "system"
+      }
+    },
+    "viewportReset": true,
+    "brandedStartupObserved": true
+  },
+  "aliasPostChecks": {
+    "preview": {
+      "id": "dpl_DWAs22T33Lt69qo9kdnYbXEs6dov",
+      "url": "https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app",
+      "target": "preview",
+      "readyState": "READY",
+      "public": {
+        "label": "preview-alias-post",
+        "url": "https://tindung-preview.vercel.app",
+        "checkedAt": "2026-10-05T12:26:52.060Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtime": {
+        "phase": "preview-alias-post",
+        "url": "https://tindung-preview.vercel.app",
+        "checkedAt": "2026-10-05T12:26:59.984134+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      }
+    },
+    "production": {
+      "id": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
+      "url": "https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "public": {
+        "label": "production-alias-post",
+        "url": "https://tindung.vercel.app",
+        "checkedAt": "2026-10-05T12:33:26.959Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtime": {
+        "phase": "production-alias-post",
+        "url": "https://tindung.vercel.app",
+        "checkedAt": "2026-10-05T12:33:35.040882+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      }
+    },
+    "default": {
+      "id": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
+      "url": "https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "public": {
+        "label": "default-alias-post",
+        "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-05T12:33:27.126Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtime": {
+        "phase": "default-alias-post",
+        "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-05T12:33:35.669347+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      }
+    }
+  },
+  "browserCleanup": {
+    "temporaryTabsClosed": 11,
+    "kept": "Production dashboard",
+    "viewportReset": true,
+    "sessionLogoutOrRevocation": false
+  },
+  "privateScreenshot": {
+    "path": ".cache/c88/production-released.jpg",
+    "gitIgnored": true,
+    "width": 1280,
+    "height": 720,
+    "moneyHidden": true,
+    "note": "OWNER proof only; no real app image committed"
+  },
+  "closingLocalGates": {
+    "jsonParse": "PASS",
+    "diffCheck": "PASS",
+    "runtimeC87Hashes": "12/12 unchanged",
+    "c75Baseline": "17/17 unchanged",
+    "dbDisposableSixCounts": {
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0,
+      "counterparties": 0,
+      "notifications": 0,
+      "authUsers": 0
+    },
+    "secretDocsDiffAndNewFiles": {
+      "pinnedGitleaks": "v8.30.1",
+      "findings": 0,
+      "exit": 0
+    },
+    "privateScreenshotIgnored": true,
+    "scope": "Docs-only closing proof; full runtime gates already passed and exact closing CI required",
+    "policyActionlint": "PASS"
   }
 }
