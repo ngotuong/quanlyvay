@@ -63,7 +63,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C85 | Đồng bộ C83/C84, CI và rollout UI/theme lên Preview/Production | `COMPLETED` |
 | C86 | Audit hiệu quả thao tác sau phát hành C85 với Evon ui-ux | `COMPLETED` |
 | C87 | Remediation phân vùng, chữ, control phụ, startup và pagination theo C86 | `COMPLETED` |
-| C88 | Đồng bộ C86/C87 B, Required CI và rollout Preview/Production | `IN_PROGRESS` |
+| C88 | Đồng bộ C86/C87 B, Required CI và rollout Preview/Production | `COMPLETED` |
+| C89 | Nghiệm thu trải nghiệm B sau C88 và chốt backlog UX | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1967,10 +1968,10 @@ sixcounts0,17C75files restore exact baseline/C86 bảo toàn. Report/review/vali
 reconciliation: docs/remediation-c87/. Không commit/push/deploy/remote mutation; các giới hạn
 trướcHTML/PWA/physical AT/mobile/Safari/Firefox giữ NOT_TESTED. C88 chờ duyệt rồi dừng.
 
-## 46. Checkpoint C88 — Đang thực hiện
+## 46. Checkpoint C88 — Hoàn tất
 
 **C88 — Đồng bộ và phát hành giao diện C87 B lên Preview/Production.**
-Trạng thái: `IN_PROGRESS`. OWNER phê duyệt ngày05/10/2026 trong hội thoại; bắt đầu release gate.
+Trạng thái: `COMPLETED`. OWNER phê duyệt ngày05/10/2026; rollout/source/closing proof gates đã đạt.
 
 Phạm vi khi phê duyệt:
 
@@ -2025,5 +2026,47 @@ Stable Preview đãtrỏ C88; Auth18samples/7route LightDark/drawer/filter/publi
 Production promote exit0; tindung/default trỏ dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo. Baalias
 54Authsamples/7route LightDark/12checks/public4/4/runtime0 hậu kiểmPASS; exactproject/team/
 157UIDmatch/0forbidden, C75/runtime12 bảo toàn; khôngrollback/cleanup. System/privacy từnghost
-restore đúng ban đầu;11tabtạm đóng/viewportreset. Chỉ còn closing proof + final status exact CI.
-C88 vẫn IN_PROGRESS; closing CI và checkpoint kế chưa thực hiện. Report docs/release-c88/.
+restore đúng ban đầu;11tabtạm đóng/viewportreset. Closing proof385b7c1
+CI37311126932 attempt2 SUCCESS5jobs đúngSHA, pgTAP527/Auth6/E2E62PASS16SKIP
+18.2m; JSON/diff/policy/actionlint/Gitleaks docs+history161commits PASS0secret. C88
+COMPLETED/C89 AWAITING_APPROVAL. Exact final status CI xác minh trước completion message,
+kết quả run/SHA báo trong hội thoại; sourceCI không thay closingCI. Report docs/release-c88/.
+
+
+Closing CI lần đầu run37311126932/385b7c1 attempt1 FAIL: E2E61PASS16SKIP1FAIL15,7m, C87 branded startup/SPA test line76; delayed RSC interceptor line85 báo `route.continue: Route is already handled!`, rồi ready() kết thúc theo test. Chưa tái hiện hoặc xác định chắc chắn causal race; không tuyên bố sửa sản phẩm hay hết flake. Chạy nguyên ca local3lần PASS3/0 trong4,4m với retries0, teardown sáu counts0; rerun chỉ2job đã fail trên nguyênSHA, attempt2 SUCCESS mọi5job. Không đổi runtime/harness/assertion/timeout/retries/skips; ECR pull rate-limit tự retry đã qua, không phải nguyên nhân E2E. Rủi ro interception còn có thể lặp; nếu tái diễn cần remediation harness có evidence thay vì tiếp tục retry.
+
+## 47. Checkpoint C89 — Chờ phê duyệt
+
+**C89 — Nghiệm thu trải nghiệm giao diện B sau phát hành C88 và chốt backlog UX.**
+Trạng thái: `AWAITING_APPROVAL`. Chỉ bắt đầu khi OWNER phê duyệt C89; không thuộc release C88.
+
+Phạm vi đề xuất:
+
+- Dùng Evon ui-ux nhánh review để đối chiếu giao diện B thực tế với yêu cầu nền phân vùng,
+  chữ dễ đọc, control phụ gọn và loading. Giữ hướng B đã duyệt; chưa redesign hoặc sửa sản phẩm.
+- Audit các hành trình Tổng quan → việc đến hạn → khoản vay/chi tiết; tìm/lọc/Back; mở/đóng
+  drawer; danh sách Chi phí/đối tác; thông báo và ba chế độ giao diện. Đo bước thao tác, cuộn,
+  focus, đọc số tiền đầy đủ và trạng thái pending/error/retry trong phạm vi khả dụng.
+- Remote Production/Preview chỉ đọc, không input/submit/mark-read/permission hoặc QA data.
+  Các ca lưu thành công/validation lỗi/draft và phân trang26chi phí kiểm bằng fixture local
+  disposable C20-test có guard; giữ rõ khác biệt với dữ liệu/thiết bị vận hành.
+- Light/Dark tại375/390/768/1024/1440 cho route/state liên quan; kiểm contrast/typography/
+  hierarchy/target/focus/privacy. Thiếu capability/state giữ NOT_TESTED; không yêu cầu OWNER
+  học VoiceOver, không mở rộng thiết bị/OS/network hoặc cleanup tài nguyên.
+- Report có bằng chứng file/vị trí, nguyên nhân, tác động, hướng khắc phục; tách lỗi chức năng
+  theo HIGH/MEDIUM/LOW khỏi đề xuất Gu/thẩm mỹ. Chỉ đề xuất remediation có phạm vi/AC cụ thể
+  nếu còn phát hiện đáng sửa; không tạo chuỗi redesign khi thiếu bằng chứng hoặc phản hồi mới.
+- Chỉ tài liệu/ảnh synthetic và harness audit cần thiết; không đổi runtime/schema/RPC/Auth,
+  dữ liệu/secrets/accounts/Google/backups, không commit/push/deploy. Không đưa dữ liệu thật vào Git.
+
+Acceptance criteria:
+
+1. Có ma trận hành trình/breakpoint/theme và đối chiếu những yêu cầu OWNER đã nêu; số bước/cuộn/
+   focus và trạng thái tải có phép đo, không lấy ảnh đơn lẻ làm chứng nhận mọi cold-start.
+2. Mọi phát hiện có evidence và mức độ; phân biệt rõ app failure, harness/browser limitation,
+   Gu và NOT_TESTED. Không kết luận remote save/AT/physical mobile bằng kết quả local.
+3. Hồi quy phù hợp hiện hữu về privacy/theme/drawer/draft/query đạt; nếu thêm/sửa harness thì
+   lint/typecheck và gate targeted áp dụng đạt. DB đúng C20-test55322 teardown0; diff/secret/
+   artifact checks PASS, không giảm assertions/retries/skips.
+4. Context/roadmap/report cập nhật cùng thay đổi; đề xuất checkpoint remediation kế tiếp với
+   phạm vi/AC rõ nếu cần, đặt AWAITING_APPROVAL và dừng. Không tự sửa hoặc phát hành.

@@ -1,5 +1,5 @@
 {
-  "status": "IN_PROGRESS",
+  "status": "COMPLETED",
   "approved": "2026-10-05",
   "runtimeHashesMatchC87": true,
   "sourceSha": "b2abc255f470cd551595cbfa9978b08242e00847",
@@ -50,8 +50,51 @@
     }
   },
   "closingCI": {
-    "status": "PENDING_CLOSING_PROOF_COMMIT_CI",
-    "rule": "Exact closing proof SHA all five jobs SUCCESS before status transition; exact final status SHA verified before completion message"
+    "sha": "385b7c1fc998adf7b922a0485a8a0e30c6582198",
+    "run": 37311126932,
+    "url": "https://github.com/ngotuong/quanlyvay/actions/runs/37311126932",
+    "attempt": 2,
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "Supabase Auth pgTAP and E2E",
+        "conclusion": "success"
+      },
+      {
+        "name": "Dependency and secret scan",
+        "conclusion": "success"
+      },
+      {
+        "name": "Workflow policy",
+        "conclusion": "success"
+      },
+      {
+        "name": "Quality and build",
+        "conclusion": "success"
+      },
+      {
+        "name": "Required CI gate",
+        "conclusion": "success"
+      }
+    ],
+    "counts": {
+      "method": "Exact-SHA CI integration log parsed in memory; raw logs not retained",
+      "sha": "385b7c1fc998adf7b922a0485a8a0e30c6582198",
+      "run": 37311126932,
+      "e2e": {
+        "pass": 62,
+        "skip": 16,
+        "duration": "18.2m"
+      },
+      "pgTAP": {
+        "files": 24,
+        "tests": 527
+      },
+      "auth": {
+        "pass": 6,
+        "fail": 0
+      }
+    }
   },
   "remoteMutations": {
     "financial": false,
@@ -619,10 +662,7 @@
     "production": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
     "default": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo"
   },
-  "remaining": [
-    "Exact closing proof CI",
-    "Final context/roadmap transition and exact final status CI"
-  ],
+  "remaining": [],
   "nativeAuth": {
     "status": "PASS",
     "ownerLoggedBoth": true,
@@ -1249,5 +1289,61 @@
     "privateScreenshotIgnored": true,
     "scope": "Docs-only closing proof; full runtime gates already passed and exact closing CI required",
     "policyActionlint": "PASS"
+  },
+  "completed": "2026-10-05",
+  "finalStatusCIRule": "Required CI of exact final status SHA must be verified SUCCESS all five jobs before completion message; actual run/SHA reported in conversation (avoids self-referential commit loop). Runtime source unchanged.",
+  "nextCheckpoint": {
+    "id": "C89",
+    "status": "AWAITING_APPROVAL",
+    "scope": "Post-release B UX acceptance and evidence-based backlog; no runtime/remote mutation or release without separate approval"
+  },
+  "historySecretClosingProof": {
+    "pinnedGitleaks": "v8.30.1",
+    "commits": 161,
+    "findings": 0,
+    "exit": 0
+  },
+  "aliasesAfterProofPush": {
+    "preview": {
+      "id": "dpl_DWAs22T33Lt69qo9kdnYbXEs6dov",
+      "readyState": "READY",
+      "target": "preview"
+    },
+    "production": {
+      "id": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
+      "readyState": "READY",
+      "target": "production"
+    },
+    "default": {
+      "id": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
+      "readyState": "READY",
+      "target": "production"
+    }
+  },
+  "closingCIFirstAttempt": {
+    "sha": "385b7c1fc998adf7b922a0485a8a0e30c6582198",
+    "run": 37311126932,
+    "attempt": 1,
+    "conclusion": "failure",
+    "e2e": {
+      "pass": 61,
+      "skip": 16,
+      "fail": 1,
+      "duration": "15.7m"
+    },
+    "failedTest": "apps/web/test/e2e/c87-remediation.spec.ts:76",
+    "error": "route.continue: Route is already handled! at delayed RSC interceptor line85; following ready() assertion ended when test failed",
+    "assessment": "Single request-interception lifecycle failure in CI. Exact causal race not reproduced or conclusively determined; no claim of a product fix or permanent flake fix. Same test/source/assertions passed three local repeats and exact-SHA failed-job rerun. Prior source CI and three full local/root suites also passed.",
+    "localReplay": {
+      "command": "pnpm test:e2e c87-remediation.spec.ts --grep branded first-paint --repeat-each=3 (pinned pnpm11.9.0)",
+      "pass": 3,
+      "fail": 0,
+      "duration": "4.4m",
+      "retries": 0,
+      "runtimeAndHarnessChanges": false,
+      "target": "guarded disposable C20-test API55321/DB55322, teardown six counts0"
+    },
+    "retry": "Only failed integration/Required CI jobs rerun on unchanged exact SHA; successful original jobs preserved. No assertion/timeout/retry/skip changes.",
+    "residualRisk": "Request interception may remain intermittent; recurrence needs an evidence-based bounded test-harness remediation, rather than repeated retries."
   }
 }

@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.297
+roadmap_version: 1.0.298
 last_updated: 2026-10-05
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C88
-current_status: IN_PROGRESS
-last_completed_checkpoint: C87
-next_checkpoint: C88
+current_checkpoint: C89
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C88
+next_checkpoint: C89
 ---
 
 # Project Context
@@ -16,31 +16,47 @@ history, migration, test và các contract/runbook chuyên biệt.
 
 ## 1. Trạng thái hiện tại
 
-- Checkpoint hiện tại C88 `IN_PROGRESS`: OWNER phê duyệt ngày05/10/2026 trong hội thoại.
-  Đang kiểm source/upload, đồng bộ C86/C87, exact-SHA Required CI và rollout Preview/Production
-  theo roadmap section46. Local C88 lint/typecheck/unit117/build/full E2E63PASS15opt-inSKIP
-  exit0, policy/audit/diff/Gitleaks PASS; DB C20-test55322 sáu counts0/C75 restored/runtime12hash
-  khớp C87. Source b2abc255f470cd551595cbfa9978b08242e00847 đã push fast-forward;
-  CI37295262054 attempt1 SUCCESS mọi5job đúngSHA, pgTAP527/Auth6/E2E62PASS16SKIP18,4m.
-  Root Preview create exit0/full E2E63PASS15SKIP10,6m; DB55322 sáu counts0/C75 restored.
+- Checkpoint hiện tại C89 `AWAITING_APPROVAL`: nghiệm thu trải nghiệm giao diện B sau C88 và
+  chốt backlog UX theo evidence/Evon. Scope/AC roadmap section47; chưa bắt đầu, không tự sửa
+  runtime/dữ liệu, commit/push/deploy hoặc mở rộng AT/physical devices.
+- C88 `COMPLETED` ngày05/10/2026, OWNER phê duyệt trong hội thoại: C86/C87 B đã push và
+  rollout Preview/Production. Source b2abc255f470cd551595cbfa9978b08242e00847 có Required CI
+  37295262054 SUCCESS5jobs đúngSHA, pgTAP527/Auth6/E2E62PASS16SKIP18,4m. Closing proof
+  385b7c1fc998adf7b922a0485a8a0e30c6582198 có CI37311126932 attempt2 SUCCESS5jobs đúngSHA,
+  pgTAP527/Auth6/E2E62PASS16SKIP18.2m. SourceCI không thay closingCI.
+  Root Preview create/resume exit0, lint/typecheck/unit117/build19/E2E63PASS15opt-inSKIP
+  10,6/10,7m; local preflight63/15/10,8m. DB C20-test55322 verified sáu counts0,17C75files
+  bảo toàn/15generated restored,12runtimehash C87 khớp. Không giảm assertions/retries/skips.
   Preview dpl_DWAs22T33Lt69qo9kdnYbXEs6dov /
-  https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app; Production candidate
-  dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo /
-  https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app, root --skip-domain.
-  Cảhai Ready/đúngproject/43routeFunctions sin1/157UIDmatch/0forbidden; public4/4 và
-  preauth runtimeerror0/HTTP5000; native login10samples0overflow/Inter/submit48px,console0.
-  OWNER đã login cảhai: native Auth140mẫu7route×5khổ×2theme đạt0overflow/1visibleh1/Inter/
-  KPI-before-task. Drawer/task/privacy/history/filter final Preview17/Production18checks đạt;
-  một query đo sớm được giữ và rerun sau navigation đạt. Console5tabs0, Auth runtimeerror0/
-  HTTP5000/public4/4; DNS Production retry đạt. Native tab/selector/closure/stream sai lệch
-  ghi rõ trong docs/release-c88/. Theme system/privacyẩn restored; khôngsubmit. Root Preview
-  resume exit0/E2E63PASS15SKIP10,7m; DB55322 sáu counts0/C75 restored/runtime12khớp. Stable
-  Preview đã trỏ C88, Auth18samples/7route LightDark/drawer/filter/public4/4/log0 hậu kiểm đạt.
-  Production promote exit0: tindung/default trỏ C88 dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo. Hậu kiểm
-  baalias54Authsamples/7route LightDark/12checks/public4/4/log0 PASS; system restored từnghost,
-  privacyẩn Preview/Production và default giữ hiện tiền.11tabtạm đóng/viewportreset; khôngrollback/
-  cleanup. Exactproject/team/API/157UIDmatch xác minh; chỉ còn closing proof CI + trạng thái cuối/
-  exact final status CI. C88 IN_PROGRESS đến khi gate chốt đạt.
+  https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app, alias tindung-preview.vercel.app;
+  Production dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo /
+  https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app, aliases tindung.vercel.app và
+  quan-ly-vay-ca-nhan-ngotuong2105.vercel.app. Cảhai Ready/đúngproject/team/target,43route
+  Functions chỉsin1; middleware Preview sin1/Production8regions gồm sin1. Metadata157source+
+  44lambda/0forbidden regular leaves/157UIDmatch CLI drySHA1; file/bundle bodies NOT_TESTED.
+  Auth candidates140unique samples/7route/5khổ LightDark trước promote; aliases54samples/
+  7route LightDark/12checks sau rollout.0overflow/1visibleh1/Inter/body16/canvasB/KPIbeforetask;
+  financial3/expense/counterparty/custom drawer mở/đóng/Escape/focus, tasktoggle44px/chữ14,
+  privacy/history/query/theme reload/Back/native TabShiftTab đạt. Không input/submit/mark-read/
+  permission hoặc QAdata remote. Public4/4 mỗi candidate/alias, console0/runtimeerror0/HTTP5000.
+  System restored từnghost; privacyẩn candidate/Preview/Production, default giữ hiện tiền gốc.
+  Viewportreset/11tabtạm đóng, giữ Production dashboard; ảnh moneyhidden chỉcache ignored.
+  Native stream/mobile-H1/array-closure/inactive-tab/CDP và DNS retry được giữ riêng; final
+  reruns đạt, không quy lỗi app/không dùng failed samples làm PASS. Branded startup quan sát;
+  remote expense nhiều trang/stressmoney/physicalAT/mobile/SafariFirefox/OS/cold-beforeHTML/
+  PWA giữ NOT_TESTED với local regression bổ trợ. Không financial/account/session-management/
+  schema/RPC/secret/Google/backup/deployment-cleanup mutation. C85 rollback đã xác minh/giữ
+  Ready, không kích hoạt: Preview dpl_5J776moZkFH36QxFXFP1iYWxwztt, Production/default
+  dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt. Aliases sau closing proof push giữ đúng C88.
+  Closing docs JSON/diff/policy/actionlint/Gitleaks pinned docs+diff/fullhistory161commits
+  PASS0secret. Required CI của exact final status SHA được xác minh trước completion message;
+  kết quả exact run/SHA báo trong hội thoại, không tạo vòng commit tự tham chiếu.
+  Report/bằng chứng docs/release-c88/. C89 chờ duyệt; dừng, không tự chuyển checkpoint.
+  Lịch sử closing CI385b7c1/run37311126932 attempt1:61PASS16SKIP1FAIL15,7m do delayed
+  RSC test interceptor line85 Route already handled; causal race chưa tái hiện/chưa kết luận chắc.
+  Nguyên ca local repeat3PASS/0FAIL/retries0, nguyênSHA rerun failed jobs attempt2 SUCCESS;
+  không sửa runtime/harness hoặc nới gate. Rủi ro interception tái diễn giữ rõ trong report;
+  nếu lặp cần remediation có evidence, không coi retry là sửa lỗi vĩnh viễn.
 - C87 `COMPLETED` local ngày05/10/2026: OWNER phê duyệt B. Đã áp G1–G5 với Evon ui-ux:
   canvas/sidebar navy/KPI cobalt, body16/nhãn14/KPI18–24, control phụ/toggle header44px,
   branded startup/visible SPA feedback và top pagination Chi phí. Giữ logo/Inter/status,
@@ -478,8 +494,9 @@ Preview create63/15/10,6m và resume63/15/10,7m exit0. DB C20-test55322 sáu cou
 files bảo toàn/runtime12hash C87 khớp. SourceCI37295262054 SUCCESS5jobs/pgTAP527/Auth6/
 CI E2E62PASS16SKIP18,4m. Native candidates140mẫu + aliases54mẫu LightDark; drawer/privacy/
 theme/history/keyboard và public4/4/runtime0 đạt. Metadata exactproject/team/157UIDmatch/
-0forbidden; closing JSON/diff/policy/actionlint/Gitleaks docs+diff0secret PASS. Exact closing
-proof/final status CI còn chờ; không lấy sourceCI thay bằng chứng closing.
+0forbidden; closing JSON/diff/policy/actionlint/Gitleaks docs+diff0secret PASS. Closing proof
+CI37311126932 SUCCESS5jobs đúng385b7c1/pgTAP527/Auth6/E2E62PASS16SKIP18.2m. Không lấy
+sourceCI thay closingCI; exact final status CI xác minh trước completion message.
 
 C87 ngày05/10: lint/typecheck/unit117/build19/full E2E64PASS14opt-inSKIP15,1m/exit0.
 88rendered samples,18before cùngfixture;8Evon vòng3/56fixed+220sweep,6rawP được đối chiếu
@@ -799,11 +816,10 @@ C59 đã đạt:
 
 ## 7. Việc chờ
 
-- C88 `IN_PROGRESS`: OWNER phê duyệt05/10; source/CI37295262054 và hai candidate public/metadata
-  đã đạt. OWNER login xong; Auth140mẫu/final interactions/log PASS, aliases đã phát hành và
-  hậu kiểm54Authsamples/12checks/public4/4/runtime0 PASS. Còn closing proof/final status exact CI.
-  Scope/acceptance tại roadmap section46; aliases giữ C85, không blocker C87 local.
-  Chưa chứng nhận các state remote/thiết bị chưa kiểm; không tự mở rộng kiểm AT hoặc cleanup.
+- C89 `AWAITING_APPROVAL`: nghiệm thu UX giao diện B/Backlog sau C88, scope/AC section47.
+  Chưa được phê duyệt hoặc bắt đầu; không tự sửa code, ghi dữ liệu, push/deploy/cleanup.
+- C88 rollout và source/closing proof CI đạt, không blocker release. Giới hạn remote states/
+  thiết bị vẫn NOT_TESTED; exact final status CI phải xác minh trước completion message.
 - C85 source/closing proof CI và rollout/hậu kiểm đạt, không còn blocker native input. Final
   status9813a6b có Required CI37217274995 SUCCESS5jobs đúng SHA đã xác minh trước báo hoàn tất. Giới hạn
   remote dirtynav/OS themechange/expense distribution/physical AT được ghi report, không giấu
