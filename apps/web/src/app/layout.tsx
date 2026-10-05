@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
+import Image from "next/image";
 import { Suspense, type ReactNode } from "react";
 import { cookies } from "next/headers";
 import "./globals.css";
@@ -49,8 +50,10 @@ import { PrivacyProvider } from "@/components/app/privacy-provider";
 
 function InitialApplicationLoading() {
   return <div className="initial-app-loading" id="initial-app-loading" role="status" aria-busy="true" aria-live="polite">
-    <div className="initial-app-loading-mark" aria-hidden="true" />
+    <Image className="initial-app-loading-logo" src="/icons/brand-symbol-192.png" width={64} height={64} alt="" priority />
+    <h1>Quản Lý Vay</h1>
     <strong>Đang mở không gian tài chính…</strong>
+    <div className="initial-app-loading-track" aria-hidden="true"><span /></div>
     <span>Đang kiểm tra phiên đăng nhập và chuẩn bị dữ liệu an toàn.</span>
   </div>;
 }

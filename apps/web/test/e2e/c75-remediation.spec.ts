@@ -82,7 +82,8 @@ test("C75 task identity, exact source set, focus and notifications hierarchy", a
       const toggle = card.locator(".attention-toggle");
       const chart = page.locator(".cash-flow-card");
       const chartHeight = (await chart.boundingBox())!.height;
-      await expect(toggle).toHaveText(`Xem toàn bộ ${count} việc cần xử lý`);
+      await expect(toggle).toHaveText("Xem tất cả");
+      await expect(toggle).toHaveAccessibleName(`Xem toàn bộ ${count} việc cần xử lý`);
       await toggle.focus();
       const before = await page.evaluate(() => scrollY);
       await page.keyboard.press("Enter");

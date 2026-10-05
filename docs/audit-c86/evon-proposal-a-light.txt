@@ -1,0 +1,70 @@
+# Probe: 14 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c86/proposal-a-light/375.png)
+LỖI CONSOLE (1):
+  Failed to load resource: the server responded with a status of 404 (File not found)
+DẤU CÂU RƠI XUỐNG ĐẦU DÒNG (1 chỗ, dấu phải dính chữ đứng trước):
+  dòng mở đầu "· 17 lịch nhắc · 5/10–4/11/202": div "Lịch thu/trả lãi · 17 lịch nhắc · 5/10–4"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Lãi ròng thực thu" trơ "thu" ở dòng cuối: span "Lãi ròng thực thu"
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  4 mục, nhiều nhất 6 dòng chữ: div.metric "Cho vay đang hoạt động1.240.000.000 ₫Khô"
+
+## 390px  (ảnh: .cache/c86/proposal-a-light/390.png)
+DẤU CÂU RƠI XUỐNG ĐẦU DÒNG (1 chỗ, dấu phải dính chữ đứng trước):
+  dòng mở đầu "· 17 lịch nhắc · 5/10–4/11/202": div "Lịch thu/trả lãi · 17 lịch nhắc · 5/10–4"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (2 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Lãi ròng thực thu" trơ "thu" ở dòng cuối: span "Lãi ròng thực thu"
+  "Lãi ròng phát sinh" trơ "sinh" ở dòng cuối: span "Lãi ròng phát sinh"
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  4 mục, nhiều nhất 6 dòng chữ: div.metric "Cho vay đang hoạt động1.240.000.000 ₫Khô"
+
+## 768px  (ảnh: .cache/c86/proposal-a-light/768.png)
+TAB TỚI CÒN VẼ VÒNG FOCUS (4 chỗ, skill không vẽ vòng focus, I13):
+  button "Ẩn số tiền"
+  button "Tùy chỉnh"
+  button "Xem danh sách"
+  button "Xem tất cả (17)"
+
+## 1024px  (ảnh: .cache/c86/proposal-a-light/1024.png)
+TAB TỚI CÒN VẼ VÒNG FOCUS (4 chỗ, skill không vẽ vòng focus, I13):
+  button "Ẩn số tiền"
+  button "Tùy chỉnh"
+  button "Xem danh sách"
+  button "Xem tất cả (17)"
+
+## 1280px  (ảnh: .cache/c86/proposal-a-light/1280.png)
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Cho vay đang hoạt động" trơ "động" ở dòng cuối: span "Cho vay đang hoạt động"
+TAB TỚI CÒN VẼ VÒNG FOCUS (4 chỗ, skill không vẽ vòng focus, I13):
+  button "Ẩn số tiền"
+  button "Tùy chỉnh"
+  button "Xem danh sách"
+  button "Xem tất cả (17)"
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  4 mục, nhiều nhất 5 dòng chữ: div.metric "Cho vay đang hoạt động1.240.000.000 ₫Khô"
+
+## 1440px  (ảnh: .cache/c86/proposal-a-light/1440.png)
+TAB TỚI CÒN VẼ VÒNG FOCUS (4 chỗ, skill không vẽ vòng focus, I13):
+  button "Ẩn số tiền"
+  button "Tùy chỉnh"
+  button "Xem danh sách"
+  button "Xem tất cả (17)"
+
+## 1920px  (ảnh: .cache/c86/proposal-a-light/1920.png)
+TAB TỚI CÒN VẼ VÒNG FOCUS (4 chỗ, skill không vẽ vòng focus, I13):
+  button "Ẩn số tiền"
+  button "Tùy chỉnh"
+  button "Xem danh sách"
+  button "Xem tất cả (17)"
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Quét bề rộng 1440 → 375px, bước 20px (55 ảnh ở .cache/c86/proposal-a-light/sweep)
+Không đo ra chỗ vỡ ở bề rộng nào. Vẫn mở vài ảnh ở giữa hai khổ cố định mà xem.
+Máy không thấy chồng lấn, lệch hàng, khoảng trắng vô lý. Xem thêm các ảnh quanh ngưỡng sidebar thu và ngưỡng lưới đổi cột.
+
+# Việc phải đối chiếu: 0 mục probe xếp Hỏng
+Không có mục nào.
+
+Chi tiết: .cache/c86/proposal-a-light/report.json

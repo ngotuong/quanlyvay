@@ -1,0 +1,51 @@
+{
+  "status": "PASS_WITH_DOCUMENTED_LIMITS",
+  "baselineSha": "9813a6b1b91322e82ef33374928679a22774c0db",
+  "runtimeChanged": false,
+  "gates": {
+    "c86Final": {
+      "exitCode": 0,
+      "testsPassed": 2,
+      "duration": "2.8m",
+      "journeys": 36
+    },
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS via E2E production webServer",
+    "appEvon": {
+      "runs": 4,
+      "fixedSamples": 28,
+      "sweepSamples": 110,
+      "rawP": 2,
+      "falsePositiveWithProof": 2
+    },
+    "prototypeEvon": {
+      "runs": 4,
+      "fixedSamples": 28,
+      "sweepSamples": 110,
+      "finalP": 0
+    },
+    "prototypeRenderedSamples": 20,
+    "httpLinks": 19,
+    "jsonSyntax": "PASS",
+    "jsSyntax": "PASS",
+    "diffCheck": "PASS",
+    "gitleaksPinnedArtifacts": "PASS",
+    "gitleaksPinnedDiff": "PASS"
+  },
+  "database": {
+    "identity": "QuanLyVayCaNhan-C20-test",
+    "port": 55322,
+    "profiles": 0,
+    "loans": 0,
+    "transactions": 0,
+    "counterparties": 0,
+    "notifications": 0,
+    "authUsers": 0
+  },
+  "nextCheckpoint": {
+    "id": "C87",
+    "status": "AWAITING_APPROVAL",
+    "executed": false
+  }
+}

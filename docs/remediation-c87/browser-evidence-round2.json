@@ -1,0 +1,5376 @@
+{
+  "method": "Chrome local production build, synthetic C20-test API55321/DB55322",
+  "matrix": [
+    {
+      "route": "dashboard",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 111.5,
+          "height": 40,
+          "top": 435.359375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 139.5,
+          "height": 25.1875,
+          "top": 483.359375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 111.984375,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 736.921875,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "600",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 269,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 251,
+          "height": 25.59375,
+          "top": 426,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "detail",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 343,
+          "height": 100.390625,
+          "top": 150,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 119,
+          "height": 40,
+          "top": 435.359375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 147,
+          "height": 25.1875,
+          "top": 483.359375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 111.984375,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 736.921875,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "600",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 269,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 266,
+          "height": 25.59375,
+          "top": 426,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "detail",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 358,
+          "height": 100.390625,
+          "top": 150,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 296,
+          "height": 40,
+          "top": 408.984375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 324,
+          "height": 25.1875,
+          "top": 456.984375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 177,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 714.546875,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "600",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 283,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 403.671875,
+          "height": 25.59375,
+          "top": 440,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "detail",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 712,
+          "height": 70,
+          "top": 156,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 768,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 312,
+          "height": 40,
+          "top": 416.859375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 340,
+          "height": 25.1875,
+          "top": 464.859375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 184.875,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 722.421875,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 251.984375,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 435.671875,
+          "height": 25.59375,
+          "top": 408.984375,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "detail",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 744,
+          "height": 70,
+          "top": 106,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 1024,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 219,
+          "height": 40,
+          "top": 347.25,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "24px",
+          "weight": "600",
+          "width": 247,
+          "height": 33.59375,
+          "top": 395.25,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 126.875,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 516.4375,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 251.984375,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "600",
+          "width": 190.328125,
+          "height": 22.390625,
+          "top": 407.984375,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "detail",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 1160,
+          "height": 70,
+          "top": 106,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 111.5,
+          "height": 40,
+          "top": 435.359375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 139.5,
+          "height": 25.1875,
+          "top": 483.359375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 111.984375,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 736.921875,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "600",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 269,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 251,
+          "height": 25.59375,
+          "top": 426,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "detail",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 343,
+          "height": 100.390625,
+          "top": 150,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 119,
+          "height": 40,
+          "top": 435.359375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 147,
+          "height": 25.1875,
+          "top": 483.359375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 111.984375,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 736.921875,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "600",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 269,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 266,
+          "height": 25.59375,
+          "top": 426,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "detail",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 358,
+          "height": 100.390625,
+          "top": 150,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 296,
+          "height": 40,
+          "top": 408.984375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 324,
+          "height": 25.1875,
+          "top": 456.984375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 177,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 714.546875,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "600",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 283,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 403.671875,
+          "height": 25.59375,
+          "top": 440,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "detail",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 712,
+          "height": 70,
+          "top": 156,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 768,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 148,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 312,
+          "height": 40,
+          "top": 416.859375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 340,
+          "height": 25.1875,
+          "top": 464.859375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 184.875,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 722.421875,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 251.984375,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 435.671875,
+          "height": 25.59375,
+          "top": 408.984375,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "detail",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 744,
+          "height": 70,
+          "top": 106,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 1024,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "dashboard",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 219,
+          "height": 40,
+          "top": 347.25,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "24px",
+          "weight": "600",
+          "width": 247,
+          "height": 33.59375,
+          "top": 395.25,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 126.875,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 516.4375,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "loans",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 251.984375,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "600",
+          "width": 190.328125,
+          "height": 22.390625,
+          "top": 407.984375,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "detail",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "counterparties",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "expenses",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 1160,
+          "height": 70,
+          "top": 106,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        }
+      ]
+    },
+    {
+      "route": "notifications",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "settings",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/dashboard",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 289,
+          "height": 40,
+          "top": 435.359375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 317,
+          "height": 25.1875,
+          "top": 483.359375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 111.984375,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 1034.484375,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "600",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/loans?q=C87",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 269,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 251,
+          "height": 25.59375,
+          "top": 426,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/expenses",
+      "width": 375,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 343,
+          "height": 100.390625,
+          "top": 150,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "route": "stress/dashboard",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 304,
+          "height": 40,
+          "top": 435.359375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 332,
+          "height": 25.1875,
+          "top": 483.359375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 111.984375,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 1034.484375,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "600",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgb(239, 246, 255)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/loans?q=C87",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 269,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 266,
+          "height": 25.59375,
+          "top": 426,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/expenses",
+      "width": 390,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(82, 100, 124)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 358,
+          "height": 100.390625,
+          "top": 150,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "route": "stress/dashboard",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 1098,
+          "height": 40,
+          "top": 347.25,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "24px",
+          "weight": "600",
+          "width": 1126,
+          "height": 33.59375,
+          "top": 395.25,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 126.875,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 1012,
+          "color": "rgb(29, 78, 216)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/loans?q=C87",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 251.984375,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "600",
+          "width": 190.328125,
+          "height": 22.390625,
+          "top": 407.984375,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/expenses",
+      "width": 1440,
+      "theme": "light",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 1160,
+          "height": 70,
+          "top": 106,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        }
+      ]
+    },
+    {
+      "route": "stress/dashboard",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 289,
+          "height": 40,
+          "top": 435.359375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 317,
+          "height": 25.1875,
+          "top": 483.359375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 111.984375,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 1034.484375,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "600",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/loans?q=C87",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 269,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 251,
+          "height": 25.59375,
+          "top": 426,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/expenses",
+      "width": 375,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 69.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 343,
+          "height": 100.390625,
+          "top": 150,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        }
+      ]
+    },
+    {
+      "route": "stress/dashboard",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 304,
+          "height": 40,
+          "top": 435.359375,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "18px",
+          "weight": "600",
+          "width": 332,
+          "height": 25.1875,
+          "top": 483.359375,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 111.984375,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 1034.484375,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "600",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgb(23, 37, 84)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/loans?q=C87",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 269,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "400",
+          "width": 266,
+          "height": 25.59375,
+          "top": 426,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/expenses",
+      "width": 390,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "missing": true
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "font": "12px",
+          "weight": "400",
+          "width": 72.390625,
+          "height": 54,
+          "top": 840,
+          "color": "rgb(179, 194, 215)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 358,
+          "height": 100.390625,
+          "top": 150,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        }
+      ]
+    },
+    {
+      "route": "stress/dashboard",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "font": "14px",
+          "weight": "500",
+          "width": 1098,
+          "height": 40,
+          "top": 347.25,
+          "color": "rgb(230, 239, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "font": "24px",
+          "weight": "600",
+          "width": 1126,
+          "height": 33.59375,
+          "top": 395.25,
+          "color": "rgb(255, 255, 255)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 115.203125,
+          "height": 44,
+          "top": 126.875,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".attention-toggle",
+          "font": "14px",
+          "weight": "500",
+          "width": 71.046875,
+          "height": 44,
+          "top": 1012,
+          "color": "rgb(147, 197, 253)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/loans?q=C87",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "font": "14px",
+          "weight": "500",
+          "width": 128.984375,
+          "height": 44,
+          "top": 251.984375,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "font": "16px",
+          "weight": "600",
+          "width": 190.328125,
+          "height": 22.390625,
+          "top": 407.984375,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "missing": true
+        }
+      ]
+    },
+    {
+      "route": "stress/expenses",
+      "width": 1440,
+      "theme": "dark",
+      "overflow": 0,
+      "visibleH1": 1,
+      "clippedAmounts": [],
+      "samples": [
+        {
+          "selector": ".dashboard-metric p",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-metric strong",
+          "missing": true
+        },
+        {
+          "selector": ".dashboard-custom-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".attention-toggle",
+          "missing": true
+        },
+        {
+          "selector": ".advanced-filter-trigger",
+          "missing": true
+        },
+        {
+          "selector": ".loan-card-heading h2",
+          "missing": true
+        },
+        {
+          "selector": ".app-sidebar",
+          "font": "16px",
+          "weight": "400",
+          "width": 232,
+          "height": 900,
+          "top": 0,
+          "color": "rgb(233, 240, 252)",
+          "background": "rgb(21, 44, 76)"
+        },
+        {
+          "selector": ".mobile-nav-wrap .nav-link",
+          "missing": true
+        },
+        {
+          "selector": ".expense-pagination-top",
+          "font": "14px",
+          "weight": "400",
+          "width": 1160,
+          "height": 70,
+          "top": 106,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        }
+      ]
+    }
+  ],
+  "checks": {
+    "early-pagination-375": {
+      "beforeScrollY": 0,
+      "page2": true,
+      "afterScrollY": 0,
+      "triggerTop": 193.390625
+    },
+    "early-pagination-390": {
+      "beforeScrollY": 0,
+      "page2": true,
+      "afterScrollY": 0,
+      "triggerTop": 193.390625
+    },
+    "early-pagination-1440": {
+      "beforeScrollY": 0,
+      "page2": true,
+      "afterScrollY": 0,
+      "triggerTop": 119
+    },
+    "startup-light-2000": {
+      "feedbackMs": 86,
+      "navigation": {
+        "ttfbMs": 4.599999904632568,
+        "responseEndMs": 2010.8999998569489,
+        "domContentLoadedMs": 2017.0999999046326
+      },
+      "beforeHtmlGuarantee": false
+    },
+    "startup-light-10000": {
+      "feedbackMs": 78,
+      "navigation": {
+        "ttfbMs": 8.599999904632568,
+        "responseEndMs": 10012.400000095367,
+        "domContentLoadedMs": 10017.900000095367
+      },
+      "beforeHtmlGuarantee": false
+    },
+    "startup-dark-2000": {
+      "feedbackMs": 81,
+      "navigation": {
+        "ttfbMs": 7.099999904632568,
+        "responseEndMs": 2009.6000001430511,
+        "domContentLoadedMs": 2015.8000001907349
+      },
+      "beforeHtmlGuarantee": false
+    },
+    "startup-dark-10000": {
+      "feedbackMs": 78,
+      "navigation": {
+        "ttfbMs": 5.8999998569488525,
+        "responseEndMs": 10015.099999904633,
+        "domContentLoadedMs": 10018.399999856949
+      },
+      "beforeHtmlGuarantee": false
+    },
+    "beforeRender": {
+      "source": "HEAD9813a6b archived runtime; identical C87 fixture DB/auth/date",
+      "port": 3190
+    },
+    "matrixFailures": [],
+    "tooltip-light": {
+      "before": {
+        "opacity": 0,
+        "color": "rgb(20, 34, 56)",
+        "background": "rgb(255, 255, 255)"
+      },
+      "after": {
+        "opacity": "1",
+        "color": "rgb(20, 34, 56)",
+        "background": "rgb(255, 255, 255)"
+      }
+    },
+    "open-reversal-light": {
+      "height": 44,
+      "width": 1112,
+      "textHeight": 17,
+      "lineHeight": 16.8,
+      "font": "14px"
+    },
+    "tooltip-dark": {
+      "before": {
+        "opacity": 0,
+        "color": "rgb(241, 245, 252)",
+        "background": "rgb(23, 34, 53)"
+      },
+      "after": {
+        "opacity": "1",
+        "color": "rgb(241, 245, 252)",
+        "background": "rgb(23, 34, 53)"
+      }
+    },
+    "open-reversal-dark": {
+      "height": 44,
+      "width": 1112,
+      "textHeight": 17,
+      "lineHeight": 16.8,
+      "font": "14px"
+    },
+    "evon-dashboard-light": {
+      "exitCode": 0
+    },
+    "evon-dashboard-dark": {
+      "exitCode": 0
+    },
+    "evon-loans-light": {
+      "exitCode": 0
+    },
+    "evon-loans-dark": {
+      "exitCode": 0
+    },
+    "evon-expenses-light": {
+      "exitCode": 0
+    },
+    "evon-expenses-dark": {
+      "exitCode": 0
+    },
+    "evon-settings-light": {
+      "exitCode": 0
+    },
+    "evon-settings-dark": {
+      "exitCode": 0
+    }
+  }
+}

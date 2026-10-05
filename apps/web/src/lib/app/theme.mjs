@@ -5,7 +5,7 @@ export function parseTheme(value) {
 export function themeColors(preference) {
   const theme = parseTheme(preference);
   return [
-    { media: "(prefers-color-scheme: light)", color: theme === "dark" ? "#090d18" : "#f6f7fb" },
-    { media: "(prefers-color-scheme: dark)", color: theme === "light" ? "#f6f7fb" : "#090d18" },
+    { media: "(prefers-color-scheme: light)", color: theme === "dark" ? "#0b1220" : "#eaf0f8" },
+    { media: "(prefers-color-scheme: dark)", color: theme === "light" ? "#eaf0f8" : "#0b1220" },
   ];
 }

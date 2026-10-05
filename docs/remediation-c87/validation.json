@@ -1,0 +1,224 @@
+{
+  "checkpoint": "C87",
+  "status": "COMPLETED_LOCAL",
+  "date": "2026-10-05",
+  "sourceHead": "9813a6b1b91322e82ef33374928679a22774c0db",
+  "runtimeSha256": {
+    "apps/web/src/app/dashboard/page.tsx": "aaa68737026ae9d83a8ced911fd0cd13bc441c883901e3347442a88e7dba63a1",
+    "apps/web/src/app/expenses/page.tsx": "856939f3e4dd0d3b1bc02ee359cfc33d89caf830b2dfb0579cb18769966d9dd5",
+    "apps/web/src/app/globals.css": "d989df12db56a155ab51ce629a640b6b849cd7da441c4f1c21104170bd145301",
+    "apps/web/src/app/layout.tsx": "77652c366b531f3d22b3adda448a1c57a8a3863b2aa9c7d6a04d64b7dc9bdbba",
+    "apps/web/src/app/loading.tsx": "5073ffc1c30ae5c7111e3f1791ce47610982195a815a5122d62728e672f4423e",
+    "apps/web/src/components/app/navigation-feedback.tsx": "c2c9376219d09bd7471eca0e417f6480925b37a3fbd571a17d3786b02dbdbc4e",
+    "apps/web/src/components/app/privacy-provider.tsx": "ab65adc00cf151dde0a8e6aaa8b762b2ad2919f00a8e26d76b794af0d90ab619",
+    "apps/web/src/components/business/attention-items.tsx": "fcd2105c6f573e524e11747e8cc3eee31be2cfc5243e45992e41d88d723ff2c9",
+    "apps/web/src/components/business/dashboard-period-filter.tsx": "60698dcf261670edfaac06f1ac4482b2cefb8d1e8b0ceaaa09b1dfb79e9f27e0",
+    "apps/web/src/components/business/pagination.tsx": "2df04338121390079932b2302b594e110a7b00abfdcd7efda4069383a535b1f4",
+    "apps/web/src/lib/app/theme.mjs": "61a10e82fa3cf20042b0dcd91560ede68a1e5419af385ec7afe5ae3297ab1b7f",
+    "apps/web/src/components/ui/vnd-text.tsx": "f2be482a3c25eb4379836b3415b5037ffd985a6c4d2aba2dcdd7da45447d2d94"
+  },
+  "gates": {
+    "lint": {
+      "exitCode": 0,
+      "log": ".cache/c87/lint-final3.log"
+    },
+    "typecheck": {
+      "exitCode": 0,
+      "log": ".cache/c87/typecheck-final3.log"
+    },
+    "unit": {
+      "exitCode": 0,
+      "passed": 117,
+      "log": ".cache/c87/unit-final3.log"
+    },
+    "build": {
+      "exitCode": 0,
+      "log": ".cache/c87/build-final3.log"
+    },
+    "fullE2E": {
+      "exitCode": 0,
+      "passed": 64,
+      "skipped": 14,
+      "skipReason": "Existing opt-in audit/evidence captures disabled; C87 evidence enabled",
+      "minutes": 15.1,
+      "log": ".cache/c87/full-e2e-final3.log"
+    },
+    "database": {
+      "project": "QuanLyVayCaNhan-C20-test",
+      "port": 55322,
+      "readOnly": true,
+      "counts": {
+        "profiles": 0,
+        "loans": 0,
+        "transactions": 0,
+        "counterparties": 0,
+        "notifications": 0,
+        "authUsers": 0
+      }
+    },
+    "diffCheck": {
+      "exitCode": 0
+    }
+  },
+  "renderedMatrix": {
+    "samples": 88,
+    "failures": [],
+    "matchedBeforeImages": 18,
+    "data": "Synthetic local C20-test only"
+  },
+  "review": {
+    "httpLinks": [
+      {
+        "path": "before-dashboard-1440-dark.png",
+        "status": 200
+      },
+      {
+        "path": "before-dashboard-1440-light.png",
+        "status": 200
+      },
+      {
+        "path": "before-dashboard-390-dark.png",
+        "status": 200
+      },
+      {
+        "path": "before-dashboard-390-light.png",
+        "status": 200
+      },
+      {
+        "path": "before-expenses-390-dark.png",
+        "status": 200
+      },
+      {
+        "path": "before-expenses-390-light.png",
+        "status": 200
+      },
+      {
+        "path": "before-loans-1440-dark.png",
+        "status": 200
+      },
+      {
+        "path": "before-loans-1440-light.png",
+        "status": 200
+      },
+      {
+        "path": "brand.png",
+        "status": 200
+      },
+      {
+        "path": "browser-evidence.json",
+        "status": 200
+      },
+      {
+        "path": "dashboard-1440-dark.png",
+        "status": 200
+      },
+      {
+        "path": "dashboard-1440-light.png",
+        "status": 200
+      },
+      {
+        "path": "dashboard-390-dark.png",
+        "status": 200
+      },
+      {
+        "path": "dashboard-390-light.png",
+        "status": 200
+      },
+      {
+        "path": "expenses-390-dark.png",
+        "status": 200
+      },
+      {
+        "path": "expenses-390-light.png",
+        "status": 200
+      },
+      {
+        "path": "loans-1440-dark.png",
+        "status": 200
+      },
+      {
+        "path": "loans-1440-light.png",
+        "status": 200
+      },
+      {
+        "path": "report.md",
+        "status": 200
+      },
+      {
+        "path": "review.css",
+        "status": 200
+      },
+      {
+        "path": "startup-dark.png",
+        "status": 200
+      },
+      {
+        "path": "startup-light.png",
+        "status": 200
+      }
+    ],
+    "nativeWidths": [
+      375,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "images": 10,
+    "broken": 0,
+    "overflow": 0,
+    "viewportRestored": true,
+    "nativeScreenshotLimitation": "An override wider than the physical IAB panel produced a clipped paint snapshot; discarded. Final review-proof.png uses the default viewport and native scroll. Geometry checks use observed innerWidth.",
+    "proof": "review-proof.png"
+  },
+  "preservation": {
+    "restoredC75": [
+      "docs/remediation-c75/notifications-390-dark.png",
+      "docs/remediation-c75/evidence.json",
+      "docs/remediation-c75/notifications-375-dark.png",
+      "docs/remediation-c75/dashboard-1440-light.png",
+      "docs/remediation-c75/dashboard-390-light.png",
+      "docs/remediation-c75/review.html",
+      "docs/remediation-c75/notifications-1440-dark.png",
+      "docs/remediation-c75/dashboard-375-light.png",
+      "docs/remediation-c75/report.md",
+      "docs/remediation-c75/notifications-1440-light.png",
+      "docs/remediation-c75/dashboard-1440-dark.png",
+      "docs/remediation-c75/notifications-390-light.png",
+      "docs/remediation-c75/notifications-375-light.png",
+      "docs/remediation-c75/privacy-generated.png",
+      "docs/remediation-c75/dashboard-375-dark.png",
+      "docs/remediation-c75/dashboard-390-dark.png",
+      "docs/remediation-c75/privacy-custom.png"
+    ],
+    "baselineVerifiedFiles": 66,
+    "changedFiles": []
+  },
+  "notTested": [
+    "Physical mobile/AT/authenticated Safari/Firefox",
+    "Native cold PWA/network and before-HTML feedback",
+    "C87 remote rollout/exact-SHA CI"
+  ],
+  "remoteActions": [],
+  "committed": false,
+  "pushed": false,
+  "deployed": false,
+  "security": {
+    "tool": "gitleaks v8.30.1",
+    "imageDigest": "sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f",
+    "artifactsExitCode": 0,
+    "diffAndNewCodeExitCode": 0,
+    "realCredentialsDetected": 0,
+    "logs": [
+      ".cache/c87/gitleaks-artifacts-final.log",
+      ".cache/c87/gitleaks-diff-final.log"
+    ],
+    "dataProvenance": "Only C20-test fixture and synthetic screenshots; C86 artifacts preserved by SHA256",
+    "limitations": "Gitleaks scans plaintext; image provenance is verified by the isolated test guard, not by OCR or remote data inspection",
+    "ignoredCredentialsCommitted": false
+  },
+  "nextCheckpoint": {
+    "id": "C88",
+    "status": "AWAITING_APPROVAL"
+  }
+}

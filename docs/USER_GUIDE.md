@@ -11,7 +11,8 @@
 - Form tạo khoản cho phép tìm và thêm đối tác ngay tại chỗ. Nhập tiền bằng chữ số hoặc dấu chấm
   hàng nghìn đầy đủ; không dùng số âm, dấu phẩy hay phần thập phân. Bản nháp không lưu bền vững.
 - Tất toán hiển thị gốc/lãi/tổng theo ngày chọn. Nếu số liệu thay đổi, tải lại bảng và xác nhận lại.
-- Danh sách dùng phân trang; tổng chi phí bao phủ mọi trang và loại chi phí đã đảo.
+- Danh sách dùng phân trang; tổng chi phí bao phủ mọi trang và loại chi phí đã đảo. Khi Chi phí
+  có nhiều trang, có nút chuyển trang gần đầu danh sách và ở cuối.
 - Thông báo có lọc “Chưa đọc”; “Đánh dấu đã đọc” áp dụng toàn bộ thông báo chưa đọc của tài khoản.
 
 ## 1. Truy cập và đăng nhập
@@ -150,7 +151,8 @@ số lãi, chi phí và dòng tiền chỉ tính trong khoảng:
 - **Lịch Dự Kiến** liệt kê quá hạn gốc và lãi cần thu/trả trong 30 ngày. Khoản đã đóng đủ hoặc ứng
   trước không còn xuất hiện; khoản đóng một phần hiện đúng số tiền còn lại.
 
-Chạm vào một khoản trong danh sách đến hạn để mở chi tiết và xử lý nghiệp vụ.
+Các card dư nợ và lãi ròng nằm trên **Việc cần xử lý**. Bấm **Xem tất cả** ở header để mở
+toàn bộ tập công việc; **Thu gọn** quay về năm việc. Chạm một khoản để mở chi tiết và xử lý.
 
 Trang **Khoản vay** cho phép tìm theo tên khoản hoặc đối tác; lọc Cho vay/Đi vay, trạng thái, ngày
 giải ngân; và sắp xếp theo ngày, dư nợ hoặc tên. Chỉ các filter đang áp dụng mới hiện thành chip có

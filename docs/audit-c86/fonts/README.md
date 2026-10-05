@@ -1,0 +1,1 @@
+Inter Latin và Vietnamese được tái sử dụng từ font asset của Next production build hiện hữu trong repository. `fonts.css` giữ các khai báo subset/weight của build; không tải thêm hoặc thay font sản phẩm trong C86. `brand.png` lấy từ public/icons/brand-symbol-192.png; SVG minh họa lấy từ lucide-react dependency hiện hữu. Các bản minh họa dùng dữ liệu giả.

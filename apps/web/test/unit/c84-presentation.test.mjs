@@ -23,7 +23,7 @@ test("presentation percentages round integer ratios without truncating or settli
 });
 test("invalid or missing theme is system, and manual meta colors ignore OS", () => {
   for (const value of [undefined, null, "", "invalid", "<script>", "system"]) assert.equal(parseTheme(value), "system");
-  assert.deepEqual(themeColors("dark").map(item => item.color), ["#090d18", "#090d18"]);
-  assert.deepEqual(themeColors("light").map(item => item.color), ["#f6f7fb", "#f6f7fb"]);
-  assert.deepEqual(themeColors("system").map(item => item.color), ["#f6f7fb", "#090d18"]);
+  assert.deepEqual(themeColors("dark").map(item => item.color), ["#0b1220", "#0b1220"]);
+  assert.deepEqual(themeColors("light").map(item => item.color), ["#eaf0f8", "#eaf0f8"]);
+  assert.deepEqual(themeColors("system").map(item => item.color), ["#eaf0f8", "#0b1220"]);
 });

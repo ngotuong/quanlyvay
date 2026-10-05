@@ -1,0 +1,146 @@
+{
+  "status": "IN_PROGRESS",
+  "approved": "2026-10-05",
+  "runtimeHashesMatchC87": true,
+  "sourceSha": null,
+  "sourceCI": null,
+  "closingCI": null,
+  "remoteMutations": false,
+  "limits": [
+    "Physical AT/mobile/SafariFirefox NOT_TESTED",
+    "No financial/account submit, mark-read or push permission",
+    "Remote file bodies/bundles NOT_TESTED"
+  ],
+  "localPreflight": {
+    "gates": [
+      {
+        "gate": "diff",
+        "exit": 0,
+        "seconds": 0.0,
+        "log": ".cache/c88/diff.log"
+      },
+      {
+        "gate": "policy",
+        "exit": 0,
+        "seconds": 1.6,
+        "log": ".cache/c88/policy.log"
+      },
+      {
+        "gate": "audit",
+        "exit": 0,
+        "seconds": 0.9,
+        "log": ".cache/c88/audit.log"
+      },
+      {
+        "gate": "lint",
+        "exit": 0,
+        "seconds": 4.2,
+        "log": ".cache/c88/lint.log"
+      },
+      {
+        "gate": "typecheck",
+        "exit": 0,
+        "seconds": 1.6,
+        "log": ".cache/c88/typecheck.log"
+      },
+      {
+        "gate": "unit",
+        "exit": 0,
+        "seconds": 1.2,
+        "log": ".cache/c88/unit.log"
+      },
+      {
+        "gate": "build",
+        "exit": 0,
+        "seconds": 4.0,
+        "log": ".cache/c88/build.log"
+      },
+      {
+        "gate": "e2e",
+        "exit": 0,
+        "seconds": 652.2,
+        "log": ".cache/c88/e2e.log"
+      }
+    ],
+    "unit": 117,
+    "e2e": {
+      "pass": 63,
+      "skip": 15,
+      "fail": 0,
+      "explanation": "15 audit/evidence opt-in only; no assertions/retries/skips changed"
+    },
+    "postgate": {
+      "dbIdentity": "QuanLyVayCaNhan-C20-test",
+      "dbPort": 55322,
+      "counts": {
+        "profiles": 0,
+        "loans": 0,
+        "transactions": 0,
+        "counterparties": 0,
+        "notifications": 0,
+        "authUsers": 0
+      },
+      "runtimeHashesMatch": true,
+      "c75Restored": [
+        "docs/remediation-c75/notifications-390-dark.png",
+        "docs/remediation-c75/evidence.json",
+        "docs/remediation-c75/notifications-375-dark.png",
+        "docs/remediation-c75/dashboard-1440-light.png",
+        "docs/remediation-c75/dashboard-390-light.png",
+        "docs/remediation-c75/notifications-1440-dark.png",
+        "docs/remediation-c75/dashboard-375-light.png",
+        "docs/remediation-c75/notifications-1440-light.png",
+        "docs/remediation-c75/dashboard-1440-dark.png",
+        "docs/remediation-c75/notifications-390-light.png",
+        "docs/remediation-c75/notifications-375-light.png",
+        "docs/remediation-c75/privacy-generated.png",
+        "docs/remediation-c75/dashboard-375-dark.png",
+        "docs/remediation-c75/dashboard-390-dark.png",
+        "docs/remediation-c75/privacy-custom.png"
+      ],
+      "c75AllHashesMatch": true
+    }
+  },
+  "project": {
+    "orgSlug": "ngotuong2105",
+    "qualifiedProjectName": "quan-ly-vay-ca-nhan",
+    "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+    "projectName": "quan-ly-vay-ca-nhan",
+    "rootDirectory": "apps/web"
+  },
+  "rollback": {
+    "preview": {
+      "id": "dpl_5J776moZkFH36QxFXFP1iYWxwztt",
+      "url": "https://quan-ly-vay-ca-nhan-2wgem6s2u-ngotuong2105.vercel.app",
+      "target": "preview",
+      "readyState": "READY",
+      "functions": 44,
+      "includesSin1": true
+    },
+    "production": {
+      "id": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt",
+      "url": "https://quan-ly-vay-ca-nhan-is7a4n3b9-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "functions": 44,
+      "includesSin1": true
+    },
+    "default": {
+      "id": "dpl_DVxdAoBYZjpE7gEoFZEW8qc6RmPt",
+      "url": "https://quan-ly-vay-ca-nhan-is7a4n3b9-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "functions": 44,
+      "includesSin1": true
+    }
+  },
+  "secretPreflight": {
+    "pinnedGitleaks": "v8.30.1",
+    "findings": 0,
+    "exit": 0
+  },
+  "uploadPrediction": {
+    "files": 166,
+    "scope": "local metadata only; actual remote inventory required"
+  }
+}

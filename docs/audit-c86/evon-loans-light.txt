@@ -1,0 +1,166 @@
+(node:9955) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+# Probe: 35 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c86/evon-loans-light/375.png)
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  bấm "Nâng cao": ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân "
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.management-filters.loan-filters "Tìm và lọc khoản vayTên khoản "
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Nâng cao": .cache/c86/evon-loans-light/375-mo-0.png
+
+## 390px  (ảnh: .cache/c86/evon-loans-light/390.png)
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  bấm "Nâng cao": ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân "
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.management-filters.loan-filters "Tìm và lọc khoản vayTên khoản "
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Nâng cao": .cache/c86/evon-loans-light/390-mo-0.png
+
+## 768px  (ảnh: .cache/c86/evon-loans-light/768.png)
+VIỀN ĐỔI MÀU LÚC RÊ (4 loại, skill chỉ đổi nền, xem button.md):
+  button "Nâng cao": viền #e2e8f0 → #1d4ed8
+  a "Xóa lọc": viền #e2e8f0 → #1d4ed8
+  a "Đang hoạt động": viền #9db2e8 → #1d4ed8
+  a "C86 Khoản mẫu 7Gốc ban đầu 1.600": viền #e2e8f0 → #6c8ce2
+TAB TỚI CÒN VẼ VÒNG FOCUS (13 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  a "Tạo khoản vay"
+  button "Nâng cao"
+  a "Xóa lọc"
+  a "Đang hoạt động"
+  a "C86 Khoản mẫu 7Gốc ban đầu 1.600.000 ₫Ch"
+  a "Ghi giao dịch cho khoản vay"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân " (đang ẩn)
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.management-filters.loan-filters "Tìm và lọc khoản vayTên khoản "
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1024px  (ảnh: .cache/c86/evon-loans-light/1024.png)
+VIỀN ĐỔI MÀU LÚC RÊ (4 loại, skill chỉ đổi nền, xem button.md):
+  button "Nâng cao": viền #e2e8f0 → #1d4ed8
+  a "Xóa lọc": viền #e2e8f0 → #1d4ed8
+  a "Đang hoạt động": viền #9db2e8 → #1d4ed8
+  a "C86 Khoản mẫu 7Gốc ban đầu 1.600": viền #e2e8f0 → #6c8ce2
+TAB TỚI CÒN VẼ VÒNG FOCUS (16 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân " (đang ẩn)
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.management-filters.loan-filters "Tìm và lọc khoản vayTên khoản "
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Đối tác", "Thông báo1"
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1280px  (ảnh: .cache/c86/evon-loans-light/1280.png)
+VIỀN ĐỔI MÀU LÚC RÊ (3 loại, skill chỉ đổi nền, xem button.md):
+  button "Nâng cao": viền #e2e8f0 → #1d4ed8
+  a "Xóa lọc": viền #e2e8f0 → #1d4ed8
+  a "Đang hoạt động": viền #9db2e8 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (16 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân " (đang ẩn)
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.management-filters.loan-filters "Tìm và lọc khoản vayTên khoản "
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Đối tác", "Thông báo1"
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1440px  (ảnh: .cache/c86/evon-loans-light/1440.png)
+VIỀN ĐỔI MÀU LÚC RÊ (3 loại, skill chỉ đổi nền, xem button.md):
+  button "Nâng cao": viền #e2e8f0 → #1d4ed8
+  a "Xóa lọc": viền #e2e8f0 → #1d4ed8
+  a "Đang hoạt động": viền #9db2e8 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (16 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân " (đang ẩn)
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.management-filters.loan-filters "Tìm và lọc khoản vayTên khoản "
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Đối tác", "Thông báo1"
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1920px  (ảnh: .cache/c86/evon-loans-light/1920.png)
+VIỀN ĐỔI MÀU LÚC RÊ (3 loại, skill chỉ đổi nền, xem button.md):
+  button "Nâng cao": viền #e2e8f0 → #1d4ed8
+  a "Xóa lọc": viền #e2e8f0 → #1d4ed8
+  a "Đang hoạt động": viền #9db2e8 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (16 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân " (đang ẩn)
+VIỀN TRANG TRÍ ĐẬM (1 màu, card và khung nhạt hơn #e4e4e7, bậc xám nhạt nhất của dự án, M14):
+  rgb(226, 232, 240) (~1.23:1 trên trắng): section.management-filters.loan-filters "Tìm và lọc khoản vayTên khoản "
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Tổng quan", "Đối tác", "Thông báo1"
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Quét bề rộng 1440 → 375px, bước 20px (55 ảnh ở .cache/c86/evon-loans-light/sweep)
+Không đo ra chỗ vỡ ở bề rộng nào. Vẫn mở vài ảnh ở giữa hai khổ cố định mà xem.
+Máy không thấy chồng lấn, lệch hàng, khoảng trắng vô lý. Xem thêm các ảnh quanh ngưỡng sidebar thu và ngưỡng lưới đổi cột.
+
+# Việc phải đối chiếu: 0 mục probe xếp Hỏng
+Không có mục nào.
+
+Chi tiết: .cache/c86/evon-loans-light/report.json

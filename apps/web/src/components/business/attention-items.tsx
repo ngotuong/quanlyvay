@@ -4,11 +4,13 @@ import { useId, useState, type ReactNode } from "react";
 import { Button } from "@/components/ui";
 
 // The server supplies the complete authoritative task set; expanding only changes visibility.
-export function AttentionItems({ items }: { items: ReactNode[] }) {
+export function AttentionItems({ items, heading, emptyState }: { items: ReactNode[]; heading: ReactNode; emptyState?: ReactNode }) {
   const [expanded, setExpanded] = useState(false);
   const id = useId();
   return <div className="attention-groups">
-    {items.length > 5 ? <Button variant="secondary" className="attention-toggle" aria-expanded={expanded} aria-controls={id} onFocus={(event) => {
+    <div className="dashboard-section-heading attention-heading">
+    {heading}
+    {items.length > 5 ? <Button variant="ghost" className="attention-toggle" aria-label={expanded ? "Thu gọn về 5 việc" : `Xem toàn bộ ${items.length} việc cần xử lý`} aria-expanded={expanded} aria-controls={id} onFocus={(event) => {
       // Native focus scrolling does not account for the fixed mobile navigation.
       // Reveal the toggle before expansion so keyboard and pointer retain its position.
       const nav = document.querySelector(".mobile-nav-wrap")?.getBoundingClientRect();
@@ -17,8 +19,9 @@ export function AttentionItems({ items }: { items: ReactNode[] }) {
         event.currentTarget.scrollIntoView({ block: "center", behavior: "instant" });
       }
     }} onClick={() => setExpanded(value => !value)}>
-      {expanded ? "Thu gọn về 5 việc" : `Xem toàn bộ ${items.length} việc cần xử lý`}
+      {expanded ? "Thu gọn" : "Xem tất cả"}
     </Button> : null}
-    <div className="due-list schedule-list" id={id}>{expanded ? items : items.slice(0, 5)}</div>
+    </div>
+    <div className="due-list schedule-list" id={id}>{items.length ? expanded ? items : items.slice(0, 5) : emptyState}</div>
   </div>;
 }

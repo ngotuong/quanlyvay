@@ -1,0 +1,120 @@
+(node:19214) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+# Probe: 18 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c87/evon-loans-dark/375-dark.png)
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  bấm "Nâng cao": ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân "
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Nâng cao": .cache/c87/evon-loans-dark/375-dark-mo-0.png
+
+## 390px  (ảnh: .cache/c87/evon-loans-dark/390-dark.png)
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  bấm "Nâng cao": ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân "
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Nâng cao": .cache/c87/evon-loans-dark/390-dark-mo-0.png
+
+## 768px  (ảnh: .cache/c87/evon-loans-dark/768-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (4 loại, skill chỉ đổi nền, xem button.md):
+  button "Nâng cao": viền #354762 → #93c5fd
+  a "Xóa lọc": viền #354762 → #93c5fd
+  a "Đang hoạt động": viền #567398 → #93c5fd
+  a "C87 Khoản mẫu 7Gốc ban đầu 1.000": viền #354762 → #6d93bf
+TAB TỚI CÒN VẼ VÒNG FOCUS (13 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  a "Tạo khoản vay"
+  button "Nâng cao"
+  a "Xóa lọc"
+  a "Đang hoạt động"
+  a "C87 Khoản mẫu 7Gốc ban đầu 1.000.000 ₫Ch"
+  a "Ghi giao dịch cho khoản vay"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân " (đang ẩn)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1024px  (ảnh: .cache/c87/evon-loans-dark/1024-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (4 loại, skill chỉ đổi nền, xem button.md):
+  button "Nâng cao": viền #354762 → #93c5fd
+  a "Xóa lọc": viền #354762 → #93c5fd
+  a "Đang hoạt động": viền #567398 → #93c5fd
+  a "C87 Khoản mẫu 7Gốc ban đầu 1.000": viền #354762 → #6d93bf
+TAB TỚI CÒN VẼ VÒNG FOCUS (16 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân " (đang ẩn)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1280px  (ảnh: .cache/c87/evon-loans-dark/1280-dark.png)
+SỐ TIỀN NGẮT DÒNG (1 chỗ, số + đơn vị phải nowrap, nhãn bên cạnh co lại, T16):
+  "1.284.500.000 ₫": dd.privacy-amount.font-bold.text-base.sm:text-lg "1.284.500.000 ₫"
+VIỀN ĐỔI MÀU LÚC RÊ (3 loại, skill chỉ đổi nền, xem button.md):
+  button "Nâng cao": viền #354762 → #93c5fd
+  a "Xóa lọc": viền #354762 → #93c5fd
+  a "Đang hoạt động": viền #567398 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (16 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân " (đang ẩn)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1440px  (ảnh: .cache/c87/evon-loans-dark/1440-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (3 loại, skill chỉ đổi nền, xem button.md):
+  button "Nâng cao": viền #354762 → #93c5fd
+  a "Xóa lọc": viền #354762 → #93c5fd
+  a "Đang hoạt động": viền #567398 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (16 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân " (đang ẩn)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1920px  (ảnh: .cache/c87/evon-loans-dark/1920-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (3 loại, skill chỉ đổi nền, xem button.md):
+  button "Nâng cao": viền #354762 → #93c5fd
+  a "Xóa lọc": viền #354762 → #93c5fd
+  a "Đang hoạt động": viền #567398 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (16 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc, select gốc chưa tô trong dialog "Bộ lọc nâng caoNgày giải ngân " (đang ẩn)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Việc phải đối chiếu: 0 mục probe xếp Hỏng
+Không có mục nào.
+
+Chi tiết: .cache/c87/evon-loans-dark/report.json

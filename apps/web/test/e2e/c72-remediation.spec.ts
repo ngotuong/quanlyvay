@@ -158,7 +158,9 @@ test("C72 responsive hierarchy and all audited visible targets, light/dark/text 
           const navTop = await page.locator(".mobile-nav-wrap").evaluate(e => e.getBoundingClientRect().top);
           // OWNER prefers the KPI cards before tasks; tasks remain reachable above the sticky nav.
           const firstTask = page.locator(".due-list a").first();
-          await firstTask.scrollIntoViewIfNeeded();
+          // Playwright considers a row under the fixed nav visible in the viewport.
+          // Center the requested row as a user would scroll, then keep the nav-clearance assertion.
+          await firstTask.evaluate(e => e.scrollIntoView({ block: "center" }));
           expect((await firstTask.boundingBox())!.y + (await firstTask.boundingBox())!.height).toBeLessThan(navTop);
         }
         if (process.env.C72_EVIDENCE === "true" && [390,1440].includes(width)) { mkdirSync(out,{recursive:true}); await page.screenshot({ path: resolve(out, `${route.slice(1)}-${width}-${colorScheme}.png`), fullPage: true }); }

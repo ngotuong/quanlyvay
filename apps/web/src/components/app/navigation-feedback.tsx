@@ -56,7 +56,7 @@ export function NavigationFeedback() {
   return (
     <>
       <span className="route-progress global-route-progress" data-visible={pending} aria-hidden="true" />
-      {pending ? <span className="sr-only" role="status" aria-live="polite">{slow ? "Nội dung đang tải lâu hơn dự kiến…" : "Đang mở nội dung…"}</span> : null}
+      {pending ? <span className="navigation-feedback-message" role="status" aria-live="polite"><span className="navigation-feedback-spinner" aria-hidden="true" />{slow ? "Nội dung đang tải lâu hơn dự kiến…" : "Đang mở nội dung…"}</span> : null}
     </>
   );
 }

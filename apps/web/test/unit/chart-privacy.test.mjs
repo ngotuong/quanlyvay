@@ -17,9 +17,17 @@ function compile(source, globals = {}, imports = {}) {
   return moduleRecord.exports;
 }
 const load = (path, imports) => compile(readFileSync(resolve(base, path), "utf8"), {}, imports);
-const privacy = load("components/app/privacy-provider.tsx");
+const privacy = load("components/app/privacy-provider.tsx", { "@/components/ui/vnd-text": load("components/ui/vnd-text.tsx") });
 const ui = load("components/ui/card.tsx", { "./utils": load("components/ui/utils.ts") });
 const format = load("lib/business/format.ts");
+test("formatted bigint VND preserves every character and hidden amounts expose no layout flags", () => {
+  for (const value of ["0", "1284500000", "-99999999999999999", "9223372036854775807"]) {
+    const formatted = format.formatVnd(value);
+    const render = hidden => renderToStaticMarkup(React.createElement(privacy.PrivacyProvider, { initialPrivacy: hidden }, React.createElement(privacy.PrivacyAmount, { value: formatted })));
+    assert.equal(render(false).replace(/<[^>]+>/g, ""), formatted);
+    assert.doesNotMatch(render(true), /data-wide|data-extra-wide|vnd-number|9999999|9223372/);
+  }
+});
 const source = readFileSync(resolve(base, "app/loans/[id]/page.tsx"), "utf8");
 const parsed = ts.createSourceFile("page.tsx", source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
 const chart = parsed.statements.find(node => ts.isFunctionDeclaration(node) && node.name?.text === "PeriodInterestChart");

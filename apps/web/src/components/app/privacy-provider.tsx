@@ -2,6 +2,7 @@
 
 import React, { createContext, useContext, useState } from "react";
 import { Eye, EyeOff } from "lucide-react";
+import { VndText } from "@/components/ui/vnd-text";
 
 interface PrivacyContextType {
   isPrivacyMode: boolean;
@@ -80,7 +81,7 @@ export function PrivacyAmount({
     );
   }
 
-  return <span className={`privacy-amount ${className}`}>{value}</span>;
+  return <span className={`privacy-amount ${className}`}>{typeof value === "string" && value.endsWith("₫") ? <VndText formatted={value} /> : value}</span>;
 }
 
 export function PrivacyAccessibleValue({

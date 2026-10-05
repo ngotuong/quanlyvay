@@ -1,0 +1,199 @@
+{
+  "rawP": 6,
+  "actionablePAfterReview": 0,
+  "visualRounds": 3,
+  "fixedWidthSamples": 56,
+  "lightSweepSamples": 220,
+  "probeChangedRules": false,
+  "storageAdapter": "Only isolated synthetic cookie storage injected; original skill/probe/rules unchanged",
+  "findings": [
+    {
+      "source": "evon-dashboard-light.txt",
+      "ids": [
+        "P1",
+        "P2"
+      ],
+      "classification": "FALSE_POSITIVE",
+      "reason": "Descendants of tooltip ancestor with opacity0; displayed tooltip opacity1 with inherited text contrast above4.5:1",
+      "visibleContrast": 15.962,
+      "evidence": {
+        "before": {
+          "opacity": 0,
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        "after": {
+          "opacity": "1",
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        }
+      }
+    },
+    {
+      "source": "evon-expenses-light.txt",
+      "ids": [
+        "P1"
+      ],
+      "classification": "FALSE_POSITIVE",
+      "reason": "Closed native details children have layout boxes but are not painted. Open form button stays on one line.",
+      "openForm": {
+        "height": 44,
+        "width": 1112,
+        "textHeight": 17,
+        "lineHeight": 16.8,
+        "font": "14px"
+      },
+      "closedDetailsProof": {
+        "closedForms": [
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          }
+        ],
+        "shown": {
+          "painted": true,
+          "width": 1112,
+          "height": 44
+        }
+      }
+    },
+    {
+      "source": "evon-dashboard-dark.txt",
+      "ids": [
+        "P1",
+        "P2"
+      ],
+      "classification": "FALSE_POSITIVE",
+      "reason": "Descendants of tooltip ancestor with opacity0; displayed tooltip opacity1 with inherited text contrast above4.5:1",
+      "visibleContrast": 14.588,
+      "evidence": {
+        "before": {
+          "opacity": 0,
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        "after": {
+          "opacity": "1",
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        }
+      }
+    },
+    {
+      "source": "evon-expenses-dark.txt",
+      "ids": [
+        "P1"
+      ],
+      "classification": "FALSE_POSITIVE",
+      "reason": "Closed native details children have layout boxes but are not painted. Open form button stays on one line.",
+      "openForm": {
+        "height": 44,
+        "width": 1112,
+        "textHeight": 17,
+        "lineHeight": 16.8,
+        "font": "14px"
+      },
+      "closedDetailsProof": {
+        "closedForms": [
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          },
+          {
+            "closedAncestor": true,
+            "painted": false,
+            "width": 109.578125,
+            "height": 49.59375
+          }
+        ],
+        "shown": {
+          "painted": true,
+          "width": 1112,
+          "height": 44
+        }
+      }
+    }
+  ]
+}

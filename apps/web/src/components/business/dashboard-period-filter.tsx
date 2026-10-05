@@ -9,6 +9,11 @@ import { BottomSheet, Button, Input, TabList, Tabs } from "@/components/ui";
 
 export function DashboardPeriodFilter({ period, periodLabel }: { period: DashboardPeriod; periodLabel: string }) {
   const router = useRouter();
+  // Compact the displayed date range only when the shared month/year remains explicit.
+  const endDateLabel = `${Number(period.end.slice(8, 10))}/${Number(period.end.slice(5, 7))}/${period.end.slice(0, 4)}`;
+  const compactPeriodLabel = period.start === period.end ? endDateLabel
+    : period.start.slice(0, 7) === period.end.slice(0, 7)
+      ? `${Number(period.start.slice(8, 10))}–${endDateLabel}` : periodLabel;
   const dialogRef = useRef<HTMLDialogElement>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [dates, setDates] = useState({ from: period.start, to: period.end });
@@ -52,7 +57,7 @@ export function DashboardPeriodFilter({ period, periodLabel }: { period: Dashboa
 
   return (
     <section className="dashboard-period-bar" aria-label="Khoảng báo cáo">
-      <span className="dashboard-period-current"><CalendarRange size={18} aria-hidden="true" /><span><small>Khoảng báo cáo</small><strong>{periodLabel}</strong></span></span>
+      <span className="dashboard-period-current"><CalendarRange size={18} aria-hidden="true" /><span><small>Khoảng báo cáo</small><strong title={periodLabel} aria-label={periodLabel}>{compactPeriodLabel}</strong></span></span>
       <Tabs className="filter-shortcuts dashboard-shortcuts" aria-label="Khoảng thời gian nhanh"><TabList>
         <Link href="/dashboard?preset=this_month" data-active={period.preset === "this_month"}>Tháng này</Link>
         <Link href="/dashboard?preset=previous_month" data-active={period.preset === "previous_month"}>Tháng trước</Link>

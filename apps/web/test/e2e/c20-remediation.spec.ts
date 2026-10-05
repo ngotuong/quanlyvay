@@ -319,7 +319,7 @@ test("large lists, exact text and concurrent export remain complete", async ({pa
   await login(page);await page.goto("/expenses");
   const total=(await page.locator(".expense-budget-total").innerText()).replace(/\s/g,"");
   expect(total).toMatch(/\d/);
-  await page.goto("/expenses?page=41");await expect(page.getByText(/Trang 41/)).toBeVisible();expect((await page.locator(".expense-budget-total").innerText()).replace(/\s/g,"")).toBe(total);
+  await page.goto("/expenses?page=41");await expect(page.getByRole("navigation",{name:"Phân trang",exact:true}).getByText(/Trang 41/)).toBeVisible();expect((await page.locator(".expense-budget-total").innerText()).replace(/\s/g,"")).toBe(total);
   await page.goto("/counterparties?page=41");await expect(page.getByText(/Trang 41/)).toBeVisible();
   await page.goto("/loans/new");await page.getByRole("combobox",{name:"Đối tác",exact:true}).fill("C20 volume 1005");
   page.once("dialog",dialog=>dialog.accept());await page.goto(`/loans/${loanId}?tab=history&page=41`);await expect(page.getByText("Giải ngân",{exact:true})).toBeVisible();

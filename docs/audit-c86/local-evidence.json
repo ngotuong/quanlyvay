@@ -1,0 +1,6967 @@
+{
+  "method": "Synthetic Chrome production build, guarded C20-test API55321/DB55322",
+  "matrix": [
+    {
+      "journey": "loan",
+      "width": 375,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Tìm tên khoản vay",
+        "Mở khoản vay",
+        "Mở giao dịch",
+        "Escape hủy"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 0,
+        "textEdits": 1,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/loans?q=Kho%E1%BA%A3n+th%C3%B4ng+b%C3%A1o+E2E",
+        "/loans/:id?returnTo=%2Floans%3Fq%3DKho%25E1%25BA%25A3n%2Bth%25C3%25B4ng%2Bb%25C3%25A1o%2BE2E"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 251,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 1147.8125,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13.12,
+          12.8,
+          13.12,
+          13.44,
+          12.48,
+          12.48,
+          12.48,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "task",
+      "width": 375,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Công việc đến khoản vay",
+        "Escape đóng giao dịch",
+        "Back về dashboard"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 1,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/dashboard",
+        "/loans/:id?transaction=interest",
+        "/dashboard"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 2222.015625,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 111.5,
+            "height": 36.375,
+            "top": 408.859375,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 139.5,
+            "height": 25.59375,
+            "top": 453.234375,
+            "font": "16px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": 96.59375,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 309,
+            "height": 46,
+            "top": 781.65625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 241,
+            "height": 20.796875,
+            "top": 892.25,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 805.125,
+            "top": 697.421875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 2222.015625,
+            "top": -467,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 111.5,
+            "height": 36.375,
+            "top": -58.140625,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 139.5,
+            "height": 25.59375,
+            "top": -13.765625,
+            "font": "16px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": -370.40625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 309,
+            "height": 46,
+            "top": 314.65625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 241,
+            "height": 20.796875,
+            "top": 425.25,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 805.125,
+            "top": 230.421875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "counterparty",
+      "width": 375,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Tìm đối tác",
+        "Mở chỉnh sửa",
+        "Nhập nháp, không lưu",
+        "Đóng và xác nhận bỏ nháp"
+      ],
+      "counts": {
+        "clicks": 3,
+        "historyActions": 0,
+        "textEdits": 2,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/counterparties",
+        "/counterparties?q=C86+%C4%90%E1%BB%91i+t%C3%A1c+m%E1%BA%ABu"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 149.265625,
+            "top": 271.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 149.265625,
+            "top": 270.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "color(srgb 0.484549 0.595765 0.892235)"
+          }
+        ],
+        "smallText": [
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "notification",
+      "width": 375,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Lọc chưa đọc",
+        "Back rồi Forward giữ bộ lọc"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 2,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/notifications",
+        "/notifications?unread=true"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 54,
+            "top": 562.09375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 54,
+            "top": 408.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "expense",
+      "width": 375,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Mở phân bổ",
+        "Cuộn tự động và trang sau",
+        "Back về trang đầu"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 1,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/expenses",
+        "/expenses?page=2",
+        "/expenses"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 5386.46875,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 197.390625,
+            "top": 152,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 5487.25,
+            "top": -4587,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 298.171875,
+            "top": -4435,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "theme",
+      "width": 375,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Mở Thêm",
+        "Mở Cài đặt",
+        "Đổi giao diện",
+        "Back về nội dung"
+      ],
+      "counts": {
+        "clicks": 3,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/settings",
+        "/loans"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 251,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(201, 225, 252)",
+            "border": "rgb(147, 197, 253)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 251,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "loan",
+      "width": 390,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Tìm tên khoản vay",
+        "Mở khoản vay",
+        "Mở giao dịch",
+        "Escape hủy"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 0,
+        "textEdits": 1,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/loans?q=Kho%E1%BA%A3n+th%C3%B4ng+b%C3%A1o+E2E",
+        "/loans/:id?returnTo=%2Floans%3Fq%3DKho%25E1%25BA%25A3n%2Bth%25C3%25B4ng%2Bb%25C3%25A1o%2BE2E"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 266,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 1149.484375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13.12,
+          12.8,
+          13.12,
+          13.44,
+          12.48,
+          12.48,
+          12.48,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "task",
+      "width": 390,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Công việc đến khoản vay",
+        "Escape đóng giao dịch",
+        "Back về dashboard"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 1,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/dashboard",
+        "/loans/:id?transaction=interest",
+        "/dashboard"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 2222.015625,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 119,
+            "height": 36.375,
+            "top": 408.859375,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 147,
+            "height": 25.59375,
+            "top": 453.234375,
+            "font": "16px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": 96.59375,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 324,
+            "height": 46,
+            "top": 781.65625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 256,
+            "height": 20.796875,
+            "top": 892.25,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 805.125,
+            "top": 697.421875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 2222.015625,
+            "top": -467,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 119,
+            "height": 36.375,
+            "top": -58.140625,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 147,
+            "height": 25.59375,
+            "top": -13.765625,
+            "font": "16px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": -370.40625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 324,
+            "height": 46,
+            "top": 314.65625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 256,
+            "height": 20.796875,
+            "top": 425.25,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 805.125,
+            "top": 230.421875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "counterparty",
+      "width": 390,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Tìm đối tác",
+        "Mở chỉnh sửa",
+        "Nhập nháp, không lưu",
+        "Đóng và xác nhận bỏ nháp"
+      ],
+      "counts": {
+        "clicks": 3,
+        "historyActions": 0,
+        "textEdits": 2,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/counterparties",
+        "/counterparties?q=C86+%C4%90%E1%BB%91i+t%C3%A1c+m%E1%BA%ABu"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 149.265625,
+            "top": 271.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 149.265625,
+            "top": 270.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "color(srgb 0.484549 0.595765 0.892235)"
+          }
+        ],
+        "smallText": [
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "notification",
+      "width": 390,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Lọc chưa đọc",
+        "Back rồi Forward giữ bộ lọc"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 2,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/notifications",
+        "/notifications?unread=true"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 54,
+            "top": 562.09375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 54,
+            "top": 408.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "expense",
+      "width": 390,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Mở phân bổ",
+        "Cuộn tự động và trang sau",
+        "Back về trang đầu"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 1,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/expenses",
+        "/expenses?page=2",
+        "/expenses"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 5386.46875,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 197.390625,
+            "top": 152,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 5487.25,
+            "top": -4587,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 298.171875,
+            "top": -4435,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "theme",
+      "width": 390,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Mở Thêm",
+        "Mở Cài đặt",
+        "Đổi giao diện",
+        "Back về nội dung"
+      ],
+      "counts": {
+        "clicks": 3,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/settings",
+        "/loans"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 266,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(239, 246, 252)",
+            "border": "rgb(147, 197, 253)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 266,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "loan",
+      "width": 1440,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Tìm tên khoản vay",
+        "Mở khoản vay",
+        "Mở giao dịch",
+        "Escape hủy"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 0,
+        "textEdits": 1,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/loans?q=Kho%E1%BA%A3n+th%C3%B4ng+b%C3%A1o+E2E",
+        "/loans/:id?returnTo=%2Floans%3Fq%3DKho%25E1%25BA%25A3n%2Bth%25C3%25B4ng%2Bb%25C3%25A1o%2BE2E"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 1788.765625,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 286.921875,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 190.328125,
+            "height": 19.59375,
+            "top": 442.921875,
+            "font": "14px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13.12,
+          12.8,
+          13.12,
+          13.44,
+          12.48,
+          12.48,
+          12.48
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "task",
+      "width": 1440,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Công việc đến khoản vay",
+        "Escape đóng giao dịch",
+        "Back về dashboard"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/dashboard",
+        "/loans/:id?transaction=interest",
+        "/dashboard"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 1157.71875,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 207,
+            "height": 18.1875,
+            "top": 335.75,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 235,
+            "height": 32,
+            "top": 361.9375,
+            "font": "20px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": 131.28125,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 555.8125,
+            "height": 46,
+            "top": 552.765625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 344.25,
+            "height": 20.796875,
+            "top": 663.359375,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgb(239, 246, 255)",
+            "color": "rgb(29, 78, 216)",
+            "border": "rgb(29, 78, 216)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 597.8125,
+            "height": 535.1875,
+            "top": 456.53125,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 1157.71875,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 207,
+            "height": 18.1875,
+            "top": 335.75,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 235,
+            "height": 32,
+            "top": 361.9375,
+            "font": "20px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": 131.28125,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 555.8125,
+            "height": 46,
+            "top": 552.765625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 344.25,
+            "height": 20.796875,
+            "top": 663.359375,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 597.8125,
+            "height": 535.1875,
+            "top": 456.53125,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "counterparty",
+      "width": 1440,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Tìm đối tác",
+        "Mở chỉnh sửa",
+        "Nhập nháp, không lưu",
+        "Đóng và xác nhận bỏ nháp"
+      ],
+      "counts": {
+        "clicks": 3,
+        "historyActions": 0,
+        "textEdits": 2,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/counterparties",
+        "/counterparties?q=C86+%C4%90%E1%BB%91i+t%C3%A1c+m%E1%BA%ABu"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1110,
+            "height": 74.265625,
+            "top": 226.515625,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39) rgb(17, 24, 39) rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1110,
+            "height": 73.265625,
+            "top": 226.515625,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          }
+        ],
+        "smallText": [],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "notification",
+      "width": 1440,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Lọc chưa đọc",
+        "Back rồi Forward giữ bộ lọc"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 2,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/notifications",
+        "/notifications?unread=true"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1112,
+            "height": 54,
+            "top": 549.671875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          12.8
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1112,
+            "height": 54,
+            "top": 392.171875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          12.8
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "expense",
+      "width": 1440,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Mở phân bổ",
+        "Cuộn tự động và trang sau",
+        "Back về trang đầu"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 1,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/expenses",
+        "/expenses?page=2",
+        "/expenses"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 3172.046875,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1112,
+            "height": 157.390625,
+            "top": 135.171875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 3272.828125,
+            "top": -2373,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 107.828125,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1112,
+            "height": 258.171875,
+            "top": -2237.828125,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          }
+        ],
+        "smallText": [
+          13,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "theme",
+      "width": 1440,
+      "theme": "light",
+      "status": "PASS",
+      "steps": [
+        "Mở Cài đặt",
+        "Đổi giao diện",
+        "Back về nội dung"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/settings",
+        "/loans"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 1788.765625,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 286.921875,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 190.328125,
+            "height": 19.59375,
+            "top": 442.921875,
+            "font": "14px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(83, 98, 120)",
+            "border": "rgb(83, 98, 120)"
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 1788.765625,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 286.921875,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 190.328125,
+            "height": 19.59375,
+            "top": 442.921875,
+            "font": "14px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(92, 107, 128)",
+            "border": "rgb(92, 107, 128)"
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "loan",
+      "width": 375,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Tìm tên khoản vay",
+        "Mở khoản vay",
+        "Mở giao dịch",
+        "Escape hủy"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 0,
+        "textEdits": 1,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/loans?q=Kho%E1%BA%A3n+th%C3%B4ng+b%C3%A1o+E2E",
+        "/loans/:id?returnTo=%2Floans%3Fq%3DKho%25E1%25BA%25A3n%2Bth%25C3%25B4ng%2Bb%25C3%25A1o%2BE2E"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 251,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 1147.8125,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13.12,
+          12.8,
+          13.12,
+          13.44,
+          12.48,
+          12.48,
+          12.48,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "task",
+      "width": 375,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Công việc đến khoản vay",
+        "Escape đóng giao dịch",
+        "Back về dashboard"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 1,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/dashboard",
+        "/loans/:id?transaction=interest",
+        "/dashboard"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 2222.015625,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 111.5,
+            "height": 36.375,
+            "top": 408.859375,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 139.5,
+            "height": 25.59375,
+            "top": 453.234375,
+            "font": "16px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": 96.59375,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 309,
+            "height": 46,
+            "top": 781.65625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 241,
+            "height": 20.796875,
+            "top": 892.25,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 805.125,
+            "top": 697.421875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 2222.015625,
+            "top": -467,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 111.5,
+            "height": 36.375,
+            "top": -58.140625,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 139.5,
+            "height": 25.59375,
+            "top": -13.765625,
+            "font": "16px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": -370.40625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 309,
+            "height": 46,
+            "top": 314.65625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 241,
+            "height": 20.796875,
+            "top": 425.25,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 805.125,
+            "top": 230.421875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "counterparty",
+      "width": 375,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Tìm đối tác",
+        "Mở chỉnh sửa",
+        "Nhập nháp, không lưu",
+        "Đóng và xác nhận bỏ nháp"
+      ],
+      "counts": {
+        "clicks": 3,
+        "historyActions": 0,
+        "textEdits": 2,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/counterparties",
+        "/counterparties?q=C86+%C4%90%E1%BB%91i+t%C3%A1c+m%E1%BA%ABu"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 149.265625,
+            "top": 271.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 149.265625,
+            "top": 270.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "color(srgb 0.373176 0.499608 0.653333)"
+          }
+        ],
+        "smallText": [
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "notification",
+      "width": 375,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Lọc chưa đọc",
+        "Back rồi Forward giữ bộ lọc"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 2,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/notifications",
+        "/notifications?unread=true"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 54,
+            "top": 562.09375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 54,
+            "top": 408.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "expense",
+      "width": 375,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Mở phân bổ",
+        "Cuộn tự động và trang sau",
+        "Back về trang đầu"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 1,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/expenses",
+        "/expenses?page=2",
+        "/expenses"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 5386.46875,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 197.390625,
+            "top": 152,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 5487.25,
+            "top": -4587,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 343,
+            "height": 298.171875,
+            "top": -4435,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "theme",
+      "width": 375,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Mở Thêm",
+        "Mở Cài đặt",
+        "Đổi giao diện",
+        "Back về nội dung"
+      ],
+      "counts": {
+        "clicks": 3,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/settings",
+        "/loans"
+      ],
+      "before": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 251,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 375,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 251,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "loan",
+      "width": 390,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Tìm tên khoản vay",
+        "Mở khoản vay",
+        "Mở giao dịch",
+        "Escape hủy"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 0,
+        "textEdits": 1,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/loans?q=Kho%E1%BA%A3n+th%C3%B4ng+b%C3%A1o+E2E",
+        "/loans/:id?returnTo=%2Floans%3Fq%3DKho%25E1%25BA%25A3n%2Bth%25C3%25B4ng%2Bb%25C3%25A1o%2BE2E"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 266,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 1149.484375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13.12,
+          12.8,
+          13.12,
+          13.44,
+          12.48,
+          12.48,
+          12.48,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "task",
+      "width": 390,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Công việc đến khoản vay",
+        "Escape đóng giao dịch",
+        "Back về dashboard"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 1,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/dashboard",
+        "/loans/:id?transaction=interest",
+        "/dashboard"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 2222.015625,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 119,
+            "height": 36.375,
+            "top": 408.859375,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 147,
+            "height": 25.59375,
+            "top": 453.234375,
+            "font": "16px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": 96.59375,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 324,
+            "height": 46,
+            "top": 781.65625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 256,
+            "height": 20.796875,
+            "top": 892.25,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 805.125,
+            "top": 697.421875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 2222.015625,
+            "top": -467,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 119,
+            "height": 36.375,
+            "top": -58.140625,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 147,
+            "height": 25.59375,
+            "top": -13.765625,
+            "font": "16px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": -370.40625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 324,
+            "height": 46,
+            "top": 314.65625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 256,
+            "height": 20.796875,
+            "top": 425.25,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 805.125,
+            "top": 230.421875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "counterparty",
+      "width": 390,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Tìm đối tác",
+        "Mở chỉnh sửa",
+        "Nhập nháp, không lưu",
+        "Đóng và xác nhận bỏ nháp"
+      ],
+      "counts": {
+        "clicks": 3,
+        "historyActions": 0,
+        "textEdits": 2,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/counterparties",
+        "/counterparties?q=C86+%C4%90%E1%BB%91i+t%C3%A1c+m%E1%BA%ABu"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 149.265625,
+            "top": 271.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 149.265625,
+            "top": 270.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "color(srgb 0.373176 0.499608 0.653333)"
+          }
+        ],
+        "smallText": [
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "notification",
+      "width": 390,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Lọc chưa đọc",
+        "Back rồi Forward giữ bộ lọc"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 2,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/notifications",
+        "/notifications?unread=true"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 54,
+            "top": 562.09375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 54,
+            "top": 408.59375,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "expense",
+      "width": 390,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Mở phân bổ",
+        "Cuộn tự động và trang sau",
+        "Back về trang đầu"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 1,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/expenses",
+        "/expenses?page=2",
+        "/expenses"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 5386.46875,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 197.390625,
+            "top": 152,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 5487.25,
+            "top": -4587,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "width": 358,
+            "height": 298.171875,
+            "top": -4435,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "theme",
+      "width": 390,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Mở Thêm",
+        "Mở Cài đặt",
+        "Đổi giao diện",
+        "Back về nội dung"
+      ],
+      "counts": {
+        "clicks": 3,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/settings",
+        "/loans"
+      ],
+      "before": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 266,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 390,
+            "height": 3833.84375,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 269,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 266,
+            "height": 26.875,
+            "top": 426,
+            "font": "16.8px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "missing": true
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          12.8,
+          11.2,
+          11.2,
+          11.2,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "loan",
+      "width": 1440,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Tìm tên khoản vay",
+        "Mở khoản vay",
+        "Mở giao dịch",
+        "Escape hủy"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 0,
+        "textEdits": 1,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/loans?q=Kho%E1%BA%A3n+th%C3%B4ng+b%C3%A1o+E2E",
+        "/loans/:id?returnTo=%2Floans%3Fq%3DKho%25E1%25BA%25A3n%2Bth%25C3%25B4ng%2Bb%25C3%25A1o%2BE2E"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 1788.765625,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 286.921875,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 190.328125,
+            "height": 19.59375,
+            "top": 442.921875,
+            "font": "14px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13.12,
+          12.8,
+          13.12,
+          13.44,
+          12.48,
+          12.48,
+          12.48
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "task",
+      "width": 1440,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Công việc đến khoản vay",
+        "Escape đóng giao dịch",
+        "Back về dashboard"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/dashboard",
+        "/loans/:id?transaction=interest",
+        "/dashboard"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 1157.71875,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 207,
+            "height": 18.1875,
+            "top": 335.75,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 235,
+            "height": 32,
+            "top": 361.9375,
+            "font": "20px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": 131.28125,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 555.8125,
+            "height": 46,
+            "top": 552.765625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 344.25,
+            "height": 20.796875,
+            "top": 663.359375,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgb(23, 37, 84)",
+            "color": "rgb(147, 197, 253)",
+            "border": "rgb(147, 197, 253)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 597.8125,
+            "height": 535.1875,
+            "top": 456.53125,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 1157.71875,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "width": 207,
+            "height": 18.1875,
+            "top": 335.75,
+            "font": "13px",
+            "weight": "500",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "width": 235,
+            "height": 32,
+            "top": 361.9375,
+            "font": "20px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "width": 129.765625,
+            "height": 44,
+            "top": 131.28125,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".attention-toggle",
+            "width": 555.8125,
+            "height": 46,
+            "top": 552.765625,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "width": 344.25,
+            "height": 20.796875,
+            "top": 663.359375,
+            "font": "13px",
+            "weight": "400",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 597.8125,
+            "height": 535.1875,
+            "top": 456.53125,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "counterparty",
+      "width": 1440,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Tìm đối tác",
+        "Mở chỉnh sửa",
+        "Nhập nháp, không lưu",
+        "Đóng và xác nhận bỏ nháp"
+      ],
+      "counts": {
+        "clicks": 3,
+        "historyActions": 0,
+        "textEdits": 2,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/counterparties",
+        "/counterparties?q=C86+%C4%90%E1%BB%91i+t%C3%A1c+m%E1%BA%ABu"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1110,
+            "height": 74.265625,
+            "top": 226.515625,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252) rgb(248, 250, 252) rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1110,
+            "height": 73.265625,
+            "top": 226.515625,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          }
+        ],
+        "smallText": [],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "notification",
+      "width": 1440,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Lọc chưa đọc",
+        "Back rồi Forward giữ bộ lọc"
+      ],
+      "counts": {
+        "clicks": 1,
+        "historyActions": 2,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 1
+      },
+      "routes": [
+        "/notifications",
+        "/notifications?unread=true"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1112,
+            "height": 54,
+            "top": 549.671875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          12.8
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 900,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1112,
+            "height": 54,
+            "top": 392.171875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          12.8
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "expense",
+      "width": 1440,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Mở phân bổ",
+        "Cuộn tự động và trang sau",
+        "Back về trang đầu"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 1,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/expenses",
+        "/expenses?page=2",
+        "/expenses"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 3172.046875,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1112,
+            "height": 157.390625,
+            "top": 135.171875,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 3272.828125,
+            "top": -2373,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "missing": true
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 107.828125,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".surface-card",
+            "width": 1112,
+            "height": 258.171875,
+            "top": -2237.828125,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          }
+        ],
+        "smallText": [
+          13,
+          11.2,
+          11.2
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    },
+    {
+      "journey": "theme",
+      "width": 1440,
+      "theme": "dark",
+      "status": "PASS",
+      "steps": [
+        "Mở Cài đặt",
+        "Đổi giao diện",
+        "Back về nội dung"
+      ],
+      "counts": {
+        "clicks": 2,
+        "historyActions": 1,
+        "textEdits": 0,
+        "runnerAutoScrollMoves": 0,
+        "explicitUserScrolls": "NOT_MEASURED",
+        "urlTransitions": 2
+      },
+      "routes": [
+        "/loans",
+        "/settings",
+        "/loans"
+      ],
+      "before": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 1788.765625,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(9, 13, 24)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 286.921875,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(17, 24, 39)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(39, 52, 73)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 190.328125,
+            "height": 19.59375,
+            "top": 442.921875,
+            "font": "14px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(248, 250, 252)",
+            "border": "rgb(248, 250, 252)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(167, 178, 195)",
+            "border": "rgb(167, 178, 195)"
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "after": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "measurements": [
+          {
+            "selector": "body",
+            "width": 1440,
+            "height": 1788.765625,
+            "top": 0,
+            "font": "16px",
+            "weight": "400",
+            "background": "rgb(246, 247, 251)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".dashboard-metric p",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-metric strong",
+            "missing": true
+          },
+          {
+            "selector": ".dashboard-custom-trigger",
+            "missing": true
+          },
+          {
+            "selector": ".attention-toggle",
+            "missing": true
+          },
+          {
+            "selector": ".advanced-filter-trigger",
+            "width": 139.5625,
+            "height": 44,
+            "top": 286.921875,
+            "font": "16px",
+            "weight": "750",
+            "background": "rgb(255, 255, 255)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(226, 232, 240)"
+          },
+          {
+            "selector": ".loan-card-heading h2",
+            "width": 190.328125,
+            "height": 19.59375,
+            "top": 442.921875,
+            "font": "14px",
+            "weight": "600",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(17, 24, 39)",
+            "border": "rgb(17, 24, 39)"
+          },
+          {
+            "selector": ".due-main small",
+            "missing": true
+          },
+          {
+            "selector": ".nav-link",
+            "width": 215,
+            "height": 48,
+            "top": 108,
+            "font": "14.4px",
+            "weight": "650",
+            "background": "rgba(0, 0, 0, 0)",
+            "color": "rgb(158, 169, 187)",
+            "border": "rgb(158, 169, 187)"
+          },
+          {
+            "selector": ".surface-card",
+            "missing": true
+          }
+        ],
+        "smallText": [
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13,
+          13
+        ],
+        "fontLoaded": "loaded",
+        "h1": 1
+      },
+      "error": ""
+    }
+  ],
+  "evidence": {
+    "failures": [],
+    "startup-light": {
+      "controlledAuthDelayMs": 2000,
+      "fallbackVisibleMs": 60,
+      "resolvedMs": 2398,
+      "postFirstByteOnly": true
+    },
+    "startup-dark": {
+      "controlledAuthDelayMs": 2000,
+      "fallbackVisibleMs": 75,
+      "resolvedMs": 2340,
+      "postFirstByteOnly": true
+    },
+    "navigationDelayedFeedback": true,
+    "evon-loans-dark": {
+      "exitCode": 0,
+      "rawReport": ".cache/c86/evon-loans-dark/report.json"
+    },
+    "evon-dashboard-dark": {
+      "exitCode": 0,
+      "rawReport": ".cache/c86/evon-dashboard-dark/report.json"
+    },
+    "evon-loans-light": {
+      "exitCode": 0,
+      "rawReport": ".cache/c86/evon-loans-light/report.json"
+    },
+    "evon-dashboard-light": {
+      "exitCode": 0,
+      "rawReport": ".cache/c86/evon-dashboard-light/report.json"
+    }
+  }
+}

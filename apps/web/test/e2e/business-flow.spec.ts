@@ -485,7 +485,7 @@ test("dashboard is responsive and readable in light and dark modes", async ({ pa
   await page.locator(".cash-flow-card .chart-data-details > summary").first().click();
   await expect(page.getByRole("columnheader", { name: "Tiền vào" })).toBeVisible();
   const background = await page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--background").trim());
-  expect(background).toBe("#090d18");
+  expect(background).toBe("#0b1220");
   const performanceMetrics = await page.evaluate(() => {
     const navigation = performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming | undefined;
     return { responseStartMs: navigation?.responseStart ?? 0, domContentLoadedMs: navigation?.domContentLoadedEventEnd ?? 0, cls: (window as Window & { __qaCls?: number }).__qaCls ?? 0 };

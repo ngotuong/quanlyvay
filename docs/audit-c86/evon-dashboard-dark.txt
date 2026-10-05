@@ -1,0 +1,171 @@
+(node:9954) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+# Probe: 39 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c86/evon-dashboard-dark/375-dark.png)
+BẢNG CUỘN NGANG MẤT CỘT (2 bảng, R9):
+  bảng 374px trong khung 301px, cột đầu không ghim (dưới sm: thành danh sách dòng): table "ThángTiền vàoTiền raRòngT10/20260 ₫2.925"
+  bảng 494px trong khung 267px, cột đầu không ghim (dưới sm: thành danh sách dòng): table "Đối tácCho vayNợ xấuĐi vayTổngC86 Đối tá"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Xu hướng dòng tiền" trơ "tiền" ở dòng cuối: h2 "Xu hướng dòng tiền"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  bấm "Tùy chỉnh": ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch"
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #111827 trên nền #111827 "0 ₫": span.privacy-amount "0 ₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã bấm mở 2 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Tùy chỉnh": .cache/c86/evon-dashboard-dark/375-dark-mo-0.png
+  "Thu gọn về 5 việc": .cache/c86/evon-dashboard-dark/375-dark-mo-1.png
+
+## 390px  (ảnh: .cache/c86/evon-dashboard-dark/390-dark.png)
+BẢNG CUỘN NGANG MẤT CỘT (2 bảng, R9):
+  bảng 374px trong khung 316px, cột đầu không ghim (dưới sm: thành danh sách dòng): table "ThángTiền vàoTiền raRòngT10/20260 ₫2.925"
+  bảng 494px trong khung 282px, cột đầu không ghim (dưới sm: thành danh sách dòng): table "Đối tácCho vayNợ xấuĐi vayTổngC86 Đối tá"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Xu hướng dòng tiền" trơ "tiền" ở dòng cuối: h2 "Xu hướng dòng tiền"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  bấm "Tùy chỉnh": ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch"
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #111827 trên nền #111827 "0 ₫": span.privacy-amount "0 ₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã bấm mở 2 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Tùy chỉnh": .cache/c86/evon-dashboard-dark/390-dark-mo-0.png
+  "Thu gọn về 5 việc": .cache/c86/evon-dashboard-dark/390-dark-mo-1.png
+
+## 768px  (ảnh: .cache/c86/evon-dashboard-dark/768-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Tùy chỉnh": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (16 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  a "Tháng này"
+  a "Tháng trước"
+  button "Tùy chỉnh"
+  a "Xem danh sách"
+  button "Xem toàn bộ 8 việc cần xử lý"
+  a "C86 Khoản mẫu 1Nhắc 5/10/2026 · Kỳ chốt "
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch" (đang ẩn)
+CHỮ DƯỚI 12px (5 chỗ):
+  11.2px "Tổng quan": span "Tổng quan"
+  11.2px "Khoản vay": span "Khoản vay"
+  11.2px "Đối tác": span "Đối tác"
+  11.2px "Thông báo": span "Thông báo"
+  11.2px "Thêm": span "Thêm"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #111827 trên nền #111827 "0 ₫": span.privacy-amount "0 ₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1024px  (ảnh: .cache/c86/evon-dashboard-dark/1024-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Tùy chỉnh": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (19 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch" (đang ẩn)
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Khoản vay", "Đối tác", "Thông báo1"
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #111827 trên nền #111827 "0 ₫": span.privacy-amount "0 ₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1280px  (ảnh: .cache/c86/evon-dashboard-dark/1280-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Tùy chỉnh": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (19 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch" (đang ẩn)
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Khoản vay", "Đối tác", "Thông báo1"
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #111827 trên nền #111827 "0 ₫": span.privacy-amount "0 ₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1440px  (ảnh: .cache/c86/evon-dashboard-dark/1440-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Tùy chỉnh": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (19 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch" (đang ẩn)
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Khoản vay", "Đối tác", "Thông báo1"
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #111827 trên nền #111827 "0 ₫": span.privacy-amount "0 ₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1920px  (ảnh: .cache/c86/evon-dashboard-dark/1920-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Tùy chỉnh": viền #273449 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (19 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch" (đang ẩn)
+SIDEBAR CHỮ ĐẬM HAY MỤC SÁT NHAU (1 chỗ, mục thường chữ 400 text-foreground/70, chỉ mục đang chọn font-medium, các mục cách gap-1, layouts/app.md):
+  6/7 mục chữ 650: "Khoản vay", "Đối tác", "Thông báo1"
+CHỮ DƯỚI 12px (1 chỗ):
+  11.52px "Chủ tài khoản": small "Chủ tài khoản"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (1 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #111827 trên nền #111827 "0 ₫": span.privacy-amount "0 ₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Việc phải đối chiếu: 1 mục probe xếp Hỏng
+Mỗi mục thành một dòng trong bảng giao (cột Nguồn ghi mã, ví dụ `đo P3`; cùng gốc thì gộp nhiều mã một dòng),
+hoặc một dòng dưới bảng nói vì sao loại. Không mục nào được biến mất im lặng (V5 trong review.md).
+P1 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #111827 trên nền #111827 "0 ₫": span.privacy-amount "0 ₫"
+
+Chi tiết: .cache/c86/evon-dashboard-dark/report.json

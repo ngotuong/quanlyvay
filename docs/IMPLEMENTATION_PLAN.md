@@ -61,7 +61,9 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C83 | Audit module còn lại và lựa chọn Sáng/Tối/Theo thiết bị với Evon ui-ux | `COMPLETED` |
 | C84 | Sửa F1–F7, lifecycle cài đặt và bộ chọn giao diện theo phương án C83 | `COMPLETED` |
 | C85 | Đồng bộ C83/C84, CI và rollout UI/theme lên Preview/Production | `COMPLETED` |
-| C86 | Audit hiệu quả thao tác sau phát hành C85 với Evon ui-ux | `AWAITING_APPROVAL` |
+| C86 | Audit hiệu quả thao tác sau phát hành C85 với Evon ui-ux | `COMPLETED` |
+| C87 | Remediation phân vùng, chữ, control phụ, startup và pagination theo C86 | `COMPLETED` |
+| C88 | Đồng bộ C86/C87 B, Required CI và rollout Preview/Production | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1792,7 +1794,8 @@ Acceptance criteria:
 Trạng thái: `COMPLETED`. OWNER phê duyệt ngày04/10/2026. Source198248b/Required CI37199726182
 SUCCESS5jobs. Preview/Production candidates và stablePreview/tindung/default hậu kiểm đạt
 trong state/môi trường khả dụng; closing proof b568cae/CI37213927772 SUCCESS5jobs đúng SHA.
-Final status commit phải xác nhận CI đúng SHA sau push trước completion message. C86 chỉ đề xuất.
+Final status9813a6b/Required CI37217274995 SUCCESS5jobs đúng SHA đã xác minh trước completion message.
+Tại thời điểm chốt C85, C86 chỉ là đề xuất; trạng thái hiện hành theo section44/context.
 Final root Preview resume exit0/lint/typecheck/unit116/build/E2E61PASS12SKIP10,0m, SQLsix0/
 14C75PNGrestore/runtime18unchanged. Candidate matrix120mẫu và25mẫu bổ sung,3mode/manual/
 reload/cachedhistory/meta/4detailtabs/page99/filter/390drawer/focus/closecancel-accept đạt.
@@ -1859,10 +1862,20 @@ Acceptance criteria:
    đồng bộ, checkpoint kế tiếp AWAITING_APPROVAL rồi dừng.
 
 
-## 44. Checkpoint C86 — Chờ phê duyệt
+## 44. Checkpoint C86 — Đã hoàn tất
 
 **C86 — Đánh giá hiệu quả thao tác sau phát hành C85.**
-Trạng thái: `AWAITING_APPROVAL`. Chỉ đề xuất, không thực hiện trong C85.
+Trạng thái: `COMPLETED`. OWNER phê duyệt ngày05/10/2026 trong hội thoại.
+Final opt-in2/2PASS2,8m/36journeys, app4Evon28fixed+110sweep và supplement;5Gu MEDIUM.
+A/B20rendered samples0overflow/clipped/KPI-order/1h1/fontload,4Evon28fixed+110sweep0P;
+2appP hidden tooltip falsepositive có proof opacity/contrast, không đổi probe/rule/ignore.
+Lint/typecheck/buildE2E/JSON/JS/19HTTP/diff/Gitleaks PASS, DB55322 verifiedsixcounts0.
+Remote6route groups390 và12valid dashboard/loans width/theme samples; dirty editor/expense
+missingstates/cold trướcHTML/physical AT giữ NOT_TESTED. System/privacy banđầu restored,
+consoleerror0/draft0/viewportreset. Không runtime/schema/dataremote/commit/push/deploy.
+Report và proposal docs/audit-c86/; C87 AWAITING_APPROVAL, chưa thực hiện.
+Bổ sung trực tiếp của OWNER: soi phân vùng nền trắng, typography nhỏ, control phụ chiếm
+không gian và màn mở webapp trắng/loading; ghi bằng chứng và đề xuất visual, không sửa runtime.
 
 Kết hợp skill Evon ui-ux theo yêu cầu OWNER khi audit; không mở redesign trong audit.
 
@@ -1891,3 +1904,109 @@ Acceptance criteria:
 3. Findings và đề xuất phân biệt lỗi/Gu/giới hạn; không tự triển khai redesign hoặc mutation.
 4. Gate tài liệu/script hiện có phù hợp đạt, context/roadmap cùng cập nhật. Đề xuất checkpoint
    tiếp theo AWAITING_APPROVAL rồi dừng; không tự phát hành hoặc thêm automation.
+
+
+## 45. Checkpoint C87 — Hoàn tất local
+
+**C87 — Làm rõ phân vùng, typography, control phụ, startup và lối phân trang Chi phí.**
+Trạng thái: `COMPLETED` local. OWNER phê duyệt rõ C87 phương án B ngày05/10/2026 trong hội thoại.
+
+OWNER chọn hướng A hoặc B trong `docs/audit-c86/proposal.html`; B khuyên dùng theo phản hồi
+cần bớt đơn điệu. Đây là lựa chọn vai màu có chủ ý, không tự neutral hóa brand theo Gu skill.
+
+Phạm vi khi phê duyệt:
+
+- Remediation local G1–G5; dùng Evon ui-ux và bộ component/token sẵn, không cài thư viện/font mới.
+  Chốt hướng đã duyệt rồi áp hệ phân vùng/nhịp lên dashboard, loans/detail, counterparties,
+  expenses, notifications/settings và các overlay liên quan. Giữ logo/Inter/blue, màu trạng thái
+  có nghĩa; nếu B giữ sidebar navy và một KPI xanh như mockup. Prototype số giả không thành data.
+- Body chính16px/nhãn14px/nav≥12px, KPI18–24px phù hợp bề rộng và số tiền đầy đủ; nhịp/weight
+ 400/500/600 rõ. Không cắt hoặc đổi giá trị authoritative để đạt geometry; unit vẫn đọc được.
+- Control phụ chữ14px/weight500–600, theo nội dung; toggle toàn bộ công việc vào header, không
+  full-width một hàng riêng. Giữ mobile target44px, keyboard/focus-return/privacy/dirty/pending/
+  error/retry và scroll stability. KPI luôn trước Việc cần xử lý trong DOM/reading order.
+- Startup branded neutral fallback và skeleton rõ vùng, dùng theme hiện hành; không giả phần
+  trăm, delay nhân tạo, chuyển Auth sang client hoặc lộ dữ liệu khi chưa resolve profile.
+  Đo riêng cold/TTFB/first-feedback và giới hạn trướcHTML; không hứa không trắng dưới mọi mạng.
+  Không thay security/session/RPC để đạt hình. SPA spinner/progress bám transition thực.
+- Thêm lối phân trang gần đầu danh sách Chi phí khi nhiều trang; giữ count/canonical/query/
+  pageSize25 và footer. Label nav rõ, không gỡ bài kiểm query/BackForward khi thêm control.
+  Không mở rộng thêm quick-theme toàn app, redesign chart logic hoặc thay notification policy.
+- Fixture/reset/mutation chỉ đúng disposable C20-test guard; remote nếu có phiên chỉ đọc,
+  mở/đóng/nháp không submit và preference rồi restore. Không bắt OWNER học VoiceOver.
+- Report/review/ảnh fake và context/roadmap; không commit/push/deploy, schema/RPC/migration,
+  finance/account/mark-read/push permission remote, secret/Google/resource/backup cleanup.
+  Release và exact-SHA CI/rollout là checkpoint riêng sau khi OWNER duyệt review local.
+
+Acceptance criteria:
+
+1. Hướng A/B đã được OWNER chọn, có trước/sau render thật cùng fixture/theme/width. Kiểm
+   375/390/768/1024/1440 Light/Dark các route/state liên quan; không overflow/clippedVND/name
+   mất nghĩa, chỉ1visibleh1, KPI-order đúng. Màu/card/header được phân vùng theo hướng đã duyệt;
+   chữ thường≥4,5:1/chữ lớn≥3:1 trong mẫu, focus-visible và privacy không hồi quy.
+2. Chữ và control đạt contract trên; toggle không còn full-width hàng riêng, danh sách việc
+   expanded/collapsed giữ tập authoritative/focus/scroll. VND lớn/0/âm và tên dài được kiểm
+   với giới hạn hợp lệ; không rút gọn quyết toán/giấu ghi chú để làm đẹp.
+3. Auth local2/10s có branded fallback nhìn thấy≤1500ms trong delayed-resolved-profile test;
+   không dữ liệu riêng tư trước resolve. SPA1800ms có feedback đến complete/error/cancel,
+   reload/manual/system/BackForward/no-flash/reduced-motion đạt. Ghi cold network/TTFB/PWA
+   khả dụng, thiếu capability giữ NOT_TESTED, không dùng ảnh để kết luận mọi cold-start đã sửa.
+4. Fixture26expenses: Trang sau/Trang trước có lối vào gần đầu (ở375/390 không cần xuống cuối
+   toàn25rows), count/canonical/page2/BackForward đúng; footer dùng được, không tăng mutation
+   hoặc đổi pageSize25. Đo thao tác/scroll trước/sau, phân biệt runner và người dùng thật.
+5. diff-check/lint/typecheck/unit/build/full E2E hiện hữu đạt, gồm hồi quy tài chính/privacy/
+   draft/focus/theme/canonical; không giảm assertion/retries/skips để chốt. Evon probe và mắt
+   xem Light/Dark/khổ cố định+sweep; mọiP đối chiếu rõ theo skill, tối đa3vòng hình. DBguard/
+   teardown verified0, secret/artifact scan PASS; không ảnh/ID/amount/credential thật vào Git.
+6. Docs context/roadmap cập nhật cùng thay đổi, review local mở được; checkpoint release kế
+   tiếp AWAITING_APPROVAL rồi dừng. Không tự deploy/push hoặc bắt đầu checkpoint tiếp.
+
+C87 final evidence: lint/typecheck/unit117/build19/full E2E64PASS14opt-inSKIP15,1m exit0;
+88mẫu/18before matched fixture, Evon vòng3 raw6P đã đối chiếu/0actionableP, DB C20-test55322
+sixcounts0,17C75files restore exact baseline/C86 bảo toàn. Report/review/validation/probe
+reconciliation: docs/remediation-c87/. Không commit/push/deploy/remote mutation; các giới hạn
+trướcHTML/PWA/physical AT/mobile/Safari/Firefox giữ NOT_TESTED. C88 chờ duyệt rồi dừng.
+
+## 46. Checkpoint C88 — Đang thực hiện
+
+**C88 — Đồng bộ và phát hành giao diện C87 B lên Preview/Production.**
+Trạng thái: `IN_PROGRESS`. OWNER phê duyệt ngày05/10/2026 trong hội thoại; bắt đầu release gate.
+
+Phạm vi khi phê duyệt:
+
+- Bảo toàn source/artifacts C86 và C87, kiểm diff/secret/upload guard rồi commit/push
+  fast-forward. Xác minh Required CI của đúng source SHA, tất cả job thành công trước rollout.
+- Thực hiện gate hiện hữu phù hợp và root `pnpm deploy:preview` theo AGENTS.md mục4.1;
+  immutable candidate phải đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target Preview,
+  Ready và route Functions sin1. Không gọi deploy từ apps/web hoặc tự gán stable alias.
+- Public/Auth smoke candidate trên browser thực: dashboard, khoản vay/detail, đối tác,
+  chi phí, thông báo và Cài đặt, Light/Dark ở375/390/768/1024/1440 khi state khả dụng.
+  Kiểm bố cục B/chữ/KPI trước công việc/privacy/theme/history/loading và drawer mở/đóng
+  không submit. Thiếu state remote thì ghi NOT_TESTED và dùng local regression bổ trợ,
+  không tạo dữ liệu QA trên Supabase dùng chung. OWNER tự login hostname chưa có phiên.
+- Chỉ chuyển stable Preview khi gate candidate đạt, smoke lại alias/runtime logs;
+  giữ deployment tốt C85 để rollback nếu hậu kiểm không đạt.
+- Tạo candidate Production cùng source qua luồng root, giữ alias vận hành đến khi public/
+  Auth/provenance/log gate đạt. Promote rồi kiểm tindung.vercel.app và default project alias;
+  rollback về C85 nếu hậu kiểm lỗi. Không coi Ready/build là thay authenticated smoke.
+- Kiểm inventory metadata được trả về: không có cache/backup/secret/dump/test artifacts bị
+  upload, source UID đối chiếu snapshot; không tải nội dung secret/dump. Ghi ID/URL/alias/
+  target/region/SHA/gate/giới hạn và lịch sử failures thực vào docs release/context.
+- Chốt tài liệu bằng commit/push và xác minh Required CI của đúng closing SHA trước báo
+  hoàn tất. Không lấy CI source thay CI closing. Đặt checkpoint kế tiếp chờ duyệt rồi dừng.
+- Không schema/migration/RPC/credential/session/account/finance/mark-read/push permission/
+  Google/backup mutation hoặc cleanup deployment. Preference browser để smoke được restore;
+  không đưa ảnh/tên/ID/amount/cookie thật vào Git. Không mở lại kiểm AT/mobile vật lý chưa khả dụng.
+
+Acceptance criteria:
+
+1. Source GitHub khớp SHA local; Required CI source và closing đúng SHA đều SUCCESS mọi job.
+   Không giảm assertion/retries/skips hoặc bỏ gate để phát hành.
+2. Preview dùng root pipeline; candidate và aliases đúng ID/project/target/region, public
+   smoke đạt; authenticated routes thực và Light/Dark/reflow/keyboard khả dụng đạt.
+3. Production candidate/aliases đạt public/Auth/provenance và không có app runtime error
+   hoặc HTTP500 liên quan trong cửa sổ smoke; có rollback C85 đã xác minh trước promote.
+4. Bố cục B, typography, toggle header, KPI-order, privacy, theme và phân trang không hồi quy;
+   remote state/thiết bị chưa kiểm được ghi rõ, không dùng số liệu local thay chứng nhận remote.
+5. Upload/secret guard đạt; không ghi dữ liệu dùng chung hoặc cleanup. Context/roadmap/report
+   phản ánh từng source/candidate/alias/closing proof và đặt checkpoint kế tiếp AWAITING_APPROVAL.

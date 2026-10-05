@@ -1,0 +1,32 @@
+{
+  "proof": [
+    {
+      "theme": "light",
+      "before": {
+        "opacity": 0,
+        "color": "rgb(17, 24, 39)",
+        "background": "rgb(255, 255, 255)"
+      },
+      "after": {
+        "opacity": "1",
+        "color": "rgb(17, 24, 39)",
+        "background": "rgb(255, 255, 255)"
+      }
+    },
+    {
+      "theme": "dark",
+      "before": {
+        "opacity": 0,
+        "color": "rgb(248, 250, 252)",
+        "background": "rgb(17, 24, 39)"
+      },
+      "after": {
+        "opacity": "1",
+        "color": "rgb(248, 250, 252)",
+        "background": "rgb(17, 24, 39)"
+      }
+    }
+  ],
+  "keyboardArrowsLightDarkSystem": true,
+  "note": "Probe isVisible tests node opacity only; child span inside ancestor tooltip opacity0 produces ratio1 although not painted."
+}

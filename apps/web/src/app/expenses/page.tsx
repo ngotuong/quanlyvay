@@ -34,6 +34,7 @@ export default async function ExpensesPage({ searchParams }: { searchParams: Pro
         {canWrite ? <ExpenseCreateSheet idempotencyKey={randomUUID()} /> : null}
       </div>
 
+      <Pagination page={page} total={result.totalCount} href="/expenses" label="Phân trang đầu danh sách chi phí" className="expense-pagination-top" hideSinglePage />
       {result.categories.length > 0 ? <ExpenseDistribution total={totalExpenseVnd.toString()} categories={result.categories} /> : null}
 
       <div>

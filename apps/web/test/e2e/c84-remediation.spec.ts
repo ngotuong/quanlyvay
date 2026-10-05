@@ -65,7 +65,7 @@ async function abortAction(page: Page) {
 test("C84 canonical pagination keeps count, filter, boundary and browser traversal", async ({ page }) => {
   test.setTimeout(90000); await login(page);
   for (const route of ["/counterparties?q=C84&page=99", "/expenses?page=99", "/notifications?unread=true&page=99"]) {
-    await ready(page, route); await expect(page).toHaveURL(/page=2/); await expect(page.locator('.audit-pagination p')).toContainText("Trang 2 / 2");
+    await ready(page, route); await expect(page).toHaveURL(/page=2/); await expect(page.getByRole("navigation", { name: "Phân trang", exact: true }).locator("p")).toContainText("Trang 2 / 2");
     await expect(page.locator(".empty-state")).toHaveCount(0); await expect(page.getByText("Chưa thể tải dữ liệu", { exact: true })).toHaveCount(0);
   }
   await ready(page, "/counterparties?q=C84&page=2"); await expect(page.locator(".counterparty-list > article")).toHaveCount(1);
@@ -131,7 +131,7 @@ test("C84 manual/system theme SSR, persistence, no-JS and dirty-form isolation",
   await page.locator('.theme-options').getByRole("radio", { name: "Tối", exact: true }).check();
   await page.goForward(); await expect(page).toHaveURL(/\/loans$/);
   await expect(page.locator("html")).toHaveAttribute("data-theme", "dark");
-  expect(await page.locator('meta[name="theme-color"]').evaluateAll(nodes => nodes.map(n => n.getAttribute("content")))).toEqual(["#090d18", "#090d18"]);
+  expect(await page.locator('meta[name="theme-color"]').evaluateAll(nodes => nodes.map(n => n.getAttribute("content")))).toEqual(["#0b1220", "#0b1220"]);
   await page.goBack(); await expect(page).toHaveURL(/\/settings$/); await expect(page.locator('.theme-options').getByRole("radio", { name: "Tối", exact: true })).toBeChecked();
   const state = await page.context().storageState();
   for (const preference of ["light", "dark", "invalid"] as const) {
@@ -139,7 +139,7 @@ test("C84 manual/system theme SSR, persistence, no-JS and dirty-form isolation",
     await context.addCookies([{ name: "qlv_theme", value: preference, url: base }]); const nojs = await context.newPage(); await nojs.goto("/login");
     await expect(nojs.locator("html")).toHaveAttribute("data-theme", preference === "invalid" ? "system" : preference);
     expect(await nojs.evaluate(() => getComputedStyle(document.documentElement).colorScheme)).toBe(preference === "light" ? "light" : "dark");
-    const colors = await nojs.locator('meta[name="theme-color"]').evaluateAll(nodes => nodes.map(n => n.getAttribute("content"))); if (preference !== "invalid") expect(colors.every(c => c === (preference === "light" ? "#f6f7fb" : "#090d18"))).toBe(true);
+    const colors = await nojs.locator('meta[name="theme-color"]').evaluateAll(nodes => nodes.map(n => n.getAttribute("content"))); if (preference !== "invalid") expect(colors.every(c => c === (preference === "light" ? "#eaf0f8" : "#0b1220"))).toBe(true);
     await context.close();
   }
   await page.addInitScript(() => Object.defineProperty(document, "cookie", { get: () => "", set: () => {}, configurable: true })); await page.reload(); await page.locator(".theme-options").getByText("Sáng", { exact: true }).click();
@@ -247,7 +247,7 @@ test("C84 first-paint startup/login and financial drawer share manual theme", as
   await page.context().addCookies([{ name: "qlv_theme", value: "dark", url: base }]); await page.emulateMedia({ colorScheme: "light" }); await page.setViewportSize({ width: 390, height: 844 }); await login(page);
   const loan = await admin.from("loans").select("id").eq("name", "Khoản thông báo E2E").single(); expect(loan.error).toBeNull(); await ready(page, `/loans/${loan.data!.id}`);
   await page.getByRole("button", { name: "Giao dịch", exact: true }).click(); const drawer = page.getByRole("dialog"); await expect(drawer).toBeVisible();
-  expect(await drawer.evaluate(e => getComputedStyle(e).backgroundColor)).toBe("rgb(17, 24, 39)");
+  expect(await drawer.evaluate(e => getComputedStyle(e).backgroundColor)).toBe("rgb(23, 34, 53)");
   const date = drawer.locator('input[type="date"]').first(); if (await date.count()) expect(await date.evaluate(e => getComputedStyle(e).colorScheme)).toBe("dark");
   await page.keyboard.press("Escape"); await expect(drawer).toBeHidden();
   evidence.checks.push("Manual contrary OS present during delayed first-paint startup/login; financial drawer/date theme and Escape unchanged");

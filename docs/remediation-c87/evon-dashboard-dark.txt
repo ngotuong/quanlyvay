@@ -1,0 +1,197 @@
+(node:28756) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+# Probe: 49 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c87/evon-dashboard-dark/375-dark.png)
+BẢNG CUỘN NGANG MẤT CỘT (2 bảng, R9):
+  bảng 577px trong khung 301px, cột đầu không ghim (dưới sm: thành danh sách dòng): table "ThángTiền vàoTiền raRòngT10/20260 ₫100.0"
+  bảng 697px trong khung 267px, cột đầu không ghim (dưới sm: thành danh sách dòng): table "Đối tácCho vayNợ xấuĐi vayTổngC87 Đối tá"
+SỐ TIỀN NGẮT DÒNG (1 chỗ, số + đơn vị phải nowrap, nhãn bên cạnh co lại, T16):
+  "100.000.001.291.499.999 ": strong.privacy-amount "100.000.001.291.499.999 ₫"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (2 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Xu hướng dòng tiền" trơ "tiền" ở dòng cuối: h2 "Xu hướng dòng tiền"
+  "100000000 tỷ" trơ "tỷ" ở dòng cuối: span.privacy-amount "100000000 tỷ"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  bấm "Tùy chỉnh": ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch"
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  4 mục, nhiều nhất 5 dòng chữ: article.ui-card.ui-card--metric.dashboard-metric "Lãi ròng thực thu-100.000.000.002.924.99"
+  9 mục, nhiều nhất 5 dòng chữ: a.due-item "C87 Khoản mẫu 6Nhắc 10/10/2026 · Kỳ chốt"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "0": span.vnd-number "0"
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "₫": span.vnd-unit "₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Tùy chỉnh": .cache/c87/evon-dashboard-dark/375-dark-mo-0.png
+
+## 390px  (ảnh: .cache/c87/evon-dashboard-dark/390-dark.png)
+BẢNG CUỘN NGANG MẤT CỘT (2 bảng, R9):
+  bảng 577px trong khung 316px, cột đầu không ghim (dưới sm: thành danh sách dòng): table "ThángTiền vàoTiền raRòngT10/20260 ₫100.0"
+  bảng 697px trong khung 282px, cột đầu không ghim (dưới sm: thành danh sách dòng): table "Đối tácCho vayNợ xấuĐi vayTổngC87 Đối tá"
+SỐ TIỀN NGẮT DÒNG (1 chỗ, số + đơn vị phải nowrap, nhãn bên cạnh co lại, T16):
+  "100.000.001.291.499.999 ": strong.privacy-amount "100.000.001.291.499.999 ₫"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (2 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "Xu hướng dòng tiền" trơ "tiền" ở dòng cuối: h2 "Xu hướng dòng tiền"
+  "100000000 tỷ" trơ "tỷ" ở dòng cuối: span.privacy-amount "100000000 tỷ"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  bấm "Tùy chỉnh": ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch"
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  4 mục, nhiều nhất 5 dòng chữ: article.ui-card.ui-card--metric.dashboard-metric "Lãi ròng thực thu-100.000.000.002.924.99"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "0": span.vnd-number "0"
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "₫": span.vnd-unit "₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Tùy chỉnh": .cache/c87/evon-dashboard-dark/390-dark-mo-0.png
+
+## 768px  (ảnh: .cache/c87/evon-dashboard-dark/768-dark.png)
+BẢNG CUỘN NGANG MẤT CỘT (1 bảng, R9):
+  bảng 697px trong khung 636px, cột đầu không ghim: table "Đối tácCho vayNợ xấuĐi vayTổngC87 Đối tá"
+SỐ TIỀN NGẮT DÒNG (1 chỗ, số + đơn vị phải nowrap, nhãn bên cạnh co lại, T16):
+  "100.000.001.291.499.999 ": strong.privacy-amount "100.000.001.291.499.999 ₫"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "100000000 tỷ" trơ "tỷ" ở dòng cuối: span.privacy-amount "100000000 tỷ"
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Tùy chỉnh": viền #354762 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (16 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  a "Tháng này"
+  a "Tháng trước"
+  button "Tùy chỉnh"
+  a "Xem danh sách"
+  button "Xem toàn bộ 9 việc cần xử lý"
+  a "C87 Khoản mẫu 1Nhắc 5/10/2026 · Kỳ chốt "
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch" (đang ẩn)
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  4 mục, nhiều nhất 5 dòng chữ: article.ui-card.ui-card--metric.dashboard-metric "Cho vay đang hoạt động100.000.001.291.49"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "0": span.vnd-number "0"
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "₫": span.vnd-unit "₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1024px  (ảnh: .cache/c87/evon-dashboard-dark/1024-dark.png)
+BẢNG CUỘN NGANG MẤT CỘT (1 bảng, R9):
+  bảng 697px trong khung 668px, cột đầu không ghim: table "Đối tácCho vayNợ xấuĐi vayTổngC87 Đối tá"
+SỐ TIỀN NGẮT DÒNG (1 chỗ, số + đơn vị phải nowrap, nhãn bên cạnh co lại, T16):
+  "100.000.001.291.499.999 ": strong.privacy-amount "100.000.001.291.499.999 ₫"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (2 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "100000000 tỷ" trơ "tỷ" ở dòng cuối: span.privacy-amount "100000000 tỷ"
+  "Lãi cho vay phát sinh" trơ "sinh" ở dòng cuối: span "Lãi cho vay phát sinh"
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Tùy chỉnh": viền #354762 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (19 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch" (đang ẩn)
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  4 mục, nhiều nhất 5 dòng chữ: article.ui-card.ui-card--metric.dashboard-metric "Lãi ròng thực thu-100.000.000.002.924.99"
+  5 mục, nhiều nhất 6 dòng chữ: div "Lãi cho vay kỳ tới6.000.000.038.805.000 "
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "0": span.vnd-number "0"
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "₫": span.vnd-unit "₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1280px  (ảnh: .cache/c87/evon-dashboard-dark/1280-dark.png)
+BẢNG CUỘN NGANG MẤT CỘT (1 bảng, R9):
+  bảng 577px trong khung 405px, cột đầu không ghim: table "ThángTiền vàoTiền raRòngT10/20260 ₫100.0"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "100000000 tỷ" trơ "tỷ" ở dòng cuối: span.privacy-amount "100000000 tỷ"
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Tùy chỉnh": viền #354762 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (19 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch" (đang ẩn)
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  4 mục, nhiều nhất 5 dòng chữ: article.ui-card.ui-card--metric.dashboard-metric "Lãi ròng thực thu-100.000.000.002.924.99"
+  4 mục, nhiều nhất 5 dòng chữ: article.ui-card.ui-card--metric.dashboard-metric "Cho vay đang hoạt động100.000.001.291.49"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "0": span.vnd-number "0"
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "₫": span.vnd-unit "₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1440px  (ảnh: .cache/c87/evon-dashboard-dark/1440-dark.png)
+BẢNG CUỘN NGANG MẤT CỘT (1 bảng, R9):
+  bảng 577px trong khung 478px, cột đầu không ghim: table "ThángTiền vàoTiền raRòngT10/20260 ₫100.0"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "100000000 tỷ" trơ "tỷ" ở dòng cuối: span.privacy-amount "100000000 tỷ"
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Tùy chỉnh": viền #354762 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (19 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch" (đang ẩn)
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  4 mục, nhiều nhất 5 dòng chữ: article.ui-card.ui-card--metric.dashboard-metric "Lãi ròng thực thu-100.000.000.002.924.99"
+  4 mục, nhiều nhất 5 dòng chữ: article.ui-card.ui-card--metric.dashboard-metric "Cho vay đang hoạt động100.000.001.291.49"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "0": span.vnd-number "0"
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "₫": span.vnd-unit "₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1920px  (ảnh: .cache/c87/evon-dashboard-dark/1920-dark.png)
+BẢNG CUỘN NGANG MẤT CỘT (1 bảng, R9):
+  bảng 577px trong khung 511px, cột đầu không ghim: table "ThángTiền vàoTiền raRòngT10/20260 ₫100.0"
+CHỮ ĐƠN CÔI Ở DÒNG CUỐI (1 chỗ, thêm text-pretty, tiêu đề ngắn text-balance, T10):
+  "100000000 tỷ" trơ "tỷ" ở dòng cuối: span.privacy-amount "100000000 tỷ"
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Tùy chỉnh": viền #354762 → #93c5fd
+TAB TỚI CÒN VẼ VÒNG FOCUS (19 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Khoảng báo cáoChọn ngày tùy ch" (đang ẩn)
+MỤC LẶP DÀY CHỮ (từ 5 dòng mỗi mục; danh sách + chi tiết thì mục trái tối đa 3 dòng, layouts/app.md):
+  4 mục, nhiều nhất 5 dòng chữ: article.ui-card.ui-card--metric.dashboard-metric "Lãi ròng thực thu-100.000.000.002.924.99"
+  4 mục, nhiều nhất 5 dòng chữ: article.ui-card.ui-card--metric.dashboard-metric "Cho vay đang hoạt động100.000.001.291.49"
+TƯƠNG PHẢN CHỮ DƯỚI NGƯỠNG (2 cặp màu, chữ thường 4.5:1, chữ lớn 3:1):
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "0": span.vnd-number "0"
+  1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "₫": span.vnd-unit "₫"
+(Đã mở 1 khối đang đóng rồi đo lại phần bên trong.)
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Việc phải đối chiếu: 2 mục probe xếp Hỏng
+Mỗi mục thành một dòng trong bảng giao (cột Nguồn ghi mã, ví dụ `đo P3`; cùng gốc thì gộp nhiều mã một dòng),
+hoặc một dòng dưới bảng nói vì sao loại. Không mục nào được biến mất im lặng (V5 trong review.md).
+P1 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "0": span.vnd-number "0"
+P2 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 "₫": span.vnd-unit "₫"
+
+Chi tiết: .cache/c87/evon-dashboard-dark/report.json

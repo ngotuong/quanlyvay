@@ -190,12 +190,13 @@ function AttentionList({ upcoming, overdue, reminderWindow }: { upcoming: Dashbo
   ];
   return (
     <Card className="surface-card due-card attention-card" aria-labelledby="schedule-title">
-      <div className="dashboard-section-heading"><div><p className="eyebrow">Gốc quá hạn và lịch nhắc</p><h2 id="schedule-title">Việc cần xử lý</h2></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>
-      {total === 0 ? <div className="dashboard-empty"><strong>Không có việc đến hạn</strong><span>Không có gốc quá hạn. Lịch thu/trả lãi: {reminderWindow}.</span></div> : <AttentionItems items={rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item" key={`${kind}-${loan.id}`}>
+      <AttentionItems heading={<div className="attention-heading-main"><div><h2 id="schedule-title">Việc cần xử lý</h2><p className="eyebrow">Gốc quá hạn và lịch nhắc</p></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>}
+        emptyState={<div className="dashboard-empty"><strong>Không có việc đến hạn</strong><span>Không có gốc quá hạn. Lịch thu/trả lãi: {reminderWindow}.</span></div>}
+        items={rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item" key={`${kind}-${loan.id}`}>
           <span className="due-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins size={19} /> : <Landmark size={19} />}</span>
           <span className="due-main"><strong><PrivacyRegion>{loan.name}</PrivacyRegion></strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
           <span className="due-value"><strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong><small>{loan.direction === "LENDING" ? "Cho vay" : "Đi vay"} · {kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
-        </Link>)} />}
+        </Link>)} />
     </Card>
   );
 }

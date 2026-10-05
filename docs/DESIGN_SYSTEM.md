@@ -8,10 +8,12 @@ glassmorphism, emoji hệ thống hoặc hiệu ứng làm lu mờ dữ liệu.
 
 ## 2. Token nền tảng
 
-- Canvas sáng `#f6f7fb`; surface chính trắng; dark canvas `#090d18`.
+- Canvas sáng `#eaf0f8`; surface chính trắng; dark canvas `#0b1220`, dark surface `#172235`.
+- C87 phương án B OWNER đã duyệt: sidebar navy `#152c4c`, chữ/sidebar hint sáng; một KPI đầu
+  nền cobalt `#1d4ed8`. Các màu trạng thái cho vay/đi vay/cảnh báo vẫn có nghĩa.
 - Cobalt blue `#1d4ed8` là màu thương hiệu và hành động chính, đồng bộ biểu tượng vô cực; cyan chỉ dùng làm accent. Xanh lá,
   amber và đỏ dành cho trạng thái có nghĩa.
-- Chữ phụ sáng dùng `#536278`, accent sáng dùng `#0369a1`; placeholder dùng token chữ phụ với opacity 1.
+- Chữ phụ sáng dùng `#52647c`, accent sáng dùng `#0369a1`; placeholder dùng token chữ phụ với opacity 1.
 - Hướng khoản vay dùng semantic token riêng: cho vay xanh lá, đi vay đỏ; icon luôn đi cùng nhãn chữ
   để màu không là dấu hiệu phân biệt duy nhất.
 - Radius: `8 / 12 / 16 px`; elevation dùng thang `shadow-xs / shadow-card / shadow-floating`.
@@ -29,8 +31,12 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
 - Font giao diện và heading: **Inter**, trung tính, hiện đại và có glyph tiếng Việt đầy đủ.
 - Font mono: Geist Mono, chỉ dùng cho nội dung kỹ thuật khi cần.
 - Body mobile tối thiểu `16 px`, line-height `1.6`.
-- Helper/metadata thông thường tối thiểu `13 px`; nội dung phụ cần đọc thường xuyên tối thiểu `14 px`.
-- Số tiền dùng `font-variant-numeric: tabular-nums` và cho phép xuống dòng thay vì tràn khung.
+- Helper/metadata cần đọc `14 px`, nội dung chính `16 px`; navigation mobile tối thiểu `12 px`.
+- KPI `18 px` mobile và `24 px` desktop, weight `600`; nhãn `14 px`. `VndText` chỉ tách glyph
+  đơn vị của chuỗi đã format, giữ nguyên mọi ký tự, không parse/round/settle tiền. Giá trị dài
+  dùng thêm chiều ngang; khi che tiền không render `vnd-number` hay flag độ dài.
+- Số tiền dùng `font-variant-numeric: tabular-nums`, giữ đầy đủ ký tự; KPI và value khoản vay
+  dành thêm chiều ngang khi số quá dài để giữ nguyên dòng. Label/tên được wrap thay vì cắt nghĩa.
 - Riêng dòng đối tác/chi phí, số tiền giữ một dòng; tên, danh mục và ghi chú dùng `min-width: 0` và
   `overflow-wrap: anywhere` để nhận đủ dữ liệu hợp lệ, kể cả chuỗi dài không có khoảng trắng.
 
@@ -38,8 +44,11 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
 
 - Input/select/textarea: rộng tối đa theo container, `min-width: 0`, cao tối thiểu `48 px`, font
   `16 px`, border mạnh hơn nền và focus ring 4 px.
-- Button/link hành động: cao tối thiểu `46–48 px`; chỉ một CTA primary trên mỗi màn hình.
-- Card: surface trắng phẳng, border semantic, radius vừa và `shadow-xs`; không dùng gradient để trang trí.
+- Button/link phụ: chữ `14 px`, weight `500–600`, cao tối thiểu `44 px`; control form vẫn theo
+  chiều cao input. Nút xem toàn bộ công việc nằm trong header, chữ ngắn “Xem tất cả”/“Thu gọn”,
+  accessible name giữ ngữ cảnh và count. Hover không nhấc control lên; focus-visible được giữ.
+- Card: surface/viền phân vùng rõ, radius vừa, không shadow trong nội dung. Một KPI nhấn cobalt
+  là ngoại lệ có chủ ý theo B; không tô lại các trạng thái có nghĩa.
 - Modal/sheet: backdrop blur chỉ biểu thị nền bị vô hiệu hóa; đóng nhanh hơn mở.
 - `BottomSheet`: dùng native `<dialog>`, đóng bằng nút, Escape, backdrop hoặc kéo tay nắm xuống trên
   mobile; mọi thao tác quan trọng vẫn có nút hiển thị, không phụ thuộc cử chỉ.
@@ -79,7 +88,8 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
   Metadata khôi phục từ lịch sử SPA được đồng bộ lại theo preference hiện hành; observer được
   cleanup và chỉ ghi khi giá trị khác. Chỉ “Theo thiết bị” theo dõi thay đổi OS. Nếu không lưu được cookie, trả về Theo thiết bị và báo lỗi.
 - Đối tác/chi phí dùng card ở mobile, khung danh sách chia dòng ở desktop từ 1024 px; form mở chiếm
-  toàn bộ chiều rộng. Phân trang chuẩn hóa theo tổng bản ghi sau lọc, giữ bộ lọc trên URL.
+  toàn bộ chiều rộng. Phân trang chuẩn hóa theo tổng bản ghi sau lọc, giữ bộ lọc trên URL. Chi phí nhiều trang có
+  nav gần đầu với label riêng, giữ footer/pageSize25/count/canonical/BackForward.
 - `prefers-reduced-motion` tắt gần như toàn bộ animation/transition không thiết yếu.
 
 ## Primitive và quyền riêng tư
@@ -104,3 +114,12 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
   mở đúng workspace và bottom sheet, không bỏ qua quyền ghi hay validation Server Action.
 - Menu “Thêm” mobile dùng bottom sheet native-feel; bottom navigation vẫn giới hạn năm điểm chạm và
   giữ nhãn chữ cùng icon.
+
+## C87 — Trạng thái tải
+
+- Startup có logo, tên ứng dụng và thanh indeterminate trên canvas đúng theme; không hiện dữ
+  liệu trước khi Auth/profile resolve, không giả % hoặc delay.
+- Route loading có skeleton phân vùng và nhãn nhìn thấy; SPA có thông báo không nhận focus,
+  không chặn click và bám transition/cancel thật. Reduced-motion giữ dấu tĩnh.
+- TTFB/first-feedback phải đo riêng; không tuyên bố UI có thể vẽ trước HTML hoặc mọi cold
+  PWA/network đã được kiểm. Local Auth-delay không thay chứng nhận thiết bị/mạng thật.

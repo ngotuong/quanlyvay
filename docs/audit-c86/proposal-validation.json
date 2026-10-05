@@ -1,0 +1,222 @@
+[
+  {
+    "variant": "a",
+    "theme": "light",
+    "width": 375,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 664.59375
+  },
+  {
+    "variant": "a",
+    "theme": "light",
+    "width": 390,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 664.59375
+  },
+  {
+    "variant": "a",
+    "theme": "light",
+    "width": 768,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 686.96875
+  },
+  {
+    "variant": "a",
+    "theme": "light",
+    "width": 1024,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 686.96875
+  },
+  {
+    "variant": "a",
+    "theme": "light",
+    "width": 1440,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 475.578125
+  },
+  {
+    "variant": "a",
+    "theme": "dark",
+    "width": 375,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 664.59375
+  },
+  {
+    "variant": "a",
+    "theme": "dark",
+    "width": 390,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 664.59375
+  },
+  {
+    "variant": "a",
+    "theme": "dark",
+    "width": 768,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 686.96875
+  },
+  {
+    "variant": "a",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 686.96875
+  },
+  {
+    "variant": "a",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 475.578125
+  },
+  {
+    "variant": "b",
+    "theme": "light",
+    "width": 375,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 664.59375
+  },
+  {
+    "variant": "b",
+    "theme": "light",
+    "width": 390,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 664.59375
+  },
+  {
+    "variant": "b",
+    "theme": "light",
+    "width": 768,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 686.96875
+  },
+  {
+    "variant": "b",
+    "theme": "light",
+    "width": 1024,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 686.96875
+  },
+  {
+    "variant": "b",
+    "theme": "light",
+    "width": 1440,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 475.578125
+  },
+  {
+    "variant": "b",
+    "theme": "dark",
+    "width": 375,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 664.59375
+  },
+  {
+    "variant": "b",
+    "theme": "dark",
+    "width": 390,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 664.59375
+  },
+  {
+    "variant": "b",
+    "theme": "dark",
+    "width": 768,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 686.96875
+  },
+  {
+    "variant": "b",
+    "theme": "dark",
+    "width": 1024,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 686.96875
+  },
+  {
+    "variant": "b",
+    "theme": "dark",
+    "width": 1440,
+    "overflow": 0,
+    "fontLoaded": true,
+    "h1": 1,
+    "clippedAmounts": 0,
+    "kpiBeforeTasks": true,
+    "taskTop": 475.578125
+  }
+]
