@@ -1,0 +1,241 @@
+{
+  "checks": [
+    {
+      "host": "preview",
+      "check": "custom range Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "dashboard query",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "dashboard Back query restore",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "transaction Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "settlement Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "principal Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "loan tab Enter active current",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "loan tab Back overview",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "privacy removes money/transaction trigger",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "expense privacy guard",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "expense editor Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "counterparty editor Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "notification unread filter/current",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "notification filter Back",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "System theme/privacy hidden restored",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "preview",
+      "check": "task expand/collapse44px14px",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "privacy hides money DOM",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "transaction drawer Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "settlement drawer Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "principal drawer Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "loan tab Enter and Back restored overview",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "privacy hides VND and transaction trigger",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "custom range final Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "dashboard query navigation",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "dashboard Back query restore",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "expense privacy guard",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "expense editor Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "counterparty editor Tab/Escape/focus",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "notification unread=true/current page",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "notification Back restores all filter",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "theme System/privacy hidden restore",
+      "pass": true,
+      "submits": 0
+    },
+    {
+      "host": "production",
+      "check": "task expand/collapse44px14px",
+      "pass": true,
+      "submits": 0
+    }
+  ],
+  "retainedFailedProbe": [
+    {
+      "host": "production",
+      "check": "custom range drawer Tab/Escape/focus",
+      "pass": false,
+      "supersededBy": "custom range final Tab/Escape/focus",
+      "reason": "Implicit native dialog missed by role attribute query/early measurement; final semantic role focus check passed"
+    }
+  ],
+  "finalPass": true,
+  "finalChecks": 32,
+  "financialSubmits": 0,
+  "preferencesRestored": {
+    "preview": {
+      "theme": "system",
+      "privacyHidden": true
+    },
+    "production": {
+      "theme": "system",
+      "privacyHidden": true
+    }
+  },
+  "viewportReset": true,
+  "console": [
+    {
+      "host": "preview-original",
+      "errorCount": 0
+    },
+    {
+      "host": "production-original",
+      "errorCount": 0
+    },
+    {
+      "host": "preview-active",
+      "errorCount": 0
+    },
+    {
+      "host": "production-active",
+      "errorCount": 0
+    },
+    {
+      "host": "production-task",
+      "errorCount": 0
+    }
+  ]
+}

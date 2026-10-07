@@ -1,0 +1,203 @@
+{
+  "method": "Remote metadata/UID/HTTP status/runtime counts only; no remote file bodies or private logs",
+  "candidates": [
+    {
+      "label": "preview",
+      "deploymentId": "dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV",
+      "url": "https://quan-ly-vay-ca-nhan-1ypbqdcn7-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "teamId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "cliTarget": "preview",
+      "rawApiTarget": null,
+      "state": "READY",
+      "sourceSha": "ed72b8615e19f2a3e6667014c86da4ac920ed1ba",
+      "routeFunctions": 43,
+      "functionRegion": "sin1",
+      "inventory": {
+        "method": "Vercel API file-tree metadata only; no file body/bundle contents downloaded",
+        "rootTrees": [
+          "src",
+          "out"
+        ],
+        "returnedLeafEntries": 201,
+        "regularFileLeaves": 157,
+        "lambdaEntries": 44,
+        "sourceLeaves": 157,
+        "outputLeaves": 44,
+        "forbiddenRegularLeaves": [],
+        "directoriesWithoutChildEntries": [
+          "src/.backups",
+          "src/.c55-remote-head",
+          "src/.tmp",
+          "src/apps/google-sync",
+          "src/apps/web/src/app/api/c21-preview-bootstrap",
+          "src/apps/web/test",
+          "src/apps/web/test-results",
+          "src/docs",
+          "src/packages",
+          "src/scripts",
+          "src/supabase"
+        ],
+        "contentsNotTested": true,
+        "scopeLimitation": "Returned src/out file-tree metadata; no bundle/static-body inspection"
+      },
+      "sourceContentsConfirmedByUID": {
+        "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+        "expectedSourceFiles": 157,
+        "matchedSourceFiles": 157,
+        "missingUid": [],
+        "mismatch": [],
+        "unknown": [],
+        "missingPaths": [],
+        "pass": true
+      },
+      "publicSmoke": {
+        "label": "preview-candidate",
+        "url": "https://quan-ly-vay-ca-nhan-1ypbqdcn7-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-07T16:08:54.992Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtimePreauth": {
+        "phase": "preview-candidate-preauth",
+        "url": "https://quan-ly-vay-ca-nhan-1ypbqdcn7-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-07T16:09:03.857368+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      },
+      "authenticatedSmoke": "PENDING OWNER login",
+      "nativeSessionCheck": "/dashboard redirected to /login; empty sign-in form",
+      "aliasMoved": false
+    },
+    {
+      "label": "production",
+      "deploymentId": "dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu",
+      "url": "https://quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "teamId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "cliTarget": "production",
+      "rawApiTarget": "production",
+      "state": "READY",
+      "sourceSha": "ed72b8615e19f2a3e6667014c86da4ac920ed1ba",
+      "routeFunctions": 43,
+      "functionRegion": "sin1",
+      "inventory": {
+        "method": "Vercel API file-tree metadata only; no file body/bundle contents downloaded",
+        "rootTrees": [
+          "src",
+          "out"
+        ],
+        "returnedLeafEntries": 201,
+        "regularFileLeaves": 157,
+        "lambdaEntries": 44,
+        "sourceLeaves": 157,
+        "outputLeaves": 44,
+        "forbiddenRegularLeaves": [],
+        "directoriesWithoutChildEntries": [
+          "src/.backups",
+          "src/.c55-remote-head",
+          "src/.tmp",
+          "src/apps/google-sync",
+          "src/apps/web/src/app/api/c21-preview-bootstrap",
+          "src/apps/web/test",
+          "src/apps/web/test-results",
+          "src/docs",
+          "src/packages",
+          "src/scripts",
+          "src/supabase"
+        ],
+        "contentsNotTested": true,
+        "scopeLimitation": "Returned src/out file-tree metadata; no bundle/static-body inspection"
+      },
+      "sourceContentsConfirmedByUID": {
+        "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+        "expectedSourceFiles": 157,
+        "matchedSourceFiles": 157,
+        "missingUid": [],
+        "mismatch": [],
+        "unknown": [],
+        "missingPaths": [],
+        "pass": true
+      },
+      "publicSmoke": {
+        "label": "production-candidate",
+        "url": "https://quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-07T16:08:55.617Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtimePreauth": {
+        "phase": "production-candidate-preauth",
+        "url": "https://quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-07T16:09:05.270356+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      },
+      "authenticatedSmoke": "PENDING OWNER login",
+      "nativeSessionCheck": "/dashboard redirected to /login; empty sign-in form",
+      "aliasMoved": false
+    }
+  ],
+  "stableAliasesHeldC88": true,
+  "nativeAuth": "PENDING OWNER login"
+}

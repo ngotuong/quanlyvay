@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.305
-last_updated: 2026-10-07
+roadmap_version: 1.0.309
+last_updated: 2026-10-08
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C91
 current_status: IN_PROGRESS
@@ -19,23 +19,35 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 1. Trạng thái và công việc kế tiếp
 
-- C90 `COMPLETED` local ngày06/10/2026; chưa commit/push/deploy. Production và stable
-  Preview vẫn giữ C88 theo freshinspect/API metadata/public4/4 mỗialias ở C91 ngày07/10:
-  đúngproject/team/Ready/43routeFunctions sin1. Chưa phát hành C90.
-- C91 `IN_PROGRESS` ngày07/10/2026: OWNER phê duyệt checkpoint và mở rộng dependency
-  source-map-js1.2.2/sharp0.35.5 rõ trong hội thoại hiện tại.
-  Tiếp tục theo roadmap section49: overrides source-map-js1.2.2/sharp0.35.5 và lock đã áp.
-  Frozeninstall/audit/policy/actionlint/lint/typecheck/unit117/build19 và NativeSVG/source-map
-  smokeDarwinarm64 PASS; postpatchfullE2E đang chạy, CIsource chờpush rồi kiểmexactSHA.
-  Source/closing CI, full local gate và candidate/alias smoke phải đạt trước COMPLETED.
-  Preflight trước patch phát hiện2HIGH(source-map-js1.2.1/sharp0.35.4), lịch sử giữ rõ.
-  OWNER đã duyệt cập nhật riêng dependency theoAGENTS§3. Chưa commit/push/deploy.
-  Lint/typecheck/unit117/build19/policy/actionlint/diff/secret đạt; fullE2E64PASS/18opt-inSKIP
-  12.9m/777.5s, retries0/fail0. C20-test55322 verifiedlabel/port:sáu counts0;274hashes
-  khớp,17C75files bảo toàn/15generated restored. Không giảm assertions/retries/skips.
-  Required CI/pgTAP/Auth source mới và candidate/Auth/alias/log smoke đangchờ;
-  không dùng prepatchfullgate thay postpatch hoặc Ready thay authenticatedsmoke.
-  C92NOT_STARTED; không bỏ gate để phát hành.
+- C90 `COMPLETED` local; source/artifacts C89/C90 đã commit/push trong C91.
+  Preview/Production/default aliases đã phát hành C90 trong C91 và hậu kiểm đạt.
+- C91 `IN_PROGRESS`, OWNER đã login cảhai candidate: OWNER phê duyệt checkpoint và scope riêng source-map-js1.2.2/sharp0.35.5
+  ngày07/10. Source `ed72b8615e19f2a3e6667014c86da4ac920ed1ba` đã push fast-forward.
+  Frozeninstall/audit/policy/actionlint/lint/typecheck/unit117/build19/nativecompat PASS.
+  PostpatchfullE2E64PASS18opt-inSKIP12.9m/778.1s, retries0/fail0; prepatch64/18/777.5s giữ rõ.
+  Required CI37644195261 SUCCESS5jobs exactSHA:pgTAP527/24files,Auth6/0,E2E63/19/17.8m.
+  GuardC20-test55322 verifiedlabel/port:sixcounts0;17C75 exact/15generated restored.
+  Preservation273files exact; proposal.css chỉ terminalwhitespace normalize, originalbytes
+  trongignoredcache và ngoại lệhash khai báo report. Không thay assertions/retries/skips.
+  Root Preview gate64PASS18SKIP11.8m đạt, đã tạo hai candidate cùngsource:
+  Preview dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV /
+  https://quan-ly-vay-ca-nhan-1ypbqdcn7-ngotuong2105.vercel.app;
+  Production dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu /
+  https://quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app, skip-domain.
+  Exactproject/team/target/Ready/43Functions sin1,157/157sourceUID/public4/4/runtimeerror0/
+  HTTP5000 từngcandidate. Metadata-only inventory forbidden0, không tải file/bundle bodies.
+  OWNER đã login cảhai, nativeAuth140unique/7routes/5widths/LightDark/glyph/tab/B/Inter/KPI
+  PASS,32finalkeyboard/Back/privacy/query/drawer/taskchecksPASS,console5tabs0/runtimeAuth0/HTTP5000.
+  System/privacyẩn restored/viewportreset; không input/submit/markread/permission/businessmutation.
+  Helperfailures vàstate thiếu ghi rõ ởauth-matrix/auth-interactions, không dùnglocal thayremote.
+  RootPreviewresume gatePASS và chuyểnstablePreview sang dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV.
+  Productionpromote exit0:tindung/default sang dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu.
+  Hậu kiểm3aliases54Authsamples/7routesLightDark/glyph/tab/B/Inter/KPI/public4/4/runtime0/
+  HTTP5000/console0 PASS. PreferencesSystem restore:Preview/Productionẩn/defaulthiệntiền.
+  C88rollbackfreshverified,khôngcầnkíchhoạt/cleanup. Khôngblocker; cònclosingproof/finalstatus
+  exactRequiredCI. SourceHEAD giữed72b86 đếnclosingcommit; runtime/artifacts bảo toàn.
+  Không dùng Ready thay authenticatedsmoke. C92NOT_STARTED.
+  AuditFAIL2HIGH trướcpatch được giữ; saupatch0knownvulnerabilities, không nớiallowlist.
   Bằng chứng: docs/release-c91/report.md và evidence.json.
 - Chuỗi dự kiến sau C91: C92 thiết kế đích → C93 refactor token/CSS giữ hình → C94 khả năng
   đọc/mobile → C95 nhập tiền nhanh → C96 drawer ngay Dashboard → C97 loading/motion →
@@ -47,16 +59,13 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 2. Thay đổi local cần bảo toàn
 
-- Branch `main`, HEAD/origin tracking lúc bàn giao:
-  `b98fe64d332ea31ffee2b2e3adebc5ec7756744a`. C91 đã fetch ngày07/10, HEAD/origin/main
-  cùng SHA; chưa commit/push sourceC89/C90.
-- C90 runtime: `apps/web/src/app/globals.css` chỉ presentation F1/F2 VND/tab.
-  `apps/web/test/e2e/c90-remediation.spec.ts` mới; C63 có thêm readiness assertion trước
-  lấy tọa độ grabber khi settlement-preview đang tải. Không sửa runtime drawer hoặc nghiệp vụ.
-- C89 local: `apps/web/test/e2e/c89-audit.spec.ts` và `docs/audit-c89/` mới, chưa commit.
-- C90 review/report/28PNG/Range evidence/triage/gates: `docs/remediation-c90/` mới.
-- Context/roadmap chưa commit; phiên bàn giao thêm `docs/HANDOFF_NEXT_SESSION.md` và
-  `docs/history/project-context-through-c90.md`. Không xóa ảnh/report/test vì untracked.
+- Branch `main`, sourceHEAD/origin/main `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`.
+  Initialhandoff b98fe64d332ea31ffee2b2e3adebc5ec7756744a giữ trong report.
+- Đã commit toàn bộ source/docs/harness C89/C90, handoff và historyarchive; không xóa artifacts.
+- C90 runtime chỉ `apps/web/src/app/globals.css` F1/F2 VND/tab. C63 readiness assertion
+  settlement-preview trước grabber, không sửa runtime drawer hoặc nghiệp vụ.
+- Bản vá đã duyệt chỉ pnpm-workspace.yaml/lock cho sharp0.35.5/source-map-js1.2.2 và libvips.
+- Các thay đổi docs C91 sau sourcecommit dùng cho closingproof; candidate source giữ nguyên.
 - Các file C75 do test sinh đã trả exact baseline. Không broad reset/cleanup cache/backup;
   cache còn trace/log thất bại để truy vết và có synthetic session cần tiếp tục ignore.
 

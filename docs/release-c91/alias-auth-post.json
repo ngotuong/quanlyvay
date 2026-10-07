@@ -1,0 +1,161 @@
+{
+  "method": "Observed native alias Auth:7routes2themes390+Dashboard3751440,18unique perhost; values redacted",
+  "hosts": {
+    "preview": {
+      "pass": true,
+      "samples": 18,
+      "unique": 18,
+      "widths": [
+        375,
+        390,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "overflow": 0,
+      "glyphTabs": "PASS",
+      "BInterKPI": "PASS"
+    },
+    "production": {
+      "pass": true,
+      "samples": 18,
+      "unique": 18,
+      "widths": [
+        375,
+        390,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "overflow": 0,
+      "glyphTabs": "PASS",
+      "BInterKPI": "PASS"
+    },
+    "default": {
+      "pass": true,
+      "samples": 18,
+      "unique": 18,
+      "widths": [
+        375,
+        390,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "overflow": 0,
+      "glyphTabs": "PASS",
+      "BInterKPI": "PASS"
+    }
+  },
+  "checks": [
+    {
+      "host": "preview",
+      "check": "tab Enter/Back",
+      "pass": true
+    },
+    {
+      "host": "preview",
+      "check": "transaction keyboard/Escape/focus",
+      "pass": true
+    },
+    {
+      "host": "preview",
+      "check": "System/privacy hidden restored",
+      "pass": true
+    },
+    {
+      "host": "preview",
+      "check": "console clean",
+      "pass": true
+    },
+    {
+      "host": "production",
+      "check": "tab Enter/Back",
+      "pass": true
+    },
+    {
+      "host": "production",
+      "check": "transaction keyboard/Escape/focus",
+      "pass": true
+    },
+    {
+      "host": "production",
+      "check": "System/privacy restored to original hidden",
+      "pass": true
+    },
+    {
+      "host": "production",
+      "check": "console clean",
+      "pass": true
+    },
+    {
+      "host": "default",
+      "check": "tab Enter/Back",
+      "pass": true
+    },
+    {
+      "host": "default",
+      "check": "transaction keyboard/Escape/focus",
+      "pass": true
+    },
+    {
+      "host": "default",
+      "check": "System/privacy restored to original money-visible",
+      "pass": true
+    },
+    {
+      "host": "default",
+      "check": "console clean",
+      "pass": true
+    }
+  ],
+  "initial": [
+    {
+      "host": "preview",
+      "theme": "system",
+      "privacyHidden": true
+    },
+    {
+      "host": "production",
+      "theme": "system",
+      "privacyHidden": true
+    },
+    {
+      "host": "default",
+      "theme": "system",
+      "privacyHidden": false
+    }
+  ],
+  "consoleErrors": 0,
+  "preferencesRestored": true,
+  "viewportReset": true,
+  "samples": 54,
+  "unique": 54,
+  "allPass": true,
+  "notes": [
+    {
+      "host": "default",
+      "route": "/dashboard",
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "kind": "STREAM_WAIT_TIMEOUT_EXCLUDED",
+      "disposition": "Initial native short wait timeout; no sample accepted until loaded main/KPI observed. Final54 unique PASS."
+    }
+  ],
+  "browserCleanup": {
+    "temporaryAuthTabsClosed": 3,
+    "aliasPreparationTabsClosed": 3,
+    "aliasPostcheckTabsClosed": 3,
+    "ownerOriginalTabsKept": 2,
+    "viewportReset": true,
+    "sessionLogoutOrRevocation": false
+  }
+}

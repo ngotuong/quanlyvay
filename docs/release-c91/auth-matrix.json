@@ -1,0 +1,330 @@
+{
+  "method": "Actual native IAB read-only DOM Range/rect/computedstyle; aggregate of observed 140unique samples; no names/amounts/IDs retained",
+  "samples": 140,
+  "unique": 140,
+  "allPass": true,
+  "groups": [
+    {
+      "host": "preview",
+      "route": "/dashboard",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        15
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "preview",
+      "route": "/loans",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        68
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "preview",
+      "route": "loan-detail",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        5
+      ],
+      "primaryHeroMin": 26.25,
+      "secondaryFont": 17.6
+    },
+    {
+      "host": "preview",
+      "route": "/expenses",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        0
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "preview",
+      "route": "/notifications",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        0
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "preview",
+      "route": "/settings",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        0
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "preview",
+      "route": "/counterparties",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        0
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "production",
+      "route": "/dashboard",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        15
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "production",
+      "route": "/loans",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        68
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "production",
+      "route": "loan-detail",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        5
+      ],
+      "primaryHeroMin": 26.25,
+      "secondaryFont": 17.6
+    },
+    {
+      "host": "production",
+      "route": "/expenses",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        0
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "production",
+      "route": "/notifications",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        0
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "production",
+      "route": "/settings",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        0
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    },
+    {
+      "host": "production",
+      "route": "/counterparties",
+      "samples": 10,
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "themes": [
+        "light",
+        "dark"
+      ],
+      "visibleMoneyCounts": [
+        0
+      ],
+      "primaryHeroMin": null,
+      "secondaryFont": null
+    }
+  ],
+  "verifiedForEverySample": [
+    "actualWidth==requestedWidth",
+    "actualTheme==requestedTheme",
+    "main rendered/loadingfalse",
+    "overflow0/visibleH1=1",
+    "Inter loaded/body16px",
+    "B canvasLight234,240,248/Dark11,18,32",
+    "KPI-before-task forDashboard",
+    "paintedVND single-line/unit-overlap/within-container",
+    "loanTabs single-line/font14px/target48px",
+    "primaryHero>=18px"
+  ],
+  "limits": [
+    "Remote max/signed/stress ledger NOT_TESTED; local C90 synthetic supplement only",
+    "Remote expenses empty, distribution/pagination/glyph NOT_TESTED",
+    "Physical AT/mobile/SafariFirefox/OS-theme/PWA beforeHTML/remote save NOT_TESTED"
+  ],
+  "notes": [
+    "Read-only proxy parseFloat unsupported; Number.parseFloat explicit helper used; dynamic eval unavailable",
+    "Initial Dashboard streaming wait timeout excluded",
+    "6 initial samples replaced after excluding unpainted closed-details/opacity nodes",
+    "5 Production settings samples actual319px excluded and remeasured on active native tab",
+    "Primary hero gate applies primary money0 per C90; existing secondary1.1rem17.6px retained",
+    "Implicit native DIALOG corrected from role attribute query; final keyboard semantic role checks PASS",
+    "Privacy guard expected on expense editor; show-money continuation opens without submit",
+    "Notification filter actual unread=true corrected from helper assumptionunread1",
+    "Preview query deadline during stream, subsequent actualURL/loadedDOM verified"
+  ]
+}

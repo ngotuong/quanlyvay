@@ -2152,7 +2152,7 @@ HTML giữNOT_TESTED. C90COMPLETED, C91AWAITING_APPROVAL; không commit/push/dep
 ## 49. Checkpoint C91 — Đang thực hiện
 
 **C91 — Đồng bộ và phát hành bản sửa C90 lên Preview/Production.**
-Trạng thái: `IN_PROGRESS`. OWNER phê duyệt C91 và bản vá riêng source-map-js1.2.2/
+Trạng thái: `IN_PROGRESS`, OWNER đã login cảhai. OWNER phê duyệt C91 và bản vá riêng source-map-js1.2.2/
 sharp0.35.5 ngày07/10/2026. Giữ lịch sử auditFAIL; tiếp tục kiểm lại đầy đủ gate.
 
 Phạm vi khi phê duyệt:
@@ -2195,13 +2195,20 @@ Acceptance criteria:
 5. Context/roadmap/report cùng cập nhật, upload/secret/diff/DB0 và preservation đạt,
    C91 chỉCOMPLETED khi exact closing CI/smoke đạt; checkpoint kế tiếp chờ duyệt rồi dừng.
 
-Kết quả local C91 ngày07/10: lint/typecheck/unit117/build19/policy/actionlint/diff/secret
-PASS; fullE2E64PASS/18opt-inSKIP12.9m,retries0/fail0. GuardC20-test55322/sáu counts0,
-274hasheskhớp/17C75preserved/15generatedrestored. Freshrollback C88 Ready/đúngproject/team/
-43routeFunctions sin1/public4/4 mỗialias. AuditFAIL2HIGH; cần source-map-js1.2.2/sharp0.35.5
-đã được OWNER duyệt07/10 và áp scopedoverride/lock; frozeninstall/audit/nativecompat PASS.
-PostpatchfullE2E đangchạy, source/CI/deploy/promote/Authsmoke đangchờ.
-bảnmới; khôngCOMPLETED, C92NOT_STARTED. Report/evidence ởdocs/release-c91/.
+Kết quả ngày07/10: postpatchlocal lint/typecheck/unit117/build19/policy/actionlint/diff/audit/
+secret/nativecompat PASS, fullE2E64PASS18opt-inSKIP12.9m/778.1s,retries0/fail0. Guard55322
+sixcounts0/17C75exact/15generatedrestored;273baselinefilesexact,proposal.css chỉ terminal
+whitespace normalize có originalignoredbytes/exceptionproof. Source `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`
+commit/pushfastforward, RequiredCI37644195261 SUCCESS5jobs:pgTAP527/Auth6/E2E63PASS19SKIP.
+Root Preview gate64/18/11.8m PASS, hai candidateReady cùngsource:Preview dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV,
+Production dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu.43Functions sin1/exactproject-team/157UID/public4/4/
+preautherror0/HTTP5000 từngcandidate. OWNER đãlogin;nativeAuth140unique/32finalchecks/glyph/tab/
+B/Inter/KPI/keyboard/Back/privacy/drawerPASS,console5tabs0/runtimeAuth0/HTTP5000.System/privacy
+restore/viewportreset,no submits. Helper failures retained/disposition vàremote thiếu ghi rõ.
+RootPreviewresumePASS64/18/aliasC91;Productionpromoteexit0/tindung-defaultC91. Hậu kiểm3aliases54Authsamples/public4/4/runtime0/console0/B/Inter/glyph/tabPASS,preferenceSystemrestore đúngbanđầu. Cònclosingproof/finalstatus exactCI.
+AuditFAIL2HIGH trướcpatch giữ rõ; scopedoverride doOWNERduyệt đã giải quyết audit0known.
+C91 IN_PROGRESS sau OWNERlogin cảhai, khôngCOMPLETED; C92NOT_STARTED.
+Source runtime ed72b86; rollout/postcheck đã PASS, chờ exactclosingproof/finalstatus CI. Report/evidence ởdocs/release-c91/.
 
 ## 50. Chuỗi cải thiện UI/UX sau C91 — Kế hoạch đã thống nhất
 
