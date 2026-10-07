@@ -1,0 +1,15 @@
+{
+  "test": "C63 all drawer dismissal routes",
+  "failure": ".cache/c90/regression-final2.log; C63:364 toBeHidden timeout15000ms",
+  "coordinate": {
+    "beforePreviewGrabberCentreY": 182.1875,
+    "mouseMoveStartTime": 92656.906,
+    "mouseDownStartTime": 92679.241,
+    "dragEndY": 292.1875
+  },
+  "beforeSnapshot": "before@call@823 92652.971: no settlement-preview; loading reference",
+  "afterSnapshot": "after@call@827 92677.237: fieldset.settlement-preview with principal/interest/confirmation now present",
+  "visual": "Failed screenshot grabber aroundy107; text selection on heading/content after y182→292",
+  "confirm": "No fourth confirm event on settlement drag, unlike payment/restructure; wrong hit target",
+  "remediation": "C63 test only: require .settlement-preview visible before reading grabber box. Runtime bottom-sheet/settlement unchanged. All existing prompts4/draft/focus/dismiss assertions remain."
+}

@@ -1,0 +1,471 @@
+{
+  "method": "Evon review branch V, repair only OWNER-approved F1/F2; probe rules unchanged, local auth storage injected in ignored copy",
+  "executions": 2,
+  "fixedWidths": 14,
+  "lightSweepWidths": 55,
+  "rawP": 0,
+  "rawPDispositionComplete": true,
+  "brokenMoney": 0,
+  "wrappedControls": 0,
+  "consoleErrors": 0,
+  "warningsOutsideP": [
+    {
+      "theme": "light",
+      "width": 375,
+      "family": "popupNativeChoices",
+      "raw": [
+        "bấm \"Giao dịch\": select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\""
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "family": "popupNativeChoices",
+      "raw": [
+        "bấm \"Giao dịch\": select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\""
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "light",
+      "width": 390,
+      "family": "heavyNavLinks",
+      "raw": [
+        "3/4 mục chữ 700: \"Chi phí\", \"Nhật ký hệ thống\", \"Cài đặt\""
+      ],
+      "disposition": "Existing mobile More sheet typography; outside selected F1/F2. Recorded as style consistency observation, not fixed."
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "family": "popupNativeChoices",
+      "raw": [
+        "select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\" (đang ẩn)"
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "family": "drawnFocusRings",
+      "raw": [
+        "a \"Bỏ qua đến nội dung chính\"",
+        "button \"Ẩn số tiền (Chế độ riêng tư)\"",
+        "a \"Quay lại danh sách\"",
+        "a \"Tổng quan\"",
+        "a \"Các kỳ lãi\"",
+        "button \"Giao dịch\"",
+        "button \"Tất toán\"",
+        "button \"Giảm gốc\"",
+        "a \"Tổng quan\"",
+        "a \"Khoản vay\"",
+        "button \"Thêm\""
+      ],
+      "disposition": "Existing visible focus is retained for accessibility and approved B; Gu per Evon review, not a functional defect to remove."
+    },
+    {
+      "theme": "light",
+      "width": 768,
+      "family": "borderHovers",
+      "raw": [
+        "button \"Giảm gốc\": viền #ced9e8 → #1d4ed8"
+      ],
+      "disposition": "Existing Giảm gốc hover border; Gu per review and outside F1/F2, preserved."
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "family": "popupNativeChoices",
+      "raw": [
+        "select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\" (đang ẩn)"
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "family": "drawnFocusRings",
+      "raw": [
+        "a \"Bỏ qua đến nội dung chính\"",
+        "a \"Quản Lý Vay Cá Nhân - Trang tổng quan\"",
+        "a \"Tổng quan\"",
+        "a \"Khoản vay\"",
+        "a \"Chi phí\"",
+        "a \"Nhật ký hệ thống\"",
+        "button \"Ẩn số tiền (Chế độ riêng tư)\"",
+        "button \"Đăng xuất\"",
+        "a \"Quay lại danh sách\"",
+        "a \"Tổng quan\"",
+        "a \"Các kỳ lãi\"",
+        "button \"Giao dịch\"",
+        "button \"Tất toán\"",
+        "button \"Giảm gốc\""
+      ],
+      "disposition": "Existing visible focus is retained for accessibility and approved B; Gu per Evon review, not a functional defect to remove."
+    },
+    {
+      "theme": "light",
+      "width": 1024,
+      "family": "borderHovers",
+      "raw": [
+        "button \"Giảm gốc\": viền #ced9e8 → #1d4ed8"
+      ],
+      "disposition": "Existing Giảm gốc hover border; Gu per review and outside F1/F2, preserved."
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "family": "popupNativeChoices",
+      "raw": [
+        "select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\" (đang ẩn)"
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "family": "drawnFocusRings",
+      "raw": [
+        "a \"Bỏ qua đến nội dung chính\"",
+        "a \"Quản Lý Vay Cá Nhân - Trang tổng quan\"",
+        "a \"Tổng quan\"",
+        "a \"Khoản vay\"",
+        "a \"Chi phí\"",
+        "a \"Nhật ký hệ thống\"",
+        "button \"Ẩn số tiền (Chế độ riêng tư)\"",
+        "button \"Đăng xuất\"",
+        "a \"Quay lại danh sách\"",
+        "a \"Tổng quan\"",
+        "a \"Các kỳ lãi\"",
+        "button \"Giao dịch\"",
+        "button \"Tất toán\"",
+        "button \"Giảm gốc\""
+      ],
+      "disposition": "Existing visible focus is retained for accessibility and approved B; Gu per Evon review, not a functional defect to remove."
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "family": "borderHovers",
+      "raw": [
+        "button \"Giảm gốc\": viền #ced9e8 → #1d4ed8"
+      ],
+      "disposition": "Existing Giảm gốc hover border; Gu per review and outside F1/F2, preserved."
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "family": "popupNativeChoices",
+      "raw": [
+        "select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\" (đang ẩn)"
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "family": "drawnFocusRings",
+      "raw": [
+        "a \"Bỏ qua đến nội dung chính\"",
+        "a \"Quản Lý Vay Cá Nhân - Trang tổng quan\"",
+        "a \"Tổng quan\"",
+        "a \"Khoản vay\"",
+        "a \"Chi phí\"",
+        "a \"Nhật ký hệ thống\"",
+        "button \"Ẩn số tiền (Chế độ riêng tư)\"",
+        "button \"Đăng xuất\"",
+        "a \"Quay lại danh sách\"",
+        "a \"Tổng quan\"",
+        "a \"Các kỳ lãi\"",
+        "button \"Giao dịch\"",
+        "button \"Tất toán\"",
+        "button \"Giảm gốc\""
+      ],
+      "disposition": "Existing visible focus is retained for accessibility and approved B; Gu per Evon review, not a functional defect to remove."
+    },
+    {
+      "theme": "light",
+      "width": 1440,
+      "family": "borderHovers",
+      "raw": [
+        "button \"Giảm gốc\": viền #ced9e8 → #1d4ed8"
+      ],
+      "disposition": "Existing Giảm gốc hover border; Gu per review and outside F1/F2, preserved."
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "family": "popupNativeChoices",
+      "raw": [
+        "select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\" (đang ẩn)"
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "family": "drawnFocusRings",
+      "raw": [
+        "a \"Bỏ qua đến nội dung chính\"",
+        "a \"Quản Lý Vay Cá Nhân - Trang tổng quan\"",
+        "a \"Tổng quan\"",
+        "a \"Khoản vay\"",
+        "a \"Chi phí\"",
+        "a \"Nhật ký hệ thống\"",
+        "button \"Ẩn số tiền (Chế độ riêng tư)\"",
+        "button \"Đăng xuất\"",
+        "a \"Quay lại danh sách\"",
+        "a \"Tổng quan\"",
+        "a \"Các kỳ lãi\"",
+        "button \"Giao dịch\"",
+        "button \"Tất toán\"",
+        "button \"Giảm gốc\""
+      ],
+      "disposition": "Existing visible focus is retained for accessibility and approved B; Gu per Evon review, not a functional defect to remove."
+    },
+    {
+      "theme": "light",
+      "width": 1920,
+      "family": "borderHovers",
+      "raw": [
+        "button \"Giảm gốc\": viền #ced9e8 → #1d4ed8"
+      ],
+      "disposition": "Existing Giảm gốc hover border; Gu per review and outside F1/F2, preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "family": "popupNativeChoices",
+      "raw": [
+        "bấm \"Giao dịch\": select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\""
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "family": "popupNativeChoices",
+      "raw": [
+        "bấm \"Giao dịch\": select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\""
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 390,
+      "family": "heavyNavLinks",
+      "raw": [
+        "3/4 mục chữ 700: \"Chi phí\", \"Nhật ký hệ thống\", \"Cài đặt\""
+      ],
+      "disposition": "Existing mobile More sheet typography; outside selected F1/F2. Recorded as style consistency observation, not fixed."
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "family": "popupNativeChoices",
+      "raw": [
+        "select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\" (đang ẩn)"
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "family": "drawnFocusRings",
+      "raw": [
+        "a \"Bỏ qua đến nội dung chính\"",
+        "button \"Ẩn số tiền (Chế độ riêng tư)\"",
+        "a \"Quay lại danh sách\"",
+        "a \"Tổng quan\"",
+        "a \"Các kỳ lãi\"",
+        "button \"Giao dịch\"",
+        "button \"Tất toán\"",
+        "button \"Giảm gốc\"",
+        "a \"Tổng quan\"",
+        "a \"Khoản vay\"",
+        "button \"Thêm\""
+      ],
+      "disposition": "Existing visible focus is retained for accessibility and approved B; Gu per Evon review, not a functional defect to remove."
+    },
+    {
+      "theme": "dark",
+      "width": 768,
+      "family": "borderHovers",
+      "raw": [
+        "button \"Giảm gốc\": viền #354762 → #93c5fd"
+      ],
+      "disposition": "Existing Giảm gốc hover border; Gu per review and outside F1/F2, preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "family": "popupNativeChoices",
+      "raw": [
+        "select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\" (đang ẩn)"
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "family": "drawnFocusRings",
+      "raw": [
+        "a \"Bỏ qua đến nội dung chính\"",
+        "a \"Quản Lý Vay Cá Nhân - Trang tổng quan\"",
+        "a \"Tổng quan\"",
+        "a \"Khoản vay\"",
+        "a \"Chi phí\"",
+        "a \"Nhật ký hệ thống\"",
+        "button \"Ẩn số tiền (Chế độ riêng tư)\"",
+        "button \"Đăng xuất\"",
+        "a \"Quay lại danh sách\"",
+        "a \"Tổng quan\"",
+        "a \"Các kỳ lãi\"",
+        "button \"Giao dịch\"",
+        "button \"Tất toán\"",
+        "button \"Giảm gốc\""
+      ],
+      "disposition": "Existing visible focus is retained for accessibility and approved B; Gu per Evon review, not a functional defect to remove."
+    },
+    {
+      "theme": "dark",
+      "width": 1024,
+      "family": "borderHovers",
+      "raw": [
+        "button \"Giảm gốc\": viền #354762 → #93c5fd"
+      ],
+      "disposition": "Existing Giảm gốc hover border; Gu per review and outside F1/F2, preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "family": "popupNativeChoices",
+      "raw": [
+        "select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\" (đang ẩn)"
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "family": "drawnFocusRings",
+      "raw": [
+        "a \"Bỏ qua đến nội dung chính\"",
+        "a \"Quản Lý Vay Cá Nhân - Trang tổng quan\"",
+        "a \"Tổng quan\"",
+        "a \"Khoản vay\"",
+        "a \"Chi phí\"",
+        "a \"Nhật ký hệ thống\"",
+        "button \"Ẩn số tiền (Chế độ riêng tư)\"",
+        "button \"Đăng xuất\"",
+        "a \"Quay lại danh sách\"",
+        "a \"Tổng quan\"",
+        "a \"Các kỳ lãi\"",
+        "button \"Giao dịch\"",
+        "button \"Tất toán\"",
+        "button \"Giảm gốc\""
+      ],
+      "disposition": "Existing visible focus is retained for accessibility and approved B; Gu per Evon review, not a functional defect to remove."
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "family": "borderHovers",
+      "raw": [
+        "button \"Giảm gốc\": viền #354762 → #93c5fd"
+      ],
+      "disposition": "Existing Giảm gốc hover border; Gu per review and outside F1/F2, preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "family": "popupNativeChoices",
+      "raw": [
+        "select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\" (đang ẩn)"
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "family": "drawnFocusRings",
+      "raw": [
+        "a \"Bỏ qua đến nội dung chính\"",
+        "a \"Quản Lý Vay Cá Nhân - Trang tổng quan\"",
+        "a \"Tổng quan\"",
+        "a \"Khoản vay\"",
+        "a \"Chi phí\"",
+        "a \"Nhật ký hệ thống\"",
+        "button \"Ẩn số tiền (Chế độ riêng tư)\"",
+        "button \"Đăng xuất\"",
+        "a \"Quay lại danh sách\"",
+        "a \"Tổng quan\"",
+        "a \"Các kỳ lãi\"",
+        "button \"Giao dịch\"",
+        "button \"Tất toán\"",
+        "button \"Giảm gốc\""
+      ],
+      "disposition": "Existing visible focus is retained for accessibility and approved B; Gu per Evon review, not a functional defect to remove."
+    },
+    {
+      "theme": "dark",
+      "width": 1440,
+      "family": "borderHovers",
+      "raw": [
+        "button \"Giảm gốc\": viền #354762 → #93c5fd"
+      ],
+      "disposition": "Existing Giảm gốc hover border; Gu per review and outside F1/F2, preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "family": "popupNativeChoices",
+      "raw": [
+        "select gốc chưa tô, ô date gốc trong dialog \"Nghiệp vụ khoản vayGhi giao dị\" (đang ẩn)"
+      ],
+      "disposition": "Native choices retained in approved B. Mobile opened layer and desktop hidden layer observations are distinguished. F1/F2 do not authorize replacing controls; no claim of new native-picker audit. Existing themed field selectors preserved."
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "family": "drawnFocusRings",
+      "raw": [
+        "a \"Bỏ qua đến nội dung chính\"",
+        "a \"Quản Lý Vay Cá Nhân - Trang tổng quan\"",
+        "a \"Tổng quan\"",
+        "a \"Khoản vay\"",
+        "a \"Chi phí\"",
+        "a \"Nhật ký hệ thống\"",
+        "button \"Ẩn số tiền (Chế độ riêng tư)\"",
+        "button \"Đăng xuất\"",
+        "a \"Quay lại danh sách\"",
+        "a \"Tổng quan\"",
+        "a \"Các kỳ lãi\"",
+        "button \"Giao dịch\"",
+        "button \"Tất toán\"",
+        "button \"Giảm gốc\""
+      ],
+      "disposition": "Existing visible focus is retained for accessibility and approved B; Gu per Evon review, not a functional defect to remove."
+    },
+    {
+      "theme": "dark",
+      "width": 1920,
+      "family": "borderHovers",
+      "raw": [
+        "button \"Giảm gốc\": viền #354762 → #93c5fd"
+      ],
+      "disposition": "Existing Giảm gốc hover border; Gu per review and outside F1/F2, preserved."
+    }
+  ],
+  "scope": "No G1–G4 implemented; no redesign/native-control/focus removal",
+  "limits": [
+    "Probe exit0 is not an assertion of flawless UI",
+    "Raw warning files retained; screenshots in ignored .cache/c90; no session/cookie exports in durable docs",
+    "Chromium local fixture only; no remote/AT/device certification"
+  ],
+  "informationalTruncation": {
+    "contexts": 8,
+    "disposition": "Desktop screenshot shows existing C6 Owner profile label ellipsis, not financial number. No money clipping in Range proof; identity primitives unchanged; no new redesign."
+  }
+}

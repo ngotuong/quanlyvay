@@ -1,0 +1,437 @@
+{
+  "checkpoint": "C91",
+  "status": "IN_PROGRESS",
+  "authorizedOn": "2026-10-07",
+  "initialHead": "b98fe64d332ea31ffee2b2e3adebc5ec7756744a",
+  "baselineRollback": [
+    {
+      "label": "preview",
+      "id": "dpl_DWAs22T33Lt69qo9kdnYbXEs6dov",
+      "url": "quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app",
+      "target": "preview",
+      "readyState": "READY",
+      "regions": null,
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "teamId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "routeFunctions": 43,
+      "region": "sin1",
+      "middlewareRegions": [
+        [
+          "sin1"
+        ]
+      ],
+      "freshMetadata": true
+    },
+    {
+      "label": "production",
+      "id": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
+      "url": "quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "regions": null,
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "teamId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "routeFunctions": 43,
+      "region": "sin1",
+      "middlewareRegions": [
+        [
+          "bom1",
+          "fra1",
+          "gru1",
+          "iad1",
+          "lhr1",
+          "sfo1",
+          "sin1",
+          "syd1"
+        ]
+      ],
+      "freshMetadata": true
+    },
+    {
+      "label": "default",
+      "id": "dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo",
+      "url": "quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "regions": null,
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "teamId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "routeFunctions": 43,
+      "region": "sin1",
+      "middlewareRegions": [
+        [
+          "bom1",
+          "fra1",
+          "gru1",
+          "iad1",
+          "lhr1",
+          "sfo1",
+          "sin1",
+          "syd1"
+        ]
+      ],
+      "freshMetadata": true
+    }
+  ],
+  "localPreflight": [
+    {
+      "gate": "diff",
+      "exit": 0,
+      "seconds": 0.0,
+      "log": ".cache/c91/diff.log"
+    },
+    {
+      "gate": "policy",
+      "exit": 0,
+      "seconds": 1.4,
+      "log": ".cache/c91/policy.log"
+    },
+    {
+      "gate": "lint",
+      "exit": 0,
+      "seconds": 4.6,
+      "log": ".cache/c91/lint.log"
+    },
+    {
+      "gate": "typecheck",
+      "exit": 0,
+      "seconds": 1.9,
+      "log": ".cache/c91/typecheck.log"
+    },
+    {
+      "gate": "unit",
+      "exit": 0,
+      "seconds": 1.9,
+      "log": ".cache/c91/unit.log"
+    },
+    {
+      "gate": "build",
+      "exit": 0,
+      "seconds": 6.1,
+      "log": ".cache/c91/build.log"
+    },
+    {
+      "gate": "e2e",
+      "exit": 0,
+      "seconds": 777.5,
+      "log": ".cache/c91/e2e.log"
+    }
+  ],
+  "securityBlocker": {
+    "auditExit": 1,
+    "high": 2,
+    "packages": [
+      {
+        "name": "source-map-js",
+        "current": "1.2.1",
+        "patched": "1.2.2",
+        "advisory": "GHSA-68fv-2mgg-jv7q"
+      },
+      {
+        "name": "sharp",
+        "current": "0.35.4",
+        "patched": "0.35.5",
+        "advisory": "GHSA-wq5f-xc86-pv6w"
+      }
+    ],
+    "scopeExtensionApproval": "APPROVED by OWNER 2026-10-07 in current conversation",
+    "resolution": "RESOLVED: scoped override patch and audit exit0; full release gate still pending"
+  },
+  "preservationBaselineFiles": 274,
+  "secretNewSourceDocsDiff": {
+    "pinnedGitleaks": "8.30.1",
+    "exit": 0,
+    "findings": 0
+  },
+  "uploadLocalMetadata": {
+    "files": 166,
+    "pass": true,
+    "remoteInventory": "NOT_TESTED"
+  },
+  "remoteMutations": false,
+  "baselinePublicSmoke": {
+    "preview": {
+      "label": "baseline-preview",
+      "url": "https://tindung-preview.vercel.app",
+      "checkedAt": "2026-10-07T11:48:55.907Z",
+      "results": [
+        {
+          "path": "/login",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/manifest.webmanifest",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/api/google-sync/export",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        },
+        {
+          "path": "/api/notifications/run",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "method": "HTTP status only; no response bodies persisted"
+    },
+    "production": {
+      "label": "baseline-production",
+      "url": "https://tindung.vercel.app",
+      "checkedAt": "2026-10-07T11:48:58.557Z",
+      "results": [
+        {
+          "path": "/login",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/manifest.webmanifest",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/api/google-sync/export",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        },
+        {
+          "path": "/api/notifications/run",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "method": "HTTP status only; no response bodies persisted"
+    },
+    "default": {
+      "label": "baseline-default",
+      "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+      "checkedAt": "2026-10-07T11:48:59.645Z",
+      "results": [
+        {
+          "path": "/login",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/manifest.webmanifest",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/api/google-sync/export",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        },
+        {
+          "path": "/api/notifications/run",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "method": "HTTP status only; no response bodies persisted"
+    }
+  },
+  "scopeReview": {
+    "runtime": [
+      "apps/web/src/app/globals.css"
+    ],
+    "regressionChanges": [
+      "apps/web/test/e2e/c63-remediation.spec.ts",
+      "apps/web/test/e2e/c89-audit.spec.ts",
+      "apps/web/test/e2e/c90-remediation.spec.ts"
+    ],
+    "financialRuntimeChanges": false,
+    "schemaAuthSecretsChanges": false,
+    "nextCheckpointStarted": false
+  },
+  "fullE2E": {
+    "pass": 64,
+    "skip": 18,
+    "fail": 0,
+    "seconds": 777.5,
+    "retries": 0,
+    "skipReason": "Existing audit/evidence opt-in; no skip/assertion/retry changes"
+  },
+  "postgate": {
+    "dbIdentity": "QuanLyVayCaNhan-C20-test",
+    "dbPort": 55322,
+    "counts": {
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0,
+      "counterparties": 0,
+      "notifications": 0,
+      "authUsers": 0
+    },
+    "runtimeHashesMatch": true,
+    "c75Restored": [
+      "docs/remediation-c75/notifications-390-dark.png",
+      "docs/remediation-c75/evidence.json",
+      "docs/remediation-c75/notifications-375-dark.png",
+      "docs/remediation-c75/dashboard-1440-light.png",
+      "docs/remediation-c75/dashboard-390-light.png",
+      "docs/remediation-c75/notifications-1440-dark.png",
+      "docs/remediation-c75/dashboard-375-light.png",
+      "docs/remediation-c75/notifications-1440-light.png",
+      "docs/remediation-c75/dashboard-1440-dark.png",
+      "docs/remediation-c75/notifications-390-light.png",
+      "docs/remediation-c75/notifications-375-light.png",
+      "docs/remediation-c75/privacy-generated.png",
+      "docs/remediation-c75/dashboard-375-dark.png",
+      "docs/remediation-c75/dashboard-390-dark.png",
+      "docs/remediation-c75/privacy-custom.png"
+    ],
+    "c75AllHashesMatch": true
+  },
+  "preservation": {
+    "files": 274,
+    "allHashesMatch": true,
+    "c75Files": 17,
+    "generatedRestored": 15,
+    "normalizationException": "docs/audit-c89/proposal.css",
+    "originalFileRetainedInIgnoredCache": true
+  },
+  "requiredCI": "NOT_RUN: source not committed/pushed because dependency audit is blocked",
+  "deployment": "NOT_STARTED",
+  "dependencyPatch": {
+    "approval": "OWNER 2026-10-07 current conversation",
+    "scope": {
+      "changedPackageBlocks": 56,
+      "packageFamilies": [
+        "sharp",
+        "@img/sharp-* (sharp native/libvips dependencies)",
+        "source-map-js"
+      ],
+      "unrelatedPackageChanges": [],
+      "sourcePreserved": true
+    },
+    "compatibility": {
+      "sharp": "0.35.5",
+      "sourceMap": "1.2.2",
+      "nativeVersions": {
+        "aom": "3.15.1",
+        "archive": "3.8.9",
+        "cairo": "1.18.6",
+        "cgif": "0.5.4",
+        "exif": "0.6.26",
+        "expat": "2.8.5",
+        "ffi": "3.8.0",
+        "fontconfig": "2.18.3",
+        "freetype": "2.14.3",
+        "fribidi": "1.0.17",
+        "glib": "2.90.0",
+        "harfbuzz": "14.5.0",
+        "heif": "1.23.5",
+        "highway": "1.4.0",
+        "imagequant": "2.4.1",
+        "lcms": "2.19.1",
+        "mozjpeg": "0826579",
+        "pango": "1.58.2",
+        "pixman": "0.46.4",
+        "png": "1.6.58",
+        "proxy-libintl": "0.5",
+        "rsvg": "2.63.2",
+        "tiff": "4.7.2",
+        "uhdr": "2.0.2",
+        "vips": "8.18.7",
+        "webp": "1.6.0",
+        "xml2": "2.15.4",
+        "zlib-ng": "2.3.3",
+        "sharp": "0.35.5"
+      },
+      "svgToPngResizeRaw": "PASS",
+      "sourceMapRoundTrip": "PASS",
+      "platform": "darwin",
+      "arch": "arm64",
+      "firstHelperAttempt": {
+        "error": "ERR_PACKAGE_PATH_NOT_EXPORTED for sharp/package.json",
+        "disposition": "Helper used a package subpath sharp does not export; read public sharp.versions.sharp instead. No runtime source changes."
+      }
+    },
+    "frozenInstall": "PASS",
+    "audit": "PASS",
+    "manifest": "pnpm-workspace.yaml",
+    "lock": "pnpm-lock.yaml"
+  },
+  "patchedLocalPreflight": [
+    {
+      "gate": "diff",
+      "exit": 0,
+      "seconds": 0.0,
+      "log": ".cache/c91/patched-preflight/diff.log"
+    },
+    {
+      "gate": "policy",
+      "exit": 0,
+      "seconds": 1.2,
+      "log": ".cache/c91/patched-preflight/policy.log"
+    },
+    {
+      "gate": "audit",
+      "exit": 0,
+      "seconds": 0.8,
+      "log": ".cache/c91/patched-preflight/audit.log"
+    },
+    {
+      "gate": "lint",
+      "exit": 0,
+      "seconds": 4.3,
+      "log": ".cache/c91/patched-preflight/lint.log"
+    },
+    {
+      "gate": "typecheck",
+      "exit": 0,
+      "seconds": 3.6,
+      "log": ".cache/c91/patched-preflight/typecheck.log"
+    },
+    {
+      "gate": "unit",
+      "exit": 0,
+      "seconds": 1.2,
+      "log": ".cache/c91/patched-preflight/unit.log"
+    },
+    {
+      "gate": "build",
+      "exit": 0,
+      "seconds": 6.1,
+      "log": ".cache/c91/patched-preflight/build.log"
+    }
+  ],
+  "patchedFullE2E": "IN_PROGRESS",
+  "sourceCI": "PENDING source push",
+  "browserBaseline": {
+    "theme": "system",
+    "privacyHidden": true,
+    "temporaryTabClosed": true,
+    "viewportRestored": true
+  },
+  "artifactNormalization": {
+    "file": "docs/audit-c89/proposal.css",
+    "reason": "git diff --cached --check failed at trailing whitespace/new blank EOF in previously untracked C89 CSS artifact",
+    "scope": "Only terminal whitespace normalization; CSS tokens/rules and rendering unchanged",
+    "originalSHA256": "74cb539f4250674fa51144690695fe2cec1f5f3f14d5662f6a8664ed9c7c70a9",
+    "normalizedSHA256": "550ab3f40debfeb043d1d49a4294a48330466b45ba224c13969a8dceade92997",
+    "originalBytes": 1022,
+    "normalizedBytes": 1020,
+    "originalRetained": ".cache/c91/proposal-original.css"
+  }
+}

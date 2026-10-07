@@ -1,0 +1,103 @@
+(node:66057) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+# Probe: 10 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c89/evon-counterparties-light/375.png)
+Không đo ra lỗi.
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Thêm đối tác": .cache/c89/evon-counterparties-light/375-mo-0.png
+
+## 390px  (ảnh: .cache/c89/evon-counterparties-light/390.png)
+Không đo ra lỗi.
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Thêm đối tác": .cache/c89/evon-counterparties-light/390-mo-0.png
+
+## 768px  (ảnh: .cache/c89/evon-counterparties-light/768.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm đối tác": viền #1d4ed8 → #1e40af
+  button "Tìm kiếm": viền #ced9e8 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (10 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Thêm đối tác"
+  button "Tìm kiếm"
+  a "Xóa tìm kiếm"
+  summary "Thao tác khác với C89 Đối tác mẫu"
+  summary "Chỉnh sửa thông tin"
+  a "Tổng quan"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1024px  (ảnh: .cache/c89/evon-counterparties-light/1024.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm đối tác": viền #1d4ed8 → #1e40af
+  button "Tìm kiếm": viền #ced9e8 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (13 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1280px  (ảnh: .cache/c89/evon-counterparties-light/1280.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm đối tác": viền #1d4ed8 → #1e40af
+  button "Tìm kiếm": viền #ced9e8 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (13 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1440px  (ảnh: .cache/c89/evon-counterparties-light/1440.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm đối tác": viền #1d4ed8 → #1e40af
+  button "Tìm kiếm": viền #ced9e8 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (13 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1920px  (ảnh: .cache/c89/evon-counterparties-light/1920.png)
+VIỀN ĐỔI MÀU LÚC RÊ (2 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm đối tác": viền #1d4ed8 → #1e40af
+  button "Tìm kiếm": viền #ced9e8 → #1d4ed8
+TAB TỚI CÒN VẼ VÒNG FOCUS (13 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Quét bề rộng 1440 → 375px, bước 20px (55 ảnh ở .cache/c89/evon-counterparties-light/sweep)
+Không đo ra chỗ vỡ ở bề rộng nào. Vẫn mở vài ảnh ở giữa hai khổ cố định mà xem.
+Máy không thấy chồng lấn, lệch hàng, khoảng trắng vô lý. Xem thêm các ảnh quanh ngưỡng sidebar thu và ngưỡng lưới đổi cột.
+
+# Việc phải đối chiếu: 0 mục probe xếp Hỏng
+Không có mục nào.
+
+Chi tiết: .cache/c89/evon-counterparties-light/report.json

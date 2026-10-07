@@ -1,0 +1,579 @@
+{
+  "method": "Redacted aggregate transcribed from native CUA DOM measurements on authenticated stable aliases; raw DOM, financial values, UUID, cookies and screenshots not persisted",
+  "hosts": {
+    "production": "https://tindung.vercel.app",
+    "preview": "https://tindung-preview.vercel.app"
+  },
+  "uniqueMatrixSamples": 140,
+  "geometryFailures": 0,
+  "groups": [
+    {
+      "host": "production",
+      "theme": "light",
+      "requestedAndActualWidth": 375,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "production",
+      "theme": "light",
+      "requestedAndActualWidth": 390,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "production",
+      "theme": "light",
+      "requestedAndActualWidth": 768,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "production",
+      "theme": "light",
+      "requestedAndActualWidth": 1024,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "production",
+      "theme": "light",
+      "requestedAndActualWidth": 1440,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": false
+    },
+    {
+      "host": "production",
+      "theme": "dark",
+      "requestedAndActualWidth": 375,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "production",
+      "theme": "dark",
+      "requestedAndActualWidth": 390,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "production",
+      "theme": "dark",
+      "requestedAndActualWidth": 768,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "production",
+      "theme": "dark",
+      "requestedAndActualWidth": 1024,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "production",
+      "theme": "dark",
+      "requestedAndActualWidth": 1440,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "preview",
+      "theme": "light",
+      "requestedAndActualWidth": 375,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "preview",
+      "theme": "light",
+      "requestedAndActualWidth": 390,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "preview",
+      "theme": "light",
+      "requestedAndActualWidth": 768,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "preview",
+      "theme": "light",
+      "requestedAndActualWidth": 1024,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "preview",
+      "theme": "light",
+      "requestedAndActualWidth": 1440,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": false
+    },
+    {
+      "host": "preview",
+      "theme": "dark",
+      "requestedAndActualWidth": 375,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "preview",
+      "theme": "dark",
+      "requestedAndActualWidth": 390,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "preview",
+      "theme": "dark",
+      "requestedAndActualWidth": 768,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": false
+    },
+    {
+      "host": "preview",
+      "theme": "dark",
+      "requestedAndActualWidth": 1024,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    },
+    {
+      "host": "preview",
+      "theme": "dark",
+      "requestedAndActualWidth": 1440,
+      "routes": [
+        "dashboard",
+        "loans",
+        "detail",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "settings"
+      ],
+      "uniqueSamples": 7,
+      "pageOverflow": 0,
+      "visibleH1": 1,
+      "bodyFont": "16px",
+      "kpiBeforeTaskOnDashboard": true,
+      "privacyHidden": true,
+      "geometryPass": true,
+      "allFontsLoadedAtFirstCapture": true
+    }
+  ],
+  "initialPrefs": {
+    "production": {
+      "theme": "system",
+      "privacyHidden": true
+    },
+    "preview": {
+      "theme": "system",
+      "privacyHidden": true
+    }
+  },
+  "consoleErrorCounts": {
+    "production": 0,
+    "preview": 0
+  },
+  "checks": [
+    {
+      "host": "production",
+      "check": "theme restored System after reload, original privacy retained",
+      "pass": true
+    },
+    {
+      "host": "preview",
+      "check": "theme restored System after reload, original privacy retained",
+      "pass": true
+    },
+    {
+      "host": "preview",
+      "check": "mobile more → settings",
+      "clicks": 2,
+      "pass": true
+    },
+    {
+      "host": "production",
+      "check": "mobile more → settings",
+      "clicks": 2,
+      "pass": true
+    },
+    {
+      "host": "preview",
+      "check": "task expansion/collapse",
+      "counts": [
+        5,
+        17,
+        5
+      ],
+      "scrollY": [
+        0,
+        285,
+        285
+      ],
+      "focusAfterExpandAndCollapse": true,
+      "pass": true,
+      "note": "Locator Enter brings offscreen trigger into focus/view; do not claim no scroll on first focus"
+    },
+    {
+      "host": "preview",
+      "check": "unread filter early aria-current snapshot",
+      "clicks": 1,
+      "historyActions": 2,
+      "pass": false,
+      "status": "HARNESS_INCOMPLETE",
+      "privacyMoneyNodes": 0,
+      "note": "Streaming query not yet settled. Not counted as app failure or PASS"
+    },
+    {
+      "host": "preview",
+      "check": "settled unread URL/aria-current then Back to All then Forward to Unread",
+      "pass": true
+    },
+    {
+      "host": "preview",
+      "route": "settings",
+      "theme": "dark",
+      "actualWidth": 768,
+      "check": "font settled recapture",
+      "fontStatus": "loaded",
+      "bodyFont": "16px",
+      "pageOverflow": 0,
+      "pass": true
+    },
+    {
+      "host": "preview",
+      "route": "settings",
+      "theme": "light",
+      "actualWidth": 1440,
+      "check": "font settled recapture",
+      "fontStatus": "loaded",
+      "bodyFont": "16px",
+      "pageOverflow": 0,
+      "pass": true
+    },
+    {
+      "host": "production",
+      "route": "settings",
+      "theme": "light",
+      "actualWidth": 1440,
+      "check": "font settled recapture",
+      "fontStatus": "loaded",
+      "bodyFont": "16px",
+      "pageOverflow": 0,
+      "pass": true
+    }
+  ],
+  "harnessNoteCount": 19,
+  "harnessNotes": [
+    "Selector deadline (~3s) may precede RSC content; intermediate/loading samples not counted in140. Fresh ready content recaptured at the requested theme/width.",
+    "Networkidle timed out on Production, not used as content failure or readiness proof.",
+    "Detail financial controls correctly absent while PrivacyForm hides them; ready selector moved to visible loan-tabs without unmasking.",
+    "First mobile Settings direct visible-link lookup did not match: Settings is inside Thêm. Observed menu then navigation succeeded.",
+    "Three Settings font-loading measurements retained; separate await document.fonts.ready recaptures pass.",
+    "Early notification state incomplete retained; repeat on fresh tab waited for actual URL and aria-current before Back/Forward proof."
+  ],
+  "restoration": {
+    "systemBothHosts": true,
+    "originalPrivacyBothHosts": true,
+    "viewportReset": true,
+    "temporaryAuditTabsClosed": true
+  },
+  "notTested": [
+    "remote financial save/input/dirty/timeout",
+    "remote unmasked amounts and bigint stress",
+    "remote expense multi-page dataset state",
+    "AT/VoiceOver and physical mobile",
+    "authenticated Safari/Firefox",
+    "OS theme change",
+    "before-first-HTML cold network/PWA",
+    "complete Vercel runtime/network/performance scan"
+  ]
+}

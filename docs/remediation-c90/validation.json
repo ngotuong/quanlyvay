@@ -1,0 +1,148 @@
+{
+  "checkpoint": "C90 COMPLETED; C91 AWAITING_APPROVAL",
+  "sourceBaseline": "b98fe64d332ea31ffee2b2e3adebc5ec7756744a",
+  "productEdits": [
+    "apps/web/src/app/globals.css"
+  ],
+  "regressionEdits": [
+    "apps/web/test/e2e/c90-remediation.spec.ts",
+    "apps/web/test/e2e/c63-remediation.spec.ts"
+  ],
+  "lint": {
+    "exit": 0,
+    "log": ".cache/c90/lint-final2.log"
+  },
+  "typecheck": {
+    "exit": 0,
+    "log": ".cache/c90/typecheck-final2.log"
+  },
+  "unit": {
+    "exit": 0,
+    "passed": 117,
+    "failed": 0,
+    "domain": 11,
+    "googleSync": 18,
+    "web": 54,
+    "scripts": 34,
+    "log": ".cache/c90/unit-final2.log"
+  },
+  "e2e": {
+    "final": {
+      "exit": 0,
+      "passed": 24,
+      "failed": 0,
+      "skipped": 0,
+      "retries": 0,
+      "minutes": 7.5,
+      "log": ".cache/c90/regression-final3.log",
+      "files": [
+        "c63",
+        "c67",
+        "c72",
+        "c75",
+        "c84",
+        "c87",
+        "c90"
+      ],
+      "selectedAssertionsUnchanged": true,
+      "c63AdditionalReadinessAssertion": true,
+      "webServer": "Next production build/start, reuseExistingServer=false"
+    },
+    "earlierClean": {
+      "passed": 23,
+      "failed": 0,
+      "minutes": 6.3,
+      "log": ".cache/c90/regression-final.log",
+      "limitation": "CSS before supporting whole-group polish"
+    },
+    "retainedFailure": {
+      "log": ".cache/c90/regression-final2.log",
+      "triage": "harness-triage.json",
+      "exit": 1,
+      "passed": 23,
+      "failed": 1,
+      "minutes": 8.0,
+      "traceRetained": true,
+      "remediation": "Existing C63 readiness assertion; not product runtime",
+      "finalRerun": "PENDING .cache/c90/regression-final3.log"
+    }
+  },
+  "presentation": {
+    "beforeRows": 40,
+    "beforeStress": 50,
+    "beforeFailures": 60,
+    "afterRows": 40,
+    "afterStress": 50,
+    "afterChecks": 10,
+    "afterFailures": 0,
+    "exactTextMatch": true,
+    "minimumHeroFont": 18,
+    "minimumTabTarget": 48
+  },
+  "probe": {
+    "executions": 2,
+    "fixed": 14,
+    "lightSweep": 55,
+    "rawP": 0,
+    "reconciliation": "probe-reconciliation.json"
+  },
+  "nativeReview": {
+    "widths": [
+      375,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "overflow": 0,
+    "h1": 1,
+    "brokenImages": 0,
+    "consoleErrors": 0,
+    "darkWidthAndMaxSelections": true,
+    "viewportRestored": true,
+    "finalImageRefresh": "PASS after final3; before/after375light loaded, overflow0/console0, viewport default"
+  },
+  "build": {
+    "exit": 0,
+    "routes": 19,
+    "log": ".cache/c90/build-final2.log",
+    "standalone": true
+  },
+  "postgate": "postgate.json",
+  "secret": {
+    "exit": 0,
+    "findings": 0,
+    "status": "PASS",
+    "pinnedImage": "ghcr.io/gitleaks/gitleaks:v8.30.1@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f",
+    "scope": "138 specified durable source/docs/artifact files including preserved local C89; current C90 text logs also scanned. No env/session/trace/cache payload exported.",
+    "preclosingLog": ".cache/c90/secret-preclosing.log",
+    "finalMetadataRecheck": "PASS",
+    "log": ".cache/c90/secret-final.log",
+    "finalMetadataDelta": "Only this public PASS/exit0/findings0/log reference appended after final scan"
+  },
+  "diffCheck": "PASS final",
+  "commitPushDeploy": false,
+  "gatesNotRun": [
+    "Full E2E suite, pgTAP, Auth integration and remote Required CI not rerun in C90 targeted CSS scope; no release SHA created"
+  ],
+  "limits": [
+    "VoiceOver/physical device/SafariFirefox Auth",
+    "Remote save/release/runtime smoke",
+    "OS/mạng/PWA trước HTML"
+  ],
+  "sourceProof": {
+    "apps/web/src/app/globals.css": "3110a0f7997b258fce23c7ff14d8009689c9854005693e9354e2c51a92671e47",
+    "apps/web/test/e2e/c63-remediation.spec.ts": "f2ffbcb3391b4c9981dc6a819aa8aeaf01176edcfd564254ca01d2b676bc82ed",
+    "apps/web/test/e2e/c90-remediation.spec.ts": "d268659f38902297fce17dabe84d26100d1445fb2829cc8cb6fe33ad34c8a71d"
+  },
+  "artifactChecks": {
+    "json": 8,
+    "png": 28,
+    "http": 40,
+    "links": 12,
+    "status": "PASS",
+    "syntheticOnly": true,
+    "javascriptSyntax": "PASS node --check"
+  },
+  "sourceAndC75C89Preservation": "PASS"
+}

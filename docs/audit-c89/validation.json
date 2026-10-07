@@ -1,0 +1,113 @@
+{
+  "sourceBaseline": "b98fe64d332ea31ffee2b2e3adebc5ec7756744a",
+  "productEdits": false,
+  "lint": {
+    "exit": 0,
+    "log": ".cache/c89/lint-final.log"
+  },
+  "typecheck": {
+    "exit": 0,
+    "log": ".cache/c89/typecheck-final.log"
+  },
+  "localAudit": {
+    "passed": 1,
+    "failed": 0,
+    "minutes": 7.6,
+    "matrix": 70,
+    "journeys": 60,
+    "log": ".cache/c89/audit-attempt1.log"
+  },
+  "existingRegression": {
+    "passed": 22,
+    "failed": 0,
+    "minutes": 5.5,
+    "retries": 0,
+    "log": ".cache/c89/regression-attempt1.log",
+    "files": [
+      "c63",
+      "c67",
+      "c72",
+      "c75",
+      "c84",
+      "c87"
+    ]
+  },
+  "proposalAndReconciliation": {
+    "attempt1": {
+      "passed": 1,
+      "minutes": 1.9
+    },
+    "attempt2": {
+      "passed": 1,
+      "minutes": 1.9,
+      "addedCheck": "Dashboard number/unit line proof"
+    },
+    "logs": [
+      ".cache/c89/review-attempt1.log",
+      ".cache/c89/review-attempt2.log"
+    ],
+    "unchangedTextsBeforeAfter": true,
+    "tenProposalSamplesPass": true
+  },
+  "build": {
+    "pass": true,
+    "method": "Existing Playwright webServer next build && next start3101, reuseExistingServer=false; each successful run booted production build",
+    "standaloneBuildNotRun": true
+  },
+  "gatesNotApplicable": [
+    "No full unit/pgTAP/Auth/workflow/CI rerun for docs and opt-in audit harness with118runtimefiles unchanged; no CI SHA created",
+    "No deployment/runtime-log certification"
+  ],
+  "probe": {
+    "executions": 14,
+    "fixed": 98,
+    "lightSweep": 385,
+    "rulesChanged": false,
+    "rawP": 12,
+    "reconciliationComplete": true
+  },
+  "native": {
+    "uniqueMatrix": 140,
+    "geometryFailed": 0,
+    "initialFontLoadingSamples": 3,
+    "settledFontRecapturesPassed": 3,
+    "earlyQueryCheck": "HARNESS_INCOMPLETE retained, settled Back/Forward PASS"
+  },
+  "postgate": "postgate.json",
+  "artifactChecks": {
+    "jsonParsed": 20,
+    "pngHeadersVerified": 55,
+    "http200Files": 92,
+    "staticLinksValid": 13,
+    "proposalTextsExactMatch": true,
+    "nativeReview": {
+      "widths": [
+        375,
+        390,
+        768,
+        1024,
+        1440
+      ],
+      "overflow": 0,
+      "visibleH1": 1,
+      "brokenLoadedImages": 0,
+      "consoleErrors": 0,
+      "interactiveDarkWidthStartup": true
+    },
+    "syntheticOnly": true
+  },
+  "nativeReview": "PASS:5widths/0overflow/1h1/0brokenLoadedImages/0consoleErrors; Dark/width/startup selections verified",
+  "secretScan": {
+    "status": "PASS",
+    "pinnedImage": "gitleaks:v8.30.1@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f",
+    "scope": "Final audit docs/PNG/JSON, new harness, context and roadmap; raw remote/session data never copied",
+    "exit": 0,
+    "findings": 0,
+    "log": ".cache/c89/secret-final.log",
+    "finalMetadataDelta": "Only this public PASS/exit0/findings0/log reference appended after scan"
+  },
+  "diffCheck": "PASS",
+  "commitPushDeploy": false,
+  "sourceAndC75FinalHashMatch": true,
+  "checkpoint": "C89 COMPLETED; C90 AWAITING_APPROVAL"
+}

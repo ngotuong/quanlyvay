@@ -1,0 +1,203 @@
+{
+  "rulesChanged": false,
+  "adapter": "Only storageState injected for isolated synthetic local auth; no owner credential/session exported",
+  "fixedSamples": 98,
+  "lightSweepSamples": 385,
+  "rawP": 12,
+  "pReconciliation": [
+    {
+      "probe": "evon-dashboard-dark.txt",
+      "id": "P1",
+      "raw": "P1 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 \"0\": span.vnd-number \"0\"",
+      "classification": "FALSE_POSITIVE",
+      "decision": "Tooltip descendants behind opacity0. Focused tooltip opacity1, children inherit foreground, measured contrast15.962 Light/14.588 Dark. See proposal-evidence.json proofs and tooltip-shown PNG."
+    },
+    {
+      "probe": "evon-dashboard-dark.txt",
+      "id": "P2",
+      "raw": "P2 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 \"₫\": span.vnd-unit \"₫\"",
+      "classification": "FALSE_POSITIVE",
+      "decision": "Tooltip descendants behind opacity0. Focused tooltip opacity1, children inherit foreground, measured contrast15.962 Light/14.588 Dark. See proposal-evidence.json proofs and tooltip-shown PNG."
+    },
+    {
+      "probe": "evon-dashboard-light.txt",
+      "id": "P1",
+      "raw": "P1 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #ffffff trên nền #ffffff \"0\": span.vnd-number \"0\"",
+      "classification": "FALSE_POSITIVE",
+      "decision": "Tooltip descendants behind opacity0. Focused tooltip opacity1, children inherit foreground, measured contrast15.962 Light/14.588 Dark. See proposal-evidence.json proofs and tooltip-shown PNG."
+    },
+    {
+      "probe": "evon-dashboard-light.txt",
+      "id": "P2",
+      "raw": "P2 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #ffffff trên nền #ffffff \"₫\": span.vnd-unit \"₫\"",
+      "classification": "FALSE_POSITIVE",
+      "decision": "Tooltip descendants behind opacity0. Focused tooltip opacity1, children inherit foreground, measured contrast15.962 Light/14.588 Dark. See proposal-evidence.json proofs and tooltip-shown PNG."
+    },
+    {
+      "probe": "evon-detail-dark.txt",
+      "id": "P1",
+      "raw": "P1 [375–390px] chữ trong nút xuống dòng: a \"Tổng quan\"",
+      "classification": "F2_LOW_LECH_HE",
+      "decision": "Real two-line loan tab labels at375/390, while ui-tab-list uses intrinsic auto basis elsewhere. Navigation/target48px works. Isolated CSS proposal fills available width, keeps one-line labels and44px+ targets."
+    },
+    {
+      "probe": "evon-detail-dark.txt",
+      "id": "P2",
+      "raw": "P2 [375–390px] chữ trong nút xuống dòng: a \"Các kỳ lãi\"",
+      "classification": "F2_LOW_LECH_HE",
+      "decision": "Real two-line loan tab labels at375/390, while ui-tab-list uses intrinsic auto basis elsewhere. Navigation/target48px works. Isolated CSS proposal fills available width, keeps one-line labels and44px+ targets."
+    },
+    {
+      "probe": "evon-detail-light.txt",
+      "id": "P1",
+      "raw": "P1 [375–740px] chữ trong nút xuống dòng: a \"Tổng quan\"",
+      "classification": "F2_LOW_LECH_HE",
+      "decision": "Real two-line loan tab labels at375/390, while ui-tab-list uses intrinsic auto basis elsewhere. Navigation/target48px works. Isolated CSS proposal fills available width, keeps one-line labels and44px+ targets."
+    },
+    {
+      "probe": "evon-detail-light.txt",
+      "id": "P2",
+      "raw": "P2 [375–740px] chữ trong nút xuống dòng: a \"Các kỳ lãi\"",
+      "classification": "F2_LOW_LECH_HE",
+      "decision": "Real two-line loan tab labels at375/390, while ui-tab-list uses intrinsic auto basis elsewhere. Navigation/target48px works. Isolated CSS proposal fills available width, keeps one-line labels and44px+ targets."
+    },
+    {
+      "probe": "evon-expenses-dark.txt",
+      "id": "P1",
+      "raw": "P1 [1920px, 1440px, 1280px, 1024px] chữ trong nút xuống dòng: button.ui-button.ui-button--danger.danger-button \"Xác nhận đảo\"",
+      "classification": "FALSE_POSITIVE",
+      "decision": "Button under closed details is not painted. Open disclosure has button44px, text17px/line16.8px (single line), see expense-reversal-open PNG and proposal-evidence.json."
+    },
+    {
+      "probe": "evon-expenses-light.txt",
+      "id": "P1",
+      "raw": "P1 [1920px, 1024–1440px] chữ trong nút xuống dòng: button.ui-button.ui-button--danger.danger-button \"Xác nhận đảo\"",
+      "classification": "FALSE_POSITIVE",
+      "decision": "Button under closed details is not painted. Open disclosure has button44px, text17px/line16.8px (single line), see expense-reversal-open PNG and proposal-evidence.json."
+    },
+    {
+      "probe": "evon-notifications-dark.txt",
+      "id": "P1",
+      "raw": "P1 [1920px, 1440px, 1280px, 1024px, 768px] rê ra đúng màu mục đang chọn: a \"Tất cả\": rê ra nền rgb(23, 37, 84), trùng nền mục đang chọn",
+      "classification": "G4_LOW_GU",
+      "decision": "Hover shares active fill by existing filter-pills rule595. Selected state remains data-active/aria-current and Back/Forward works. Optional distinct hover, not functional failure or selected remediation."
+    },
+    {
+      "probe": "evon-notifications-light.txt",
+      "id": "P1",
+      "raw": "P1 [1920px, 1440px, 1280px, 1024px, 768px] rê ra đúng màu mục đang chọn: a \"Tất cả\": rê ra nền rgb(239, 246, 255), trùng nền mục đang chọn",
+      "classification": "G4_LOW_GU",
+      "decision": "Hover shares active fill by existing filter-pills rule595. Selected state remains data-active/aria-current and Back/Forward works. Optional distinct hover, not functional failure or selected remediation."
+    }
+  ],
+  "otherWarningCountsByProbe": {
+    "counterparties-dark": {
+      "drawnFocusRings": 62,
+      "borderHovers": 10
+    },
+    "counterparties-light": {
+      "drawnFocusRings": 62,
+      "borderHovers": 10
+    },
+    "dashboard-dark": {
+      "orphanWords": 10,
+      "denseItems": 13,
+      "lowContrastTexts": 14,
+      "unpinnedScrollTables": 9,
+      "brokenMoney": 4,
+      "popupNativeChoices": 7,
+      "drawnFocusRings": 92,
+      "borderHovers": 5
+    },
+    "dashboard-light": {
+      "orphanWords": 10,
+      "denseItems": 13,
+      "lowContrastTexts": 14,
+      "unpinnedScrollTables": 9,
+      "brokenMoney": 4,
+      "popupNativeChoices": 7,
+      "drawnFocusRings": 92,
+      "borderHovers": 5
+    },
+    "detail-dark": {
+      "wrappedControls": 4,
+      "brokenMoney": 4,
+      "popupNativeChoices": 7,
+      "heavyNavLinks": 1,
+      "drawnFocusRings": 67,
+      "borderHovers": 5
+    },
+    "detail-light": {
+      "wrappedControls": 4,
+      "brokenMoney": 4,
+      "popupNativeChoices": 7,
+      "heavyNavLinks": 1,
+      "drawnFocusRings": 67,
+      "borderHovers": 5
+    },
+    "expenses-dark": {
+      "tinyTexts": 14,
+      "popupNativeChoices": 7,
+      "styledNativeSelects": 30,
+      "drawnFocusRings": 62,
+      "borderHovers": 5,
+      "wrappedControls": 32
+    },
+    "expenses-light": {
+      "tinyTexts": 14,
+      "popupNativeChoices": 7,
+      "styledNativeSelects": 30,
+      "drawnFocusRings": 62,
+      "borderHovers": 5,
+      "wrappedControls": 32
+    },
+    "loans-dark": {
+      "popupNativeChoices": 7,
+      "drawnFocusRings": 82,
+      "borderHovers": 17
+    },
+    "loans-light": {
+      "popupNativeChoices": 7,
+      "drawnFocusRings": 82,
+      "borderHovers": 17
+    },
+    "notifications-dark": {
+      "orphanWords": 3,
+      "drawnFocusRings": 67,
+      "borderHovers": 10,
+      "hoverLikeSelected": 5
+    },
+    "notifications-light": {
+      "orphanWords": 3,
+      "drawnFocusRings": 67,
+      "borderHovers": 10,
+      "hoverLikeSelected": 5
+    },
+    "settings-dark": {
+      "browserDefaultControls": 28,
+      "tinyTexts": 7,
+      "gridChoiceGroups": 2,
+      "orphanWords": 2,
+      "drawnFocusRings": 62,
+      "borderHovers": 5
+    },
+    "settings-light": {
+      "browserDefaultControls": 28,
+      "tinyTexts": 7,
+      "gridChoiceGroups": 2,
+      "orphanWords": 2,
+      "drawnFocusRings": 62,
+      "borderHovers": 5
+    }
+  },
+  "otherWarningsReviewed": {
+    "brokenMoney": "F1 real split of number and grid descendants on detail, independently measured per glyph range. Dashboard warning is separate: smaller currency glyph top differs; number/units vertically overlap on a single line, no digits removed. Verified in proposal-evidence.json dashboardAmounts.",
+    "unpinnedScrollTables": "G1 optional mobile comparison UX: controlled table-scroller, no page overflow, first column is not sticky. Tables preserve all authoritative numbers; not a silent assertion of ideal mobile UX.",
+    "tinyTexts": "G2 optional legibility: expense percentage11.2px and user status11.52px. Body16/controls14 do not certify every metadata label16.",
+    "orphanWords/denseItems": "G3 long200-character loan heading and text density; other label wraps keep complete meaning. No arbitrary five-lines rule treated as business fault.",
+    "browserDefaultControls/popupNativeChoices/styledNativeSelects/gridChoiceGroups": "Token styled Select/date inputs and pill radio group retain native semantics/keyboard. Three appearance choices may wrap at375; no clipped or missing option. Skill custom-picker preference is not automatic authorization to replace controls.",
+    "drawnFocusRings": "Keep visible keyboard focus/skip link by ui-primitives.css27 and global rules. Skill preference to remove rings is not applied to the established accessibility contract.",
+    "borderHovers/heavyNavLinks": "Gu/style preference only; preserve approved B theme/token hover and navy sidebar. No layout shift detected.",
+    "zeroLists": "Original reports retain all groups, including zero overflow, brokenImages, consoleErrors, smallTapTargets. Probe exit0 is execution success, not defect-free certification."
+  }
+}

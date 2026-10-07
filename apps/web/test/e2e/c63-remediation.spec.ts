@@ -355,6 +355,9 @@ test("all drawer dismissal routes ask once and keep or discard the draft consist
     await expect(note).toHaveValue("Bản nháp C63");
     page.off("dialog", keep);
     page.once("dialog", async prompt => { prompts++; await prompt.accept(); });
+    // The async settlement preview changes the centered sheet's height. Resolve it
+    // before taking drag coordinates, so the pointer starts on the actual grabber.
+    if (title === "Tất toán khoản vay") await expect(dialog.locator(".settlement-preview")).toBeVisible();
     const grabber = await dialog.locator(".ui-sheet-grabber").boundingBox();
     expect(grabber).not.toBeNull();
     await page.mouse.move(grabber!.x + grabber!.width / 2, grabber!.y + grabber!.height / 2);

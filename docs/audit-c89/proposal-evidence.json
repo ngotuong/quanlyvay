@@ -1,0 +1,1623 @@
+{
+  "method": "Same local synthetic DOM before/after temporary page.addStyleTag, no runtime edits",
+  "rows": [
+    {
+      "width": 375,
+      "theme": "light",
+      "before": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 2,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 2,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 2,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      },
+      "after": {
+        "width": 375,
+        "theme": "light",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "theme": "light",
+      "before": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 2,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 2,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 2,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      },
+      "after": {
+        "width": 390,
+        "theme": "light",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      }
+    },
+    {
+      "width": 768,
+      "theme": "light",
+      "before": {
+        "width": 768,
+        "theme": "light",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 2,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      },
+      "after": {
+        "width": 768,
+        "theme": "light",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      }
+    },
+    {
+      "width": 1024,
+      "theme": "light",
+      "before": {
+        "width": 1024,
+        "theme": "light",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 2,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      },
+      "after": {
+        "width": 1024,
+        "theme": "light",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "light",
+      "before": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      },
+      "after": {
+        "width": 1440,
+        "theme": "light",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      }
+    },
+    {
+      "width": 375,
+      "theme": "dark",
+      "before": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 2,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 2,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 2,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      },
+      "after": {
+        "width": 375,
+        "theme": "dark",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "theme": "dark",
+      "before": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 2,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 2,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 2,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      },
+      "after": {
+        "width": 390,
+        "theme": "dark",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      }
+    },
+    {
+      "width": 768,
+      "theme": "dark",
+      "before": {
+        "width": 768,
+        "theme": "dark",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 2,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      },
+      "after": {
+        "width": 768,
+        "theme": "dark",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      }
+    },
+    {
+      "width": 1024,
+      "theme": "dark",
+      "before": {
+        "width": 1024,
+        "theme": "dark",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 2,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      },
+      "after": {
+        "width": 1024,
+        "theme": "dark",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      }
+    },
+    {
+      "width": 1440,
+      "theme": "dark",
+      "before": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": false,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      },
+      "after": {
+        "width": 1440,
+        "theme": "dark",
+        "overflow": 0,
+        "money": [
+          {
+            "text": "99.999.999.999.999.999 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "3.100.000.000.000.000 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          },
+          {
+            "text": "0 ₫",
+            "numberLines": 1,
+            "unitSameLine": true,
+            "fits": true
+          }
+        ],
+        "tabs": [
+          {
+            "label": "Tổng quan",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Các kỳ lãi",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Lịch sử",
+            "lines": 1,
+            "height": 48
+          },
+          {
+            "label": "Thiết lập",
+            "lines": 1,
+            "height": 48
+          }
+        ]
+      }
+    }
+  ],
+  "proofs": [
+    {
+      "theme": "light",
+      "dashboardAmounts": [
+        {
+          "width": 375,
+          "theme": "light",
+          "overflow": 0,
+          "money": [
+            {
+              "text": "100.000.000.000.999.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "0 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-100.000.000.000.099.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-99.400.000.000.093.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            }
+          ],
+          "tabs": []
+        },
+        {
+          "width": 390,
+          "theme": "light",
+          "overflow": 0,
+          "money": [
+            {
+              "text": "100.000.000.000.999.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "0 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-100.000.000.000.099.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-99.400.000.000.093.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            }
+          ],
+          "tabs": []
+        },
+        {
+          "width": 768,
+          "theme": "light",
+          "overflow": 0,
+          "money": [
+            {
+              "text": "100.000.000.000.999.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "0 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-100.000.000.000.099.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-99.400.000.000.093.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            }
+          ],
+          "tabs": []
+        },
+        {
+          "width": 1024,
+          "theme": "light",
+          "overflow": 0,
+          "money": [
+            {
+              "text": "100.000.000.000.999.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "0 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-100.000.000.000.099.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-99.400.000.000.093.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            }
+          ],
+          "tabs": []
+        },
+        {
+          "width": 1440,
+          "theme": "light",
+          "overflow": 0,
+          "money": [
+            {
+              "text": "100.000.000.000.999.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "0 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-100.000.000.000.099.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-99.400.000.000.093.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            }
+          ],
+          "tabs": []
+        }
+      ],
+      "tooltip": {
+        "hidden": {
+          "opacity": "0",
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)"
+        },
+        "shown": {
+          "opacity": "1",
+          "color": "rgb(20, 34, 56)",
+          "background": "rgb(255, 255, 255)",
+          "children": [
+            {
+              "color": "rgb(20, 34, 56)"
+            },
+            {
+              "color": "rgb(20, 34, 56)"
+            }
+          ]
+        }
+      },
+      "expenseReversal": {
+        "closed": {
+          "closedDetails": true,
+          "computedHeight": 49.59375
+        },
+        "opened": {
+          "height": 44,
+          "width": 1112,
+          "textHeight": 17,
+          "lineHeight": "16.8px",
+          "openDetails": true
+        }
+      }
+    },
+    {
+      "theme": "dark",
+      "dashboardAmounts": [
+        {
+          "width": 375,
+          "theme": "dark",
+          "overflow": 0,
+          "money": [
+            {
+              "text": "100.000.000.000.999.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "0 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-100.000.000.000.099.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-99.400.000.000.093.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            }
+          ],
+          "tabs": []
+        },
+        {
+          "width": 390,
+          "theme": "dark",
+          "overflow": 0,
+          "money": [
+            {
+              "text": "100.000.000.000.999.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "0 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-100.000.000.000.099.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-99.400.000.000.093.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            }
+          ],
+          "tabs": []
+        },
+        {
+          "width": 768,
+          "theme": "dark",
+          "overflow": 0,
+          "money": [
+            {
+              "text": "100.000.000.000.999.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "0 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-100.000.000.000.099.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-99.400.000.000.093.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            }
+          ],
+          "tabs": []
+        },
+        {
+          "width": 1024,
+          "theme": "dark",
+          "overflow": 0,
+          "money": [
+            {
+              "text": "100.000.000.000.999.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "0 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-100.000.000.000.099.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-99.400.000.000.093.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            }
+          ],
+          "tabs": []
+        },
+        {
+          "width": 1440,
+          "theme": "dark",
+          "overflow": 0,
+          "money": [
+            {
+              "text": "100.000.000.000.999.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "0 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-100.000.000.000.099.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            },
+            {
+              "text": "-99.400.000.000.093.999 ₫",
+              "numberLines": 1,
+              "unitSameLine": true,
+              "fits": true
+            }
+          ],
+          "tabs": []
+        }
+      ],
+      "tooltip": {
+        "hidden": {
+          "opacity": "0",
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)"
+        },
+        "shown": {
+          "opacity": "1",
+          "color": "rgb(241, 245, 252)",
+          "background": "rgb(23, 34, 53)",
+          "children": [
+            {
+              "color": "rgb(241, 245, 252)"
+            },
+            {
+              "color": "rgb(241, 245, 252)"
+            }
+          ]
+        }
+      },
+      "expenseReversal": {
+        "closed": {
+          "closedDetails": true,
+          "computedHeight": 49.59375
+        },
+        "opened": {
+          "height": 44,
+          "width": 1112,
+          "textHeight": 17,
+          "lineHeight": "16.8px",
+          "openDetails": true
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+/* C89 isolated synthetic preview; not installed in product. */
+
+    .overview-primary strong,.overview-next strong,.overview-supporting strong { white-space:nowrap; overflow-wrap:normal; }
+    .overview-supporting strong>span,.overview-supporting .vnd-number,.overview-supporting .vnd-unit { display:inline; white-space:nowrap; }
+    .overview-primary:has(.vnd-number[data-extra-wide="true"]) { display:grid; grid-template-columns:44px minmax(0,1fr); align-items:center; }
+    .overview-primary:has(.vnd-number[data-extra-wide="true"])>div { display:contents; }
+    .overview-primary:has(.vnd-number[data-extra-wide="true"]) p { grid-column:2; grid-row:1; }
+    .overview-primary:has(.vnd-number[data-extra-wide="true"]) strong { grid-column:1 / -1; font-size:clamp(18px,4.8vw,28px); }
+    .overview-primary:has(.vnd-number[data-extra-wide="true"]) small { grid-column:1 / -1; }
+    .loan-tabs .ui-tab-list { width:100%; }
+    .loan-tabs a { flex:1 0 auto; white-space:nowrap; min-width:max-content; min-height:48px; }

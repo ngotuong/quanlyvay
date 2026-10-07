@@ -18,7 +18,9 @@ overrides:
   js-yaml: 4.3.2
   "nanoid@<3.3.18": 3.3.18
   postcss: 8.5.25
-  sharp: 0.35.4
+  # C91: approved fixes for GHSA-wq5f-xc86-pv6w and GHSA-68fv-2mgg-jv7q.
+  sharp: 0.35.5
+  source-map-js: 1.2.2
 
 minimumReleaseAgeExclude:
   - '@next/env@16.3.8'

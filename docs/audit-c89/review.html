@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="vi">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>C89 · Nghiệm thu B và đề xuất C90</title>
+<style>
+:root{color-scheme:light;--canvas:#eaf0f8;--surface:#fff;--ink:#142238;--muted:#506582;--border:#ced9e8;--primary:#1d4ed8}*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.55 system-ui,sans-serif}header{background:#172c49;color:#fff;padding:30px max(20px,calc((100vw - 1120px)/2))}header p{max-width:75ch;margin:10px 0;color:#d9e7fb}.tag{font-size:14px;font-weight:650;letter-spacing:.04em}h1{font-size:clamp(25px,4vw,36px);line-height:1.2;margin:10px 0}h2{font-size:23px;line-height:1.3;margin:0 0 12px}h3{font-size:18px;margin:0 0 6px}main{max-width:1160px;margin:auto;padding:24px 20px 50px}section{margin:0 0 22px;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:22px}p{margin:8px 0 14px}a{color:var(--primary);text-underline-offset:3px}header a{color:#fff}button,select{min-height:44px;border:1px solid var(--border);border-radius:10px;padding:9px 13px;background:var(--surface);color:var(--ink);font:inherit;font-size:14px;cursor:pointer}button[aria-pressed="true"]{background:#e4edff;border-color:var(--primary);color:var(--primary)}button:hover{background:#edf3fb}a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #60a5fa;outline-offset:3px}.note{padding:14px 16px;border-radius:10px;background:#edf4ff;border-left:4px solid var(--primary)}.stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.stats span{background:#28486f;border-radius:9px;padding:8px 12px;font-size:14px}.tools{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:12px 0 20px}.tools label{font-size:14px;font-weight:650}.compare{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}.compare figure{margin:0;min-width:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--canvas)}figcaption{padding:12px 16px;background:var(--surface);border-bottom:1px solid var(--border);font-size:14px;font-weight:650}.compare img{display:block;width:100%;max-width:375px;height:auto;margin:auto}.compare[data-width="1440"] img{max-width:100%}.gallery img{display:block;width:100%;max-width:650px;margin:auto;border:1px solid var(--border);border-radius:10px}.badge{display:inline-block;background:#e7eeff;color:#193f9c;border-radius:6px;padding:2px 7px;font-size:14px}.finding{padding:14px 0;border-top:1px solid var(--border)}.finding:first-of-type{border-top:0}.muted{color:var(--muted);font-size:14px}ol{padding-left:23px}li{margin:8px 0}details summary{min-height:44px;cursor:pointer;font-weight:650}footer{padding-top:14px;font-size:14px;color:var(--muted)}@media(max-width:650px){main{padding:16px 12px 32px}section{padding:17px}.compare{grid-template-columns:1fr}header{padding:24px 18px}h2{font-size:21px}}
+</style>
+<header>
+  <div class="tag">C89 · AUDIT ĐÃ HOÀN TẤT</div>
+  <h1>Giữ giao diện B. Sửa hai điểm đọc thông tin.</h1>
+  <p>Các luồng đã kiểm hoạt động. Chi tiết khoản vay còn tách số tiền dài và bóp nhãn tab mobile. Đề xuất C90 chỉ xử lý hai điểm này.</p>
+  <div class="stats"><span>70 mẫu local</span><span>60 hành trình</span><span>140 mẫu remote chỉ đọc</span><span>22/22 hồi quy</span></div>
+</header>
+<main>
+  <section aria-labelledby="compare-title">
+    <h2 id="compare-title">Ảnh trước và hướng sửa đề xuất</h2>
+    <p class="note">Ảnh render thật với dữ liệu giả. Bên “Đề xuất” chỉ áp CSS tạm vào cùng DOM local; <strong>chưa sửa code, chưa deploy</strong>. Không làm tròn hoặc bỏ chữ số.</p>
+    <div class="tools" aria-label="Chọn ảnh so sánh">
+      <span>Giao diện</span><button id="light" type="button" aria-pressed="true">Sáng</button><button id="dark" type="button" aria-pressed="false">Tối</button>
+      <label for="width">Khổ ảnh</label><select id="width"><option value="375">375 · mobile</option><option value="390">390 · mobile</option><option value="768">768 · tablet</option><option value="1024">1024 · desktop</option><option value="1440">1440 · desktop</option></select>
+    </div>
+    <div class="compare" data-width="375">
+      <figure><figcaption>Hiện tại · số tiền bị ngắt, tab hai dòng</figcaption><a id="before-link" href="proposal-before-375-light.png"><img id="before" src="proposal-before-375-light.png" alt="Chi tiết hiện tại trên mobile với số tiền giả17 chữ số bị chia hai dòng"></a></figure>
+      <figure><figcaption>Đề xuất C90 · số và ₫ cùng dòng, tab gọn</figcaption><a id="after-link" href="proposal-after-375-light.png"><img id="after" src="proposal-after-375-light.png" alt="Minh họa CSS tạm: giữ đủ chữ số và đơn vị, tab một dòng"></a></figure>
+    </div>
+    <p class="muted">Ảnh fullpage có thanh điều hướng cố định ở vị trí viewport đầu. Cuộn trong app sẽ đưa phần dưới lên; ảnh nối dài không chứng minh nội dung bị che khi cuộn.</p>
+    <p id="image-state" role="status" class="muted">375px · Sáng · cùng fixture trước/sau</p>
+  </section>
+  <section aria-labelledby="finding-title">
+    <h2 id="finding-title">Hai phát hiện cần xử lý</h2>
+    <div class="finding"><h3><span class="badge">F1 · MEDIUM · Hỏng</span> Đọc số tiền ở chi tiết khoản vay</h3><p>CSS cho phép ngắt giữa chữ số; selector grid còn áp vào cả span số và ₫ ở số liệu phụ. Ngay cả “0 ₫” cũng tách dòng. Số liệu không đổi, nhưng cách trình bày dễ gây nhầm.</p><p class="muted">globals.css:839,849 · VndText:6 · phép đo theo từng dòng chữ, không chỉ overflow.</p></div>
+    <div class="finding"><h3><span class="badge">F2 · LOW · Lệch hệ</span> Tab mobile chưa dùng hết chiều ngang</h3><p>“Tổng quan” và “Các kỳ lãi” bị ép hai dòng ở375/390. Đề xuất dùng đủ ngang và giữ nhãn một dòng, target tối thiểu44px. Điều hướng vẫn hoạt động ở bản hiện tại.</p><p class="muted">globals.css:692 đối chiếu ui-primitives.css:59–61 · Evon detail P1/P2 hai theme.</p></div>
+    <p><a href="report.md">Đọc báo cáo đầy đủ: file, nguyên nhân, tác động và giới hạn</a> · <a href="probe-reconciliation.json">Đối chiếu toàn bộ12 cảnh báo P</a></p>
+  </section>
+  <section aria-labelledby="scope-title">
+    <h2 id="scope-title">C90 · Chờ bạn phê duyệt</h2>
+    <p>Chỉ sửa F1–F2. Giữ màu B, font, thứ tự KPI trên Việc cần xử lý và mọi số liệu authoritative. Không triển khai bốn đề xuất Gu; không đổi Auth, database hay nghiệp vụ; không push/deploy.</p>
+    <ol>
+      <li>Số0, số thường,17 chữ số, giá trị hợp lệ tối đa và số âm khi presentation cho phép: đủ chữ số, số +₫ cùng dòng, không clipping hoặc tràn ngang.</li>
+      <li>375/390/768/1024/1440 × Sáng/Tối: tab một dòng, đúng selected/keyboard/Back; target44px+, body và control dễ đọc.</li>
+      <li>Privacy, drawer tự đóng/focus, draft/error/retry và query không hồi quy; gate hiện hữu đạt; DB test teardown0.</li>
+      <li>Cập nhật tài liệu cùng thay đổi, báo bằng chứng rồi dừng trước checkpoint phát hành.</li>
+    </ol>
+    <p class="muted">Minh họa đã đạt10 tổ hợp với khoản17 chữ số; C90 vẫn phải kiểm thêm phạm vi số hợp lệ và triển khai/test thật. Phê duyệt C90 không phải phê duyệt triển khai Production.</p>
+  </section>
+  <section class="gallery" aria-labelledby="gallery-title">
+    <h2 id="gallery-title">Giao diện B đã audit</h2>
+    <div class="tools"><label for="route">Màn hình</label><select id="route"><option value="dashboard">Tổng quan</option><option value="loans">Khoản vay</option><option value="detail">Chi tiết với tên dài</option><option value="counterparties">Đối tác</option><option value="expenses">Chi phí</option><option value="notifications">Thông báo</option><option value="settings">Cài đặt</option><option value="startup">Loading lúc mở app</option></select><label for="gallery-width">Khổ</label><select id="gallery-width"><option value="375">375</option><option value="1440">1440</option></select></div>
+    <p class="muted">Dùng lựa chọn Sáng/Tối ở phía trên. Tất cả ảnh đều synthetic. Loading được chụp390px, không phải mọi mạng/PWA cold-start.</p>
+    <a id="gallery-link" href="dashboard-375-light.png"><img id="gallery-image" src="dashboard-375-light.png" loading="lazy" alt="Ảnh audit Tổng quan với dữ liệu giả"></a>
+  </section>
+  <section><details><summary>Bốn đề xuất Gu · chưa chọn để sửa</summary><p>G1: so sánh bảng mobile khi cột nhận diện chưa ghim. G2: nhãn phụ11.2–11.52px. G3: heading với tên200 ký tự. G4: màu hover và selected ở filter thông báo. Đây là lựa chọn cải thiện riêng, không tự đưa vào C90.</p></details><p class="muted">Chưa chứng nhận VoiceOver, mobile vật lý, Safari/Firefox authenticated, save remote, mạng/PWA trước HTML. Không yêu cầu bạn học VoiceOver để kết thúc audit này.</p></section>
+  <footer><a href="local-evidence.json">Local evidence</a> · <a href="native-evidence.json">Native redacted</a> · <a href="proposal-evidence.json">Phép đo trước/sau</a> · <a href="validation.json">Gate</a> · <a href="postgate.json">Hậu kiểm source/DB</a></footer>
+</main>
+<script>
+let theme='light';const light=document.querySelector('#light'),dark=document.querySelector('#dark'),width=document.querySelector('#width');
+function update(){for(const mode of ['before','after']){const src=`proposal-${mode}-${width.value}-${theme}.png`;document.querySelector('#'+mode).src=src;document.querySelector('#'+mode+'-link').href=src}document.querySelector('.compare').dataset.width=width.value;light.setAttribute('aria-pressed',String(theme==='light'));dark.setAttribute('aria-pressed',String(theme==='dark'));document.querySelector('#image-state').textContent=`${width.value}px · ${theme==='light'?'Sáng':'Tối'} · cùng fixture trước/sau`;gallery()}
+function gallery(){const route=document.querySelector('#route').value;const src=route==='startup'?`startup-${theme}.png`:`${route}-${document.querySelector('#gallery-width').value}-${theme}.png`;document.querySelector('#gallery-image').src=src;document.querySelector('#gallery-image').alt=`Ảnh audit ${route} với dữ liệu giả`;document.querySelector('#gallery-link').href=src}
+light.addEventListener('click',()=>{theme='light';update()});dark.addEventListener('click',()=>{theme='dark';update()});width.addEventListener('change',update);document.querySelector('#route').addEventListener('change',gallery);document.querySelector('#gallery-width').addEventListener('change',gallery);
+</script>
+</html>

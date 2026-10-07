@@ -64,7 +64,16 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C86 | Audit hiệu quả thao tác sau phát hành C85 với Evon ui-ux | `COMPLETED` |
 | C87 | Remediation phân vùng, chữ, control phụ, startup và pagination theo C86 | `COMPLETED` |
 | C88 | Đồng bộ C86/C87 B, Required CI và rollout Preview/Production | `COMPLETED` |
-| C89 | Nghiệm thu trải nghiệm B sau C88 và chốt backlog UX | `AWAITING_APPROVAL` |
+| C89 | Nghiệm thu trải nghiệm B sau C88 và chốt backlog UX | `COMPLETED` |
+| C90 | Sửa cách đọc VND và hàng tab chi tiết khoản vay theo C89 | `COMPLETED` |
+| C91 | Đồng bộ và phát hành bản sửa C90 lên Preview/Production | `IN_PROGRESS` |
+| C92 | Chốt thiết kế đích UI/UX và cách đo nghiệm thu | `NOT_STARTED` |
+| C93 | Chuẩn hóa tokens/CSS và UI primitives, giữ hình đã duyệt | `NOT_STARTED` |
+| C94 | Khả năng đọc, bảng mobile và tên dài theo thiết kế đích | `NOT_STARTED` |
+| C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `NOT_STARTED` |
+| C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `NOT_STARTED` |
+| C97 | Loading đúng từng màn và motion có chọn lọc | `NOT_STARTED` |
+| C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `NOT_STARTED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -1772,7 +1781,7 @@ Acceptance criteria:
 2. Pending editor không hứa bỏ thao tác đã gửi; dirty cancel giữ input/focus/scroll, error giữ
    draft/retry, success reset/close/announce/focus đúng. User-management được kiểm bằng fixtures
    riêng, không lưu password nhạy cảm vào browser storage; không giảm quyền/validation.
-3.375/390/768/1024/1440×Light/Dark, dữ liệu thường và hợp lệ120/500/80 không khoảng trắng:
+3. 375/390/768/1024/1440×Light/Dark, dữ liệu thường và hợp lệ120/500/80 không khoảng trắng:
    horizontal overflow0, text đủ/amount nguyên dòng, thao tác44px. Text normal≥4,5:1, large≥3:1;
    contrast trên nền normal/tint/hover/selected và focus được đo; semantic roles giữ brand.
 4. Privacy chi phí không còn %/bar width/tooltip/accessible value dẫn xuất; một notice, restore
@@ -2035,10 +2044,10 @@ kết quả run/SHA báo trong hội thoại; sourceCI không thay closingCI. Re
 
 Closing CI lần đầu run37311126932/385b7c1 attempt1 FAIL: E2E61PASS16SKIP1FAIL15,7m, C87 branded startup/SPA test line76; delayed RSC interceptor line85 báo `route.continue: Route is already handled!`, rồi ready() kết thúc theo test. Chưa tái hiện hoặc xác định chắc chắn causal race; không tuyên bố sửa sản phẩm hay hết flake. Chạy nguyên ca local3lần PASS3/0 trong4,4m với retries0, teardown sáu counts0; rerun chỉ2job đã fail trên nguyênSHA, attempt2 SUCCESS mọi5job. Không đổi runtime/harness/assertion/timeout/retries/skips; ECR pull rate-limit tự retry đã qua, không phải nguyên nhân E2E. Rủi ro interception còn có thể lặp; nếu tái diễn cần remediation harness có evidence thay vì tiếp tục retry.
 
-## 47. Checkpoint C89 — Chờ phê duyệt
+## 47. Checkpoint C89 — Hoàn tất audit
 
 **C89 — Nghiệm thu trải nghiệm giao diện B sau phát hành C88 và chốt backlog UX.**
-Trạng thái: `AWAITING_APPROVAL`. Chỉ bắt đầu khi OWNER phê duyệt C89; không thuộc release C88.
+Trạng thái: `COMPLETED` ngày06/10/2026. OWNER phê duyệt trong hội thoại; chỉ audit, không thuộc release C88.
 
 Phạm vi đề xuất:
 
@@ -2070,3 +2079,285 @@ Acceptance criteria:
    artifact checks PASS, không giảm assertions/retries/skips.
 4. Context/roadmap/report cập nhật cùng thay đổi; đề xuất checkpoint remediation kế tiếp với
    phạm vi/AC rõ nếu cần, đặt AWAITING_APPROVAL và dừng. Không tự sửa hoặc phát hành.
+
+Kết quả: Evon nhánh review,70local samples/60journeys,140native Production/Preview samples
+đúng width/theme/0overflow/h1=1/body16/KPIbeforetask; privacy ẩn gốc giữ nguyên.3Settings
+samples font-loading có recapture loaded đạt, không xóa bằng chứng ban đầu. Native query
+aria-current lấy sớm giữ HARNESS_INCOMPLETE; settled filter/Back/Forward đạt. System từnghost
+restore/viewport reset/tab tạm đóng; console0 trên hai tab ma trận. Không input/submit/mark-read.
+Audit1PASS7.6m, regression22PASS5.5m, proposal1PASS1.9m mỗi lượt (lượt2 thêm glyph proof),
+lint/typecheck/build qua E2E PASS.14Evon probes/98fixed/385Light sweep,12rawP reconciled:
+6false-positive tooltip/closed details,4tab→F2,2notification hover→Gu. F1 VND split được
+Range/ảnh xác minh ngoài danh sáchP; overflow0 không đủ chứng nhận đọc tiền. F1 MEDIUM,
+F2 LOW/Lệch hệ;4Gu chưa chọn sửa. C20-test55322 guard+6counts0,118runtime/17C75hashes
+bảo toàn;15generated C75 restored exact baseline. Artifact/secret/diff và native review đạt;
+chi tiết report/review/JSON/probe reports ở docs/audit-c89/. Không commit/push/deploy.
+Chưa chứng nhận AT/mobile vật lý/SafariFirefox/OS/mạng trướcHTML/remote save hoặc maximum
+BigInt; không suy localPASS thành remote. C90 chờ duyệt, không tự thực hiện.
+
+## 48. Checkpoint C90 — Hoàn tất
+
+**C90 — Sửa F1–F2 presentation tiền VND và hàng tab chi tiết khoản vay.**
+Trạng thái: `COMPLETED`. OWNER phê duyệt rõ C90 trong hội thoại ngày06/10/2026.
+
+Phạm vi:
+
+- F1 C89: sửa overflow-wrap và selector grid lan xuống span VndText của overview-primary/
+  supporting. Số và₫ cùng dòng, chữ số đầy đủ; tiền dài dùng chiều ngang/cỡ chữ thích ứng,
+  không ellipsis/làm tròn/đổi đơn vị hoặc tự quyết toán. Ưu tiên fix selector/wrapper tại
+  globals.css; nếu cần wrapper trình bày VndText phải kiểm mọi nơi dùng, không đổi formatter.
+- F2 C89: hàng loan-tabs dùng đủ ngang và basis theo label, không ép hai dòng ở375/390;
+  giữ active/keyboard/query/Back và target44px+. Không mở rộng redesign header/brand.
+- Giữ phương án B/Inter/body16/control14, KPI dư nợ/lãi ròng trước Việc cần xử lý,
+  status/PrivacyAmount/accessible identity, lifecycle drawer/draft/success/idempotency.
+- Chỉ source presentation, regression phù hợp và tài liệu/ảnh synthetic. G1–G4 chưa chọn,
+  không tự thay bảng, font toàn app, tên200 ký tự, native picker/focus ring hoặc hover khác.
+- Không thay nghiệp vụ authoritative/RPC/schema/Auth/session/secrets/accounts/Google/
+  thông báo/backup; không dữ liệu vận hành/QA remote, commit/push/deploy/cleanup tài nguyên.
+  Fixture/reset/teardown chỉ C20-test55322 với guard hiện hữu. Phát hành cần checkpoint riêng.
+
+Acceptance criteria:
+
+1. Trước/sau có cùng fixture/theme/width và Range rects của số/₫; không chỉ kiểm overflow.
+   Giá trị0, tiền thường,17chữ số và số hợp lệ tối đa9223372036854775807 giữ nguyên text;
+   số âm tại nơi có thể xuất hiện phải được kiểm presentation synthetic, không tạo giao dịch
+   âm trái validation. Có thể dùng fixture component trình bày để tránh tràn SQL aggregation.
+2. Chi tiết375/390/768/1024/1440 × Light/Dark: số không ngắt giữa chữ số,₫ cùng dòng,
+   không clipping/page overflow, hero tối thiểu18px; nhãn/giá trị khác dễ đọc theo B. Các nơi
+   dùng VndText (dashboard/loan card/chi phí/detail) không hồi quy; privacy không còn số thật
+   trong DOM/accessibility khi ẩn. Không dùng font siêu nhỏ hoặc cắt số để vượt gate.
+3. Loan tab một dòng/target44px+ tại5khổ/2theme; khi thiếu ngang dùng scroller nội bộ
+   có keyboard/focus, giữ label/active/current và URL/Back. Không đổi điều kiện truy vấn dữ liệu.
+4. Hồi quy local hiện hữu drawer success/error/dirty/dismiss/focus, theme/history/query/
+   notifications/privacy đạt. Lint/typecheck/test/build và E2E targeted phù hợp đạt; không
+   giảm assertions/retries/skips. Không bắt OWNER thao tác VoiceOver để nghiệm thu local.
+5. Có review/rendered before-after và kết quả Evon được reconcile, mọi rawP có disposition;
+   giới hạn AT/device/remote giữ NOT_TESTED, không coi ảnh synthetic là Auth smoke Production.
+6. Guard đúngC20-test55322/sáu counts0, artifact/secret/diff PASS, bảo toàn thay đổi có sẵn
+   và C75 generated baseline. Cập nhật context/roadmap cùng thay đổi, chỉ COMPLETED khi gate
+   đạt; đặt checkpoint tiếp theo AWAITING_APPROVAL nếu cần rồi dừng, không tự phát hành.
+
+Kết quả C90 ngày06/10: runtime chỉ globals.css; F1 nowrap/scopewrapper/adaptivewide và F2
+fullwidth/basisauto/tab14px/target48px.40actual/50stress/10privacy-keyboard-Back journeys
+sau sửa0fail, text90rows khớp trước/sau; before60fail giữ. Max/signed chỉ trình bày thực,
+không ledger.28PNG review; Evon2/14fixed/55sweep rawP0/36warnings ngoàiP reconciled,
+không G1–G4/focus/picker removal. Lint/typecheck/unit117/build19 và targeted24PASS/0FAIL/
+0SKIP/retries0/7.5m đạt. Final2 retained23PASS/1FAIL8.0m: C63 box lấy trước async
+settlement-preview, sai hit target; bổ sung readiness assertion, không đổi runtime/assertions/
+timeout/retries. Final3 sạch; prior setup/JSX harness failures giữ riêng. Guard55322 sixcounts0,
+117runtime/C89harness/92artifacts/17C75 bảo toàn,15generated restored. Artifact/secret/diff/
+native-review đạt theo docs/remediation-c90/validation.json; AT/device/remote/OS/PWA trước
+HTML giữNOT_TESTED. C90COMPLETED, C91AWAITING_APPROVAL; không commit/push/deploy.
+
+## 49. Checkpoint C91 — Đang thực hiện
+
+**C91 — Đồng bộ và phát hành bản sửa C90 lên Preview/Production.**
+Trạng thái: `IN_PROGRESS`. OWNER phê duyệt C91 và bản vá riêng source-map-js1.2.2/
+sharp0.35.5 ngày07/10/2026. Giữ lịch sử auditFAIL; tiếp tục kiểm lại đầy đủ gate.
+
+Phạm vi khi phê duyệt:
+
+- Bảo toàn local audit/harness/docs C89 và source/regression/docs C90. Kiểm scope/diff/
+  secret/upload guard, commit/push fast-forward; xác minh Required CI đúng source SHA,
+  mọi job thành công. Dùng GitHub hiện hữu, không thay gói/branch protection/account.
+- Chạy gate hiện hữu áp dụng: diff/lint/typecheck/unit/build/fullE2E; pgTAP/Auth theo CI.
+  Không giảm assertions/retries/skips; giữ failure evidence và readiness fix C63.
+- Preview chỉ root `pnpm deploy:preview` theo AGENTS§4.1/runbook; immutable candidate đúng
+  project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target Preview/Ready/Functions sin1.
+  Public+authenticated smoke trước stable alias; kiểm lại alias/runtime logs sau chuyển.
+- Native Auth smoke dashboard/loan list/detail/expenses/notifications/settings/counterparties,
+  Light/Dark tại375/390/768/1024/1440 khi state khả dụng. F1/F2 glyph/₫/tab/keyboard/Back,
+  brand B/font/KPI-order/privacy/theme/query/loading/drawer mở–đóng không submit.
+  Không đưa max/negative vào ledger dùng chung; state thiếu ghi NOT_TESTED và local bổ trợ.
+  OWNER tự login hostname thiếu phiên, không xin lại phê duyệt checkpoint cho mỗi smoke.
+- Candidate Production cùng source theo luồng root; public/Auth/provenance/log gate trước
+  promote. Hậu kiểm tindung.vercel.app/default alias; giữ và xác minh rollback tốt C88
+  cho Preview/Production trước chuyển, thực hiện rollback nếu hậu kiểm thất bại.
+- Inventory upload metadata/provenance: không cache/backup/dump/secret/test artifacts;
+  không tải nội dung secret/dump. Preference browser restore, ảnh/tên/amount/IDs/cookie
+  thật chỉ cache ignored nếu cần, không Git. Ghi SHA/ID/URL/alias/target/region/log/smoke.
+- Chốt docs bằng commit/push, Required CI đúng closing SHA phải SUCCESS trước báo hoàn tất.
+  Đặt checkpoint kế tiếp AWAITING_APPROVAL và dừng. Không tự triển khai G1–G4.
+- Không schema/migration/RPC/credential/session/account/finance/mark-read/push permission/
+  Google/backup mutation, resource cleanup hay dữ liệu QA remote. Fixture/reset/teardown
+  chỉ C20-test55322 với guard và sixcounts0; C75/C89 source/artifacts bảo toàn.
+
+Acceptance criteria:
+
+1. Local/GitHub đúng source và closing SHA, Required CI của mỗiSHA SUCCESS mọi job;
+   gate local đạt, giữ log lỗi/rerun và không thay gate để phát hành.
+2. Preview root pipeline candidate đúngproject/target/sin1/Ready, public/Auth/glyph/tab/
+   keyboard/privacy/B smoke đạt trước chuyển; stable alias+runtime hậu kiểm đạt.
+3. Production candidate+aliases public/Auth/provenance/log đạt, không app runtimeerror/
+   HTTP500 liên quan trong smoke; rollback C88 đã xác minh và có thể áp dụng nếu cần.
+4. Remote state/device thiếu được ghi rõ, không coi local ảnh/zerooverflow là chứng nhận
+   remote glyph/AT/save. Không mutate nghiệp vụ/dữ liệu thật để nghiệm thu UI.
+5. Context/roadmap/report cùng cập nhật, upload/secret/diff/DB0 và preservation đạt,
+   C91 chỉCOMPLETED khi exact closing CI/smoke đạt; checkpoint kế tiếp chờ duyệt rồi dừng.
+
+Kết quả local C91 ngày07/10: lint/typecheck/unit117/build19/policy/actionlint/diff/secret
+PASS; fullE2E64PASS/18opt-inSKIP12.9m,retries0/fail0. GuardC20-test55322/sáu counts0,
+274hasheskhớp/17C75preserved/15generatedrestored. Freshrollback C88 Ready/đúngproject/team/
+43routeFunctions sin1/public4/4 mỗialias. AuditFAIL2HIGH; cần source-map-js1.2.2/sharp0.35.5
+đã được OWNER duyệt07/10 và áp scopedoverride/lock; frozeninstall/audit/nativecompat PASS.
+PostpatchfullE2E đangchạy, source/CI/deploy/promote/Authsmoke đangchờ.
+bảnmới; khôngCOMPLETED, C92NOT_STARTED. Report/evidence ởdocs/release-c91/.
+
+## 50. Chuỗi cải thiện UI/UX sau C91 — Kế hoạch đã thống nhất
+
+Ngày06/10/2026 OWNER đồng ý đánh giá và trình tự cải thiện, yêu cầu dọn tài liệu để bắt đầu
+trong cuộc trò chuyện mới. Đây là sự thống nhất kế hoạch; chưa thực hiện hoặc tự đánh dấu
+APPROVED toàn bộ checkpoint. C91 giữ đúng phạm vi phát hành C90, không tái sử dụng sốC91
+cho Design System. Chuỗi dưới là kế hoạch tương lai, chỉ thực hiện khi checkpoint tương ứng
+được duyệt rõ. Sau C91 hoàn tất đặt C92 AWAITING_APPROVAL; các mốc sau theo AGENTS§3.
+
+Điều kiện chung:
+
+- Chốt hình đích bằng render có dữ liệu giả, không dùng giảm số dòng CSS/thêm animation làm
+  thước đo đẹp. Giữ B/brand/status và KPI trước công việc trừ thay đổi OWNER chọn rõ.
+- Không đổi nghiệp vụ authoritative/schema/RPC/Auth/accounts/secrets/Google/backup hoặc
+  dữ liệu dùng chung. Chỉ fixture C20-test có guard; không ghi max/signed trái validation vào SQL.
+- Mỗi mốc local có report/before-after/hồi quy phù hợp, source/artifact preservation,
+  secret/diff và DB teardown; không giảm assertions/retries/skips. Update context/roadmap
+  cùng thay đổi. Gate hiện hữu; không phát hành các mốc local này trước checkpoint riêng.
+- WCAG2.2AA là mục tiêu; không gọi riêng contrast PASS là toàn bộ WCAG PASS. Phạm vi routes/
+  states/browsers/devices được ghi rõ. AT/mobile thật/remote states thiếu là NOT_TESTED.
+- Khi tool/skill không có, ghi giới hạn; không yêu cầu OWNER học VoiceOver hoặc dùng local
+  matrix để hứa60fps mọithiết bị/zeroCLS toànapp/nhanhgấp3 không có baseline.
+
+### C92 — Thiết kế đích và baseline trải nghiệm
+
+Trạng thái: `NOT_STARTED`. Phụ thuộc C91 hoàn tất và OWNER duyệt C92.
+
+Phạm vi: dùng Evon ui-ux, audit stack/primitives/token trước; brief tác vụ Dashboard/detail/
+drawer/bảng,2–3 hướng thiết kế trước/sau mobile/desktop Light/Dark. G1–G4 và Quick Amount/
+inline Dashboard drawer được xem trong ngữ cảnh, không tự chọn tất cả. Loading đã có shimmer,
+quick task đã mộtclick→detail auto-open; cải tiến cần nói chính xác khác biệt mong muốn.
+Không sửa runtime, thêm hành vi sản phẩm hoặc deploy.
+
+Acceptance criteria:
+
+1. Có baseline theo cùng fixture/theme/viewport, đếm click/nhập/scroll và lỗi đọc dữ liệu,
+   phân biệt bằng chứng thực với đề xuất/Gu. Có mẫu render đúng brand/status/KPI-order.
+2. OWNER chọn thiết kế đích; ghi tokens/typography/density/empty/loading/focus và phạm vi
+   thay đổi được chọn. Cần review mẫu, không chỉ duyệt khẩu hiệu “hiện đại/Fintech”.
+3. Mục tiêu đo có tác vụ/state/viewport-height/thiết bị rõ: hit target44px+, body/input16,
+   helper thường14/ngoại lệ≥12; đủ VND; reflow/zoom. Mốc sau bám mẫu đã chọn, chưa triển khai.
+
+### C93 — Refactor tokens/CSS/primitives giữ hình
+
+Trạng thái: `NOT_STARTED`. Phụ thuộc C92, OWNER duyệt C93.
+
+Phạm vi: palette gốc→semantic→component tokens, Light/Dark/System; hợp nhất rule trùng và
+specificity/override, tách CSS đặc thù module có thứ tự rõ. Được giữ hex ở định nghĩa palette
+và tài sản logo có ngoại lệ đã ghi; UI consumption dùng semantic tokens. Không đổi màu B,
+đổi font hoặc thay layout bằng “refactor”. EmptyState/ResponsiveTable chỉ trích abstraction
+có consumer thực, không tạo library lớn không dùng. Badge/Card/Button tái dùng nguyên trạng;
+variant visual mới thuộc thiết kế C92/C94, không âm thầm áp toànapp.
+
+Acceptance criteria:
+
+1. Before/after rendered/computed styles và interactions trong matrix đã chọn giữ hình;
+   không lộ tiền/privacy, không mất focus/keyboard/URL/draft/loading, không CSS import-order lỗi.
+2. Có inventory tokens/overrides/consumer, rule trùng được gỡ với bằng chứng; semantic color
+   consumption và ngoại lệ explicit. Báo số dòng/raw/gzip sau refactor, không ép<900/giảm50%.
+3. Lint/typecheck/unit/build/fullE2E phù hợp PASS; các C63/C67/C72/C75/C78/C81/C84/C87/C90
+   áp dụng vẫn đạt, không hạ assertions. Giá trị empty/search-empty/unread-empty/error giữ khác.
+
+### C94 — Đọc dữ liệu mobile, typography và tên dài
+
+Trạng thái: `NOT_STARTED`. Phụ thuộc C93, OWNER duyệt C94 và các lựa chọn C92.
+
+Phạm vi: G2 nhãn phụ≥12–14px theo vai trò; G4 hover khác selected vẫn có aria-current;
+G1 bảng Dòng tiền/Đối tác dashboard giữ nhận diện dòng khi cuộn (chọn ghim cột hoặc cards
+cho từng bảng); G3 tên200ký tự có disclosure toàn bộ khi cần, không cắt accessible identity.
+Không suy mọi bảng thành card, không đổi số/đơn vị hoặc loại số0/tên/dữ liệu khỏi sản phẩm.
+
+Acceptance criteria:
+
+1. Actual painted text đủ cỡ theo C92 tại routes/states thuộc phạm vi; không chỉ grepCSS.
+   Hover/selected/focus rõ, tên đầy đủ đọc bằng keyboard/AT semantics/expand; privacy vẫn ẩn.
+2. Tables cùng dữ liệu/nhãn/sort/count trước–sau; mobile cuộn không mất ghép tên→giá trị;
+   cards nếu chọn giữ headers/units/grouping, không expose duplicate accessible content.
+3. 375/390/768/1024/1440 ×LightDark +reflow320/text200%/viewportthấp được đo. Không clipping
+   VND/page overflow ngoài scroller đã định nghĩa; không ép header≤25% mọi viewport/zoom.
+   Gate hiện hữu phù hợp đạt, source before/after/matrix và chọn OWNER có bằng chứng.
+
+### C95 — Quick Amount cho VndInput
+
+Trạng thái: `NOT_STARTED`. Phụ thuộc C94, OWNER duyệt C95/mẫu chip C92.
+
+Phạm vi: chip tùy context field, số lượng/giá trị sau review; chọn vị trí trong webform thuận
+bàn phím, không hứa chèn vào toolbar bàn phím native mọibrowser. Cộng chuỗi integer/BigInt
+đúng giới hạn; gõ tay/cursor/default/clear/reset/error/pending và callback giữ chuẩn. Không
+frontend tính lãi hoặc quyết toán, không autosubmit. Không áp mặc định chip vào mọi input.
+
+Acceptance criteria:
+
+1. Từ ôtrống nhập10.000.000VND không quá2chipactions theo mẫu chọn; ghi số lần và baseline,
+   không suy nhanhgấp3 mọingười. Text hiển thị/normalized submit value trùng chính xác.
+2. Kiểm giá trị0/ordinary/17digit/max/chạm trần; không Number gây mất số, vượt trần bị chặn
+   có thông báo. Paste/edit/invalid/clear/formreset/onValueChange khớp; chip typebutton.
+3. Keyboard/focus/dirty/pending protection/hit target44px+, viewport bàn phím giả và fixture
+   submit/idempotency/error/reset regression đạt. Phone thật không có giữ NOT_TESTED.
+
+### C96 — Drawer thu/trả lãi ngay Dashboard
+
+Trạng thái: `NOT_STARTED`. Phụ thuộc C95, OWNER duyệt C96.
+
+Phạm vi: tránh transition qua trangdetail cho interesttask bằng drawer ngay Dashboard;
+tái dùng lifecycle/payment primitives hiện có. Không tải/render form cho tất cả task vô
+điều kiện. Nhận diện khoản/cho vay–đi vay/amount authoritative, permission/privacy guard,
+request/cancel/stale/draft/history/focus, save→revalidate KPI/task từserver và idempotency.
+Khoản gốcquáhạn/taskcustom xử lý theo semantics đã chọn, không coi mọi task là thu lãi.
+
+Acceptance criteria:
+
+1. 1click taskinterest mở đúng loan/direction/context trong drawer Dashboard; deep-link cũ
+   và quyền VIEWER/privacy boundary vẫn đúng. Không số liệu nhạy cảm ở DOM/accessibility khiẩn.
+2. Submit trên fixture local đúng1RPC/transaction, error giữdraft/pendingkhôngclose,
+   success close/reset/toast/focus về trigger hoặc mục hợp lý khi task đãbiếnmất; KPI/task
+   đọc lại authoritative, không optimistic settle money. Partial/overpayment/stale preview
+   theo validation hiện hành; không copy snapshot balance làm quyết toán mới.
+3. Draft/cancel/BackForward/mởlại/rapidclick/timeout/retry và budget datafetch/bundle đo so
+   baseline; đủ fullE2E relevantfinancial/Authboundary. Không QAdata remote hoặc redesign ngoài mẫu.
+
+### C97 — Loading theo màn và motion có chọn lọc
+
+Trạng thái: `NOT_STARTED`. Phụ thuộc C96, OWNER duyệt C97/mẫu chuyển động C92.
+
+Phạm vi: cải thiện skeleton từng route/KPI/table/chart dựa trên shimmer đã tồn tại, streamed
+Auth/SPA/cancel/error feedback; BottomSheet damping/snapback/backdrop chỉ theo mẫu được
+chọn và không phá dirty/pending/focus. Press feedback chỉ control cần, không scale toànapp;
+visual feedback không gọi haptic thật. Details animation giữ native semantics/keyboard/hidden.
+
+Acceptance criteria:
+
+1. Controlled-delay/cached/uncached/abort/slowerror và fontloading: feedback đúngtheme,
+   không overlaykẹt/scrollfocusnhảy ngoàiý; loading→content cùng vùng đã đo và budget C92.
+   Không hứa loading trướcHTML hoặc zeroCLS mọi mạng/PWA.
+2. Drawer drag/snapback/dismiss giữ4prompts/draft/pending/focus/capturecancel; có nút/Escape
+   tương đương. Reduced-motion tắt animation decoration/spring/shimmer nhưng vẫn có status.
+3. Nếu cam kết60fps phải có device/browser/trace/window/budget frame cụ thể; không có
+   thiết bị thì ghi NOT_TESTED và đo mô phỏng riêng. Không giảm assertions để vượt gate.
+
+### C98 — Nghiệm thu tổng hợp và phát hành
+
+Trạng thái: `NOT_STARTED`. Phụ thuộc C97, OWNER duyệt C98/phạm vi release cụ thể lúc đó.
+
+Phạm vi: full lint/typecheck/unit/build/E2E; visual+functional matrix5khổ×2theme, System/
+zoom320/200%/viewportlow/name200/boundaryVND/emptyerrorloading/keyboard/privacy và contrast
+AA. Ghi rawfailures/NOT_TESTED. Release theo C91/runbook với Required CI source/closing đúng
+SHA, immutablecandidate/publicAuth smoke, Functions sin1, alias hậukiểm/runtime và rollback.
+Không coi Ready hoặc 10 screenshot là chứng nhận toàn bộ UX/AT/Production.
+
+Acceptance criteria:
+
+1. Mọi gate bắt buộc PASS, không giảm assertion/retry/skip; ma trận khai báo có kết quả,
+   selecteddesign khớp; text4.5:1/large3:1 theo AA và focus/nontext applicable. Không gắn
+   nhãn AAA toànapp chỉ do vài màu7:1; không bảng/gesture inaccessible để đạt tiêu chí hình.
+2. Measured layoutshift/interaction budgets trong điều kiện C92/C97 đạt; đầy đủ số/units/
+   semantic/privacy; headless không thay AT/device/remote chứng nhận. Secret/uploadguard PASS.
+3. ExactSHA CI SUCCESS trước release; candidate/aliases/runtime hậukiểm đạt và rollback
+   xác minh; context/roadmap/report cậpnhật IDs/URLs/region/source/closing và kếtiếp chờduyệt.
+   Không mutate financialdata/account/schema/secrets/Google/backup để smoke UX.

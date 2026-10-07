@@ -1,0 +1,31 @@
+{
+  "guard": "Docker label QuanLyVayCaNhan-C20-test and host port55322 verified before SQL/restoration",
+  "sixCounts": {
+    "profiles": 0,
+    "loans": 0,
+    "transactions": 0,
+    "counterparties": 0,
+    "notifications": 0,
+    "authUsers": 0
+  },
+  "runtimeSourceFilesUnchanged": 118,
+  "c75FilesUnchanged": 17,
+  "c75GeneratedRestored": [
+    "docs/remediation-c75/dashboard-1440-dark.png",
+    "docs/remediation-c75/dashboard-1440-light.png",
+    "docs/remediation-c75/dashboard-375-dark.png",
+    "docs/remediation-c75/dashboard-375-light.png",
+    "docs/remediation-c75/dashboard-390-dark.png",
+    "docs/remediation-c75/dashboard-390-light.png",
+    "docs/remediation-c75/evidence.json",
+    "docs/remediation-c75/notifications-1440-dark.png",
+    "docs/remediation-c75/notifications-1440-light.png",
+    "docs/remediation-c75/notifications-375-dark.png",
+    "docs/remediation-c75/notifications-375-light.png",
+    "docs/remediation-c75/notifications-390-dark.png",
+    "docs/remediation-c75/notifications-390-light.png",
+    "docs/remediation-c75/privacy-custom.png",
+    "docs/remediation-c75/privacy-generated.png"
+  ],
+  "scope": "Only exact captured C75 generated baseline restored; no broad reset"
+}

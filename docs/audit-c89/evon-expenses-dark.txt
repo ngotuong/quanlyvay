@@ -1,0 +1,200 @@
+(node:66243) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+# Probe: 33 nhóm lỗi đo được
+
+## 375px  (ảnh: .cache/c89/evon-expenses-dark/375-dark.png)
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  bấm "Thêm chi phí": ô date gốc trong dialog "Chi phí chungThêm chi phíNgày "
+CHỮ DƯỚI 12px (2 chỗ):
+  11.2px "(100%)": small "(100%)"
+  11.2px "(0%)": small "(0%)"
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Thêm chi phí": .cache/c89/evon-expenses-dark/375-dark-mo-0.png
+
+## 390px  (ảnh: .cache/c89/evon-expenses-dark/390-dark.png)
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  bấm "Thêm chi phí": ô date gốc trong dialog "Chi phí chungThêm chi phíNgày "
+CHỮ DƯỚI 12px (2 chỗ):
+  11.2px "(100%)": small "(100%)"
+  11.2px "(0%)": small "(0%)"
+(Đã bấm mở 1 lớp nổi, ảnh từng lớp — mở ra xem:)
+  "Thêm chi phí": .cache/c89/evon-expenses-dark/390-dark-mo-0.png
+
+## 768px  (ảnh: .cache/c89/evon-expenses-dark/768-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm chi phí": viền #93c5fd → #bfdbfe
+TAB TỚI CÒN VẼ VÒNG FOCUS (10 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Thêm chi phí"
+  a "Trang sau, phân trang đầu danh sách chi "
+  summary "Phân bổ danh mục chi phí"
+  summary "Đảo giao dịch"
+  a "Trang sau"
+  a "Tổng quan"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Chi phí chungThêm chi phíNgày " (đang ẩn)
+SELECT, Ô NGÀY GỐC TRÊN DESKTOP (6 ô; chế độ soi bỏ qua, wireframe và dựng lại thì thay bằng mẫu choice-controls.md):
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+CHỮ DƯỚI 12px (2 chỗ):
+  11.2px "(100%)": small "(100%)"
+  11.2px "(0%)": small "(0%)"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+
+## 1024px  (ảnh: .cache/c89/evon-expenses-dark/1024-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm chi phí": viền #93c5fd → #bfdbfe
+TAB TỚI CÒN VẼ VÒNG FOCUS (13 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Chi phí chungThêm chi phíNgày " (đang ẩn)
+SELECT, Ô NGÀY GỐC TRÊN DESKTOP (6 ô; chế độ soi bỏ qua, wireframe và dựng lại thì thay bằng mẫu choice-controls.md):
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+CHỮ DƯỚI 12px (2 chỗ):
+  11.2px "(100%)": small "(100%)"
+  11.2px "(0%)": small "(0%)"
+CHỮ TRONG NÚT / LINK / TAB XUỐNG DÒNG (8 chỗ, nút bị bóp):
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1280px  (ảnh: .cache/c89/evon-expenses-dark/1280-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm chi phí": viền #93c5fd → #bfdbfe
+TAB TỚI CÒN VẼ VÒNG FOCUS (13 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Chi phí chungThêm chi phíNgày " (đang ẩn)
+SELECT, Ô NGÀY GỐC TRÊN DESKTOP (6 ô; chế độ soi bỏ qua, wireframe và dựng lại thì thay bằng mẫu choice-controls.md):
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+CHỮ DƯỚI 12px (2 chỗ):
+  11.2px "(100%)": small "(100%)"
+  11.2px "(0%)": small "(0%)"
+CHỮ TRONG NÚT / LINK / TAB XUỐNG DÒNG (8 chỗ, nút bị bóp):
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1440px  (ảnh: .cache/c89/evon-expenses-dark/1440-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm chi phí": viền #93c5fd → #bfdbfe
+TAB TỚI CÒN VẼ VÒNG FOCUS (13 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Chi phí chungThêm chi phíNgày " (đang ẩn)
+SELECT, Ô NGÀY GỐC TRÊN DESKTOP (6 ô; chế độ soi bỏ qua, wireframe và dựng lại thì thay bằng mẫu choice-controls.md):
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+CHỮ DƯỚI 12px (2 chỗ):
+  11.2px "(100%)": small "(100%)"
+  11.2px "(0%)": small "(0%)"
+CHỮ TRONG NÚT / LINK / TAB XUỐNG DÒNG (8 chỗ, nút bị bóp):
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+## 1920px  (ảnh: .cache/c89/evon-expenses-dark/1920-dark.png)
+VIỀN ĐỔI MÀU LÚC RÊ (1 loại, skill chỉ đổi nền, xem button.md):
+  button "Thêm chi phí": viền #93c5fd → #bfdbfe
+TAB TỚI CÒN VẼ VÒNG FOCUS (13 chỗ, skill không vẽ vòng focus, I13):
+  a "Bỏ qua đến nội dung chính"
+  a "Quản Lý Vay Cá Nhân - Trang tổng quan"
+  a "Tổng quan"
+  a "Khoản vay"
+  a "Chi phí"
+  a "Nhật ký hệ thống"
+  button "Ẩn số tiền (Chế độ riêng tư)"
+  button "Đăng xuất"
+CONTROL GỐC TRONG LỚP NỔI (1 lớp: select, ô ngày, checkbox, thanh trượt…; chế độ soi: select, ô ngày gốc đã tô thì bỏ qua như trên trang; wireframe và dựng lại: dựng theo components/choice-controls.md, select gốc chỉ giữ khi lớp đó chỉ có trên mobile):
+  ô date gốc trong dialog "Chi phí chungThêm chi phíNgày " (đang ẩn)
+SELECT, Ô NGÀY GỐC TRÊN DESKTOP (6 ô; chế độ soi bỏ qua, wireframe và dựng lại thì thay bằng mẫu choice-controls.md):
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+  ô date gốc: input
+CHỮ DƯỚI 12px (2 chỗ):
+  11.2px "(100%)": small "(100%)"
+  11.2px "(0%)": small "(0%)"
+CHỮ TRONG NÚT / LINK / TAB XUỐNG DÒNG (8 chỗ, nút bị bóp):
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+  button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+(Đã thử rê, Tab, bấm 1 nhóm có mục đang chọn.)
+(Có 1 chỗ chữ bị cắt có dấu …: xem ảnh xem có chỗ nào cắt mất ý không.)
+
+Máy chỉ đo được lỗi đo được. Mở từng ảnh ra xem: thứ nặng nhất có đáng nặng không, việc chính của trang có thấy ngay không, chỗ nào chật dồn cục.
+
+# Việc phải đối chiếu: 1 mục probe xếp Hỏng
+Mỗi mục thành một dòng trong bảng giao (cột Nguồn ghi mã, ví dụ `đo P3`; cùng gốc thì gộp nhiều mã một dòng),
+hoặc một dòng dưới bảng nói vì sao loại. Không mục nào được biến mất im lặng (V5 trong review.md).
+P1 [1920px, 1440px, 1280px, 1024px] chữ trong nút xuống dòng: button.ui-button.ui-button--danger.danger-button "Xác nhận đảo"
+
+Chi tiết: .cache/c89/evon-expenses-dark/report.json
