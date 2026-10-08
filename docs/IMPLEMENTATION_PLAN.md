@@ -66,8 +66,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C88 | Đồng bộ C86/C87 B, Required CI và rollout Preview/Production | `COMPLETED` |
 | C89 | Nghiệm thu trải nghiệm B sau C88 và chốt backlog UX | `COMPLETED` |
 | C90 | Sửa cách đọc VND và hàng tab chi tiết khoản vay theo C89 | `COMPLETED` |
-| C91 | Đồng bộ và phát hành bản sửa C90 lên Preview/Production | `IN_PROGRESS` |
-| C92 | Chốt thiết kế đích UI/UX và cách đo nghiệm thu | `NOT_STARTED` |
+| C91 | Đồng bộ và phát hành bản sửa C90 lên Preview/Production | `COMPLETED` |
+| C92 | Chốt thiết kế đích UI/UX và cách đo nghiệm thu | `AWAITING_APPROVAL` |
 | C93 | Chuẩn hóa tokens/CSS và UI primitives, giữ hình đã duyệt | `NOT_STARTED` |
 | C94 | Khả năng đọc, bảng mobile và tên dài theo thiết kế đích | `NOT_STARTED` |
 | C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `NOT_STARTED` |
@@ -2149,11 +2149,11 @@ timeout/retries. Final3 sạch; prior setup/JSX harness failures giữ riêng. G
 native-review đạt theo docs/remediation-c90/validation.json; AT/device/remote/OS/PWA trước
 HTML giữNOT_TESTED. C90COMPLETED, C91AWAITING_APPROVAL; không commit/push/deploy.
 
-## 49. Checkpoint C91 — Đang thực hiện
+## 49. Checkpoint C91 — Đã hoàn tất
 
 **C91 — Đồng bộ và phát hành bản sửa C90 lên Preview/Production.**
-Trạng thái: `IN_PROGRESS`, OWNER đã login cảhai. OWNER phê duyệt C91 và bản vá riêng source-map-js1.2.2/
-sharp0.35.5 ngày07/10/2026. Giữ lịch sử auditFAIL; tiếp tục kiểm lại đầy đủ gate.
+Trạng thái: `COMPLETED`, OWNER đã login cả hai. OWNER phê duyệt C91 và bản vá riêng source-map-js1.2.2/
+sharp0.35.5 ngày07/10/2026. Các gate đã kiểm đầy đủ; lịch sử auditFAIL được giữ.
 
 Phạm vi khi phê duyệt:
 
@@ -2195,26 +2195,18 @@ Acceptance criteria:
 5. Context/roadmap/report cùng cập nhật, upload/secret/diff/DB0 và preservation đạt,
    C91 chỉCOMPLETED khi exact closing CI/smoke đạt; checkpoint kế tiếp chờ duyệt rồi dừng.
 
-Kết quả ngày07/10: postpatchlocal lint/typecheck/unit117/build19/policy/actionlint/diff/audit/
-secret/nativecompat PASS, fullE2E64PASS18opt-inSKIP12.9m/778.1s,retries0/fail0. Guard55322
-sixcounts0/17C75exact/15generatedrestored;273baselinefilesexact,proposal.css chỉ terminal
-whitespace normalize có originalignoredbytes/exceptionproof. Source `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`
-commit/pushfastforward, RequiredCI37644195261 SUCCESS5jobs:pgTAP527/Auth6/E2E63PASS19SKIP.
-Root Preview gate64/18/11.8m PASS, hai candidateReady cùngsource:Preview dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV,
-Production dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu.43Functions sin1/exactproject-team/157UID/public4/4/
-preautherror0/HTTP5000 từngcandidate. OWNER đãlogin;nativeAuth140unique/32finalchecks/glyph/tab/
-B/Inter/KPI/keyboard/Back/privacy/drawerPASS,console5tabs0/runtimeAuth0/HTTP5000.System/privacy
-restore/viewportreset,no submits. Helper failures retained/disposition vàremote thiếu ghi rõ.
-RootPreviewresumePASS64/18/aliasC91;Productionpromoteexit0/tindung-defaultC91. Hậu kiểm3aliases54Authsamples/public4/4/runtime0/console0/B/Inter/glyph/tabPASS,preferenceSystemrestore đúngbanđầu. Cònclosingproof/finalstatus exactCI.
-AuditFAIL2HIGH trướcpatch giữ rõ; scopedoverride doOWNERduyệt đã giải quyết audit0known.
-C91 IN_PROGRESS sau OWNERlogin cảhai, khôngCOMPLETED; C92NOT_STARTED.
-Source runtime ed72b86; rollout/postcheck đã PASS, chờ exactclosingproof/finalstatus CI. Report/evidence ởdocs/release-c91/.
-
-C91 closing CI37659616241/705b6da attempt1 FAIL tại C87 delayed interceptor;
-62PASS/19SKIP/1FAIL20.9m, pgTAP527/Auth6 PASS. Race tái hiện synthetic transport;
-remediation harness drain-before-unroute giữ toàn bộ assertion/retry/skip/timeout.
-Candidate runtime giữ nguyên. Targeted3/3PASS4.3m/lint/typecheck/fullE2E64PASS18SKIP11.5m
-PASS, retries0/fail0; C91 vẫn IN_PROGRESS chờ exactCI mới.
+Kết quả C91 ngày 08/10/2026: runtime source ed72b86 có Required CI37644195261 thành công
+cả 5 job. Closing proof `839d34b348e7dd435688365435cc0336bfcb4eb0` có [Required CI](https://github.com/ngotuong/quanlyvay/actions/runs/37803762628) thành công cả 5 job:
+pgTAP527/Auth6/E2E63 đạt/19 bỏ qua. Local gates đạt;
+C87 race tái hiện và đã sửa vòng đời interception, targeted3/3 và fullE2E64/18/11,5 phút đạt.
+Không đổi assertion/timeout/retry/skip; test excluded khỏi deployment, runtime giữ nguyên.
+Preview dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV và Production dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu
+đã phát hành đúng project/team/target/sin1/Ready. Native140/32 và alias54/12/public4/4 đạt.
+Rollback C88 đã xác minh, không cần kích hoạt; preferences, C75, baseline và DB0 bảo toàn.
+Lượt CI chốt đầu FAIL và lỗi database query_canceled57014 ngày tiếp tục được giữ trong report.
+Dashboard đã hồi phục, khoảng runtime hậu kiểm mới sạch; chưa khẳng định sửa nguyên nhân DB.
+Final status exactCI phải đạt trước thông báo hoàn tất. C92 AWAITING_APPROVAL, chưa triển khai.
+Bằng chứng: docs/release-c91/.
 
 ## 50. Chuỗi cải thiện UI/UX sau C91 — Kế hoạch đã thống nhất
 
@@ -2240,7 +2232,7 @@ cho Design System. Chuỗi dưới là kế hoạch tương lai, chỉ thực hi
 
 ### C92 — Thiết kế đích và baseline trải nghiệm
 
-Trạng thái: `NOT_STARTED`. Phụ thuộc C91 hoàn tất và OWNER duyệt C92.
+Trạng thái: `AWAITING_APPROVAL`. C91 đã hoàn tất; chờ OWNER duyệt C92.
 
 Phạm vi: dùng Evon ui-ux, audit stack/primitives/token trước; brief tác vụ Dashboard/detail/
 drawer/bảng,2–3 hướng thiết kế trước/sau mobile/desktop Light/Dark. G1–G4 và Quick Amount/

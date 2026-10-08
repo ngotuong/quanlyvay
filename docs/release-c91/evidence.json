@@ -1,6 +1,6 @@
 {
   "checkpoint": "C91",
-  "status": "IN_PROGRESS",
+  "status": "COMPLETED",
   "authorizedOn": "2026-10-07",
   "initialHead": "b98fe64d332ea31ffee2b2e3adebc5ec7756744a",
   "baselineRollback": [
@@ -702,7 +702,7 @@
         "cliExit": 0,
         "method": "Runtime CLI, counts only, no private log messages retained"
       },
-      "authenticatedSmoke": "PASS native70samples+interaction/log gate",
+      "authenticatedSmoke": "PASS native70samples+interaction/log",
       "nativeSessionCheck": {
         "phase": "Before OWNER self login",
         "observation": "/dashboard redirected to /login; empty sign-in form",
@@ -804,7 +804,7 @@
         "cliExit": 0,
         "method": "Runtime CLI, counts only, no private log messages retained"
       },
-      "authenticatedSmoke": "PASS native70samples+interaction/log gate",
+      "authenticatedSmoke": "PASS native70samples+interaction/log",
       "nativeSessionCheck": {
         "phase": "Before OWNER self login",
         "observation": "/dashboard redirected to /login; empty sign-in form",
@@ -863,8 +863,50 @@
     ]
   },
   "closingCI": {
-    "status": "PENDING_EXACT_CLOSING_PROOF_SHA",
-    "rule": "Require all5SUCCESS exact closingproof SHA before final transition; exact finalstatus CI before completion message"
+    "sha": "839d34b348e7dd435688365435cc0336bfcb4eb0",
+    "run": "https://github.com/ngotuong/quanlyvay/actions/runs/37803762628",
+    "attempt": 1,
+    "status": "SUCCESS",
+    "jobs": [
+      {
+        "name": "Quality and build",
+        "conclusion": "success"
+      },
+      {
+        "name": "Dependency and secret scan",
+        "conclusion": "success"
+      },
+      {
+        "name": "Supabase Auth pgTAP and E2E",
+        "conclusion": "success"
+      },
+      {
+        "name": "Workflow policy",
+        "conclusion": "success"
+      },
+      {
+        "name": "Required CI gate",
+        "conclusion": "success"
+      }
+    ],
+    "counts": {
+      "method": "Exact-SHA CI integration log parsed in memory; raw logs not retained",
+      "sha": "839d34b348e7dd435688365435cc0336bfcb4eb0",
+      "run": 37803762628,
+      "e2e": {
+        "pass": 63,
+        "skip": 19,
+        "duration": "20.0m"
+      },
+      "pgTAP": {
+        "files": 24,
+        "tests": 527
+      },
+      "auth": {
+        "pass": 6,
+        "fail": 0
+      }
+    }
   },
   "blocker": null,
   "updatedDocsSecretScan": {
@@ -872,10 +914,7 @@
     "exit": 0,
     "findings": 0
   },
-  "remaining": [
-    "Exact closingproof RequiredCI of C87 remediation commit",
-    "Final-status exactSHA RequiredCI"
-  ],
+  "remaining": [],
   "candidateAuthRuntime": {
     "preview": {
       "phase": "preview-candidate-auth",
@@ -1170,7 +1209,9 @@
     "aliasPostcheckTabsClosed": 3,
     "ownerOriginalTabsKept": 2,
     "viewportReset": true,
-    "sessionLogoutOrRevocation": false
+    "sessionLogoutOrRevocation": false,
+    "deliveredProductionDashboard": true,
+    "deliveredPrivacyHidden": true
   },
   "closingLocalGates": {
     "jsonParse": "PASS",
@@ -1194,7 +1235,7 @@
     "scope": "C91 closing proof plus test-only C87 interception lifecycle remediation; runtime unchanged; targeted/full E2E and exact closing CI required",
     "policyActionlint": "PASS"
   },
-  "currentPhase": "C87 harness remediation locally validated; closing/finalstatus exactCI pending",
+  "currentPhase": "All release gates and exact closingproof CI PASS",
   "harnessPreparationFailure": {
     "phase": "Ignored closing writer preparation",
     "reason": "Nested triple-quote syntax error; no files written/deployment actions in failed helper; explicit heredoc script compiled and ran after gates"
@@ -1351,5 +1392,49 @@
       "status": "READY",
       "target": "production"
     }
-  ]
+  ],
+  "closingAfterPushAliases": [
+    {
+      "label": "preview",
+      "deploymentId": "dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV",
+      "target": "preview",
+      "readyState": "READY"
+    },
+    {
+      "label": "production",
+      "deploymentId": "dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu",
+      "target": "production",
+      "readyState": "READY"
+    },
+    {
+      "label": "default",
+      "deploymentId": "dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu",
+      "target": "production",
+      "readyState": "READY"
+    }
+  ],
+  "closingPayloadEquivalence": {
+    "sha": "839d34b348e7dd435688365435cc0336bfcb4eb0",
+    "runtimeSource": "ed72b8615e19f2a3e6667014c86da4ac920ed1ba",
+    "matchedPayloadFiles": 157,
+    "sha1Match": true,
+    "c87TestExcluded": true,
+    "docsExcluded": true,
+    "method": "Local content SHA1 compared with existing dry packaging metadata and candidate UID proof; no remote bodies fetched"
+  },
+  "completedOn": "2026-10-08",
+  "closingHistorySecretScan": {
+    "sha": "839d34b348e7dd435688365435cc0336bfcb4eb0",
+    "commits": 165,
+    "pinnedGitleaks": "8.30.1",
+    "findings": 0,
+    "exit": 0
+  },
+  "nextCheckpoint": {
+    "id": "C92",
+    "status": "AWAITING_APPROVAL",
+    "scope": "Chốt thiết kế đích; không triển khai khi chưa OWNER duyệt"
+  },
+  "finalStatusCIRule": "Verify RequiredCI of exact finalstatus SHA all5SUCCESS before final completion message; actualSHA/run reported in conversation to avoid self-referential commit loop.",
+  "finalDocPreparationNote": "Final writer initially left extra EOF blank line in PROJECT_CONTEXT; diffCheck caught it, normalized to one terminal newline before final commit. No runtime change."
 }

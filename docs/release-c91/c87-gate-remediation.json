@@ -1,5 +1,5 @@
 {
-  "status": "LOCAL_PASS_AWAITING_EXACT_CI",
+  "status": "COMPLETED",
   "failedCI": {
     "run": "https://github.com/ngotuong/quanlyvay/actions/runs/37659616241",
     "sha": "705b6dad941cd95b3e8ab16b6d1643682e413b23",
@@ -72,5 +72,10 @@
     "duration": "11.5m"
   },
   "deploymentPayload": "/apps/web/test/ excluded by .vercelignore; 157 source UID and deployed runtime unchanged",
-  "rawSyntheticLogs": "Ignored .cache/c91/, no private production data"
+  "rawSyntheticLogs": "Ignored .cache/c91/, no private production data",
+  "closingCI": {
+    "sha": "839d34b348e7dd435688365435cc0336bfcb4eb0",
+    "run": "https://github.com/ngotuong/quanlyvay/actions/runs/37803762628",
+    "status": "SUCCESS"
+  }
 }

@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.309
+roadmap_version: 1.0.310
 last_updated: 2026-10-08
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C91
-current_status: IN_PROGRESS
-last_completed_checkpoint: C90
-next_checkpoint: C91
+current_checkpoint: C92
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C91
+next_checkpoint: C92
 ---
 
 # Project Context
@@ -19,58 +19,58 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 1. Trạng thái và công việc kế tiếp
 
-- C90 `COMPLETED` local; source/artifacts C89/C90 đã commit/push trong C91.
-  Preview/Production/default aliases đã phát hành C90 trong C91 và hậu kiểm đạt.
-- C91 `IN_PROGRESS`, OWNER đã login cảhai candidate: OWNER phê duyệt checkpoint và scope riêng source-map-js1.2.2/sharp0.35.5
-  ngày07/10. Source `ed72b8615e19f2a3e6667014c86da4ac920ed1ba` đã push fast-forward.
-  Frozeninstall/audit/policy/actionlint/lint/typecheck/unit117/build19/nativecompat PASS.
-  PostpatchfullE2E64PASS18opt-inSKIP12.9m/778.1s, retries0/fail0; prepatch64/18/777.5s giữ rõ.
-  Required CI37644195261 SUCCESS5jobs exactSHA:pgTAP527/24files,Auth6/0,E2E63/19/17.8m.
-  GuardC20-test55322 verifiedlabel/port:sixcounts0;17C75 exact/15generated restored.
-  Preservation273files exact; proposal.css chỉ terminalwhitespace normalize, originalbytes
-  trongignoredcache và ngoại lệhash khai báo report. Không thay assertions/retries/skips.
-  Root Preview gate64PASS18SKIP11.8m đạt, đã tạo hai candidate cùngsource:
-  Preview dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV /
-  https://quan-ly-vay-ca-nhan-1ypbqdcn7-ngotuong2105.vercel.app;
-  Production dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu /
-  https://quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app, skip-domain.
-  Exactproject/team/target/Ready/43Functions sin1,157/157sourceUID/public4/4/runtimeerror0/
-  HTTP5000 từngcandidate. Metadata-only inventory forbidden0, không tải file/bundle bodies.
-  OWNER đã login cảhai, nativeAuth140unique/7routes/5widths/LightDark/glyph/tab/B/Inter/KPI
-  PASS,32finalkeyboard/Back/privacy/query/drawer/taskchecksPASS,console5tabs0/runtimeAuth0/HTTP5000.
-  System/privacyẩn restored/viewportreset; không input/submit/markread/permission/businessmutation.
-  Helperfailures vàstate thiếu ghi rõ ởauth-matrix/auth-interactions, không dùnglocal thayremote.
-  RootPreviewresume gatePASS và chuyểnstablePreview sang dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV.
-  Productionpromote exit0:tindung/default sang dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu.
-  Hậu kiểm3aliases54Authsamples/7routesLightDark/glyph/tab/B/Inter/KPI/public4/4/runtime0/
-  HTTP5000/console0 PASS. PreferencesSystem restore:Preview/Productionẩn/defaulthiệntiền.
-  C88rollbackfreshverified,khôngcầnkíchhoạt/cleanup. Khôngblocker; cònclosingproof/finalstatus
-  exactRequiredCI. SourceHEAD giữed72b86 đếnclosingcommit; runtime/artifacts bảo toàn.
-  Không dùng Ready thay authenticatedsmoke. C92NOT_STARTED.
-  AuditFAIL2HIGH trướcpatch được giữ; saupatch0knownvulnerabilities, không nớiallowlist.
-  Bằng chứng: docs/release-c91/report.md và evidence.json.
-- Chuỗi dự kiến sau C91: C92 thiết kế đích → C93 refactor token/CSS giữ hình → C94 khả năng
-  đọc/mobile → C95 nhập tiền nhanh → C96 drawer ngay Dashboard → C97 loading/motion →
-  C98 nghiệm thu/phát hành. C92–C98 `NOT_STARTED`; từng checkpoint vẫn phải được duyệt.
-- Không blocker C90. Các giới hạn kiểm chứng và lỗi harness trước đó được giữ trong report;
-  không gọi toàn bộ app flawless hoặc chứng nhận AT/thiết bị thật.
-- Agent mới đọc đầy đủ AGENTS/context, checkpoint liên quan và git status trước thao tác;
-  phê duyệt trong cuộc trò chuyện mới theo AGENTS§1/§3. Không tự chuyển checkpoint.
+- C91 `COMPLETED` ngày 08/10/2026. Bản sửa VND/tab C90 đã phát hành trên Preview,
+  Production và alias mặc định; không thay nghiệp vụ, dữ liệu thật hoặc schema/RPC.
+- Runtime source: `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`.
+  Required CI [37644195261](https://github.com/ngotuong/quanlyvay/actions/runs/37644195261)
+  thành công cả 5 job. Commit chốt `839d34b348e7dd435688365435cc0336bfcb4eb0` có [Required CI](https://github.com/ngotuong/quanlyvay/actions/runs/37803762628) thành công cả 5 job:
+  pgTAP 527/24 files, Auth 6/0, E2E 63 đạt/19 bỏ qua.
+  Commit trạng thái cuối chỉ sửa tài liệu; phải kiểm CI đúng SHA trước báo hoàn tất.
+  SHA/run cuối được ghi trong hội thoại để tránh vòng commit tự tham chiếu.
+- Preview: `dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV`, target Preview, Ready, 43 Functions
+  tại `sin1`; [immutable URL](https://quan-ly-vay-ca-nhan-1ypbqdcn7-ngotuong2105.vercel.app),
+  [stable alias](https://tindung-preview.vercel.app). Pipeline tạo và resume chạy từ root
+  bằng `pnpm deploy:preview`; gate trước chuyển và hậu kiểm đạt.
+- Production: `dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu`, target Production, Ready,
+  43 Functions tại `sin1`; [immutable URL](https://quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app).
+  Candidate dùng skip-domain; promote exit 0. [Production](https://tindung.vercel.app) và
+  [alias mặc định](https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app) trỏ đúng deployment.
+- Lint/typecheck/unit 117/build 19/policy/actionlint/audit/secret/native compatibility đạt.
+  E2E sau dependency patch: 64 đạt/18 bỏ qua/12,9 phút; root Preview create 64/18/11,8 phút,
+  resume 64/18/12,1 phút. OWNER duyệt riêng source-map-js 1.2.2/sharp 0.35.5; libvips 1.3.4 theo Sharp;
+  audit ban đầu 2 HIGH được giữ, sau bản vá không còn known vulnerabilities.
+- CI chốt đầu 37659616241/705b6da thất bại do race C87 delayed RSC interception.
+  Synthetic transport tái hiện cùng lỗi. Test C87 đã sửa để đợi callback trước khi gỡ
+  bộ chặn: targeted 3/3 đạt/4,3 phút và full E2E 64 đạt/18 bỏ qua/11,5 phút, retries 0.
+  Giữ toàn bộ assertion/timeout/retry/skip; test bị loại khỏi payload Vercel, runtime không đổi.
+- Native trước chuyển: 140 mẫu/32 kiểm tra cuối đạt. Sau chuyển: 54 mẫu Auth trên ba alias,
+  12 kiểm tra interaction, public 4/4 mỗi alias, glyph/tab/B/Inter/KPI/keyboard/privacy đạt;
+  runtime/console của lượt rollout sạch. Preferences/viewport được trả về ban đầu.
+  Inventory 157 UID khớp, forbidden leaves 0. Giữ 274 effective baseline hashes (273 file
+  nguyên bản và ngoại lệ whitespace proposal.css), 17 file C75 đúng hash; sáu bảng C20-test
+  cổng 55322 rỗng. C88 rollback đã xác minh; không kích hoạt hoặc cleanup.
+- Hậu kiểm tiếp tục ngày 08/10 từng thấy Dashboard `query_canceled` 57014. Tải mới hồi phục;
+  khoảng log sau hồi phục không có error/HTTP 500. Nguyên nhân database chưa xác định,
+  giữ rủi ro tái diễn trong [continuation-health](docs/release-c91/continuation-health.json).
+  Không chỉnh schema/RPC/timeout. Giới hạn thiết bị, AT và remote state giữ rõ trong report.
+- C92 `AWAITING_APPROVAL`: chốt thiết kế đích trước sửa G1–G4. C93–C98 `NOT_STARTED`.
+  C91 không còn blocker. Không bắt đầu checkpoint tiếp theo khi chưa OWNER duyệt.
+  Bằng chứng: [report C91](docs/release-c91/report.md) và các JSON cùng thư mục.
 
 ## 2. Thay đổi local cần bảo toàn
 
 - Branch `main`, runtime source `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`;
-  closing proof gốc705b6da FAIL được giữ, harness C87 mới chờ exactCI.
+  closing proof gốc 705b6da FAIL được giữ; harness C87 đã đạt CI tại 839d34b348e7dd435688365435cc0336bfcb4eb0.
   Initialhandoff b98fe64d332ea31ffee2b2e3adebc5ec7756744a giữ trong report.
 - Đã commit toàn bộ source/docs/harness C89/C90, handoff và historyarchive; không xóa artifacts.
 - C90 runtime chỉ `apps/web/src/app/globals.css` F1/F2 VND/tab. C63 readiness assertion
   settlement-preview trước grabber, không sửa runtime drawer hoặc nghiệp vụ.
 - Bản vá đã duyệt chỉ pnpm-workspace.yaml/lock cho sharp0.35.5/source-map-js1.2.2 và libvips.
-- Các thay đổi docs C91 sau sourcecommit dùng cho closingproof; candidate source giữ nguyên.
+- C91 source/closingproof đã push; finalstatus chỉ tài liệu. Candidate source/UID giữ nguyên.
 - Các file C75 do test sinh đã trả exact baseline. Không broad reset/cleanup cache/backup;
   cache còn trace/log thất bại để truy vết và có synthetic session cần tiếp tục ignore.
 
-## 3. C90 và gate gần nhất
+## 3. C90 — Bằng chứng local trước phát hành C91
 
 - F1: number/₫ cùng dòng, đủ chữ số, scope wrapper không lan grid xuống VndText. Long amount
   dùng ngang đầy đủ, hero≥18px; supporting long-money dùng hàng đầy ngang. F2: tab một dòng,
@@ -81,8 +81,8 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - 10keyboard/Back/privacy journeys đạt; Evon2probe/14fixed/55Lightsweep rawP0.36warninggroups
   ngoàiP có disposition; giữ focus/native picker, không tự sửa Gu G1–G4 trong C90.
 - Lint/typecheck/unit117/build19 PASS. Targeted C63/C67/C72/C75/C84/C87/C90 final3:
-  **24/24 PASS7.5m**, retries0/skip0. Chưa chạy lại full E2E/pgTAP/Auth/Required CI cho C90;
-  C91 phải có gate phát hành đầy đủ, không lấy targeted này thay gate đó.
+  **24/24 PASS7.5m**, retries0/skip0 ở mốc C90. Gate full E2E/pgTAP/Auth/Required CI
+  phát hành sau đó đã đạt trong C91 (section1); không lấy targeted thay gate đầy đủ.
 - Final2 retained23PASS/1FAIL8.0m: grabber box lấy trước async settlement-preview, sheet
   đổi chiều cao trước mouseDown. Thêm readiness assertion vào C63; giữ prompts4/draft/focus/
   timeout/retries. Final3 sạch; trace/log lỗi ở ignored `.cache/c90/`, không gọi lượt lỗi PASS.
@@ -93,19 +93,20 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - Bàn giao ngày06/10: chỉ sửa tài liệu; gate liên kết/status/diff/secret và hash source/test/
   evidence được kiểm riêng. Không chạy lại test sản phẩm/DB hoặc thao tác tài nguyên remote.
 
-## 4. Mốc phát hành C88 gần nhất
+## 4. C88 — Bản rollback đã xác minh trong C91
 
 - Source `b2abc255f470cd551595cbfa9978b08242e00847`, Required CI37295262054 SUCCESS5jobs;
   closing proof `385b7c1fc998adf7b922a0485a8a0e30c6582198`, CI37311126932 attempt2 SUCCESS.
   CI pgTAP527/Auth6/E2E62PASS16SKIP. Chi tiết [release C88](docs/release-c88/report.md).
 - Preview `dpl_DWAs22T33Lt69qo9kdnYbXEs6dov`, immutable URL
   https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app,
-  stable alias https://tindung-preview.vercel.app.
+  stable alias tại C88 https://tindung-preview.vercel.app (hiện phục vụ C91).
 - Production `dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo`, immutable URL
   https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app,
-  aliases https://tindung.vercel.app và https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app.
+  aliases tại C88 https://tindung.vercel.app và https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app
+  (hiện phục vụ C91).
 - Candidates/aliases đúngproject/target/Ready,43route Functions sin1; public/Auth/log hậu kiểm
-  đạt ở C88. C91 phải inspect lại và xác minh C88 rollback trước promote, không dùng lịch sử
+  đạt ở C88. C91 đã inspect và xác minh C88 rollback trước promote; không dùng lịch sử
   Ready làm chứng cứ hiện tại. Không cleanup deployment.
 - C88 closing attempt1 từng FAIL tại C87 delayed RSC interception `Route already handled`;
   attempt2 đúngSHA PASS, không sửa assertion/rule. Rủi ro tái diễn chưa khẳng định hết;
@@ -166,15 +167,5 @@ không dùng lịch sử để suy quyền thực hiện mới.
   [Backup](docs/BACKUP_RESTORE.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md).
 - Skill Evon: `/Users/ngotuong/.codex/skills/evondev-ui-ux/SKILL.md`; áp khi công việc UI cần,
   không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
-- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật điểm chặn C91 và phương án dependency.
+- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C91 hoàn tất và C92 chờ duyệt.
   C91 đã được duyệt mở rộng dependency; không bắt đầu C92–C98 hoặc tạo cuộc trò chuyện tự động.
-
-C91 closing CI37659616241/705b6da attempt1 FAIL: C87 delayed RSC interceptor
-Route is already handled; E2E62PASS/19SKIP/1FAIL20.9m, pgTAP527/Auth6 PASS.
-Race tái hiện với máy chủ giả3request đồng thời; bản sửa harness đợi callback trước unroute
-giữ assertions/retries/skips/timeout, chưa đổi runtime/candidate. Docker đã restart, targeted3/3PASS4.3m/lint/typecheck/fullE2E64PASS18SKIP11.5m
-đạt, retries0/fail0. Chờ exactCI commit chốt mới, giữ C91 IN_PROGRESS.
-
-Hậu kiểm tiếp tục: Dashboard query_canceled57014 từng xuất hiện; tải mới hồi phục,
-fresh runtime window0/public4/4. Root cause database chưa xác định, giữ rủi ro
-trong docs/release-c91/continuation-health.json; không schema/RPC/timeout mutation.

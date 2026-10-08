@@ -199,5 +199,7 @@
     }
   ],
   "stableAliasesHeldC88": true,
-  "nativeAuth": "PENDING OWNER login"
+  "nativeAuth": "PENDING OWNER login",
+  "snapshotStage": "Historical pre-auth candidate snapshot; PENDING native fields refer to phase before OWNER login",
+  "completedNativeAuthReference": "evidence.json/nativeAuth and auth-matrix.json: PASS after OWNER login; alias postchecks in alias-auth-post.json"
 }

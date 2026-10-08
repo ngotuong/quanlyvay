@@ -1,6 +1,6 @@
 # C91 — Phát hành bản sửa VND và tab C90
 
-Bản C90 đã chạy trên [Production](https://tindung.vercel.app), [Preview](https://tindung-preview.vercel.app) và default alias. Rollout và hậu kiểm đạt. C91 vẫn **IN_PROGRESS** để kiểm CI của commit tài liệu chốt; C92 chưa bắt đầu.
+Bản C90 đã chạy trên [Production](https://tindung.vercel.app), [Preview](https://tindung-preview.vercel.app) và default alias. Rollout và hậu kiểm đạt. C91 **COMPLETED** sau khi Required CI của commit bằng chứng chốt đạt. C92 **AWAITING_APPROVAL**, chưa bắt đầu.
 
 Source `ed72b8615e19f2a3e6667014c86da4ac920ed1ba` đã push fast-forward. [Required CI37644195261](https://github.com/ngotuong/quanlyvay/actions/runs/37644195261) SUCCESS cả 5 job đúng SHA: pgTAP527/24files, Auth6/0, E2E63PASS19SKIP17.8m. Local sau patch: lint/typecheck/unit117/build19/policy/actionlint/audit/secret/nativecompat PASS, E2E64PASS18SKIP12.9m/778.1s, retries0/fail0. Root Preview create64/18/11.8m, resume64/18/12.1m, toàn resume 757.3s. CI thêm một ca C72 SQL-lock vốn chỉ chạy local; không thay assertions, retries hay skips.
 
@@ -24,7 +24,7 @@ Native helper sai lệch có disposition: parseFloatglobal/evalunsupported,strea
 
 Giới hạn: remote max/signed/stress ledger, Chi phí empty/distribution/pagination/glyph, physicalAT/mobile/SafariFirefox/OS-theme/PWA trướcHTML/remote save **NOT_TESTED**. Local C90 synthetic bổ trợ, không thay chứng nhận remote/device. Không input/submit/mark-read/pushpermission/finance/account/schema/RPC/secrets/Google/backup mutation hoặc cleanup. Ảnh/tên/amount/UUID/cookie thật không Git; report chỉ redacted aggregates và metadata.
 
-Bằng chứng: evidence.json,candidate-metadata.json,auth-matrix.json,auth-interactions.json,alias-auth-post.json. Còn RequiredCI exact closingproof và finalstatus SHA trước báo COMPLETED. C92 chỉ AWAITING_APPROVAL sau khi C91 đạt gate.
+Bằng chứng: evidence.json,candidate-metadata.json,auth-matrix.json,auth-interactions.json,alias-auth-post.json. Closingproof `839d34b348e7dd435688365435cc0336bfcb4eb0`: [Required CI](https://github.com/ngotuong/quanlyvay/actions/runs/37803762628) SUCCESS cả5job đúngSHA, pgTAP527/Auth6/E2E63PASS19SKIP20.0m. Full-history Gitleaks0findings (số commit theo evidence). CI của exact finalstatus SHA phải SUCCESS trước thông báo hoàn tất; SHA/run cuối ghi trong hội thoại để tránh vòng commit tự tham chiếu. C92 AWAITING_APPROVAL, chưa triển khai.
 
 Closing CI [37659616241](https://github.com/ngotuong/quanlyvay/actions/runs/37659616241)
 /705b6da attempt1 FAIL: E2E62PASS19SKIP1FAIL20.9m, C87 delayed RSC interceptor
@@ -34,10 +34,10 @@ drain-before-unroute exit0/3HTTP200. Test-only sửa C87 đợi callbacks trư�
 không đổi assertions/timeout/retries/skips hoặc runtime157UID/candidates. 274baseline
 manifest vẫn nguyên; C87 nằm ngoài manifest, originalbytes/hash ghi ignoredcache.
 Local test startup lần đầu không tới setup vì Docker dừng; helper module/manifest lỗi
-chuẩn bị giữ trong evidence. Chờ local và exact closing CI mới, C91 vẫn IN_PROGRESS.
+chuẩn bị giữ trong evidence. Harness remediation local và exact closing CI đã PASS; failure ban đầu được giữ để truy vết.
 
 Sau bản sửa harness: targeted C87 **3/3 PASS4.3m**, retries0; lint/typecheck PASS.
-Full E2E mới **64PASS18SKIP11.5m**, retries0/fail0; exact closing CI còn chờ. Test C87 bị loại khỏi payload bởi `.vercelignore`;
+Full E2E mới **64PASS18SKIP11.5m**, retries0/fail0; exact closing CI đã PASS. Test C87 bị loại khỏi payload bởi `.vercelignore`;
 không redeploy chỉ để đưa test lên Vercel. Xem c87-gate-remediation.json.
 
 Hậu kiểm khi tiếp tục ngày08/10: ba alias vẫn đúng ID, public4/4. Probe1h phát hiện
