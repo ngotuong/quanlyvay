@@ -25,3 +25,27 @@ Native helper sai lệch có disposition: parseFloatglobal/evalunsupported,strea
 Giới hạn: remote max/signed/stress ledger, Chi phí empty/distribution/pagination/glyph, physicalAT/mobile/SafariFirefox/OS-theme/PWA trướcHTML/remote save **NOT_TESTED**. Local C90 synthetic bổ trợ, không thay chứng nhận remote/device. Không input/submit/mark-read/pushpermission/finance/account/schema/RPC/secrets/Google/backup mutation hoặc cleanup. Ảnh/tên/amount/UUID/cookie thật không Git; report chỉ redacted aggregates và metadata.
 
 Bằng chứng: evidence.json,candidate-metadata.json,auth-matrix.json,auth-interactions.json,alias-auth-post.json. Còn RequiredCI exact closingproof và finalstatus SHA trước báo COMPLETED. C92 chỉ AWAITING_APPROVAL sau khi C91 đạt gate.
+
+Closing CI [37659616241](https://github.com/ngotuong/quanlyvay/actions/runs/37659616241)
+/705b6da attempt1 FAIL: E2E62PASS19SKIP1FAIL20.9m, C87 delayed RSC interceptor
+báo `route.continue: Route is already handled!`; pgTAP527/Auth6 và3job còn lại PASS.
+Race tái hiện trên synthetic HTTP transport3request: original exit1 cùng lỗi,
+drain-before-unroute exit0/3HTTP200. Test-only sửa C87 đợi callbacks trước gỡ routing;
+không đổi assertions/timeout/retries/skips hoặc runtime157UID/candidates. 274baseline
+manifest vẫn nguyên; C87 nằm ngoài manifest, originalbytes/hash ghi ignoredcache.
+Local test startup lần đầu không tới setup vì Docker dừng; helper module/manifest lỗi
+chuẩn bị giữ trong evidence. Chờ local và exact closing CI mới, C91 vẫn IN_PROGRESS.
+
+Sau bản sửa harness: targeted C87 **3/3 PASS4.3m**, retries0; lint/typecheck PASS.
+Full E2E mới **64PASS18SKIP11.5m**, retries0/fail0; exact closing CI còn chờ. Test C87 bị loại khỏi payload bởi `.vercelignore`;
+không redeploy chỉ để đưa test lên Vercel. Xem c87-gate-remediation.json.
+
+Hậu kiểm khi tiếp tục ngày08/10: ba alias vẫn đúng ID, public4/4. Probe1h phát hiện
+Dashboard database-read error: Preview1, Production/default2 mỗialias (chung deployment),
+HTTP5000. SQLSTATE57014 là [query_canceled](https://www.postgresql.org/docs/current/errcodes-appendix.html);
+chưa xác định nguyên nhân hủy truy vấn. Thử lại/tải mới ba Dashboard hồi phục, KPI render và
+errorBoundaryfalse/loadingfalse. Khoảng hậu kiểm mới từ15:40:44Z tới15:42:29Z không có error
+hoặcHTTP500 trên baalias. Giữ lỗi cũ; không gọi toàn bộ cửa sổ1h sạch hoặc đã sửa database.
+C91 không chỉnh schema/RPC/timeout; rủi ro tái diễn còn ghi nhận. Offline indicator ở tab
+Production khôi phục và navigator-proxy thiếu được ghi, không dùng làm bằng chứng network.
+Xem continuation-health.json.

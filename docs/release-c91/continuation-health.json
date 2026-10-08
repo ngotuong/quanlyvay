@@ -1,0 +1,70 @@
+{
+  "observedAt": "2026-10-08T15:22:12Z",
+  "initialOneHourProbe": {
+    "preview": {
+      "errors": 1,
+      "http500": 0
+    },
+    "production": {
+      "errors": 2,
+      "http500": 0
+    },
+    "default": {
+      "errors": 2,
+      "http500": 0
+    },
+    "productionDefaultShareSameDeployment": true
+  },
+  "diagnostic": {
+    "label": "dashboard.read_failed",
+    "kind": "database",
+    "sqlState": "57014",
+    "postgresCondition": "query_canceled",
+    "diagnosticStatus": 500,
+    "outerHTTPStatus": 200,
+    "source": "serverless-middleware",
+    "rootCause": "NOT_CONFIRMED; timeout inferred initially, SQLSTATE alone does not distinguish statement timeout from other cancellation",
+    "reference": "https://www.postgresql.org/docs/current/errcodes-appendix.html"
+  },
+  "freshRecovery": {
+    "productionStable": "Thử lại then independent reload: primaryKPI present/errorBoundaryfalse/loadingfalse",
+    "previewCandidate": "Independent reload: primaryKPI present/errorBoundaryfalse/loadingfalse",
+    "productionCandidate": "Independent reload: primaryKPI present/errorBoundaryfalse/loadingfalse",
+    "businessMutation": false
+  },
+  "postRecoveryWindow": [
+    {
+      "label": "preview",
+      "since": "2026-10-08T15:40:44Z",
+      "checkedAt": "2026-10-08T15:42:13.823972+00:00",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "cliExit": 0
+    },
+    {
+      "label": "production",
+      "since": "2026-10-08T15:40:44Z",
+      "checkedAt": "2026-10-08T15:42:21.777879+00:00",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "cliExit": 0
+    },
+    {
+      "label": "default",
+      "since": "2026-10-08T15:40:44Z",
+      "checkedAt": "2026-10-08T15:42:29.079496+00:00",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "cliExit": 0
+    }
+  ],
+  "rollbackActivated": false,
+  "disposition": "Original immediate rollout authenticated/public/runtime postchecks passed. This next-day continuation found historical database-read errors; fresh bounded recovery checks passed. Retain risk and failures; do not claim underlying database issue fixed or old one-hour counts zero. No schema/RPC/timeout tuning in C91.",
+  "browserHelperLimitation": "navigator.onLine unavailable in read-only DOM proxy; not used as evidence. Offline indicator observed in restored Production tab; network-state root cause not certified."
+}

@@ -873,8 +873,8 @@
     "findings": 0
   },
   "remaining": [
-    "Closingproof RequiredCI exactSHA SUCCESS",
-    "Finalstatus docs transition/push and exact RequiredCI SUCCESS"
+    "Exact closingproof RequiredCI of C87 remediation commit",
+    "Final-status exactSHA RequiredCI"
   ],
   "candidateAuthRuntime": {
     "preview": {
@@ -1191,12 +1191,165 @@
       "exit": 0
     },
     "privateArtifactsIgnored": true,
-    "scope": "Docs-only closing proof; full runtime gates already passed and exact closing CI required",
+    "scope": "C91 closing proof plus test-only C87 interception lifecycle remediation; runtime unchanged; targeted/full E2E and exact closing CI required",
     "policyActionlint": "PASS"
   },
-  "currentPhase": "Rollout and all postchecks PASS; exact closingproof CI pending",
+  "currentPhase": "C87 harness remediation locally validated; closing/finalstatus exactCI pending",
   "harnessPreparationFailure": {
     "phase": "Ignored closing writer preparation",
     "reason": "Nested triple-quote syntax error; no files written/deployment actions in failed helper; explicit heredoc script compiled and ran after gates"
-  }
+  },
+  "closingCIFailures": [
+    {
+      "run": "https://github.com/ngotuong/quanlyvay/actions/runs/37659616241",
+      "sha": "705b6dad941cd95b3e8ab16b6d1643682e413b23",
+      "attempt": 1,
+      "status": "FAIL",
+      "pgTAP": {
+        "files": 24,
+        "tests": 527,
+        "status": "PASS"
+      },
+      "auth": {
+        "pass": 6,
+        "fail": 0
+      },
+      "e2e": {
+        "pass": 62,
+        "fail": 1,
+        "skip": 19,
+        "duration": "20.9m"
+      },
+      "failedTest": "C87 branded first-paint Auth and visible SPA feedback respect theme and cancellation",
+      "error": "route.continue: Route is already handled!",
+      "localTransportReproducer": {
+        "original": "FAIL same error, exit1",
+        "drainBeforeUnroute": "PASS three concurrent requests HTTP200, exit0"
+      },
+      "localTestStartupFailure": "Docker daemon was stopped; test did not reach setup or assertions; start Docker and verify disposable DB identity before rerun",
+      "moduleResolutionHelperFailure": "Initial transport helper required unavailable top-level playwright; switched to installed @playwright/test export before original/fixed measurements",
+      "baselineWriterPreparationFailure": "C87 not in 274-file preservation manifest; no manifest mutation; explicit separate original/updated hash record",
+      "assertionsRetriesSkipsTimeoutsChanged": false
+    }
+  ],
+  "gateRemediation": {
+    "file": "apps/web/test/e2e/c87-remediation.spec.ts",
+    "originalSHA256": "d12bd9b126c733f5e76f6039955a98eac37b406152644ddfd2b426c51181d170",
+    "updatedSHA256": "b7de97e01d675efc9324339c14ca084f8e34766601021ea5f1bdab09362293a8",
+    "outside274PreservationManifest": true,
+    "scope": "Test-only C91 release gate remediation; drain delayed RSC callbacks before unregistering; assertions, timeout, retries and skips unchanged",
+    "originalBytes": ".cache/c91/c87-interceptor-original.ts"
+  },
+  "gateRemediationLocal": {
+    "targetedPass": 3,
+    "fail": 0,
+    "retries": 0,
+    "duration": "4.3m",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "fullE2E": {
+      "pass": 64,
+      "skip": 18,
+      "fail": 0,
+      "retries": 0,
+      "duration": "11.5m"
+    }
+  },
+  "continuationHealth": {
+    "observedAt": "2026-10-08T15:22:12Z",
+    "initialOneHourProbe": {
+      "preview": {
+        "errors": 1,
+        "http500": 0
+      },
+      "production": {
+        "errors": 2,
+        "http500": 0
+      },
+      "default": {
+        "errors": 2,
+        "http500": 0
+      },
+      "productionDefaultShareSameDeployment": true
+    },
+    "diagnostic": {
+      "label": "dashboard.read_failed",
+      "kind": "database",
+      "sqlState": "57014",
+      "postgresCondition": "query_canceled",
+      "diagnosticStatus": 500,
+      "outerHTTPStatus": 200,
+      "source": "serverless-middleware",
+      "rootCause": "NOT_CONFIRMED; timeout inferred initially, SQLSTATE alone does not distinguish statement timeout from other cancellation",
+      "reference": "https://www.postgresql.org/docs/current/errcodes-appendix.html"
+    },
+    "freshRecovery": {
+      "productionStable": "Thử lại then independent reload: primaryKPI present/errorBoundaryfalse/loadingfalse",
+      "previewCandidate": "Independent reload: primaryKPI present/errorBoundaryfalse/loadingfalse",
+      "productionCandidate": "Independent reload: primaryKPI present/errorBoundaryfalse/loadingfalse",
+      "businessMutation": false
+    },
+    "postRecoveryWindow": [
+      {
+        "label": "preview",
+        "since": "2026-10-08T15:40:44Z",
+        "checkedAt": "2026-10-08T15:42:13.823972+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0
+      },
+      {
+        "label": "production",
+        "since": "2026-10-08T15:40:44Z",
+        "checkedAt": "2026-10-08T15:42:21.777879+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0
+      },
+      {
+        "label": "default",
+        "since": "2026-10-08T15:40:44Z",
+        "checkedAt": "2026-10-08T15:42:29.079496+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0
+      }
+    ],
+    "rollbackActivated": false,
+    "disposition": "Original immediate rollout authenticated/public/runtime postchecks passed. This next-day continuation found historical database-read errors; fresh bounded recovery checks passed. Retain risk and failures; do not claim underlying database issue fixed or old one-hour counts zero. No schema/RPC/timeout tuning in C91.",
+    "browserHelperLimitation": "navigator.onLine unavailable in read-only DOM proxy; not used as evidence. Offline indicator observed in restored Production tab; network-state root cause not certified.",
+    "localFullE2E": {
+      "pass": 64,
+      "skip": 18,
+      "fail": 0,
+      "retries": 0,
+      "duration": "11.5m"
+    }
+  },
+  "continuedAliasVerification": [
+    {
+      "label": "preview",
+      "deploymentId": "dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV",
+      "status": "READY",
+      "target": "preview"
+    },
+    {
+      "label": "production",
+      "deploymentId": "dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu",
+      "status": "READY",
+      "target": "production"
+    },
+    {
+      "label": "default",
+      "deploymentId": "dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu",
+      "status": "READY",
+      "target": "production"
+    }
+  ]
 }

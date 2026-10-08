@@ -82,8 +82,23 @@ test("C87 branded first-paint Auth and visible SPA feedback respect theme and ca
     if(capture&&delay===2000)await cold.screenshot({path:resolve(out,`startup-${theme}.png`)});await nav;
     evidence.checks[`startup-${theme}-${delay}`]={feedbackMs,navigation:await cold.evaluate(()=>{const n=performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;return {ttfbMs:n.responseStart-n.requestStart,responseEndMs:n.responseEnd,domContentLoadedMs:n.domContentLoadedEventEnd};}),beforeHtmlGuarantee:false};await context.close();
   }
-  await login(page);await page.route("**/*",async r=>{if(r.request().headers().rsc==="1")await new Promise(done=>setTimeout(done,1800));await r.continue();});
-  await page.getByRole("link",{name:"Khoản vay",exact:true}).filter({visible:true}).click();await expect(page.locator(".navigation-feedback-message")).toBeVisible();await expect(page.locator(".global-route-progress")).toHaveAttribute("data-visible","true");await expect(page).toHaveURL(/loans/);await expect(page.locator(".navigation-feedback-message")).toHaveCount(0);await page.unrouteAll({behavior:"wait"});
+  await login(page);
+  let delayRsc=true;
+  const pendingRoutes=new Set<Promise<void>>();
+  await page.route("**/*",r=>{
+    const pending=(async()=>{
+      if(delayRsc&&r.request().headers().rsc==="1")await new Promise(done=>setTimeout(done,1800));
+      await r.continue();
+    })();
+    pendingRoutes.add(pending);
+    return pending.finally(()=>pendingRoutes.delete(pending));
+  });
+  await page.getByRole("link",{name:"Khoản vay",exact:true}).filter({visible:true}).click();await expect(page.locator(".navigation-feedback-message")).toBeVisible();await expect(page.locator(".global-route-progress")).toHaveAttribute("data-visible","true");await expect(page).toHaveURL(/loans/);await expect(page.locator(".navigation-feedback-message")).toHaveCount(0);
+  // Keep interception registered until delayed callbacks finish. Removing it first can
+  // auto-continue another in-flight route before its callback calls continue().
+  delayRsc=false;
+  while(pendingRoutes.size)await Promise.all(pendingRoutes);
+  await page.unrouteAll({behavior:"wait"});
   // A dirty cancel must not leave a false loading state.
   await ready(page,"/counterparties?q=C87");const editor=page.locator(".edit-details").first();await editor.locator("summary").click();await editor.getByLabel("Tên đối tác").fill("C87 nháp không lưu");page.once("dialog",d=>d.dismiss());await page.getByRole("link",{name:"Khoản vay",exact:true}).filter({visible:true}).click();await expect(page).toHaveURL(/counterparties/);await expect(page.locator(".navigation-feedback-message")).toHaveCount(0);await expect(editor.getByLabel("Tên đối tác")).toHaveValue("C87 nháp không lưu");page.once("dialog",d=>d.accept());await editor.locator("summary").click();
 });

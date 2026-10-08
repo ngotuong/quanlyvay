@@ -2210,6 +2210,12 @@ AuditFAIL2HIGH trướcpatch giữ rõ; scopedoverride doOWNERduyệt đã giả
 C91 IN_PROGRESS sau OWNERlogin cảhai, khôngCOMPLETED; C92NOT_STARTED.
 Source runtime ed72b86; rollout/postcheck đã PASS, chờ exactclosingproof/finalstatus CI. Report/evidence ởdocs/release-c91/.
 
+C91 closing CI37659616241/705b6da attempt1 FAIL tại C87 delayed interceptor;
+62PASS/19SKIP/1FAIL20.9m, pgTAP527/Auth6 PASS. Race tái hiện synthetic transport;
+remediation harness drain-before-unroute giữ toàn bộ assertion/retry/skip/timeout.
+Candidate runtime giữ nguyên. Targeted3/3PASS4.3m/lint/typecheck/fullE2E64PASS18SKIP11.5m
+PASS, retries0/fail0; C91 vẫn IN_PROGRESS chờ exactCI mới.
+
 ## 50. Chuỗi cải thiện UI/UX sau C91 — Kế hoạch đã thống nhất
 
 Ngày06/10/2026 OWNER đồng ý đánh giá và trình tự cải thiện, yêu cầu dọn tài liệu để bắt đầu

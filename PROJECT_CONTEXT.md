@@ -59,7 +59,8 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 2. Thay đổi local cần bảo toàn
 
-- Branch `main`, sourceHEAD/origin/main `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`.
+- Branch `main`, runtime source `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`;
+  closing proof gốc705b6da FAIL được giữ, harness C87 mới chờ exactCI.
   Initialhandoff b98fe64d332ea31ffee2b2e3adebc5ec7756744a giữ trong report.
 - Đã commit toàn bộ source/docs/harness C89/C90, handoff và historyarchive; không xóa artifacts.
 - C90 runtime chỉ `apps/web/src/app/globals.css` F1/F2 VND/tab. C63 readiness assertion
@@ -167,3 +168,13 @@ không dùng lịch sử để suy quyền thực hiện mới.
   không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
 - [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật điểm chặn C91 và phương án dependency.
   C91 đã được duyệt mở rộng dependency; không bắt đầu C92–C98 hoặc tạo cuộc trò chuyện tự động.
+
+C91 closing CI37659616241/705b6da attempt1 FAIL: C87 delayed RSC interceptor
+Route is already handled; E2E62PASS/19SKIP/1FAIL20.9m, pgTAP527/Auth6 PASS.
+Race tái hiện với máy chủ giả3request đồng thời; bản sửa harness đợi callback trước unroute
+giữ assertions/retries/skips/timeout, chưa đổi runtime/candidate. Docker đã restart, targeted3/3PASS4.3m/lint/typecheck/fullE2E64PASS18SKIP11.5m
+đạt, retries0/fail0. Chờ exactCI commit chốt mới, giữ C91 IN_PROGRESS.
+
+Hậu kiểm tiếp tục: Dashboard query_canceled57014 từng xuất hiện; tải mới hồi phục,
+fresh runtime window0/public4/4. Root cause database chưa xác định, giữ rủi ro
+trong docs/release-c91/continuation-health.json; không schema/RPC/timeout mutation.

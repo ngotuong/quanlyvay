@@ -1,0 +1,76 @@
+{
+  "status": "LOCAL_PASS_AWAITING_EXACT_CI",
+  "failedCI": {
+    "run": "https://github.com/ngotuong/quanlyvay/actions/runs/37659616241",
+    "sha": "705b6dad941cd95b3e8ab16b6d1643682e413b23",
+    "attempt": 1,
+    "status": "FAIL",
+    "pgTAP": {
+      "files": 24,
+      "tests": 527,
+      "status": "PASS"
+    },
+    "auth": {
+      "pass": 6,
+      "fail": 0
+    },
+    "e2e": {
+      "pass": 62,
+      "fail": 1,
+      "skip": 19,
+      "duration": "20.9m"
+    },
+    "failedTest": "C87 branded first-paint Auth and visible SPA feedback respect theme and cancellation",
+    "error": "route.continue: Route is already handled!",
+    "localTransportReproducer": {
+      "original": "FAIL same error, exit1",
+      "drainBeforeUnroute": "PASS three concurrent requests HTTP200, exit0"
+    },
+    "localTestStartupFailure": "Docker daemon was stopped; test did not reach setup or assertions; start Docker and verify disposable DB identity before rerun",
+    "moduleResolutionHelperFailure": "Initial transport helper required unavailable top-level playwright; switched to installed @playwright/test export before original/fixed measurements",
+    "baselineWriterPreparationFailure": "C87 not in 274-file preservation manifest; no manifest mutation; explicit separate original/updated hash record",
+    "assertionsRetriesSkipsTimeoutsChanged": false
+  },
+  "testOnlyChange": {
+    "file": "apps/web/test/e2e/c87-remediation.spec.ts",
+    "originalSHA256": "d12bd9b126c733f5e76f6039955a98eac37b406152644ddfd2b426c51181d170",
+    "updatedSHA256": "b7de97e01d675efc9324339c14ca084f8e34766601021ea5f1bdab09362293a8",
+    "outside274PreservationManifest": true,
+    "scope": "Test-only C91 release gate remediation; drain delayed RSC callbacks before unregistering; assertions, timeout, retries and skips unchanged",
+    "originalBytes": ".cache/c91/c87-interceptor-original.ts"
+  },
+  "reproducer": {
+    "transport": "Synthetic local HTTP server, three staggered requests at100/300/500ms; unroute after150ms",
+    "original": {
+      "exit": 1,
+      "error": "route.continue: Route is already handled!"
+    },
+    "fixed": {
+      "exit": 0,
+      "requests": 3,
+      "httpStatuses": [
+        200,
+        200,
+        200
+      ]
+    }
+  },
+  "causalEvidence": "Pinned Playwright1.62.1 Page._onRoute updates interception patterns when _routes is empty; unrouteAll clears _routes before waiting for callbacks. An earlier completed handler can unregister server interception while another delayed callback is still pending. Draining callbacks with handler still registered prevents this reproduced race.",
+  "targeted": {
+    "pass": 3,
+    "fail": 0,
+    "retries": 0,
+    "duration": "4.3m"
+  },
+  "lint": "PASS",
+  "typecheck": "PASS",
+  "fullE2E": {
+    "pass": 64,
+    "skip": 18,
+    "fail": 0,
+    "retries": 0,
+    "duration": "11.5m"
+  },
+  "deploymentPayload": "/apps/web/test/ excluded by .vercelignore; 157 source UID and deployed runtime unchanged",
+  "rawSyntheticLogs": "Ignored .cache/c91/, no private production data"
+}
