@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.312
+roadmap_version: 1.0.314
 last_updated: 2026-10-09
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C93
+current_checkpoint: C94
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C92
-next_checkpoint: C93
+last_completed_checkpoint: C93
+next_checkpoint: C94
 ---
 
 # Project Context
@@ -67,10 +67,22 @@ không dùng lịch sử để suy quyền thực hiện mới.
   nhưng B không được chọn. Syntax/diff/secret0findings đạt;1063existing hashes bảo toàn.
   GuardDocker C20-test55322 đúnglabel/port, sixcounts0 sau teardown. Chỉ docs/static đổi;
   không chạy lại fullgate sản phẩm, không runtime/remote mutation hoặc phát hành.
-- C93 `AWAITING_APPROVAL`; C94–C98 `NOT_STARTED`. Không blocker C92. C93 chỉ refactor giữ hình
-  runtime hiện tại; không dùng lựa chọn A để đổi layout sớm. Chưa bắt đầu checkpoint kế tiếp.
-  NOT_TESTED AT/phone thật/SafariFirefox/OS-theme/PWA-beforeHTML/remote save giữ trong report.
-  Bằng chứng C91: [report](docs/release-c91/report.md), nguyên nhân query_canceled57014 vẫn chưa xác định.
+- C93 `COMPLETED` ngày09/10/2026, OWNER phê duyệt trong hội thoại hiện tại. Palette→semantic→component
+  tokens, CSS feature tách theo cascade gốc, gỡ13declarations trùng; EmptyState7consumer và
+  ResponsiveTable2consumer giữ semantics/hình hiện tại. Badge/Card/Button tái dùng nguyên trạng.
+  [Report](docs/refactor-c93/report.md), [đối chiếu](docs/refactor-c93/comparison.html), inventory/proof/evidence cùng thư mục.
+- C93 gates: lint/typecheck/unit117/build19 PASS; fullE2E64PASS/18SKIP/0FAIL/12.0m/retries0.
+  Existing E2E assertions/timeout/skip giữ nguyên. Computed160/160 khớp; pixel159full-page +1viewport
+  khớp. Raw stitched full-page mismatch của một bảng dài giữ rõ; viewport375×900 cuối trang khớp.
+  Evon public login Light/Dark fixed+sweep rawP0, không chứng nhận toànapp. Diff/secret/artifact và
+  preservation được chốt trước báo hoàn tất; source trước1132tracked,17C75exact/15generated restored,
+  guardDocker C20-test55322 đúnglabel/port, sixcounts0 sau teardown.
+- CSS nguồn1968→2033dòng, raw143046→152289bytes, gzip24273→26217bytes; file lớn nhất1729→410.
+  Đây là source metrics, không phải transfer/latency; không tuyên bố tăng hiệu năng. Compiled trước NOT_MEASURED.
+- C94 `AWAITING_APPROVAL`; C95–C98 `NOT_STARTED`. Không blocker local C93. Thiết kế A C94/C96
+  và Quick Amount50triệu C95 chưa triển khai. C93 chưa push/deploy; runtime phát hành vẫn C91.
+  NOT_TESTED AT/phone thật/SafariFirefox/OS-theme-live/PWA-beforeHTML/remote save giữ trong report.
+  C91 query_canceled57014 chưa xác định nguyên nhân; không mở schema/RPC/timeout tuning.
 
 ## 2. Thay đổi local cần bảo toàn
 
@@ -82,6 +94,7 @@ không dùng lịch sử để suy quyền thực hiện mới.
   settlement-preview trước grabber, không sửa runtime drawer hoặc nghiệp vụ.
 - Bản vá đã duyệt chỉ pnpm-workspace.yaml/lock cho sharp0.35.5/source-map-js1.2.2 và libvips.
 - C91 source/closingproof đã push; finalstatus chỉ tài liệu. Candidate source/UID giữ nguyên.
+- C92 local commit `752fd48`; C93 local refactor và bằng chứng được chốt cùng context/roadmap/handoff.
 - Các file C75 do test sinh đã trả exact baseline. Không broad reset/cleanup cache/backup;
   cache còn trace/log thất bại để truy vết và có synthetic session cần tiếp tục ignore.
 
@@ -183,5 +196,5 @@ không dùng lịch sử để suy quyền thực hiện mới.
   [Backup](docs/BACKUP_RESTORE.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md).
 - Skill Evon: `/Users/ngotuong/.codex/skills/evondev-ui-ux/SKILL.md`; áp khi công việc UI cần,
   không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
-- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C92 hoàn tất/A đã chọn; C93 chờ duyệt.
-  Không bắt đầu C93–C98 hoặc tạo cuộc trò chuyện tự động.
+- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C93 hoàn tất; C94 chờ duyệt/A đã chọn.
+  Không bắt đầu C94–C98 hoặc tạo cuộc trò chuyện tự động.

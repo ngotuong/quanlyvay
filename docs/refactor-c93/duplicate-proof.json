@@ -1,0 +1,118 @@
+{
+  "method": "Earlier exact duplicate declarations only; same selector/conditional context/property/value/important; later declarations retained",
+  "duplicates": [
+    {
+      "selector": ".field-error",
+      "context": [],
+      "property": "color",
+      "value": "var(--error)",
+      "line": 384,
+      "keptLine": 673
+    },
+    {
+      "selector": ".dashboard-risk-metrics",
+      "context": [
+        "@media (min-width: 1024px)"
+      ],
+      "property": "grid-template-columns",
+      "value": "repeat(2, minmax(0, 1fr))",
+      "line": 1228,
+      "keptLine": 1240
+    },
+    {
+      "selector": ".interest-strip",
+      "context": [
+        "@media (min-width: 1024px)"
+      ],
+      "property": "grid-template-columns",
+      "value": "repeat(5, minmax(0, 1fr))",
+      "line": 1235,
+      "keptLine": 1241
+    },
+    {
+      "selector": ".dashboard-analytics-grid",
+      "context": [
+        "@media (min-width: 1024px)"
+      ],
+      "property": "grid-template-columns",
+      "value": "repeat(2, minmax(0, 1fr))",
+      "line": 1229,
+      "keptLine": 1243
+    },
+    {
+      "selector": ".dashboard-period-bar",
+      "context": [],
+      "property": "gap",
+      "value": "8px",
+      "line": 1035,
+      "keptLine": 1439
+    },
+    {
+      "selector": ".dashboard-focus-grid",
+      "context": [],
+      "property": "margin-top",
+      "value": "16px",
+      "line": 1075,
+      "keptLine": 1448
+    },
+    {
+      "selector": ".action-hero-banner",
+      "context": [],
+      "property": "padding",
+      "value": "16px",
+      "line": 1256,
+      "keptLine": 1450
+    },
+    {
+      "selector": ".action-hero-banner",
+      "context": [],
+      "property": "margin-bottom",
+      "value": "16px",
+      "line": 1257,
+      "keptLine": 1450
+    },
+    {
+      "selector": ".dashboard-primary-metrics .dashboard-metric",
+      "context": [],
+      "property": "padding",
+      "value": "16px 12px",
+      "line": 1442,
+      "keptLine": 1624
+    },
+    {
+      "selector": ".dashboard-primary-metrics .dashboard-metric p",
+      "context": [],
+      "property": "line-height",
+      "value": "1.4",
+      "line": 1445,
+      "keptLine": 1625
+    },
+    {
+      "selector": ".dashboard-primary-metrics .dashboard-metric strong",
+      "context": [],
+      "property": "font-weight",
+      "value": "600",
+      "line": 1446,
+      "keptLine": 1626
+    },
+    {
+      "selector": ".skeleton",
+      "context": [],
+      "property": "background-size",
+      "value": "200% 100%",
+      "line": 886,
+      "keptLine": 1676
+    },
+    {
+      "selector": ".dashboard-primary-metrics .dashboard-metric",
+      "context": [
+        "@media (min-width: 1280px)"
+      ],
+      "property": "padding",
+      "value": "16px",
+      "line": 1476,
+      "keptLine": 1707
+    }
+  ],
+  "sourceBefore": "752fd48"
+}

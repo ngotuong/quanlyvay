@@ -15,12 +15,12 @@
   touch-action: manipulation;
   transition: color var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), opacity var(--motion-fast) var(--ease-standard), transform var(--motion-fast) var(--ease-standard);
 }
-.ui-button--primary { border-color: var(--primary); background: var(--primary); color: var(--on-primary); box-shadow: 0 5px 16px color-mix(in srgb, var(--primary) 24%, transparent); }
+.ui-button--primary { border-color: var(--button-primary-background); background: var(--button-primary-background); color: var(--button-primary-foreground); box-shadow: 0 5px 16px color-mix(in srgb, var(--button-primary-background) 24%, transparent); }
 .ui-button--secondary { border-color: var(--border); background: var(--surface); }
 .ui-button--ghost { background: transparent; }
-.ui-button--danger { border-color: var(--error); background: var(--error); color: var(--on-danger); }
+.ui-button--danger { border-color: var(--button-danger-background); background: var(--button-danger-background); color: var(--button-danger-foreground); }
 .ui-button:hover:not(:disabled) { transform: translateY(-1px); }
-.ui-button--primary:hover:not(:disabled) { border-color: var(--primary-hover); background: var(--primary-hover); }
+.ui-button--primary:hover:not(:disabled) { border-color: var(--button-primary-hover-background); background: var(--button-primary-hover-background); }
 .ui-button--secondary:hover:not(:disabled), .ui-button--ghost:hover:not(:disabled) { background: var(--primary-soft); color: var(--primary); }
 .ui-button:active:not(:disabled) { transform: scale(.985); }
 .ui-button:disabled { cursor: wait; opacity: .55; }
@@ -29,27 +29,27 @@
 .ui-input {
   width: 100%;
   min-height: 48px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--input-border);
   border-radius: var(--radius-md);
   outline: 0;
-  background: var(--surface-muted);
-  color: var(--foreground);
+  background: var(--input-background);
+  color: var(--input-foreground);
   padding: 11px 14px;
   transition: border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard);
 }
 .ui-input:hover:not(:disabled) { border-color: color-mix(in srgb, var(--primary) 48%, var(--border)); }
-.ui-input:focus-visible { border-color: var(--focus); background: var(--surface); box-shadow: 0 0 0 3px color-mix(in srgb, var(--focus) 20%, transparent); }
+.ui-input:focus-visible { border-color: var(--input-focus-border); background: var(--input-focus-background); box-shadow: 0 0 0 3px color-mix(in srgb, var(--input-focus-border) 20%, transparent); }
 .ui-input[aria-invalid="true"] { border-color: var(--error); }
 .ui-input:disabled { cursor: not-allowed; opacity: .5; }
 .ui-textarea { min-height: 112px; resize: vertical; }
 
-.ui-card { min-width: 0; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); box-shadow: var(--shadow-xs); }
+.ui-card { min-width: 0; border: 1px solid var(--card-border); border-radius: var(--radius-lg); background: var(--card-background); box-shadow: var(--shadow-xs); }
 .ui-card--interactive { transition: border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
 .ui-card--interactive:hover { border-color: color-mix(in srgb, var(--primary) 52%, var(--border)); box-shadow: var(--shadow-card); transform: translateY(-1px); }
 .ui-card--metric { overflow: hidden; box-shadow: var(--shadow-card); }
 .ui-card--alert { box-shadow: var(--shadow-card); }
 
-.ui-badge { display: inline-flex; min-height: 28px; align-items: center; gap: 5px; border-radius: 999px; padding: 3px 10px; background: var(--surface-muted); color: var(--foreground-muted); font-size: .8125rem; font-weight: 750; line-height: 1.2; white-space: nowrap; }
+.ui-badge { display: inline-flex; min-height: 28px; align-items: center; gap: 5px; border-radius: 999px; padding: 3px 10px; background: var(--badge-background); color: var(--badge-foreground); font-size: .8125rem; font-weight: 750; line-height: 1.2; white-space: nowrap; }
 .ui-badge--primary { background: var(--primary-soft); color: var(--primary); }
 .ui-badge--success, .ui-badge--lending { background: var(--success-surface); color: var(--success); }
 .ui-badge--warning { background: var(--warning-surface); color: var(--warning); }
@@ -81,7 +81,7 @@
 .loan-card-quick-action:hover { background: color-mix(in srgb, var(--primary) 16%, var(--surface)); transform: translateY(-1px); }
 .loan-card-shell:has(.loan-card-quick-action) .loan-card { padding-bottom: 68px; }
 .mobile-more-trigger { width: 100%; border: 0; padding: 0; }
-.mobile-more-sheet { width: 100%; max-width: none; margin: auto 0 0; border-radius: 20px 20px 0 0; box-shadow: 0 -20px 60px color-mix(in srgb, #000 24%, transparent); }
+.mobile-more-sheet { width: 100%; max-width: none; margin: auto 0 0; border-radius: 20px 20px 0 0; box-shadow: 0 -20px 60px var(--more-shadow-color); }
 .mobile-more-sheet[open] { animation-name: sheet-enter; }
 .mobile-more-sheet.is-closing { animation-name: sheet-exit; }
 .mobile-more-sheet .ui-sheet-grabber { display: flex; }

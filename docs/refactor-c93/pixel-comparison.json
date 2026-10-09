@@ -1,0 +1,1290 @@
+[
+  {
+    "file": "dashboard-1024-dark.png",
+    "size": [
+      1024,
+      1874
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-1024-light.png",
+    "size": [
+      1024,
+      1874
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-1024-system-dark.png",
+    "size": [
+      1024,
+      1874
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-1024-system-light.png",
+    "size": [
+      1024,
+      1874
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-1440-dark.png",
+    "size": [
+      1440,
+      1203
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-1440-light.png",
+    "size": [
+      1440,
+      1203
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-1440-system-dark.png",
+    "size": [
+      1440,
+      1203
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-1440-system-light.png",
+    "size": [
+      1440,
+      1203
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-375-dark.png",
+    "size": [
+      375,
+      2425
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-375-light.png",
+    "size": [
+      375,
+      2425
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-375-system-dark.png",
+    "size": [
+      375,
+      2425
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-375-system-light.png",
+    "size": [
+      375,
+      2425
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-390-dark.png",
+    "size": [
+      390,
+      2425
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-390-light.png",
+    "size": [
+      390,
+      2425
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-390-system-dark.png",
+    "size": [
+      390,
+      2425
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-390-system-light.png",
+    "size": [
+      390,
+      2425
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-768-dark.png",
+    "size": [
+      768,
+      1949
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-768-light.png",
+    "size": [
+      768,
+      1949
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-768-system-dark.png",
+    "size": [
+      768,
+      1949
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "dashboard-768-system-light.png",
+    "size": [
+      768,
+      1949
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-1024-dark.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-1024-light.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-1024-system-dark.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-1024-system-light.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-1440-dark.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-1440-light.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-1440-system-dark.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-1440-system-light.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-375-dark.png",
+    "size": [
+      375,
+      1135
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-375-light.png",
+    "size": [
+      375,
+      1135
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-375-system-dark.png",
+    "size": [
+      375,
+      1135
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-375-system-light.png",
+    "size": [
+      375,
+      1135
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-390-dark.png",
+    "size": [
+      390,
+      1137
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-390-light.png",
+    "size": [
+      390,
+      1137
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-390-system-dark.png",
+    "size": [
+      390,
+      1137
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-390-system-light.png",
+    "size": [
+      390,
+      1137
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-768-dark.png",
+    "size": [
+      768,
+      939
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-768-light.png",
+    "size": [
+      768,
+      939
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-768-system-dark.png",
+    "size": [
+      768,
+      939
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "detail-768-system-light.png",
+    "size": [
+      768,
+      939
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-1024-dark.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-1024-light.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-1024-system-dark.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-1024-system-light.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-1440-dark.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-1440-light.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-1440-system-dark.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-1440-system-light.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-375-dark.png",
+    "size": [
+      375,
+      1135
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-375-light.png",
+    "size": [
+      375,
+      1135
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-375-system-dark.png",
+    "size": [
+      375,
+      1135
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-375-system-light.png",
+    "size": [
+      375,
+      1135
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-390-dark.png",
+    "size": [
+      390,
+      1137
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-390-light.png",
+    "size": [
+      390,
+      1137
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-390-system-dark.png",
+    "size": [
+      390,
+      1137
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-390-system-light.png",
+    "size": [
+      390,
+      1137
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-768-dark.png",
+    "size": [
+      768,
+      939
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-768-light.png",
+    "size": [
+      768,
+      939
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-768-system-dark.png",
+    "size": [
+      768,
+      939
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "drawer-768-system-light.png",
+    "size": [
+      768,
+      939
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-1024-dark.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-1024-light.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-1024-system-dark.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-1024-system-light.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-1440-dark.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-1440-light.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-1440-system-dark.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-1440-system-light.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-375-dark.png",
+    "size": [
+      375,
+      928
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-375-light.png",
+    "size": [
+      375,
+      928
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-375-system-dark.png",
+    "size": [
+      375,
+      928
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-375-system-light.png",
+    "size": [
+      375,
+      928
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-390-dark.png",
+    "size": [
+      390,
+      928
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-390-light.png",
+    "size": [
+      390,
+      928
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-390-system-dark.png",
+    "size": [
+      390,
+      928
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-390-system-light.png",
+    "size": [
+      390,
+      928
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-768-dark.png",
+    "size": [
+      768,
+      934
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-768-light.png",
+    "size": [
+      768,
+      934
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-768-system-dark.png",
+    "size": [
+      768,
+      934
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "expenses-768-system-light.png",
+    "size": [
+      768,
+      934
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-1024-dark.png",
+    "size": [
+      1024,
+      1282
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-1024-light.png",
+    "size": [
+      1024,
+      1282
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-1024-system-dark.png",
+    "size": [
+      1024,
+      1282
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-1024-system-light.png",
+    "size": [
+      1024,
+      1282
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-1440-dark.png",
+    "size": [
+      1440,
+      1041
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-1440-light.png",
+    "size": [
+      1440,
+      1041
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-1440-system-dark.png",
+    "size": [
+      1440,
+      1041
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-1440-system-light.png",
+    "size": [
+      1440,
+      1041
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-375-dark.png",
+    "size": [
+      375,
+      1993
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-375-light.png",
+    "size": [
+      375,
+      1993
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-375-system-dark.png",
+    "size": [
+      375,
+      1993
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-375-system-light.png",
+    "size": [
+      375,
+      1993
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-390-dark.png",
+    "size": [
+      390,
+      1968
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-390-light.png",
+    "size": [
+      390,
+      1968
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-390-system-dark.png",
+    "size": [
+      390,
+      1968
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-390-system-light.png",
+    "size": [
+      390,
+      1968
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-768-dark.png",
+    "size": [
+      768,
+      1564
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-768-light.png",
+    "size": [
+      768,
+      1564
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-768-system-dark.png",
+    "size": [
+      768,
+      1564
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "loans-768-system-light.png",
+    "size": [
+      768,
+      1564
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-1024-dark.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-1024-light.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-1024-system-dark.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-1024-system-light.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-1440-dark.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-1440-light.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-1440-system-dark.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-1440-system-light.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-375-dark.png",
+    "size": [
+      375,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-375-light.png",
+    "size": [
+      375,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-375-system-dark.png",
+    "size": [
+      375,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-375-system-light.png",
+    "size": [
+      375,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-390-dark.png",
+    "size": [
+      390,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-390-light.png",
+    "size": [
+      390,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-390-system-dark.png",
+    "size": [
+      390,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-390-system-light.png",
+    "size": [
+      390,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-768-dark.png",
+    "size": [
+      768,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-768-light.png",
+    "size": [
+      768,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-768-system-dark.png",
+    "size": [
+      768,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "notifications-768-system-light.png",
+    "size": [
+      768,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-1024-dark.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-1024-light.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-1024-system-dark.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-1024-system-light.png",
+    "size": [
+      1024,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-1440-dark.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-1440-light.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-1440-system-dark.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-1440-system-light.png",
+    "size": [
+      1440,
+      900
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-375-dark.png",
+    "size": [
+      375,
+      1148
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-375-light.png",
+    "size": [
+      375,
+      1148
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-375-system-dark.png",
+    "size": [
+      375,
+      1148
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-375-system-light.png",
+    "size": [
+      375,
+      1148
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-390-dark.png",
+    "size": [
+      390,
+      1148
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-390-light.png",
+    "size": [
+      390,
+      1148
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-390-system-dark.png",
+    "size": [
+      390,
+      1148
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-390-system-light.png",
+    "size": [
+      390,
+      1148
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-768-dark.png",
+    "size": [
+      768,
+      945
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-768-light.png",
+    "size": [
+      768,
+      945
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-768-system-dark.png",
+    "size": [
+      768,
+      945
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "settings-768-system-light.png",
+    "size": [
+      768,
+      945
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-1024-dark.png",
+    "size": [
+      1024,
+      3457
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-1024-light.png",
+    "size": [
+      1024,
+      3457
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-1024-system-dark.png",
+    "size": [
+      1024,
+      3457
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-1024-system-light.png",
+    "size": [
+      1024,
+      3457
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-1440-dark.png",
+    "size": [
+      1440,
+      2618
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-1440-light.png",
+    "size": [
+      1440,
+      2618
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-1440-system-dark.png",
+    "size": [
+      1440,
+      2618
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-1440-system-light.png",
+    "size": [
+      1440,
+      2618
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-375-dark.png",
+    "size": [
+      375,
+      5015
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-375-light.png",
+    "size": [
+      375,
+      5015
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-375-system-dark.png",
+    "size": [
+      375,
+      5015
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-375-system-light.png",
+    "size": [
+      375,
+      900
+    ],
+    "differenceBounds": null,
+    "retainedFullPageMismatch": [
+      0,
+      3836,
+      375,
+      5015
+    ],
+    "fullPageDisposition": "Chrome fullPage stitched fixed/skip/sticky UI at different offscreen positions while computed geometry matched; raw5015px images retained in cache.",
+    "verification": "Actual viewport screenshot after explicit instant bottom scroll, fonts/finite-animation/pointer/Push settled"
+  },
+  {
+    "file": "tables-390-dark.png",
+    "size": [
+      390,
+      4972
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-390-light.png",
+    "size": [
+      390,
+      4972
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-390-system-dark.png",
+    "size": [
+      390,
+      4972
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-390-system-light.png",
+    "size": [
+      390,
+      4972
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-768-dark.png",
+    "size": [
+      768,
+      4025
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-768-light.png",
+    "size": [
+      768,
+      4025
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-768-system-dark.png",
+    "size": [
+      768,
+      4025
+    ],
+    "differenceBounds": null
+  },
+  {
+    "file": "tables-768-system-light.png",
+    "size": [
+      768,
+      4025
+    ],
+    "differenceBounds": null
+  }
+]

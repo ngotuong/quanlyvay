@@ -22,9 +22,11 @@ glassmorphism, emoji hệ thống hoặc hiệu ứng làm lu mờ dữ liệu.
 - Z-index semantic: nội dung `0`, sticky header `20`, bottom navigation `30`, popover `40`, dialog
   `60`, toast `80`, progress/skip `100`.
 
-Token semantic được khai báo trong `apps/web/src/app/globals.css`; primitive dùng chung nằm ở
-`apps/web/src/components/ui/` và CSS tương ứng ở `apps/web/src/styles/ui-primitives.css`. CSS riêng
-cho playground đã tách sang `apps/web/src/styles/playground.css` để stylesheet toàn cục dễ kiểm soát.
+C93: palette gốc, semantic roles và component aliases nằm ở `apps/web/src/styles/tokens.css`;
+`apps/web/src/app/globals.css` là entrypoint import có thứ tự. Primitive dùng chung nằm ở
+`apps/web/src/components/ui/` và `styles/ui-primitives.css`. Foundation/workflows/notifications/
+dashboard/presentation-overrides tách theo các đoạn liên tiếp của cascade cũ; không thêm cascade layer.
+Playground vẫn tách riêng. Thứ tự import giữ override B/C90 sau các rule nền.
 
 ## 3. Typography
 
@@ -123,3 +125,17 @@ cho playground đã tách sang `apps/web/src/styles/playground.css` để styles
   không chặn click và bám transition/cancel thật. Reduced-motion giữ dấu tĩnh.
 - TTFB/first-feedback phải đo riêng; không tuyên bố UI có thể vẽ trước HTML hoặc mọi cold
   PWA/network đã được kiểm. Local Auth-delay không thay chứng nhận thiết bị/mạng thật.
+
+## C93 — Refactor giữ hình, không áp thiết kế A sớm
+
+`EmptyState` chỉ giữ wrapper section/div/class và truyền props/children; từng consumer giữ thông điệp
+chưa có dữ liệu/search không có kết quả/chưa đọc rỗng/lỗi, role và hành động của nó.
+`ResponsiveTable` chỉ trích div.table-scroll cho hai bảng Dashboard; không đổi thành thẻ, thêm sticky,
+role/focus hoặc nhân đôi dữ liệu. Badge/Card/Button/Input giữ hợp đồng hiện hành và có alias màu
+component trong tokens.css. Không tạo component preview/style variant mới không có consumer.
+
+Tài liệu typography là hướng đích: expense percentage11.2px/managed-user status11.52px vẫn là backlog
+C94 trong C93. Nhóm Quick Amount50triệu thuộc C95; hình drawer/taskdesktop A thuộc C94/C96.
+Manifest/theme metadata và accent tùy chỉnh Playground dùng literal vì hoạt động trước stylesheet
+hoặc là input thiết kế; logo/SVG là tài sản màu cố định. Không đổi những ngoại lệ này khi refactor.
+Bằng chứng và giới hạn nghiệm thu ở docs/refactor-c93/.

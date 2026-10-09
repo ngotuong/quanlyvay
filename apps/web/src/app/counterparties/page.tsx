@@ -1,3 +1,4 @@
+import { EmptyState } from "@/components/ui/empty-state";
 import { redirect } from "next/navigation";
 import { clampPage, pageHref } from "@/lib/business/list-page.mjs";
 import { RenderRevision } from "@/components/app/render-revision";
@@ -36,7 +37,7 @@ export default async function CounterpartiesPage({ searchParams }: { searchParam
         {query ? <a className="secondary-link" href="/counterparties"><X size={17} /> Xóa tìm kiếm</a> : null}
       </form>
       <section className="counterparty-list compact-record-list" aria-label="Danh sách đối tác" aria-live="polite">
-          {filtered.length === 0 ? <div className="empty-state compact"><UserRound size={26} /><h2>{query ? "Không tìm thấy đối tác" : "Chưa có đối tác"}</h2><p>{query ? "Thử tên hoặc ghi chú khác." : "Dùng nút Thêm đối tác để tạo liên hệ đầu tiên."}</p>{query ? <a className="secondary-link" href="/counterparties">Xem toàn bộ đối tác</a> : null}</div> : filtered.slice((page-1)*25, page*25).map((item) => (
+          {filtered.length === 0 ? <EmptyState as="div" className="compact"><UserRound size={26} /><h2>{query ? "Không tìm thấy đối tác" : "Chưa có đối tác"}</h2><p>{query ? "Thử tên hoặc ghi chú khác." : "Dùng nút Thêm đối tác để tạo liên hệ đầu tiên."}</p>{query ? <a className="secondary-link" href="/counterparties">Xem toàn bộ đối tác</a> : null}</EmptyState> : filtered.slice((page-1)*25, page*25).map((item) => (
             <Card as="article" variant="interactive" className="surface-card counterparty-card" key={item.id}>
               <div className="counterparty-card-heading"><div><h2><PrivacyRegion>{item.name}</PrivacyRegion></h2><p className="notes-copy"><PrivacyRegion>{item.notes || "Không có ghi chú."}</PrivacyRegion></p></div>{profile.role === "OWNER" ? <PrivacyRegion><DeleteCounterpartyButton menu id={item.id} name={item.name} /></PrivacyRegion> : null}</div>
               {canWrite ? <CounterpartyEditor counterparty={item} /> : null}

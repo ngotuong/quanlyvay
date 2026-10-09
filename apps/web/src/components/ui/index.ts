@@ -6,3 +6,5 @@ export { Input, Select, Textarea } from "./input";
 export { Tabs, TabList } from "./tabs";
 export { ToastProvider, notifyToast } from "./toast";
 export { VndInput, formatVndInput } from "./vnd-input";
+export { EmptyState } from "./empty-state";
+export { ResponsiveTable } from "./responsive-table";

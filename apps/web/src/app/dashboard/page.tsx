@@ -1,3 +1,4 @@
+import { ResponsiveTable } from "@/components/ui/responsive-table";
 import type { CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowDownLeft, ArrowUpRight, Banknote, CalendarClock, ChartSpline, CircleAlert, HandCoins, Landmark, Minus, ReceiptText, Scale, ShieldAlert, TrendingDown, TrendingUp, WalletCards } from "lucide-react";
@@ -148,7 +149,7 @@ function CounterpartyChart({ rows }: { rows: CounterpartyExposure[] }) {
             </span>
           </div>;
         })}</div>
-        <details className="chart-data-details"><summary>Xem bảng đối tác</summary><div className="table-scroll"><table><thead><tr><th>Đối tác</th><th>Cho vay</th><th>Nợ xấu</th><th>Đi vay</th><th>Tổng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.counterpartyId}><th><PrivacyRegion>{row.name}</PrivacyRegion></th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.lendingVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.badDebtVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.borrowingVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.totalVnd)} /></td></tr>)}</tbody></table></div></details>
+        <details className="chart-data-details"><summary>Xem bảng đối tác</summary><ResponsiveTable><table><thead><tr><th>Đối tác</th><th>Cho vay</th><th>Nợ xấu</th><th>Đi vay</th><th>Tổng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.counterpartyId}><th><PrivacyRegion>{row.name}</PrivacyRegion></th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.lendingVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.badDebtVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.borrowingVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.totalVnd)} /></td></tr>)}</tbody></table></ResponsiveTable></details>
       </>}
     </Card>
   );
@@ -175,7 +176,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
       </div>
       <details className="cash-flow-details chart-data-details">
         <summary>Xem bảng số liệu</summary>
-        <div className="table-scroll"><table><thead><tr><th>Tháng</th><th>Tiền vào</th><th>Tiền ra</th><th>Ròng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.month}><th>{monthLabel(row.month)}</th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.inflowVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.outflowVnd)} /></td><td className="privacy-amount" data-negative={BigInt(row.netVnd) < BigInt(0)}><PrivacyAmount value={formatVnd(row.netVnd)} /></td></tr>)}</tbody></table></div>
+        <ResponsiveTable><table><thead><tr><th>Tháng</th><th>Tiền vào</th><th>Tiền ra</th><th>Ròng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.month}><th>{monthLabel(row.month)}</th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.inflowVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.outflowVnd)} /></td><td className="privacy-amount" data-negative={BigInt(row.netVnd) < BigInt(0)}><PrivacyAmount value={formatVnd(row.netVnd)} /></td></tr>)}</tbody></table></ResponsiveTable>
       </details></> : <div className="dashboard-empty"><strong>Chưa có dòng tiền trong kỳ</strong><span>Các khoản thu, chi sẽ xuất hiện sau khi giao dịch được ghi nhận.</span></div>}
     </Card>
   );

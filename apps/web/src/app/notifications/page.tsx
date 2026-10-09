@@ -1,3 +1,4 @@
+import { EmptyState } from "@/components/ui/empty-state";
 import { redirect } from "next/navigation";
 import { clampPage, pageHref } from "@/lib/business/list-page.mjs";
 import Link from "next/link";
@@ -26,7 +27,7 @@ export default async function NotificationsPage({ searchParams }: { searchParams
       <NotificationAction unreadCount={unreadCount} />
     </div>
     <div className="filter-pills"><Link href="/notifications" data-active={params.unread !== "true"} aria-current={params.unread !== "true" ? "page" : undefined}>Tất cả</Link><Link href="/notifications?unread=true" data-active={params.unread === "true"} aria-current={params.unread === "true" ? "page" : undefined}>Chưa đọc ({unreadCount})</Link></div>
-    {notifications.length === 0 ? <section className="empty-state notification-empty"><span className="empty-icon"><Bell size={28} /></span><h2>{params.unread === "true" ? "Bạn đã đọc hết thông báo" : "Chưa có thông báo"}</h2><p>{params.unread === "true" ? "Không còn thông báo chưa đọc." : "Thông báo đóng lãi và quá hạn sẽ xuất hiện tại đây khi bộ nhắc lịch chạy."}</p>{params.unread === "true" ? <Link className="secondary-button" href="/notifications">Xem tất cả thông báo</Link> : null}</section> :
+    {notifications.length === 0 ? <EmptyState className="notification-empty"><span className="empty-icon"><Bell size={28} /></span><h2>{params.unread === "true" ? "Bạn đã đọc hết thông báo" : "Chưa có thông báo"}</h2><p>{params.unread === "true" ? "Không còn thông báo chưa đọc." : "Thông báo đóng lãi và quá hạn sẽ xuất hiện tại đây khi bộ nhắc lịch chạy."}</p>{params.unread === "true" ? <Link className="secondary-button" href="/notifications">Xem tất cả thông báo</Link> : null}</EmptyState> :
       <section className="notification-list" aria-label="Danh sách thông báo">{notifications.map((item) => {
         const overdue = item.type === "LOAN_OVERDUE";
         const content = <><span className="notification-icon" data-overdue={overdue}>{overdue ? <CircleAlert size={20} /> : <BellRing size={20} />}</span><span className="notification-main"><span className="notification-title-row"><strong><PrivacyRegion>{item.title}</PrivacyRegion></strong>{!item.read_at ? <span className="unread-label">Mới</span> : null}</span><span className="notification-body"><PrivacyRegion>{item.body}</PrivacyRegion></span><small>Ngày thông báo: {formatDate(item.notification_date)}</small></span></>;

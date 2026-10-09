@@ -20,6 +20,8 @@ const load = (path, imports) => compile(readFileSync(resolve(base, path), "utf8"
 const privacy = load("components/app/privacy-provider.tsx", { "@/components/ui/vnd-text": load("components/ui/vnd-text.tsx") });
 const ui = load("components/ui/card.tsx", { "./utils": load("components/ui/utils.ts") });
 const format = load("lib/business/format.ts");
+const emptyState = load("components/ui/empty-state.tsx", { "./utils": load("components/ui/utils.ts") });
+const responsiveTable = load("components/ui/responsive-table.tsx", { "./utils": load("components/ui/utils.ts") });
 test("formatted bigint VND preserves every character and hidden amounts expose no layout flags", () => {
   for (const value of ["0", "1284500000", "-99999999999999999", "9223372036854775807"]) {
     const formatted = format.formatVnd(value);
@@ -55,7 +57,7 @@ const functions = ["CashFlowChart", "compactVnd", "monthLabel"].map(name => {
   assert.ok(node, `missing production function ${name}`);
   return node.getText(dashboard);
 });
-const { CashChart } = compile(`${functions.join("\n")}\nexports.CashChart=CashFlowChart;`, { Card: ui.Card, PrivacyAmount: privacy.PrivacyAmount, CashFlowBars: bars.CashFlowBars, ...format });
+const { CashChart } = compile(`${functions.join("\n")}\nexports.CashChart=CashFlowChart;`, { Card: ui.Card, ResponsiveTable: responsiveTable.ResponsiveTable, PrivacyAmount: privacy.PrivacyAmount, CashFlowBars: bars.CashFlowBars, ...format });
 for (const [name, rows] of [
   ["empty", []],
   ["zero", [{ month: "2026-09", inflowVnd: "0", outflowVnd: "0", netVnd: "0" }]],
@@ -106,6 +108,7 @@ test("loan list distinguishes an empty dataset from search no-results and viewer
   const render = async (role, params) => {
     const page = load("app/loans/page.tsx", {
       "next/link": { __esModule: true, default: ({ children, ...props }) => React.createElement("a", props, children) },
+      "@/components/ui/empty-state": emptyState,
       "@/components/business/pagination": { parsePage: () => 1, Pagination: () => null },
       "@/components/app/privacy-provider": privacy,
       "@/lib/auth/session": { requireAuthenticatedProfile: async () => ({ role }) },

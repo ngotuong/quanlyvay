@@ -1,3 +1,4 @@
+import { EmptyState } from "@/components/ui/empty-state";
 import { ExpenseDistribution } from "@/components/business/expense-distribution";
 import { redirect } from "next/navigation";
 import { clampPage, pageHref } from "@/lib/business/list-page.mjs";
@@ -39,7 +40,7 @@ export default async function ExpensesPage({ searchParams }: { searchParams: Pro
 
       <div>
         <section className="counterparty-list compact-record-list expense-record-list" aria-label="Danh sách chi phí chung">
-          {expenseRows.length === 0 ? <div className="empty-state compact"><ReceiptText size={26} /><h2>Chưa có chi phí chung</h2><p>Các chi phí không gắn khoản vay sẽ xuất hiện tại đây.</p></div> : expenseRows.map((expense) => (
+          {expenseRows.length === 0 ? <EmptyState as="div" className="compact"><ReceiptText size={26} /><h2>Chưa có chi phí chung</h2><p>Các chi phí không gắn khoản vay sẽ xuất hiện tại đây.</p></EmptyState> : expenseRows.map((expense) => (
             <Card as="article" variant="interactive" className="surface-card counterparty-card expense-card" key={expense.id}>
               <div className="counterparty-card-heading"><div><h2><PrivacyRegion>{expense.expenses?.category ?? "Chi phí khác"}</PrivacyRegion></h2><p>{formatDate(expense.transaction_date)}</p></div><strong className="privacy-amount"><PrivacyAmount value={formatVnd(expense.amount_vnd)} /></strong></div>
               <p className="notes-copy"><PrivacyRegion>{expense.note || "Không có ghi chú."}</PrivacyRegion></p>

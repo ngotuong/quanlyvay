@@ -51,7 +51,7 @@
 
 .playground-canvas-shell { min-width: 0; overflow: hidden; border: 1px solid var(--border-strong); border-radius: 20px; background: repeating-linear-gradient(45deg, var(--surface-muted), var(--surface-muted) 10px, color-mix(in srgb, var(--surface-muted) 72%, var(--surface)) 10px, color-mix(in srgb, var(--surface-muted) 72%, var(--surface)) 20px); padding: 12px; box-shadow: var(--shadow-sm); }
 .playground-canvas-label { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 12px; padding: 1px 4px 10px; color: var(--foreground-muted); font-size: .74rem; font-weight: 700; }
-.playground-canvas { --pg-bg: #f6f7fb; --pg-surface: #fff; --pg-muted: #64748b; --pg-text: #111827; --pg-border: #e2e8f0; --pg-soft: color-mix(in srgb, var(--playground-accent) 10%, white); --pg-warning: #b45309; --pg-warning-soft: #fffbeb; --pg-lending: #047857; --pg-lending-soft: #ecfdf5; --pg-borrowing: #dc2626; --pg-borrowing-soft: #fef2f2; width: 100%; max-width: 1050px; margin: 0 auto; overflow: hidden; border: 1px solid var(--pg-border); border-radius: 14px; background: var(--pg-bg); color: var(--pg-text); box-shadow: 0 18px 42px rgba(15, 23, 42, .14); transition: width 220ms ease, background 180ms ease; }
+.playground-canvas { --pg-bg: #f6f7fb; --pg-surface: #fff; --pg-muted: #64748b; --pg-text: #111827; --pg-border: #e2e8f0; --pg-soft: color-mix(in srgb, var(--playground-accent) 10%, white); --pg-warning: #b45309; --pg-warning-soft: #fffbeb; --pg-lending: #047857; --pg-lending-soft: #ecfdf5; --pg-borrowing: #dc2626; --pg-borrowing-soft: #fef2f2; width: 100%; max-width: 1050px; margin: 0 auto; overflow: hidden; border: 1px solid var(--pg-border); border-radius: 14px; background: var(--pg-bg); color: var(--pg-text); box-shadow: 0 18px 42px var(--playground-shadow-color); transition: width 220ms ease, background 180ms ease; }
 .playground-canvas[data-theme="dark"] { --pg-bg: #090d18; --pg-surface: #111827; --pg-muted: #a7b2c3; --pg-text: #f8fafc; --pg-border: #273449; --pg-soft: color-mix(in srgb, var(--playground-accent) 22%, #111827); --pg-warning: #fbbf24; --pg-warning-soft: #3c2d0d; --pg-lending: #6ee7b7; --pg-lending-soft: #12372c; --pg-borrowing: #fca5a5; --pg-borrowing-soft: #3f1d24; color-scheme: dark; }
 .playground-canvas-shell[data-device="mobile"] .playground-canvas { width: min(100%, 375px); }
 .playground-preview-header { display: flex; min-height: 60px; align-items: center; gap: 10px; border-bottom: 1px solid var(--pg-border); background: color-mix(in srgb, var(--pg-surface) 92%, transparent); padding: 0 18px; color: var(--playground-accent); }
@@ -62,7 +62,7 @@
 .playground-draggable:hover { outline: 2px dashed color-mix(in srgb, var(--playground-accent) 55%, transparent); outline-offset: 4px; }
 .playground-drag-handle { position: absolute; top: 8px; right: 8px; z-index: 3; display: grid; width: 32px; height: 32px; place-items: center; border: 1px solid var(--pg-border); border-radius: 9px; background: var(--pg-surface); color: var(--pg-muted); opacity: 0; cursor: grab; transition: opacity 150ms ease; }
 .playground-draggable:hover .playground-drag-handle, .playground-draggable:focus-within .playground-drag-handle { opacity: 1; }
-.playground-card { min-width: 0; border: var(--playground-card-border-width) solid var(--pg-border); border-radius: var(--playground-radius); background: var(--pg-surface); box-shadow: 0 4px 14px rgba(15, 23, 42, var(--playground-card-shadow-alpha)); cursor: pointer; }
+.playground-card { min-width: 0; border: var(--playground-card-border-width) solid var(--pg-border); border-radius: var(--playground-radius); background: var(--pg-surface); box-shadow: 0 4px 14px rgba(var(--playground-shadow-rgb), var(--playground-card-shadow-alpha)); cursor: pointer; }
 
 .playground-canvas [data-editor-target] { transition: outline-color 150ms ease, background-color 150ms ease; }
 .playground-canvas [data-editor-target]:hover { outline: 2px solid color-mix(in srgb, var(--playground-accent) 50%, transparent); outline-offset: 2px; }
@@ -137,4 +137,3 @@
   .playground-control-grid { grid-template-columns: 1fr; }
   .playground-canvas-shell { padding: 7px; }
 }
-

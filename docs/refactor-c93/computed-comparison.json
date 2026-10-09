@@ -1,0 +1,807 @@
+{
+  "method": "160 computed pairs:145settled baseline +15neutral-pointer/Push-stable targeted rechecks. One table also verified at bottom scroll in viewport1; all raw captures retained. Standard CSS properties/rectangles compared exactly, intentional new custom properties excluded.",
+  "samples": [
+    {
+      "file": "dashboard-1024-dark-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-1024-light-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-1024-system-dark-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-1024-system-light-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-1440-dark-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-1440-light-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-1440-system-dark-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-1440-system-light-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-375-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-375-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-375-system-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-375-system-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-390-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-390-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-390-system-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-390-system-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-768-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-768-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-768-system-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "dashboard-768-system-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-1024-dark-styles.json",
+      "elements": 155,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-1024-light-styles.json",
+      "elements": 155,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-1024-system-dark-styles.json",
+      "elements": 155,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-1024-system-light-styles.json",
+      "elements": 155,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-1440-dark-styles.json",
+      "elements": 155,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-1440-light-styles.json",
+      "elements": 155,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-1440-system-dark-styles.json",
+      "elements": 155,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-1440-system-light-styles.json",
+      "elements": 155,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-375-dark-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-375-light-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-375-system-dark-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-375-system-light-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-390-dark-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-390-light-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-390-system-dark-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-390-system-light-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-768-dark-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-768-light-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-768-system-dark-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "detail-768-system-light-styles.json",
+      "elements": 140,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-1024-dark-styles.json",
+      "elements": 184,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-1024-light-styles.json",
+      "elements": 184,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-1024-system-dark-styles.json",
+      "elements": 184,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-1024-system-light-styles.json",
+      "elements": 184,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-1440-dark-styles.json",
+      "elements": 184,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-1440-light-styles.json",
+      "elements": 184,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-1440-system-dark-styles.json",
+      "elements": 184,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-1440-system-light-styles.json",
+      "elements": 184,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-375-dark-styles.json",
+      "elements": 171,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-375-light-styles.json",
+      "elements": 171,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-375-system-dark-styles.json",
+      "elements": 171,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-375-system-light-styles.json",
+      "elements": 171,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-390-dark-styles.json",
+      "elements": 171,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-390-light-styles.json",
+      "elements": 171,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-390-system-dark-styles.json",
+      "elements": 171,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-390-system-light-styles.json",
+      "elements": 171,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-768-dark-styles.json",
+      "elements": 169,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-768-light-styles.json",
+      "elements": 169,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-768-system-dark-styles.json",
+      "elements": 169,
+      "differentElements": 0
+    },
+    {
+      "file": "drawer-768-system-light-styles.json",
+      "elements": 169,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-1024-dark-styles.json",
+      "elements": 141,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-1024-light-styles.json",
+      "elements": 141,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-1024-system-dark-styles.json",
+      "elements": 141,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-1024-system-light-styles.json",
+      "elements": 141,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-1440-dark-styles.json",
+      "elements": 141,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-1440-light-styles.json",
+      "elements": 141,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-1440-system-dark-styles.json",
+      "elements": 141,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-1440-system-light-styles.json",
+      "elements": 141,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-375-dark-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-375-light-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-375-system-dark-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-375-system-light-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-390-dark-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-390-light-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-390-system-dark-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-390-system-light-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-768-dark-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-768-light-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-768-system-dark-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "expenses-768-system-light-styles.json",
+      "elements": 119,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-1024-dark-styles.json",
+      "elements": 279,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-1024-light-styles.json",
+      "elements": 279,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-1024-system-dark-styles.json",
+      "elements": 279,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-1024-system-light-styles.json",
+      "elements": 279,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-1440-dark-styles.json",
+      "elements": 279,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-1440-light-styles.json",
+      "elements": 279,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-1440-system-dark-styles.json",
+      "elements": 279,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-1440-system-light-styles.json",
+      "elements": 279,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-375-dark-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-375-light-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-375-system-dark-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-375-system-light-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-390-dark-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-390-light-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-390-system-dark-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-390-system-light-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-768-dark-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-768-light-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-768-system-dark-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "loans-768-system-light-styles.json",
+      "elements": 256,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-1024-dark-styles.json",
+      "elements": 133,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-1024-light-styles.json",
+      "elements": 133,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-1024-system-dark-styles.json",
+      "elements": 133,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-1024-system-light-styles.json",
+      "elements": 133,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-1440-dark-styles.json",
+      "elements": 133,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-1440-light-styles.json",
+      "elements": 133,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-1440-system-dark-styles.json",
+      "elements": 133,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-1440-system-light-styles.json",
+      "elements": 133,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-375-dark-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-375-light-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-375-system-dark-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-375-system-light-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-390-dark-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-390-light-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-390-system-dark-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-390-system-light-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-768-dark-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-768-light-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-768-system-dark-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "notifications-768-system-light-styles.json",
+      "elements": 111,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-1024-dark-styles.json",
+      "elements": 151,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-1024-light-styles.json",
+      "elements": 151,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-1024-system-dark-styles.json",
+      "elements": 151,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-1024-system-light-styles.json",
+      "elements": 151,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-1440-dark-styles.json",
+      "elements": 151,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-1440-light-styles.json",
+      "elements": 151,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-1440-system-dark-styles.json",
+      "elements": 151,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-1440-system-light-styles.json",
+      "elements": 151,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-375-dark-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-375-light-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-375-system-dark-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-375-system-light-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-390-dark-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-390-light-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-390-system-dark-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-390-system-light-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-768-dark-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-768-light-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-768-system-dark-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "settings-768-system-light-styles.json",
+      "elements": 128,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-1024-dark-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-1024-light-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-1024-system-dark-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-1024-system-light-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-1440-dark-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-1440-light-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-1440-system-dark-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-1440-system-light-styles.json",
+      "elements": 611,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-375-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-375-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-375-system-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-375-system-light-styles.json",
+      "elements": 587,
+      "differentElements": 0,
+      "verification": "Additional viewport1: exact computed comparison at bottom scroll, viewport375×900; long fullPage compositor mismatch retained."
+    },
+    {
+      "file": "tables-390-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-390-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-390-system-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-390-system-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-768-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-768-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-768-system-dark-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    },
+    {
+      "file": "tables-768-system-light-styles.json",
+      "elements": 587,
+      "differentElements": 0
+    }
+  ],
+  "failures": []
+}

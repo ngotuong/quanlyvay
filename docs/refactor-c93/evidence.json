@@ -1,0 +1,131 @@
+{
+  "checkpoint": "C93",
+  "status": "COMPLETED",
+  "ownerApproval": "2026-10-09, current conversation",
+  "sourceBefore": "752fd48",
+  "matrix": {
+    "samples": 160,
+    "widths": [
+      375,
+      390,
+      768,
+      1024,
+      1440
+    ],
+    "height": 900,
+    "themes": [
+      "light with OSdark",
+      "dark with OSlight",
+      "System with OSlight",
+      "System with OSdark"
+    ],
+    "routes": [
+      "Dashboard",
+      "Loan detail",
+      "Loan list",
+      "Notifications",
+      "Expenses",
+      "Settings",
+      "Expanded Dashboard tables",
+      "Principal transaction drawer"
+    ]
+  },
+  "computed": {
+    "samples": 160,
+    "mismatches": 0,
+    "newCustomPropertyDeclarationsExcluded": true
+  },
+  "pixels": {
+    "samples": 160,
+    "exactFullPagePairs": 159,
+    "exactViewportPairs": 1,
+    "rawFullPageMismatchRetained": 1
+  },
+  "prototypeNotUsed": true,
+  "fixture": "Only guarded C20-test API55321/DB55322; synthetic C92 names/amounts",
+  "gates": {
+    "lint": "PASS final",
+    "typecheck": "PASS",
+    "unit": "PASS117; first2FAIL harness imports retained and fixed without assertion changes",
+    "build": "PASS monorepo19routes",
+    "fullE2E": "PASS64/SKIP18/FAIL0,12.0m,retries0; existing opt-in skips unchanged",
+    "database": "N/A schema unchanged; guarded fixture teardown sixcounts0"
+  },
+  "snapshots": {
+    "initial": "Before4.2m/after4.3m; motion snapshots not accepted as final",
+    "settled": "Before4.1m/after4.1m; pointer/Push state differences retained",
+    "stabilized15": "Before1.5m/after1.5m;15affected cases only, no existing E2E assertions reduced",
+    "viewport1": "Before1.2m/after1.3m; actual viewport corrects fullPage capture ambiguity"
+  },
+  "limits": [
+    "AT/physical mobile/soft keyboard/SafariFirefox/OS-theme live/PWA-beforeHTML/remote-save NOT_TESTED",
+    "No runtime redesign/Quick Amount/remote/deploy/schema/RPC/financial engine change",
+    "C91 query_canceled57014 cause not addressed"
+  ],
+  "artifacts": {
+    "screenshots/after-drawer-375-light.png": "71b06ed22c1a69c6ab9e5bb76c8a93dcfd7e833a334e450da441540661d961c6",
+    "screenshots/before-tables-375-system-light.png": "04f6fece452f6b1ce4f6e96461365d35b22ff869d54a329a449e1f01d74db566",
+    "screenshots/before-notifications-1024-dark.png": "498937890cd9a21dd53975597dd41b0b2834e765e260e3da0f6870c8fe36a21a",
+    "screenshots/after-dashboard-1440-dark.png": "f329eccbbd8e6c92ea8edfcd8f907d79590f486cb9a9aba3119708a4a6a839a3",
+    "screenshots/before-dashboard-1440-dark.png": "f329eccbbd8e6c92ea8edfcd8f907d79590f486cb9a9aba3119708a4a6a839a3",
+    "screenshots/after-notifications-1024-dark.png": "498937890cd9a21dd53975597dd41b0b2834e765e260e3da0f6870c8fe36a21a",
+    "screenshots/after-tables-375-system-light.png": "04f6fece452f6b1ce4f6e96461365d35b22ff869d54a329a449e1f01d74db566",
+    "screenshots/before-drawer-375-light.png": "71b06ed22c1a69c6ab9e5bb76c8a93dcfd7e833a334e450da441540661d961c6",
+    "screenshots/before-dashboard-375-light.png": "910812d1a6c759dde8f418e90149222257156414a6bc7c4e71813323c2dda8aa",
+    "screenshots/after-dashboard-375-light.png": "910812d1a6c759dde8f418e90149222257156414a6bc7c4e71813323c2dda8aa"
+  },
+  "preservation": {
+    "initialTracked": 1132,
+    "C75ExactHashes": 17,
+    "C75GeneratedRestored": 15,
+    "unrelatedChanges": 0,
+    "allowedExistingChanged": 17,
+    "unchangedExisting": 1115
+  },
+  "fixtureCounts": {
+    "profiles": 0,
+    "loans": 0,
+    "transactions": 0,
+    "counterparties": 0,
+    "notifications": 0,
+    "auth_users": 0
+  },
+  "evon": {
+    "scope": "public login only, Light/Dark, fixed widths375/768/1024/1280/1440/1920 and sweep",
+    "rawP": 0
+  },
+  "closing": {
+    "diffCheck": "PASS",
+    "secretScan": "PASS, gitleaks8.30.1 pinned digest, redacted, changed files/diff only,0findings",
+    "artifacts": "PASS10image hashes and160computed/pixel entries",
+    "preservation": "PASS1132initial tracked/17allowed changed/1115exact unchanged;17C75exact",
+    "remote": "No push/deploy/CI or account mutation; deployed C91 unchanged",
+    "secretFalsePositive": "One generic-api-key finding on SHA256 log digest keyed by secret-final.log; verified file hash, changed metadata to file/sha256 records, no scanner rule/allowlist change. Redacted finding retained in ignored cache."
+  },
+  "logs": [
+    {
+      "file": "lint-final.log",
+      "sha256": "7787715262f0784cd6c91cf514b5eb577b4595ec144f87668944d0a08993394c"
+    },
+    {
+      "file": "typecheck.log",
+      "sha256": "a4317894e6d5bd65183174a58ce8c1034e286855ce6db4cbfc46665db807fb45"
+    },
+    {
+      "file": "unit-final.log",
+      "sha256": "a2fca21734bb938e399e2a5c9b71e3ee5e9a6524c89a28494bd1503197fdee56"
+    },
+    {
+      "file": "build-final.log",
+      "sha256": "450d61445701e3f36b9f41ae9e3c59f77e2305f3ce7ad4b220723c9594b93bc6"
+    },
+    {
+      "file": "e2e-full.log",
+      "sha256": "97f12f3f615c5f6a1cbe592db2dc581e6c3fdbe20ac50a0999a569429be556d0"
+    },
+    {
+      "file": "secret-final.log",
+      "sha256": "8b557f3cccd112e654c7d9eefcb371b5ea665b5f674620da6d0691089acb6ab2"
+    }
+  ]
+}

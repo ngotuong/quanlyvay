@@ -1,3 +1,4 @@
+import { EmptyState } from "@/components/ui/empty-state";
 import { Pagination, parsePage } from "@/components/business/pagination";
 import { PrivacyAmount, PrivacyRegion } from "@/components/app/privacy-provider";
 import Link from "next/link";
@@ -75,12 +76,12 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
       </div> : null}
 
       {loans.length === 0 ? (
-        <section className="empty-state">
+        <EmptyState>
           <span className="empty-icon"><CircleAlert size={28} /></span>
           <h2>{hasFilters ? "Không tìm thấy khoản phù hợp" : "Chưa có khoản vay"}</h2>
           <p>{hasFilters ? "Hãy thử bỏ bớt điều kiện, kiểm tra tên đối tác hoặc xóa toàn bộ bộ lọc." : "Hãy thêm đối tác trước, sau đó tạo khoản vay đầu tiên."}</p>
           {hasFilters ? <div className="empty-actions"><Link className="secondary-link" href="/loans?status=ALL">Xóa bộ lọc</Link></div> : profile.role !== "VIEWER" ? <div className="empty-actions"><Link className="secondary-link" href="/counterparties">Thêm đối tác</Link><Link className="primary-link" href="/loans/new">Tạo khoản vay</Link></div> : null}
-        </section>
+        </EmptyState>
       ) : (
         <section className="loan-list" aria-label="Danh sách khoản vay">
           {loans.map((loan) => {

@@ -68,8 +68,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C90 | Sửa cách đọc VND và hàng tab chi tiết khoản vay theo C89 | `COMPLETED` |
 | C91 | Đồng bộ và phát hành bản sửa C90 lên Preview/Production | `COMPLETED` |
 | C92 | Chốt thiết kế đích UI/UX và cách đo nghiệm thu | `COMPLETED` |
-| C93 | Chuẩn hóa tokens/CSS và UI primitives, giữ hình đã duyệt | `AWAITING_APPROVAL` |
-| C94 | Khả năng đọc, bảng mobile và tên dài theo thiết kế đích | `NOT_STARTED` |
+| C93 | Chuẩn hóa tokens/CSS và UI primitives, giữ hình đã duyệt | `COMPLETED` |
+| C94 | Khả năng đọc, bảng mobile và tên dài theo thiết kế đích | `AWAITING_APPROVAL` |
 | C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `NOT_STARTED` |
 | C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `NOT_STARTED` |
 | C97 | Loading đúng từng màn và motion có chọn lọc | `NOT_STARTED` |
@@ -2255,7 +2255,7 @@ Acceptance criteria:
 
 ### C93 — Refactor tokens/CSS/primitives giữ hình
 
-Trạng thái: `AWAITING_APPROVAL`. Phụ thuộc C92 đã hoàn tất; cần OWNER duyệt riêng C93.
+Trạng thái: `COMPLETED`. OWNER phê duyệt C93 ngày09/10/2026; C92 đã hoàn tất.
 C93 giữ hình runtime hiện tại; thiết kế A là đích C94–C97, không đổi hình dưới tên refactor.
 
 Phạm vi: palette gốc→semantic→component tokens, Light/Dark/System; hợp nhất rule trùng và
@@ -2274,9 +2274,15 @@ Acceptance criteria:
 3. Lint/typecheck/unit/build/fullE2E phù hợp PASS; các C63/C67/C72/C75/C78/C81/C84/C87/C90
    áp dụng vẫn đạt, không hạ assertions. Giá trị empty/search-empty/unread-empty/error giữ khác.
 
+C93 hoàn tất local: lint/typecheck/unit117/build19/fullE2E64PASS18SKIP12.0m đạt;
+computed160/160, pixel159full-page +1viewport khớp, raw stitched mismatch vẫn giữ.
+13duplicate declarations có proof, inventory/source metrics và consumer thật ở
+[report](refactor-c93/report.md). 17C75hashes/sixcounts0 bảo toàn. Không push/deploy;
+C94 AWAITING_APPROVAL, dừng theo AGENTS§3.
+
 ### C94 — Đọc dữ liệu mobile, typography và tên dài
 
-Trạng thái: `NOT_STARTED`. Phụ thuộc C93, OWNER duyệt C94 và các lựa chọn C92.
+Trạng thái: `AWAITING_APPROVAL`. Phụ thuộc C93, OWNER duyệt C94 và các lựa chọn C92.
 
 Phạm vi: G2 nhãn phụ≥12–14px theo vai trò; G4 hover khác selected vẫn có aria-current;
 G1 bảng Dòng tiền/Đối tác dashboard giữ nhận diện dòng khi cuộn (chọn ghim cột hoặc cards

@@ -1,34 +1,33 @@
-# Bàn giao — C92 hoàn tất, C93 chờ phê duyệt
+# Bàn giao — C93 hoàn tất, C94 chờ phê duyệt
 
-C91 đã phát hành; C92 `COMPLETED` ngày09/10/2026. OWNER chọn **A** và yêu cầu nhập nhanh
-50tr/100tr/150tr/…; nhóm chốt **+50tr/+100tr/+150tr/+200tr**, cộng dồn/chặn vượt giới hạn
-context; không autosubmit. Chỉ docs/static thay đổi, chưa runtime/deploy.
-C93 `AWAITING_APPROVAL`; C94–C98 `NOT_STARTED`. Không tự bắt đầu checkpoint tiếp theo.
-
-Đọc đầy đủ AGENTS.md/PROJECT_CONTEXT.md, roadmapC93(section50), rồi gitstatus và xác nhận
-OWNER phê duyệt C93 trong hội thoại hiện tại. C93 refactor giữ hình runtime hiện tại;
-A taskfullwidth/cashflowbelow thuộc C94, chip50triệu C95, drawerA C96; không đổi hình sớm.
+C93 `COMPLETED` local ngày09/10/2026 sau OWNER duyệt trong hội thoại. C94 `AWAITING_APPROVAL`;
+C95–C98 `NOT_STARTED`. Dừng, không tự bắt đầu checkpoint kế tiếp hoặc phát hành.
 Repository chuẩn: `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`.
 
-Đặc tả docs/design-c92/selected-design.md; brief/report/evidence/baseline/prototype-qa/contrast
-cùng thư mục. Mẫu bền docs/design-c92/reference/,9ảnhA screenshots/. Logs/helpers/lượt lỗi giữ
-ignored.cache/c92, khôngcleanup. Serverreview127.0.0.1:3192 hiện phục vụ.cache/c92/wireframes;
-khi tắt chạy `python3 -m http.server 3192 --bind 127.0.0.1 --directory docs/design-c92/reference`
-từ root. URL mẫu A: /index.html?v=a&mau=mau&kho=mobile&theme=light&scene=drawer&kind=principal&tt=empty.
+Phiên mới đọc đầy đủ AGENTS.md/PROJECT_CONTEXT.md, roadmap C94 (section50), chạy gitstatus
+và xác nhận OWNER duyệt C94 trong hội thoại hiện tại. C93 chỉ refactor giữ hình runtime B/Inter;
+A taskdesktopfull-width/cashflowbelow, cards hai bảng Dashboard mobile, metadata/tên dài/
+notification hover thuộc C94; Quick Amount C95; drawer A C96.
 
-Baseline32samples/16journeys/test1PASS1.6m;50triệu Tiền gốc8phím số ở375/1280×900 LightDark.
-Prototype110samples0fail/keyboard2PASS/labelchips4PASS; contrasttext≥4.746/control≥3.860;
-EvonArawP0, BrawP1 giữ lịch sử, B không được chọn. Preservation1063files/DBsixcounts0/secret/diffPASS.
-AT/mobile thật/SafariFirefox/remote states NOT_TESTED; mock không có phép cộng/API submit.
-C95 thay tiêu chí10triệu/≤2chips bằng50triệu/1chip theo OWNER;10triệu vẫn gõ/paste.
+C92 OWNER chọn **A**, nhập nhanh **+50tr/+100tr/+150tr/+200tr**, cộng dồn theo context/validation,
+không autosubmit. Đặc tả `docs/design-c92/selected-design.md`; reference và9ảnhA đã lưu.
+C95 tiêu chí50triệu Tiền gốc từ ôtrống đãfocus:1chip, thay tiêu chí10triệu/≤2chips;10triệu gõ/paste.
 
-Runtime source `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`, CI37644195261 thành công cả5job.
-Closing proof `839d34b348e7dd435688365435cc0336bfcb4eb0`, [CI](https://github.com/ngotuong/quanlyvay/actions/runs/37803762628) thành công cả5job. Commit trạng thái cuối chỉ tài liệu;
-phải kiểm exactSHA CI trước thông báo hoàn tất, SHA/run cuối ghi trong hội thoại.
-C87 harness race đã tái hiện và sửa, fullE2E64/18 và targeted3/3 đạt; không đổi runtime.
+C93 thay entry globals.css bằng ordered imports; tokens palette→semantic→component, featureCSS
+giữ cascade/overrides B/C90; gỡ13declarations trùng có proof. EmptyState7consumer, ResponsiveTable
+2consumer thật giữ wrappers/semantics; Badge/Card/Button tái dùng. Không đổi font/layout/financial engine.
+Bằng chứng: `docs/refactor-c93/report.md`, `comparison.html`, inventory/duplicate-proof/computed/pixel/
+evidence JSON và10ảnh synthetic. Before source `752fd48`; helpers/raw runs trong ignored `.cache/c93/`.
 
-Bằng chứng C91 ở `docs/release-c91/`; giữ nguyên lỗi cũ, giới hạn remote/device và rủi ro
-Dashboard query_canceled57014 đã hồi phục nhưng chưa xác định nguyên nhân database.
-Giữ C88 rollback; không cleanup. Không dùng tài liệu lịch sử làm quyền thao tác mới.
-C92 đã chốt A trước sửa G1–G4; giữ B/Inter/KPI trước task, VND integer/privacy/lifecycle.
-Không thay dữ liệu thật, account, schema/RPC/secrets, Google hoặc backup ngoài scope được duyệt.
+Gate C93: lint/typecheck/unit117/build19 PASS, fullE2E64PASS/18SKIP/0FAIL12.0m,retries0.
+160computed pairs khớp;159full-page pixelpairs +1actual viewport375×900 khớp. Raw long-page
+stitched mismatch retained, không gọi toàn bộ full-page khớp. Existing E2E assertions/timeout/skip
+không đổi; unit adapter nạp2primitive thật. Evon public login Light/Dark fixed+sweep rawP0 chỉ Auth.
+SourceCSS1968→2033lines/raw143046→152289/gzip24273→26217; không là transfer/performance claim.
+1132tracked source-before,17C75hashes exact/15generated restored; DBguard55322 sixcounts0.
+AT/mobile thật/bàn phím mềm/authenticatedSafariFirefox/OS-theme-live/PWA-beforeHTML/remote save NOT_TESTED.
+
+C93 chưa push/deploy/remote mutation. C91 vẫn phục vụ Preview/Production; deployment/CI/aliases
+trong PROJECT_CONTEXT.md và `docs/release-c91/`. Giữ C88 rollback, không cleanup. C91 Dashboard
+query_canceled57014 đã hồi phục nhưng chưa xác định nguyên nhân DB; không tuning ngoài checkpoint.
+Không dùng revision logs/COMPLETED/CI lịch sử làm quyền thao tác mới. Không mở lại Google/backup.
