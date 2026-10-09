@@ -1,0 +1,676 @@
+{
+  "method": "Computed token colors on standalone prototype, ratios only; not full WCAG or device certification",
+  "cases": [
+    {
+      "theme": "light",
+      "scene": "dashboard",
+      "pairs": [
+        {
+          "text": "foreground",
+          "bg": "surface",
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "background",
+          "ratio": 5.2748782571799655
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "surface",
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "foreground",
+          "bg": "surface-muted",
+          "ratio": 13.545559289484688
+        },
+        {
+          "text": "on-primary",
+          "bg": "primary",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-text",
+          "bg": "metric-highlight",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-muted",
+          "bg": "metric-highlight",
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "success",
+          "bg": "success-surface",
+          "ratio": 5.205862916797388
+        },
+        {
+          "text": "warning",
+          "bg": "warning-surface",
+          "ratio": 4.842409024801452
+        },
+        {
+          "text": "error-text",
+          "bg": "error-surface",
+          "ratio": 4.746863322210302
+        },
+        {
+          "text": "sidebar-foreground",
+          "bg": "sidebar-background",
+          "ratio": 12.251374360724837
+        },
+        {
+          "text": "sidebar-muted",
+          "bg": "sidebar-background",
+          "ratio": 7.7611530075888995
+        }
+      ],
+      "controlBorderRatio": 3.8609535407643087
+    },
+    {
+      "theme": "light",
+      "scene": "drawer",
+      "pairs": [
+        {
+          "text": "foreground",
+          "bg": "surface",
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "background",
+          "ratio": 5.2748782571799655
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "surface",
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "foreground",
+          "bg": "surface-muted",
+          "ratio": 13.545559289484688
+        },
+        {
+          "text": "on-primary",
+          "bg": "primary",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-text",
+          "bg": "metric-highlight",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-muted",
+          "bg": "metric-highlight",
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "success",
+          "bg": "success-surface",
+          "ratio": 5.205862916797388
+        },
+        {
+          "text": "warning",
+          "bg": "warning-surface",
+          "ratio": 4.842409024801452
+        },
+        {
+          "text": "error-text",
+          "bg": "error-surface",
+          "ratio": 4.746863322210302
+        },
+        {
+          "text": "sidebar-foreground",
+          "bg": "sidebar-background",
+          "ratio": 12.251374360724837
+        },
+        {
+          "text": "sidebar-muted",
+          "bg": "sidebar-background",
+          "ratio": 7.7611530075888995
+        }
+      ],
+      "controlBorderRatio": 3.8609535407643087
+    },
+    {
+      "theme": "light",
+      "scene": "tables",
+      "pairs": [
+        {
+          "text": "foreground",
+          "bg": "surface",
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "background",
+          "ratio": 5.2748782571799655
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "surface",
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "foreground",
+          "bg": "surface-muted",
+          "ratio": 13.545559289484688
+        },
+        {
+          "text": "on-primary",
+          "bg": "primary",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-text",
+          "bg": "metric-highlight",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-muted",
+          "bg": "metric-highlight",
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "success",
+          "bg": "success-surface",
+          "ratio": 5.205862916797388
+        },
+        {
+          "text": "warning",
+          "bg": "warning-surface",
+          "ratio": 4.842409024801452
+        },
+        {
+          "text": "error-text",
+          "bg": "error-surface",
+          "ratio": 4.746863322210302
+        },
+        {
+          "text": "sidebar-foreground",
+          "bg": "sidebar-background",
+          "ratio": 12.251374360724837
+        },
+        {
+          "text": "sidebar-muted",
+          "bg": "sidebar-background",
+          "ratio": 7.7611530075888995
+        }
+      ],
+      "controlBorderRatio": 3.8609535407643087
+    },
+    {
+      "theme": "light",
+      "scene": "notifications",
+      "pairs": [
+        {
+          "text": "foreground",
+          "bg": "surface",
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "background",
+          "ratio": 5.2748782571799655
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "surface",
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "foreground",
+          "bg": "surface-muted",
+          "ratio": 13.545559289484688
+        },
+        {
+          "text": "on-primary",
+          "bg": "primary",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-text",
+          "bg": "metric-highlight",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-muted",
+          "bg": "metric-highlight",
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "success",
+          "bg": "success-surface",
+          "ratio": 5.205862916797388
+        },
+        {
+          "text": "warning",
+          "bg": "warning-surface",
+          "ratio": 4.842409024801452
+        },
+        {
+          "text": "error-text",
+          "bg": "error-surface",
+          "ratio": 4.746863322210302
+        },
+        {
+          "text": "sidebar-foreground",
+          "bg": "sidebar-background",
+          "ratio": 12.251374360724837
+        },
+        {
+          "text": "sidebar-muted",
+          "bg": "sidebar-background",
+          "ratio": 7.7611530075888995
+        }
+      ],
+      "controlBorderRatio": 3.8609535407643087
+    },
+    {
+      "theme": "light",
+      "scene": "metadata",
+      "pairs": [
+        {
+          "text": "foreground",
+          "bg": "surface",
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "background",
+          "ratio": 5.2748782571799655
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "surface",
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "foreground",
+          "bg": "surface-muted",
+          "ratio": 13.545559289484688
+        },
+        {
+          "text": "on-primary",
+          "bg": "primary",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-text",
+          "bg": "metric-highlight",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-muted",
+          "bg": "metric-highlight",
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "success",
+          "bg": "success-surface",
+          "ratio": 5.205862916797388
+        },
+        {
+          "text": "warning",
+          "bg": "warning-surface",
+          "ratio": 4.842409024801452
+        },
+        {
+          "text": "error-text",
+          "bg": "error-surface",
+          "ratio": 4.746863322210302
+        },
+        {
+          "text": "sidebar-foreground",
+          "bg": "sidebar-background",
+          "ratio": 12.251374360724837
+        },
+        {
+          "text": "sidebar-muted",
+          "bg": "sidebar-background",
+          "ratio": 7.7611530075888995
+        }
+      ],
+      "controlBorderRatio": 3.8609535407643087
+    },
+    {
+      "theme": "dark",
+      "scene": "dashboard",
+      "pairs": [
+        {
+          "text": "foreground",
+          "bg": "surface",
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "background",
+          "ratio": 10.355405714195545
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "surface",
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "foreground",
+          "bg": "surface-muted",
+          "ratio": 11.948934158471403
+        },
+        {
+          "text": "on-primary",
+          "bg": "primary",
+          "ratio": 9.83750053606076
+        },
+        {
+          "text": "metric-highlight-text",
+          "bg": "metric-highlight",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-muted",
+          "bg": "metric-highlight",
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "success",
+          "bg": "success-surface",
+          "ratio": 8.564867523399668
+        },
+        {
+          "text": "warning",
+          "bg": "warning-surface",
+          "ratio": 7.995715130659298
+        },
+        {
+          "text": "error-text",
+          "bg": "error-surface",
+          "ratio": 8.04865189463232
+        },
+        {
+          "text": "sidebar-foreground",
+          "bg": "sidebar-background",
+          "ratio": 12.251374360724837
+        },
+        {
+          "text": "sidebar-muted",
+          "bg": "sidebar-background",
+          "ratio": 7.7611530075888995
+        }
+      ],
+      "controlBorderRatio": 6.155036941630269
+    },
+    {
+      "theme": "dark",
+      "scene": "drawer",
+      "pairs": [
+        {
+          "text": "foreground",
+          "bg": "surface",
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "background",
+          "ratio": 10.355405714195545
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "surface",
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "foreground",
+          "bg": "surface-muted",
+          "ratio": 11.948934158471403
+        },
+        {
+          "text": "on-primary",
+          "bg": "primary",
+          "ratio": 9.83750053606076
+        },
+        {
+          "text": "metric-highlight-text",
+          "bg": "metric-highlight",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-muted",
+          "bg": "metric-highlight",
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "success",
+          "bg": "success-surface",
+          "ratio": 8.564867523399668
+        },
+        {
+          "text": "warning",
+          "bg": "warning-surface",
+          "ratio": 7.995715130659298
+        },
+        {
+          "text": "error-text",
+          "bg": "error-surface",
+          "ratio": 8.04865189463232
+        },
+        {
+          "text": "sidebar-foreground",
+          "bg": "sidebar-background",
+          "ratio": 12.251374360724837
+        },
+        {
+          "text": "sidebar-muted",
+          "bg": "sidebar-background",
+          "ratio": 7.7611530075888995
+        }
+      ],
+      "controlBorderRatio": 6.155036941630269
+    },
+    {
+      "theme": "dark",
+      "scene": "tables",
+      "pairs": [
+        {
+          "text": "foreground",
+          "bg": "surface",
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "background",
+          "ratio": 10.355405714195545
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "surface",
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "foreground",
+          "bg": "surface-muted",
+          "ratio": 11.948934158471403
+        },
+        {
+          "text": "on-primary",
+          "bg": "primary",
+          "ratio": 9.83750053606076
+        },
+        {
+          "text": "metric-highlight-text",
+          "bg": "metric-highlight",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-muted",
+          "bg": "metric-highlight",
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "success",
+          "bg": "success-surface",
+          "ratio": 8.564867523399668
+        },
+        {
+          "text": "warning",
+          "bg": "warning-surface",
+          "ratio": 7.995715130659298
+        },
+        {
+          "text": "error-text",
+          "bg": "error-surface",
+          "ratio": 8.04865189463232
+        },
+        {
+          "text": "sidebar-foreground",
+          "bg": "sidebar-background",
+          "ratio": 12.251374360724837
+        },
+        {
+          "text": "sidebar-muted",
+          "bg": "sidebar-background",
+          "ratio": 7.7611530075888995
+        }
+      ],
+      "controlBorderRatio": 6.155036941630269
+    },
+    {
+      "theme": "dark",
+      "scene": "notifications",
+      "pairs": [
+        {
+          "text": "foreground",
+          "bg": "surface",
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "background",
+          "ratio": 10.355405714195545
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "surface",
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "foreground",
+          "bg": "surface-muted",
+          "ratio": 11.948934158471403
+        },
+        {
+          "text": "on-primary",
+          "bg": "primary",
+          "ratio": 9.83750053606076
+        },
+        {
+          "text": "metric-highlight-text",
+          "bg": "metric-highlight",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-muted",
+          "bg": "metric-highlight",
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "success",
+          "bg": "success-surface",
+          "ratio": 8.564867523399668
+        },
+        {
+          "text": "warning",
+          "bg": "warning-surface",
+          "ratio": 7.995715130659298
+        },
+        {
+          "text": "error-text",
+          "bg": "error-surface",
+          "ratio": 8.04865189463232
+        },
+        {
+          "text": "sidebar-foreground",
+          "bg": "sidebar-background",
+          "ratio": 12.251374360724837
+        },
+        {
+          "text": "sidebar-muted",
+          "bg": "sidebar-background",
+          "ratio": 7.7611530075888995
+        }
+      ],
+      "controlBorderRatio": 6.155036941630269
+    },
+    {
+      "theme": "dark",
+      "scene": "metadata",
+      "pairs": [
+        {
+          "text": "foreground",
+          "bg": "surface",
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "background",
+          "ratio": 10.355405714195545
+        },
+        {
+          "text": "foreground-muted",
+          "bg": "surface",
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "foreground",
+          "bg": "surface-muted",
+          "ratio": 11.948934158471403
+        },
+        {
+          "text": "on-primary",
+          "bg": "primary",
+          "ratio": 9.83750053606076
+        },
+        {
+          "text": "metric-highlight-text",
+          "bg": "metric-highlight",
+          "ratio": 6.701618401398807
+        },
+        {
+          "text": "metric-highlight-muted",
+          "bg": "metric-highlight",
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "success",
+          "bg": "success-surface",
+          "ratio": 8.564867523399668
+        },
+        {
+          "text": "warning",
+          "bg": "warning-surface",
+          "ratio": 7.995715130659298
+        },
+        {
+          "text": "error-text",
+          "bg": "error-surface",
+          "ratio": 8.04865189463232
+        },
+        {
+          "text": "sidebar-foreground",
+          "bg": "sidebar-background",
+          "ratio": 12.251374360724837
+        },
+        {
+          "text": "sidebar-muted",
+          "bg": "sidebar-background",
+          "ratio": 7.7611530075888995
+        }
+      ],
+      "controlBorderRatio": 6.155036941630269
+    }
+  ],
+  "failures": []
+}

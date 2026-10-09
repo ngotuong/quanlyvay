@@ -1,0 +1,910 @@
+{
+  "checkpoint": "C92",
+  "status": "COMPLETED",
+  "phase": "OWNER selected A; target specification frozen; runtime unchanged",
+  "ownerApproval": "2026-10-09, current conversation",
+  "selectedDesign": {
+    "variant": "A",
+    "date": "2026-10-09",
+    "ownerText": "Tôi chọn A, nhưng các giá trị tiền nhập nhanh nên là 50tr, 100tr, 150tr,..",
+    "quickAmountLabels": [
+      "+50tr",
+      "+100tr",
+      "+150tr",
+      "+200tr"
+    ],
+    "quickAmountValues": [
+      "50000000",
+      "100000000",
+      "150000000",
+      "200000000"
+    ],
+    "semantics": "Additive, inherited from reviewed A;4 initial presets of requested50million sequence",
+    "demoContext": "Principal field, synthetic Minh An; smaller interest context retains authoritative remaining suggestion",
+    "implementation": "C95, separately approved; static C92 only"
+  },
+  "runtimeSource": "f1f474d1b28064588ebcc77dc7fcce4b23da1d93",
+  "baseline": {
+    "samples": 32,
+    "widths": [
+      375,
+      1280
+    ],
+    "height": 900,
+    "themes": [
+      "light",
+      "dark"
+    ],
+    "pageOverflow": 0,
+    "pageErrors": 0,
+    "bodyFont": 16,
+    "journeys": [
+      {
+        "task": "Expose existing dashboard tables",
+        "theme": "light",
+        "width": 375,
+        "clicks": 3,
+        "explicitScrollGestures": 0,
+        "automaticScroll": [
+          {
+            "label": "Phân tích chi tiết",
+            "scrollBefore": 0,
+            "scrollAfter": 1525
+          },
+          {
+            "label": "Xem bảng đối tác",
+            "scrollBefore": 1525,
+            "scrollAfter": 3824
+          },
+          {
+            "label": "Xem bảng số liệu",
+            "scrollBefore": 3824,
+            "scrollAfter": 1708
+          }
+        ]
+      },
+      {
+        "task": "Dashboard interest task opens payment",
+        "theme": "light",
+        "width": 375,
+        "clicks": 1,
+        "textKeys": 0,
+        "explicitScrollGestures": 0,
+        "automaticScrollBefore": 0,
+        "automaticScrollAfter": 0,
+        "routeTransition": 1,
+        "initial": "Dashboard default state, privacy shown",
+        "final": "Loan detail with interest drawer open"
+      },
+      {
+        "task": "Type10million from empty focused VndInput",
+        "theme": "light",
+        "width": 375,
+        "initialPreparation": "Clear existing suggested value and focus; excluded from goal count",
+        "digitKeys": 8,
+        "pasteOperations": 0,
+        "chipActions": 0,
+        "finalDisplayed": "10.000.000",
+        "normalizedDigits": "10000000",
+        "submit": 0
+      },
+      {
+        "task": "Type50million principal from empty focused VndInput",
+        "theme": "light",
+        "width": 375,
+        "initialPreparation": "Select principal, clear and focus; excluded from goal count",
+        "digitKeys": 8,
+        "pasteOperations": 0,
+        "chipActions": 0,
+        "finalDisplayed": "50.000.000",
+        "normalizedDigits": "50000000",
+        "submit": 0
+      },
+      {
+        "task": "Expose existing dashboard tables",
+        "theme": "light",
+        "width": 1280,
+        "clicks": 3,
+        "explicitScrollGestures": 0,
+        "automaticScroll": [
+          {
+            "label": "Phân tích chi tiết",
+            "scrollBefore": 0,
+            "scrollAfter": 329
+          },
+          {
+            "label": "Xem bảng đối tác",
+            "scrollBefore": 329,
+            "scrollAfter": 1536
+          },
+          {
+            "label": "Xem bảng số liệu",
+            "scrollBefore": 1536,
+            "scrollAfter": 410
+          }
+        ]
+      },
+      {
+        "task": "Dashboard interest task opens payment",
+        "theme": "light",
+        "width": 1280,
+        "clicks": 1,
+        "textKeys": 0,
+        "explicitScrollGestures": 0,
+        "automaticScrollBefore": 0,
+        "automaticScrollAfter": 0,
+        "routeTransition": 1,
+        "initial": "Dashboard default state, privacy shown",
+        "final": "Loan detail with interest drawer open"
+      },
+      {
+        "task": "Type10million from empty focused VndInput",
+        "theme": "light",
+        "width": 1280,
+        "initialPreparation": "Clear existing suggested value and focus; excluded from goal count",
+        "digitKeys": 8,
+        "pasteOperations": 0,
+        "chipActions": 0,
+        "finalDisplayed": "10.000.000",
+        "normalizedDigits": "10000000",
+        "submit": 0
+      },
+      {
+        "task": "Type50million principal from empty focused VndInput",
+        "theme": "light",
+        "width": 1280,
+        "initialPreparation": "Select principal, clear and focus; excluded from goal count",
+        "digitKeys": 8,
+        "pasteOperations": 0,
+        "chipActions": 0,
+        "finalDisplayed": "50.000.000",
+        "normalizedDigits": "50000000",
+        "submit": 0
+      },
+      {
+        "task": "Expose existing dashboard tables",
+        "theme": "dark",
+        "width": 375,
+        "clicks": 3,
+        "explicitScrollGestures": 0,
+        "automaticScroll": [
+          {
+            "label": "Phân tích chi tiết",
+            "scrollBefore": 0,
+            "scrollAfter": 1525
+          },
+          {
+            "label": "Xem bảng đối tác",
+            "scrollBefore": 1525,
+            "scrollAfter": 3824
+          },
+          {
+            "label": "Xem bảng số liệu",
+            "scrollBefore": 3824,
+            "scrollAfter": 1708
+          }
+        ]
+      },
+      {
+        "task": "Dashboard interest task opens payment",
+        "theme": "dark",
+        "width": 375,
+        "clicks": 1,
+        "textKeys": 0,
+        "explicitScrollGestures": 0,
+        "automaticScrollBefore": 0,
+        "automaticScrollAfter": 0,
+        "routeTransition": 1,
+        "initial": "Dashboard default state, privacy shown",
+        "final": "Loan detail with interest drawer open"
+      },
+      {
+        "task": "Type10million from empty focused VndInput",
+        "theme": "dark",
+        "width": 375,
+        "initialPreparation": "Clear existing suggested value and focus; excluded from goal count",
+        "digitKeys": 8,
+        "pasteOperations": 0,
+        "chipActions": 0,
+        "finalDisplayed": "10.000.000",
+        "normalizedDigits": "10000000",
+        "submit": 0
+      },
+      {
+        "task": "Type50million principal from empty focused VndInput",
+        "theme": "dark",
+        "width": 375,
+        "initialPreparation": "Select principal, clear and focus; excluded from goal count",
+        "digitKeys": 8,
+        "pasteOperations": 0,
+        "chipActions": 0,
+        "finalDisplayed": "50.000.000",
+        "normalizedDigits": "50000000",
+        "submit": 0
+      },
+      {
+        "task": "Expose existing dashboard tables",
+        "theme": "dark",
+        "width": 1280,
+        "clicks": 3,
+        "explicitScrollGestures": 0,
+        "automaticScroll": [
+          {
+            "label": "Phân tích chi tiết",
+            "scrollBefore": 0,
+            "scrollAfter": 329
+          },
+          {
+            "label": "Xem bảng đối tác",
+            "scrollBefore": 329,
+            "scrollAfter": 1536
+          },
+          {
+            "label": "Xem bảng số liệu",
+            "scrollBefore": 1536,
+            "scrollAfter": 410
+          }
+        ]
+      },
+      {
+        "task": "Dashboard interest task opens payment",
+        "theme": "dark",
+        "width": 1280,
+        "clicks": 1,
+        "textKeys": 0,
+        "explicitScrollGestures": 0,
+        "automaticScrollBefore": 0,
+        "automaticScrollAfter": 0,
+        "routeTransition": 1,
+        "initial": "Dashboard default state, privacy shown",
+        "final": "Loan detail with interest drawer open"
+      },
+      {
+        "task": "Type10million from empty focused VndInput",
+        "theme": "dark",
+        "width": 1280,
+        "initialPreparation": "Clear existing suggested value and focus; excluded from goal count",
+        "digitKeys": 8,
+        "pasteOperations": 0,
+        "chipActions": 0,
+        "finalDisplayed": "10.000.000",
+        "normalizedDigits": "10000000",
+        "submit": 0
+      },
+      {
+        "task": "Type50million principal from empty focused VndInput",
+        "theme": "dark",
+        "width": 1280,
+        "initialPreparation": "Select principal, clear and focus; excluded from goal count",
+        "digitKeys": 8,
+        "pasteOperations": 0,
+        "chipActions": 0,
+        "finalDisplayed": "50.000.000",
+        "normalizedDigits": "50000000",
+        "submit": 0
+      }
+    ],
+    "readability": [
+      {
+        "task": "G2 helper font",
+        "scene": "expenses",
+        "theme": "light",
+        "width": 375,
+        "tiny": [
+          {
+            "class": "",
+            "font": "11.2px",
+            "text": "(100%)"
+          }
+        ]
+      },
+      {
+        "task": "G2 helper font",
+        "scene": "settings",
+        "theme": "light",
+        "width": 375,
+        "tiny": [
+          {
+            "class": "managed-user-status",
+            "font": "11.52px",
+            "text": "Đang hoạt động"
+          }
+        ]
+      },
+      {
+        "task": "G1 first-column identity",
+        "theme": "light",
+        "width": 375,
+        "tables": [
+          {
+            "headers": [
+              "Tháng",
+              "Tiền vào",
+              "Tiền ra",
+              "Ròng"
+            ],
+            "rows": [
+              [
+                "T10/2026",
+                "0 ₫",
+                "10.370.000 ₫",
+                "-10.370.000 ₫"
+              ]
+            ],
+            "clientWidth": 301,
+            "scrollWidth": 390,
+            "firstColumnPosition": "static"
+          },
+          {
+            "headers": [
+              "Đối tác",
+              "Cho vay",
+              "Nợ xấu",
+              "Đi vay",
+              "Tổng"
+            ],
+            "rows": [
+              [
+                "C92 Minh An",
+                "1.289.500.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "1.289.500.000 ₫"
+              ],
+              [
+                "C92 Thanh Bình",
+                "0 ₫",
+                "0 ₫",
+                "65.000.000 ₫",
+                "65.000.000 ₫"
+              ],
+              [
+                "C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để k",
+                "10.000.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "10.000.000 ₫"
+              ],
+              [
+                "Đối tác thông báo E2E",
+                "1.000.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "1.000.000 ₫"
+              ]
+            ],
+            "clientWidth": 267,
+            "scrollWidth": 1692,
+            "firstColumnPosition": "static"
+          }
+        ],
+        "identity": [
+          {
+            "scrollLeft": 89,
+            "scrollable": true,
+            "firstColumnPosition": "static",
+            "visibleBefore": true,
+            "visibleAfter": false,
+            "allDetailsOpen": true
+          },
+          {
+            "scrollLeft": 1425,
+            "scrollable": true,
+            "firstColumnPosition": "static",
+            "visibleBefore": true,
+            "visibleAfter": false,
+            "allDetailsOpen": true
+          }
+        ],
+        "method": "Programmatic within-table scroll probe, not human scroll gesture count"
+      },
+      {
+        "task": "G2 helper font",
+        "scene": "expenses",
+        "theme": "light",
+        "width": 1280,
+        "tiny": [
+          {
+            "class": "",
+            "font": "11.2px",
+            "text": "(100%)"
+          }
+        ]
+      },
+      {
+        "task": "G2 helper font",
+        "scene": "settings",
+        "theme": "light",
+        "width": 1280,
+        "tiny": [
+          {
+            "class": "managed-user-status",
+            "font": "11.52px",
+            "text": "Đang hoạt động"
+          }
+        ]
+      },
+      {
+        "task": "G1 first-column identity",
+        "theme": "light",
+        "width": 1280,
+        "tables": [
+          {
+            "headers": [
+              "Tháng",
+              "Tiền vào",
+              "Tiền ra",
+              "Ròng"
+            ],
+            "rows": [
+              [
+                "T10/2026",
+                "0 ₫",
+                "10.370.000 ₫",
+                "-10.370.000 ₫"
+              ]
+            ],
+            "clientWidth": 405,
+            "scrollWidth": 405,
+            "firstColumnPosition": "static"
+          },
+          {
+            "headers": [
+              "Đối tác",
+              "Cho vay",
+              "Nợ xấu",
+              "Đi vay",
+              "Tổng"
+            ],
+            "rows": [
+              [
+                "C92 Minh An",
+                "1.289.500.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "1.289.500.000 ₫"
+              ],
+              [
+                "C92 Thanh Bình",
+                "0 ₫",
+                "0 ₫",
+                "65.000.000 ₫",
+                "65.000.000 ₫"
+              ],
+              [
+                "C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để k",
+                "10.000.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "10.000.000 ₫"
+              ],
+              [
+                "Đối tác thông báo E2E",
+                "1.000.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "1.000.000 ₫"
+              ]
+            ],
+            "clientWidth": 924,
+            "scrollWidth": 1692,
+            "firstColumnPosition": "static"
+          }
+        ],
+        "identity": [
+          {
+            "scrollLeft": 0,
+            "scrollable": false,
+            "firstColumnPosition": "static",
+            "visibleBefore": true,
+            "visibleAfter": true,
+            "allDetailsOpen": true
+          },
+          {
+            "scrollLeft": 768,
+            "scrollable": true,
+            "firstColumnPosition": "static",
+            "visibleBefore": true,
+            "visibleAfter": true,
+            "allDetailsOpen": true
+          }
+        ],
+        "method": "Programmatic within-table scroll probe, not human scroll gesture count"
+      },
+      {
+        "task": "G2 helper font",
+        "scene": "expenses",
+        "theme": "dark",
+        "width": 375,
+        "tiny": [
+          {
+            "class": "",
+            "font": "11.2px",
+            "text": "(100%)"
+          }
+        ]
+      },
+      {
+        "task": "G2 helper font",
+        "scene": "settings",
+        "theme": "dark",
+        "width": 375,
+        "tiny": [
+          {
+            "class": "managed-user-status",
+            "font": "11.52px",
+            "text": "Đang hoạt động"
+          }
+        ]
+      },
+      {
+        "task": "G1 first-column identity",
+        "theme": "dark",
+        "width": 375,
+        "tables": [
+          {
+            "headers": [
+              "Tháng",
+              "Tiền vào",
+              "Tiền ra",
+              "Ròng"
+            ],
+            "rows": [
+              [
+                "T10/2026",
+                "0 ₫",
+                "10.370.000 ₫",
+                "-10.370.000 ₫"
+              ]
+            ],
+            "clientWidth": 301,
+            "scrollWidth": 390,
+            "firstColumnPosition": "static"
+          },
+          {
+            "headers": [
+              "Đối tác",
+              "Cho vay",
+              "Nợ xấu",
+              "Đi vay",
+              "Tổng"
+            ],
+            "rows": [
+              [
+                "C92 Minh An",
+                "1.289.500.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "1.289.500.000 ₫"
+              ],
+              [
+                "C92 Thanh Bình",
+                "0 ₫",
+                "0 ₫",
+                "65.000.000 ₫",
+                "65.000.000 ₫"
+              ],
+              [
+                "C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để k",
+                "10.000.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "10.000.000 ₫"
+              ],
+              [
+                "Đối tác thông báo E2E",
+                "1.000.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "1.000.000 ₫"
+              ]
+            ],
+            "clientWidth": 267,
+            "scrollWidth": 1692,
+            "firstColumnPosition": "static"
+          }
+        ],
+        "identity": [
+          {
+            "scrollLeft": 89,
+            "scrollable": true,
+            "firstColumnPosition": "static",
+            "visibleBefore": true,
+            "visibleAfter": false,
+            "allDetailsOpen": true
+          },
+          {
+            "scrollLeft": 1425,
+            "scrollable": true,
+            "firstColumnPosition": "static",
+            "visibleBefore": true,
+            "visibleAfter": false,
+            "allDetailsOpen": true
+          }
+        ],
+        "method": "Programmatic within-table scroll probe, not human scroll gesture count"
+      },
+      {
+        "task": "G2 helper font",
+        "scene": "expenses",
+        "theme": "dark",
+        "width": 1280,
+        "tiny": [
+          {
+            "class": "",
+            "font": "11.2px",
+            "text": "(100%)"
+          }
+        ]
+      },
+      {
+        "task": "G2 helper font",
+        "scene": "settings",
+        "theme": "dark",
+        "width": 1280,
+        "tiny": [
+          {
+            "class": "managed-user-status",
+            "font": "11.52px",
+            "text": "Đang hoạt động"
+          }
+        ]
+      },
+      {
+        "task": "G1 first-column identity",
+        "theme": "dark",
+        "width": 1280,
+        "tables": [
+          {
+            "headers": [
+              "Tháng",
+              "Tiền vào",
+              "Tiền ra",
+              "Ròng"
+            ],
+            "rows": [
+              [
+                "T10/2026",
+                "0 ₫",
+                "10.370.000 ₫",
+                "-10.370.000 ₫"
+              ]
+            ],
+            "clientWidth": 405,
+            "scrollWidth": 405,
+            "firstColumnPosition": "static"
+          },
+          {
+            "headers": [
+              "Đối tác",
+              "Cho vay",
+              "Nợ xấu",
+              "Đi vay",
+              "Tổng"
+            ],
+            "rows": [
+              [
+                "C92 Minh An",
+                "1.289.500.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "1.289.500.000 ₫"
+              ],
+              [
+                "C92 Thanh Bình",
+                "0 ₫",
+                "0 ₫",
+                "65.000.000 ₫",
+                "65.000.000 ₫"
+              ],
+              [
+                "C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để k",
+                "10.000.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "10.000.000 ₫"
+              ],
+              [
+                "Đối tác thông báo E2E",
+                "1.000.000 ₫",
+                "0 ₫",
+                "0 ₫",
+                "1.000.000 ₫"
+              ]
+            ],
+            "clientWidth": 924,
+            "scrollWidth": 1692,
+            "firstColumnPosition": "static"
+          }
+        ],
+        "identity": [
+          {
+            "scrollLeft": 0,
+            "scrollable": false,
+            "firstColumnPosition": "static",
+            "visibleBefore": true,
+            "visibleAfter": true,
+            "allDetailsOpen": true
+          },
+          {
+            "scrollLeft": 768,
+            "scrollable": true,
+            "firstColumnPosition": "static",
+            "visibleBefore": true,
+            "visibleAfter": true,
+            "allDetailsOpen": true
+          }
+        ],
+        "method": "Programmatic within-table scroll probe, not human scroll gesture count"
+      }
+    ],
+    "fixture": {
+      "counterparties": [
+        "C92 Minh An",
+        "C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để k",
+        "C92 Thanh Bình"
+      ],
+      "loans": [
+        {
+          "name": "C92 Vốn kinh doanh Minh An",
+          "counterparty": "C92 Minh An",
+          "direction": "LENDING",
+          "principalString": "1284500000",
+          "date": "2026-09-06",
+          "term": null
+        },
+        {
+          "name": "C92 Khoản dự phòng Thanh Bình",
+          "counterparty": "C92 Thanh Bình",
+          "direction": "BORROWING",
+          "principalString": "65000000",
+          "date": "2026-09-09",
+          "term": null
+        },
+        {
+          "name": "C92 Khoản vay có tên tiếng Việt rất dài để nhận diện đúng trước khi ghi giao dịch C92 Khoản vay có tên tiếng Việt rất dài để nhận diện đúng trước khi ghi giao dịch C92 Khoản vay có tên tiếng Việt rất ",
+          "counterparty": "C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để kiểm tra việc đọc và nhận diện đúng dữ liệu C92 Đối tác có tên tiếng Việt dài để k",
+          "direction": "LENDING",
+          "principalString": "10000000",
+          "date": "2026-10-01",
+          "term": null
+        },
+        {
+          "name": "C92 Khoản quá hạn gốc",
+          "counterparty": "C92 Minh An",
+          "direction": "LENDING",
+          "principalString": "5000000",
+          "date": "2026-08-01",
+          "term": 30
+        }
+      ],
+      "expenses": [
+        "120000",
+        "250000"
+      ],
+      "globalSetupNotificationFixture": {
+        "counterparty": "Đối tác thông báo E2E",
+        "loan": "Khoản thông báo E2E",
+        "principalString": "1000000",
+        "date": "2026-08-01",
+        "ratePercent": 3
+      }
+    }
+  },
+  "prototypeQA": {
+    "samples": 110,
+    "failures": 0,
+    "keyboard": [
+      {
+        "v": "a",
+        "trapped": true,
+        "escapeClosed": true,
+        "focusReturned": true
+      },
+      {
+        "v": "b",
+        "trapped": true,
+        "escapeClosed": true,
+        "focusReturned": true
+      }
+    ],
+    "scope": "Standalone prototype DOM/geometry/glyph/focus only; no runtime feature certification"
+  },
+  "contrast": {
+    "cases": 10,
+    "minimumTextRatio": 4.746863322210302,
+    "minimumControlBorderRatio": 3.8609535407643087,
+    "fullWCAG": "NOT_CERTIFIED"
+  },
+  "nativeReview": {
+    "browser": "Codex in-app, local static prototype",
+    "A": "Opened and read fresh AX",
+    "B": "Opened and read fresh AX; accessible table cells, full-name disclosure and all currency units present",
+    "selectedA": "Fresh in-app AX: principal field; all four accessible quick amount labels present"
+  },
+  "links": {
+    "A": "http://127.0.0.1:3192/index.html?v=a&mau=mau&kho=mobile&theme=light",
+    "B": "http://127.0.0.1:3192/index.html?v=b&mau=mau&kho=mobile&theme=light",
+    "E": "http://127.0.0.1:3192/index.html?v=e&mau=mau&kho=mobile&theme=light",
+    "selectedA": "http://127.0.0.1:3192/index.html?v=a&mau=mau&kho=mobile&theme=light&scene=drawer&kind=principal&tt=empty"
+  },
+  "evon": {
+    "ArawP": 0,
+    "AfixedWidths": [
+      375,
+      768,
+      1024,
+      1280,
+      1440,
+      1920
+    ],
+    "AsweepSamples": 24,
+    "BrawP": 1,
+    "BDisposition": "Rule counts body cells above1line in columns under200px; code does not exclude designed scrollers despite comment.136px mobile pinned identity column deliberately allows two lines; sticky visibility/keyboard/disclosure and all data retained. Not silently removed. OWNER selected A, B not selected."
+  },
+  "failuresRetained": {
+    "baselineHelper": {
+      "firstRun": "1passed1.5m, observations retained in baseline-first-helper; not accepted as final table baseline",
+      "issue": "getAttribute(open) returns empty string for open details; falsy test toggled an already-open partner table shut and inflated clicks to4",
+      "fix": "Compare attribute with null; accept final state only when all table details open",
+      "taskContextFix": "Select known C92 large-principal loan for interest drawer so10million entry is within available interest; preserve original global1million task observation",
+      "assertionsRetriesTimeoutsChanged": false
+    },
+    "prototypeFirst": {
+      "samples": 154,
+      "failures": 19,
+      "causes": [
+        "Task-name links below44px",
+        "A focus loop"
+      ],
+      "later": "154/0 then106/0; source trap copied"
+    },
+    "contrastFirst": {
+      "trueFailure": "error text on error-surface4.4148:1",
+      "parserFailure": "color(srgb) fractions were treated as0..255; fixed normalization before controlBorder conclusion",
+      "fix": "Derived error-text token from existing palette; no runtime CSS edit"
+    },
+    "iconHelper": "Literal replacement missed extra newline between ICONS and P; visual check caught blank Eye/More/Audit, replaced dictionary with whitespace-aware match",
+    "BprobeRaw": "Retained, disposition requires OWNER visual review",
+    "closingLaunch": {
+      "firstBaseline": "Root pnpm exec could not find playwright; no test/fixture run. Corrected pnpm --dir apps/web with absolute config.",
+      "firstPrototype": "Static review server from earlier turn stopped; connection refused. Started same scoped localhost server and final110samplesPASS.",
+      "files": ".cache/c92/baseline-owner-choice.log and prototype-qa-selected.log retained"
+    }
+  },
+  "postBaseline": {
+    "databaseIdentity": "C20-test",
+    "port": 55322,
+    "counts": {
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0,
+      "counterparties": 0,
+      "notifications": 0,
+      "authUsers": 0
+    }
+  },
+  "limits": [
+    "Physical AT/mobile keyboard/SafariFirefox/OS theme/PWA-beforeHTML/remote save NOT_TESTED",
+    "Detail-long fresh before screenshot NOT_MEASURED",
+    "Prototype arithmetic only for presentation bars; no settlement/QuickAmount calculation/submit connected",
+    "Prototype additional states do not certify dirty/pending/revalidate business runtime",
+    "No financial/account/schema/RPC/secrets/Google/backup/deploy/cleanup remote mutation"
+  ],
+  "localGates": {
+    "baseline": "32samples/16journeys, local test1passed1.6m; new50million principal8digit keys in4theme/width combinations",
+    "prototype": "110samples0fail; two Tab/Escape/focus journeys PASS; four OWNER quick-amount label checks PASS",
+    "textContrastMin": 4.746863322210302,
+    "controlBorderContrastMin": 3.8609535407643087,
+    "nodeSyntax": "PASS",
+    "prototypeAPI": "No Supabase/API submit attached",
+    "runtimeSourcePreserved": true,
+    "secretScan": "PASS0findings pinned8.30.1",
+    "diffCheck": "PASS"
+  },
+  "preservation": {
+    "trackedFilesCompared": 1063,
+    "changed": []
+  },
+  "durableReference": "docs/design-c92/reference/"
+}

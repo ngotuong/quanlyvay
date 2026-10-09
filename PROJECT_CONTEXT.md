@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.310
-last_updated: 2026-10-08
+roadmap_version: 1.0.312
+last_updated: 2026-10-09
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C92
+current_checkpoint: C93
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C91
-next_checkpoint: C92
+last_completed_checkpoint: C92
+next_checkpoint: C93
 ---
 
 # Project Context
@@ -53,9 +53,24 @@ không dùng lịch sử để suy quyền thực hiện mới.
   khoảng log sau hồi phục không có error/HTTP 500. Nguyên nhân database chưa xác định,
   giữ rủi ro tái diễn trong [continuation-health](docs/release-c91/continuation-health.json).
   Không chỉnh schema/RPC/timeout. Giới hạn thiết bị, AT và remote state giữ rõ trong report.
-- C92 `AWAITING_APPROVAL`: chốt thiết kế đích trước sửa G1–G4. C93–C98 `NOT_STARTED`.
-  C91 không còn blocker. Không bắt đầu checkpoint tiếp theo khi chưa OWNER duyệt.
-  Bằng chứng: [report C91](docs/release-c91/report.md) và các JSON cùng thư mục.
+- C92 `COMPLETED` ngày09/10/2026. OWNER chọn **A**, yêu cầu Quick Amount50tr/100tr/150tr/…;
+  chốt4nút +50tr/+100tr/+150tr/+200tr, cộng dồn theo context/validation, không autosubmit.
+  Giữ B/Inter/KPI trước task; mobile hai bảng Dashboard thành thẻ, desktop giữ bảng;
+  taskdesktopfull-width/cashflowbelow thuộc C94, drawer phải/bottom sheet thuộc C96.
+  [Đặc tả chốt](docs/design-c92/selected-design.md), [brief](docs/design-c92/brief.md),
+  [report](docs/design-c92/report.md), evidence/baseline/prototype-qa/contrast JSON cùng thư mục.
+  Mẫu/32ảnh before đã lưu bền trong docs/design-c92/reference/,9ảnh mẫu A trong screenshots/.
+- C92 gates: baseline32samples/16journeys, localtest1PASS1.6m;50triệu Tiền gốc từ ôtrống đãfocus
+  cần8phím số ở375/1280×900 LightDark, submit0. Mục tiêu C95 mới là1chip +50tr từ cùng state;
+  không giữ điều kiện10triệu/≤2chips trái lựa chọn OWNER. Prototype110samples0fail, keyboard2PASS,
+  labelchips4PASS; contrast10cases text≥4.746/control≥3.860; EvonA rawP0, BrawP1 giữ lịch sử
+  nhưng B không được chọn. Syntax/diff/secret0findings đạt;1063existing hashes bảo toàn.
+  GuardDocker C20-test55322 đúnglabel/port, sixcounts0 sau teardown. Chỉ docs/static đổi;
+  không chạy lại fullgate sản phẩm, không runtime/remote mutation hoặc phát hành.
+- C93 `AWAITING_APPROVAL`; C94–C98 `NOT_STARTED`. Không blocker C92. C93 chỉ refactor giữ hình
+  runtime hiện tại; không dùng lựa chọn A để đổi layout sớm. Chưa bắt đầu checkpoint kế tiếp.
+  NOT_TESTED AT/phone thật/SafariFirefox/OS-theme/PWA-beforeHTML/remote save giữ trong report.
+  Bằng chứng C91: [report](docs/release-c91/report.md), nguyên nhân query_canceled57014 vẫn chưa xác định.
 
 ## 2. Thay đổi local cần bảo toàn
 
@@ -124,6 +139,7 @@ không dùng lịch sử để suy quyền thực hiện mới.
   C92 xác nhận thiết kế đích trước khi sửa; không coi đồng ý roadmap là chọn mọi Gu/style.
 - Token primitives được phép chứa giá trị màu gốc; component dùng semantic token. Không
   mục tiêu giảm50% CSS bằng mọi giá, không đánh đồng di chuyển file với tăng hiệu năng.
+- OWNER chọn A và Quick Amount +50tr/+100tr/+150tr/+200tr ngày09/10/2026; spec tại docs/design-c92/selected-design.md.
 - Quick Amount dùng chuỗi integer/BigInt, không Number để xử lý tiền lớn; không frontend
   quyết toán. Tiêu chí thao tác phải nêu trạng thái ban đầu, giá trị, focus/reset/pending.
 - Không ép header≤25% mọi viewport, không hứa nhanhgấp3/60fps mọidevice/zeroCLS toànapp.
@@ -167,5 +183,5 @@ không dùng lịch sử để suy quyền thực hiện mới.
   [Backup](docs/BACKUP_RESTORE.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md).
 - Skill Evon: `/Users/ngotuong/.codex/skills/evondev-ui-ux/SKILL.md`; áp khi công việc UI cần,
   không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
-- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C91 hoàn tất và C92 chờ duyệt.
-  C91 đã được duyệt mở rộng dependency; không bắt đầu C92–C98 hoặc tạo cuộc trò chuyện tự động.
+- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C92 hoàn tất/A đã chọn; C93 chờ duyệt.
+  Không bắt đầu C93–C98 hoặc tạo cuộc trò chuyện tự động.

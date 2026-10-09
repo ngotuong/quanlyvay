@@ -67,8 +67,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C89 | Nghiệm thu trải nghiệm B sau C88 và chốt backlog UX | `COMPLETED` |
 | C90 | Sửa cách đọc VND và hàng tab chi tiết khoản vay theo C89 | `COMPLETED` |
 | C91 | Đồng bộ và phát hành bản sửa C90 lên Preview/Production | `COMPLETED` |
-| C92 | Chốt thiết kế đích UI/UX và cách đo nghiệm thu | `AWAITING_APPROVAL` |
-| C93 | Chuẩn hóa tokens/CSS và UI primitives, giữ hình đã duyệt | `NOT_STARTED` |
+| C92 | Chốt thiết kế đích UI/UX và cách đo nghiệm thu | `COMPLETED` |
+| C93 | Chuẩn hóa tokens/CSS và UI primitives, giữ hình đã duyệt | `AWAITING_APPROVAL` |
 | C94 | Khả năng đọc, bảng mobile và tên dài theo thiết kế đích | `NOT_STARTED` |
 | C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `NOT_STARTED` |
 | C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `NOT_STARTED` |
@@ -2232,7 +2232,11 @@ cho Design System. Chuỗi dưới là kế hoạch tương lai, chỉ thực hi
 
 ### C92 — Thiết kế đích và baseline trải nghiệm
 
-Trạng thái: `AWAITING_APPROVAL`. C91 đã hoàn tất; chờ OWNER duyệt C92.
+Trạng thái: `COMPLETED`. OWNER duyệt C92 và chọn A ngày09/10/2026, yêu cầu Quick Amount50tr/100tr/150tr/….
+Đã khóa docs/design-c92/selected-design.md:4nút +50tr/+100tr/+150tr/+200tr; A nguyên bản, không D/E.
+Baseline32samples/16journeys (50triệu Tiền gốc8phím số), test1PASS1.6m; prototype110samples0fail/
+keyboard2PASS/labelchips4PASS; contrast10cases/diff/secret/preservation1063file/teardown0 đạt.
+Mẫu bền: docs/design-c92/reference/; brief/report/proof cùng thư mục. Không runtime/deploy.
 
 Phạm vi: dùng Evon ui-ux, audit stack/primitives/token trước; brief tác vụ Dashboard/detail/
 drawer/bảng,2–3 hướng thiết kế trước/sau mobile/desktop Light/Dark. G1–G4 và Quick Amount/
@@ -2251,7 +2255,8 @@ Acceptance criteria:
 
 ### C93 — Refactor tokens/CSS/primitives giữ hình
 
-Trạng thái: `NOT_STARTED`. Phụ thuộc C92, OWNER duyệt C93.
+Trạng thái: `AWAITING_APPROVAL`. Phụ thuộc C92 đã hoàn tất; cần OWNER duyệt riêng C93.
+C93 giữ hình runtime hiện tại; thiết kế A là đích C94–C97, không đổi hình dưới tên refactor.
 
 Phạm vi: palette gốc→semantic→component tokens, Light/Dark/System; hợp nhất rule trùng và
 specificity/override, tách CSS đặc thù module có thứ tự rõ. Được giữ hex ở định nghĩa palette
@@ -2276,7 +2281,8 @@ Trạng thái: `NOT_STARTED`. Phụ thuộc C93, OWNER duyệt C94 và các lự
 Phạm vi: G2 nhãn phụ≥12–14px theo vai trò; G4 hover khác selected vẫn có aria-current;
 G1 bảng Dòng tiền/Đối tác dashboard giữ nhận diện dòng khi cuộn (chọn ghim cột hoặc cards
 cho từng bảng); G3 tên200ký tự có disclosure toàn bộ khi cần, không cắt accessible identity.
-Không suy mọi bảng thành card, không đổi số/đơn vị hoặc loại số0/tên/dữ liệu khỏi sản phẩm.
+OWNER chọn A tại C92: hai bảng Dashboard thành cards mobile, desktop giữ bảng; taskdesktop
+full-width/cashflowbelow theo mẫu A. Không suy mọi bảng thành card, không đổi số/đơn vị hoặc loại số0/tên/dữ liệu khỏi sản phẩm.
 
 Acceptance criteria:
 
@@ -2292,14 +2298,17 @@ Acceptance criteria:
 
 Trạng thái: `NOT_STARTED`. Phụ thuộc C94, OWNER duyệt C95/mẫu chip C92.
 
-Phạm vi: chip tùy context field, số lượng/giá trị sau review; chọn vị trí trong webform thuận
+Phạm vi: chip tùy context field; OWNER chọn tại C92 +50tr/+100tr/+150tr/+200tr, cộng dồn
+50triệu theo chuỗi integer/BigInt, không ép nhóm này vào context lãi nhỏ; chọn vị trí trong webform thuận
 bàn phím, không hứa chèn vào toolbar bàn phím native mọibrowser. Cộng chuỗi integer/BigInt
 đúng giới hạn; gõ tay/cursor/default/clear/reset/error/pending và callback giữ chuẩn. Không
 frontend tính lãi hoặc quyết toán, không autosubmit. Không áp mặc định chip vào mọi input.
 
 Acceptance criteria:
 
-1. Từ ôtrống nhập10.000.000VND không quá2chipactions theo mẫu chọn; ghi số lần và baseline,
+1. Từ ô Tiền gốc trống đãfocus, khoản Minh An1.284.500.000VND, nhập50.000.000VND bằng1chipaction
+   +50tr theo mẫu A;100/150/200triệu từ trống cũng1action. Baseline cùng fixture375/1280×900
+   LightDark là8phím số, chọn loại/clear/focus tính riêng;10triệu vẫn gõ/paste. Ghi số lần và baseline,
    không suy nhanhgấp3 mọingười. Text hiển thị/normalized submit value trùng chính xác.
 2. Kiểm giá trị0/ordinary/17digit/max/chạm trần; không Number gây mất số, vượt trần bị chặn
    có thông báo. Paste/edit/invalid/clear/formreset/onValueChange khớp; chip typebutton.
@@ -2311,6 +2320,7 @@ Acceptance criteria:
 Trạng thái: `NOT_STARTED`. Phụ thuộc C95, OWNER duyệt C96.
 
 Phạm vi: tránh transition qua trangdetail cho interesttask bằng drawer ngay Dashboard;
+layoutA đã chọn tại C92:480px bên phải desktop, bottom sheet mobile;
 tái dùng lifecycle/payment primitives hiện có. Không tải/render form cho tất cả task vô
 điều kiện. Nhận diện khoản/cho vay–đi vay/amount authoritative, permission/privacy guard,
 request/cancel/stale/draft/history/focus, save→revalidate KPI/task từserver và idempotency.
