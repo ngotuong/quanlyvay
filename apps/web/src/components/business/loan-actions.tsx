@@ -6,22 +6,21 @@ import { CircleCheckBig, Plus, RefreshCw } from "lucide-react";
 import {
   recordExpenseAction,
   recordLifecycleAction,
-  recordPaymentAction,
 } from "@/app/actions/business";
 import { initialBusinessActionState } from "@/lib/business/action-state";
 import { todayInVietnam } from "@/lib/business/format";
 import type { LoanStatus } from "@/lib/business/types";
 import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
+import { LoanPaymentForm } from "./loan-payment-form";
 import { SettlementForm } from "./settlement-form";
 import { PrincipalRestructureForm } from "./principal-restructure-form";
-import { BottomSheet, Button, Input, Select, VndInput, notifyToast } from "@/components/ui";
+import { BottomSheet, Button, VndInput, notifyToast } from "@/components/ui";
 
 type Keys = { payment: string; expense: string; lifecycle: string; settlement: string; restructure: string };
 type DialogActivity = { dirty: boolean; pending: boolean };
 const idleDialog: DialogActivity = { dirty: false, pending: false };
 
 export function LoanActions({ loanId, status, interestCycleDays, keys, context, mode = "all", autoOpen = false, initialPayment, principalOutstandingVnd }: { loanId: string; status: LoanStatus; interestCycleDays: 15 | 30; keys: Keys; context?: { name: string; outstandingVnd: string; interestBalanceVnd: string }; mode?: "all" | "payment" | "management"; autoOpen?: boolean; initialPayment?: { type: "INTEREST_PAYMENT" | "PRINCIPAL_PAYMENT"; amountVnd: string }; principalOutstandingVnd?: string }) {
-  const [paymentState, paymentAction, , resetPaymentAction] = useBusinessAction(recordPaymentAction, initialBusinessActionState);
   const [expenseState, expenseAction] = useBusinessAction(recordExpenseAction, initialBusinessActionState);
   const [lifecycleState, lifecycleAction] = useBusinessAction(recordLifecycleAction, initialBusinessActionState);
   const [eventType, setEventType] = useState<"RATE_CHANGE" | "BAD_DEBT_START" | "INTEREST_RESUME">(status === "BAD_DEBT" ? "INTEREST_RESUME" : "RATE_CHANGE");
@@ -35,7 +34,6 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
   const [settlementActivity, setSettlementActivity] = useState(idleDialog);
   const [restructureActivity, setRestructureActivity] = useState(idleDialog);
   const [paymentSession, setPaymentSession] = useState(0);
-  const [paymentType, setPaymentType] = useState<"INTEREST_PAYMENT" | "PRINCIPAL_PAYMENT">(initialPayment?.type ?? "INTEREST_PAYMENT");
   const [settlementOpen, setSettlementOpen] = useState(false);
   const [restructureOpen, setRestructureOpen] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -83,7 +81,7 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
     if (!dialog.open) dialog.showModal();
   }
 
-  function resetPayment() { setPaymentType(initialPayment?.type ?? "INTEREST_PAYMENT"); resetPaymentAction(); setPaymentActivity(idleDialog); setPaymentSession(value => value + 1); }
+  function resetPayment() { setPaymentActivity(idleDialog); setPaymentSession(value => value + 1); }
   function closePaymentDialog(message?: string) { requestDialogClose({ activity: paymentActivity, dialog: paymentDialog, focus: paymentTrigger, reset: resetPayment, force: Boolean(message), message }); }
 
   function openSettlementDialog() {
@@ -120,19 +118,13 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
         </div>
         <p>Ghi khoản thu/trả hằng ngày, giảm gốc để bắt đầu kỳ lãi mới hoặc tất toán toàn bộ.</p>
         <BottomSheet eyebrow="Nghiệp vụ khoản vay" title="Ghi giao dịch" titleId="transaction-dialog-title" ref={paymentDialog} closeDisabled={paymentActivity.pending} onRequestClose={() => closePaymentDialog()}>
-          <BusinessForm key={paymentSession} state={paymentState} action={paymentAction} className="compact-form dialog-form"
+          <LoanPaymentForm key={paymentSession} loanId={loanId} idempotencyKey={keys.payment}
+            initialPayment={paymentSession === 0 ? initialPayment : initialPayment ? { type: initialPayment.type, amountVnd: "" } : undefined}
+            principalOutstandingVnd={principalOutstandingVnd}
+            context={context ? <p className="transaction-context"><strong>{context.name}</strong><span>Dư gốc {context.outstandingVnd} · Lãi còn lại {context.interestBalanceVnd}</span></p> : null}
             onDirtyChange={dirty => updateActivity(setPaymentActivity, "dirty", dirty)}
             onPendingChange={pending => updateActivity(setPaymentActivity, "pending", pending)}
-            onSuccess={closePaymentDialog} onReset={() => setPaymentType(initialPayment?.type ?? "INTEREST_PAYMENT")}>
-          {context ? <p className="transaction-context"><strong>{context.name}</strong><span>Dư gốc {context.outstandingVnd} · Lãi còn lại {context.interestBalanceVnd}</span></p> : null}
-          <input name="loanId" type="hidden" value={loanId} />
-          <input name="idempotencyKey" type="hidden" value={keys.payment} />
-          <div className="field-group"><label htmlFor="paymentType">Loại tiền</label><Select id="paymentType" name="type" value={paymentType} onChange={event => setPaymentType(event.target.value as typeof paymentType)}><option value="INTEREST_PAYMENT">Tiền lãi</option><option value="PRINCIPAL_PAYMENT">Tiền gốc</option></Select><FieldError state={paymentState} name="type" /></div>
-          <div className="field-group"><label htmlFor="paymentDate">Ngày thanh toán</label><Input id="paymentDate" name="transactionDate" type="date" defaultValue={today} required /><FieldError state={paymentState} name="transactionDate" /></div>
-          <div className="field-group"><label htmlFor="paymentAmount">Số tiền (VND)</label><VndInput id="paymentAmount" name="amountVnd" required placeholder="1.000.000" defaultValue={paymentSession === 0 ? initialPayment?.amountVnd : undefined} quickAmounts={paymentType === "PRINCIPAL_PAYMENT" ? { maximumVnd: principalOutstandingVnd } : undefined} /><FieldError state={paymentState} name="amountVnd" /></div>
-          <div className="field-group"><label htmlFor="paymentNote">Ghi chú</label><Input id="paymentNote" name="note" maxLength={500} /><FieldError state={paymentState} name="note" /></div>
-          <ActionMessage state={paymentState} /><div className="dialog-actions"><Button variant="secondary" className="secondary-button" type="button" disabled={paymentActivity.pending} onClick={() => closePaymentDialog()}>Hủy</Button><FormSubmit>Ghi nhận</FormSubmit></div>
-          </BusinessForm>
+            onSuccess={closePaymentDialog} onCancel={() => closePaymentDialog()} />
         </BottomSheet>
         <BottomSheet eyebrow="Tái cơ cấu dư gốc" title="Giảm gốc và mở kỳ mới" titleId="restructure-dialog-title" ref={restructureDialog} closeDisabled={restructureActivity.pending} onRequestClose={() => closeRestructureDialog()}>
           <div className="settlement-dialog-copy"><strong>Không tạo khoản vay giả hoặc dòng tiền giải ngân mới</strong><span>Ngày hiệu lực bắt đầu kỳ mới; lãi của dư gốc cũ được chốt tự động đến hết ngày liền trước.</span></div>

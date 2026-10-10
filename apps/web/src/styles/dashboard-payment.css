@@ -1,0 +1,29 @@
+/* A, C96: only the Dashboard payment panel changes geometry. Shared motion is retained. */
+.payment-fields { display: contents; }
+.dashboard-payment-drawer { position: fixed; inset: 16px 16px 16px auto; margin: 0; width: 480px; max-width: calc(100vw - 32px); height: calc(100dvh - 32px); max-height: calc(100dvh - 32px); border-radius: 16px; overflow: hidden; }
+.dashboard-payment-drawer .ui-bottom-sheet-surface { display: flex; flex-direction: column; height: 100%; max-height: calc(100dvh - 34px); }
+.dashboard-payment-drawer .dialog-heading { flex-shrink: 0; padding: 20px; }
+.dashboard-payment-drawer .dialog-heading h2 { font-size: 20px; }
+.dashboard-payment-drawer .dialog-form { display: flex; flex-direction: column; flex: 1; min-height: 0; padding: 0; gap: 0; }
+.dashboard-payment-drawer .payment-fields { display: grid; align-content: start; gap: 16px; min-height: 0; flex: 1; overflow: auto; overscroll-behavior: contain; padding: 20px; }
+.dashboard-payment-drawer .dialog-actions { flex-shrink: 0; padding: 16px 20px; border-top: 1px solid var(--border); background: var(--surface); }
+.dashboard-payment-context { display: grid; gap: 8px; min-width: 0; padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-muted); }
+.dashboard-payment-context p { margin: 0; }
+.dashboard-payment-context > span, .payment-direction { font-size: 14px; color: var(--foreground-muted); overflow-wrap: anywhere; }
+.payment-loan-name { font-size: 16px; overflow-wrap: anywhere; }
+.dashboard-payment-context dl { display: grid; gap: 12px; margin: 8px 0 0; }
+.dashboard-payment-context dl > div { display: grid; gap: 4px; }
+.dashboard-payment-context dt { font-size: 14px; color: var(--foreground-muted); }
+.dashboard-payment-context dd { margin: 0; font-size: 18px; font-weight: 600; }
+.dashboard-payment-context .field-hint, .dashboard-payment-drawer .field-error { font-size: 14px; }
+.payment-balance-suggestion { justify-self: start; margin-top: 4px; }
+.dashboard-payment-loading { padding: 20px; overflow: auto; display: grid; gap: 16px; }
+@media (max-width: 1023px) {
+  .dashboard-payment-drawer { inset: auto 12px 12px; width: calc(100vw - 24px); max-width: none; height: auto; max-height: calc(100dvh - 24px); border-radius: 20px; }
+  .dashboard-payment-drawer .ui-bottom-sheet-surface { height: auto; max-height: calc(100dvh - 26px); }
+  .dashboard-payment-drawer .ui-sheet-grabber { display: flex; flex-shrink: 0; }
+  .dashboard-payment-drawer .dialog-heading, .dashboard-payment-drawer .payment-fields, .dashboard-payment-loading { padding: 16px; }
+  .dashboard-payment-drawer .dialog-heading { padding-top: 6px; }
+  .dashboard-payment-drawer .dialog-actions { padding: 16px; gap: 10px; }
+  .dashboard-payment-drawer .dialog-actions > button { flex: 1; min-width: 0; }
+}

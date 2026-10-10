@@ -42,9 +42,10 @@ export type BusinessFormProps = Omit<ComponentProps<"form">, "action"> & {
   onDirtyChange?: (dirty: boolean) => void;
   onPendingChange?: (pending: boolean) => void;
   onSuccess?: (message: string) => void;
+  registerNavigationDraft?: boolean;
 };
 
-export function BusinessForm({ state, children, action, onDirtyChange, onPendingChange, onSuccess, ...props }: BusinessFormProps) {
+export function BusinessForm({ state, children, action, onDirtyChange, onPendingChange, onSuccess, registerNavigationDraft = true, ...props }: BusinessFormProps) {
   const interactive = useSyncExternalStore(subscribeHydration, () => true, () => false);
   const ref = useRef<HTMLFormElement>(null);
   const dirty = useRef(false);
@@ -67,8 +68,8 @@ export function BusinessForm({ state, children, action, onDirtyChange, onPending
     if (firstName) focusField(form, firstName);
     else form.querySelector<HTMLElement>(".action-message")?.focus();
   }, [onDirtyChange, onSuccess, state.fieldErrors, state.message, state.ok, state.pending, state.submissionId]);
-  useEffect(() => { onPendingChange?.(Boolean(state.pending)); }, [onPendingChange, state.pending]);
-  useEffect(() => registerDraft(() => dirty.current, () => pending.current), []);
+  useLayoutEffect(() => { onPendingChange?.(Boolean(state.pending)); }, [onPendingChange, state.pending]);
+  useEffect(() => registerNavigationDraft ? registerDraft(() => dirty.current, () => pending.current) : undefined, [registerNavigationDraft]);
   return <ManagedSuccess.Provider value={Boolean(onSuccess)}><BusinessPending.Provider value={Boolean(state.pending)}><form {...props} ref={ref} aria-busy={Boolean(state.pending)} onChange={event => {
     if (!dirty.current) onDirtyChange?.(true);
     dirty.current = true;
@@ -98,10 +99,10 @@ export function ActionMessage({ state, hiddenFields = [] }: { state: BusinessAct
   </div>;
 }
 
-export function FormSubmit({ children, danger = false }: { children: React.ReactNode; danger?: boolean }) {
+export function FormSubmit({ children, danger = false, disabled = false }: { children: React.ReactNode; danger?: boolean; disabled?: boolean }) {
   const pending = useContext(BusinessPending);
   return (
-    <Button variant={danger ? "danger" : "primary"} className={danger ? "danger-button" : "primary-button"} disabled={pending} type="submit">
+    <Button variant={danger ? "danger" : "primary"} className={danger ? "danger-button" : "primary-button"} disabled={pending || disabled} type="submit">
       {pending ? <LoaderCircle className="spin" aria-hidden="true" size={18} /> : null}
       {pending ? "Đang lưu…" : children}
     </Button>

@@ -71,8 +71,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C93 | Chuẩn hóa tokens/CSS và UI primitives, giữ hình đã duyệt | `COMPLETED` |
 | C94 | Khả năng đọc, bảng mobile và tên dài theo thiết kế đích | `COMPLETED` |
 | C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `COMPLETED` |
-| C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `AWAITING_APPROVAL` |
-| C97 | Loading đúng từng màn và motion có chọn lọc | `NOT_STARTED` |
+| C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `COMPLETED` |
+| C97 | Loading đúng từng màn và motion có chọn lọc | `AWAITING_APPROVAL` |
 | C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `NOT_STARTED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
@@ -2341,7 +2341,7 @@ hoặc sửa schema/RPC/engine; C96 AWAITING_APPROVAL rồi dừng theo AGENTS§
 
 ### C96 — Drawer thu/trả lãi ngay Dashboard
 
-Trạng thái: `AWAITING_APPROVAL`. C95 hoàn tất; cần OWNER duyệt C96.
+Trạng thái: `COMPLETED` local ngày10/10/2026. OWNER duyệt C96 trong hội thoại.
 
 Phạm vi: tránh transition qua trangdetail cho interesttask bằng drawer ngay Dashboard;
 layoutA đã chọn tại C92:480px bên phải desktop, bottom sheet mobile;
@@ -2361,9 +2361,20 @@ Acceptance criteria:
 3. Draft/cancel/BackForward/mởlại/rapidclick/timeout/retry và budget datafetch/bundle đo so
    baseline; đủ fullE2E relevantfinancial/Authboundary. Không QAdata remote hoặc redesign ngoài mẫu.
 
+Kết quả C96: mộtclick/0route cho interesttask, dynamic1selectedform; layoutA/headerfooter/body,
+VIEWER/privacy/deep-link/gốcquáhạn giữ. Dirty/BackForward/abort/stale/date/timeout/retry/rapid/
+pending/partial/advance/RPCidempotency/KPI/task/focus đạt trên fixture local. Lint/typecheck/
+unit121/rootbuild19 PASS; full79PASS18SKIP0FAIL15.5m,retries0;targeted+probe7PASS3.5m.
+BudgetmatchedinitialJS+8311bytes/openadditional11759vs57405,nominalbusinessreads2vs4; elapsed
+localMEASURED_ONLY, không hứa tăng tốc. Rawprobe3/theme giữ với opacity0-tooltip/focus-scroll
+reconciliation; native/focus warnings theo C92.1207before/10scopechanged/1197unchanged,140websrc/
+73financialfreeze,17C75exact/15generatedrestored,C20-test55322/sixcounts0;diff/artifact/secret đạt.
+[Report C96](dashboard-drawer-c96/report.md) và evidence cùng thư mục. Không remote/schema/
+engine/push/deploy;phone/AT/remote NOT_TESTED. C97 AWAITING_APPROVAL rồi dừng theo AGENTS§3.
+
 ### C97 — Loading theo màn và motion có chọn lọc
 
-Trạng thái: `NOT_STARTED`. Phụ thuộc C96, OWNER duyệt C97/mẫu chuyển động C92.
+Trạng thái: `AWAITING_APPROVAL`. Phụ thuộc C96, OWNER duyệt C97/mẫu chuyển động C92.
 
 Phạm vi: cải thiện skeleton từng route/KPI/table/chart dựa trên shimmer đã tồn tại, streamed
 Auth/SPA/cancel/error feedback; BottomSheet damping/snapback/backdrop chỉ theo mẫu được

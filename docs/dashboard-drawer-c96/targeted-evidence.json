@@ -1,0 +1,2129 @@
+{
+  "method": "Actual production Chromium, guarded local C20-test; no remote writes; viewport emulation only",
+  "observations": [
+    {
+      "task": "matrix",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 442,
+      "geometry": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 876,
+        "right": 12,
+        "bottom": 12,
+        "header": 39,
+        "footer": 887,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "light",
+      "width": 390,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 442,
+      "geometry": {
+        "x": 12,
+        "y": 12,
+        "width": 366,
+        "height": 876,
+        "right": 12,
+        "bottom": 12,
+        "header": 39,
+        "footer": 887,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "light",
+      "width": 768,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 546,
+      "geometry": {
+        "x": 12,
+        "y": 12,
+        "width": 744,
+        "height": 876,
+        "right": 12,
+        "bottom": 12,
+        "header": 39,
+        "footer": 887,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "light",
+      "width": 1024,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 446,
+      "geometry": {
+        "x": 528,
+        "y": 16,
+        "width": 480,
+        "height": 868,
+        "right": 16,
+        "bottom": 16,
+        "header": 17,
+        "footer": 883,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "light",
+      "width": 1280,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 860,
+      "geometry": {
+        "x": 784,
+        "y": 16,
+        "width": 480,
+        "height": 868,
+        "right": 16,
+        "bottom": 16,
+        "header": 17,
+        "footer": 883,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "light",
+      "width": 1440,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 441,
+      "geometry": {
+        "x": 944,
+        "y": 16,
+        "width": 480,
+        "height": 868,
+        "right": 16,
+        "bottom": 16,
+        "header": 17,
+        "footer": 883,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "light",
+      "width": 320,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 428,
+      "geometry": {
+        "x": 12,
+        "y": 12,
+        "width": 296,
+        "height": 876,
+        "right": 12,
+        "bottom": 12,
+        "header": 39,
+        "footer": 887,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 420,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 455,
+      "geometry": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 396,
+        "right": 12,
+        "bottom": 12,
+        "header": 39,
+        "footer": 407,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 462,
+      "geometry": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 876,
+        "right": 12,
+        "bottom": 12,
+        "header": 39,
+        "footer": 887,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "dark",
+      "width": 390,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 436,
+      "geometry": {
+        "x": 12,
+        "y": 12,
+        "width": 366,
+        "height": 876,
+        "right": 12,
+        "bottom": 12,
+        "header": 39,
+        "footer": 887,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "dark",
+      "width": 768,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 515,
+      "geometry": {
+        "x": 12,
+        "y": 12,
+        "width": 744,
+        "height": 876,
+        "right": 12,
+        "bottom": 12,
+        "header": 39,
+        "footer": 887,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "dark",
+      "width": 1024,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 460,
+      "geometry": {
+        "x": 528,
+        "y": 16,
+        "width": 480,
+        "height": 868,
+        "right": 16,
+        "bottom": 16,
+        "header": 17,
+        "footer": 883,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "dark",
+      "width": 1280,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 447,
+      "geometry": {
+        "x": 784,
+        "y": 16,
+        "width": 480,
+        "height": 868,
+        "right": 16,
+        "bottom": 16,
+        "header": 17,
+        "footer": 883,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "dark",
+      "width": 1440,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 421,
+      "geometry": {
+        "x": 944,
+        "y": 16,
+        "width": 480,
+        "height": 868,
+        "right": 16,
+        "bottom": 16,
+        "header": 17,
+        "footer": 883,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "dark",
+      "width": 320,
+      "height": 900,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 458,
+      "geometry": {
+        "x": 12,
+        "y": 12,
+        "width": 296,
+        "height": 876,
+        "right": 12,
+        "bottom": 12,
+        "header": 39,
+        "footer": 887,
+        "overflow": false
+      }
+    },
+    {
+      "task": "matrix",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 420,
+      "clicks": 1,
+      "routeTransitions": 0,
+      "selectedGets": 1,
+      "initialJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        }
+      ],
+      "openedJs": [
+        {
+          "name": "2fo1s1qiqoq96.js",
+          "decoded": 29621,
+          "encoded": 7889
+        },
+        {
+          "name": "0f6k0oaxm2191.js",
+          "decoded": 228919,
+          "encoded": 71574
+        },
+        {
+          "name": "2-ex5f5pogtr0.js",
+          "decoded": 134205,
+          "encoded": 35717
+        },
+        {
+          "name": "2dmpecca6_16d.js",
+          "decoded": 31328,
+          "encoded": 9591
+        },
+        {
+          "name": "turbopack-36_xlfo_j53ba.js",
+          "decoded": 9754,
+          "encoded": 3860
+        },
+        {
+          "name": "2j2l69n2t559a.js",
+          "decoded": 14380,
+          "encoded": 3662
+        },
+        {
+          "name": "20r9qyndm7zaj.js",
+          "decoded": 29357,
+          "encoded": 10617
+        },
+        {
+          "name": "37kgxt1e-q6qm.js",
+          "decoded": 26103,
+          "encoded": 9804
+        },
+        {
+          "name": "263zvqztd54lu.js",
+          "decoded": 16597,
+          "encoded": 6251
+        },
+        {
+          "name": "1vzeh8ogo9148.js",
+          "decoded": 912,
+          "encoded": 912
+        },
+        {
+          "name": "1m4bk5lw3ecrp.js",
+          "decoded": 11759,
+          "encoded": 4568
+        }
+      ],
+      "elapsedMs": 563,
+      "geometry": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 396,
+        "right": 12,
+        "bottom": 12,
+        "header": 39,
+        "footer": 407,
+        "overflow": false
+      }
+    },
+    {
+      "task": "draft/history",
+      "rejected": 5,
+      "prompts": 7,
+      "acceptedBackAndCancelOnce": true,
+      "forwardFreshKey": true
+    },
+    {
+      "task": "request/draft",
+      "cancelledSession": true,
+      "staleDateIgnored": true,
+      "draftPreserved": true,
+      "suggestionExact": "34681500",
+      "retry": true
+    },
+    {
+      "task": "timeout/rapid",
+      "deadlineMs": 12000,
+      "currentLoanOnly": true,
+      "forms": 1
+    },
+    {
+      "task": "boundary",
+      "unauth": 401,
+      "viewer": 403,
+      "privateGets": 0,
+      "privateAXMasked": true,
+      "reload": true
+    },
+    {
+      "task": "save",
+      "partialVnd": "1000",
+      "posts": 1,
+      "rows": 1,
+      "replay": true,
+      "serverErrorPreserved": true,
+      "transportRetryKeepsDraftAndKey": true,
+      "pendingBlocksCloseBackSubmit": true,
+      "kpiRevalidated": true,
+      "overpaymentVnd": "38535000",
+      "finalBalanceVnd": "-1285501",
+      "taskRemoved": true,
+      "focusFallback": true
+    }
+  ]
+}

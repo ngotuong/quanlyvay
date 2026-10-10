@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.318
+roadmap_version: 1.0.320
 last_updated: 2026-10-10
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C96
+current_checkpoint: C97
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C95
-next_checkpoint: C96
+last_completed_checkpoint: C96
+next_checkpoint: C97
 ---
 
 # Project Context
@@ -121,10 +121,34 @@ không dùng lịch sử để suy quyền thực hiện mới.
   17C75exact/15generatedrestored,130websrcfreeze;73schema/actions/validation/domainfiles không đổi.
   GuardDocker C20-test đúnglabel/DB55322, sixcounts0 sau teardown. Không push/deploy/remote/schema/
   RPC/financialengine change; runtime phát hành vẫn C91.
-- C96 `AWAITING_APPROVAL`; C97–C98 `NOT_STARTED`, không blocker local. Dừng theo AGENTS§3,
-  không tự bắt đầu C96. NOT_TESTED AT/phone thật/softkeyboard/nativeclipboard/nativezoom/
-  authenticatedSafariFirefox/OS-theme-live/PWA-beforeHTML/remote save giữ rõ trong report.
-  C91 query_canceled57014 chưa xác định nguyên nhân; không mở DB tuning/Google/backup từ lịch sử.
+- C96 `COMPLETED` local ngày10/10/2026, OWNER phê duyệt trong hội thoại. Một click tác vụ lãi
+  OWNER/EDITOR mở drawer ngay Dashboard,0route transition;480px/right16px desktop, mobileinset12px,
+  bodycuộn/headerfooter giữ vị trí. Dynamic form/context chỉ khoản đang chọn; VIEWER/privacy/
+  deep-link cũ/gốc quá hạn giữ semantics. PaymentForm dùng chung, ServerAction/RPC authoritative.
+  [Report](docs/dashboard-drawer-c96/report.md), [đối chiếu](docs/dashboard-drawer-c96/comparison.html),
+  implementation/budget/performance/targeted+full/probe/preservation/manifests cùng thư mục.
+- C96 lifecycle: dirtyclose/Back một prompt; reject giữdraft, Forward/reload phiên/key mới;
+  abort/stale/date/timeout12s/readretry/rapid/pending và transportmutationretry giữdraft/key.
+  Actualpartial1000VND/advance theo projected task,1POST1row cho operation/replaykhôngtrùng,
+  error giữdraft, serverKPI/task revalidate; successclose/reset/toast/focus trigger hoặc heading.
+  Số dư theo ngày có thể khác projection của task, không frontend settlement/optimistic money.
+- C96 gates: lint/typecheck/unit121/rootbuild19 PASS; full79PASS18SKIP0FAIL15.5m,retries0;
+  targeted+originalprobe7PASS3.5m. Matrixtargeted16/full18states320–1440LightDark,375×420/812;
+  phonekeyboard không chứng nhận. Matched375/1280×900:512865→521176decodedJS (+8311),
+  openadditional57405→11759; budget PASS. Nominalbusinessreads4→2,Auth/layout excluded;
+  elapsedlocal846–869→442–860ms MEASURED_ONLY, không hứa nhanhgấp3/Production latency.
+- C96 rawprobe3mục/theme được giữ:2VNDtooltip ancestoropacity0 khôngpainted và preparedbody
+  scroll1px; actual375×812initial0,clear/focus sauTabchecks188px,header/footer giữ. Nativepicker/
+  focus/density warnings giữ theo C92/outsideC96. Backhash bypass và focus trướcRSC từng FAIL,
+  đã sửa qua guardedpopstate/rAF/boundedfocusrecovery; lịch sử4lượt targeted giữ rõ trong report.
+  Fullserverlog có destination-stream-closed-early/negativeAuth-export cases; không gọi error0 toànapp.
+- C96 preservation/diff/artifact/secret PASS:1207trackedbefore/10scopechanged/1197unchanged,
+  140websrcfreeze/73financialprotectedfiles giữ;17C75exact/15generatedrestored. C20-test đúnglabel/
+  DB55322,sixcounts0; không mainDB54322,push/deploy/remote/schema/RPC/engine change, runtime vẫn C91.
+- C97 `AWAITING_APPROVAL`; C98 `NOT_STARTED`. Không tự bắt đầu C97 hoặc phát hành.
+  NOT_TESTED AT/phone thật/softkeyboard/nativeclipboard/nativezoom/authenticatedSafariFirefox/
+  OS-theme-live/PWA-beforeHTML/remote save giữ rõ trong report. C91 query_canceled57014 vẫn chưa
+  xác định nguyên nhân; không mở DB tuning/Google/backup từ lịch sử.
 
 ## 2. Thay đổi local cần bảo toàn
 
@@ -136,8 +160,8 @@ không dùng lịch sử để suy quyền thực hiện mới.
   settlement-preview trước grabber, không sửa runtime drawer hoặc nghiệp vụ.
 - Bản vá đã duyệt chỉ pnpm-workspace.yaml/lock cho sharp0.35.5/source-map-js1.2.2 và libvips.
 - C91 source/closingproof đã push; finalstatus chỉ tài liệu. Candidate source/UID giữ nguyên.
-- C92 local commit `752fd48`, C93 `577d6f4`, C94 `0aa52ac`; C95 local source/docs và bằng chứng
-  chốt cùng context/roadmap/handoff. Chưa push/deploy các checkpoint C92–C95.
+- C92 local commit `752fd48`, C93 `577d6f4`, C94 `0aa52ac`, C95 `82151b6`; C96 local source/docs
+  và bằng chứng chốt cùng context/roadmap/handoff. Chưa push/deploy các checkpoint C92–C96.
 - Các file C75 do test sinh đã trả exact baseline. Không broad reset/cleanup cache/backup;
   cache còn trace/log thất bại để truy vết và có synthetic session cần tiếp tục ignore.
 
@@ -239,5 +263,5 @@ không dùng lịch sử để suy quyền thực hiện mới.
   [Backup](docs/BACKUP_RESTORE.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md).
 - Skill Evon: `/Users/ngotuong/.codex/skills/evondev-ui-ux/SKILL.md`; áp khi công việc UI cần,
   không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
-- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C95 hoàn tất; C96 chờ duyệt/A đã chọn.
-  Không bắt đầu C96–C98 hoặc tạo cuộc trò chuyện tự động.
+- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C96 hoàn tất; C97 chờ duyệt/A đã chọn.
+  Không bắt đầu C97–C98 hoặc tạo cuộc trò chuyện tự động.

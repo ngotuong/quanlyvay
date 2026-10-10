@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "date": "2026-10-10",
+  "sourceBefore": "82151b646a46d514d1dc3ea890e691d48a57b0a0",
+  "gates": {
+    "diff": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": {
+      "pass": 121,
+      "fail": 0
+    },
+    "build": {
+      "status": "PASS",
+      "staticPages": 19
+    },
+    "targetedVisual": {
+      "pass": 7,
+      "fail": 0,
+      "minutes": 3.5
+    },
+    "fullE2E": {
+      "pass": 79,
+      "skip": 18,
+      "fail": 0,
+      "minutes": 15.5,
+      "retries": 0
+    },
+    "financialStandaloneDbAuth": "N/A no schema/RPC/auth contract change; full E2E Auth/financial boundaries passed"
+  },
+  "preservation": "PASS see preservation.json",
+  "artifact": "8PNG hashes/HTTP/links/script syntax PASS",
+  "secret": {
+    "image": "ghcr.io/gitleaks/gitleaks:v8.30.1@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f",
+    "scope": "changed/untracked checkpoint files only; no env/session/log/trace",
+    "findings": 0,
+    "redacted": true
+  },
+  "nextCheckpoint": "C97 AWAITING_APPROVAL",
+  "remoteWrites": false,
+  "notTested": [
+    "physical phone/softkeyboard",
+    "AT",
+    "authenticated Safari/Firefox",
+    "native clipboard/zoom",
+    "OS-theme-live",
+    "PWA before HTML",
+    "remote save"
+  ],
+  "logs": [
+    {
+      "file": ".cache/c96/lint-final.log",
+      "sha256": "7787715262f0784cd6c91cf514b5eb577b4595ec144f87668944d0a08993394c"
+    },
+    {
+      "file": ".cache/c96/typecheck-final.log",
+      "sha256": "2812b211e78fd1f57617d1c42f4dda38de6098b1422b50fe1a0afac69b4e271d"
+    },
+    {
+      "file": ".cache/c96/unit-final.log",
+      "sha256": "ba73b1c16c43abf7ccca2a37aa4f9de73c57ee21eeefb87243898591573a6dbc"
+    },
+    {
+      "file": ".cache/c96/build-final.log",
+      "sha256": "bd86e5b0c62616323d463d53349c7c30f5bf6058db847cc5503e1b621c8d823e"
+    },
+    {
+      "file": ".cache/c96/targeted4-visual.log",
+      "sha256": "a634eb5bb90fed730f31e015272ae41a6e335ced969b0f4b7c200fd7e68e890c"
+    },
+    {
+      "file": ".cache/c96/full-e2e.log",
+      "sha256": "2d0880064143cab9130618e45319db4059bb5ed06784c3c692aabb241e51a23b"
+    }
+  ]
+}

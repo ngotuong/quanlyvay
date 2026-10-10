@@ -1,0 +1,26 @@
+{
+  "sourceBefore": "82151b646a46d514d1dc3ea890e691d48a57b0a0",
+  "initialTracked": 1207,
+  "allowedExistingChanged": 10,
+  "existingUnchanged": 1197,
+  "C75Exact": 17,
+  "C75GeneratedRestored": 15,
+  "runtimeSourceFilesFinalFreeze": 140,
+  "runtimeFreezeMatches": true,
+  "financialSchemaActionsValidationUnchanged": true,
+  "financialProtectedFiles": 73,
+  "unexpected": [],
+  "fixture": {
+    "guard": "QuanLyVayCaNhan-C20-test",
+    "databaseHostPort": "55322",
+    "counts": {
+      "profiles": 0,
+      "loans": 0,
+      "transactions": 0,
+      "counterparties": 0,
+      "notifications": 0,
+      "auth_users": 0
+    },
+    "mainDatabase54322Untouched": true
+  }
+}

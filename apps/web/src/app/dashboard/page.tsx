@@ -4,6 +4,7 @@ import type { CSSProperties } from "react";
 import Link from "next/link";
 import { ArrowDownLeft, ArrowUpRight, Banknote, CalendarClock, ChartSpline, CircleAlert, HandCoins, Landmark, Minus, ReceiptText, Scale, ShieldAlert, TrendingDown, TrendingUp, WalletCards } from "lucide-react";
 import { DashboardPeriodFilter } from "@/components/business/dashboard-period-filter";
+import { DashboardPayments, DashboardInterestLink } from "@/components/business/dashboard-payments";
 import { AttentionItems } from "@/components/business/attention-items";
 import { CashFlowBars } from "@/components/business/cash-flow-bars";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
@@ -183,7 +184,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
   );
 }
 
-function AttentionList({ upcoming, overdue, reminderWindow }: { upcoming: DashboardDueLoan[]; overdue: DashboardDueLoan[]; reminderWindow: string }) {
+function AttentionList({ upcoming, overdue, reminderWindow, canWrite }: { upcoming: DashboardDueLoan[]; overdue: DashboardDueLoan[]; reminderWindow: string; canWrite: boolean }) {
   const total = overdue.length + upcoming.length;
   const interestAction = (loan: DashboardDueLoan) => loan.direction === "LENDING" ? "Cần thu lãi" : "Cần trả lãi";
   const rows = [
@@ -192,19 +193,22 @@ function AttentionList({ upcoming, overdue, reminderWindow }: { upcoming: Dashbo
   ];
   return (
     <Card className="surface-card due-card attention-card" aria-labelledby="schedule-title">
-      <AttentionItems heading={<div className="attention-heading-main"><div><h2 id="schedule-title">Việc cần xử lý</h2><p className="eyebrow">Gốc quá hạn và lịch nhắc</p></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>}
+      <AttentionItems heading={<div className="attention-heading-main"><div><h2 id="schedule-title" tabIndex={-1}>Việc cần xử lý</h2><p className="eyebrow">Gốc quá hạn và lịch nhắc</p></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>}
         emptyState={<div className="dashboard-empty"><strong>Không có việc đến hạn</strong><span>Không có gốc quá hạn. Lịch thu/trả lãi: {reminderWindow}.</span></div>}
-        items={rows.map(({ loan, kind }) => <NameDisclosure className="due-name-disclosure" key={`${kind}-${loan.id}`}><Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item">
-          <span className="due-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins size={19} /> : <Landmark size={19} />}</span>
-          <span className="due-main"><strong data-disclosure-name><PrivacyRegion>{loan.name}</PrivacyRegion></strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
-          <span className="due-value"><strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong><small>{loan.direction === "LENDING" ? "Cho vay" : "Đi vay"} · {kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
-        </Link></NameDisclosure>)} />
+        items={rows.map(({ loan, kind }) => {
+          const content = <>
+            <span className="due-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins size={19} /> : <Landmark size={19} />}</span>
+            <span className="due-main"><strong data-disclosure-name><PrivacyRegion>{loan.name}</PrivacyRegion></strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
+            <span className="due-value"><strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong><small>{loan.direction === "LENDING" ? "Cho vay" : "Đi vay"} · {kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
+          </>;
+          return <NameDisclosure className="due-name-disclosure" key={`${kind}-${loan.id}`}>{kind === "interest" && canWrite ? <DashboardInterestLink loanId={loan.id}>{content}</DashboardInterestLink> : <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item">{content}</Link>}</NameDisclosure>;
+        })} />
     </Card>
   );
 }
 
 export default async function DashboardPage({ searchParams }: { searchParams: Promise<{ from?: string; to?: string; preset?: string }> }) {
-  await requireAuthenticatedProfile();
+  const profile = await requireAuthenticatedProfile();
   const period = resolveDashboardPeriod(await searchParams);
   const comparison = dashboardComparisonPeriods(period);
   const { dashboard, analytics, previousDashboard, previousBalanceDashboard } = await getManagementDashboardBundle(
@@ -242,7 +246,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
       <div className="dashboard-workspace">
       <section className="dashboard-metrics dashboard-primary-metrics" aria-label="Các chỉ số chính">{primaryMetrics.map(({ label, value, previous, comparisonLabel, icon: Icon, tone }) => <Card as="article" variant="metric" className="dashboard-metric" data-tone={tone} key={label}><span className="dashboard-metric-icon"><Icon size={20} /></span><div><p>{label}</p><strong className="privacy-amount"><PrivacyAmount value={formatVnd(value)} /></strong><MetricComparison current={value} previous={previous} comparisonLabel={comparisonLabel} /></div></Card>)}</section>
 
-      <div className="dashboard-main-grid dashboard-focus-grid"><AttentionList upcoming={dashboard.upcoming} overdue={dashboard.overdue} reminderWindow={reminderWindow} /><CashFlowChart rows={dashboard.cashFlow} periodLabel={periodLabel} /></div>
+      <div className="dashboard-main-grid dashboard-focus-grid"><DashboardPayments><AttentionList upcoming={dashboard.upcoming} overdue={dashboard.overdue} reminderWindow={reminderWindow} canWrite={profile.role !== "VIEWER"} /></DashboardPayments><CashFlowChart rows={dashboard.cashFlow} periodLabel={periodLabel} /></div>
 
       </div>
       <details className="dashboard-analysis">

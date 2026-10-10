@@ -10,14 +10,25 @@ type VndInputProps = Omit<ComponentPropsWithoutRef<"input">, "type" | "inputMode
   defaultValue?: string | number;
   onValueChange?: (normalizedValue: string) => void;
   quickAmounts?: { maximumVnd?: string };
+  suggestedAmountVnd?: string;
 };
+
+function applyInputValue(input: HTMLInputElement, value: string) {
+  const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set;
+  if (!setter) return false;
+  setter.call(input, value);
+  input.dispatchEvent(new Event("input", { bubbles: true }));
+  input.focus({ preventScroll: true });
+  input.setSelectionRange(value.length, value.length);
+  return true;
+}
 
 export function formatVndInput(value: string | number) {
   const digits = normalizeVnd(value);
   return /^\d*$/.test(digits) ? formatVndDigits(digits) : String(value);
 }
 
-export function VndInput({ className, defaultValue = "", onValueChange, quickAmounts, ...props }: VndInputProps) {
+export function VndInput({ className, defaultValue = "", onValueChange, quickAmounts, suggestedAmountVnd, ...props }: VndInputProps) {
   const [value, setValue] = useState(() => formatVndInput(defaultValue));
   const inputRef = useRef<HTMLInputElement>(null);
   const selection = useRef<number | null>(null);
@@ -69,7 +80,10 @@ export function VndInput({ className, defaultValue = "", onValueChange, quickAmo
       setValue(formatted);
       onValueChange?.(formatted.replaceAll(".", ""));
     }} />;
-  return <>{input}{quickAmounts ? <QuickAmounts key={quickAmounts.maximumVnd ?? "system"} inputRef={inputRef} clearErrorRef={clearQuickError} maximumVnd={quickAmounts.maximumVnd} disabled={props.disabled || props.readOnly} /> : null}</>;
+  return <>{input}{suggestedAmountVnd && /^\d+$/.test(suggestedAmountVnd) && BigInt(suggestedAmountVnd) > BigInt(0) ? <Button variant="secondary" type="button" disabled={props.disabled || props.readOnly} className="payment-balance-suggestion" onClick={() => {
+    const input = inputRef.current;
+    if (input && !input.matches(":disabled") && !input.readOnly) applyInputValue(input, formatVndDigits(suggestedAmountVnd));
+  }}>Theo số còn lại</Button> : null}{quickAmounts ? <QuickAmounts key={quickAmounts.maximumVnd ?? "system"} inputRef={inputRef} clearErrorRef={clearQuickError} maximumVnd={quickAmounts.maximumVnd} disabled={props.disabled || props.readOnly} /> : null}</>;
 }
 
 function QuickAmounts({ inputRef, clearErrorRef, maximumVnd, disabled }: { inputRef: RefObject<HTMLInputElement | null>; clearErrorRef: RefObject<(() => void) | null>; maximumVnd?: string; disabled?: boolean }) {
@@ -101,13 +115,8 @@ function QuickAmounts({ inputRef, clearErrorRef, maximumVnd, disabled }: { input
     const result = addQuickVnd(input.value, increment, maximumVnd);
     if (!result.ok) { setError(result.error); input.focus({ preventScroll: true }); input.setSelectionRange(input.value.length, input.value.length); return; }
     // React's normal change path updates display/callback and BusinessForm's dirty guard once.
-    const setter = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, "value")?.set;
-    if (!setter) { setError("Không thể cập nhật ô nhập. Hãy nhập số tiền trực tiếp."); return; }
     setError("");
-    setter.call(input, result.formattedValue);
-    input.dispatchEvent(new Event("input", { bubbles: true }));
-    input.focus({ preventScroll: true });
-    input.setSelectionRange(result.formattedValue.length, result.formattedValue.length);
+    if (!applyInputValue(input, result.formattedValue)) setError("Không thể cập nhật ô nhập. Hãy nhập số tiền trực tiếp.");
   }
   return <><div className="vnd-quick-amounts" role="group" aria-label="Nhập nhanh tiền gốc">{PRINCIPAL_QUICK_AMOUNTS.map(({ amount, label, accessibleLabel }) => <Button key={amount} variant="secondary" type="button" disabled={disabled} aria-label={accessibleLabel} onClick={() => apply(amount)}>{label}</Button>)}</div>{error ? <p id={errorId} className="field-error quick-amount-error" role="alert">{error}</p> : null}</>;
 }

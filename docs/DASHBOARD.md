@@ -75,3 +75,17 @@ C81 local: KPI luôn ở trên Việc cần xử lý; từ 1280 px, danh sách k
 không render cột/tooltip; trục che tiền và bảng masked vẫn giữ, hiện lại khôi phục chart/table.
 Thêm đối tác/chi phí khi hidden giải thích trước drawer, chỉ hiện dữ liệu khi người dùng
 chọn rõ nút “Hiển thị số tiền để tiếp tục”. Đây là thay đổi local, chưa phát hành Production.
+
+## C96 — Drawer giao dịch tại Dashboard (local)
+
+OWNER/EDITOR bấm một tác vụ thu/trả lãi mở drawer ngay Dashboard, không chuyển trang chi tiết.
+Drawer chỉ nạp một khoản được chọn, xem identity/hướng/số dư theo ngày từ API read-only session/RLS
+và calculate_loan. Link cũ `/loans/id?transaction=interest` giữ cho tab mới/deep-link; VIEWER và
+công việc gốc quá hạn vẫn vào chi tiết theo nghĩa hiện có. Privacy phải được hiện trước khi nhập.
+
+Drawer phải480px/inset16px desktop≥1024px; mobile bottom sheet/inset12px/maxheightviewport−24px,
+header/footer giữ vị trí, body cuộn. Hash selected task giữ Back/Forward/draft guard; Forward và
+reload tạo phiên mới. Save dùng Server Action/RPC hiện hữu và revalidate Dashboard authoritative.
+Số lãi của task là projection cuối kỳ nhắc; số lãi trong drawer theo ngày thanh toán. Thanh toán
+một phần/sớm không mặc định xóa task; server quyết định danh sách sau lưu. Chi tiết/lượt kiểm:
+`docs/dashboard-drawer-c96/implementation.md`.

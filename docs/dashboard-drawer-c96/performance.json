@@ -1,0 +1,106 @@
+{
+  "method": "Chromium production local; warm browser cache; JS resource timing decoded/encoded; old overview four business reads by source",
+  "sourceBefore": "82151b646a46d514d1dc3ea890e691d48a57b0a0",
+  "budgets": {
+    "initialDashboardIncreaseDecodedBytes": 25600,
+    "firstOpenAdditionalDecodedBytes": 83005
+  },
+  "samples": [
+    {
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "before": {
+        "clicks": 1,
+        "routeTransitions": 1,
+        "initialDecodedJsBytes": 512865,
+        "openAdditionalDecodedJsBytes": 57405,
+        "elapsedMs": 856
+      },
+      "after": {
+        "clicks": 1,
+        "routeTransitions": 0,
+        "initialDecodedJsBytes": 521176,
+        "initialDeltaBytes": 8311,
+        "openAdditionalDecodedJsBytes": 11759,
+        "selectedGets": 1,
+        "elapsedMs": 442
+      },
+      "budgetPass": true
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "before": {
+        "clicks": 1,
+        "routeTransitions": 1,
+        "initialDecodedJsBytes": 512865,
+        "openAdditionalDecodedJsBytes": 57405,
+        "elapsedMs": 856
+      },
+      "after": {
+        "clicks": 1,
+        "routeTransitions": 0,
+        "initialDecodedJsBytes": 521176,
+        "initialDeltaBytes": 8311,
+        "openAdditionalDecodedJsBytes": 11759,
+        "selectedGets": 1,
+        "elapsedMs": 860
+      },
+      "budgetPass": true
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "before": {
+        "clicks": 1,
+        "routeTransitions": 1,
+        "initialDecodedJsBytes": 512865,
+        "openAdditionalDecodedJsBytes": 57405,
+        "elapsedMs": 869
+      },
+      "after": {
+        "clicks": 1,
+        "routeTransitions": 0,
+        "initialDecodedJsBytes": 521176,
+        "initialDeltaBytes": 8311,
+        "openAdditionalDecodedJsBytes": 11759,
+        "selectedGets": 1,
+        "elapsedMs": 462
+      },
+      "budgetPass": true
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "before": {
+        "clicks": 1,
+        "routeTransitions": 1,
+        "initialDecodedJsBytes": 512865,
+        "openAdditionalDecodedJsBytes": 57405,
+        "elapsedMs": 846
+      },
+      "after": {
+        "clicks": 1,
+        "routeTransitions": 0,
+        "initialDecodedJsBytes": 521176,
+        "initialDeltaBytes": 8311,
+        "openAdditionalDecodedJsBytes": 11759,
+        "selectedGets": 1,
+        "elapsedMs": 447
+      },
+      "budgetPass": true
+    }
+  ],
+  "businessReads": {
+    "beforeOverviewNominal": 4,
+    "afterPaymentContextNominal": 2,
+    "afterMaximumWithReadGatewayRetry": 3,
+    "authProfileAndLayoutReadsExcluded": true
+  },
+  "elapsedDisposition": "MEASURED_ONLY local; no Production or faster-three-times claim",
+  "fixtureDifference": "Same selected Minh An1.2845b and disbursement Sep12/3percent30days; after includes additional borrowing/overdue fixtures. Resource Timing JS bytes exclude RSC/data payload; screenshots do not claim whole Dashboard pixel equivalence."
+}

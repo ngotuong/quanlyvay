@@ -174,3 +174,13 @@ reset thông báo callback theo default. Pending/hydration fieldset, readOnly/di
 Lỗi chip được clear trong React change/reset, không native listener cập nhật controlled state
 trước onChange. Đổi loại tiền giữ draft; nhóm lỗi được unmount cùng context. Không thêm toolbar
 cho keyboard native hoặc thay drawer A C96. Bằng chứng/giới hạn: `docs/quick-amount-c95/`.
+
+## C96 — Drawer A và suggestion lãi theo ngày
+
+Dashboard payment dùng BottomSheet + LoanPaymentForm trích từ LoanActions, dynamic import khi
+chọn task. Semantic styles ở dashboard-payment.css chỉ áp class dashboard-payment-drawer:
+480px/right16px desktop≥1024px; mobileviewport−24px/inset12px, body cuộn/headerfooter cố định.
+Giữ B/Inter/native date-select/focus ring và shared motion. “Theo số còn lại” là Button secondary,
+typebutton, chỉ positive authoritative interest snapshot hiện tại; đi qua React input change.
+Tiền gốc giữ chips C95. Không thay animation/damping/loading các route C97; giới hạn review
+ở `docs/dashboard-drawer-c96/implementation.md`.

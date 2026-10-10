@@ -1,0 +1,37 @@
+{
+  "method": "actual Chromium production local; selected fixture as C92; before82151b6 after C96 final runtime freeze; not native phone",
+  "files": [
+    {
+      "file": "screenshots/after-drawer-1280-dark.png",
+      "sha256": "f46da039281eb59aca18ceda26b68818e43f4e3f174d4363c60840cda67fb857"
+    },
+    {
+      "file": "screenshots/after-drawer-1280-light.png",
+      "sha256": "ea2e0602d6be9149675e400a5ac84c083327c5d05827b3d337e50cfc768eba95"
+    },
+    {
+      "file": "screenshots/after-drawer-375-dark.png",
+      "sha256": "871c02228c3517acae63874c9dfccdea0db3a7d3a2608caccc876b9e6e1ea1ef"
+    },
+    {
+      "file": "screenshots/after-drawer-375-light.png",
+      "sha256": "f6d257bf0f20654c12944e811ad79df6719e800d18503653bd8f40afdf9394fc"
+    },
+    {
+      "file": "screenshots/before-drawer-1280-dark.png",
+      "sha256": "02cd9caa7b1f5fedbe48d73d4159226a9ebbc0a9d4e85f32eaa1025a5b03e3c1"
+    },
+    {
+      "file": "screenshots/before-drawer-1280-light.png",
+      "sha256": "4383731130b29e716317bb68eb9df0e3a7dc8fa381e30df7a50f77022c54794f"
+    },
+    {
+      "file": "screenshots/before-drawer-375-dark.png",
+      "sha256": "30ce180e9ae38680ac0158241f0b4f97ffa39e53cb50b8267de4094d4468863d"
+    },
+    {
+      "file": "screenshots/before-drawer-375-light.png",
+      "sha256": "c9780621799264f7e5d1e3133be43dea04fde286a71dc0c5eee5af8d9c538521"
+    }
+  ]
+}

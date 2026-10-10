@@ -1,0 +1,1437 @@
+{
+  "method": "Original Evon checks unchanged; storage/selected form readiness adapter; required amount cleared before exploration to prevent financial submit; fixed widths only",
+  "originalSha256": "d51a7754bdcf0b0b745ff9b48b267c16730edf6a05782ebde16d220acba17261",
+  "adapterSha256": "554b656b6fde43df0cd698726f301d7bbd64be2756a2ac1ea0cc4a48b81fe763",
+  "measurementRulesUnchanged": true,
+  "themes": [
+    {
+      "theme": "light",
+      "rawReportSha256": "b930deb55a1a8c63f39f0c9d2d5378a716a16f45fe28c41334e096f7d7fe5957",
+      "machineBrokenItems": 3,
+      "rawFindings": [
+        "P1 [375–390px] trang tự cuộn khi vừa tải: div.payment-fields",
+        "P2 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #ffffff trên nền #ffffff \"38.536.001\": span.vnd-number \"38.536.001\"",
+        "P3 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #ffffff trên nền #ffffff \"₫\": span.vnd-unit \"₫\""
+      ],
+      "widths": [
+        {
+          "width": 375,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [
+            "div.payment-fields đã cuộn 1px"
+          ],
+          "drawnFocusRings": [],
+          "popupNativeChoices": [
+            "select gốc chưa tô, ô date gốc trong dialog \"Công việc đến hạnGhi giao dịch\""
+          ]
+        },
+        {
+          "width": 390,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [
+            "div.payment-fields đã cuộn 1px"
+          ],
+          "drawnFocusRings": [],
+          "popupNativeChoices": [
+            "select gốc chưa tô, ô date gốc trong dialog \"Công việc đến hạnGhi giao dịch\""
+          ]
+        },
+        {
+          "width": 768,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [],
+          "drawnFocusRings": [
+            "button \"Theo số còn lại\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "popupNativeChoices": [
+            "select gốc chưa tô, ô date gốc trong dialog \"Công việc đến hạnGhi giao dịch\"",
+            "ô date gốc trong dialog \"Khoảng báo cáoChọn ngày tùy ch\" (đang ẩn)"
+          ]
+        },
+        {
+          "width": 1024,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [],
+          "drawnFocusRings": [
+            "button \"Theo số còn lại\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "popupNativeChoices": [
+            "ô date gốc trong dialog \"Khoảng báo cáoChọn ngày tùy ch\" (đang ẩn)"
+          ]
+        },
+        {
+          "width": 1280,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [],
+          "drawnFocusRings": [
+            "button \"Theo số còn lại\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "popupNativeChoices": [
+            "ô date gốc trong dialog \"Khoảng báo cáoChọn ngày tùy ch\" (đang ẩn)"
+          ]
+        },
+        {
+          "width": 1440,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [],
+          "drawnFocusRings": [
+            "button \"Theo số còn lại\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "popupNativeChoices": [
+            "ô date gốc trong dialog \"Khoảng báo cáoChọn ngày tùy ch\" (đang ẩn)"
+          ]
+        },
+        {
+          "width": 1920,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [],
+          "drawnFocusRings": [
+            "button \"Theo số còn lại\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "popupNativeChoices": [
+            "ô date gốc trong dialog \"Khoảng báo cáoChọn ngày tùy ch\" (đang ẩn)"
+          ]
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "rawReportSha256": "3e3d0dadcdc4de14eec6b8779ec6d61b614d57c080f147391b1fdb7659af5811",
+      "machineBrokenItems": 3,
+      "rawFindings": [
+        "P1 [375–390px] trang tự cuộn khi vừa tải: div.payment-fields",
+        "P2 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 \"38.536.001\": span.vnd-number \"38.536.001\"",
+        "P3 [1920px, 1440px, 1280px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 \"₫\": span.vnd-unit \"₫\""
+      ],
+      "widths": [
+        {
+          "width": 375,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [
+            "div.payment-fields đã cuộn 1px"
+          ],
+          "drawnFocusRings": [],
+          "popupNativeChoices": [
+            "select gốc chưa tô, ô date gốc trong dialog \"Công việc đến hạnGhi giao dịch\""
+          ]
+        },
+        {
+          "width": 390,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [
+            "div.payment-fields đã cuộn 1px"
+          ],
+          "drawnFocusRings": [],
+          "popupNativeChoices": [
+            "select gốc chưa tô, ô date gốc trong dialog \"Công việc đến hạnGhi giao dịch\""
+          ]
+        },
+        {
+          "width": 768,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [],
+          "drawnFocusRings": [
+            "button \"Theo số còn lại\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "popupNativeChoices": [
+            "select gốc chưa tô, ô date gốc trong dialog \"Công việc đến hạnGhi giao dịch\"",
+            "ô date gốc trong dialog \"Khoảng báo cáoChọn ngày tùy ch\" (đang ẩn)"
+          ]
+        },
+        {
+          "width": 1024,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [],
+          "drawnFocusRings": [
+            "button \"Theo số còn lại\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "popupNativeChoices": [
+            "ô date gốc trong dialog \"Khoảng báo cáoChọn ngày tùy ch\" (đang ẩn)"
+          ]
+        },
+        {
+          "width": 1280,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [],
+          "drawnFocusRings": [
+            "button \"Theo số còn lại\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "popupNativeChoices": [
+            "ô date gốc trong dialog \"Khoảng báo cáoChọn ngày tùy ch\" (đang ẩn)"
+          ]
+        },
+        {
+          "width": 1440,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [],
+          "drawnFocusRings": [
+            "button \"Theo số còn lại\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "popupNativeChoices": [
+            "ô date gốc trong dialog \"Khoảng báo cáoChọn ngày tùy ch\" (đang ẩn)"
+          ]
+        },
+        {
+          "width": 1920,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 2,
+          "brokenMoney": [],
+          "autoScrolledAreas": [],
+          "drawnFocusRings": [
+            "button \"Theo số còn lại\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "popupNativeChoices": [
+            "ô date gốc trong dialog \"Khoảng báo cáoChọn ngày tùy ch\" (đang ẩn)"
+          ]
+        }
+      ]
+    }
+  ],
+  "reconciliation": {
+    "beforePreparationScroll": 0,
+    "afterClearFocusScroll": 0,
+    "moneyNodes": [
+      {
+        "text": "1.284.500.000",
+        "paintedOpacity": 1,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-number",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DD",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DL",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-payment-context",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(29, 49, 80)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FIELDSET",
+            "class": "business-form-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FORM",
+            "class": "compact-form dialog-form",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "ui-bottom-sheet-surface",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIALOG",
+            "class": "transaction-dialog ui-bottom-sheet dashboard-payment-drawer",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": " ₫",
+        "paintedOpacity": 1,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-unit",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DD",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DL",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-payment-context",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(29, 49, 80)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FIELDSET",
+            "class": "business-form-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FORM",
+            "class": "compact-form dialog-form",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "ui-bottom-sheet-surface",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIALOG",
+            "class": "transaction-dialog ui-bottom-sheet dashboard-payment-drawer",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": "37.250.500",
+        "paintedOpacity": 1,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-number",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DD",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DL",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-payment-context",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(29, 49, 80)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FIELDSET",
+            "class": "business-form-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FORM",
+            "class": "compact-form dialog-form",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "ui-bottom-sheet-surface",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIALOG",
+            "class": "transaction-dialog ui-bottom-sheet dashboard-payment-drawer",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": " ₫",
+        "paintedOpacity": 1,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-unit",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DD",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DL",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-payment-context",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(29, 49, 80)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FIELDSET",
+            "class": "business-form-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FORM",
+            "class": "compact-form dialog-form",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "ui-bottom-sheet-surface",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIALOG",
+            "class": "transaction-dialog ui-bottom-sheet dashboard-payment-drawer",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": "38.536.001",
+        "paintedOpacity": 0,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-number",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "privacy-amount ",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "chart-tooltip privacy-amount",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "0",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "cash-bar-control",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "bar-pair",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-month",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart-scroll",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-plot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SECTION",
+            "class": "ui-card ui-card--flat surface-card cash-flow-card",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": " ₫",
+        "paintedOpacity": 0,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-unit",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "privacy-amount ",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "chart-tooltip privacy-amount",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "0",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "cash-bar-control",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "bar-pair",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-month",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart-scroll",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-plot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SECTION",
+            "class": "ui-card ui-card--flat surface-card cash-flow-card",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": "0",
+        "paintedOpacity": 0,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-number",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "privacy-amount ",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "chart-tooltip privacy-amount",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "0",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "cash-bar-control",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "bar-pair",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-month",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart-scroll",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-plot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SECTION",
+            "class": "ui-card ui-card--flat surface-card cash-flow-card",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": " ₫",
+        "paintedOpacity": 0,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-unit",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "privacy-amount ",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "chart-tooltip privacy-amount",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "0",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "cash-bar-control",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "bar-pair",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-month",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart-scroll",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-plot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SECTION",
+            "class": "ui-card ui-card--flat surface-card cash-flow-card",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      }
+    ],
+    "exactMobile812": [
+      {
+        "theme": "light",
+        "width": 375,
+        "height": 812,
+        "initialScroll": 0,
+        "afterClearAndFocusScroll": 188
+      },
+      {
+        "theme": "dark",
+        "width": 375,
+        "height": 812,
+        "initialScroll": 0,
+        "afterClearAndFocusScroll": 188
+      }
+    ]
+  },
+  "disposition": {
+    "P1": "Raw body scroll1px is after adapter clears/focuses required amount, not an untouched initial load. Actual full suite375x812 Light/Dark initialScroll0; preparation clear/focus after Tab/body geometry checks scroll188px and preserves header/footer. This demonstrates inner-body focus scroll, not an initial loading jump. Raw retained.",
+    "P2/P3": "Raw1:1 samples are vnd spans within chart-tooltip with ancestor opacity0, not painted. Actual node/ancestor evidence preserved; visible drawer uses semantic foreground.",
+    "warnings": "Native date/select and focus ring retained by C92 owner choice. Dense existing Dashboard cards/hover and other warnings retained outside C96; no sweep or AT certification."
+  }
+}
