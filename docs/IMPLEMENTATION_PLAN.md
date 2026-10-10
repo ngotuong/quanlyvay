@@ -70,8 +70,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C92 | Chốt thiết kế đích UI/UX và cách đo nghiệm thu | `COMPLETED` |
 | C93 | Chuẩn hóa tokens/CSS và UI primitives, giữ hình đã duyệt | `COMPLETED` |
 | C94 | Khả năng đọc, bảng mobile và tên dài theo thiết kế đích | `COMPLETED` |
-| C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `AWAITING_APPROVAL` |
-| C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `NOT_STARTED` |
+| C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `COMPLETED` |
+| C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `AWAITING_APPROVAL` |
 | C97 | Loading đúng từng màn và motion có chọn lọc | `NOT_STARTED` |
 | C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `NOT_STARTED` |
 
@@ -2309,7 +2309,7 @@ C95 AWAITING_APPROVAL rồi dừng theo AGENTS§3.
 
 ### C95 — Quick Amount cho VndInput
 
-Trạng thái: `AWAITING_APPROVAL`. Phụ thuộc C94, OWNER duyệt C95/mẫu chip C92.
+Trạng thái: `COMPLETED` local ngày10/10/2026. OWNER duyệt C95 trong hội thoại; A/chip đã chốt C92.
 
 Phạm vi: chip tùy context field; OWNER chọn tại C92 +50tr/+100tr/+150tr/+200tr, cộng dồn
 50triệu theo chuỗi integer/BigInt, không ép nhóm này vào context lãi nhỏ; chọn vị trí trong webform thuận
@@ -2328,9 +2328,20 @@ Acceptance criteria:
 3. Keyboard/focus/dirty/pending protection/hit target44px+, viewport bàn phím giả và fixture
    submit/idempotency/error/reset regression đạt. Phone thật không có giữ NOT_TESTED.
 
+Kết quả: chỉ principal bật chip,50/100/150/200triệu từ trống1action, trước50triệu8phím số
+cùng Minh An1.2845b ở375/1280×900LightDark;16samples0autosubmit. BigInt/max/17digit/draft/
+callback/keyboard/reset/pending đạt;12responsive states có320 và375×420,44px+. Fixture50triệu
+submit/error/retry cùng key/replay1transaction và reset đạt. Lint/typecheck/unit121/rootbuild PASS;
+full73PASS18SKIP0FAIL14.2m,retries0. Visual/draft2PASS2.8m, originalEvon7widths/theme0mục Hỏng,
+giữ focus/native pickers.1183before/8scopechanged/1175unchanged,17C75exact/15generatedrestored,
+130websrcfreeze,73financialprotectedfiles giữ; DBguard55322/sixcounts0. Diff/artifact/secret đạt.
+Report: [C95](quick-amount-c95/report.md), lịch sử failure/harness giữ rõ cùng thư mục.
+Phone thật/AT/softkeyboard/nativeclipboard và remote save NOT_TESTED. Không push/deploy/remote
+hoặc sửa schema/RPC/engine; C96 AWAITING_APPROVAL rồi dừng theo AGENTS§3.
+
 ### C96 — Drawer thu/trả lãi ngay Dashboard
 
-Trạng thái: `NOT_STARTED`. Phụ thuộc C95, OWNER duyệt C96.
+Trạng thái: `AWAITING_APPROVAL`. C95 hoàn tất; cần OWNER duyệt C96.
 
 Phạm vi: tránh transition qua trangdetail cho interesttask bằng drawer ngay Dashboard;
 layoutA đã chọn tại C92:480px bên phải desktop, bottom sheet mobile;

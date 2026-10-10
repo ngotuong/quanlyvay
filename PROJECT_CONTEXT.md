@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.316
+roadmap_version: 1.0.318
 last_updated: 2026-10-10
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C95
+current_checkpoint: C96
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C94
-next_checkpoint: C95
+last_completed_checkpoint: C95
+next_checkpoint: C96
 ---
 
 # Project Context
@@ -98,8 +98,31 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - C94 preservation/diff/artifact/secret PASS:1157trackedbefore,12scopechanged/1145unchanged,
   17C75exact/15generatedrestored,132runtimefreeze; guardC20-testDB55322 đúnglabel/port, sixcounts0.
   Không push/deploy/remote/schema/RPC/engine change; runtime phát hành vẫn C91.
-- C95 `AWAITING_APPROVAL`; C96–C98 `NOT_STARTED`. Không blocker local C94. QuickAmount50triệu
-  C95/drawerA C96/loading C97 chưa triển khai. NOT_TESTED AT/phone thật/softkeyboard/nativezoom/
+- C95 `COMPLETED` local ngày10/10/2026, OWNER phê duyệt trong hội thoại. Quick Amount opt-in
+  chỉ Ghi giao dịch → Tiền gốc: +50tr/+100tr/+150tr/+200tr cộng dồn bằng BigInt/integerstrings.
+  Snapshot dư gốc raw từ server giới hạn nhập nhanh; RPC vẫn authoritative. Không autosubmit,
+  không áp nhóm tiền lớn vào lãi/chi phí hoặc thay drawer/loading ngoài scope.
+  [Report](docs/quick-amount-c95/report.md), [đối chiếu](docs/quick-amount-c95/comparison.html),
+  inventory/goal/regression/component/probe/preservation/manifest cùng thư mục.
+- C95 goal: cùng Minh An1.2845b, principal trống đãfocus375/1280×900LightDark,50triệu8phím số
+  trước→1chip sau;100/150/200triệu cũng1chip từ trống,16samples/submit0. Chọn loại/clear/focus
+  tính riêng, không tuyên bố thời gian hoặc nhanhgấp3.10triệu vẫn gõ/paste;17digit/max helper/
+  component chính xác, vượt trần giữ draft/alert, callback/dirty/focus/caret/reset/pending đạt.
+- C95 gates: lint/typecheck/unit121/rootbuild PASS; full73PASS/18SKIP/0FAIL14.2m,retries0.
+  Visual/draft2PASS2.8m; Evon original7widths/themeLightDark,0mục máy xếp Hỏng, console/contrast/
+  money/overflow/tiny-target0; focus/native picker warnings giữ theo thiết kế. Responsive12states
+  có320px và375×420 mô phỏng keyboard, chip≥44px. Bốn C95E2E đạt submit50triệu/error/retry/
+  idempotency1transaction/reset; không sửa assertions/timeouts/retries/skips hiện hữu.
+- Lịch sử C95 targeted1PASS3FAIL→2PASS2FAIL→3PASS1FAIL giữ rõ trong verification-history:
+  native listener clear lỗi restore draft trước React onChange được bỏ, clear đi qua React change/
+  reset; các lỗi replay note/query/animation/caret harness sửa, không giảm gate. Full server log
+  có destination-stream-closed-early như baselineC94; giữ raw, không gọi toànapp runtimeerrors0.
+- C95 preservation/diff/artifact/secret PASS:1183trackedbefore/8scopechanged/1175unchanged,
+  17C75exact/15generatedrestored,130websrcfreeze;73schema/actions/validation/domainfiles không đổi.
+  GuardDocker C20-test đúnglabel/DB55322, sixcounts0 sau teardown. Không push/deploy/remote/schema/
+  RPC/financialengine change; runtime phát hành vẫn C91.
+- C96 `AWAITING_APPROVAL`; C97–C98 `NOT_STARTED`, không blocker local. Dừng theo AGENTS§3,
+  không tự bắt đầu C96. NOT_TESTED AT/phone thật/softkeyboard/nativeclipboard/nativezoom/
   authenticatedSafariFirefox/OS-theme-live/PWA-beforeHTML/remote save giữ rõ trong report.
   C91 query_canceled57014 chưa xác định nguyên nhân; không mở DB tuning/Google/backup từ lịch sử.
 
@@ -113,7 +136,8 @@ không dùng lịch sử để suy quyền thực hiện mới.
   settlement-preview trước grabber, không sửa runtime drawer hoặc nghiệp vụ.
 - Bản vá đã duyệt chỉ pnpm-workspace.yaml/lock cho sharp0.35.5/source-map-js1.2.2 và libvips.
 - C91 source/closingproof đã push; finalstatus chỉ tài liệu. Candidate source/UID giữ nguyên.
-- C92 local commit `752fd48`; C93 local refactor và bằng chứng được chốt cùng context/roadmap/handoff.
+- C92 local commit `752fd48`, C93 `577d6f4`, C94 `0aa52ac`; C95 local source/docs và bằng chứng
+  chốt cùng context/roadmap/handoff. Chưa push/deploy các checkpoint C92–C95.
 - Các file C75 do test sinh đã trả exact baseline. Không broad reset/cleanup cache/backup;
   cache còn trace/log thất bại để truy vết và có synthetic session cần tiếp tục ignore.
 
@@ -215,5 +239,5 @@ không dùng lịch sử để suy quyền thực hiện mới.
   [Backup](docs/BACKUP_RESTORE.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md).
 - Skill Evon: `/Users/ngotuong/.codex/skills/evondev-ui-ux/SKILL.md`; áp khi công việc UI cần,
   không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
-- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C94 hoàn tất; C95 chờ duyệt/A đã chọn.
-  Không bắt đầu C95–C98 hoặc tạo cuộc trò chuyện tự động.
+- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C95 hoàn tất; C96 chờ duyệt/A đã chọn.
+  Không bắt đầu C96–C98 hoặc tạo cuộc trò chuyện tự động.

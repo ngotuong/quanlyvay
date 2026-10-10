@@ -1,0 +1,83 @@
+{
+  "checkpoint": "C95",
+  "status": "COMPLETED_LOCAL",
+  "date": "2026-10-10",
+  "gates": {
+    "diff": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": {
+      "pass": 121,
+      "fail": 0
+    },
+    "build": "PASS",
+    "e2e": {
+      "pass": 73,
+      "skip": 18,
+      "fail": 0,
+      "minutes": 14.2,
+      "retries": 0
+    },
+    "visualDraft": {
+      "pass": 2,
+      "minutes": 2.8
+    },
+    "comparison": {
+      "states": 4,
+      "images": 8,
+      "fail": 0
+    },
+    "pgTAPStandalone": "NOT_RUN_NOT_APPLICABLE_NO_SCHEMA_CHANGE",
+    "authStandalone": "NOT_RUN_NOT_APPLICABLE_NO_AUTH_CHANGE",
+    "secretScan": {
+      "tool": "gitleaks8.30.1",
+      "redacted": true,
+      "findings": 0
+    }
+  },
+  "logsIgnored": [
+    {
+      "file": ".cache/c95/lint-final-source.log",
+      "sha256": "7787715262f0784cd6c91cf514b5eb577b4595ec144f87668944d0a08993394c"
+    },
+    {
+      "file": ".cache/c95/typecheck-final-source.log",
+      "sha256": "cf9691453943c3f643d658bb6c13f9e18d9edd15e1daa7dc78ee1ce232911107"
+    },
+    {
+      "file": ".cache/c95/unit-verified.log",
+      "sha256": "44553050e92112ca0641e7e78c7f6d51d6151a2b89719c9ef5bd84622b1568ea"
+    },
+    {
+      "file": ".cache/c95/build-final.log",
+      "sha256": "d204102e6c55a9608b1049df0cf41d4652e5a9620306ca8d6e30d03f1dba3e1b"
+    },
+    {
+      "file": ".cache/c95/e2e-full-final.log",
+      "sha256": "ea74cab05619fc313aea4ac9a726c8a646a9413c3499eedd6dfa7e87501e387c"
+    },
+    {
+      "file": ".cache/c95/visual-gate.log",
+      "sha256": "4ac1ac22d518769478fd271c044f2eee44087e6e8a5cc3b4833e402aea64cb61"
+    },
+    {
+      "file": ".cache/c95/component-closing.log",
+      "sha256": "20d0480314c125cf5634125fb1a69e7e0c146720def359235e1e75eb716ea5cf"
+    },
+    {
+      "file": ".cache/c95/comparison-qa-final.log",
+      "sha256": "e9f4ee1753d16ea0fa6d8ea69354f449a33f4f0f8f85b26c21b33f1eafb3993f"
+    }
+  ],
+  "remoteMutations": 0,
+  "nextCheckpoint": "C96",
+  "nextStatus": "AWAITING_APPROVAL",
+  "notTested": [
+    "real phone/soft keyboard",
+    "native OS clipboard",
+    "AT",
+    "authenticated Safari/Firefox",
+    "native browser zoom",
+    "remote save"
+  ]
+}

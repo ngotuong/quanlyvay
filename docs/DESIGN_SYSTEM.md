@@ -26,7 +26,7 @@ C93: palette gốc, semantic roles và component aliases nằm ở `apps/web/src
 `apps/web/src/app/globals.css` là entrypoint import có thứ tự. Primitive dùng chung nằm ở
 `apps/web/src/components/ui/` và `styles/ui-primitives.css`. Foundation/workflows/notifications/
 dashboard/presentation-overrides tách theo các đoạn liên tiếp của cascade cũ; không thêm cascade layer.
-Playground vẫn tách riêng. Thứ tự import giữ override B/C90 sau các rule nền; readability.css C94 đứng cuối cho các thay đổi A đã duyệt.
+Playground vẫn tách riêng. Thứ tự import giữ override B/C90 sau các rule nền; readability.css C94 và quick-amount.css C95 đứng sau cho các thay đổi A đã duyệt.
 
 ## 3. Typography
 
@@ -155,4 +155,22 @@ cho consumers hiện hữu; không thêm mã màu rải trong component. Token/r
 Mobile frame sở hữu inset khối đối tác; không thêm lớp inset ngang lồng. Hàng tiền extra-wide
 nhường nguyên hàng cho giá trị rồi giữ inset8px ở nhãn/tên, không giảm dưới16px/cắt/round tiền. Logs/gate/giới hạn ở
 `docs/readability-c94/`; đây chưa phải chứng nhận AT/thiết bị/native zoom hoặc Production.
-QuickAmount50triệu C95/drawerA C96/loading C97 chưa triển khai.
+Tại mốc C94, QuickAmount50triệu C95/drawerA C96/loading C97 chưa triển khai; trạng thái C95 ở phần dưới.
+
+## C95 — Nhập nhanh VND theo context đã duyệt
+
+VndInput có cấu hình opt-in `quickAmounts.maximumVnd` là chuỗi integer raw từ server.
+Chỉ Ghi giao dịch → Tiền gốc bật nhóm +50tr/+100tr/+150tr/+200tr; accessible name đọc rõ
+“Cộng … triệu đồng”. Bốn Button secondary, typebutton, target≥44px, grid4cột/gap8px,
+semantic surface/foreground/border-strong; giữ focus ring. Các context lãi/chi phí/gốc mới/
+sửa gốc/dữ liệu cũ không tự có nhóm50–200triệu.
+
+Cộng dồn bằng BigInt, giới hạn nhỏ hơn giữa snapshot dư gốc và signed-bigint. Vượt trần
+hoặc draft không hợp lệ: alert/aria-describedby, giữ draft/callback và đưa focus về input;
+không clamp/Number/autosubmit. Snapshot chỉ hỗ trợ nhập, RPC vẫn authoritative theo ngày/ledger.
+Chip hợp lệ đi qua React change để callback normalized và dirty guard nhận đúng1lần;
+focus/caret về cuối số. Gõ/paste/edit/clear/reset giữ formatter và native numeric keyboard;
+reset thông báo callback theo default. Pending/hydration fieldset, readOnly/disabled khóa chip.
+Lỗi chip được clear trong React change/reset, không native listener cập nhật controlled state
+trước onChange. Đổi loại tiền giữ draft; nhóm lỗi được unmount cùng context. Không thêm toolbar
+cho keyboard native hoặc thay drawer A C96. Bằng chứng/giới hạn: `docs/quick-amount-c95/`.

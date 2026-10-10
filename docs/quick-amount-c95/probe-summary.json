@@ -1,0 +1,237 @@
+{
+  "method": "Original Evon rules unchanged; setup only injects synthetic storage into3contexts and selects actual principal drawer after3navigation sites. Fixed widths only; no sweep/real device.",
+  "originalSha256": "d51a7754bdcf0b0b745ff9b48b267c16730edf6a05782ebde16d220acba17261",
+  "adapterSha256": "8e1c920966f64542cffe1ecb08fef51ed032abefe8b39deda24dfaa29b79ca68",
+  "measurementRulesUnchanged": true,
+  "themes": [
+    {
+      "theme": "light",
+      "rawReportSha256": "425ed160c886bb11fcfd757dbdaa20f200bf2895bd0ab09b69c946626d621c8c",
+      "machineBrokenItems": 0,
+      "widths": [
+        {
+          "width": 375,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 390,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 768,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [
+            "button \"Cộng 50 triệu đồng\"",
+            "button \"Cộng 100 triệu đồng\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 1024,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [
+            "button \"Cộng 50 triệu đồng\"",
+            "button \"Cộng 100 triệu đồng\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 1280,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [
+            "button \"Cộng 50 triệu đồng\"",
+            "button \"Cộng 100 triệu đồng\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 1440,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [
+            "button \"Cộng 50 triệu đồng\"",
+            "button \"Cộng 100 triệu đồng\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 1920,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [
+            "button \"Cộng 50 triệu đồng\"",
+            "button \"Cộng 100 triệu đồng\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "browserDefaultControls": []
+        }
+      ]
+    },
+    {
+      "theme": "dark",
+      "rawReportSha256": "a9d9569403fd8fe847d7965d6a58493b3794b59f0acc53a90936f2ed778c9896",
+      "machineBrokenItems": 0,
+      "widths": [
+        {
+          "width": 375,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 390,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 768,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [
+            "button \"Cộng 50 triệu đồng\"",
+            "button \"Cộng 100 triệu đồng\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 1024,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [
+            "button \"Cộng 50 triệu đồng\"",
+            "button \"Cộng 100 triệu đồng\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 1280,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [
+            "button \"Cộng 50 triệu đồng\"",
+            "button \"Cộng 100 triệu đồng\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 1440,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [
+            "button \"Cộng 50 triệu đồng\"",
+            "button \"Cộng 100 triệu đồng\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "browserDefaultControls": []
+        },
+        {
+          "width": 1920,
+          "consoleErrors": [],
+          "hasHorizontalScroll": false,
+          "smallTapCount": 0,
+          "lowContrastCount": 0,
+          "brokenMoney": [],
+          "wrappedControls": [],
+          "drawnFocusRings": [
+            "button \"Cộng 50 triệu đồng\"",
+            "button \"Cộng 100 triệu đồng\"",
+            "button \"Hủy\"",
+            "button \"Ghi nhận\"",
+            "button \"Đóng ghi giao dịch\""
+          ],
+          "browserDefaultControls": []
+        }
+      ]
+    }
+  ],
+  "reconciliation": "Focus rings and native select/date retained per approved C92/project accessibility rules; no additional redesign."
+}

@@ -1,39 +1,47 @@
-# Bàn giao — C94 hoàn tất, C95 chờ phê duyệt
+# Bàn giao — C95 hoàn tất, C96 chờ duyệt
 
-C94 COMPLETED local ngày10/10/2026, OWNER duyệt09/10/2026 và tiếp tục trong hội thoại.
-C95 AWAITING_APPROVAL; C96–C98 NOT_STARTED. Dừng, không tự bắt đầu C95 hoặc phát hành.
+C95 COMPLETED local ngày10/10/2026, OWNER phê duyệt trong hội thoại.
+C96 AWAITING_APPROVAL; C97–C98 NOT_STARTED. Dừng theo AGENTS§3, không tự bắt đầu C96/phát hành.
 Repository chuẩn: `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`.
 
-Phiên mới đọc toàn bộ AGENTS.md/PROJECT_CONTEXT.md, roadmapC95(section50), gitstatus và
-xác nhận OWNER duyệt C95 trong hội thoại hiện tại. C92 chọn A, Quick Amount **+50tr/+100tr/
-+150tr/+200tr** cộng dồn theo context/validation, BigInt/integerstrings, không autosubmit.
-Đặc tả `docs/design-c92/selected-design.md`; C95 inventory consumer/context trước triển khai.
-Tiêu chí50triệu Tiền gốc trống đãfocus:1chip thay8phím số;10triệu vẫn gõ/paste.
+Phiên mới đọc toàn bộ AGENTS.md/PROJECT_CONTEXT.md, roadmapC96(section50), gitstatus và
+xác nhận OWNER phê duyệt C96 trong hội thoại hiện tại trước triển khai. C92 chọn A;
+Quick Amount +50tr/+100tr/+150tr/+200tr cộng dồn đã triển khai C95, không mở lại thiết kế.
+C96 là drawer ngay Dashboard, desktop phải/mobile bottom sheet, lifecycle đầy đủ theo roadmap;
+không suy phạm vi mới từ lịch sử C91 hoặc các checkpoint COMPLETED.
 
-C94 giữ B/Inter và KPI trước task; cards hai bảng Dashboard dưới1024px/desktoptable,
-taskfull-width/cashflowbelow. Helper14px, values16px/unit≥12px, tên200clamp2/disclosure44px
-ngoài heading/link, keyboard/fullidentity/privacy; notification hover khác selected/aria-current.
-Shared border/error semantic theo C92, nativepickers/financialengine/RPC/validation không đổi.
-File chính `styles/readability.css`, `business/name-disclosure.tsx`, Dashboard/Loan list/detail/
-Counterparties/Notifications; CSSentry/tokens, unitadapter, C94E2E. Không QuickAmount/drawer mới/loading mới.
+C95 chỉ Ghi giao dịch → Tiền gốc có chip opt-in. VndInput/helper cộng BigInt/integerstrings,
+raw snapshot dư gốc do server cấp; RPC vẫn authoritative. Typebutton không autosubmit,
+error giữ draft/aria-describedby, callback và dirty nhận1lần, focus/caret về input;
+manual/paste/clear/default/formreset/pending/readOnly/disabled giữ. Typechange giữ draft,
+reset về loại mặc định. Các context lãi/chi phí/gốc mới/sửa gốc/dữ liệu cũ không tự có chip.
+Đã bỏ native input listener clear lỗi vì có thể restore controlled value trước onChange;
+clear callback chạy trong React change/reset. Không sửa Server Actions/validation/schema/RPC/engine.
 
-Bằng chứng `docs/readability-c94/report.md`, comparison.html, rendered/data/probe/regression/
-preservation/evidence JSON,12PNG+manifest. Before source577d6f4;132runtimefinalfreeze trongcache.
-Matrix09/10 trước badge line-box cuối:80main/84supplement/36bigint/36zoom PASS6.5m;
-Loan/metadata bị tác động kiểm lại C81+C94targeted8PASS1SKIP2.8m và full source cuối.
-Full69PASS18SKIP0FAIL13.7m,retries0; lint/typecheck/unit117/rootbuild19 PASS. Firstfull68/18/
-1FAIL12.5m ở C81height160.171875>160px giữ; badge14pxline1.4 sửa, cap160/assertions/timeout/
-retry/skip hiện hữu không đổi. Logs/raw/harness/failure traces giữ ignored `.cache/c94/`.
+Bằng chứng `docs/quick-amount-c95/report.md`, comparison.html, inventory/goal/regression/
+component/probe/preservation/source+PNG manifests,8PNG. Source trước0aa52ac;130websrcfinalfreeze.
+50triệu từ trống đãfocus8phím số trước→1chip sau, cùng Minh An1.2845b375/1280×900LightDark;
+100/150/200triệu cũng1chip,16samples0submit. Select/clear/focus tính riêng, không hứa nhanhgấp3.
+10triệu gõ/paste,17digit/max helper+component; actualfixture50triệu submit/error/retry/replay
+cùng key chỉ1transaction, reset;12responsive states gồm320/375×420, chip≥44px.
 
-Evon8probe nguyênrules: rawDashboard2/theme,Expenses1/theme,NotificationsSettings0.
-Actual zero-textvisiblecontrast≥5.556/tooltipopacity0; reversalopen1line44px, reconciliationPASS.
-Zoom emulation viewportCSSphysical/2,DPR2,glyph/PNGwidth đo; CSSzoom diagnosticFAIL vì
-breakpoints cũ giữ; không chỉnhCSS để chiều phép mô phỏng sai. Không chứng nhận nativezoom/
-AT/phone thật/softkeyboard/SafariFirefox/OS-theme-live/PWA-beforeHTML/remote save.
-1157trackedbefore/12allowedchanged/1145unchanged;17C75exact/15generatedrestored; DBguard55322
-sixcounts0. Diff/artifact/secretredacted PASS, không env/cookie/secret/data thật trong Git.
+Lint/typecheck/unit121/rootbuild PASS; full73PASS18SKIP0FAIL14.2m,retries0.
+Visual/draft2PASS2.8m; originalEvon7fixedwidths/themeLightDark0mục máy Hỏng; focus/native picker
+warnings giữ theo thiết kế. Không giảm assertions/timeout/retry/skip hiện hữu. Các lượt targeted
+1PASS3FAIL→2PASS2FAIL→3PASS1FAIL và nguyên nhân/fix ở verification-history; raw logs/traces ignored
+`.cache/c95/`. Full server log có destination-stream-closed-early như baselineC94; không gọi
+PASS là runtimeerrors0 toànapp. Root source/code unchanged qua gate cuối.
+1183trackedbefore/8scopechanged/1175unchanged;17C75exact/15generatedrestored;73financialprotectedfiles
+không đổi. DBguard C20-test label/DB55322, profiles/loans/transactions/counterparties/notifications/
+authusers đều0 sau teardown. Không mainDB54322, không env/cookie/secret/data thật trong Git.
+Diff/artifact/secretredacted PASS. Cache còn synthetic session/log/trace và compiled lab; tiếp tục ignore.
 
-C92/C93 localcommits752fd48/577d6f4; C94 localcode/docs chốt cùng context/roadmap/handoff.
-Chưa push/deploy/remote mutation. C91 vẫn Preview/Production, aliases/CI trong context/release-c91.
-C91 query_canceled57014 đã hồi phục, nguyên nhânDB chưa rõ; giữ C88rollback, không cleanup/tuning.
-Không dùng COMPLETED/history làm quyền thao tác mới, không mở lại Google/backup.
+Giữ B/Inter/nativepickers/KPI trước task và C94 cards/desktoptables/disclosure14/16px.
+Đặc tả A `docs/design-c92/selected-design.md`; source và lịch sử C93/C94 trong context/report tương ứng.
+Phone thật/softkeyboard/nativeclipboard/AT/nativezoom/SafariFirefox/OS-theme-live/remote save
+NOT_TESTED;375×420 là mô phỏng viewport. C95 chưa thay layout drawer C96/loading C97.
+
+C92/C93/C94 localcommits752fd48/577d6f4/0aa52ac; C95 localcommit chốt code/docs cùng trạng thái.
+Chưa push/deploy/remote mutation; runtime Preview/Production vẫn C91, aliases/CI trong context.
+C91 query_canceled57014 đã hồi phục, nguyên nhân chưa rõ; giữ C88rollback, không cleanup/tuning.
+Không mở lại Google/backup/automation hoặc tạo cuộc trò chuyện mới từ lịch sử.

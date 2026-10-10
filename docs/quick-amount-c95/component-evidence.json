@@ -1,0 +1,28 @@
+{
+  "method": "Actual production React/VndInput/Button/helper compiled from current source, native Chrome; lab only observes callbacks/form events; no DB/network submissions",
+  "first": {
+    "values": [
+      "50000000",
+      "150000000"
+    ],
+    "changes": 2,
+    "submits": 0,
+    "caret": 11
+  },
+  "checks": [
+    "callback exactly once",
+    "parent onChange/dirty signal",
+    "no submit",
+    "focus/caret end",
+    "reset callback normalized",
+    "16digit beyond Number and true17digit exact",
+    "system maximum inclusive/reject",
+    "default reset callback exact",
+    "valid formatted paste handler plus emulated browser insertion",
+    "invalid draft stays unchanged",
+    "limit reject keeps draft/callback count",
+    "edit clears alert",
+    "fieldset pending and readOnly disabled"
+  ],
+  "errors": []
+}

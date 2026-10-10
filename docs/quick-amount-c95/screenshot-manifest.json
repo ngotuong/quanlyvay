@@ -1,0 +1,77 @@
+{
+  "method": "Actual production Chrome; before0aa52ac, after frozen C95 runtime; same Minh An principal1.2845b,50m display; manual8digits before vs1chip after; synthetic data only",
+  "images": [
+    {
+      "file": "screenshots/before-principal-375-light.png",
+      "phase": "before",
+      "width": 375,
+      "height": 900,
+      "theme": "light",
+      "sha256": "28bab9100f02319fffbe7a7bd6150db42229eb54746671bf022b9ebcdacf777b",
+      "bytes": 62099
+    },
+    {
+      "file": "screenshots/before-principal-1280-light.png",
+      "phase": "before",
+      "width": 1280,
+      "height": 900,
+      "theme": "light",
+      "sha256": "2d744470f6c5c7a3305e3e117d872fb34f26eabf2b56bcf09adc760af4c8cebb",
+      "bytes": 136531
+    },
+    {
+      "file": "screenshots/before-principal-375-dark.png",
+      "phase": "before",
+      "width": 375,
+      "height": 900,
+      "theme": "dark",
+      "sha256": "4944d6df450277ac60fe3e57e566767b8b57efbb1cb1d37c69ebe86f54b2a762",
+      "bytes": 58322
+    },
+    {
+      "file": "screenshots/before-principal-1280-dark.png",
+      "phase": "before",
+      "width": 1280,
+      "height": 900,
+      "theme": "dark",
+      "sha256": "b1ea5a24974bf37eb30eaf85d4a9a18aa86ed666d6985fc355c7528859ed5658",
+      "bytes": 129414
+    },
+    {
+      "file": "screenshots/after-principal-375-light.png",
+      "phase": "after",
+      "width": 375,
+      "height": 900,
+      "theme": "light",
+      "sha256": "332457cd74134d9b3ac90f7068883a05729890276b79bd49e225c778ed712598",
+      "bytes": 63116
+    },
+    {
+      "file": "screenshots/after-principal-1280-light.png",
+      "phase": "after",
+      "width": 1280,
+      "height": 900,
+      "theme": "light",
+      "sha256": "6ad0baccd69c46a04e3a4d4133ce20ab2180518d78f9cd49ca0ea14f76a790b8",
+      "bytes": 139280
+    },
+    {
+      "file": "screenshots/after-principal-375-dark.png",
+      "phase": "after",
+      "width": 375,
+      "height": 900,
+      "theme": "dark",
+      "sha256": "c922d599254858f837497410a9b87a44fe367bd1949370650f7361a9e2ff2d4f",
+      "bytes": 59841
+    },
+    {
+      "file": "screenshots/after-principal-1280-dark.png",
+      "phase": "after",
+      "width": 1280,
+      "height": 900,
+      "theme": "dark",
+      "sha256": "f83f14a4033bbe4f39501b8c0d408140fbcf04af8be32bc9c35912f9fd583e24",
+      "bytes": 131896
+    }
+  ]
+}

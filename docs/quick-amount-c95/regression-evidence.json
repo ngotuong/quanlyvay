@@ -1,0 +1,576 @@
+{
+  "method": "Actual production Chrome, guarded C20-test; same empty focused principal as baseline; select/clear/focus preparation excluded; no real phone",
+  "observations": [
+    {
+      "task": "one-action",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "millions": 50,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "50.000.000",
+      "normalized": "50000000",
+      "submits": 0,
+      "caret": 10
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "millions": 100,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "100.000.000",
+      "normalized": "100000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "millions": 150,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "150.000.000",
+      "normalized": "150000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "millions": 200,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "200.000.000",
+      "normalized": "200000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "light",
+      "width": 1280,
+      "height": 900,
+      "millions": 50,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "50.000.000",
+      "normalized": "50000000",
+      "submits": 0,
+      "caret": 10
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "light",
+      "width": 1280,
+      "height": 900,
+      "millions": 100,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "100.000.000",
+      "normalized": "100000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "light",
+      "width": 1280,
+      "height": 900,
+      "millions": 150,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "150.000.000",
+      "normalized": "150000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "light",
+      "width": 1280,
+      "height": 900,
+      "millions": 200,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "200.000.000",
+      "normalized": "200000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "millions": 50,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "50.000.000",
+      "normalized": "50000000",
+      "submits": 0,
+      "caret": 10
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "millions": 100,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "100.000.000",
+      "normalized": "100000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "millions": 150,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "150.000.000",
+      "normalized": "150000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "millions": 200,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "200.000.000",
+      "normalized": "200000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "dark",
+      "width": 1280,
+      "height": 900,
+      "millions": 50,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "50.000.000",
+      "normalized": "50000000",
+      "submits": 0,
+      "caret": 10
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "dark",
+      "width": 1280,
+      "height": 900,
+      "millions": 100,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "100.000.000",
+      "normalized": "100000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "dark",
+      "width": 1280,
+      "height": 900,
+      "millions": 150,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "150.000.000",
+      "normalized": "150000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "one-action",
+      "colorScheme": "dark",
+      "width": 1280,
+      "height": 900,
+      "millions": 200,
+      "chipActions": 1,
+      "digitKeys": 0,
+      "display": "200.000.000",
+      "normalized": "200000000",
+      "submits": 0,
+      "caret": 11
+    },
+    {
+      "task": "keyboard/draft/reset/limit",
+      "inclusiveLimit": "100000000",
+      "oversizedDraftPreserved": "9007199254740993",
+      "invalidPastePrevented": true,
+      "keyboardChip": "Enter",
+      "manualTenMillion": true
+    },
+    {
+      "task": "submit/retry/pending/idempotency/reset",
+      "exactTransaction": "50000000",
+      "principalTransactions": 1,
+      "replaySucceeded": true,
+      "draftAndKeyRetained": true
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "light",
+      "width": 320,
+      "height": 900,
+      "geometry": [
+        {
+          "width": 58.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 58.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 58.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 58.5,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": false
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 420,
+      "geometry": [
+        {
+          "width": 72.25,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 72.25,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 72.25,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 72.25,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": true
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "light",
+      "width": 390,
+      "height": 667,
+      "geometry": [
+        {
+          "width": 76,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 76,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 76,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 76,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": false
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "light",
+      "width": 768,
+      "height": 900,
+      "geometry": [
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": false
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "light",
+      "width": 1024,
+      "height": 900,
+      "geometry": [
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": false
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "light",
+      "width": 1440,
+      "height": 900,
+      "geometry": [
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": false
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "dark",
+      "width": 320,
+      "height": 900,
+      "geometry": [
+        {
+          "width": 58.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 58.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 58.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 58.5,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": false
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 420,
+      "geometry": [
+        {
+          "width": 72.25,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 72.25,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 72.25,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 72.25,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": true
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "dark",
+      "width": 390,
+      "height": 667,
+      "geometry": [
+        {
+          "width": 76,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 76,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 76,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 76,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": false
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "dark",
+      "width": 768,
+      "height": 900,
+      "geometry": [
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": false
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "dark",
+      "width": 1024,
+      "height": 900,
+      "geometry": [
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": false
+    },
+    {
+      "task": "responsive",
+      "colorScheme": "dark",
+      "width": 1440,
+      "height": 900,
+      "geometry": [
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        },
+        {
+          "width": 124.5,
+          "height": 44,
+          "overflow": false
+        }
+      ],
+      "simulatedKeyboard": false
+    }
+  ]
+}
