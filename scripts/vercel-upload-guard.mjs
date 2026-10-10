@@ -10,7 +10,7 @@ const rules = [
   "/AGENTS.md", "/PROJECT_CONTEXT.md", "/README.md", "**/.clasp.json", "**/*.tsbuildinfo",
   "/.backups/", "/.cache/", "**/.backups/", "**/.cache/", "**/.tmp/", "**/test-results/", "**/playwright-report/", "**/coverage/",
   "**/*.log", "**/.env", "**/.env.*", "!**/.env.example", "**/*.pem", "**/*.key",
-  "/.tmp/", "/.c55-remote-head/",
+  "/.tmp/", "/.c55-remote-head/", "/.gitleaksignore",
 ];
 const automaticDirectories = new Set([".git", "node_modules", ".next", ".vercel"]);
 
@@ -53,7 +53,7 @@ export function assertUploadMetadata(entries) {
     const parts = path.split("/");
     const name = parts.at(-1);
     if (!path || path.startsWith("/") || parts.some(p => !p || p === "." || p === "..") || entry.type !== "file" ||
-      path.startsWith("apps/web/test/") || path === "apps/web/playwright.config.ts" ||
+      path.startsWith("apps/web/test/") || path === "apps/web/playwright.config.ts" || path === ".gitleaksignore" ||
       parts.some(p => [".backups", ".cache", ".tmp", "test-results", "playwright-report", "coverage", "node_modules", ".git", ".next", ".vercel"].includes(p)) ||
       name === ".clasp.json" || (name.startsWith(".env") && name !== ".env.example") ||
       /\.(?:qlvbak|sql|dump|backup|sqlite|sqlite3|log|pem|key|p12|pfx|tsbuildinfo)$/i.test(name) ||

@@ -33,3 +33,9 @@ log ở ignored.cache/c98, không đưa secret hoặc dữ liệu tài chính th
    không credential. Thêm .gitleaksignore một fingerprint exactcommit/file/rule/line có giải thích,
    giữ rawredacted finding, không rộng path/rule hoặc rewritehistory. .vercelignore loại metadata này.
    Artifact scan0findings; full-history sẽ chạy lại với exception đã xác minh.
+
+7. Source83bc0fe/CI38068842563:QualityFAIL tại2scriptunit tests do .vercelignore thêm .gitleaksignore
+   nhưng metadata guard rules chưa đồng bộ. Policy/securityPASS, integration còn chạy ở thời điểm
+   phát hiện. Đây là thiếu sót packaging C98, không runtime UI lỗi. Thêm đúng rule vào supported
+   contract, assertUploadMetadata chặn .gitleaksignore trực tiếp và bổ sung assertion bảo vệ;
+   existing assertions/timeout/retry/skip giữ. Không coi CI này SUCCESS hoặc tạo deployment.

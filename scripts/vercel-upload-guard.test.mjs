@@ -16,6 +16,7 @@ test("ignore drift, missing exclusions and later negation fail closed", () => {
   assert.doesNotThrow(() => validateUploadIgnore(ignore));
   assert.throws(() => validateUploadIgnore(ignore.replace("/.backups/", "")), /drifted/);
   assert.throws(() => validateUploadIgnore(`${ignore}\n!/.backups/\n`), /drifted/);
+  assert.throws(() => assertUploadMetadata([file(".gitleaksignore")]), /Forbidden/);
 });
 test("local inventory skips excluded directories and detects stray dump and symlink", () => {
   mkdirSync(resolve(".cache"), { recursive: true });
