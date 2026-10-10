@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "date": "2026-10-10",
+  "sourceBefore": "1b54be12d23c9b0ce6ace23dcb8b39ad71721026",
+  "gates": {
+    "diff": "PASS",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": {
+      "pass": 121,
+      "fail": 0
+    },
+    "build": {
+      "status": "PASS",
+      "staticPages": 19
+    },
+    "targetedVisual": {
+      "pass": 6,
+      "fail": 0,
+      "minutes": 7.0
+    },
+    "fullE2E": {
+      "pass": 84,
+      "skip": 18,
+      "fail": 0,
+      "minutes": 19.2,
+      "retries": 0
+    },
+    "supplementalNavigationActionWindow": {
+      "pass": 3,
+      "fail": 0,
+      "observations": 53,
+      "runtimeUnchanged": true
+    },
+    "financialStandaloneDbAuth": "N/A schema/RPC/Auth contract unchanged; full E2E financial/Auth boundaries passed"
+  },
+  "preservation": "PASS see preservation.json",
+  "artifact": {
+    "PNG": 28,
+    "WEBM": 4,
+    "HTTPHashesLinks": "PASS",
+    "comparisonSelections": 36,
+    "javascriptSyntax": "PASS",
+    "recordedFps": 25,
+    "mobileRequestedWidth": 375,
+    "mobileEncodedWidth": 374
+  },
+  "secret": {
+    "image": "ghcr.io/gitleaks/gitleaks:v8.30.1@sha256:c00b6bd0aeb3071cbcb79009cb16a60dd9e0a7c60e2be9ab65d25e6bc8abbb7f",
+    "scope": "changed/untracked checkpoint files only; no env/session/log/trace",
+    "findings": 0,
+    "redacted": true
+  },
+  "nextCheckpoint": "C98 AWAITING_APPROVAL",
+  "remoteWrites": false,
+  "notTested": [
+    "physical phone/softkeyboard",
+    "AT",
+    "authenticated Safari/Firefox",
+    "native clipboard/zoom",
+    "OS-theme-live",
+    "PWA before HTML",
+    "remote save",
+    "physical-device 60fps"
+  ],
+  "logs": [
+    {
+      "file": ".cache/c97/lint-final4.log",
+      "sha256": "7787715262f0784cd6c91cf514b5eb577b4595ec144f87668944d0a08993394c"
+    },
+    {
+      "file": ".cache/c97/typecheck-final4.log",
+      "sha256": "ffca2f9e419c3b7d24ff44884eebee3af3552af7e247be3fbec62dc3348ede34"
+    },
+    {
+      "file": ".cache/c97/unit-final4.log",
+      "sha256": "56e916c95f48a74e3bc095fe2574f3ee86b163281368b8a70b6209d7c161230d"
+    },
+    {
+      "file": ".cache/c97/build-final4.log",
+      "sha256": "ac4cfd9e2ee277c2f83d07c36f0f450be0a43490d83816bcf85c73bf6f2ad770"
+    },
+    {
+      "file": ".cache/c97/targeted4-visual.log",
+      "sha256": "2836a2fd9430b8a82191ffc9ed453a2c39ec4bd6aa9857dc2dfafe97c3bec211"
+    },
+    {
+      "file": ".cache/c97/full-e2e-final2.log",
+      "sha256": "f2be1b309422efcd817944f355874bc3c2d63a94a045f237aac174a22576ef1d"
+    },
+    {
+      "file": ".cache/c97/window-final.log",
+      "sha256": "0303dc87c52dfa220cd4f25b6cff87a84a529082d0915de5ece0351f16e65c6a"
+    }
+  ]
+}

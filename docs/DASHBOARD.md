@@ -89,3 +89,11 @@ reload tạo phiên mới. Save dùng Server Action/RPC hiện hữu và revalid
 Số lãi của task là projection cuối kỳ nhắc; số lãi trong drawer theo ngày thanh toán. Thanh toán
 một phần/sớm không mặc định xóa task; server quyết định danh sách sau lưu. Chi tiết/lượt kiểm:
 `docs/dashboard-drawer-c96/implementation.md`.
+
+## C97 — Loading và chuyển động
+
+Dashboard loading giữ cấu trúc KPI trước task, cashflowbelow theoA; placeholderkhông sốtiền/count/
+identity. Drawerbody/freshbalance dành sẵn vùng trong lúc read, không hiện staleamount. FocusHủy
+preload recover sang form nếu nodecũ bịgỡ, preventScroll. Enter220/exit150/snapback320ms và damping
+bounded; capturecancel khôngdismiss, dirty4prompts/pending/draft/history/focus C96 giữ. Reducedmotion
+còn staticstatus. Native details giữ keyboard/hidden semantics. [Bằng chứng C97](loading-motion-c97/report.md).

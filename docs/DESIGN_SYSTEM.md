@@ -121,7 +121,7 @@ Playground vẫn tách riêng. Thứ tự import giữ override B/C90 sau các r
 
 - Startup có logo, tên ứng dụng và thanh indeterminate trên canvas đúng theme; không hiện dữ
   liệu trước khi Auth/profile resolve, không giả % hoặc delay.
-- Route loading có skeleton phân vùng và nhãn nhìn thấy; SPA có thông báo không nhận focus,
+- Route loading có skeleton phân vùng và nhãn trạng thái cho công nghệ hỗ trợ; SPA có thông báo không nhận focus,
   không chặn click và bám transition/cancel thật. Reduced-motion giữ dấu tĩnh.
 - TTFB/first-feedback phải đo riêng; không tuyên bố UI có thể vẽ trước HTML hoặc mọi cold
   PWA/network đã được kiểm. Local Auth-delay không thay chứng nhận thiết bị/mạng thật.
@@ -184,3 +184,17 @@ Giữ B/Inter/native date-select/focus ring và shared motion. “Theo số còn
 typebutton, chỉ positive authoritative interest snapshot hiện tại; đi qua React input change.
 Tiền gốc giữ chips C95. Không thay animation/damping/loading các route C97; giới hạn review
 ở `docs/dashboard-drawer-c96/implementation.md`.
+
+## C97 — Loading theo màn và motion đã triển khai
+
+9route dùng skeleton riêng, rootfallback trung tính. Status aria-busy, visuals aria-hidden;
+không fakecontrols/count/identity/amount. Loading selectors riêng cho streamed DOM. Desktop
+loanlist/mobilecards, DashboardKPI/task/chart theo A; staticstatus luôn còn ở reduced-motion.
+
+Tokens được OWNER chọn C92: enter220/exit150/snapback320ms, shimmer1.8s. SharedBottomSheet
+raw88pxthreshold giữ, directdrag dampingcap180px/capturecancel khôngdismiss; native dialog/focus/
+dirty/pending guards giữ. Dashboardmodal đợi exitcomplete; legacy180mstimers giữ30mshold.
+Native details progressiveopacity150ms không customaccordion, hidden/EnterSpace giữ. Button
+press paint chỉ QuickAmount/dialogactions; bỏ scale toànapp và backdropblur. Focus/nativepicker
+được giữ theoC92. Physicaldevice/AT/60fps NOT_TESTED; video25fps không là chứng nhận hiệu năng.
+Bằng chứng và ngân sách trong [C97report](loading-motion-c97/report.md).

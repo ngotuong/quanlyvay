@@ -1,0 +1,47 @@
+{
+  "reviewed": true,
+  "recorder": "Playwright 25fps VP8/WEBM; requested mobile375 encoded374 due even-width encoder",
+  "physicalDevice60fps": "NOT_TESTED",
+  "files": [
+    {
+      "file": "motion-1280-real.webm",
+      "sha256": "5661dbc5d93d4d650c85be423a367870eba26c4d4056dc2c9343934a6e3cc597",
+      "bytes": 267378,
+      "width": 1280,
+      "height": 812,
+      "recordedFps": "25/1",
+      "seconds": "3.000000",
+      "playback": "actual CSS tokens"
+    },
+    {
+      "file": "motion-1280-slow4x.webm",
+      "sha256": "526ea4b3f203b091cde6d9ec216efb4708258a4c94e4da5b304e311a8648e016",
+      "bytes": 460801,
+      "width": 1280,
+      "height": 812,
+      "recordedFps": "25/1",
+      "seconds": "4.720000",
+      "playback": "4x slower CSS tokens for review"
+    },
+    {
+      "file": "motion-375-real.webm",
+      "sha256": "b6eb8acd1db64b1c0435e5650084f0cec3d2746430d715d44562c9c3030e1a7c",
+      "bytes": 344636,
+      "width": 374,
+      "height": 812,
+      "recordedFps": "25/1",
+      "seconds": "3.960000",
+      "playback": "actual CSS tokens"
+    },
+    {
+      "file": "motion-375-slow4x.webm",
+      "sha256": "59ca148a503c17e948a53547d5840e3cb5b9cb9df92f6dba2696908bb3ee5a90",
+      "bytes": 604898,
+      "width": 374,
+      "height": 812,
+      "recordedFps": "25/1",
+      "seconds": "5.800000",
+      "playback": "4x slower CSS tokens for review"
+    }
+  ]
+}

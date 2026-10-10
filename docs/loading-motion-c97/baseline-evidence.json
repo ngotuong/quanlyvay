@@ -1,0 +1,1697 @@
+{
+  "source": "1b54be12d23c9b0ce6ace23dcb8b39ad71721026",
+  "samples": [
+    {
+      "theme": "light",
+      "width": 375,
+      "path": "/dashboard",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row dashboard-heading",
+            "tag": "DIV",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "dashboard-period-bar",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 143.984375
+          },
+          {
+            "class": "action-hero-banner",
+            "tag": "DIV",
+            "x": 16,
+            "y": 249.984375,
+            "width": 343,
+            "height": 152.375
+          },
+          {
+            "class": "dashboard-workspace",
+            "tag": "DIV",
+            "x": 16,
+            "y": 418.359375,
+            "width": 343,
+            "height": 830.21875
+          },
+          {
+            "class": "dashboard-analysis",
+            "tag": "DETAILS",
+            "x": 16,
+            "y": 1264.578125,
+            "width": 343,
+            "height": 78
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "path": "/loans",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "tag": "DIV",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 44
+          },
+          {
+            "class": "management-filters loan-filters",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 150,
+            "width": 343,
+            "height": 176
+          },
+          {
+            "class": "filter-pills active-filter-pills",
+            "tag": "DIV",
+            "x": 16,
+            "y": 338,
+            "width": 343,
+            "height": 50
+          },
+          {
+            "class": "loan-list",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 408,
+            "width": 343,
+            "height": 405.125
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 16,
+            "y": 817.125,
+            "width": 343,
+            "height": 53.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "path": "/loans/loan",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "back-link",
+            "tag": "A",
+            "x": 16,
+            "y": 94,
+            "width": 172.296875,
+            "height": 44
+          },
+          {
+            "class": "loan-detail-heading",
+            "tag": "DIV",
+            "x": 16,
+            "y": 150,
+            "width": 343,
+            "height": 99.796875
+          },
+          {
+            "class": "ui-tabs loan-tabs",
+            "tag": "NAV",
+            "x": 16,
+            "y": 271.796875,
+            "width": 343,
+            "height": 59
+          },
+          {
+            "class": "overview-hero",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 350.796875,
+            "width": 343,
+            "height": 235.734375
+          },
+          {
+            "class": "action-drawer-grid",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 602.53125,
+            "width": 343,
+            "height": 176.3125
+          },
+          {
+            "class": "overview-supporting",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 794.84375,
+            "width": 343,
+            "height": 212.546875
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "path": "/counterparties",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 44
+          },
+          {
+            "class": "counterparty-search",
+            "tag": "FORM",
+            "x": 16,
+            "y": 150,
+            "width": 343,
+            "height": 100.390625
+          },
+          {
+            "class": "counterparty-list compact-record-list",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 266.390625,
+            "width": 343,
+            "height": 145.6875
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 16,
+            "y": 416.078125,
+            "width": 343,
+            "height": 53.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "path": "/expenses",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 44
+          },
+          {
+            "class": "",
+            "tag": "DIV",
+            "x": 16,
+            "y": 150,
+            "width": 343,
+            "height": 210
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "path": "/notifications",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 46.390625
+          },
+          {
+            "class": "filter-pills notification-filters",
+            "tag": "DIV",
+            "x": 16,
+            "y": 148.390625,
+            "width": 343,
+            "height": 50
+          },
+          {
+            "class": "notification-list",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 218.390625,
+            "width": 343,
+            "height": 406.140625
+          },
+          {
+            "class": "surface-card push-settings-disclosure",
+            "tag": "DETAILS",
+            "x": 16,
+            "y": 644.53125,
+            "width": 343,
+            "height": 54
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 16,
+            "y": 702.53125,
+            "width": 343,
+            "height": 53.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "path": "/audit",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "timeline-list",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 3203.90625
+          },
+          {
+            "class": "audit-pagination",
+            "tag": "NAV",
+            "x": 16,
+            "y": 3301.90625,
+            "width": 343,
+            "height": 121.515625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "path": "/settings",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "surface-card detail-section theme-settings",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 291.625
+          },
+          {
+            "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 401.625,
+            "width": 343,
+            "height": 210.171875
+          },
+          {
+            "class": "surface-card detail-section user-management-section",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 611.796875,
+            "width": 343,
+            "height": 408.90625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "path": "/loans/new",
+      "metrics": {
+        "children": [
+          {
+            "class": "back-link",
+            "tag": "A",
+            "x": 16,
+            "y": 94,
+            "width": 172.296875,
+            "height": 44
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "surface-card form-surface",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 150,
+            "width": 343,
+            "height": 1403.421875
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 375,
+      "loadingObserved": true
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/dashboard",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row dashboard-heading",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 66.984375
+          },
+          {
+            "class": "dashboard-period-bar",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 110.984375,
+            "width": 1000,
+            "height": 82
+          },
+          {
+            "class": "action-hero-banner",
+            "tag": "DIV",
+            "x": 256,
+            "y": 208.984375,
+            "width": 1000,
+            "height": 96.375
+          },
+          {
+            "class": "dashboard-workspace",
+            "tag": "DIV",
+            "x": 256,
+            "y": 321.359375,
+            "width": 1000,
+            "height": 584.671875
+          },
+          {
+            "class": "dashboard-analysis",
+            "tag": "DETAILS",
+            "x": 256,
+            "y": 922.03125,
+            "width": 1000,
+            "height": 78
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/loans",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 66.984375
+          },
+          {
+            "class": "management-filters loan-filters",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 124.984375,
+            "width": 1000,
+            "height": 184
+          },
+          {
+            "class": "filter-pills active-filter-pills",
+            "tag": "DIV",
+            "x": 256,
+            "y": 320.984375,
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "class": "loan-list",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 390.984375,
+            "width": 1000,
+            "height": 161.171875
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 256,
+            "y": 556.15625,
+            "width": 1000,
+            "height": 41.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/loans/loan",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "back-link",
+            "tag": "A",
+            "x": 256,
+            "y": 32,
+            "width": 172.296875,
+            "height": 44
+          },
+          {
+            "class": "loan-detail-heading",
+            "tag": "DIV",
+            "x": 256,
+            "y": 88,
+            "width": 1000,
+            "height": 105.796875
+          },
+          {
+            "class": "ui-tabs loan-tabs",
+            "tag": "NAV",
+            "x": 256,
+            "y": 215.796875,
+            "width": 1000,
+            "height": 59
+          },
+          {
+            "class": "overview-hero",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 294.796875,
+            "width": 1000,
+            "height": 150
+          },
+          {
+            "class": "action-drawer-grid",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 460.796875,
+            "width": 1000,
+            "height": 176.3125
+          },
+          {
+            "class": "overview-supporting",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 653.109375,
+            "width": 1000,
+            "height": 71.515625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/counterparties",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 66.984375
+          },
+          {
+            "class": "counterparty-search",
+            "tag": "FORM",
+            "x": 256,
+            "y": 124.984375,
+            "width": 1000,
+            "height": 46.390625
+          },
+          {
+            "class": "counterparty-list compact-record-list",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 187.375,
+            "width": 1000,
+            "height": 71.6875
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 256,
+            "y": 263.0625,
+            "width": 1000,
+            "height": 41.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/expenses",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 48
+          },
+          {
+            "class": "",
+            "tag": "DIV",
+            "x": 256,
+            "y": 106,
+            "width": 1000,
+            "height": 212
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/notifications",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 48
+          },
+          {
+            "class": "filter-pills notification-filters",
+            "tag": "DIV",
+            "x": 256,
+            "y": 102,
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "class": "notification-list",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 172,
+            "width": 1000,
+            "height": 364.546875
+          },
+          {
+            "class": "surface-card push-settings-disclosure",
+            "tag": "DETAILS",
+            "x": 256,
+            "y": 556.546875,
+            "width": 1000,
+            "height": 54
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 256,
+            "y": 614.546875,
+            "width": 1000,
+            "height": 41.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/audit",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 48
+          },
+          {
+            "class": "timeline-list",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 106,
+            "width": 1000,
+            "height": 2629.6875
+          },
+          {
+            "class": "audit-pagination",
+            "tag": "NAV",
+            "x": 256,
+            "y": 2739.6875,
+            "width": 1000,
+            "height": 65.515625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/settings",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 48
+          },
+          {
+            "class": "surface-card detail-section theme-settings",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 106,
+            "width": 1000,
+            "height": 214.828125
+          },
+          {
+            "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 336.828125,
+            "width": 1000,
+            "height": 145.78125
+          },
+          {
+            "class": "surface-card detail-section user-management-section",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 482.609375,
+            "width": 1000,
+            "height": 325.90625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "path": "/loans/new",
+      "metrics": {
+        "children": [
+          {
+            "class": "back-link",
+            "tag": "A",
+            "x": 256,
+            "y": 32,
+            "width": 172.296875,
+            "height": 44
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 88,
+            "width": 1000,
+            "height": 42.1875
+          },
+          {
+            "class": "surface-card form-surface",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 156.1875,
+            "width": 860,
+            "height": 1108.734375
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "light",
+      "width": 1280,
+      "loadingObserved": true
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "path": "/dashboard",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row dashboard-heading",
+            "tag": "DIV",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "dashboard-period-bar",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 143.984375
+          },
+          {
+            "class": "action-hero-banner",
+            "tag": "DIV",
+            "x": 16,
+            "y": 249.984375,
+            "width": 343,
+            "height": 152.375
+          },
+          {
+            "class": "dashboard-workspace",
+            "tag": "DIV",
+            "x": 16,
+            "y": 418.359375,
+            "width": 343,
+            "height": 830.21875
+          },
+          {
+            "class": "dashboard-analysis",
+            "tag": "DETAILS",
+            "x": 16,
+            "y": 1264.578125,
+            "width": 343,
+            "height": 78
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "path": "/loans",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "tag": "DIV",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 44
+          },
+          {
+            "class": "management-filters loan-filters",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 150,
+            "width": 343,
+            "height": 176
+          },
+          {
+            "class": "filter-pills active-filter-pills",
+            "tag": "DIV",
+            "x": 16,
+            "y": 338,
+            "width": 343,
+            "height": 50
+          },
+          {
+            "class": "loan-list",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 408,
+            "width": 343,
+            "height": 405.125
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 16,
+            "y": 817.125,
+            "width": 343,
+            "height": 53.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "path": "/loans/loan",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "back-link",
+            "tag": "A",
+            "x": 16,
+            "y": 94,
+            "width": 172.296875,
+            "height": 44
+          },
+          {
+            "class": "loan-detail-heading",
+            "tag": "DIV",
+            "x": 16,
+            "y": 150,
+            "width": 343,
+            "height": 99.796875
+          },
+          {
+            "class": "ui-tabs loan-tabs",
+            "tag": "NAV",
+            "x": 16,
+            "y": 271.796875,
+            "width": 343,
+            "height": 59
+          },
+          {
+            "class": "overview-hero",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 350.796875,
+            "width": 343,
+            "height": 235.734375
+          },
+          {
+            "class": "action-drawer-grid",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 602.53125,
+            "width": 343,
+            "height": 176.3125
+          },
+          {
+            "class": "overview-supporting",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 794.84375,
+            "width": 343,
+            "height": 212.546875
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "path": "/counterparties",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 44
+          },
+          {
+            "class": "counterparty-search",
+            "tag": "FORM",
+            "x": 16,
+            "y": 150,
+            "width": 343,
+            "height": 100.390625
+          },
+          {
+            "class": "counterparty-list compact-record-list",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 266.390625,
+            "width": 343,
+            "height": 145.6875
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 16,
+            "y": 416.078125,
+            "width": 343,
+            "height": 53.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "path": "/expenses",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 44
+          },
+          {
+            "class": "",
+            "tag": "DIV",
+            "x": 16,
+            "y": 150,
+            "width": 343,
+            "height": 210
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "path": "/notifications",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 46.390625
+          },
+          {
+            "class": "filter-pills notification-filters",
+            "tag": "DIV",
+            "x": 16,
+            "y": 148.390625,
+            "width": 343,
+            "height": 50
+          },
+          {
+            "class": "notification-list",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 218.390625,
+            "width": 343,
+            "height": 406.140625
+          },
+          {
+            "class": "surface-card push-settings-disclosure",
+            "tag": "DETAILS",
+            "x": 16,
+            "y": 644.53125,
+            "width": 343,
+            "height": 54
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 16,
+            "y": 702.53125,
+            "width": 343,
+            "height": 53.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "path": "/audit",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "timeline-list",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 3203.90625
+          },
+          {
+            "class": "audit-pagination",
+            "tag": "NAV",
+            "x": 16,
+            "y": 3301.90625,
+            "width": 343,
+            "height": 121.515625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "path": "/settings",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "surface-card detail-section theme-settings",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 94,
+            "width": 343,
+            "height": 291.625
+          },
+          {
+            "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 401.625,
+            "width": 343,
+            "height": 210.171875
+          },
+          {
+            "class": "surface-card detail-section user-management-section",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 611.796875,
+            "width": 343,
+            "height": 408.90625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "path": "/loans/new",
+      "metrics": {
+        "children": [
+          {
+            "class": "back-link",
+            "tag": "A",
+            "x": 16,
+            "y": 94,
+            "width": 172.296875,
+            "height": 44
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "surface-card form-surface",
+            "tag": "SECTION",
+            "x": 16,
+            "y": 150,
+            "width": 343,
+            "height": 1403.421875
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 375,
+      "loadingObserved": true
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/dashboard",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row dashboard-heading",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 66.984375
+          },
+          {
+            "class": "dashboard-period-bar",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 110.984375,
+            "width": 1000,
+            "height": 82
+          },
+          {
+            "class": "action-hero-banner",
+            "tag": "DIV",
+            "x": 256,
+            "y": 208.984375,
+            "width": 1000,
+            "height": 96.375
+          },
+          {
+            "class": "dashboard-workspace",
+            "tag": "DIV",
+            "x": 256,
+            "y": 321.359375,
+            "width": 1000,
+            "height": 584.671875
+          },
+          {
+            "class": "dashboard-analysis",
+            "tag": "DETAILS",
+            "x": 256,
+            "y": 922.03125,
+            "width": 1000,
+            "height": 78
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/loans",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 66.984375
+          },
+          {
+            "class": "management-filters loan-filters",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 124.984375,
+            "width": 1000,
+            "height": 184
+          },
+          {
+            "class": "filter-pills active-filter-pills",
+            "tag": "DIV",
+            "x": 256,
+            "y": 320.984375,
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "class": "loan-list",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 390.984375,
+            "width": 1000,
+            "height": 161.171875
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 256,
+            "y": 556.15625,
+            "width": 1000,
+            "height": 41.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/loans/loan",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "back-link",
+            "tag": "A",
+            "x": 256,
+            "y": 32,
+            "width": 172.296875,
+            "height": 44
+          },
+          {
+            "class": "loan-detail-heading",
+            "tag": "DIV",
+            "x": 256,
+            "y": 88,
+            "width": 1000,
+            "height": 105.796875
+          },
+          {
+            "class": "ui-tabs loan-tabs",
+            "tag": "NAV",
+            "x": 256,
+            "y": 215.796875,
+            "width": 1000,
+            "height": 59
+          },
+          {
+            "class": "overview-hero",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 294.796875,
+            "width": 1000,
+            "height": 150
+          },
+          {
+            "class": "action-drawer-grid",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 460.796875,
+            "width": 1000,
+            "height": 176.3125
+          },
+          {
+            "class": "overview-supporting",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 653.109375,
+            "width": 1000,
+            "height": 71.515625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/counterparties",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 66.984375
+          },
+          {
+            "class": "counterparty-search",
+            "tag": "FORM",
+            "x": 256,
+            "y": 124.984375,
+            "width": 1000,
+            "height": 46.390625
+          },
+          {
+            "class": "counterparty-list compact-record-list",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 187.375,
+            "width": 1000,
+            "height": 71.6875
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 256,
+            "y": 263.0625,
+            "width": 1000,
+            "height": 41.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/expenses",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 48
+          },
+          {
+            "class": "",
+            "tag": "DIV",
+            "x": 256,
+            "y": 106,
+            "width": 1000,
+            "height": 212
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/notifications",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 48
+          },
+          {
+            "class": "filter-pills notification-filters",
+            "tag": "DIV",
+            "x": 256,
+            "y": 102,
+            "width": 1000,
+            "height": 50
+          },
+          {
+            "class": "notification-list",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 172,
+            "width": 1000,
+            "height": 364.546875
+          },
+          {
+            "class": "surface-card push-settings-disclosure",
+            "tag": "DETAILS",
+            "x": 256,
+            "y": 556.546875,
+            "width": 1000,
+            "height": 54
+          },
+          {
+            "class": "audit-pagination ",
+            "tag": "NAV",
+            "x": 256,
+            "y": 614.546875,
+            "width": 1000,
+            "height": 41.390625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/audit",
+      "metrics": {
+        "children": [
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 48
+          },
+          {
+            "class": "timeline-list",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 106,
+            "width": 1000,
+            "height": 2629.6875
+          },
+          {
+            "class": "audit-pagination",
+            "tag": "NAV",
+            "x": 256,
+            "y": 2739.6875,
+            "width": 1000,
+            "height": 65.515625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/settings",
+      "metrics": {
+        "children": [
+          {
+            "class": "",
+            "tag": "SPAN",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 32,
+            "width": 1000,
+            "height": 48
+          },
+          {
+            "class": "surface-card detail-section theme-settings",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 106,
+            "width": 1000,
+            "height": 214.828125
+          },
+          {
+            "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 336.828125,
+            "width": 1000,
+            "height": 145.78125
+          },
+          {
+            "class": "surface-card detail-section user-management-section",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 482.609375,
+            "width": 1000,
+            "height": 325.90625
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "path": "/loans/new",
+      "metrics": {
+        "children": [
+          {
+            "class": "back-link",
+            "tag": "A",
+            "x": 256,
+            "y": 32,
+            "width": 172.296875,
+            "height": 44
+          },
+          {
+            "class": "page-heading-row",
+            "tag": "DIV",
+            "x": 256,
+            "y": 88,
+            "width": 1000,
+            "height": 42.1875
+          },
+          {
+            "class": "surface-card form-surface",
+            "tag": "SECTION",
+            "x": 256,
+            "y": 156.1875,
+            "width": 860,
+            "height": 1108.734375
+          }
+        ],
+        "overflow": 0
+      }
+    },
+    {
+      "theme": "dark",
+      "width": 1280,
+      "loadingObserved": true
+    }
+  ]
+}

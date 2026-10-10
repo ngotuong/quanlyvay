@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.320
+roadmap_version: 1.0.321
 last_updated: 2026-10-10
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C97
+current_checkpoint: C98
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C96
-next_checkpoint: C97
+last_completed_checkpoint: C97
+next_checkpoint: C98
 ---
 
 # Project Context
@@ -145,7 +145,29 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - C96 preservation/diff/artifact/secret PASS:1207trackedbefore/10scopechanged/1197unchanged,
   140websrcfreeze/73financialprotectedfiles giữ;17C75exact/15generatedrestored. C20-test đúnglabel/
   DB55322,sixcounts0; không mainDB54322,push/deploy/remote/schema/RPC/engine change, runtime vẫn C91.
-- C97 `AWAITING_APPROVAL`; C98 `NOT_STARTED`. Không tự bắt đầu C97 hoặc phát hành.
+- C97 `COMPLETED` local ngày10/10/2026; OWNER phê duyệt trong hội thoại.9route skeleton/rootneutral,
+  Dashboardread reservebody/freshbalance/focusHủy; sharedBottomSheet dampingcap180/raw88px,
+  pointercancel/captureloss không dismiss. Enter220/exit150/snapback320/shimmer1.8s, detailsnative/
+  presspaint/reducedstaticstatus; dirty/pending/BackForward/focus/draft giữ.
+  [Report](docs/loading-motion-c97/report.md), [đối chiếu](docs/loading-motion-c97/comparison.html),
+  implementation/budget/baseline/targeted+full/probe/video/PNG/source/preservation/validation cùng thư mục.
+- C97 gates: lint/typecheck/unit121/rootbuild19 PASS; targeted+probe6PASS0FAIL7.0m;
+  full84PASS18SKIP0FAIL19.2m,retries0.55observations mỗi targeted/full,36route2s/4coldAuthfont/
+  12drawer2/10s/errorretrydateabort/gesturepending. CLS≤.1,targetedmax0.032092,drawerbboxkhớp,
+  overflow0; paintedfallback→2RAFcontent/fontready, không zeroCLS/pixelequivalence toànapp.
+  Full1 83PASS18SKIP1FAIL18.7m C78 strictselector skeleton/loaded; tách loadingselector trong
+  runtime, không sửa gateC78. Targeted/harness/FFmpegfailures giữ raw trong verification-history.
+- C97 Evon7fixedwidths×2theme rawP1preparedfocus-scroll/theme giữ; actualready/clearfocus375×900
+  scroll0, Tabexploration cuộn body có chủ ý. Focus/nativepicker/densitywarnings theoC92.
+  Review14ảnh/4video actual+slow4x;25fps,375encoded374×812,không60fps/devicecertification.
+  Fullserverlog destination-stream-closed-early/negativeAuth-export giữ, không error0 toànapp.
+- Phép đo liên tục bổ sung3PASS0FAIL5.4m/53observations (36route/4cold/12drawer+readerror); window từ navigation/actionstart hoặc coldinit đến2RAFcontent/fontready, rawhadRecentInput/sourceRects giữ. MaxrouteCLS0.021980/Authdrawer0.032092≤.1; primaryregion/windowevidence riêng, khôngzeroCLS toànapp.
+
+- C97 preservation/diff/artifact/secret PASS:1235trackedbefore/10scopechanged/1225unchanged,
+  153websrcfreeze/73financialprotected giữ;17C75exact/15generatedrestored. C20-testlabel/
+  DB55322 đúng,sixcounts0; không main54322/push/deploy/remote/schema/RPC/engine/dependency change.
+  Runtime phát hành vẫn C91. C98 `AWAITING_APPROVAL`; blocker: chờ phê duyệt C98, không có blocker triển khai C97.
+  Dừng theo AGENTS§3, không tự phát hành.
   NOT_TESTED AT/phone thật/softkeyboard/nativeclipboard/nativezoom/authenticatedSafariFirefox/
   OS-theme-live/PWA-beforeHTML/remote save giữ rõ trong report. C91 query_canceled57014 vẫn chưa
   xác định nguyên nhân; không mở DB tuning/Google/backup từ lịch sử.
@@ -160,8 +182,8 @@ không dùng lịch sử để suy quyền thực hiện mới.
   settlement-preview trước grabber, không sửa runtime drawer hoặc nghiệp vụ.
 - Bản vá đã duyệt chỉ pnpm-workspace.yaml/lock cho sharp0.35.5/source-map-js1.2.2 và libvips.
 - C91 source/closingproof đã push; finalstatus chỉ tài liệu. Candidate source/UID giữ nguyên.
-- C92 local commit `752fd48`, C93 `577d6f4`, C94 `0aa52ac`, C95 `82151b6`; C96 local source/docs
-  và bằng chứng chốt cùng context/roadmap/handoff. Chưa push/deploy các checkpoint C92–C96.
+- C92 local commit `752fd48`, C93 `577d6f4`, C94 `0aa52ac`, C95 `82151b6`; C96 `1b54be1`; C97 local source/docs
+  và bằng chứng chốt cùng context/roadmap/handoff. Chưa push/deploy các checkpoint C92–C97.
 - Các file C75 do test sinh đã trả exact baseline. Không broad reset/cleanup cache/backup;
   cache còn trace/log thất bại để truy vết và có synthetic session cần tiếp tục ignore.
 
@@ -216,7 +238,8 @@ không dùng lịch sử để suy quyền thực hiện mới.
   auto-open payment. C96 là mở drawer ngay Dashboard, không mô tả luồng cũ cần nhiều click.
 - G1: bảng dashboard mobile cần giữ nhận diện dòng; G2: metadata11.2–11.52px; G3: tên200 ký
   tự dài; G4: notification hover và selected chung fill. C89 ghi Gu, không lỗi quyết toán.
-  C92 xác nhận thiết kế đích trước khi sửa; không coi đồng ý roadmap là chọn mọi Gu/style.
+  C92 đã chọn A; G1–G4 đã xử lý local tại C94, Quick Amount C95/drawer C96/loading-motion C97
+  đã hoàn tất. C98 chờ nghiệm thu/phát hành, không coi đồng ý roadmap là chọn mọi Gu/style.
 - Token primitives được phép chứa giá trị màu gốc; component dùng semantic token. Không
   mục tiêu giảm50% CSS bằng mọi giá, không đánh đồng di chuyển file với tăng hiệu năng.
 - OWNER chọn A và Quick Amount +50tr/+100tr/+150tr/+200tr ngày09/10/2026; spec tại docs/design-c92/selected-design.md.
@@ -263,5 +286,5 @@ không dùng lịch sử để suy quyền thực hiện mới.
   [Backup](docs/BACKUP_RESTORE.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md).
 - Skill Evon: `/Users/ngotuong/.codex/skills/evondev-ui-ux/SKILL.md`; áp khi công việc UI cần,
   không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
-- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C96 hoàn tất; C97 chờ duyệt/A đã chọn.
-  Không bắt đầu C97–C98 hoặc tạo cuộc trò chuyện tự động.
+- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C97 hoàn tất; C98 chờ duyệt/A đã chọn.
+  Không bắt đầu C98 hoặc tạo cuộc trò chuyện tự động.

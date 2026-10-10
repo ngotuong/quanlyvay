@@ -1,0 +1,2689 @@
+{
+  "method": "Chromium production build, guarded C20-test, simulated delays/viewport; not physical device or 60fps certification",
+  "evidence": [
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "screen": "dashboard",
+      "delayMs": 2000,
+      "elapsedMs": 2252,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 1776,
+        "children": [
+          {
+            "class": "page-heading-row dashboard-heading",
+            "y": 0,
+            "height": 0
+          },
+          {
+            "class": "loading-period",
+            "y": 102,
+            "height": 144
+          },
+          {
+            "class": "loading-banner",
+            "y": 258,
+            "height": 152
+          },
+          {
+            "class": "dashboard-workspace",
+            "y": 426,
+            "height": 1396
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "dashboard-period-bar",
+            "y": 94,
+            "height": 143.984375
+          },
+          {
+            "class": "action-hero-banner",
+            "y": 249.984375,
+            "height": 152.375
+          },
+          {
+            "class": "dashboard-workspace",
+            "y": 418.359375,
+            "height": 975.609375
+          },
+          {
+            "class": "dashboard-analysis",
+            "y": 1409.96875,
+            "height": 78
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "screen": "loans",
+      "delayMs": 2000,
+      "elapsedMs": 2242,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 1669,
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "loading-filters loading-filters-loans",
+            "y": 158,
+            "height": 186
+          },
+          {
+            "class": "skeleton loading-filter-pills",
+            "y": 364,
+            "height": 44
+          },
+          {
+            "class": "loading-loan-list",
+            "y": 434,
+            "height": 1281
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "y": 94,
+            "height": 44
+          },
+          {
+            "class": "management-filters loan-filters",
+            "y": 150,
+            "height": 176
+          },
+          {
+            "class": "filter-pills active-filter-pills",
+            "y": 338,
+            "height": 50
+          },
+          {
+            "class": "loan-list",
+            "y": 408,
+            "height": 823.25
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 1235.25,
+            "height": 53.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "screen": "loan",
+      "delayMs": 2000,
+      "elapsedMs": 2456,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 1054,
+        "children": [
+          {
+            "class": "skeleton loading-back",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "loading-detail-heading",
+            "y": 158,
+            "height": 100
+          },
+          {
+            "class": "skeleton loading-tabs",
+            "y": 280,
+            "height": 59
+          },
+          {
+            "class": "loading-overview",
+            "y": 359,
+            "height": 236
+          },
+          {
+            "class": "loading-actions loading-loan-actions",
+            "y": 611,
+            "height": 176
+          },
+          {
+            "class": "loading-rows loading-rows-table",
+            "y": 803,
+            "height": 297
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "back-link",
+            "y": 94,
+            "height": 44
+          },
+          {
+            "class": "loan-detail-heading",
+            "y": 150,
+            "height": 99.796875
+          },
+          {
+            "class": "ui-tabs loan-tabs",
+            "y": 271.796875,
+            "height": 59
+          },
+          {
+            "class": "overview-hero",
+            "y": 350.796875,
+            "height": 235.734375
+          },
+          {
+            "class": "action-drawer-grid",
+            "y": 602.53125,
+            "height": 176.3125
+          },
+          {
+            "class": "overview-supporting",
+            "y": 794.84375,
+            "height": 212.546875
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "screen": "new-loan",
+      "delayMs": 2000,
+      "elapsedMs": 2417,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 910,
+        "children": [
+          {
+            "class": "skeleton loading-back",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "page-heading-row",
+            "y": 0,
+            "height": 0
+          },
+          {
+            "class": "surface-card form-surface loading-form",
+            "y": 158,
+            "height": 798
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "back-link",
+            "y": 94,
+            "height": 44
+          },
+          {
+            "class": "surface-card form-surface",
+            "y": 150,
+            "height": 1403.421875
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "screen": "counterparties",
+      "delayMs": 2000,
+      "elapsedMs": 2214,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 632,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "loading-filters loading-filters-counterparties",
+            "y": 158,
+            "height": 44
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 216,
+            "height": 462
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 94,
+            "height": 44
+          },
+          {
+            "class": "counterparty-search",
+            "y": 150,
+            "height": 100.390625
+          },
+          {
+            "class": "counterparty-list compact-record-list",
+            "y": 266.390625,
+            "height": 303.375
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 573.765625,
+            "height": 53.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "screen": "expenses",
+      "delayMs": 2000,
+      "elapsedMs": 2236,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 420,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 158,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 94,
+            "height": 44
+          },
+          {
+            "class": "",
+            "y": 150,
+            "height": 210
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "screen": "notifications",
+      "delayMs": 2000,
+      "elapsedMs": 2186,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 476,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "loading-filters loading-filters-notifications",
+            "y": 158,
+            "height": 44
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 222,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [
+          {
+            "value": 0.021979999588477364,
+            "hadRecentInput": false,
+            "startTime": 2528.7999999821186
+          }
+        ],
+        "cls": 0.021979999588477364,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 94,
+            "height": 46.390625
+          },
+          {
+            "class": "filter-pills notification-filters",
+            "y": 148.390625,
+            "height": 50
+          },
+          {
+            "class": "notification-list",
+            "y": 218.390625,
+            "height": 406.140625
+          },
+          {
+            "class": "surface-card push-settings-disclosure",
+            "y": 644.53125,
+            "height": 54
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 702.53125,
+            "height": 53.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "screen": "audit",
+      "delayMs": 2000,
+      "elapsedMs": 2470,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 434,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 0,
+            "height": 0
+          },
+          {
+            "class": "loading-rows loading-rows-timeline",
+            "y": 102,
+            "height": 378
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "timeline-list",
+            "y": 94,
+            "height": 3203.90625
+          },
+          {
+            "class": "audit-pagination",
+            "y": 3301.90625,
+            "height": 121.515625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "screen": "settings",
+      "delayMs": 2000,
+      "elapsedMs": 2233,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 766,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 0,
+            "height": 0
+          },
+          {
+            "class": "surface-card loading-settings",
+            "y": 102,
+            "height": 210
+          },
+          {
+            "class": "surface-card loading-settings",
+            "y": 328,
+            "height": 168
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 512,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "surface-card detail-section theme-settings",
+            "y": 94,
+            "height": 291.625
+          },
+          {
+            "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+            "y": 401.625,
+            "height": 210.171875
+          },
+          {
+            "class": "surface-card detail-section user-management-section",
+            "y": 611.796875,
+            "height": 408.90625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "screen": "dashboard",
+      "delayMs": 2000,
+      "elapsedMs": 2300,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 1332.984375,
+        "children": [
+          {
+            "class": "page-heading-row dashboard-heading",
+            "y": 40,
+            "height": 66.984375
+          },
+          {
+            "class": "loading-period",
+            "y": 118.984375,
+            "height": 82
+          },
+          {
+            "class": "loading-banner",
+            "y": 212.984375,
+            "height": 96
+          },
+          {
+            "class": "dashboard-workspace",
+            "y": 324.984375,
+            "height": 992
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row dashboard-heading",
+            "y": 32,
+            "height": 66.984375
+          },
+          {
+            "class": "dashboard-period-bar",
+            "y": 110.984375,
+            "height": 82
+          },
+          {
+            "class": "action-hero-banner",
+            "y": 208.984375,
+            "height": 96.375
+          },
+          {
+            "class": "dashboard-workspace",
+            "y": 321.359375,
+            "height": 651.671875
+          },
+          {
+            "class": "dashboard-analysis",
+            "y": 989.03125,
+            "height": 78
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "screen": "loans",
+      "delayMs": 2000,
+      "elapsedMs": 2248,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 996.984375,
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "y": 40,
+            "height": 66.984375
+          },
+          {
+            "class": "loading-filters loading-filters-loans",
+            "y": 132.984375,
+            "height": 184
+          },
+          {
+            "class": "skeleton loading-filter-pills",
+            "y": 336.984375,
+            "height": 44
+          },
+          {
+            "class": "loading-loan-list",
+            "y": 406.984375,
+            "height": 574
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "y": 32,
+            "height": 66.984375
+          },
+          {
+            "class": "management-filters loan-filters",
+            "y": 124.984375,
+            "height": 184
+          },
+          {
+            "class": "filter-pills active-filter-pills",
+            "y": 320.984375,
+            "height": 50
+          },
+          {
+            "class": "loan-list",
+            "y": 390.984375,
+            "height": 321.34375
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 716.328125,
+            "height": 41.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "screen": "loan",
+      "delayMs": 2000,
+      "elapsedMs": 2469,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 997,
+        "children": [
+          {
+            "class": "skeleton loading-back",
+            "y": 40,
+            "height": 44
+          },
+          {
+            "class": "loading-detail-heading",
+            "y": 96,
+            "height": 106
+          },
+          {
+            "class": "skeleton loading-tabs",
+            "y": 224,
+            "height": 59
+          },
+          {
+            "class": "loading-overview",
+            "y": 303,
+            "height": 173
+          },
+          {
+            "class": "loading-actions loading-loan-actions",
+            "y": 492,
+            "height": 176
+          },
+          {
+            "class": "loading-rows loading-rows-table",
+            "y": 684,
+            "height": 297
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "back-link",
+            "y": 32,
+            "height": 44
+          },
+          {
+            "class": "loan-detail-heading",
+            "y": 88,
+            "height": 105.796875
+          },
+          {
+            "class": "ui-tabs loan-tabs",
+            "y": 215.796875,
+            "height": 59
+          },
+          {
+            "class": "overview-hero",
+            "y": 294.796875,
+            "height": 150
+          },
+          {
+            "class": "action-drawer-grid",
+            "y": 460.796875,
+            "height": 176.3125
+          },
+          {
+            "class": "overview-supporting",
+            "y": 653.109375,
+            "height": 71.515625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "screen": "new-loan",
+      "delayMs": 2000,
+      "elapsedMs": 2418,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 590.1875,
+        "children": [
+          {
+            "class": "skeleton loading-back",
+            "y": 40,
+            "height": 44
+          },
+          {
+            "class": "page-heading-row",
+            "y": 96,
+            "height": 42.1875
+          },
+          {
+            "class": "surface-card form-surface loading-form",
+            "y": 164.1875,
+            "height": 410
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "back-link",
+            "y": 32,
+            "height": 44
+          },
+          {
+            "class": "page-heading-row",
+            "y": 88,
+            "height": 42.1875
+          },
+          {
+            "class": "surface-card form-surface",
+            "y": 156.1875,
+            "height": 1108.734375
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "screen": "counterparties",
+      "delayMs": 2000,
+      "elapsedMs": 2211,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 506.984375,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 40,
+            "height": 66.984375
+          },
+          {
+            "class": "loading-filters loading-filters-counterparties",
+            "y": 132.984375,
+            "height": 44
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 190.984375,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 32,
+            "height": 66.984375
+          },
+          {
+            "class": "counterparty-search",
+            "y": 124.984375,
+            "height": 46.390625
+          },
+          {
+            "class": "counterparty-list compact-record-list",
+            "y": 187.375,
+            "height": 142.375
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 333.75,
+            "height": 41.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "screen": "expenses",
+      "delayMs": 2000,
+      "elapsedMs": 2227,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 430,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 40,
+            "height": 48
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 114,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 32,
+            "height": 48
+          },
+          {
+            "class": "",
+            "y": 106,
+            "height": 212
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "screen": "notifications",
+      "delayMs": 2000,
+      "elapsedMs": 2431,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 494,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 40,
+            "height": 48
+          },
+          {
+            "class": "loading-filters loading-filters-notifications",
+            "y": 114,
+            "height": 44
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 178,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [
+          {
+            "value": 0.000054667472839355476,
+            "hadRecentInput": false,
+            "startTime": 2509.0999999940395
+          }
+        ],
+        "cls": 0.000054667472839355476,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 32,
+            "height": 48
+          },
+          {
+            "class": "filter-pills notification-filters",
+            "y": 102,
+            "height": 50
+          },
+          {
+            "class": "notification-list",
+            "y": 172,
+            "height": 364.546875
+          },
+          {
+            "class": "surface-card push-settings-disclosure",
+            "y": 556.546875,
+            "height": 54
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 614.546875,
+            "height": 41.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "screen": "audit",
+      "delayMs": 2000,
+      "elapsedMs": 2448,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 508,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 40,
+            "height": 48
+          },
+          {
+            "class": "loading-rows loading-rows-timeline",
+            "y": 114,
+            "height": 378
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 32,
+            "height": 48
+          },
+          {
+            "class": "timeline-list",
+            "y": 106,
+            "height": 2629.6875
+          },
+          {
+            "class": "audit-pagination",
+            "y": 2739.6875,
+            "height": 65.515625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "screen": "settings",
+      "delayMs": 2000,
+      "elapsedMs": 2195,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 798,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 40,
+            "height": 48
+          },
+          {
+            "class": "surface-card loading-settings",
+            "y": 114,
+            "height": 168
+          },
+          {
+            "class": "surface-card loading-settings",
+            "y": 298,
+            "height": 168
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 482,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 32,
+            "height": 48
+          },
+          {
+            "class": "surface-card detail-section theme-settings",
+            "y": 106,
+            "height": 214.828125
+          },
+          {
+            "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+            "y": 336.828125,
+            "height": 145.78125
+          },
+          {
+            "class": "surface-card detail-section user-management-section",
+            "y": 482.609375,
+            "height": 325.90625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "screen": "dashboard",
+      "delayMs": 2000,
+      "elapsedMs": 2224,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 1776,
+        "children": [
+          {
+            "class": "page-heading-row dashboard-heading",
+            "y": 0,
+            "height": 0
+          },
+          {
+            "class": "loading-period",
+            "y": 102,
+            "height": 144
+          },
+          {
+            "class": "loading-banner",
+            "y": 258,
+            "height": 152
+          },
+          {
+            "class": "dashboard-workspace",
+            "y": 426,
+            "height": 1396
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "dashboard-period-bar",
+            "y": 94,
+            "height": 143.984375
+          },
+          {
+            "class": "action-hero-banner",
+            "y": 249.984375,
+            "height": 152.375
+          },
+          {
+            "class": "dashboard-workspace",
+            "y": 418.359375,
+            "height": 975.609375
+          },
+          {
+            "class": "dashboard-analysis",
+            "y": 1409.96875,
+            "height": 78
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "screen": "loans",
+      "delayMs": 2000,
+      "elapsedMs": 2239,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 1669,
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "loading-filters loading-filters-loans",
+            "y": 158,
+            "height": 186
+          },
+          {
+            "class": "skeleton loading-filter-pills",
+            "y": 364,
+            "height": 44
+          },
+          {
+            "class": "loading-loan-list",
+            "y": 434,
+            "height": 1281
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "y": 94,
+            "height": 44
+          },
+          {
+            "class": "management-filters loan-filters",
+            "y": 150,
+            "height": 176
+          },
+          {
+            "class": "filter-pills active-filter-pills",
+            "y": 338,
+            "height": 50
+          },
+          {
+            "class": "loan-list",
+            "y": 408,
+            "height": 823.25
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 1235.25,
+            "height": 53.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "screen": "loan",
+      "delayMs": 2000,
+      "elapsedMs": 2456,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 1054,
+        "children": [
+          {
+            "class": "skeleton loading-back",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "loading-detail-heading",
+            "y": 158,
+            "height": 100
+          },
+          {
+            "class": "skeleton loading-tabs",
+            "y": 280,
+            "height": 59
+          },
+          {
+            "class": "loading-overview",
+            "y": 359,
+            "height": 236
+          },
+          {
+            "class": "loading-actions loading-loan-actions",
+            "y": 611,
+            "height": 176
+          },
+          {
+            "class": "loading-rows loading-rows-table",
+            "y": 803,
+            "height": 297
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "back-link",
+            "y": 94,
+            "height": 44
+          },
+          {
+            "class": "loan-detail-heading",
+            "y": 150,
+            "height": 99.796875
+          },
+          {
+            "class": "ui-tabs loan-tabs",
+            "y": 271.796875,
+            "height": 59
+          },
+          {
+            "class": "overview-hero",
+            "y": 350.796875,
+            "height": 235.734375
+          },
+          {
+            "class": "action-drawer-grid",
+            "y": 602.53125,
+            "height": 176.3125
+          },
+          {
+            "class": "overview-supporting",
+            "y": 794.84375,
+            "height": 212.546875
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "screen": "new-loan",
+      "delayMs": 2000,
+      "elapsedMs": 2432,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 910,
+        "children": [
+          {
+            "class": "skeleton loading-back",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "page-heading-row",
+            "y": 0,
+            "height": 0
+          },
+          {
+            "class": "surface-card form-surface loading-form",
+            "y": 158,
+            "height": 798
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "back-link",
+            "y": 94,
+            "height": 44
+          },
+          {
+            "class": "surface-card form-surface",
+            "y": 150,
+            "height": 1403.421875
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "screen": "counterparties",
+      "delayMs": 2000,
+      "elapsedMs": 2227,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 632,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "loading-filters loading-filters-counterparties",
+            "y": 158,
+            "height": 44
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 216,
+            "height": 462
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 94,
+            "height": 44
+          },
+          {
+            "class": "counterparty-search",
+            "y": 150,
+            "height": 100.390625
+          },
+          {
+            "class": "counterparty-list compact-record-list",
+            "y": 266.390625,
+            "height": 303.375
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 573.765625,
+            "height": 53.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "screen": "expenses",
+      "delayMs": 2000,
+      "elapsedMs": 2240,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 420,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 158,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 94,
+            "height": 44
+          },
+          {
+            "class": "",
+            "y": 150,
+            "height": 210
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "screen": "notifications",
+      "delayMs": 2000,
+      "elapsedMs": 2209,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 476,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 102,
+            "height": 44
+          },
+          {
+            "class": "loading-filters loading-filters-notifications",
+            "y": 158,
+            "height": 44
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 222,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [
+          {
+            "value": 0.021979999588477364,
+            "hadRecentInput": false,
+            "startTime": 2527.899999976158
+          }
+        ],
+        "cls": 0.021979999588477364,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 94,
+            "height": 46.390625
+          },
+          {
+            "class": "filter-pills notification-filters",
+            "y": 148.390625,
+            "height": 50
+          },
+          {
+            "class": "notification-list",
+            "y": 218.390625,
+            "height": 406.140625
+          },
+          {
+            "class": "surface-card push-settings-disclosure",
+            "y": 644.53125,
+            "height": 54
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 702.53125,
+            "height": 53.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "screen": "audit",
+      "delayMs": 2000,
+      "elapsedMs": 2513,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 434,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 0,
+            "height": 0
+          },
+          {
+            "class": "loading-rows loading-rows-timeline",
+            "y": 102,
+            "height": 378
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "timeline-list",
+            "y": 94,
+            "height": 3203.90625
+          },
+          {
+            "class": "audit-pagination",
+            "y": 3301.90625,
+            "height": 121.515625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "screen": "settings",
+      "delayMs": 2000,
+      "elapsedMs": 2268,
+      "fallbackGeometry": {
+        "width": 343,
+        "height": 766,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 0,
+            "height": 0
+          },
+          {
+            "class": "surface-card loading-settings",
+            "y": 102,
+            "height": 210
+          },
+          {
+            "class": "surface-card loading-settings",
+            "y": 328,
+            "height": 168
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 512,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "surface-card detail-section theme-settings",
+            "y": 94,
+            "height": 291.625
+          },
+          {
+            "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+            "y": 401.625,
+            "height": 210.171875
+          },
+          {
+            "class": "surface-card detail-section user-management-section",
+            "y": 611.796875,
+            "height": 408.90625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "screen": "dashboard",
+      "delayMs": 2000,
+      "elapsedMs": 2232,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 1332.984375,
+        "children": [
+          {
+            "class": "page-heading-row dashboard-heading",
+            "y": 40,
+            "height": 66.984375
+          },
+          {
+            "class": "loading-period",
+            "y": 118.984375,
+            "height": 82
+          },
+          {
+            "class": "loading-banner",
+            "y": 212.984375,
+            "height": 96
+          },
+          {
+            "class": "dashboard-workspace",
+            "y": 324.984375,
+            "height": 992
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row dashboard-heading",
+            "y": 32,
+            "height": 66.984375
+          },
+          {
+            "class": "dashboard-period-bar",
+            "y": 110.984375,
+            "height": 82
+          },
+          {
+            "class": "action-hero-banner",
+            "y": 208.984375,
+            "height": 96.375
+          },
+          {
+            "class": "dashboard-workspace",
+            "y": 321.359375,
+            "height": 651.671875
+          },
+          {
+            "class": "dashboard-analysis",
+            "y": 989.03125,
+            "height": 78
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "screen": "loans",
+      "delayMs": 2000,
+      "elapsedMs": 2496,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 996.984375,
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "y": 40,
+            "height": 66.984375
+          },
+          {
+            "class": "loading-filters loading-filters-loans",
+            "y": 132.984375,
+            "height": 184
+          },
+          {
+            "class": "skeleton loading-filter-pills",
+            "y": 336.984375,
+            "height": 44
+          },
+          {
+            "class": "loading-loan-list",
+            "y": 406.984375,
+            "height": 574
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row loans-heading",
+            "y": 32,
+            "height": 66.984375
+          },
+          {
+            "class": "management-filters loan-filters",
+            "y": 124.984375,
+            "height": 184
+          },
+          {
+            "class": "filter-pills active-filter-pills",
+            "y": 320.984375,
+            "height": 50
+          },
+          {
+            "class": "loan-list",
+            "y": 390.984375,
+            "height": 321.34375
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 716.328125,
+            "height": 41.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "screen": "loan",
+      "delayMs": 2000,
+      "elapsedMs": 2461,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 997,
+        "children": [
+          {
+            "class": "skeleton loading-back",
+            "y": 40,
+            "height": 44
+          },
+          {
+            "class": "loading-detail-heading",
+            "y": 96,
+            "height": 106
+          },
+          {
+            "class": "skeleton loading-tabs",
+            "y": 224,
+            "height": 59
+          },
+          {
+            "class": "loading-overview",
+            "y": 303,
+            "height": 173
+          },
+          {
+            "class": "loading-actions loading-loan-actions",
+            "y": 492,
+            "height": 176
+          },
+          {
+            "class": "loading-rows loading-rows-table",
+            "y": 684,
+            "height": 297
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "back-link",
+            "y": 32,
+            "height": 44
+          },
+          {
+            "class": "loan-detail-heading",
+            "y": 88,
+            "height": 105.796875
+          },
+          {
+            "class": "ui-tabs loan-tabs",
+            "y": 215.796875,
+            "height": 59
+          },
+          {
+            "class": "overview-hero",
+            "y": 294.796875,
+            "height": 150
+          },
+          {
+            "class": "action-drawer-grid",
+            "y": 460.796875,
+            "height": 176.3125
+          },
+          {
+            "class": "overview-supporting",
+            "y": 653.109375,
+            "height": 71.515625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "screen": "new-loan",
+      "delayMs": 2000,
+      "elapsedMs": 2432,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 590.1875,
+        "children": [
+          {
+            "class": "skeleton loading-back",
+            "y": 40,
+            "height": 44
+          },
+          {
+            "class": "page-heading-row",
+            "y": 96,
+            "height": 42.1875
+          },
+          {
+            "class": "surface-card form-surface loading-form",
+            "y": 164.1875,
+            "height": 410
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "back-link",
+            "y": 32,
+            "height": 44
+          },
+          {
+            "class": "page-heading-row",
+            "y": 88,
+            "height": 42.1875
+          },
+          {
+            "class": "surface-card form-surface",
+            "y": 156.1875,
+            "height": 1108.734375
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "screen": "counterparties",
+      "delayMs": 2000,
+      "elapsedMs": 2194,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 506.984375,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 40,
+            "height": 66.984375
+          },
+          {
+            "class": "loading-filters loading-filters-counterparties",
+            "y": 132.984375,
+            "height": 44
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 190.984375,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 32,
+            "height": 66.984375
+          },
+          {
+            "class": "counterparty-search",
+            "y": 124.984375,
+            "height": 46.390625
+          },
+          {
+            "class": "counterparty-list compact-record-list",
+            "y": 187.375,
+            "height": 142.375
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 333.75,
+            "height": 41.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "screen": "expenses",
+      "delayMs": 2000,
+      "elapsedMs": 2212,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 430,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 40,
+            "height": 48
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 114,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 32,
+            "height": 48
+          },
+          {
+            "class": "",
+            "y": 106,
+            "height": 212
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "screen": "notifications",
+      "delayMs": 2000,
+      "elapsedMs": 2204,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 494,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 40,
+            "height": 48
+          },
+          {
+            "class": "loading-filters loading-filters-notifications",
+            "y": 114,
+            "height": 44
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 178,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [
+          {
+            "value": 0.000054667472839355476,
+            "hadRecentInput": false,
+            "startTime": 2530.0999999940395
+          }
+        ],
+        "cls": 0.000054667472839355476,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 32,
+            "height": 48
+          },
+          {
+            "class": "filter-pills notification-filters",
+            "y": 102,
+            "height": 50
+          },
+          {
+            "class": "notification-list",
+            "y": 172,
+            "height": 364.546875
+          },
+          {
+            "class": "surface-card push-settings-disclosure",
+            "y": 556.546875,
+            "height": 54
+          },
+          {
+            "class": "audit-pagination ",
+            "y": 614.546875,
+            "height": 41.390625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "screen": "audit",
+      "delayMs": 2000,
+      "elapsedMs": 2476,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 508,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 40,
+            "height": 48
+          },
+          {
+            "class": "loading-rows loading-rows-timeline",
+            "y": 114,
+            "height": 378
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 32,
+            "height": 48
+          },
+          {
+            "class": "timeline-list",
+            "y": 106,
+            "height": 2629.6875
+          },
+          {
+            "class": "audit-pagination",
+            "y": 2739.6875,
+            "height": 65.515625
+          }
+        ]
+      }
+    },
+    {
+      "task": "route-region",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "screen": "settings",
+      "delayMs": 2000,
+      "elapsedMs": 2206,
+      "fallbackGeometry": {
+        "width": 1000,
+        "height": 798,
+        "children": [
+          {
+            "class": "page-heading-row ",
+            "y": 40,
+            "height": 48
+          },
+          {
+            "class": "surface-card loading-settings",
+            "y": 114,
+            "height": 168
+          },
+          {
+            "class": "surface-card loading-settings",
+            "y": 298,
+            "height": 168
+          },
+          {
+            "class": "loading-rows loading-rows-list",
+            "y": 482,
+            "height": 300
+          }
+        ]
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "metrics": {
+        "overflow": 0,
+        "scroll": 0,
+        "children": [
+          {
+            "class": "page-heading-row",
+            "y": 32,
+            "height": 48
+          },
+          {
+            "class": "surface-card detail-section theme-settings",
+            "y": 106,
+            "height": 214.828125
+          },
+          {
+            "class": "ui-card ui-card--flat surface-card detail-section account-settings-card",
+            "y": 336.828125,
+            "height": 145.78125
+          },
+          {
+            "class": "surface-card detail-section user-management-section",
+            "y": 482.609375,
+            "height": 325.90625
+          }
+        ]
+      }
+    },
+    {
+      "task": "cold-auth-font",
+      "theme": "light",
+      "delayMs": 2000,
+      "fontDelayMs": 2000,
+      "shift": {
+        "entries": [
+          {
+            "value": 0.00008225843621399178,
+            "hadRecentInput": false,
+            "startTime": 2075.9000000059605
+          }
+        ],
+        "cls": 0.00008225843621399178,
+        "recentInputScore": 0
+      },
+      "beforeHtmlGuarantee": false
+    },
+    {
+      "task": "cold-auth-font",
+      "theme": "light",
+      "delayMs": 10000,
+      "fontDelayMs": 2000,
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "beforeHtmlGuarantee": false
+    },
+    {
+      "task": "cold-auth-font",
+      "theme": "dark",
+      "delayMs": 2000,
+      "fontDelayMs": 2000,
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "beforeHtmlGuarantee": false
+    },
+    {
+      "task": "cold-auth-font",
+      "theme": "dark",
+      "delayMs": 10000,
+      "fontDelayMs": 2000,
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      },
+      "beforeHtmlGuarantee": false
+    },
+    {
+      "task": "drawer-read",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "delayMs": 2000,
+      "before": {
+        "x": 12,
+        "y": 28,
+        "width": 351,
+        "height": 860
+      },
+      "after": {
+        "x": 12,
+        "y": 28,
+        "width": 351,
+        "height": 860
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "delayMs": 10000,
+      "before": {
+        "x": 12,
+        "y": 28,
+        "width": 351,
+        "height": 860
+      },
+      "after": {
+        "x": 12,
+        "y": 28,
+        "width": 351,
+        "height": 860
+      },
+      "shift": {
+        "entries": [
+          {
+            "value": 0.006988888888888889,
+            "hadRecentInput": false,
+            "startTime": 8449.5
+          }
+        ],
+        "cls": 0.006988888888888889,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "delayMs": 2000,
+      "before": {
+        "x": 784,
+        "y": 16,
+        "width": 480,
+        "height": 868
+      },
+      "after": {
+        "x": 784,
+        "y": 16,
+        "width": 480,
+        "height": 868
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "light",
+      "width": 1280,
+      "height": 900,
+      "delayMs": 10000,
+      "before": {
+        "x": 784,
+        "y": 16,
+        "width": 480,
+        "height": 868
+      },
+      "after": {
+        "x": 784,
+        "y": 16,
+        "width": 480,
+        "height": 868
+      },
+      "shift": {
+        "entries": [
+          {
+            "value": 0.0014227294921875,
+            "hadRecentInput": false,
+            "startTime": 8447.199999988079
+          }
+        ],
+        "cls": 0.0014227294921875,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "light",
+      "width": 375,
+      "height": 420,
+      "delayMs": 2000,
+      "before": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 396
+      },
+      "after": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 396
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "light",
+      "width": 375,
+      "height": 420,
+      "delayMs": 10000,
+      "before": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 396
+      },
+      "after": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 396
+      },
+      "shift": {
+        "entries": [
+          {
+            "value": 0.03209183673469388,
+            "hadRecentInput": false,
+            "startTime": 8442.09999999404
+          }
+        ],
+        "cls": 0.03209183673469388,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "delayMs": 2000,
+      "before": {
+        "x": 12,
+        "y": 28,
+        "width": 351,
+        "height": 860
+      },
+      "after": {
+        "x": 12,
+        "y": 28,
+        "width": 351,
+        "height": 860
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "delayMs": 10000,
+      "before": {
+        "x": 12,
+        "y": 28,
+        "width": 351,
+        "height": 860
+      },
+      "after": {
+        "x": 12,
+        "y": 28,
+        "width": 351,
+        "height": 860
+      },
+      "shift": {
+        "entries": [
+          {
+            "value": 0.006988888888888889,
+            "hadRecentInput": false,
+            "startTime": 8431.90000000596
+          }
+        ],
+        "cls": 0.006988888888888889,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "delayMs": 2000,
+      "before": {
+        "x": 784,
+        "y": 16,
+        "width": 480,
+        "height": 868
+      },
+      "after": {
+        "x": 784,
+        "y": 16,
+        "width": 480,
+        "height": 868
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "dark",
+      "width": 1280,
+      "height": 900,
+      "delayMs": 10000,
+      "before": {
+        "x": 784,
+        "y": 16,
+        "width": 480,
+        "height": 868
+      },
+      "after": {
+        "x": 784,
+        "y": 16,
+        "width": 480,
+        "height": 868
+      },
+      "shift": {
+        "entries": [
+          {
+            "value": 0.0014227294921875,
+            "hadRecentInput": false,
+            "startTime": 8443.199999988079
+          }
+        ],
+        "cls": 0.0014227294921875,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "dark",
+      "width": 375,
+      "height": 420,
+      "delayMs": 2000,
+      "before": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 396
+      },
+      "after": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 396
+      },
+      "shift": {
+        "entries": [],
+        "cls": 0,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "drawer-read",
+      "theme": "dark",
+      "width": 375,
+      "height": 420,
+      "delayMs": 10000,
+      "before": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 396
+      },
+      "after": {
+        "x": 12,
+        "y": 12,
+        "width": 351,
+        "height": 396
+      },
+      "shift": {
+        "entries": [
+          {
+            "value": 0.03209183673469388,
+            "hadRecentInput": false,
+            "startTime": 8445.90000000596
+          }
+        ],
+        "cls": 0.03209183673469388,
+        "recentInputScore": 0
+      }
+    },
+    {
+      "task": "read-error-retry-abort",
+      "draftPreserved": true,
+      "noStaleReopen": true
+    },
+    {
+      "task": "motion-gesture-disclosure",
+      "damping": 51.4286,
+      "snapbackMs": 320,
+      "prompts": 4,
+      "captureCancel": true,
+      "reducedMotionStatic": true,
+      "nativeKeyboardHidden": true,
+      "physicalDeviceFps": "NOT_TESTED"
+    },
+    {
+      "task": "pending-gesture-transport-error",
+      "viewport": {
+        "width": 375,
+        "height": 420
+      },
+      "draftPreserved": true,
+      "dragBlocked": true,
+      "escapeBlocked": true,
+      "transactionCountUnchanged": true
+    }
+  ]
+}

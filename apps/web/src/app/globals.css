@@ -10,5 +10,6 @@
 @import "../styles/readability.css";
 @import "../styles/quick-amount.css";
 @import "../styles/dashboard-payment.css";
+@import "../styles/loading-motion.css";
 
 /* C93: ordered imports preserve the unlayered cascade; see docs/refactor-c93/report.md. */

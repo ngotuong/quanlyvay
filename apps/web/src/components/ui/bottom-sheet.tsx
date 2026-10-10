@@ -1,7 +1,7 @@
 "use client";
 
 import { X } from "lucide-react";
-import { forwardRef, useId, useRef, type DialogHTMLAttributes, type KeyboardEvent, type PointerEvent } from "react";
+import { forwardRef, useEffect, useId, useRef, type DialogHTMLAttributes, type KeyboardEvent, type PointerEvent } from "react";
 import { Button } from "./button";
 import { cx } from "./utils";
 
@@ -14,29 +14,35 @@ type BottomSheetProps = Omit<DialogHTMLAttributes<HTMLDialogElement>, "title"> &
 };
 
 export const BottomSheet = forwardRef<HTMLDialogElement, BottomSheetProps>(function BottomSheet({ children, className, eyebrow, onRequestClose, closeDisabled = false, title, titleId, onKeyDown, ...props }, ref) {
-  const dragStart = useRef<number | null>(null);
-  const dragLatest = useRef<number | null>(null);
+  const gesture = useRef<{ start: number; latest: number; pointerId: number } | null>(null);
+  const dialog = useRef<HTMLDialogElement | null>(null);
   const surface = useRef<HTMLDivElement>(null);
   const generatedTitleId = useId();
 
+  function resetDrag() {
+    gesture.current = null;
+    dialog.current?.removeAttribute("data-dragging");
+    dialog.current?.style.removeProperty("--sheet-backdrop-opacity");
+    if (surface.current) surface.current.style.transform = "";
+  }
+  useEffect(() => { if (closeDisabled) resetDrag(); }, [closeDisabled]);
+
   function drag(event: PointerEvent<HTMLDivElement>) {
-    if (closeDisabled || dragStart.current === null || !surface.current) return;
-    dragLatest.current = event.clientY;
-    const distance = Math.max(0, event.clientY - dragStart.current);
-    surface.current.style.transform = `translateY(${Math.min(distance, 180)}px)`;
+    const current = gesture.current;
+    if (closeDisabled || !current || event.pointerId !== current.pointerId || !surface.current) return;
+    current.latest = event.clientY;
+    const distance = Math.max(0, event.clientY - current.start);
+    const damped = Math.min(180, distance / (1 + distance / 360));
+    surface.current.style.transform = `translateY(${damped}px)`;
+    dialog.current?.style.setProperty("--sheet-backdrop-opacity", String(1 - Math.min(.4, distance / 600)));
   }
-
-  function finishDrag(clientY: number) {
-    if (dragStart.current === null || !surface.current) return;
-    const distance = clientY - dragStart.current;
-    dragStart.current = null;
-    dragLatest.current = null;
-    surface.current.style.transform = "";
-    if (distance > 88 && !closeDisabled) onRequestClose();
-  }
-
   function endDrag(event: PointerEvent<HTMLDivElement>) {
-    finishDrag(event.clientY);
+    const current = gesture.current;
+    if (!current || current.pointerId !== event.pointerId) return;
+    const distance = event.clientY - current.start;
+    resetDrag();
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+    if (distance > 88 && !closeDisabled) onRequestClose();
   }
 
   const headingId = titleId ?? generatedTitleId;
@@ -66,14 +72,19 @@ export const BottomSheet = forwardRef<HTMLDialogElement, BottomSheetProps>(funct
     }
   }
 
-  return <dialog {...props} aria-labelledby={headingId} className={cx("transaction-dialog", "ui-bottom-sheet", className)} ref={ref}
+  return <dialog {...props} aria-labelledby={headingId} className={cx("transaction-dialog", "ui-bottom-sheet", className)} ref={element => { dialog.current = element; if (typeof ref === "function") ref(element); else if (ref) ref.current = element; }}
     tabIndex={-1}
     onKeyDown={onKeyDown}
     onKeyDownCapture={trapFocus}
     onCancel={(event) => { event.preventDefault(); if (!closeDisabled) onRequestClose(); }}
     onClick={(event) => { if (event.target === event.currentTarget && !closeDisabled) onRequestClose(); }}>
     <div className="ui-bottom-sheet-surface" ref={surface}>
-      <div className="ui-sheet-grabber" aria-hidden="true" onPointerDown={(event) => { if (closeDisabled) return; dragStart.current = event.clientY; dragLatest.current = event.clientY; event.currentTarget.setPointerCapture(event.pointerId); }} onPointerMove={drag} onPointerUp={endDrag} onLostPointerCapture={() => { if (dragLatest.current !== null) finishDrag(dragLatest.current); }} onPointerCancel={() => { dragStart.current = null; dragLatest.current = null; if (surface.current) surface.current.style.transform = ""; }}><span /></div>
+      <div className="ui-sheet-grabber" aria-hidden="true" onPointerDown={(event) => {
+        if (closeDisabled || gesture.current || !event.isPrimary || event.button !== 0) return;
+        gesture.current = { start: event.clientY, latest: event.clientY, pointerId: event.pointerId };
+        dialog.current?.setAttribute("data-dragging", "true");
+        event.currentTarget.setPointerCapture(event.pointerId);
+      }} onPointerMove={drag} onPointerUp={endDrag} onLostPointerCapture={resetDrag} onPointerCancel={resetDrag}><span /></div>
       <div className="dialog-heading"><div>{eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}<h2 id={headingId}>{title}</h2></div><Button variant="ghost" className="icon-button" data-bottom-sheet-close aria-label={closeDisabled ? `Đang lưu ${title.toLocaleLowerCase("vi")}` : `Đóng ${title.toLocaleLowerCase("vi")}`} disabled={closeDisabled} onClick={onRequestClose}><X size={20} /></Button></div>
       {children}
     </div>

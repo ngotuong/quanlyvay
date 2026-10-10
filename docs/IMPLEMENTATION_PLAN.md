@@ -72,8 +72,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C94 | Khả năng đọc, bảng mobile và tên dài theo thiết kế đích | `COMPLETED` |
 | C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `COMPLETED` |
 | C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `COMPLETED` |
-| C97 | Loading đúng từng màn và motion có chọn lọc | `AWAITING_APPROVAL` |
-| C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `NOT_STARTED` |
+| C97 | Loading đúng từng màn và motion có chọn lọc | `COMPLETED` |
+| C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -2374,7 +2374,7 @@ engine/push/deploy;phone/AT/remote NOT_TESTED. C97 AWAITING_APPROVAL rồi dừn
 
 ### C97 — Loading theo màn và motion có chọn lọc
 
-Trạng thái: `AWAITING_APPROVAL`. Phụ thuộc C96, OWNER duyệt C97/mẫu chuyển động C92.
+Trạng thái: `COMPLETED` local ngày10/10/2026; OWNER đã phê duyệt, mẫu A/C92 đã chọn.
 
 Phạm vi: cải thiện skeleton từng route/KPI/table/chart dựa trên shimmer đã tồn tại, streamed
 Auth/SPA/cancel/error feedback; BottomSheet damping/snapback/backdrop chỉ theo mẫu được
@@ -2391,9 +2391,20 @@ Acceptance criteria:
 3. Nếu cam kết60fps phải có device/browser/trace/window/budget frame cụ thể; không có
    thiết bị thì ghi NOT_TESTED và đo mô phỏng riêng. Không giảm assertions để vượt gate.
 
+Kết quả C97:9route skeleton/rootneutral, drawerreserve/freshfocus, damping/raw88px/capturecancel,
+enter220/exit150/snapback320/shimmer1.8s/reducedstatic/native details giữ. Lint/typecheck/unit121/
+rootbuild19 PASS; targeted+probe6PASS7.0m/full84PASS18SKIP0FAIL19.2m,retries0.55observations,
+CLS≤.1/geometrydrawer/overflow đạt trong window khai báo; không60fps/device/zeroCLS toànapp.
+Full1 strictselectorC78 FAIL được sửa trong runtimeskeleton, gate hiện hữu không đổi. RawprobeP1/
+focus/native/density/limitations/history ở `docs/loading-motion-c97/`; preservation/diff/artifact/
+secret đạt,17C75exact/153runtimefreeze/73financialprotected/C20sixcounts0. Không push/deploy/remote/
+schema/RPC/engine/dependency. C98 AWAITING_APPROVAL rồi dừng theo AGENTS§3.
+
+Phép đo liên tục bổ sung3PASS0FAIL5.4m/53observations (36route/4cold/12drawer+readerror); window từ navigation/actionstart hoặc coldinit đến2RAFcontent/fontready, rawhadRecentInput/sourceRects giữ. MaxrouteCLS0.021980/Authdrawer0.032092≤.1; primaryregion/windowevidence riêng, khôngzeroCLS toànapp.
+
 ### C98 — Nghiệm thu tổng hợp và phát hành
 
-Trạng thái: `NOT_STARTED`. Phụ thuộc C97, OWNER duyệt C98/phạm vi release cụ thể lúc đó.
+Trạng thái: `AWAITING_APPROVAL`. C97 hoàn tất local; chờ OWNER duyệt C98/phạm vi release cụ thể.
 
 Phạm vi: full lint/typecheck/unit/build/E2E; visual+functional matrix5khổ×2theme, System/
 zoom320/200%/viewportlow/name200/boundaryVND/emptyerrorloading/keyboard/privacy và contrast

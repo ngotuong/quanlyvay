@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { createContext, useContext, useEffect, useRef, useSyncExternalStore, type ReactNode } from "react";
 import { usePrivacy } from "@/components/app/privacy-provider";
 import { registerDraft } from "@/components/app/dirty-navigation-guard";
+import { afterSheetExit } from "@/components/ui/sheet-exit";
 import { notifyToast } from "@/components/ui";
 
 const Drawer = dynamic(() => import("./dashboard-payment-drawer"), { ssr: false, loading: () => <p role="status">Đang mở biểu mẫu…</p> });
@@ -32,9 +33,10 @@ export function DashboardPayments({ children }: { children: ReactNode }) {
   const activity = useRef({ dirty: false, pending: false });
   const trigger = useRef<HTMLAnchorElement | null>(null);
   const closing = useRef(false);
+  const cancelExit = useRef<(() => void) | null>(null);
   const stopFocusRecovery = useRef<(() => void) | null>(null);
-  useEffect(() => registerDraft(() => activity.current.dirty, () => activity.current.pending), []);
-  useEffect(() => () => stopFocusRecovery.current?.(), []);
+  useEffect(() => registerDraft(() => activity.current.dirty, () => activity.current.pending || closing.current), []);
+  useEffect(() => () => { stopFocusRecovery.current?.(); cancelExit.current?.(); }, []);
   useEffect(() => {
     if (!active) { activity.current = { dirty: false, pending: false }; closing.current = false; }
     if (isPrivacyMode && active) {
@@ -67,6 +69,7 @@ export function DashboardPayments({ children }: { children: ReactNode }) {
     stopFocusRecovery.current = stop;
   }
   function open(id: string, source: HTMLAnchorElement) {
+    if (closing.current) return;
     if (isPrivacyMode) { notifyToast("Hãy hiển thị số tiền để ghi giao dịch."); return; }
     if (activity.current.pending) { notifyToast("Đang lưu thay đổi. Vui lòng chờ kết quả."); return; }
     const selected = snapshot();
@@ -85,22 +88,26 @@ export function DashboardPayments({ children }: { children: ReactNode }) {
     if (closing.current || (!message && activity.current.pending)) return;
     if (!message && activity.current.dirty && !window.confirm("Đóng và bỏ các thay đổi chưa lưu?")) return;
     closing.current = true;
-    // One registry owns the Dashboard session: an accepted close must not ask again on popstate.
-    activity.current = { dirty: false, pending: false };
-    const owned = history.state?.[marker];
-    if (message) {
-      // Remove the saved form from this history entry; Forward must never reopen a successful submission.
-      const state = { ...history.state }; delete state[marker];
-      history.replaceState(state, "", owned?.returnUrl ?? location.pathname + location.search);
-      announce();
-      notifyToast(message, "success");
-    } else if (owned?.loanId === active) history.back();
-    else {
-      const state = { ...history.state }; delete state[marker];
-      history.replaceState(state, "", location.pathname + location.search);
-      announce();
-    }
+    cancelExit.current = afterSheetExit(document.querySelector<HTMLDialogElement>(".dashboard-payment-drawer"), () => {
+      // One registry owns the Dashboard session: an accepted close must not ask again on popstate.
+      activity.current = { dirty: false, pending: false };
+      closing.current = false;
+      const owned = history.state?.[marker];
+      if (message) {
+        // Remove the saved form from this history entry; Forward must never reopen a successful submission.
+        const state = { ...history.state }; delete state[marker];
+        history.replaceState(state, "", owned?.returnUrl ?? location.pathname + location.search);
+        announce();
+        notifyToast(message, "success");
+      } else if (owned?.loanId === active) history.back();
+      else {
+        const state = { ...history.state }; delete state[marker];
+        history.replaceState(state, "", location.pathname + location.search);
+        announce();
+      }
+    });
   }
+
   return <Payments.Provider value={open}>{children}{active && !isPrivacyMode ? <Drawer key={active} loanId={active}
     onDirtyChange={dirty => { activity.current.dirty = dirty; }} onPendingChange={pending => { activity.current.pending = pending; }}
     onClose={close} onUnmount={focusReturn} /> : null}</Payments.Provider>;
