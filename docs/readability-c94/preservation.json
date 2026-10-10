@@ -1,0 +1,20 @@
+{
+  "sourceBefore": "577d6f4ec0f2557e8b234febf39f586ab8446b78",
+  "initialTracked": 1157,
+  "allowedExistingChanged": 12,
+  "existingUnchanged": 1145,
+  "C75Exact": 17,
+  "C75GeneratedRestored": 15,
+  "runtimeFilesFinalFreeze": 132,
+  "runtimeFreezeMatches": true,
+  "unexpected": [],
+  "fixtureGuard": "QuanLyVayCaNhan-C20-test label,DB55322",
+  "fixtureCounts": {
+    "profiles": 0,
+    "loans": 0,
+    "transactions": 0,
+    "counterparties": 0,
+    "notifications": 0,
+    "auth_users": 0
+  }
+}

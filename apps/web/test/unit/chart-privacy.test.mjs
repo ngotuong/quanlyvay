@@ -22,6 +22,7 @@ const ui = load("components/ui/card.tsx", { "./utils": load("components/ui/utils
 const format = load("lib/business/format.ts");
 const emptyState = load("components/ui/empty-state.tsx", { "./utils": load("components/ui/utils.ts") });
 const responsiveTable = load("components/ui/responsive-table.tsx", { "./utils": load("components/ui/utils.ts") });
+const nameDisclosure = load("components/business/name-disclosure.tsx", { "@/components/app/privacy-provider": privacy, "@/components/ui/button": load("components/ui/button.tsx", { "./utils": load("components/ui/utils.ts") }) });
 test("formatted bigint VND preserves every character and hidden amounts expose no layout flags", () => {
   for (const value of ["0", "1284500000", "-99999999999999999", "9223372036854775807"]) {
     const formatted = format.formatVnd(value);
@@ -109,6 +110,7 @@ test("loan list distinguishes an empty dataset from search no-results and viewer
     const page = load("app/loans/page.tsx", {
       "next/link": { __esModule: true, default: ({ children, ...props }) => React.createElement("a", props, children) },
       "@/components/ui/empty-state": emptyState,
+      "@/components/business/name-disclosure": nameDisclosure,
       "@/components/business/pagination": { parsePage: () => 1, Pagination: () => null },
       "@/components/app/privacy-provider": privacy,
       "@/lib/auth/session": { requireAuthenticatedProfile: async () => ({ role }) },

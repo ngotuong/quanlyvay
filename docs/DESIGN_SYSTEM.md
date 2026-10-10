@@ -26,7 +26,7 @@ C93: palette gốc, semantic roles và component aliases nằm ở `apps/web/src
 `apps/web/src/app/globals.css` là entrypoint import có thứ tự. Primitive dùng chung nằm ở
 `apps/web/src/components/ui/` và `styles/ui-primitives.css`. Foundation/workflows/notifications/
 dashboard/presentation-overrides tách theo các đoạn liên tiếp của cascade cũ; không thêm cascade layer.
-Playground vẫn tách riêng. Thứ tự import giữ override B/C90 sau các rule nền.
+Playground vẫn tách riêng. Thứ tự import giữ override B/C90 sau các rule nền; readability.css C94 đứng cuối cho các thay đổi A đã duyệt.
 
 ## 3. Typography
 
@@ -139,3 +139,20 @@ C94 trong C93. Nhóm Quick Amount50triệu thuộc C95; hình drawer/taskdesktop
 Manifest/theme metadata và accent tùy chỉnh Playground dùng literal vì hoạt động trước stylesheet
 hoặc là input thiết kế; logo/SVG là tài sản màu cố định. Không đổi những ngoại lệ này khi refactor.
 Bằng chứng và giới hạn nghiệm thu ở docs/refactor-c93/.
+
+## C94 — Thiết kế A cho khả năng đọc (hoàn tất local10/10/2026)
+
+Hai bảng Dòng tiền/Đối tác Dashboard dưới1024px trình bày dạng thẻ nhãn–giá trị; desktop
+vẫn table/cột nhận diện224px và scroller khi cần. Dùng một DOM, role/scope đầy đủ; thead
+mobile visually-hidden, nhãn ô aria-hidden không lặp AX. Số0/âm/unit và thứ tự dữ liệu giữ nguyên.
+Taskfull-width/cashflowbelow; KPI trước task. Các số tiền trong thẻ16px, hero30/26px theo C92;
+helper14px/rem, riêng unit/bottom-nav giữ ngoại lệ. Tên clamp2dòng có NameDisclosure/44px,
+button ngoài heading/link; full identity một bản, privacy không chứa tên trong attributes.
+
+Notification hover surface-muted/foreground; selected primary/on-primary/600/aria-current.
+Semantic border-strong80%muted+surface và error-text95%error+foreground theo C92 áp dùng chung
+cho consumers hiện hữu; không thêm mã màu rải trong component. Token/role brand và native picker giữ nguyên.
+Mobile frame sở hữu inset khối đối tác; không thêm lớp inset ngang lồng. Hàng tiền extra-wide
+nhường nguyên hàng cho giá trị rồi giữ inset8px ở nhãn/tên, không giảm dưới16px/cắt/round tiền. Logs/gate/giới hạn ở
+`docs/readability-c94/`; đây chưa phải chứng nhận AT/thiết bị/native zoom hoặc Production.
+QuickAmount50triệu C95/drawerA C96/loading C97 chưa triển khai.

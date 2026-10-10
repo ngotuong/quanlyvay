@@ -7,5 +7,6 @@
 @import "../styles/notifications.css";
 @import "../styles/dashboard.css";
 @import "../styles/presentation-overrides.css";
+@import "../styles/readability.css";
 
 /* C93: ordered imports preserve the unlayered cascade; see docs/refactor-c93/report.md. */

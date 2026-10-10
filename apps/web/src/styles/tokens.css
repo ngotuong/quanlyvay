@@ -114,7 +114,7 @@
   --accent: var(--palette-0369a1);
   --accent-soft: var(--palette-e0f2fe);
   --border: var(--palette-ced9e8);
-  --border-strong: var(--palette-cbd5e1);
+  --border-strong: color-mix(in srgb, var(--foreground-muted) 80%, var(--surface));
   --success: var(--palette-047857);
   --success-surface: var(--palette-ecfdf5);
   --warning: var(--palette-b45309);
@@ -162,7 +162,7 @@
     --accent: var(--palette-38bdf8);
     --accent-soft: var(--palette-12344a);
     --border: var(--palette-354762);
-    --border-strong: var(--palette-3b4a61);
+    --border-strong: color-mix(in srgb, var(--foreground-muted) 80%, var(--surface));
     --success: var(--palette-6ee7b7);
     --success-surface: var(--palette-12372c);
     --warning: var(--palette-fbbf24);
@@ -196,7 +196,7 @@
     --accent: var(--palette-38bdf8);
     --accent-soft: var(--palette-12344a);
     --border: var(--palette-354762);
-    --border-strong: var(--palette-3b4a61);
+    --border-strong: color-mix(in srgb, var(--foreground-muted) 80%, var(--surface));
     --success: var(--palette-6ee7b7);
     --success-surface: var(--palette-12372c);
     --warning: var(--palette-fbbf24);
@@ -271,6 +271,7 @@
   --inverse-hover-tint: var(--palette-ffffff10);
   --playground-shadow-color: var(--palette-rgba-15-23-42-p14);
   --playground-shadow-rgb: var(--palette-shadow-rgb);
+  --error-text: color-mix(in srgb, var(--error) 95%, var(--foreground));
   --button-primary-background: var(--primary);
   --button-primary-foreground: var(--on-primary);
   --button-primary-hover-background: var(--primary-hover);

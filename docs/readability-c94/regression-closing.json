@@ -1,0 +1,3472 @@
+{
+  "method": "Guarded synthetic C20-test, real Chromium production DOM and accessibility snapshot, existing test budgets unchanged",
+  "observations": [
+    {
+      "task": "table semantics/data",
+      "colorScheme": "light",
+      "width": 375,
+      "data": [
+        {
+          "headers": [
+            "Tháng",
+            "Tiền vào",
+            "Tiền ra",
+            "Ròng"
+          ],
+          "rows": [
+            [
+              "T1/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T2/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T3/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T4/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T5/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T6/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T7/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T8/2026",
+              "0 ₫",
+              "1.000.000 ₫",
+              "-1.000.000 ₫"
+            ],
+            [
+              "T9/2026",
+              "0 ₫",
+              "1.284.500.000 ₫",
+              "-1.284.500.000 ₫"
+            ],
+            [
+              "T10/2026",
+              "0 ₫",
+              "100.000 ₫",
+              "-100.000 ₫"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Đối tác",
+            "Cho vay",
+            "Nợ xấu",
+            "Đi vay",
+            "Tổng"
+          ],
+          "rows": [
+            [
+              "C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đú",
+              "1.284.500.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.284.500.000 ₫"
+            ],
+            [
+              "Đối tác thông báo E2E",
+              "1.000.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.000.000 ₫"
+            ]
+          ]
+        }
+      ],
+      "painted": [
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        },
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        }
+      ]
+    },
+    {
+      "task": "A hierarchy",
+      "colorScheme": "light",
+      "width": 375,
+      "layout": {
+        "kpiFirst": true,
+        "cashBelow": true,
+        "sameWidth": true
+      }
+    },
+    {
+      "task": "table semantics/data",
+      "colorScheme": "light",
+      "width": 390,
+      "data": [
+        {
+          "headers": [
+            "Tháng",
+            "Tiền vào",
+            "Tiền ra",
+            "Ròng"
+          ],
+          "rows": [
+            [
+              "T1/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T2/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T3/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T4/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T5/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T6/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T7/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T8/2026",
+              "0 ₫",
+              "1.000.000 ₫",
+              "-1.000.000 ₫"
+            ],
+            [
+              "T9/2026",
+              "0 ₫",
+              "1.284.500.000 ₫",
+              "-1.284.500.000 ₫"
+            ],
+            [
+              "T10/2026",
+              "0 ₫",
+              "100.000 ₫",
+              "-100.000 ₫"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Đối tác",
+            "Cho vay",
+            "Nợ xấu",
+            "Đi vay",
+            "Tổng"
+          ],
+          "rows": [
+            [
+              "C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đú",
+              "1.284.500.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.284.500.000 ₫"
+            ],
+            [
+              "Đối tác thông báo E2E",
+              "1.000.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.000.000 ₫"
+            ]
+          ]
+        }
+      ],
+      "painted": [
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        },
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        }
+      ]
+    },
+    {
+      "task": "A hierarchy",
+      "colorScheme": "light",
+      "width": 390,
+      "layout": {
+        "kpiFirst": true,
+        "cashBelow": true,
+        "sameWidth": true
+      }
+    },
+    {
+      "task": "table semantics/data",
+      "colorScheme": "light",
+      "width": 768,
+      "data": [
+        {
+          "headers": [
+            "Tháng",
+            "Tiền vào",
+            "Tiền ra",
+            "Ròng"
+          ],
+          "rows": [
+            [
+              "T1/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T2/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T3/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T4/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T5/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T6/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T7/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T8/2026",
+              "0 ₫",
+              "1.000.000 ₫",
+              "-1.000.000 ₫"
+            ],
+            [
+              "T9/2026",
+              "0 ₫",
+              "1.284.500.000 ₫",
+              "-1.284.500.000 ₫"
+            ],
+            [
+              "T10/2026",
+              "0 ₫",
+              "100.000 ₫",
+              "-100.000 ₫"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Đối tác",
+            "Cho vay",
+            "Nợ xấu",
+            "Đi vay",
+            "Tổng"
+          ],
+          "rows": [
+            [
+              "C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đú",
+              "1.284.500.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.284.500.000 ₫"
+            ],
+            [
+              "Đối tác thông báo E2E",
+              "1.000.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.000.000 ₫"
+            ]
+          ]
+        }
+      ],
+      "painted": [
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        },
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        }
+      ]
+    },
+    {
+      "task": "A hierarchy",
+      "colorScheme": "light",
+      "width": 768,
+      "layout": {
+        "kpiFirst": true,
+        "cashBelow": true,
+        "sameWidth": true
+      }
+    },
+    {
+      "task": "table semantics/data",
+      "colorScheme": "light",
+      "width": 1024,
+      "data": [
+        {
+          "headers": [
+            "Tháng",
+            "Tiền vào",
+            "Tiền ra",
+            "Ròng"
+          ],
+          "rows": [
+            [
+              "T1/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T2/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T3/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T4/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T5/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T6/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T7/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T8/2026",
+              "0 ₫",
+              "1.000.000 ₫",
+              "-1.000.000 ₫"
+            ],
+            [
+              "T9/2026",
+              "0 ₫",
+              "1.284.500.000 ₫",
+              "-1.284.500.000 ₫"
+            ],
+            [
+              "T10/2026",
+              "0 ₫",
+              "100.000 ₫",
+              "-100.000 ₫"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Đối tác",
+            "Cho vay",
+            "Nợ xấu",
+            "Đi vay",
+            "Tổng"
+          ],
+          "rows": [
+            [
+              "C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đú",
+              "1.284.500.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.284.500.000 ₫"
+            ],
+            [
+              "Đối tác thông báo E2E",
+              "1.000.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.000.000 ₫"
+            ]
+          ]
+        }
+      ],
+      "painted": [
+        {
+          "scrolling": false,
+          "display": "table-row",
+          "money": true
+        },
+        {
+          "scrolling": false,
+          "display": "table-row",
+          "money": true
+        }
+      ]
+    },
+    {
+      "task": "A hierarchy",
+      "colorScheme": "light",
+      "width": 1024,
+      "layout": {
+        "kpiFirst": true,
+        "cashBelow": true,
+        "sameWidth": true
+      }
+    },
+    {
+      "task": "table semantics/data",
+      "colorScheme": "light",
+      "width": 1440,
+      "data": [
+        {
+          "headers": [
+            "Tháng",
+            "Tiền vào",
+            "Tiền ra",
+            "Ròng"
+          ],
+          "rows": [
+            [
+              "T1/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T2/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T3/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T4/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T5/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T6/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T7/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T8/2026",
+              "0 ₫",
+              "1.000.000 ₫",
+              "-1.000.000 ₫"
+            ],
+            [
+              "T9/2026",
+              "0 ₫",
+              "1.284.500.000 ₫",
+              "-1.284.500.000 ₫"
+            ],
+            [
+              "T10/2026",
+              "0 ₫",
+              "100.000 ₫",
+              "-100.000 ₫"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Đối tác",
+            "Cho vay",
+            "Nợ xấu",
+            "Đi vay",
+            "Tổng"
+          ],
+          "rows": [
+            [
+              "C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đú",
+              "1.284.500.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.284.500.000 ₫"
+            ],
+            [
+              "Đối tác thông báo E2E",
+              "1.000.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.000.000 ₫"
+            ]
+          ]
+        }
+      ],
+      "painted": [
+        {
+          "scrolling": false,
+          "display": "table-row",
+          "money": true
+        },
+        {
+          "scrolling": false,
+          "display": "table-row",
+          "money": true
+        }
+      ]
+    },
+    {
+      "task": "A hierarchy",
+      "colorScheme": "light",
+      "width": 1440,
+      "layout": {
+        "kpiFirst": true,
+        "cashBelow": true,
+        "sameWidth": true
+      }
+    },
+    {
+      "task": "table semantics/data",
+      "colorScheme": "dark",
+      "width": 375,
+      "data": [
+        {
+          "headers": [
+            "Tháng",
+            "Tiền vào",
+            "Tiền ra",
+            "Ròng"
+          ],
+          "rows": [
+            [
+              "T1/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T2/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T3/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T4/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T5/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T6/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T7/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T8/2026",
+              "0 ₫",
+              "1.000.000 ₫",
+              "-1.000.000 ₫"
+            ],
+            [
+              "T9/2026",
+              "0 ₫",
+              "1.284.500.000 ₫",
+              "-1.284.500.000 ₫"
+            ],
+            [
+              "T10/2026",
+              "0 ₫",
+              "100.000 ₫",
+              "-100.000 ₫"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Đối tác",
+            "Cho vay",
+            "Nợ xấu",
+            "Đi vay",
+            "Tổng"
+          ],
+          "rows": [
+            [
+              "C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đú",
+              "1.284.500.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.284.500.000 ₫"
+            ],
+            [
+              "Đối tác thông báo E2E",
+              "1.000.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.000.000 ₫"
+            ]
+          ]
+        }
+      ],
+      "painted": [
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        },
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        }
+      ]
+    },
+    {
+      "task": "A hierarchy",
+      "colorScheme": "dark",
+      "width": 375,
+      "layout": {
+        "kpiFirst": true,
+        "cashBelow": true,
+        "sameWidth": true
+      }
+    },
+    {
+      "task": "table semantics/data",
+      "colorScheme": "dark",
+      "width": 390,
+      "data": [
+        {
+          "headers": [
+            "Tháng",
+            "Tiền vào",
+            "Tiền ra",
+            "Ròng"
+          ],
+          "rows": [
+            [
+              "T1/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T2/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T3/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T4/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T5/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T6/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T7/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T8/2026",
+              "0 ₫",
+              "1.000.000 ₫",
+              "-1.000.000 ₫"
+            ],
+            [
+              "T9/2026",
+              "0 ₫",
+              "1.284.500.000 ₫",
+              "-1.284.500.000 ₫"
+            ],
+            [
+              "T10/2026",
+              "0 ₫",
+              "100.000 ₫",
+              "-100.000 ₫"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Đối tác",
+            "Cho vay",
+            "Nợ xấu",
+            "Đi vay",
+            "Tổng"
+          ],
+          "rows": [
+            [
+              "C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đú",
+              "1.284.500.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.284.500.000 ₫"
+            ],
+            [
+              "Đối tác thông báo E2E",
+              "1.000.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.000.000 ₫"
+            ]
+          ]
+        }
+      ],
+      "painted": [
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        },
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        }
+      ]
+    },
+    {
+      "task": "A hierarchy",
+      "colorScheme": "dark",
+      "width": 390,
+      "layout": {
+        "kpiFirst": true,
+        "cashBelow": true,
+        "sameWidth": true
+      }
+    },
+    {
+      "task": "table semantics/data",
+      "colorScheme": "dark",
+      "width": 768,
+      "data": [
+        {
+          "headers": [
+            "Tháng",
+            "Tiền vào",
+            "Tiền ra",
+            "Ròng"
+          ],
+          "rows": [
+            [
+              "T1/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T2/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T3/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T4/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T5/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T6/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T7/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T8/2026",
+              "0 ₫",
+              "1.000.000 ₫",
+              "-1.000.000 ₫"
+            ],
+            [
+              "T9/2026",
+              "0 ₫",
+              "1.284.500.000 ₫",
+              "-1.284.500.000 ₫"
+            ],
+            [
+              "T10/2026",
+              "0 ₫",
+              "100.000 ₫",
+              "-100.000 ₫"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Đối tác",
+            "Cho vay",
+            "Nợ xấu",
+            "Đi vay",
+            "Tổng"
+          ],
+          "rows": [
+            [
+              "C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đú",
+              "1.284.500.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.284.500.000 ₫"
+            ],
+            [
+              "Đối tác thông báo E2E",
+              "1.000.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.000.000 ₫"
+            ]
+          ]
+        }
+      ],
+      "painted": [
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        },
+        {
+          "scrolling": false,
+          "display": "block",
+          "money": true
+        }
+      ]
+    },
+    {
+      "task": "A hierarchy",
+      "colorScheme": "dark",
+      "width": 768,
+      "layout": {
+        "kpiFirst": true,
+        "cashBelow": true,
+        "sameWidth": true
+      }
+    },
+    {
+      "task": "table semantics/data",
+      "colorScheme": "dark",
+      "width": 1024,
+      "data": [
+        {
+          "headers": [
+            "Tháng",
+            "Tiền vào",
+            "Tiền ra",
+            "Ròng"
+          ],
+          "rows": [
+            [
+              "T1/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T2/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T3/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T4/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T5/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T6/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T7/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T8/2026",
+              "0 ₫",
+              "1.000.000 ₫",
+              "-1.000.000 ₫"
+            ],
+            [
+              "T9/2026",
+              "0 ₫",
+              "1.284.500.000 ₫",
+              "-1.284.500.000 ₫"
+            ],
+            [
+              "T10/2026",
+              "0 ₫",
+              "100.000 ₫",
+              "-100.000 ₫"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Đối tác",
+            "Cho vay",
+            "Nợ xấu",
+            "Đi vay",
+            "Tổng"
+          ],
+          "rows": [
+            [
+              "C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đú",
+              "1.284.500.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.284.500.000 ₫"
+            ],
+            [
+              "Đối tác thông báo E2E",
+              "1.000.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.000.000 ₫"
+            ]
+          ]
+        }
+      ],
+      "painted": [
+        {
+          "scrolling": false,
+          "display": "table-row",
+          "money": true
+        },
+        {
+          "scrolling": false,
+          "display": "table-row",
+          "money": true
+        }
+      ]
+    },
+    {
+      "task": "A hierarchy",
+      "colorScheme": "dark",
+      "width": 1024,
+      "layout": {
+        "kpiFirst": true,
+        "cashBelow": true,
+        "sameWidth": true
+      }
+    },
+    {
+      "task": "table semantics/data",
+      "colorScheme": "dark",
+      "width": 1440,
+      "data": [
+        {
+          "headers": [
+            "Tháng",
+            "Tiền vào",
+            "Tiền ra",
+            "Ròng"
+          ],
+          "rows": [
+            [
+              "T1/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T2/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T3/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T4/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T5/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T6/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T7/2026",
+              "0 ₫",
+              "0 ₫",
+              "0 ₫"
+            ],
+            [
+              "T8/2026",
+              "0 ₫",
+              "1.000.000 ₫",
+              "-1.000.000 ₫"
+            ],
+            [
+              "T9/2026",
+              "0 ₫",
+              "1.284.500.000 ₫",
+              "-1.284.500.000 ₫"
+            ],
+            [
+              "T10/2026",
+              "0 ₫",
+              "100.000 ₫",
+              "-100.000 ₫"
+            ]
+          ]
+        },
+        {
+          "headers": [
+            "Đối tác",
+            "Cho vay",
+            "Nợ xấu",
+            "Đi vay",
+            "Tổng"
+          ],
+          "rows": [
+            [
+              "C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đúng nhận diện C94 Đối tác tên dài cần đọc đầy đủ bằng bàn phím và giữ đú",
+              "1.284.500.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.284.500.000 ₫"
+            ],
+            [
+              "Đối tác thông báo E2E",
+              "1.000.000 ₫",
+              "0 ₫",
+              "0 ₫",
+              "1.000.000 ₫"
+            ]
+          ]
+        }
+      ],
+      "painted": [
+        {
+          "scrolling": false,
+          "display": "table-row",
+          "money": true
+        },
+        {
+          "scrolling": false,
+          "display": "table-row",
+          "money": true
+        }
+      ]
+    },
+    {
+      "task": "A hierarchy",
+      "colorScheme": "dark",
+      "width": 1440,
+      "layout": {
+        "kpiFirst": true,
+        "cashBelow": true,
+        "sameWidth": true
+      }
+    },
+    {
+      "task": "keyboard name",
+      "route": "/loans?q=C94",
+      "identityCharacters": 200,
+      "controlled": "_R_32npfndb_",
+      "urlUnchanged": true,
+      "fullName": true,
+      "focusRetained": true
+    },
+    {
+      "task": "keyboard name",
+      "route": "/loans/2234ce90-7079-4e48-977d-a8516d1fd113",
+      "identityCharacters": 200,
+      "controlled": "_R_4dbsnpfndb_",
+      "urlUnchanged": true,
+      "fullName": true,
+      "focusRetained": true
+    },
+    {
+      "task": "keyboard name",
+      "route": "/counterparties?q=C94",
+      "identityCharacters": 200,
+      "controlled": "_R_2nanpfndb_",
+      "urlUnchanged": true,
+      "fullName": true,
+      "focusRetained": true
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/dashboard",
+      "colorScheme": "light",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 3,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "14px"
+        },
+        {
+          "class": "",
+          "font": "14px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans?q=C94",
+      "colorScheme": "light",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans/2234ce90-7079-4e48-977d-a8516d1fd113",
+      "colorScheme": "light",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "20px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/counterparties?q=C94",
+      "colorScheme": "light",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/expenses",
+      "colorScheme": "light",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "14px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/settings",
+      "colorScheme": "light",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "managed-user-status",
+          "font": "14px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/notifications",
+      "colorScheme": "light",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": []
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/dashboard",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 3,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "14px"
+        },
+        {
+          "class": "",
+          "font": "14px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans?q=C94",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans/2234ce90-7079-4e48-977d-a8516d1fd113",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "20px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/counterparties?q=C94",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/expenses",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "14px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/settings",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "managed-user-status",
+          "font": "14px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/notifications",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": []
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/dashboard",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 4,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "28px"
+        },
+        {
+          "class": "",
+          "font": "28px"
+        },
+        {
+          "class": "",
+          "font": "32px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "32px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans?q=C94",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "32px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans/2234ce90-7079-4e48-977d-a8516d1fd113",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "40px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/counterparties?q=C94",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "32px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/expenses",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "28px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/settings",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "managed-user-status",
+          "font": "28px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/notifications",
+      "colorScheme": "light",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": []
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/dashboard",
+      "colorScheme": "light",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 2,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "28px"
+        },
+        {
+          "class": "",
+          "font": "28px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans?q=C94",
+      "colorScheme": "light",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "32px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans/2234ce90-7079-4e48-977d-a8516d1fd113",
+      "colorScheme": "light",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "48px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/counterparties?q=C94",
+      "colorScheme": "light",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "32px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/expenses",
+      "colorScheme": "light",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "28px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/settings",
+      "colorScheme": "light",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "managed-user-status",
+          "font": "28px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/notifications",
+      "colorScheme": "light",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": []
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/dashboard",
+      "colorScheme": "dark",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 3,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "14px"
+        },
+        {
+          "class": "",
+          "font": "14px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans?q=C94",
+      "colorScheme": "dark",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans/2234ce90-7079-4e48-977d-a8516d1fd113",
+      "colorScheme": "dark",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "20px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/counterparties?q=C94",
+      "colorScheme": "dark",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/expenses",
+      "colorScheme": "dark",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "14px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/settings",
+      "colorScheme": "dark",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "managed-user-status",
+          "font": "14px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/notifications",
+      "colorScheme": "dark",
+      "width": 320,
+      "height": 900,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": []
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/dashboard",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 3,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "14px"
+        },
+        {
+          "class": "",
+          "font": "14px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans?q=C94",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans/2234ce90-7079-4e48-977d-a8516d1fd113",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "20px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/counterparties?q=C94",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/expenses",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "14px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/settings",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "managed-user-status",
+          "font": "14px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/notifications",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 667,
+      "text": 100,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": []
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/dashboard",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 3,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "28px"
+        },
+        {
+          "class": "",
+          "font": "28px"
+        },
+        {
+          "class": "",
+          "font": "32px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "32px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans?q=C94",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "32px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans/2234ce90-7079-4e48-977d-a8516d1fd113",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "40px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/counterparties?q=C94",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "32px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/expenses",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "28px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/settings",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "managed-user-status",
+          "font": "28px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/notifications",
+      "colorScheme": "dark",
+      "width": 375,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": []
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/dashboard",
+      "colorScheme": "dark",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 2,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "28px"
+        },
+        {
+          "class": "",
+          "font": "28px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        },
+        {
+          "class": "table-card-value",
+          "font": "16px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans?q=C94",
+      "colorScheme": "dark",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "32px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/loans/2234ce90-7079-4e48-977d-a8516d1fd113",
+      "colorScheme": "dark",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "48px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/counterparties?q=C94",
+      "colorScheme": "dark",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 1,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "32px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/expenses",
+      "colorScheme": "dark",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "",
+          "font": "28px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/settings",
+      "colorScheme": "dark",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": [
+        {
+          "class": "managed-user-status",
+          "font": "28px"
+        }
+      ]
+    },
+    {
+      "task": "reflow/short/root text200",
+      "route": "/notifications",
+      "colorScheme": "dark",
+      "width": 1440,
+      "height": 900,
+      "text": 200,
+      "nameTargets": 0,
+      "moneyFits": true,
+      "painted": []
+    },
+    {
+      "task": "Evon zero-money paint reconciliation",
+      "colorScheme": "light",
+      "zeros": [
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": true,
+          "foreground": [
+            82,
+            100,
+            124,
+            255
+          ],
+          "background": [
+            239,
+            246,
+            255,
+            255
+          ],
+          "ratio": 5.556639857867227
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": true,
+          "opacity": 1,
+          "painted": true,
+          "foreground": [
+            230,
+            239,
+            255,
+            255
+          ],
+          "background": [
+            29,
+            78,
+            216,
+            255
+          ],
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": true,
+          "opacity": 1,
+          "painted": true,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": true,
+          "opacity": 1,
+          "painted": true,
+          "foreground": [
+            82,
+            100,
+            124,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": true,
+          "foreground": [
+            82,
+            100,
+            124,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "0",
+          "tooltip": true,
+          "metric": false,
+          "opacity": 0,
+          "painted": false,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 1
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": true,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            82,
+            100,
+            124,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            82,
+            100,
+            124,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            82,
+            100,
+            124,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            82,
+            100,
+            124,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            82,
+            100,
+            124,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 6.047196706596568
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 15.961567850562348
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            20,
+            34,
+            56,
+            255
+          ],
+          "background": [
+            255,
+            255,
+            255,
+            255
+          ],
+          "ratio": 15.961567850562348
+        }
+      ]
+    },
+    {
+      "task": "Evon open reversal reconciliation",
+      "colorScheme": "light",
+      "geometry": {
+        "width": 1112,
+        "height": 44,
+        "textHeight": 17,
+        "lineHeight": 16.8
+      }
+    },
+    {
+      "task": "Evon zero-money paint reconciliation",
+      "colorScheme": "dark",
+      "zeros": [
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": true,
+          "foreground": [
+            179,
+            194,
+            215,
+            255
+          ],
+          "background": [
+            23,
+            37,
+            84,
+            255
+          ],
+          "ratio": 8.127421503686387
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": true,
+          "opacity": 1,
+          "painted": true,
+          "foreground": [
+            230,
+            239,
+            255,
+            255
+          ],
+          "background": [
+            29,
+            78,
+            216,
+            255
+          ],
+          "ratio": 5.793772375152218
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": true,
+          "opacity": 1,
+          "painted": true,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": true,
+          "opacity": 1,
+          "painted": true,
+          "foreground": [
+            179,
+            194,
+            215,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": true,
+          "foreground": [
+            179,
+            194,
+            215,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "0",
+          "tooltip": true,
+          "metric": false,
+          "opacity": 0,
+          "painted": false,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 1
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": true,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            179,
+            194,
+            215,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            179,
+            194,
+            215,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            179,
+            194,
+            215,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            179,
+            194,
+            215,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            179,
+            194,
+            215,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 8.821407901219278
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 14.587596324728546
+        },
+        {
+          "text": "0",
+          "tooltip": false,
+          "metric": false,
+          "opacity": 1,
+          "painted": false,
+          "foreground": [
+            241,
+            245,
+            252,
+            255
+          ],
+          "background": [
+            23,
+            34,
+            53,
+            255
+          ],
+          "ratio": 14.587596324728546
+        }
+      ]
+    },
+    {
+      "task": "Evon open reversal reconciliation",
+      "colorScheme": "dark",
+      "geometry": {
+        "width": 1112,
+        "height": 44,
+        "textHeight": 17,
+        "lineHeight": 16.8
+      }
+    }
+  ]
+}

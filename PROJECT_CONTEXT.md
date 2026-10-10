@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.314
-last_updated: 2026-10-09
+roadmap_version: 1.0.316
+last_updated: 2026-10-10
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C94
+current_checkpoint: C95
 current_status: AWAITING_APPROVAL
-last_completed_checkpoint: C93
-next_checkpoint: C94
+last_completed_checkpoint: C94
+next_checkpoint: C95
 ---
 
 # Project Context
@@ -79,10 +79,29 @@ không dùng lịch sử để suy quyền thực hiện mới.
   guardDocker C20-test55322 đúnglabel/port, sixcounts0 sau teardown.
 - CSS nguồn1968→2033dòng, raw143046→152289bytes, gzip24273→26217bytes; file lớn nhất1729→410.
   Đây là source metrics, không phải transfer/latency; không tuyên bố tăng hiệu năng. Compiled trước NOT_MEASURED.
-- C94 `AWAITING_APPROVAL`; C95–C98 `NOT_STARTED`. Không blocker local C93. Thiết kế A C94/C96
-  và Quick Amount50triệu C95 chưa triển khai. C93 chưa push/deploy; runtime phát hành vẫn C91.
-  NOT_TESTED AT/phone thật/SafariFirefox/OS-theme-live/PWA-beforeHTML/remote save giữ trong report.
-  C91 query_canceled57014 chưa xác định nguyên nhân; không mở schema/RPC/timeout tuning.
+- C94 `COMPLETED` local ngày10/10/2026; OWNER duyệt09/10 và tiếp tục trong hội thoại.
+  Thiết kế A: hai bảng Dashboard cards dưới1024px/desktoptable, taskfull-width/cashflowbelow,
+  KPI vẫn trước task. Helper expense/account14px, tablevalues16px/unit≥12px, name200clamp2/
+  disclosure44px ngoài heading/link; fullidentity/keyboard/privacy giữ. Notification hover/selected
+  khác fill/weight/aria-current; shared control-border/error-text theo C92, giữ B/Inter/nativepickers.
+  [Report](docs/readability-c94/report.md), [đối chiếu](docs/readability-c94/comparison.html), evidence cùng thư mục.
+- C94 gates: lint/typecheck/unit117/rootbuild19 PASS; full69PASS/18SKIP/0FAIL13.7m,retries0.
+  Firstfull68PASS18SKIP1FAIL12.5m: C81 ordinaryrow160.171875>160px. Badge14px giữ, line-height1.4;
+  cap/assertions/timeout/retry/skip hiện hữu không đổi. C81+C94targeted8PASS1SKIP2.8m.
+  Matrix trước chỉnh badge cuối80main/84supplement/36bigint/36zoom PASS6.5m; phần Loan/metadata
+  bị tác động kiểm lại targeted/full source cuối, không gọi ảnh matrix là pixel toànsource cuối.
+- DataKPI/detail/drawer/notifications/tableheaders/order/values khớp cùng fixture before;
+  rendered375/390/768/1024/1440LightDark,320/1920/375×667 và root-font200 stress. Zoom emulation
+  viewportCSSphysical/2,DPR2,PNGwidth vàglyphphysical2x đã đo36states; native zoom/device không chứng nhận.
+  Evon8probe rawDashboard2/theme/Expenses1/theme/NotificationsSettings0, giữ raw. Actualpaint/open
+  reconciliation đạt: zero-textvisiblecontrast≥5.556/tooltipopacity0 khôngpainted; reversalopen1line44px.
+- C94 preservation/diff/artifact/secret PASS:1157trackedbefore,12scopechanged/1145unchanged,
+  17C75exact/15generatedrestored,132runtimefreeze; guardC20-testDB55322 đúnglabel/port, sixcounts0.
+  Không push/deploy/remote/schema/RPC/engine change; runtime phát hành vẫn C91.
+- C95 `AWAITING_APPROVAL`; C96–C98 `NOT_STARTED`. Không blocker local C94. QuickAmount50triệu
+  C95/drawerA C96/loading C97 chưa triển khai. NOT_TESTED AT/phone thật/softkeyboard/nativezoom/
+  authenticatedSafariFirefox/OS-theme-live/PWA-beforeHTML/remote save giữ rõ trong report.
+  C91 query_canceled57014 chưa xác định nguyên nhân; không mở DB tuning/Google/backup từ lịch sử.
 
 ## 2. Thay đổi local cần bảo toàn
 
@@ -196,5 +215,5 @@ không dùng lịch sử để suy quyền thực hiện mới.
   [Backup](docs/BACKUP_RESTORE.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md).
 - Skill Evon: `/Users/ngotuong/.codex/skills/evondev-ui-ux/SKILL.md`; áp khi công việc UI cần,
   không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
-- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C93 hoàn tất; C94 chờ duyệt/A đã chọn.
-  Không bắt đầu C94–C98 hoặc tạo cuộc trò chuyện tự động.
+- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C94 hoàn tất; C95 chờ duyệt/A đã chọn.
+  Không bắt đầu C95–C98 hoặc tạo cuộc trò chuyện tự động.

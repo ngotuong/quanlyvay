@@ -1,0 +1,144 @@
+{
+  "method": "Original Evon rules untouched; only synthetic storage injection into ignored copy. Raw P preserved, not rewritten to0. Actual state reconciliation tested on real app in c94-readability.spec.ts; limits to observed candidates.",
+  "probes": [
+    {
+      "route": "dashboard",
+      "theme": "light",
+      "rawP": 2,
+      "fixedWidths": [
+        375,
+        390,
+        768,
+        1024,
+        1440,
+        1920
+      ],
+      "lightSweep": true,
+      "rawFindings": [
+        "P1 [1920px, 1440px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #ffffff trên nền #ffffff \"0\": span.vnd-number \"0\"",
+        "P2 [1920px, 1440px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #ffffff trên nền #ffffff \"₫\": span.vnd-unit \"₫\""
+      ],
+      "disposition": "Dashboard: opacity0 tooltip descendants; confirmed real visible zero foreground/background ≥4.5, active tooltip opacity1. Expenses: collapsed reversal descendants; actual open control one line,height≥44. Notifications/settings: rawP0."
+    },
+    {
+      "route": "dashboard",
+      "theme": "dark",
+      "rawP": 2,
+      "fixedWidths": [
+        375,
+        390,
+        768,
+        1024,
+        1440,
+        1920
+      ],
+      "lightSweep": false,
+      "rawFindings": [
+        "P1 [1920px, 1440px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 \"0\": span.vnd-number \"0\"",
+        "P2 [1920px, 1440px, 1024px, 768px, 375–390px] tương phản thấp: 1.00:1, cần 4.5:1, chữ #172235 trên nền #172235 \"₫\": span.vnd-unit \"₫\""
+      ],
+      "disposition": "Dashboard: opacity0 tooltip descendants; confirmed real visible zero foreground/background ≥4.5, active tooltip opacity1. Expenses: collapsed reversal descendants; actual open control one line,height≥44. Notifications/settings: rawP0."
+    },
+    {
+      "route": "notifications",
+      "theme": "light",
+      "rawP": 0,
+      "fixedWidths": [
+        375,
+        390,
+        768,
+        1024,
+        1440,
+        1920
+      ],
+      "lightSweep": true,
+      "rawFindings": [],
+      "disposition": "Dashboard: opacity0 tooltip descendants; confirmed real visible zero foreground/background ≥4.5, active tooltip opacity1. Expenses: collapsed reversal descendants; actual open control one line,height≥44. Notifications/settings: rawP0."
+    },
+    {
+      "route": "notifications",
+      "theme": "dark",
+      "rawP": 0,
+      "fixedWidths": [
+        375,
+        390,
+        768,
+        1024,
+        1440,
+        1920
+      ],
+      "lightSweep": false,
+      "rawFindings": [],
+      "disposition": "Dashboard: opacity0 tooltip descendants; confirmed real visible zero foreground/background ≥4.5, active tooltip opacity1. Expenses: collapsed reversal descendants; actual open control one line,height≥44. Notifications/settings: rawP0."
+    },
+    {
+      "route": "expenses",
+      "theme": "light",
+      "rawP": 1,
+      "fixedWidths": [
+        375,
+        390,
+        768,
+        1024,
+        1440,
+        1920
+      ],
+      "lightSweep": true,
+      "rawFindings": [
+        "P1 [1920px, 1024–1440px] chữ trong nút xuống dòng: button.ui-button.ui-button--danger.danger-button \"Xác nhận đảo\""
+      ],
+      "disposition": "Dashboard: opacity0 tooltip descendants; confirmed real visible zero foreground/background ≥4.5, active tooltip opacity1. Expenses: collapsed reversal descendants; actual open control one line,height≥44. Notifications/settings: rawP0."
+    },
+    {
+      "route": "expenses",
+      "theme": "dark",
+      "rawP": 1,
+      "fixedWidths": [
+        375,
+        390,
+        768,
+        1024,
+        1440,
+        1920
+      ],
+      "lightSweep": false,
+      "rawFindings": [
+        "P1 [1920px, 1440px, 1024px] chữ trong nút xuống dòng: button.ui-button.ui-button--danger.danger-button \"Xác nhận đảo\""
+      ],
+      "disposition": "Dashboard: opacity0 tooltip descendants; confirmed real visible zero foreground/background ≥4.5, active tooltip opacity1. Expenses: collapsed reversal descendants; actual open control one line,height≥44. Notifications/settings: rawP0."
+    },
+    {
+      "route": "settings",
+      "theme": "light",
+      "rawP": 0,
+      "fixedWidths": [
+        375,
+        390,
+        768,
+        1024,
+        1440,
+        1920
+      ],
+      "lightSweep": true,
+      "rawFindings": [],
+      "disposition": "Dashboard: opacity0 tooltip descendants; confirmed real visible zero foreground/background ≥4.5, active tooltip opacity1. Expenses: collapsed reversal descendants; actual open control one line,height≥44. Notifications/settings: rawP0."
+    },
+    {
+      "route": "settings",
+      "theme": "dark",
+      "rawP": 0,
+      "fixedWidths": [
+        375,
+        390,
+        768,
+        1024,
+        1440,
+        1920
+      ],
+      "lightSweep": false,
+      "rawFindings": [],
+      "disposition": "Dashboard: opacity0 tooltip descendants; confirmed real visible zero foreground/background ≥4.5, active tooltip opacity1. Expenses: collapsed reversal descendants; actual open control one line,height≥44. Notifications/settings: rawP0."
+    }
+  ],
+  "gate": "Reconcile1PASS1.8m; C81+C948PASS1SKIP2.8m; full69PASS18SKIP13.7m; original probe rules unchanged"
+}

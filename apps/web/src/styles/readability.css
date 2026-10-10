@@ -1,0 +1,57 @@
+/* C94: approved A. These intentional presentation changes follow the C93 preserved cascade. */
+.field-error, .ui-badge--danger, .ui-badge--borrowing { color: var(--error-text); }
+.dashboard-focus-grid { grid-template-columns: minmax(0, 1fr); }
+.expense-category-value small, .managed-user-status, .loan-list .loan-card-tags .ui-badge, .chart-data-details > summary, .chart-y-axis, .cash-flow-month, .loan-terms dt, .overview-primary p, .overview-primary small, .overview-next p, .overview-next small, .overview-supporting small { font-size: .875rem; line-height: 1.5; }
+.managed-user-status { font-weight: 500; white-space: normal; }
+.loan-list .loan-card-tags .ui-badge { line-height: 1.4; }
+.notification-filters a { font-size: .875rem; }
+.notification-filters a:hover { background: var(--surface-muted); color: var(--foreground); border-color: var(--border-strong); }
+.notification-filters a[data-active="true"], .notification-filters a[data-active="true"]:hover { background: var(--primary); color: var(--on-primary); border-color: var(--primary); font-weight: 600; }
+.name-disclosure { display: block; min-width: 0; max-width: 100%; }
+.name-disclosure [data-disclosure-name] { white-space: normal; overflow-wrap: anywhere; text-wrap: pretty; line-height: 1.5; }
+.name-disclosure:not([data-expanded="true"]) [data-disclosure-name] { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; }
+.name-disclosure[data-expanded="true"] [data-disclosure-name] { display: block; overflow: visible; }
+.name-disclosure .name-disclosure-toggle { display: inline-flex; min-height: 44px; min-width: 44px; width: auto; max-width: 100%; padding: 8px 0; margin: 4px 0 0; color: var(--primary); background: transparent; border: 0; font-size: .875rem; font-weight: 500; line-height: 1.5; text-decoration: underline; white-space: normal; }
+.name-disclosure .name-disclosure-toggle:hover { background: var(--surface-muted); }
+.loan-name-disclosure > .name-disclosure-toggle { margin: 0 16px 8px; }
+.loan-list > .loan-name-disclosure:not(:last-child) { border-bottom: 1px solid var(--border); }
+.due-name-disclosure > .name-disclosure-toggle { margin: 0 9px 8px; }
+.due-main small, .due-value small { white-space: normal; overflow: visible; text-overflow: clip; }
+.horizontal-bar-row .name-disclosure [data-disclosure-name] { white-space: normal; }
+.horizontal-bar-row .name-disclosure .name-disclosure-toggle { font-size: .875rem; }
+.loan-list .name-disclosure h2, .compact-record-list .name-disclosure h2 { font-size: 1rem; }
+.loan-detail-heading .name-disclosure h1 { font-size: 1.5rem; }
+@media (max-width: 600px) { .loan-detail-heading .name-disclosure h1 { font-size: 1.25rem; } }
+.loan-heading-metadata { overflow-wrap: anywhere; }
+.dashboard-data-table table { font-size: 16px; }
+.dashboard-data-table thead th { font-size: .875rem; font-weight: 500; }
+.dashboard-data-table th:first-child { width: 224px; min-width: 224px; max-width: 224px; white-space: normal; }
+.dashboard-data-table th .name-disclosure { width: 200px; }
+.table-card-label { display: none; }
+.table-card-value { display: inline-block; white-space: nowrap; }
+.table-card-value .vnd-unit { font-size: max(.7em, 12px); }
+@media (max-width: 1023px) {
+  /* One semantic table. Explicit roles keep row/header/cell associations when CSS draws cards. */
+  .dashboard-data-table { overflow-x: visible; }
+  .dashboard-data-table table, .dashboard-data-table tbody { display: block; width: 100%; min-width: 0; white-space: normal; }
+  .dashboard-data-table thead { position: absolute; width: 1px; height: 1px; padding: 0; margin: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .dashboard-data-table tbody { display: grid; gap: 12px; }
+  .dashboard-data-table tbody tr { display: block; min-width: 0; border: 1px solid var(--border); border-radius: 12px; padding: 16px; background: var(--surface); }
+  .dashboard-data-table tbody th, .dashboard-data-table tbody td { display: block; width: auto; min-width: 0; max-width: 100%; padding: 0; border: 0; text-align: left; }
+  .dashboard-data-table tbody th { margin-bottom: 12px; font-size: 1rem; font-weight: 600; white-space: normal; }
+  .dashboard-data-table th .name-disclosure { width: auto; }
+  .dashboard-data-table tbody td + td { margin-top: 12px; }
+  .dashboard-data-table .table-card-label { display: block; color: var(--foreground-muted); font-size: .875rem; line-height: 1.5; margin-bottom: 4px; }
+  .dashboard-data-table .table-card-value { max-width: 100%; font-size: 16px; font-weight: 500; }
+}
+/* C92 critical money sizes stay explicit, as in the C90 full-digit presentation guard. */
+.overview-primary strong { font-size: 30px; }
+@media (max-width: 600px) { .overview-primary strong { font-size: 26px; } }
+
+@media (max-width: 1023px) {
+  /* Avoid nested horizontal padding for full-digit money; the analysis frame owns the outer inset. */
+  .dashboard-analysis-content > .counterparty-chart { padding-inline: 0; border: 0; }
+  .dashboard-data-table tbody tr:has(.vnd-number[data-extra-wide="true"]) { padding-inline: 0; }
+  .dashboard-data-table tbody tr:has(.vnd-number[data-extra-wide="true"]) th,
+  .dashboard-data-table tbody tr:has(.vnd-number[data-extra-wide="true"]) .table-card-label { padding-inline: 8px; }
+}

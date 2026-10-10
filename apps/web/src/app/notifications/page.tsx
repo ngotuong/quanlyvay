@@ -26,7 +26,7 @@ export default async function NotificationsPage({ searchParams }: { searchParams
     <div className="page-heading-row"><div className="page-title-lockup"><span className="page-title-icon"><BellDot size={24} strokeWidth={1.8} /></span><div><h1>Thông báo</h1></div></div>
       <NotificationAction unreadCount={unreadCount} />
     </div>
-    <div className="filter-pills"><Link href="/notifications" data-active={params.unread !== "true"} aria-current={params.unread !== "true" ? "page" : undefined}>Tất cả</Link><Link href="/notifications?unread=true" data-active={params.unread === "true"} aria-current={params.unread === "true" ? "page" : undefined}>Chưa đọc ({unreadCount})</Link></div>
+    <div className="filter-pills notification-filters"><Link href="/notifications" data-active={params.unread !== "true"} aria-current={params.unread !== "true" ? "page" : undefined}>Tất cả</Link><Link href="/notifications?unread=true" data-active={params.unread === "true"} aria-current={params.unread === "true" ? "page" : undefined}>Chưa đọc ({unreadCount})</Link></div>
     {notifications.length === 0 ? <EmptyState className="notification-empty"><span className="empty-icon"><Bell size={28} /></span><h2>{params.unread === "true" ? "Bạn đã đọc hết thông báo" : "Chưa có thông báo"}</h2><p>{params.unread === "true" ? "Không còn thông báo chưa đọc." : "Thông báo đóng lãi và quá hạn sẽ xuất hiện tại đây khi bộ nhắc lịch chạy."}</p>{params.unread === "true" ? <Link className="secondary-button" href="/notifications">Xem tất cả thông báo</Link> : null}</EmptyState> :
       <section className="notification-list" aria-label="Danh sách thông báo">{notifications.map((item) => {
         const overdue = item.type === "LOAN_OVERDUE";

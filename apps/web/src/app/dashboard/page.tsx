@@ -1,3 +1,4 @@
+import { NameDisclosure } from "@/components/business/name-disclosure";
 import { ResponsiveTable } from "@/components/ui/responsive-table";
 import type { CSSProperties } from "react";
 import Link from "next/link";
@@ -141,7 +142,7 @@ function CounterpartyChart({ rows }: { rows: CounterpartyExposure[] }) {
           const width = maximum === BigInt(0) ? BigInt(0) : (total * BigInt(10000)) / maximum;
           const segment = (value: string) => total === BigInt(0) ? "0%" : `${Number((BigInt(value) * width) / total) / 100}%`;
           return <div className="horizontal-bar-row" key={row.counterpartyId}>
-            <div><span><PrivacyRegion>{row.name}</PrivacyRegion></span><strong className="privacy-amount"><PrivacyAmount value={formatVnd(row.totalVnd)} /></strong></div>
+            <div><span><NameDisclosure as="span"><span data-disclosure-name><PrivacyRegion>{row.name}</PrivacyRegion></span></NameDisclosure></span><strong className="privacy-amount"><PrivacyAmount value={formatVnd(row.totalVnd)} /></strong></div>
             <span className="horizontal-bar-track stacked-bar" aria-hidden="true">
               <span data-tone="lending" style={{ "--bar-size": segment(row.lendingVnd) } as CSSProperties} />
               <span data-tone="bad-debt" style={{ "--bar-size": segment(row.badDebtVnd) } as CSSProperties} />
@@ -149,7 +150,7 @@ function CounterpartyChart({ rows }: { rows: CounterpartyExposure[] }) {
             </span>
           </div>;
         })}</div>
-        <details className="chart-data-details"><summary>Xem bảng đối tác</summary><ResponsiveTable><table><thead><tr><th>Đối tác</th><th>Cho vay</th><th>Nợ xấu</th><th>Đi vay</th><th>Tổng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.counterpartyId}><th><PrivacyRegion>{row.name}</PrivacyRegion></th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.lendingVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.badDebtVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.borrowingVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.totalVnd)} /></td></tr>)}</tbody></table></ResponsiveTable></details>
+        <details className="chart-data-details"><summary>Xem bảng đối tác</summary><ResponsiveTable className="dashboard-data-table"><table role="table"><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Đối tác</th><th role="columnheader" scope="col">Cho vay</th><th role="columnheader" scope="col">Nợ xấu</th><th role="columnheader" scope="col">Đi vay</th><th role="columnheader" scope="col">Tổng</th></tr></thead><tbody role="rowgroup">{rows.map((row) => <tr role="row" key={row.counterpartyId}><th role="rowheader" scope="row"><NameDisclosure as="span"><span data-disclosure-name><PrivacyRegion>{row.name}</PrivacyRegion></span></NameDisclosure></th><td role="cell" className="privacy-amount"><span className="table-card-label" aria-hidden="true">Cho vay</span><span className="table-card-value"><PrivacyAmount value={formatVnd(row.lendingVnd)} /></span></td><td role="cell" className="privacy-amount"><span className="table-card-label" aria-hidden="true">Nợ xấu</span><span className="table-card-value"><PrivacyAmount value={formatVnd(row.badDebtVnd)} /></span></td><td role="cell" className="privacy-amount"><span className="table-card-label" aria-hidden="true">Đi vay</span><span className="table-card-value"><PrivacyAmount value={formatVnd(row.borrowingVnd)} /></span></td><td role="cell" className="privacy-amount"><span className="table-card-label" aria-hidden="true">Tổng</span><span className="table-card-value"><PrivacyAmount value={formatVnd(row.totalVnd)} /></span></td></tr>)}</tbody></table></ResponsiveTable></details>
       </>}
     </Card>
   );
@@ -176,7 +177,7 @@ function CashFlowChart({ rows, periodLabel }: { rows: DashboardCashFlow[]; perio
       </div>
       <details className="cash-flow-details chart-data-details">
         <summary>Xem bảng số liệu</summary>
-        <ResponsiveTable><table><thead><tr><th>Tháng</th><th>Tiền vào</th><th>Tiền ra</th><th>Ròng</th></tr></thead><tbody>{rows.map((row) => <tr key={row.month}><th>{monthLabel(row.month)}</th><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.inflowVnd)} /></td><td className="privacy-amount"><PrivacyAmount value={formatVnd(row.outflowVnd)} /></td><td className="privacy-amount" data-negative={BigInt(row.netVnd) < BigInt(0)}><PrivacyAmount value={formatVnd(row.netVnd)} /></td></tr>)}</tbody></table></ResponsiveTable>
+        <ResponsiveTable className="dashboard-data-table"><table role="table"><thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Tháng</th><th role="columnheader" scope="col">Tiền vào</th><th role="columnheader" scope="col">Tiền ra</th><th role="columnheader" scope="col">Ròng</th></tr></thead><tbody role="rowgroup">{rows.map((row) => <tr role="row" key={row.month}><th role="rowheader" scope="row">{monthLabel(row.month)}</th><td role="cell" className="privacy-amount"><span className="table-card-label" aria-hidden="true">Tiền vào</span><span className="table-card-value"><PrivacyAmount value={formatVnd(row.inflowVnd)} /></span></td><td role="cell" className="privacy-amount"><span className="table-card-label" aria-hidden="true">Tiền ra</span><span className="table-card-value"><PrivacyAmount value={formatVnd(row.outflowVnd)} /></span></td><td role="cell" className="privacy-amount" data-negative={BigInt(row.netVnd) < BigInt(0)}><span className="table-card-label" aria-hidden="true">Ròng</span><span className="table-card-value"><PrivacyAmount value={formatVnd(row.netVnd)} /></span></td></tr>)}</tbody></table></ResponsiveTable>
       </details></> : <div className="dashboard-empty"><strong>Chưa có dòng tiền trong kỳ</strong><span>Các khoản thu, chi sẽ xuất hiện sau khi giao dịch được ghi nhận.</span></div>}
     </Card>
   );
@@ -193,11 +194,11 @@ function AttentionList({ upcoming, overdue, reminderWindow }: { upcoming: Dashbo
     <Card className="surface-card due-card attention-card" aria-labelledby="schedule-title">
       <AttentionItems heading={<div className="attention-heading-main"><div><h2 id="schedule-title">Việc cần xử lý</h2><p className="eyebrow">Gốc quá hạn và lịch nhắc</p></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>}
         emptyState={<div className="dashboard-empty"><strong>Không có việc đến hạn</strong><span>Không có gốc quá hạn. Lịch thu/trả lãi: {reminderWindow}.</span></div>}
-        items={rows.map(({ loan, kind }) => <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item" key={`${kind}-${loan.id}`}>
+        items={rows.map(({ loan, kind }) => <NameDisclosure className="due-name-disclosure" key={`${kind}-${loan.id}`}><Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item">
           <span className="due-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins size={19} /> : <Landmark size={19} />}</span>
-          <span className="due-main"><strong><PrivacyRegion>{loan.name}</PrivacyRegion></strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
+          <span className="due-main"><strong data-disclosure-name><PrivacyRegion>{loan.name}</PrivacyRegion></strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
           <span className="due-value"><strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong><small>{loan.direction === "LENDING" ? "Cho vay" : "Đi vay"} · {kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
-        </Link>)} />
+        </Link></NameDisclosure>)} />
     </Card>
   );
 }

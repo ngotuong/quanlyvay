@@ -69,8 +69,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C91 | Đồng bộ và phát hành bản sửa C90 lên Preview/Production | `COMPLETED` |
 | C92 | Chốt thiết kế đích UI/UX và cách đo nghiệm thu | `COMPLETED` |
 | C93 | Chuẩn hóa tokens/CSS và UI primitives, giữ hình đã duyệt | `COMPLETED` |
-| C94 | Khả năng đọc, bảng mobile và tên dài theo thiết kế đích | `AWAITING_APPROVAL` |
-| C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `NOT_STARTED` |
+| C94 | Khả năng đọc, bảng mobile và tên dài theo thiết kế đích | `COMPLETED` |
+| C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `AWAITING_APPROVAL` |
 | C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `NOT_STARTED` |
 | C97 | Loading đúng từng màn và motion có chọn lọc | `NOT_STARTED` |
 | C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `NOT_STARTED` |
@@ -2282,7 +2282,7 @@ C94 AWAITING_APPROVAL, dừng theo AGENTS§3.
 
 ### C94 — Đọc dữ liệu mobile, typography và tên dài
 
-Trạng thái: `AWAITING_APPROVAL`. Phụ thuộc C93, OWNER duyệt C94 và các lựa chọn C92.
+Trạng thái: `COMPLETED` local ngày10/10/2026. OWNER duyệt C94 ngày09/10; C93 hoàn tất và A đã chọn tại C92.
 
 Phạm vi: G2 nhãn phụ≥12–14px theo vai trò; G4 hover khác selected vẫn có aria-current;
 G1 bảng Dòng tiền/Đối tác dashboard giữ nhận diện dòng khi cuộn (chọn ghim cột hoặc cards
@@ -2300,9 +2300,16 @@ Acceptance criteria:
    VND/page overflow ngoài scroller đã định nghĩa; không ép header≤25% mọi viewport/zoom.
    Gate hiện hữu phù hợp đạt, source before/after/matrix và chọn OWNER có bằng chứng.
 
+C94 chốt: lint/typecheck/unit117/build19/full69PASS18SKIP13.7m đạt. C81 cap160px giữ;
+badge14pxline1.4, targetedC81+C948PASS1SKIP2.8m. Matrix80+84/36bigint/36zoom trước badge
+cuối có provenance rõ, Loan/metadata source cuối kiểm targeted/full. Data/AX/privacy/focus,
+raw Evon và actual-state reconciliation ở [report](readability-c94/report.md).1157before/
+1145unchanged/17C75exact/sixcounts0; diff/secret/artifactPASS. Không push/deploy;
+C95 AWAITING_APPROVAL rồi dừng theo AGENTS§3.
+
 ### C95 — Quick Amount cho VndInput
 
-Trạng thái: `NOT_STARTED`. Phụ thuộc C94, OWNER duyệt C95/mẫu chip C92.
+Trạng thái: `AWAITING_APPROVAL`. Phụ thuộc C94, OWNER duyệt C95/mẫu chip C92.
 
 Phạm vi: chip tùy context field; OWNER chọn tại C92 +50tr/+100tr/+150tr/+200tr, cộng dồn
 50triệu theo chuỗi integer/BigInt, không ép nhóm này vào context lãi nhỏ; chọn vị trí trong webform thuận

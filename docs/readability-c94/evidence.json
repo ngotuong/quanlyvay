@@ -1,0 +1,98 @@
+{
+  "checkpoint": "C94",
+  "status": "COMPLETED",
+  "ownerApproval": "2026-10-09 current conversation; contextual approval of C94 waiting after C93",
+  "sourceBefore": "577d6f4ec0f2557e8b234febf39f586ab8446b78",
+  "design": "A selected in C92, +50tr/+100tr/+150tr/+200tr deferred C95",
+  "baseline": {
+    "samples": 32,
+    "journeys": 16,
+    "status": "PASS2.0m"
+  },
+  "gates": {
+    "lint": "PASS first",
+    "typecheck": "PASS second",
+    "unit": "PASS117",
+    "rendered32": "PASS discovery only",
+    "targetedFirst": "2FAIL1PASS3.6m; new test expectation/locator errors retained",
+    "targetedSecond": "3PASS1FAIL2.2m; root200 card amount32px overflow",
+    "targetedThird": "3PASS1FAIL; detail hero rem/clamp root200 overflow",
+    "targetedFourth": "PASS4,2.5m",
+    "finalMatrix": "PASS1,6.5m;80main/84supplement/36bigint/36zoom/8Evon",
+    "rootBuild": "PASS monorepo19web routes, final badge line-box source",
+    "lintClosing": "PASS",
+    "typecheckClosing": "PASS",
+    "stressSecond": "36bigint presentation cases passed; run FAIL new CSS-zoom helper selector; no threshold change",
+    "stressSeventh": "PASS1,1.6m;36bigint/36correct zoom-emulation states",
+    "fullE2E": "PASS69/SKIP18/FAIL0,13.7m,retries0",
+    "reconcile": "PASS1,1.8m; actual paint and opened reversal",
+    "fullE2EFirst": "68PASS18SKIP1FAIL12.5m; ordinary C81 row160.171875>160px",
+    "targetedClosing": "8PASS1SKIP2.8m, C81+C94 after badge line-height1.4",
+    "lintFinalSource": "PASS",
+    "typecheckFinalSource": "PASS"
+  },
+  "limits": [
+    "AT/physical phone/soft keyboard/authenticated SafariFirefox/OS-theme-live/PWA-beforeHTML/remote-save NOT_TESTED",
+    "C95/C96/C97 not implemented",
+    "C91 query_canceled57014 remains unexplained"
+  ],
+  "preservation": {
+    "initialTracked": 1157,
+    "C75ExpectedHashes": 17,
+    "pendingFullE2E": true
+  },
+  "rawEvon": {
+    "dashboardPerTheme": 2,
+    "expensesPerTheme": 1,
+    "notificationsPerTheme": 0,
+    "settingsPerTheme": 0,
+    "rulesUnchanged": true,
+    "actualReconciliation": "PASS; non-painted/collapsed contexts retained explicitly"
+  },
+  "lastRuntimeChange": "Loan badge font14px retained; line-height1.4 after C81 160.171875px violation. Existing160px cap untouched.",
+  "matrixProvenance": "Final5 measured09/10 before final badge line-height adjustment; affected Loan/metadata checked C81+C94 and full final, all other132source unchanged.",
+  "completedDate": "2026-10-10",
+  "closing": {
+    "diff": "PASS",
+    "secret": "PASS redacted gitleaks8.30.1 pinned digest,changed files/diff only,0findings",
+    "artifact": "PASS12PNG hashes and80+84+36+36/8probes JSON",
+    "preservation": "PASS1157before/12allowed changed/1145unchanged,17C75exact/15generated restored",
+    "fixture": "Guarded55322,sixcounts0",
+    "remote": "No push/deploy/CI/remote mutation",
+    "next": "C95 AWAITING_APPROVAL; stop"
+  },
+  "logs": [
+    {
+      "file": "lint-final-source.log",
+      "sha256": "7787715262f0784cd6c91cf514b5eb577b4595ec144f87668944d0a08993394c"
+    },
+    {
+      "file": "typecheck-final-source.log",
+      "sha256": "2812b211e78fd1f57617d1c42f4dda38de6098b1422b50fe1a0afac69b4e271d"
+    },
+    {
+      "file": "unit-final.log",
+      "sha256": "1a6fdb1ed6851f3ff1762751ba1ba576d20882602c471fab7d080984b09863af"
+    },
+    {
+      "file": "build-complete.log",
+      "sha256": "54d8fca358bc43b593881c61029e93b62c9bc7311bc605be0d87f8bd8d564867"
+    },
+    {
+      "file": "matrix-final5.log",
+      "sha256": "90706fa30bb1355e25382aa06ef476aadc38d8dfe7bb45ebc0dcfa2cb29de4a8"
+    },
+    {
+      "file": "c81-c94-final.log",
+      "sha256": "5cb75b5b46aa0eb65160a8908ffa07a6bfd833b3056b2fb6ea4db5a74f6a9573"
+    },
+    {
+      "file": "e2e-full.log",
+      "sha256": "b879ec9b9a312f7828eb00a3b9649234ec58a89992c5b7c6262b5e54c4a185db"
+    },
+    {
+      "file": "e2e-full-final.log",
+      "sha256": "984dbe46bedc2622a1bffca9b798497e8d2632ea32ea1e469c1edeeaa47c09a2"
+    }
+  ]
+}

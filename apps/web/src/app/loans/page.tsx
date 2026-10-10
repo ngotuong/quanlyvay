@@ -1,3 +1,4 @@
+import { NameDisclosure } from "@/components/business/name-disclosure";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Pagination, parsePage } from "@/components/business/pagination";
 import { PrivacyAmount, PrivacyRegion } from "@/components/app/privacy-provider";
@@ -97,11 +98,11 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
             const periodRate = formatPercent(periodRateInput(loan.initial_daily_rate_percent, loan.interest_cycle_days));
 
             return (
-              <LoanCardLink direction={loan.direction} href={`/loans/${loan.id}?returnTo=${encodeURIComponent(returnTo)}`} quickActionHref={profile.role !== "VIEWER" && status !== "SETTLED" ? `/loans/${loan.id}?transaction=1&returnTo=${encodeURIComponent(returnTo)}` : undefined} key={loan.id}>
+              <NameDisclosure className="loan-name-disclosure" key={loan.id}><LoanCardLink direction={loan.direction} href={`/loans/${loan.id}?returnTo=${encodeURIComponent(returnTo)}`} quickActionHref={profile.role !== "VIEWER" && status !== "SETTLED" ? `/loans/${loan.id}?transaction=1&returnTo=${encodeURIComponent(returnTo)}` : undefined}>
                 <div className="loan-card-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins /> : <Landmark />}</div>
                 <div className="loan-card-main">
                   <div className="loan-card-heading">
-                    <div className="loan-card-title"><h2><PrivacyRegion>{displayName}</PrivacyRegion></h2><p>Gốc ban đầu <span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.original_principal_vnd)} /></span></p></div>
+                    <div className="loan-card-title"><h2 data-disclosure-name><PrivacyRegion>{displayName}</PrivacyRegion></h2><p>Gốc ban đầu <span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.original_principal_vnd)} /></span></p></div>
                     <div className="loan-card-tags"><Badge className="direction-badge" tone={loan.direction === "LENDING" ? "lending" : "borrowing"} data-direction={loan.direction}>{directionText}</Badge><Badge className="status-badge" tone={status === "ACTIVE" ? "success" : status === "SETTLED" ? "neutral" : status === "OVERDUE" ? "warning" : "danger"} data-status={status}>{statusLabels[status]}</Badge></div>
                   </div>
                   <dl className="loan-card-details">
@@ -121,7 +122,7 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
                   </div>
                   <div><dt>{loan.direction === "LENDING" ? "Lãi đã thu" : "Lãi đã trả"}</dt><dd><span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.interestRecordedVnd)} /></span></dd></div>
                 </dl>
-              </LoanCardLink>
+              </LoanCardLink></NameDisclosure>
             );
           })}
         </section>

@@ -1,3 +1,4 @@
+import { NameDisclosure } from "@/components/business/name-disclosure";
 import { Pagination, parsePage } from "@/components/business/pagination";
 import { RenderRevision } from "@/components/app/render-revision";
 import { PrivacyAmount, PrivacyRegion, PrivacyForm } from "@/components/app/privacy-provider";
@@ -121,7 +122,7 @@ export default async function LoanDetailPage({ params, searchParams }: { params:
       <RenderRevision />
       <Link className="back-link" href={returnTo}><ArrowLeft size={18} />Quay lại danh sách</Link>
       <div className="loan-detail-heading">
-        <div><div className="heading-badges"><Badge className="direction-badge" tone={loan.direction === "LENDING" ? "lending" : "borrowing"} data-direction={loan.direction}>{directionLabel}</Badge><Badge className="status-badge" tone={status === "ACTIVE" ? "success" : status === "SETTLED" ? "neutral" : status === "OVERDUE" ? "warning" : "danger"} data-status={status}>{statusLabels[status]}</Badge></div><h1><PrivacyRegion>{displayName}</PrivacyRegion></h1><p className="loan-heading-metadata"><span><PrivacyRegion>{counterpartyName}</PrivacyRegion></span><span aria-hidden="true"> · </span><span>Giải ngân {formatDate(loan.disbursement_date)}</span></p></div>
+        <div><div className="heading-badges"><Badge className="direction-badge" tone={loan.direction === "LENDING" ? "lending" : "borrowing"} data-direction={loan.direction}>{directionLabel}</Badge><Badge className="status-badge" tone={status === "ACTIVE" ? "success" : status === "SETTLED" ? "neutral" : status === "OVERDUE" ? "warning" : "danger"} data-status={status}>{statusLabels[status]}</Badge></div><NameDisclosure><h1 data-disclosure-name><PrivacyRegion>{displayName}</PrivacyRegion></h1></NameDisclosure><p className="loan-heading-metadata"><span><PrivacyRegion>{counterpartyName}</PrivacyRegion></span><span aria-hidden="true"> · </span><span>Giải ngân {formatDate(loan.disbursement_date)}</span></p></div>
       </div>
 
       <Tabs className="loan-tabs" aria-label="Nội dung khoản vay"><TabList>{tabs.map((tab) => <Link key={tab.id} href={tabHref(tab.id)} scroll={false} data-active={activeTab === tab.id} aria-current={activeTab === tab.id ? "page" : undefined}>{tab.label}</Link>)}</TabList></Tabs>
