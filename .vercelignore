@@ -34,3 +34,6 @@
 **/*.key
 /.tmp/
 /.c55-remote-head/
+
+# Secret-scan disposition metadata is not runtime source.
+/.gitleaksignore

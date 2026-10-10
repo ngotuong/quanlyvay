@@ -19,7 +19,7 @@ test.beforeAll(async () => {
   if (process.env.E2E_DATABASE_PREPARED === "true") resetLocalDatabase();
   await globalSetup();
   const env = localSupabaseEnvironment();
-  expect(new URL(env.API_URL).port).toBe("55321");
+  expect(new URL(env.API_URL).port).toBe(process.env.CI === "true" ? "54321" : "55321");
   const owner = createClient(env.API_URL, env.PUBLISHABLE_KEY || env.ANON_KEY, { auth: { persistSession: false } });
   const admin = createClient(env.API_URL, env.SECRET_KEY || env.SERVICE_ROLE_KEY, { auth: { persistSession: false } });
   const signed = await owner.auth.signInWithPassword({ email: "c6_owner_e2e@auth.local", password });

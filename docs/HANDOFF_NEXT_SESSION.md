@@ -1,6 +1,7 @@
-# Bàn giao — C97 hoàn tất, C98 chờ duyệt
+# Bàn giao — C98 đang nghiệm thu và phát hành
 
-C97 COMPLETED local ngày10/10/2026; OWNER đã phê duyệt trong hội thoại. C98 AWAITING_APPROVAL.
+C97 COMPLETED local ngày10/10/2026. C98 IN_PROGRESS; OWNER đã phê duyệt trong hội thoại.
+Phạm vi: nghiệm thu A/C92–C97 và release Preview/Production/alias theo C91/runbook.
 Repository chuẩn `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`. Phiên mới đọc toàn bộ AGENTS.md,
 PROJECT_CONTEXT.md, roadmapC98(section50), gitstatus và xác nhận OWNER duyệt C98/phạmvi release.
 Dừng đúng checkpoint; không tự push/deploy/remote hoặc mở Google/backup/automation từ lịch sử.
@@ -44,4 +45,4 @@ protected giữ;17C75exact/15generatedrestored. DockerC20-testlabel/DB55322 đú
 mainDB54322 khôngdùng. Diff/artifact/scopedpinnedgitleaks8.30.1redacted0findings đạt.
 Không remote/push/deploy/schema/RPC/financialengine/dependency/Google/backup. C92/C93/C94/C95/C96
 local752fd48/577d6f4/0aa52ac/82151b6/1b54be1, C97 chốt cùng source/docs/context; chưa push/deploy
-C92–C97. Preview/Production vẫn C91, IDs/aliases/CI trong context. C98 release phải duyệt mới làm.
+C92–C97. Preview/Production vẫn C91, IDs/aliases/CI trong context. C98 release đã được duyệt; đang thực hiện, chưa chuyển alias.

@@ -4,7 +4,7 @@ roadmap_version: 1.0.321
 last_updated: 2026-10-10
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C98
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 last_completed_checkpoint: C97
 next_checkpoint: C98
 ---
@@ -166,8 +166,9 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - C97 preservation/diff/artifact/secret PASS:1235trackedbefore/10scopechanged/1225unchanged,
   153websrcfreeze/73financialprotected giữ;17C75exact/15generatedrestored. C20-testlabel/
   DB55322 đúng,sixcounts0; không main54322/push/deploy/remote/schema/RPC/engine/dependency change.
-  Runtime phát hành vẫn C91. C98 `AWAITING_APPROVAL`; blocker: chờ phê duyệt C98, không có blocker triển khai C97.
-  Dừng theo AGENTS§3, không tự phát hành.
+  Runtime phát hành vẫn C91. C98 `IN_PROGRESS`; OWNER phê duyệt ngày10/10/2026 trong hội thoại.
+  Phạm vi C98: nghiệm thu chuỗi A/C92–C97 và phát hành Preview/Production/alias theo C91/runbook.
+  Blocker: chưa xác định; không mutate dữ liệu tài chính/tài khoản/schema/secrets để smoke.
   NOT_TESTED AT/phone thật/softkeyboard/nativeclipboard/nativezoom/authenticatedSafariFirefox/
   OS-theme-live/PWA-beforeHTML/remote save giữ rõ trong report. C91 query_canceled57014 vẫn chưa
   xác định nguyên nhân; không mở DB tuning/Google/backup từ lịch sử.
@@ -239,7 +240,7 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - G1: bảng dashboard mobile cần giữ nhận diện dòng; G2: metadata11.2–11.52px; G3: tên200 ký
   tự dài; G4: notification hover và selected chung fill. C89 ghi Gu, không lỗi quyết toán.
   C92 đã chọn A; G1–G4 đã xử lý local tại C94, Quick Amount C95/drawer C96/loading-motion C97
-  đã hoàn tất. C98 chờ nghiệm thu/phát hành, không coi đồng ý roadmap là chọn mọi Gu/style.
+  đã hoàn tất. C98 đang nghiệm thu/phát hành, không coi đồng ý roadmap là chọn mọi Gu/style.
 - Token primitives được phép chứa giá trị màu gốc; component dùng semantic token. Không
   mục tiêu giảm50% CSS bằng mọi giá, không đánh đồng di chuyển file với tăng hiệu năng.
 - OWNER chọn A và Quick Amount +50tr/+100tr/+150tr/+200tr ngày09/10/2026; spec tại docs/design-c92/selected-design.md.
@@ -286,5 +287,5 @@ không dùng lịch sử để suy quyền thực hiện mới.
   [Backup](docs/BACKUP_RESTORE.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md).
 - Skill Evon: `/Users/ngotuong/.codex/skills/evondev-ui-ux/SKILL.md`; áp khi công việc UI cần,
   không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
-- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C97 hoàn tất; C98 chờ duyệt/A đã chọn.
-  Không bắt đầu C98 hoặc tạo cuộc trò chuyện tự động.
+- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C97 hoàn tất; C98 đã được duyệt/A đã chọn.
+  Chỉ thực hiện C98, không tạo cuộc trò chuyện tự động.

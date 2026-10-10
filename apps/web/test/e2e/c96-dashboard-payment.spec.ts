@@ -22,7 +22,7 @@ function daysBefore(days: number) { const date = new Date(today + "T00:00:00Z");
 test.beforeAll(async () => {
   test.setTimeout(300000);
   if (process.env.E2E_DATABASE_PREPARED === "true") resetLocalDatabase();
-  await globalSetup(); expect(new URL(local.API_URL).port).toBe("55321");
+  await globalSetup(); expect(new URL(local.API_URL).port).toBe(process.env.CI === "true" ? "54321" : "55321");
   const signed = await owner.auth.signInWithPassword({ email: "c6_owner_e2e@auth.local", password }); expect(signed.error).toBeNull();
   expect((await admin.from("profiles").update({ must_change_password: false }).eq("user_id", signed.data.user!.id)).error).toBeNull();
   const cp = await owner.rpc("create_counterparty", { p_name: "C92 Minh An", p_notes: "Dữ liệu giả C96" }); expect(cp.error).toBeNull();

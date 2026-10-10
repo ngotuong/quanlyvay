@@ -1,0 +1,235 @@
+{
+  "method": "Synthetic local fixture only; 40 main/drawer full-page plus6 intermediate-width drawers",
+  "files": [
+    {
+      "path": "screenshots/audit-1440-dark.png",
+      "sha256": "37d1a6ed6d22db9621f35ef4bc839ee38ee732b4d033d4a4b094c75691498c71",
+      "bytes": 344676
+    },
+    {
+      "path": "screenshots/audit-1440-light.png",
+      "sha256": "45d712db50ad53d93a35df73fad573fe877bedbf2361fd6c3526b1511b472ad6",
+      "bytes": 343631
+    },
+    {
+      "path": "screenshots/audit-375-dark.png",
+      "sha256": "ad998d5eca54d90aecadefc5cb926413bc648c11ab744f532c725c552d211170",
+      "bytes": 291374
+    },
+    {
+      "path": "screenshots/audit-375-light.png",
+      "sha256": "17e9ba5821debb97b06122c7ef467341a6a7b30d08629c973b8b81ef8ca70453",
+      "bytes": 290090
+    },
+    {
+      "path": "screenshots/counterparties-1440-dark.png",
+      "sha256": "ba6d29fe43989ab45491faaa52804fa31048fcc907acd878de2c1cd04182a846",
+      "bytes": 97820
+    },
+    {
+      "path": "screenshots/counterparties-1440-light.png",
+      "sha256": "19f52e61e5b80b8a6f7abb818120465769899c8e76a98659df2f7d966f5a395c",
+      "bytes": 97042
+    },
+    {
+      "path": "screenshots/counterparties-375-dark.png",
+      "sha256": "99f670e6918eb2acb252bcc77f3e96e55e22008f4d7cd9bf6dc7a1bef682c2b3",
+      "bytes": 55958
+    },
+    {
+      "path": "screenshots/counterparties-375-light.png",
+      "sha256": "27ba404e6ce41931efce7d4b78b78b6fa31841b347a44c25b78905a0630fdc9f",
+      "bytes": 54527
+    },
+    {
+      "path": "screenshots/dashboard-1440-dark.png",
+      "sha256": "6a9bc33e3d1649e8e830bdd8776e56aa3f47f61e3d57dd619903f14a26cb9bfe",
+      "bytes": 218145
+    },
+    {
+      "path": "screenshots/dashboard-1440-light.png",
+      "sha256": "c6062e7357436e2a653d3ccceb60cea5f7751036af0ac6d7a8397a52da16350c",
+      "bytes": 216378
+    },
+    {
+      "path": "screenshots/dashboard-375-dark.png",
+      "sha256": "ab0b0d6b2ad348ae5ea28e34aeb86dc66f6b009df1dc533455fe23f358b85f2e",
+      "bytes": 170077
+    },
+    {
+      "path": "screenshots/dashboard-375-light.png",
+      "sha256": "d99b6d588d9d1521b95996a7b735704464b309b46f743ef738384d1a9b81c338",
+      "bytes": 168587
+    },
+    {
+      "path": "screenshots/drawer-1024-dark.png",
+      "sha256": "ff4fed822893aa57396c59fc4b2acd800027dab2ce00ac363e4aedf7edcab12b",
+      "bytes": 143457
+    },
+    {
+      "path": "screenshots/drawer-1024-light.png",
+      "sha256": "a40120034627ab2669b1a30ced3bfa01fe7d5f2c624e86f7d75b7e4afe2e8819",
+      "bytes": 149015
+    },
+    {
+      "path": "screenshots/drawer-1440-dark.png",
+      "sha256": "effeb0005c40acbe54ce74f1267b6ea941e63284925100995b78a9ca8511d8df",
+      "bytes": 197201
+    },
+    {
+      "path": "screenshots/drawer-1440-light.png",
+      "sha256": "1f00e280e68760b0856fc9a24db3853aa3eb488577f3564c50d8b5d457d1254e",
+      "bytes": 201180
+    },
+    {
+      "path": "screenshots/drawer-375-dark.png",
+      "sha256": "2006edef9240031838416965bdae2ada41d3711ba417e75e3461dc91d0b21b9a",
+      "bytes": 52067
+    },
+    {
+      "path": "screenshots/drawer-375-light.png",
+      "sha256": "e7f084f391cc8aa51e28a56eabe9881135da29c4d7081d63cf88d556608ed675",
+      "bytes": 54448
+    },
+    {
+      "path": "screenshots/drawer-390-dark.png",
+      "sha256": "f5dce2e6af180c7a9f1c823361439939d302347fad03493badfeedf2194e09b7",
+      "bytes": 52072
+    },
+    {
+      "path": "screenshots/drawer-390-light.png",
+      "sha256": "21bd326b670e6f37b1ecec33d0e252d1108488be6805a8341b467bad674aeb9f",
+      "bytes": 54437
+    },
+    {
+      "path": "screenshots/drawer-768-dark.png",
+      "sha256": "c349237fa8ec9d4aeacaf8c47c4121889d1e418ea4a24bed8c91699adb4c3062",
+      "bytes": 55172
+    },
+    {
+      "path": "screenshots/drawer-768-light.png",
+      "sha256": "fe3ac9fc2633d4412c1f335c186c58810d701ad0f3f82438325438da8e17de7b",
+      "bytes": 57819
+    },
+    {
+      "path": "screenshots/expenses-1440-dark.png",
+      "sha256": "bc7935580464d5ad1e4dfc29f9ced3168b065e790ff29d6c7c0020b67b5621e9",
+      "bytes": 73156
+    },
+    {
+      "path": "screenshots/expenses-1440-light.png",
+      "sha256": "66ac7e716fbe4298e7cc3d351603a095f19e8adfda07ae1b3b4cebb74e8a4818",
+      "bytes": 72519
+    },
+    {
+      "path": "screenshots/expenses-375-dark.png",
+      "sha256": "2ddedccbbcd4001bca73b48f5278bae3e0c03f246299e574b814c733142e344e",
+      "bytes": 48006
+    },
+    {
+      "path": "screenshots/expenses-375-light.png",
+      "sha256": "16c46c457b86822d0e29f0344135ba554f27373b3c9cba07e46a110e106b8e0e",
+      "bytes": 47508
+    },
+    {
+      "path": "screenshots/loan-1440-dark.png",
+      "sha256": "245d73c777ee316efd5a8fdc75ae2dc95505da0bc0246dd0d21917d6a0273d3e",
+      "bytes": 98591
+    },
+    {
+      "path": "screenshots/loan-1440-light.png",
+      "sha256": "694a45165f45d3cc14649dd1a2bea6ac8467c7f7406c04ca44b73ee7d129f507",
+      "bytes": 98116
+    },
+    {
+      "path": "screenshots/loan-375-dark.png",
+      "sha256": "40ebe958c6b5169d79ec85e36d3894d79989f7010a508bbb7660c2547bdfef20",
+      "bytes": 75598
+    },
+    {
+      "path": "screenshots/loan-375-light.png",
+      "sha256": "a192ca911acac2af84e32d95307724a2f208b7552ec3729c051940e60edd4193",
+      "bytes": 74503
+    },
+    {
+      "path": "screenshots/loans-1440-dark.png",
+      "sha256": "080753882f23f95dd673726edfde4546d67126249013051286d68622c857850a",
+      "bytes": 169368
+    },
+    {
+      "path": "screenshots/loans-1440-light.png",
+      "sha256": "1cfb5071a319f934eb8ff2fd102f00ff14232ad6e08653070c3179d4df0f0145",
+      "bytes": 167180
+    },
+    {
+      "path": "screenshots/loans-375-dark.png",
+      "sha256": "ee2fef77eca68ff31b2e4e50a74177a011c7264ecd29afeaeac63b7d09e6702c",
+      "bytes": 136450
+    },
+    {
+      "path": "screenshots/loans-375-light.png",
+      "sha256": "4b3b498c28428f1f5560b3e2953d3c6c08ff4836b858ff1e5d750e4300239701",
+      "bytes": 134321
+    },
+    {
+      "path": "screenshots/new-loan-1440-dark.png",
+      "sha256": "8a65dea7dced802eef1b87fb355b176e7303242db8c4e868bde49cc49181522f",
+      "bytes": 129024
+    },
+    {
+      "path": "screenshots/new-loan-1440-light.png",
+      "sha256": "9f2d301233c943b84452e695fb649724e3669b833c86be5f6fac31693f8b2f00",
+      "bytes": 128344
+    },
+    {
+      "path": "screenshots/new-loan-375-dark.png",
+      "sha256": "a0555f9b4e7fc4e0edeea54a99222ad422e1d40d937c6cfa56f61a89ab9e5536",
+      "bytes": 102229
+    },
+    {
+      "path": "screenshots/new-loan-375-light.png",
+      "sha256": "b670aa8950f234c6fe26cab382e05660d45057bcea83d2f0acf7137f32f7f811",
+      "bytes": 101042
+    },
+    {
+      "path": "screenshots/notifications-1440-dark.png",
+      "sha256": "7d6901654d61f113d292c99ce21154f576ca89cf8c5413fe0418b37e0d935060",
+      "bytes": 98314
+    },
+    {
+      "path": "screenshots/notifications-1440-light.png",
+      "sha256": "b5a101eee0e2f04a98caf1323f508536fcc2875285b22a0197940b0f130bbe2a",
+      "bytes": 97680
+    },
+    {
+      "path": "screenshots/notifications-375-dark.png",
+      "sha256": "2fa46d9662744c2696af0ae580ec418272c46bc355dcc8b58483b6fade7668b3",
+      "bytes": 68204
+    },
+    {
+      "path": "screenshots/notifications-375-light.png",
+      "sha256": "6740c75e8b1db02b4f09b1ce41576b7ba88267a26e735514b3046b9ade7ed039",
+      "bytes": 67392
+    },
+    {
+      "path": "screenshots/settings-1440-dark.png",
+      "sha256": "6ad8abe0f625cb5e2fdf049f7b79cb7aebd3d9e48e5b1c07bd7103de4cf8a576",
+      "bytes": 94829
+    },
+    {
+      "path": "screenshots/settings-1440-light.png",
+      "sha256": "f79a5c957aa3e257f1cc7ec416ee763c19f01ada0658ef5a192f61b706d46626",
+      "bytes": 94581
+    },
+    {
+      "path": "screenshots/settings-375-dark.png",
+      "sha256": "77ecaa6a4cd4265fba12fad46d92e29b565d76db0bb8ff483bb95bced3a23aa2",
+      "bytes": 67760
+    },
+    {
+      "path": "screenshots/settings-375-light.png",
+      "sha256": "083547aa424a7a8263594d576f3f04038b04fad1c00ef2fad3d01c48b15d9963",
+      "bytes": 67405
+    }
+  ]
+}

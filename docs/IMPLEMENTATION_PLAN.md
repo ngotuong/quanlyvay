@@ -73,7 +73,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `COMPLETED` |
 | C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `COMPLETED` |
 | C97 | Loading đúng từng màn và motion có chọn lọc | `COMPLETED` |
-| C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `AWAITING_APPROVAL` |
+| C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -2404,7 +2404,8 @@ Phép đo liên tục bổ sung3PASS0FAIL5.4m/53observations (36route/4cold/12dr
 
 ### C98 — Nghiệm thu tổng hợp và phát hành
 
-Trạng thái: `AWAITING_APPROVAL`. C97 hoàn tất local; chờ OWNER duyệt C98/phạm vi release cụ thể.
+Trạng thái: `IN_PROGRESS`. OWNER phê duyệt C98 ngày10/10/2026 trong hội thoại;
+nghiệm thu A/C92–C97 và phát hành Preview/Production/alias theo C91/runbook.
 
 Phạm vi: full lint/typecheck/unit/build/E2E; visual+functional matrix5khổ×2theme, System/
 zoom320/200%/viewportlow/name200/boundaryVND/emptyerrorloading/keyboard/privacy và contrast

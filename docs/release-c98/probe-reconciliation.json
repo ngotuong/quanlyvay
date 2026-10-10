@@ -1,0 +1,1189 @@
+{
+  "original": "Evon probe unmodified checks; adapter only injects isolated synthetic storage and waits for selected form",
+  "probes": [
+    {
+      "label": "light",
+      "code": 0
+    },
+    {
+      "label": "dark",
+      "code": 0
+    }
+  ],
+  "pageErrors": [],
+  "mutationGuard": "Clear required amount before exploratory clicks; native validity prevents financial submit. Context numbers stay authoritative.",
+  "reconciliation": {
+    "beforePreparationScroll": 0,
+    "afterClearFocusScroll": 0,
+    "moneyNodes": [
+      {
+        "text": "1.284.500.000",
+        "paintedOpacity": 1,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-number",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DD",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DL",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-balance-slot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-payment-context",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(29, 49, 80)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FIELDSET",
+            "class": "business-form-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FORM",
+            "class": "compact-form dialog-form",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "ui-bottom-sheet-surface",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIALOG",
+            "class": "transaction-dialog ui-bottom-sheet dashboard-payment-drawer",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": " ₫",
+        "paintedOpacity": 1,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-unit",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DD",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DL",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-balance-slot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-payment-context",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(29, 49, 80)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FIELDSET",
+            "class": "business-form-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FORM",
+            "class": "compact-form dialog-form",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "ui-bottom-sheet-surface",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIALOG",
+            "class": "transaction-dialog ui-bottom-sheet dashboard-payment-drawer",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": "44.957.500",
+        "paintedOpacity": 1,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-number",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DD",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DL",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-balance-slot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-payment-context",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(29, 49, 80)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FIELDSET",
+            "class": "business-form-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FORM",
+            "class": "compact-form dialog-form",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "ui-bottom-sheet-surface",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIALOG",
+            "class": "transaction-dialog ui-bottom-sheet dashboard-payment-drawer",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": " ₫",
+        "paintedOpacity": 1,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-unit",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DD",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DL",
+            "class": "",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-balance-slot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-payment-context",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(29, 49, 80)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "payment-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FIELDSET",
+            "class": "business-form-fields",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "FORM",
+            "class": "compact-form dialog-form",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "ui-bottom-sheet-surface",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIALOG",
+            "class": "transaction-dialog ui-bottom-sheet dashboard-payment-drawer",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": "0",
+        "paintedOpacity": 0,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-number",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "privacy-amount ",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "chart-tooltip privacy-amount",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "0",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "cash-bar-control",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "bar-pair",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-month",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart-scroll",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-plot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SECTION",
+            "class": "ui-card ui-card--flat surface-card cash-flow-card",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": " ₫",
+        "paintedOpacity": 0,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-unit",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "privacy-amount ",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "chart-tooltip privacy-amount",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "0",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "cash-bar-control",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "bar-pair",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-month",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart-scroll",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-plot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SECTION",
+            "class": "ui-card ui-card--flat surface-card cash-flow-card",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": "10.370.000",
+        "paintedOpacity": 0,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-number",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "privacy-amount ",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "chart-tooltip privacy-amount",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "0",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "cash-bar-control",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "bar-pair",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-month",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart-scroll",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-plot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SECTION",
+            "class": "ui-card ui-card--flat surface-card cash-flow-card",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      },
+      {
+        "text": " ₫",
+        "paintedOpacity": 0,
+        "ancestors": [
+          {
+            "tag": "SPAN",
+            "class": "vnd-unit",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "privacy-amount ",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SPAN",
+            "class": "chart-tooltip privacy-amount",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "0",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BUTTON",
+            "class": "cash-bar-control",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "bar-pair",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-month",
+            "color": "rgb(179, 194, 215)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-chart-scroll",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "cash-flow-plot",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "SECTION",
+            "class": "ui-card ui-card--flat surface-card cash-flow-card",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(23, 34, 53)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-main-grid dashboard-focus-grid",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "dashboard-workspace",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "MAIN",
+            "class": "app-content",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-main-column",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "DIV",
+            "class": "app-frame",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgba(0, 0, 0, 0)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "BODY",
+            "class": "min-h-full flex flex-col",
+            "color": "rgb(241, 245, 252)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          },
+          {
+            "tag": "HTML",
+            "class": "inter_b1848a93-module__A4qATq__variable geist_mono_8d43a2aa-module__8Li5zG__variable h-full antialiased",
+            "color": "rgb(255, 255, 255)",
+            "background": "rgb(11, 18, 32)",
+            "opacity": "1",
+            "visibility": "visible"
+          }
+        ]
+      }
+    ]
+  }
+}
