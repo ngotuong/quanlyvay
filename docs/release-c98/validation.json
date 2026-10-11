@@ -1,5 +1,5 @@
 {
-  "status": "IN_PROGRESS",
+  "status": "COMPLETED",
   "sourceSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
   "sourceCiRun": 38069136549,
   "local": {
@@ -153,7 +153,67 @@
     "releaseSourceSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
     "finalStatusShaRun": "Recorded in conversation after exactSHA5jobsSUCCESS to avoid selfreferential commit loop"
   },
-  "finalStatusCI": {
+  "releaseStatus": "COMPLETED",
+  "amendedClosingCI": {
+    "headSha": "eebe68d16493c5aeb574fc3bca86fab8601791d5",
+    "runId": 38152652299,
+    "url": "https://github.com/ngotuong/quanlyvay/actions/runs/38152652299",
+    "status": "completed",
+    "conclusion": "success",
+    "jobs": [
+      {
+        "name": "Workflow policy",
+        "conclusion": "success",
+        "jobId": 114509100668
+      },
+      {
+        "name": "Quality and build",
+        "conclusion": "success",
+        "jobId": 114509100768
+      },
+      {
+        "name": "Supabase Auth pgTAP and E2E",
+        "conclusion": "success",
+        "jobId": 114509100807
+      },
+      {
+        "name": "Dependency and secret scan",
+        "conclusion": "success",
+        "jobId": 114509100821
+      },
+      {
+        "name": "Required CI gate",
+        "conclusion": "success",
+        "jobId": 114516607307
+      }
+    ],
+    "integration": {
+      "pgTAPFiles": 24,
+      "pgTAPTests": 527,
+      "authPass": 6,
+      "authFail": 0,
+      "e2ePass": 83,
+      "e2eSkip": 19,
+      "e2eFail": 0,
+      "e2eMinutes": 30.0,
+      "e2eRetries": 0
+    },
+    "amendment": {
+      "approvedBy": "OWNER in current conversation2026-10-11",
+      "integrationJobDeadlineMinutesBefore": 35,
+      "integrationJobDeadlineMinutesAfter": 45,
+      "workflowChange": "Exactly one line",
+      "individualTestAssertionTimeoutsRetriesSkips": "unchanged",
+      "resetTeardownFiveJobsFailClosedGate": "unchanged"
+    },
+    "releaseSourceSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
+    "sourceCI": 38069136549,
+    "earlierClosingProofSha": "4b22848a35e440eac20877b576ac463abfb48b9b",
+    "earlierClosingProofCI": 38144466141,
+    "runtimeFinancialChange": "none from release source",
+    "finalStatusShaRun": "Record in conversation after exact final docs SHA5jobsSUCCESS to avoid selfreferential commit loop"
+  },
+  "previousFinalStatusCI": {
     "headSha": "7e130d9c0a81d342117316a3aed6497c5453250d",
     "runId": 38146959473,
     "attempts": 2,
@@ -165,5 +225,5 @@
     "required": "ExactfinalSHA5jobsSUCCESS before reporting completion",
     "amendment": "OWNER approved integration job deadline35→45m on2026-10-11; waiting new exactSHA5jobsSUCCESS"
   },
-  "releaseStatus": "COMPLETED"
+  "finalStatusCI": "Check exact SHA of final docs commit after this amendment proof; mustSUCCESS5jobs before reporting; SHA/run recorded in conversation"
 }

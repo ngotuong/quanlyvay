@@ -1,14 +1,17 @@
 # C98 — Nghiệm thu A và phát hành
 
-C98 IN_PROGRESS ngày11/10/2026 ở CI commit trạng thái cuối. Chuỗi UI/UX C92–C97 đã phát hành trên Preview,
-Production và alias mặc định; local gates, CI source/closingproof và authenticated rollout/hậukiểm đạt.
-[CI chốt38144466141](https://github.com/ngotuong/quanlyvay/actions/runs/38144466141) của
-`4b22848a35e440eac20877b576ac463abfb48b9b` SUCCESS đủ5job:pgTAP527/Auth6/E2E83PASS19SKIP0FAIL27.4m.
-Commit trạng thái cuối chỉ sửa tài liệu; CI đúngSHA phải đạt trước báo OWNER, SHA/run ghi hội thoại
-để tránh vòng commit tự thamchiếu. FinalCI7e130d9/run38146959473 hai lần CANCELLED vì deadlinejob35m;
-lần2 tới102/102 rồi bị hủy trong teardownDB, không có summaryE2E/PASS. Đề xuất
-[deadlinejob45m](ci-budget-proposal.md)/[patch](ci-budget-proposal.patch) OWNER đãduyệt vàđãápdụng ngày11/10/2026;
-[bằng chứng](final-ci-blocker.json). Không rerun lần3 cùng cấu hình. Chưa có checkpoint kếtiếp trong roadmap; không tựmởC99.
+C98 COMPLETED ngày11/10/2026. Chuỗi UI/UX C92–C97 đã phát hành trên Preview,
+Production và alias mặc định; local gates, CI source/closingproof và authenticated rollout/hậu kiểm đạt.
+Source211f8e4/CI38069136549 và closingproof4b22848/CI38144466141 SUCCESS5jobs.
+Finalstatus7e130d9/CI38146959473 bị hủy cả2lần do job35m; lượt2 tới102/102 rồi teardown,
+không có summaryE2E/PASS. OWNER duyệt riêng deadline jobintegration35→45m ngày11/10;
+đã đổi một dòng workflow, giữ test/assertiontimeouts/retries0/102bài/skips/reset/teardown/5jobs/gate.
+[AmendmentclosingCI38152652299](https://github.com/ngotuong/quanlyvay/actions/runs/38152652299)
+của `eebe68d16493c5aeb574fc3bca86fab8601791d5` SUCCESS đủ5job:pgTAP527/24files/Auth6/0/
+E2E83PASS19SKIP0FAIL30.0m,retries0. [Bằng chứng](amended-closing-ci.json),
+[lịch sử blocker đã giải quyết](final-ci-blocker.json),[phê duyệt/patch](ci-budget-proposal.md).
+Commit trạng thái cuối chỉ sửa tài liệu; CI đúngSHA5SUCCESS phải đạt trước báo OWNER,
+SHA/run ghi hội thoại để tránh vòng commit tự thamchiếu. Chưa có checkpoint kếtiếp; không tựmởC99.
 
 Thiết kế A giữ B/Inter/KPI trước task; mobile Dashboard cards/desktop table, tên200 có disclosure,
 helper14/ngoại lệ12, notification selected/hover rõ; principal chip+50/+100/+150/+200tr bằng BigInt;
@@ -80,7 +83,7 @@ Bảo toàn1296initialtracked/10allowedchanged/1286unchanged,153runtime/73financ
 17C75exact/15generatedrestored saurootresume. DockerC20-testlabel/DB55322/sixcounts0 sauteardown,
 main54322 khôngdùng. [Preservation](preservation.json),56PNGhash/JSONparse PASS. Localserverlog có
 negativeAuth/injectedexpenseerror/destination-stream-closed-early, giữ raw không gọi toànapp runtime0.
-Closingproof CI đúngSHA SUCCESS5job; [closingproof](closing-ci.json). C98 IN_PROGRESS chờ CI mới sau deadlinejob45m đãduyệt; không mởcheckpoint kếtiếp.
+Closingproof CI đúngSHA SUCCESS5job; [closingproof](closing-ci.json). C98 COMPLETED sau amendmentCI45m đãđạt; không mởcheckpoint kếtiếp.
 
 ## Giới hạn và rủi ro
 

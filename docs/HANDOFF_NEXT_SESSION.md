@@ -1,6 +1,6 @@
-# Bàn giao — C98 tiếp tục CI cuối với deadline đã duyệt
+# Bàn giao — C98 hoàn tất sau amendment CI45m
 
-C98 IN_PROGRESS ngày11/10/2026 ở finalstatusCI; OWNER duyệt10/10/2026 trong hội thoại, cho toànphạmvi nghiệm thuA/C92–C97
+C98 COMPLETED ngày11/10/2026 sau amendmentCI45m đạt; OWNER duyệt10/10/2026 trong hội thoại, cho toànphạmvi nghiệm thuA/C92–C97
 vàpháthành Preview/Production/alias theoC91/runbook. Khôngxinlại duyệtC98. Canonicalrepo
 `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`; đọcAGENTS/PROJECT_CONTEXT/roadmapC98/gitstatus.
 Khôngcheckpointmới/Google/backup/automation hoặc côngviệc lịch sử. RoadmapdừngC98.
@@ -38,13 +38,16 @@ injectedexpense giữ, khôngwholeappzeroerror. Phone/AT/nativezoom/softkeyboard
 OSlive/PWAbeforeHTML/remotesave NOT_TESTED; zoomemulation khôngnativecertification.
 
 Closingproof4b22848a35e440eac20877b576ac463abfb48b9b,CI38144466141 SUCCESS5job:
-pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL27.4m,retries0. Release/closingproof đạt; C98IN_PROGRESS finalstatusCI/contextroadmap cậpnhật.
+pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL27.4m,retries0. Release/closingproof đạt; C98COMPLETED sau amendmentCI45m/contextroadmap cậpnhật.
 Finalstatuschỉdocs cũngphảiCI đúngSHA trước báoOWNER; resultSHA/run ghi hội thoại tránhselfreference.
 KhôngdùngsourceCI thayclosingCI. KhôngtựtạoC99,khôngcheckpointkếtiếpđượcđịnhnghĩa/duyệt;
-phiênsau kiểm lời nhắnOWNER mới trước mọithao tác. Blocker: finalCI38146959473/7e130d9 cả2lần CANCELLED vì job35m; lượt2 tới102/102 rồi
-teardownDB, không có summaryE2E. Khôngrerunlần3cùngcấuhình. Đề xuất tăng deadlinejobintegration
-35→45m ở docs/release-c98/ci-budget-proposal.md/.patch, OWNERĐÃDUYỆT/ĐÃÁPDỤNG11/10/2026.
-Giữ timeoutbài/assertion/retries0/skips/reset/teardown/5jobs/gate; metadata final-ci-blocker.json. Khônglặpdeploy/gates/remote/
+phiênsau kiểm lời nhắnOWNER mới trước mọithao tác. Blockerkhông. FinalCI38146959473/7e130d9 cả2lần CANCELLED vì job35m; lượt2 tới102/102 rồi
+teardownDB, không có summaryE2E/PASS. OWNER duyệt35→45m riêng deadlinejobintegration11/10,
+đã áp dụng đúngmột dòng; testtimeouts/assertions/retries0/skips/reset/teardown/5jobs/gate giữ.
+Amendmentclosingeebe68d16493c5aeb574fc3bca86fab8601791d5/CI38152652299 SUCCESS5jobs,
+pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL30.0m,retries0. Bằng chứng amended-closing-ci.json;
+final-ci-blocker.json giữ lịch sử+resolution. Finaldocsstatuscommit cũngkiểmCIexactSHA5SUCCESS
+trước báoOWNER, SHA/run tronghội thoại; khôngtựrerun/deploy nếugateđãđạt. Khônglặpdeploy/gates/remote/
 Google/backup từlịch sử. GiữNOT_TESTED và rủiroDB57014,khôngtựtuning.
 Proofs docs/release-c98/report.md,deployment-proof/native-auth-candidates/native-auth-aliases/
 native-auth-preview-post/rollback-proof/preservation/validation/verification-history.
