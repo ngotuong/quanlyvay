@@ -1,0 +1,245 @@
+{
+  "status": "VERIFIED_NOT_ACTIVATED",
+  "targets": [
+    {
+      "label": "preview",
+      "id": "dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV",
+      "immutableUrl": "https://quan-ly-vay-ca-nhan-1ypbqdcn7-ngotuong2105.vercel.app",
+      "target": "preview",
+      "readyState": "READY",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "scope": "ngotuong2105",
+      "routeFunctions": 43,
+      "regions": [
+        "sin1"
+      ],
+      "publicSmoke": {
+        "label": "baseline-preview",
+        "url": "https://tindung-preview.vercel.app",
+        "checkedAt": "2026-10-10T16:46:18.897Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      }
+    },
+    {
+      "label": "production",
+      "id": "dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu",
+      "immutableUrl": "https://quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "scope": "ngotuong2105",
+      "routeFunctions": 43,
+      "regions": [
+        "sin1"
+      ],
+      "publicSmoke": {
+        "label": "baseline-production",
+        "url": "https://tindung.vercel.app",
+        "checkedAt": "2026-10-10T16:46:21.239Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      }
+    },
+    {
+      "label": "default",
+      "id": "dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu",
+      "immutableUrl": "https://quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app",
+      "target": "production",
+      "readyState": "READY",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "scope": "ngotuong2105",
+      "routeFunctions": 43,
+      "regions": [
+        "sin1"
+      ],
+      "publicSmoke": {
+        "label": "baseline-default",
+        "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-10T16:46:22.285Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      }
+    }
+  ],
+  "freshAuthenticatedDashboard": {
+    "preview": true,
+    "production": true,
+    "default": true
+  },
+  "initialPreferences": {
+    "theme": "system",
+    "previewPrivacyHidden": true,
+    "productionPrivacyHidden": true,
+    "defaultPrivacyHidden": false
+  },
+  "runtimeWindows": [
+    {
+      "phase": "baseline-preview",
+      "url": "https://tindung-preview.vercel.app",
+      "checkedAt": "2026-10-10T16:46:51.739596+00:00",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "cliExit": 0,
+      "method": "Runtime CLI, counts only, no private log messages retained"
+    },
+    {
+      "phase": "baseline-production",
+      "url": "https://tindung.vercel.app",
+      "checkedAt": "2026-10-10T16:47:01.570228+00:00",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "cliExit": 0,
+      "method": "Runtime CLI, counts only, no private log messages retained"
+    }
+  ],
+  "productionPrepromoteIdentity": {
+    "id": "dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu",
+    "name": "quan-ly-vay-ca-nhan",
+    "url": "quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app",
+    "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+    "ownerId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+    "target": "production",
+    "readyState": "READY",
+    "regions": [
+      "sin1"
+    ],
+    "checkedAt": "2026-10-11T13:22:30.097989+00:00",
+    "method": "GET v13/deployments, identity/region metadata only; body/env/log data never persisted",
+    "sourceGitMetadata": {
+      "githubCommitRef": "main",
+      "githubCommitSha": "ed72b8615e19f2a3e6667014c86da4ac920ed1ba"
+    },
+    "pass": true,
+    "previewApiTargetNote": "API uses null for Preview; CLI inspect target is verified separately"
+  },
+  "productionPrepromotePublic": {
+    "label": "production-rollback-fresh",
+    "url": "https://tindung.vercel.app",
+    "checkedAt": "2026-10-11T13:22:30.048Z",
+    "results": [
+      {
+        "path": "/login",
+        "status": 200,
+        "expected": 200,
+        "pass": true
+      },
+      {
+        "path": "/manifest.webmanifest",
+        "status": 200,
+        "expected": 200,
+        "pass": true
+      },
+      {
+        "path": "/api/google-sync/export",
+        "status": 401,
+        "expected": 401,
+        "pass": true
+      },
+      {
+        "path": "/api/notifications/run",
+        "status": 401,
+        "expected": 401,
+        "pass": true
+      }
+    ],
+    "pass": true,
+    "method": "HTTP status only; no response bodies persisted"
+  },
+  "productionPrepromoteRuntime": {
+    "phase": "production-rollback-fresh",
+    "url": "https://tindung.vercel.app",
+    "checkedAt": "2026-10-11T13:22:34.870799+00:00",
+    "counts": {
+      "errors": 0,
+      "http500": 0
+    },
+    "cliExit": 0,
+    "method": "Runtime CLI, counts only, no private log messages retained"
+  },
+  "productionPrepromoteDashboardAuth": "PASSSystem/privacyhidden/overflow0, read-only 2026-10-11",
+  "previewPrealias": "Root resume fresh inspect/assertDeploymentProvenance/assertPromotionProvenance PASS after local gates before alias set",
+  "activated": false
+}

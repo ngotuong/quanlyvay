@@ -1,5 +1,5 @@
 {
-  "method": "Synthetic local fixture only; 40 main/drawer full-page plus6 intermediate-width drawers",
+  "method": "Synthetic local fixture only;40 main/drawer+6intermediate drawers+8rootfont/reflow+2paintedzoom",
   "files": [
     {
       "path": "screenshots/audit-1440-dark.png",
@@ -230,6 +230,56 @@
       "path": "screenshots/settings-375-light.png",
       "sha256": "083547aa424a7a8263594d576f3f04038b04fad1c00ef2fad3d01c48b15d9963",
       "bytes": 67405
+    },
+    {
+      "path": "screenshots/stress-dashboard-320-900-16-dark.png",
+      "sha256": "f9f1d9413728cb9821d4b6f025772029e348becd27e7566ec34ba561a24d65ff",
+      "bytes": 168789
+    },
+    {
+      "path": "screenshots/stress-dashboard-320-900-16-light.png",
+      "sha256": "dda32e28ecb6828003087f5bf83871ada2088eaa7cc19ebd638c4dac2828ab43",
+      "bytes": 167418
+    },
+    {
+      "path": "screenshots/stress-dashboard-375-900-32-dark.png",
+      "sha256": "3fe1dc4a3e42e45004942829bc3001c76d2c307238e7fb1fb6f08a728e90a9eb",
+      "bytes": 203649
+    },
+    {
+      "path": "screenshots/stress-dashboard-375-900-32-light.png",
+      "sha256": "23916e7358f9c3a0d2b3b2b5aceba03b5a4c7a70fde69019e64ef783ca1f19fb",
+      "bytes": 213199
+    },
+    {
+      "path": "screenshots/stress-loan-320-900-16-dark.png",
+      "sha256": "1fff52ee00b45bbbed6b44c264200339ae5b18debf5f60fed7e64f179f02afac",
+      "bytes": 74439
+    },
+    {
+      "path": "screenshots/stress-loan-320-900-16-light.png",
+      "sha256": "2a88a4d53531ec74f7fcfa8e5ce22dbd24f665dda669558c6c26337d1f5a1cd0",
+      "bytes": 73535
+    },
+    {
+      "path": "screenshots/stress-loan-375-900-32-dark.png",
+      "sha256": "f608ce6f72dcc37e21a4fcd1cc217463fb22f8942cc0d1f00a611b0727df8c40",
+      "bytes": 121131
+    },
+    {
+      "path": "screenshots/stress-loan-375-900-32-light.png",
+      "sha256": "1035a125f8f454d4074b353279c4f34b1247aca2a2cd0e6ea4064a562219d8ea",
+      "bytes": 120608
+    },
+    {
+      "path": "screenshots/zoom200-dashboard-dark.png",
+      "sha256": "95f912189d0bac40245568456b627ec6ee9cd90b3fabcd87619d153b616bc8b1",
+      "bytes": 166042
+    },
+    {
+      "path": "screenshots/zoom200-dashboard-light.png",
+      "sha256": "776ceee24b05653ec034855fcc42a528f59a1c403bf215bbb42ffdeed82a7e8b",
+      "bytes": 164261
     }
   ]
 }

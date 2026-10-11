@@ -1,0 +1,40 @@
+{
+  "headSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
+  "status": "completed",
+  "conclusion": "success",
+  "runId": 38069136549,
+  "url": "https://github.com/ngotuong/quanlyvay/actions/runs/38069136549",
+  "jobs": [
+    {
+      "name": "Quality and build",
+      "conclusion": "success"
+    },
+    {
+      "name": "Supabase Auth pgTAP and E2E",
+      "conclusion": "success"
+    },
+    {
+      "name": "Dependency and secret scan",
+      "conclusion": "success"
+    },
+    {
+      "name": "Workflow policy",
+      "conclusion": "success"
+    },
+    {
+      "name": "Required CI gate",
+      "conclusion": "success"
+    }
+  ],
+  "integration": {
+    "pgTAPFiles": 24,
+    "pgTAPTests": 527,
+    "authPass": 6,
+    "authFail": 0,
+    "e2ePass": 83,
+    "e2eSkip": 19,
+    "e2eFail": 0,
+    "e2eMinutes": 24.9,
+    "retries": 0
+  }
+}

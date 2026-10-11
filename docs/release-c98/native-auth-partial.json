@@ -1,0 +1,149 @@
+{
+  "status": "HISTORICAL_PARTIAL_SUPERSEDED",
+  "startedAt": "2026-10-11T11:44:48.790Z",
+  "checkedAt": "2026-10-11T11:56:45.240Z",
+  "method": "Native Cua IAB; read-only route visits/synthetic draft; no private financial data, identities, UUID or cookies retained",
+  "sampleGroups": [
+    {
+      "label": "preview",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "privacyHidden": true,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyNodes": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "production-system-baseline",
+      "theme": "system",
+      "width": 319,
+      "height": 1026,
+      "privacyHidden": true,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyNodes": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true,
+      "limitation": "Extra baseline, does not replace requested375/1440 LightDark matrix"
+    }
+  ],
+  "checks": {
+    "previewPrivacyBlockedDrawer": true,
+    "previewDrawerOneClickZeroRoute": true,
+    "quickLabels": [
+      "+50tr",
+      "+100tr",
+      "+150tr",
+      "+200tr"
+    ],
+    "syntheticDraftCumulative": "1000 -> 50001000 -> 150001000 PASS after verifying input stable",
+    "tabFocusDate": true,
+    "drawerOverflow": false,
+    "dirtyReject": "PASS human-assisted Cancel; Cua confirmed150001000 unchanged and focus in drawer",
+    "productionAccountRedirectToSettings": true,
+    "remoteSubmit": false
+  },
+  "initialPreferences": {
+    "preview": {
+      "theme": "system",
+      "privacyHidden": true
+    },
+    "production": {
+      "theme": "system",
+      "privacyHidden": true
+    }
+  },
+  "currentPreferences": {
+    "preview": {
+      "theme": "light",
+      "privacyHidden": false,
+      "syntheticDraft": "150001000, principal, pending discard"
+    },
+    "production": {
+      "theme": "system",
+      "privacyHidden": true
+    }
+  },
+  "excludedSamples": [
+    {
+      "label": "preview",
+      "route": "dashboard",
+      "width": 375,
+      "theme": "light",
+      "reason": "Premature fallback observation; actual content checked later"
+    },
+    {
+      "label": "production",
+      "route": "settings",
+      "width": 319,
+      "theme": "system",
+      "reason": "Wrong active viewport/theme, excluded from requested375Light matrix"
+    }
+  ],
+  "helperFailures": [
+    "Read-only DOM compareDocumentPosition unsupported; used DOM-order index",
+    "Wrong helper class loan-card-link; corrected to source loan-card",
+    "Task locator checked before content ready; actual loaded UI verified",
+    "Select/fill/click batched too closely caused two false quick assertions; reran with synthetic1000 stable before additions",
+    "Native dirty cancel CDP timeout/getJsDialog returned nohandle; Codexapp tool denied; OWNER Cancel verified preserving draft",
+    "Inactive Production input/viewport did not apply; follow-up matrix must use active tab with width/theme asserts"
+  ],
+  "pending": "RESOLVED OWNER discard verified no drawer/input; completed native matrices in native-auth-candidates/native-auth-preview-post/native-auth-aliases",
+  "runtime": {
+    "preview": {
+      "phase": "preview-auth-partial",
+      "url": "https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app",
+      "checkedAt": "2026-10-11T11:51:54.076472+00:00",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "cliExit": 0,
+      "method": "Runtime CLI, counts only, no private log messages retained"
+    },
+    "production": {
+      "phase": "production-auth-baseline",
+      "url": "https://quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app",
+      "checkedAt": "2026-10-11T11:54:41.962145+00:00",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "cliExit": 0,
+      "method": "Runtime CLI, counts only, no private log messages retained"
+    }
+  },
+  "consoleErrors": {
+    "preview": 0,
+    "production": 0
+  },
+  "remoteFinancialWrites": false,
+  "nativeMatrixComplete": false
+}

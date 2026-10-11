@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.321
-last_updated: 2026-10-10
+last_updated: 2026-10-11
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C98
 current_status: IN_PROGRESS
@@ -168,10 +168,40 @@ không dùng lịch sử để suy quyền thực hiện mới.
   DB55322 đúng,sixcounts0; không main54322/push/deploy/remote/schema/RPC/engine/dependency change.
   Runtime phát hành vẫn C91. C98 `IN_PROGRESS`; OWNER phê duyệt ngày10/10/2026 trong hội thoại.
   Phạm vi C98: nghiệm thu chuỗi A/C92–C97 và phát hành Preview/Production/alias theo C91/runbook.
-  Blocker: chưa xác định; không mutate dữ liệu tài chính/tài khoản/schema/secrets để smoke.
+  Source phát hành hiện tại: `211f8e49eee0b78eca4c9723b526604a99780b3d`;
+  [CI38069136549](https://github.com/ngotuong/quanlyvay/actions/runs/38069136549) SUCCESS đủ5job:
+  pgTAP527/24files,Auth6/0,E2E83PASS19SKIP0FAIL24.9m. Source83bc0fe/CI38068842563 QualityFAIL
+  do ignore-contract drift, overallCANCELLED khi push bản sửa; rawfailure giữ rõ.4testport đổi theo
+  CI54321/local55321, exactfingerprint exception checksumC92tokens.css vàuploadguard đồng bộ;
+  runtime153files không đổi từ C97. Local lint/type/unit121/build19/policy/audit PASS;
+  full84PASS18SKIP0FAIL19.4m vàrootPreviewcreate84/18/0/19.4m/retries0. Matrix100/72stress/4System/
+  10keyboard,36VND/36zoomemulation; contrast supplement1224nodes/min4.8294/0fail.56PNGfake.
+  Previewcandidate `dpl_3BXyNm6T6Kp24CmNqz25YtPgVyD1`, targetPreview/Ready,45routeFunctions sin1,
+  https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app. Rootpnpm deploy:preview tạo;
+  SourceCI/runtimefreeze shim fail-closed PASS trướcdeploy, public4/4/sourceUID188/188/preauthlogs0.
+  Productioncandidate `dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF`, targetProduction/Ready/skip-domain,
+  45routeFunctions sin1, https://quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app;
+  public4/4/sourceUID188/188/preauthlogs0. API projectId/ownerId/regions/SHA vàCLI provenance đạt;
+  middlewarePreview sin1, Production8regions gồm sin1, tách khỏi45routeFunctions.
+  Release/hậukiểm C98 đạtngày11/10: Previewrootresume84PASS18SKIP0FAIL20.2m/retries0, stablealias
+  https://tindung-preview.vercel.app→dpl_3BXyNm6T6Kp24CmNqz25YtPgVyD1. Productionpromoteexit0;
+  https://tindung.vercel.app và https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app→
+  dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF. Baalias Ready/đúngtarget/45routeFunctions sin1.
+  Nativecandidate72samples9route×3751440×LightDark, alias60samples20mỗialias PASS; Inter/VNDunits/
+  overflow0/KPIbeforetask. Drawer/Tab/Escape/focus/privacy/QuickAmountnháp PASS,noautosubmit;
+  OWNER hỗtrợnativeCancel/discard đãxácminh. Purehelperfailures/providerdeadline/Previewbatch30s
+  interrupted giữ raw/excluded, khônglấy lượt lỗiPASS. PreferencesSystem/privacyẩn candidate/
+  Preview/Production,defaultSystem/hiệntiền/viewportreset. Console0/Public4each/runtime0errors500
+  trongwindowghi deployment-proof, khôngwholeappzeroerror. FreshC91rollbackCcJW/Bnfeverified,
+  khôngactivate.153runtime/73financialfiles exact,1296before10allowed1286unchanged/17C75exact/
+  15generatedrestored/guardC20-test55322/sixcounts0 sauteardown; khôngmain54322/remoteledger/accounts/
+  schema/secrets/Google/backupmutation. [ReportC98](docs/release-c98/report.md) vàreleaseproofs.
+  C98 vẫnIN_PROGRESS: chỉcònclosingCI exactSHA, sẽcommit/push bằngchứngrồichờ5jobSUCCESS;
+  sourceCI211f8e4 đãđạt trướcrelease. RoadmapdừngC98,chưacómốc kếtiếpđượcđịnhnghĩa/duyệt.
   NOT_TESTED AT/phone thật/softkeyboard/nativeclipboard/nativezoom/authenticatedSafariFirefox/
   OS-theme-live/PWA-beforeHTML/remote save giữ rõ trong report. C91 query_canceled57014 vẫn chưa
   xác định nguyên nhân; không mở DB tuning/Google/backup từ lịch sử.
+
 
 ## 2. Thay đổi local cần bảo toàn
 
@@ -184,7 +214,8 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - Bản vá đã duyệt chỉ pnpm-workspace.yaml/lock cho sharp0.35.5/source-map-js1.2.2 và libvips.
 - C91 source/closingproof đã push; finalstatus chỉ tài liệu. Candidate source/UID giữ nguyên.
 - C92 local commit `752fd48`, C93 `577d6f4`, C94 `0aa52ac`, C95 `82151b6`; C96 `1b54be1`; C97 local source/docs
-  và bằng chứng chốt cùng context/roadmap/handoff. Chưa push/deploy các checkpoint C92–C97.
+  và bằng chứng chốt cùng context/roadmap/handoff. C98 đã push C92–C97 và source CI;
+  C98 đãpháthành vàhậukiểmđạt;closingCI pending.
 - Các file C75 do test sinh đã trả exact baseline. Không broad reset/cleanup cache/backup;
   cache còn trace/log thất bại để truy vết và có synthetic session cần tiếp tục ignore.
 

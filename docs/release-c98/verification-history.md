@@ -39,3 +39,45 @@ log ở ignored.cache/c98, không đưa secret hoặc dữ liệu tài chính th
    phát hiện. Đây là thiếu sót packaging C98, không runtime UI lỗi. Thêm đúng rule vào supported
    contract, assertUploadMetadata chặn .gitleaksignore trực tiếp và bổ sung assertion bảo vệ;
    existing assertions/timeout/retry/skip giữ. Không coi CI này SUCCESS hoặc tạo deployment.
+
+8. Source211f8e4/CI38069136549:guard sửa đúng contract;121unit PASS, remoteQuality/Policy/Security
+   PASS; integration đang chạy. SourceCI83bc0fe overallCANCELLED do concurrency khi push bản sửa,
+   QualityFAIL vẫn được giữ; không lấy integration bị hủy làm bằng chứng PASS. Chuẩn bị ignored
+   CLI shim fail-closed trước deploy:exactHEAD,153runtimehash và5jobRequiredCI SUCCESS rồi mới gọi
+   VercelCLI nguyên bản. Rootpnpm deploy:preview vẫn chạy đủ gate; localgates có thể chạy trong
+   khi CI tiếp tục, candidate creation bị chặn nếu CI chưa SUCCESS. Không bypass pipeline/gate.
+
+9. Full local84PASS18SKIP0FAIL19.4m/retries0; extra contrast drawer1PASS0FAIL1.4m:20blocks/1224
+   textnodes0fail/min4.8294. Zero-tooltip số0/₫ có ancestoropacity0 cả LightDark: rawP2/P3 không
+   painted, không loại raw. Restore15generated C75exact17;1296trackedbefore/10allowedchanged/
+   1286unchanged/153runtimefreeze/73financialprotected/DB55322guard/sixcounts0. RootPreview create
+   chạy đủ gate trong khi sourceCI tiếp tục, ignoredshim kiểm CI exactSHA trước bất kỳ candidate.
+
+10. SourceCI38069136549 SUCCESS5job;pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL24.9m.
+    RootPreviewcreate84PASS18SKIP0FAIL19.4m vàsourceCIshim PASS trướcdeploy. Preview3BXy…/
+    Production5aqr… immutableReady/public4/4/188UIDmatches/preauth0errors500 mỗi bản;45route
+    Functions sin1. Baalias vẫnC91. Nativecua mỗicandidate redirects/login, OWNER_LOGIN làblocker;
+    đãmởtabs7/8 vàhỏi. Khôngverifiedflag/resume/promote/alias/financial/account/schema/secretwrite.
+    Restore15C75phasepreview-create exact17/1296initial10scope/1286unchanged/153runtime/73financial/
+    C20-test55322guard/sixcounts0. LocalservernegativeAuth/injectedexpense/stream-closed giữ raw.
+
+11. OWNER đãđăng nhập cả2candidate 11/10; DashboardAuth đạt. Preview9route Light375/privacyẩn
+    nativecontent/fonts/overflow0, privacyguard/drawer1click0route/quickdraft1000→50001000→150001000
+    đạt; khôngsubmit. Helper prematurefallback bị loại, compareDocumentPosition khôngsupport sửa
+    bằng DOMorder, sai class loan-card-link đổi đúng source loan-card. Hai falsequick assertions
+    do hànhđộng select/fill/click quá sát được kiểm lại với nháp1000 stable trước cộng, không lấy
+    lượt lỗi làmPASS. DirtyHủy nativeconfirm chặnCDP, getJsDialog khôngtrảhandle; công cụ từchối
+    điều khiểnCodexapp. OWNER được nhờHủy/Cancel, native dirtyreject chưachứngnhận;local/CI giữ.
+
+12. OWNER discardnháp verified; nativecandidate72requested PASS; 23CuaDashboardreadydeadline
+    observed loading, actualready finalmeasure accepted. Bothprefs restored. Productionpromoteexit0,
+    tindung/default exactcandidateC98/45sin1,40Authsamples4cleandrawers/public4each/runtime0/console0.
+    FreshC91rollback43sin1/identity/Auth/public/runtime verified, notactivated. RootPreviewresume
+    reruns unchangedgate; C75generated files await exactrestore after teardown. No remote save.
+
+13. RootPreviewresume PASS84/18/0/20.2m,retries0; freshrollbackC91 inspected/asserted beforealias,
+    stablePreview exactcandidate/publicgatePASS. Restore15C75exact17/153runtime73financial/C20six0.
+    FinalPreviewpost20Auth+2cleandrawerPASS/public4/console0/runtime0error500; all3aliasesC98.
+    Cua30sbatchkernelreset midclean drawerexcluded; Escapeclosed/focusrestored; finalsamples saved
+    individually. DesktopKPIhelper wait strict2sections correcteduniqueprimaryselector, noapp/testchange.
+    FinalclosingCI stillpending, noCOMPLETEclaim. PrivateDashboardJPEGcacheonly, noGitfinance/identity.

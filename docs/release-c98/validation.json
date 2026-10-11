@@ -1,0 +1,113 @@
+{
+  "status": "IN_PROGRESS",
+  "sourceSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
+  "sourceCiRun": 38069136549,
+  "local": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "unit": {
+      "pass": 121,
+      "fail": 0
+    },
+    "build": {
+      "status": "PASS",
+      "staticPages": 19
+    },
+    "policy": "PASS",
+    "audit": "No known vulnerabilities",
+    "fullE2E": {
+      "pass": 84,
+      "skip": 18,
+      "fail": 0,
+      "minutes": 19.4,
+      "retries": 0
+    },
+    "matrix": {
+      "pass": 2,
+      "fail": 0,
+      "main": 100,
+      "stress": 72,
+      "systemPrivacy": 4,
+      "keyboard": 10,
+      "bigintPresentation": 36,
+      "paintedZoom": 36
+    },
+    "contrastProbe": {
+      "pass": 2,
+      "fail": 0,
+      "computedText": 1186,
+      "minRatio": 4.829404522659002
+    },
+    "contrastDrawerSupplement": {
+      "pass": 1,
+      "fail": 0,
+      "minutes": 1.4,
+      "blocks": 20,
+      "nodes": 1224,
+      "minRatio": 4.829404522659002,
+      "rawP2P3": "chart-tooltip opacity0 both themes; not painted"
+    },
+    "preservation": "PASS see preservation.json",
+    "PNG": 56,
+    "rootPreviewCreate": {
+      "pass": 84,
+      "skip": 18,
+      "fail": 0,
+      "minutes": 19.4,
+      "retries": 0
+    },
+    "rootPreviewResume": {
+      "pass": 84,
+      "skip": 18,
+      "fail": 0,
+      "minutes": 20.2,
+      "retries": 0
+    }
+  },
+  "release": {
+    "preview": "PASS rootresume and20Authpost samples",
+    "production": "PASS promote and40Authpost samples on production/default",
+    "sourceFiles": "188/188UIDmatches eachcandidate",
+    "routeFunctions": 45,
+    "region": "sin1",
+    "candidateAuthSamples": 72,
+    "aliasAuthSamples": 60,
+    "public": "4/4 each immutable and eachalias",
+    "console": "0 eachcandidate/alias window",
+    "runtime": "0error/HTTP500 eachcandidate/alias window; see deployment-proof timestamps",
+    "aliases": "allthree C98 exactID verified",
+    "closingCI": "NOT_STARTED",
+    "preferences": "candidate/Preview/ProductionSystemprivacyhidden;defaultSystemmoneyvisible;viewportreset",
+    "remoteFinancialAccountSchemaSecretsWrites": false
+  },
+  "notTested": [
+    "physicalphone",
+    "softkeyboard",
+    "AT",
+    "nativezoom",
+    "nativeclipboard",
+    "authenticatedSafariFirefox",
+    "OS-theme-live",
+    "PWA-beforeHTML",
+    "remote financial save"
+  ],
+  "date": "2026-10-11",
+  "sourceCI": "SUCCESS 5jobs/38069136549",
+  "preauthArtifactChecks": {
+    "diff": "PASS",
+    "PNGHashCount": 56,
+    "JSONParse": "PASS",
+    "secretScopeFiles": 22,
+    "gitleaks": "8.30.1 pinned redacted, exit0/no leaks"
+  },
+  "closingArtifactChecks": {
+    "diff": "PASS",
+    "PNGHashCount": 56,
+    "JSONParse": "PASS",
+    "secretScopeFiles": 26,
+    "gitleaks": "pinned8.30.1/digest/redacted exit0 noleaks",
+    "sourceRuntimeFinancialFreeze": "PASS153/73",
+    "generatedC75Restored": "PASS17exact/15restored",
+    "closingCI": "PENDING_PUSH"
+  }
+}

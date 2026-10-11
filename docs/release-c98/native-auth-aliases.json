@@ -1,0 +1,289 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-10-11T13:35:35.136Z",
+  "matrix": [
+    {
+      "label": "production-alias-post",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "production-alias-post",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "production-alias-post",
+      "theme": "dark",
+      "width": 1440,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard"
+      ],
+      "observations": 1,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "production-alias-post",
+      "theme": "light",
+      "width": 1440,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard"
+      ],
+      "observations": 1,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "default-alias-post",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "default-alias-post",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "default-alias-post",
+      "theme": "dark",
+      "width": 1440,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard"
+      ],
+      "observations": 1,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "default-alias-post",
+      "theme": "light",
+      "width": 1440,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard"
+      ],
+      "observations": 1,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    }
+  ],
+  "checks": [
+    {
+      "label": "production-alias-post",
+      "theme": "dark",
+      "viewport": 375,
+      "drawer": {
+        "balanceReady": true,
+        "height": 860,
+        "left": 12,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 28,
+        "width": 351
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "production-alias-post",
+      "theme": "light",
+      "viewport": 1440,
+      "drawer": {
+        "balanceReady": true,
+        "height": 868,
+        "left": 944,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 16,
+        "width": 480
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "production-alias-post",
+      "preferencesRestored": {
+        "privacyHidden": true,
+        "theme": "system"
+      },
+      "consoleErrors": 0
+    },
+    {
+      "label": "default-alias-post",
+      "theme": "dark",
+      "viewport": 375,
+      "drawer": {
+        "balanceReady": true,
+        "height": 860,
+        "left": 12,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 28,
+        "width": 351
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "default-alias-post",
+      "theme": "light",
+      "viewport": 1440,
+      "drawer": {
+        "balanceReady": true,
+        "height": 868,
+        "left": 944,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 16,
+        "width": 480
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "default-alias-post",
+      "preferencesRestored": {
+        "privacyHidden": false,
+        "theme": "system"
+      },
+      "consoleErrors": 0
+    }
+  ],
+  "initialPreferences": [
+    {
+      "label": "production-alias-post",
+      "theme": "system",
+      "privacyHidden": true
+    },
+    {
+      "label": "default-alias-post",
+      "privacyHidden": false,
+      "theme": "system"
+    }
+  ],
+  "remoteFinancialWrites": false,
+  "previewEvidence": "native-auth-preview-post.json",
+  "uniqueAcceptedSamples": 60,
+  "uniqueAcceptedPerAlias": 20,
+  "method": "Cua native UI/read-only DOM; no remote financial/account save; exactwidth/theme/readiness asserts; interrupted batch excluded"
+}

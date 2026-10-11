@@ -1,0 +1,462 @@
+{
+  "status": "PASS",
+  "checkedAt": "2026-10-11T13:35:35.131Z",
+  "matrix": [
+    {
+      "label": "preview-matrix",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "preview-matrix",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "preview-matrix",
+      "theme": "dark",
+      "width": 1440,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "preview-matrix",
+      "theme": "light",
+      "width": 1440,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "production-matrix",
+      "theme": "light",
+      "width": 375,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "production-matrix",
+      "theme": "dark",
+      "width": 375,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "production-matrix",
+      "theme": "dark",
+      "width": 1440,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    },
+    {
+      "label": "production-matrix",
+      "theme": "light",
+      "width": 1440,
+      "height": 900,
+      "privacyHidden": false,
+      "routes": [
+        "dashboard",
+        "loans",
+        "counterparties",
+        "expenses",
+        "notifications",
+        "audit",
+        "settings",
+        "new-loan",
+        "loan-detail"
+      ],
+      "observations": 9,
+      "overflowMax": 0,
+      "loadingMax": 0,
+      "moneyClipped": 0,
+      "unitsMissing": 0,
+      "font": "Inter loaded",
+      "kpiBeforeTasks": true
+    }
+  ],
+  "checks": [
+    {
+      "label": "preview",
+      "privacyBlockedDrawer": true,
+      "oneClickDrawer": true,
+      "zeroRouteTransition": true,
+      "remoteSubmit": false
+    },
+    {
+      "label": "preview",
+      "width": 375,
+      "theme": "light",
+      "quickValues": [
+        "+50tr",
+        "+100tr",
+        "+150tr",
+        "+200tr"
+      ],
+      "cumulativeFrom1000": "50,001,000 then 150,001,000 PASS",
+      "noAutoSubmit": true,
+      "dirtyReject": "PASS human-assisted Cancel; Cua verified draft150001000 and focus in drawer"
+    },
+    {
+      "label": "production",
+      "accountRedirectToSettings": true,
+      "remoteAccountWrite": false
+    },
+    {
+      "label": "preview",
+      "dirtyCancelHumanAssisted": true,
+      "draftKept150001000": true,
+      "focusInDrawer": true,
+      "discard": "PASS OWNER discarded; no amountInput/open drawer"
+    },
+    {
+      "label": "preview",
+      "theme": "dark",
+      "viewport": 1440,
+      "drawer": {
+        "balanceReady": true,
+        "height": 868,
+        "left": 944,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 16,
+        "width": 480
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "preview",
+      "theme": "light",
+      "viewport": 1440,
+      "drawer": {
+        "balanceReady": true,
+        "height": 868,
+        "left": 944,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 16,
+        "width": 480
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "preview",
+      "theme": "dark",
+      "viewport": 375,
+      "drawer": {
+        "balanceReady": true,
+        "height": 860,
+        "left": 12,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 28,
+        "width": 351
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "preview",
+      "accountRedirectToSettings": true
+    },
+    {
+      "label": "production",
+      "theme": "light",
+      "viewport": 375,
+      "drawer": {
+        "balanceReady": true,
+        "height": 860,
+        "left": 12,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 28,
+        "width": 351
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "production",
+      "theme": "dark",
+      "viewport": 375,
+      "drawer": {
+        "balanceReady": true,
+        "height": 860,
+        "left": 12,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 28,
+        "width": 351
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "production",
+      "theme": "dark",
+      "viewport": 1440,
+      "drawer": {
+        "balanceReady": true,
+        "height": 868,
+        "left": 944,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 16,
+        "width": 480
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "production",
+      "theme": "light",
+      "viewport": 1440,
+      "drawer": {
+        "balanceReady": true,
+        "height": 868,
+        "left": 944,
+        "overflow": 0,
+        "submitButton": true,
+        "top": 16,
+        "width": 480
+      },
+      "tabDate": true,
+      "focusDue": true,
+      "onDashboard": true,
+      "paymentHash": false,
+      "noDraftEdited": true,
+      "noSubmit": true
+    },
+    {
+      "label": "production",
+      "privacyBlockedDrawer": true,
+      "zeroRouteTransition": true
+    },
+    {
+      "label": "production",
+      "accountRedirectToSettings": true,
+      "restored": {
+        "dialogOpen": false,
+        "privacyHidden": true,
+        "theme": "system"
+      }
+    }
+  ],
+  "helperFailures": [
+    "Premature fallback sample excluded",
+    "read-only DOM compareDocumentPosition unsupported; changed to DOM-order index",
+    "Wrong helper selector .loan-card-link timed out; source class .loan-card used",
+    "Task locator checked before ready; fresh loaded UI verified",
+    "Dirty Hủy native click transport timed out; no JS dialog remained and drawer closed; native reject NOT_TESTED",
+    "Second dirty cancel blocked CDP; OWNER Cancel verified preserved draft; tool could not control prompt",
+    "Preview native modal prevents IAB focus/viewport/radio input on Production; system319 sample excluded from requested matrix",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}",
+    "Cua readiness wait exceeded provider deadline for dashboard {\"alert\":false,\"loading\":true,\"main\":true}"
+  ],
+  "excluded": [
+    {
+      "label": "preview",
+      "route": "dashboard",
+      "width": 375,
+      "theme": "light",
+      "disposition": "Excluded: observed transient route fallback after premature readiness helper"
+    },
+    {
+      "label": "production",
+      "route": "settings",
+      "width": 319,
+      "theme": "system",
+      "disposition": "did not meet requested width/theme/readiness"
+    }
+  ],
+  "initialPreferences": [
+    {
+      "label": "preview",
+      "theme": "system",
+      "privacyHidden": true
+    },
+    {
+      "label": "production",
+      "theme": "system",
+      "privacyHidden": true
+    }
+  ],
+  "remoteFinancialWrites": false,
+  "consoleErrors": 0,
+  "method": "Cua native UI/read-only DOM; synthetic draft only; no finance/identity/UUID/cookies retained"
+}

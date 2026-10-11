@@ -1,8 +1,9 @@
 # C98 — Nghiệm thu A và phát hành
 
-Trạng thái: IN_PROGRESS ngày10/10/2026; OWNER đã phê duyệt. Source runtime C92–C97 được
-nghiệm thu, chưa phát hành C98. Required CI đúng source/closing SHA và remote smoke còn chờ.
-Không gọi local PASS là chứng nhận Production, AT hoặc thiết bị thật.
+Trạng thái: IN_PROGRESS ngày11/10/2026, chỉ còn Required CI của commit bằng chứng chốt.
+Chuỗi UI/UX C92–C97 đã phát hành trên Preview, Production và alias mặc định. Local gates,
+CI source và immutable/alias Auth/public/provenance/runtime smoke đạt; chưa gọi COMPLETED
+khi closing CI chưa SUCCESS. OWNER đã phê duyệt toànphạmvi C98 ngày10/10.
 
 Thiết kế A giữ B/Inter/KPI trước task; mobile Dashboard cards/desktop table, tên200 có disclosure,
 helper14/ngoại lệ12, notification selected/hover rõ; principal chip+50/+100/+150/+200tr bằng BigInt;
@@ -14,29 +15,67 @@ assertions nghiệp vụ/timeout/retry/skip giữ nguyên. 153websrc khớp C97,
 
 ## Bằng chứng local hiện có
 
-- Lint/typecheck/unit121/build19/policy/actionlint/audit PASS; fullE2E đang chạy.
+- Lint/typecheck/unit121/build19/policy/actionlint/audit PASS; fullE2E84PASS18SKIP0FAIL19.4m/retries0.
 - Matrix2:2PASS0FAIL3.5m.100samples (9route+drawer×5width375/390/768/1024/1440×LightDark),
   72stress (9route×4viewport/font×2theme),4Systemprivacy,10keyboard/draft/close/focus. Submit0.
 - 36VND presentation biên:0/maxsigned64/âm17digit×6width320–1440×2theme, actualVndText/
   formatter, số/₫ cùng dòng và đủ; không ghi max/signed vào ledger.
 - 36zoom mô phỏng:CSSwidth=physical/2,DPR2 trên6route×3width×LightDark; ảnh/glyph physical2x
   được đo. Native browser zoom và softkeyboard/phone không được chứng nhận.
-- Contrast/probe2PASS0FAIL3.3m.18route-theme blocks/1186paintedtextnodes, min4.8294:1,0fail;
+- Contrast/probe2PASS0FAIL3.3m; supplemental1PASS0FAIL1.4m,20blocks/1224nodes0fail.18route-theme blocks/1186paintedtextnodes, min4.8294:1,0fail;
   threshold4.5text/3large giữ. Parser normalized color(srgb) đúng; rawmatrix21fail được lưu.
   Focus/nontext chọn C92, C94 và form/control regression được giữ; không toànWCAG/AAA claim.
 - Evon nguyênchecks7fixedwidths/theme,55Lightsweep:0overflow/brokenmoney/tinytext/tinytarget/
   console. RawP1preparedfocus-scroll tại375/390; actualready375×900scroll0 trước và sauclearfocus.
-  RawP2/P3 zero-tooltip contrast1:1 được giữ để đối chiếu actual paint, chưa kết luận hoàn tất.
+  RawP2/P3 zero-tooltip contrast1:1 được giữ; supplement đo ancestor chart-tooltip opacity0
+  cả LightDark, không painted. Không dùng tooltipẩn để gọi lỗi contrast thực hoặc xóa raw.
   Focus/nativepickers/density/hoverborder warnings giữ theo selectedA, không redesign lại Gu.
 - Đã xem contact sheets40ảnh Sáng/Tối: phân cấpKPI/task/chart, tên/VND/form/card/tables đúngA;
-  drawer ở375/1440 có nútHủy/Ghi nhận táchbodycuộn. 46PNGfixture bền trongscreenshots/.
-  C97 windows53/55observations/CLS≤.1, reducedmotion vàfinancialguards sẽ được fullE2E kiểm lại.
+  drawer ở375/1440 có nútHủy/Ghi nhận táchbodycuộn. 56PNGfixture bền trongscreenshots/.
+  C97 windows53/55observations/CLS≤.1, reducedmotion vàfinancialguards đã qua fullE2E.
+  Supplement screenshots8rootfont/reflow/2paintedzoom đã xem; rootfont32 không chứng nhận resize
+  mọi fixed-pxtext200%, nativezoom giữ NOT_TESTED. Kết quả glyph2x/PNG physical của zoom emulation riêng.
 
-## Release gate còn chờ
+## Phát hành và hậu kiểm
 
-FullE2E, source commit/push và5jobRequiredCI; rootPreviewcreate/resume với immutableAuth/public/
-sourceUID/provenance/sin1/runtime; Production skipdomaincandidate/promote/defaultalias và hậukiểm;
-rollbacktarget hiện tại inspect lại trước chuyển; finalclosingCI. Không tự chuyển khi chỉ Ready.
+[Source CI](https://github.com/ngotuong/quanlyvay/actions/runs/38069136549) của
+`211f8e49eee0b78eca4c9723b526604a99780b3d` SUCCESS đủ5job:pgTAP527/24files,Auth6/0,
+E2E83PASS19SKIP0FAIL24.9m. RootPreviewcreate84/18/0/19.4m, resume84/18/0/20.2m/retries0.
+CLIshim exactHEAD/153runtimehash/5jobCI failclosed trước candidatecreate; không bỏgate.
+
+| Deployment | Immutable URL | Target/region | Alias |
+| --- | --- | --- | --- |
+| dpl_3BXyNm6T6Kp24CmNqz25YtPgVyD1 | [Previewcandidate](https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app) | Preview Ready/45routes sin1 | [stablePreview](https://tindung-preview.vercel.app) |
+| dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF | [Productioncandidate](https://quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app) | Production Ready/45routes sin1 | [Production](https://tindung.vercel.app), [default](https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app) |
+
+Project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, scope ngotuong2105 vàAPIowner/project/SHA đúng.
+188/188regularsourceUID khớp mỗi candidate, không tải bodies. Middleware riêng: Preview sin1,
+Production8regions gồm sin1; không đánh đồng với45routeFunctions. Production skip-domain rồi
+promote exit0; Preview chỉrootpnpmresume. Baalias inspect đúngIDs/target/Ready/sin1.
+
+Native trước chuyển72mẫu:9route×375/1440×LightDark×2candidate, moneyvisible/Inter/overflow0/
+VNDunits/loadedcontent/KPIbeforetask. Extra18privacyhidden/system319baselines giữ riêng. Drawer
+1click/0route,480pxdesktop/mobileinset12px, freshbalance/Tabdate/Escape/focusreturn đạt; Quick Amount
++50/+100/+150/+200tr, nháp1000→50001000→150001000,noautosubmit. OWNER hỗtrợ nativeCancel giữ
+nháp/focus vàdiscard; không native financialsave. Cua timeout/unsupportedDOM/wronghelperselector/
+falsequickassertions/prematurefallback giữ disposition, không coi lượt lỗiPASS. Readiness selector
+KPI chung có2sections ởdesktop; đổi finalPreview helper sang unique primarysection không sửa app/test.
+23lượt providerdeadline của đợt đầu được giữ, actualcontent được đo sau. Lượt Previewpost batch30s
+kernelreset bị loại; final20mẫu được lưu từngmẫu. [Candidates](native-auth-candidates.json),
+[aliasAuth](native-auth-aliases.json), [Previewpost](native-auth-preview-post.json).
+
+Sau chuyển60mẫuAuth (20mỗialias):9route×LightDark375,DashboardLightDark1440;6cleandrawerchecks
+Tab/Escape/focus/overflow0. Public4/4mỗicandidate vàmỗialias;console0/runtimeerror0/HTTP5000
+trongcửasổ smoke timestamps ở [deploymentproof](deployment-proof.json), không zeroerror toànapp.
+Preferences System/privacyhidden trêncandidate/Preview/Production, defaultSystem/moneyvisible;
+viewportreset. Khôngđánh dấuđãđọc/accountwrite/saveledger. C91rollback PreviewCcJW… vàProduction/
+defaultBnfe… freshidentity/Ready/sin1/Public/Auth/log verified, khôngkíchhoạt;[rollback](rollback-proof.json).
+
+Bảo toàn1296initialtracked/10allowedchanged/1286unchanged,153runtime/73financialfiles exact;
+17C75exact/15generatedrestored saurootresume. DockerC20-testlabel/DB55322/sixcounts0 sauteardown,
+main54322 khôngdùng. [Preservation](preservation.json),56PNGhash/JSONparse PASS. Localserverlog có
+negativeAuth/injectedexpenseerror/destination-stream-closed-early, giữ raw không gọi toànapp runtime0.
+Closing CI đúngSHA cònchờ; context/roadmap giữ IN_PROGRESS và không mởcheckpoint kếtiếp.
 
 ## Giới hạn và rủi ro
 

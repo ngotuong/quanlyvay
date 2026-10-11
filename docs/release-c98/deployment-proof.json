@@ -1,0 +1,513 @@
+{
+  "status": "IN_PROGRESS",
+  "sourceSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
+  "sourceCI": {
+    "headSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
+    "status": "completed",
+    "conclusion": "success",
+    "runId": 38069136549,
+    "url": "https://github.com/ngotuong/quanlyvay/actions/runs/38069136549",
+    "jobs": [
+      {
+        "name": "Quality and build",
+        "conclusion": "success"
+      },
+      {
+        "name": "Supabase Auth pgTAP and E2E",
+        "conclusion": "success"
+      },
+      {
+        "name": "Dependency and secret scan",
+        "conclusion": "success"
+      },
+      {
+        "name": "Workflow policy",
+        "conclusion": "success"
+      },
+      {
+        "name": "Required CI gate",
+        "conclusion": "success"
+      }
+    ]
+  },
+  "gate": "RELEASE_POSTCHECK_PASS_CLOSING_CI_PENDING",
+  "deployments": [
+    {
+      "id": "dpl_3BXyNm6T6Kp24CmNqz25YtPgVyD1",
+      "url": "https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "org": "ngotuong2105",
+      "target": "preview",
+      "readyState": "READY",
+      "routeFunctions": 45,
+      "region": "sin1",
+      "middlewareRegions": [
+        [
+          "sin1"
+        ]
+      ],
+      "sourceSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
+      "sourceContentsConfirmedByUID": "PASS 188/188",
+      "authenticatedSmoke": "PASS 36 requested native samples/9 routes/3751440 LightDark plus privacy guard/drawer/Quick Amount/keyboard/account redirect; restored system/privacy hidden",
+      "apiIdentity": {
+        "id": "dpl_3BXyNm6T6Kp24CmNqz25YtPgVyD1",
+        "name": "quan-ly-vay-ca-nhan",
+        "url": "quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app",
+        "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+        "ownerId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+        "target": null,
+        "readyState": "READY",
+        "regions": [
+          "sin1"
+        ],
+        "checkedAt": "2026-10-10T17:23:46.548058+00:00",
+        "method": "GET v13/deployments, identity/region metadata only; body/env/log data never persisted",
+        "sourceGitMetadata": {
+          "githubCommitRef": "main",
+          "githubCommitSha": "211f8e49eee0b78eca4c9723b526604a99780b3d"
+        },
+        "pass": true,
+        "previewApiTargetNote": "API uses null for Preview; CLI inspect target is verified separately"
+      },
+      "sourceHashes": {
+        "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+        "expectedSourceFiles": 188,
+        "matchedSourceFiles": 188,
+        "missingUid": [],
+        "mismatch": [],
+        "unknown": [],
+        "missingPaths": [],
+        "pass": true
+      },
+      "publicSmoke": {
+        "label": "preview-candidate",
+        "url": "https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-10T17:25:41.597Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "preauthRuntime": {
+        "phase": "preview-candidate-preauth",
+        "url": "https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-10T17:25:50.471315+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      },
+      "promotion": "PASS root pnpm deploy:preview resume exit0,84PASS18SKIP0FAIL20.2m/retries0",
+      "authenticatedRuntime": {
+        "phase": "preview-candidate-auth",
+        "url": "https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-11T13:18:02.520679+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      },
+      "authenticatedPublicSmoke": {
+        "label": "preview-candidate-auth",
+        "url": "https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-11T13:17:55.285Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      }
+    },
+    {
+      "id": "dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF",
+      "url": "https://quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "org": "ngotuong2105",
+      "target": "production",
+      "readyState": "READY",
+      "routeFunctions": 45,
+      "region": "sin1",
+      "middlewareRegions": [
+        [
+          "bom1",
+          "fra1",
+          "gru1",
+          "iad1",
+          "lhr1",
+          "sfo1",
+          "sin1",
+          "syd1"
+        ]
+      ],
+      "sourceSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
+      "sourceContentsConfirmedByUID": "PASS 188/188",
+      "authenticatedSmoke": "PASS 36 requested native samples/9routes/3751440 LightDark/4clean drawers/privacy/account redirect; System/privacy hidden restored; no financial/account submit",
+      "apiIdentity": {
+        "id": "dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF",
+        "name": "quan-ly-vay-ca-nhan",
+        "url": "quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app",
+        "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+        "ownerId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+        "target": "production",
+        "readyState": "READY",
+        "regions": [
+          "sin1"
+        ],
+        "checkedAt": "2026-10-10T17:25:38.359396+00:00",
+        "method": "GET v13/deployments, identity/region metadata only; body/env/log data never persisted",
+        "sourceGitMetadata": {
+          "githubCommitRef": "main",
+          "githubCommitSha": "211f8e49eee0b78eca4c9723b526604a99780b3d"
+        },
+        "pass": true,
+        "previewApiTargetNote": "API uses null for Preview; CLI inspect target is verified separately"
+      },
+      "sourceHashes": {
+        "method": "Returned source file UID compared with CLI dry SHA1 metadata; no remote file bodies downloaded",
+        "expectedSourceFiles": 188,
+        "matchedSourceFiles": 188,
+        "missingUid": [],
+        "mismatch": [],
+        "unknown": [],
+        "missingPaths": [],
+        "pass": true
+      },
+      "publicSmoke": {
+        "label": "production-candidate",
+        "url": "https://quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-10T17:24:52.723Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "preauthRuntime": {
+        "phase": "production-candidate-preauth",
+        "url": "https://quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-10T17:26:00.527647+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      },
+      "promotion": "PASS root vercel promote exit0,2026-10-11 13:23UTC",
+      "authenticatedRuntime": {
+        "phase": "production-candidate-auth",
+        "url": "https://quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-11T13:21:28.490050+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      },
+      "authenticatedPublicSmoke": {
+        "label": "production-candidate-auth",
+        "url": "https://quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-11T13:21:23.210Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      }
+    }
+  ],
+  "aliases": [
+    {
+      "label": "preview",
+      "alias": "https://tindung-preview.vercel.app",
+      "id": "dpl_3BXyNm6T6Kp24CmNqz25YtPgVyD1",
+      "target": "preview",
+      "readyState": "READY",
+      "unchangedFromC91": false,
+      "routeFunctions": 45,
+      "region": "sin1",
+      "authenticatedSmoke": "PASS20samples:9routesLightDark375+DashboardLightDark1440;clean drawerTab/Escape/focus;preferencesrestored",
+      "publicSmoke": {
+        "label": "preview-alias-post",
+        "url": "https://tindung-preview.vercel.app",
+        "checkedAt": "2026-10-11T13:43:06.539Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtime": {
+        "phase": "preview-alias-post",
+        "url": "https://tindung-preview.vercel.app",
+        "checkedAt": "2026-10-11T13:43:12.679386+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      }
+    },
+    {
+      "label": "production",
+      "alias": "https://tindung.vercel.app",
+      "id": "dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF",
+      "target": "production",
+      "readyState": "READY",
+      "unchangedFromC91": false,
+      "routeFunctions": 45,
+      "region": "sin1",
+      "authenticatedSmoke": "PASS20samples:9routesLightDark375+DashboardLightDark1440;clean drawerTab/Escape/focus;preferencesrestored",
+      "publicSmoke": {
+        "label": "production-alias-post",
+        "url": "https://tindung.vercel.app",
+        "checkedAt": "2026-10-11T13:23:23.851Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtime": {
+        "phase": "production-alias-post",
+        "url": "https://tindung.vercel.app",
+        "checkedAt": "2026-10-11T13:26:01.660880+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      }
+    },
+    {
+      "label": "default",
+      "alias": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+      "id": "dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF",
+      "target": "production",
+      "readyState": "READY",
+      "unchangedFromC91": false,
+      "routeFunctions": 45,
+      "region": "sin1",
+      "authenticatedSmoke": "PASS20samples:9routesLightDark375+DashboardLightDark1440;clean drawerTab/Escape/focus;preferencesrestored",
+      "publicSmoke": {
+        "label": "default-alias-post",
+        "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-11T13:23:23.999Z",
+        "results": [
+          {
+            "path": "/login",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/manifest.webmanifest",
+            "status": 200,
+            "expected": 200,
+            "pass": true
+          },
+          {
+            "path": "/api/google-sync/export",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          },
+          {
+            "path": "/api/notifications/run",
+            "status": 401,
+            "expected": 401,
+            "pass": true
+          }
+        ],
+        "pass": true,
+        "method": "HTTP status only; no response bodies persisted"
+      },
+      "runtime": {
+        "phase": "default-alias-post",
+        "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+        "checkedAt": "2026-10-11T13:28:08.507772+00:00",
+        "counts": {
+          "errors": 0,
+          "http500": 0
+        },
+        "cliExit": 0,
+        "method": "Runtime CLI, counts only, no private log messages retained"
+      }
+    }
+  ],
+  "previewResumeCommand": "pnpm deploy:preview -- --candidate https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app --verified-authenticated-smoke",
+  "resumeWarning": "Only after every changed Auth/Server Component route and runtime log pass on immutable URL. Production promote separately after its Auth smoke.",
+  "remoteFinancialWrites": false,
+  "remoteSchemaAccountsSecretsWrites": false,
+  "ownerLogin": "Both candidates logged in by OWNER, 2026-10-11",
+  "nativePrompt": "RESOLVED: OWNER Cancel verified draft/focus preserved; OWNER discarded; Cua confirmed drawer/input absent",
+  "productionRollbackFresh": {
+    "id": "dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu",
+    "name": "quan-ly-vay-ca-nhan",
+    "url": "quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app",
+    "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+    "ownerId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+    "target": "production",
+    "readyState": "READY",
+    "regions": [
+      "sin1"
+    ],
+    "checkedAt": "2026-10-11T13:22:30.097989+00:00",
+    "method": "GET v13/deployments, identity/region metadata only; body/env/log data never persisted",
+    "sourceGitMetadata": {
+      "githubCommitRef": "main",
+      "githubCommitSha": "ed72b8615e19f2a3e6667014c86da4ac920ed1ba"
+    },
+    "pass": true,
+    "previewApiTargetNote": "API uses null for Preview; CLI inspect target is verified separately"
+  },
+  "productionRollbackDashboardAuth": "PASS read-only/system/privacy hidden/no overflow 2026-10-11 13:22UTC",
+  "closingCI": "NOT_STARTED",
+  "completedAt": null
+}
