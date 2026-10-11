@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.322
+roadmap_version: 1.0.324
 last_updated: 2026-10-11
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C98
-current_status: COMPLETED
-last_completed_checkpoint: C98
+current_status: IN_PROGRESS
+last_completed_checkpoint: C97
 next_checkpoint: null
 ---
 
@@ -19,14 +19,22 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 1. Trạng thái và công việc kế tiếp
 
-- C98 `COMPLETED` ngày11/10/2026; nghiệm thu/pháthànhA/C92–C97 trênPreview/Production/defaultalias
-  đạt. Source211f8e4/CI38069136549 vàclosingproof4b22848/CI38144466141 đềuSUCCESS5jobs.
-  ClosingpgTAP527/24files,Auth6/0,E2E83PASS19SKIP0FAIL27.4m,retries0. Localfull84/18/0,
-  Previewresume84/18/0/20.2m;nativecandidate72/alias60samples/public/runtime/consolePASS.
-  Preview3BXy…/Production5aqr… Ready45sin1; IDs/URLs/region/bằngchứng chi tiết ở C98 phía dưới.
-  Blocker: không. Checkpoint kếtiếp chưa được địnhnghĩa/phêduyệt, dừng;khôngtạoC99.
-  Commitfinalstatuschỉdocs cũngphảiRequiredCI exactSHA trước báochốt; SHA/run cuối ghi hội thoại,
-  tránhselfreferencecommitloop. [ReportC98](docs/release-c98/report.md),[closingCI](docs/release-c98/closing-ci.json).
+- C98 `IN_PROGRESS` ngày11/10/2026 ở gate CI của commit trạng thái cuối `7e130d9`.
+  [CI38146959473](https://github.com/ngotuong/quanlyvay/actions/runs/38146959473), cả2lần CANCELLED
+  vì job integration vượt35phút; gate tổng hợpFAIL. Lần2 tới102/102 rồi teardownDB, không có
+  summaryE2E hoàn chỉnh nên không tínhPASS. Không chạy lại lần3 cùng cấu hình.
+  Đề xuất riêng deadlinejob35→45phút OWNER đãduyệt vàđãápdụng ngày11/10/2026; giữ test/assertiontimeouts,
+  retries0,đủ102bài/skips/reset/teardown/5jobs/fail-closedgate.
+  [Đề xuất](docs/release-c98/ci-budget-proposal.md),[patch](docs/release-c98/ci-budget-proposal.patch),
+  [bằng chứng blocker](docs/release-c98/final-ci-blocker.json). Chỉ hoàn tất C98 khi finalCIexactSHA5SUCCESS.
+  Kiểm tra đề xuất: policy/actionlint PASS, regressionpolicy2/2, patchdryrun/JSON/diffPASS;
+  workflow chỉđổi deadlinejobintegration35→45m; pnpmci:validate PASS/unit121PASS sauápdụng.
+  Chưa có CI mớiSUCCESS5jobs. Không lặp productgate/deploy khi chỉ ghi blocker/đề xuất.
+  Release/hậukiểm A/C92–C97 đã đạt: source211f8e4/CI38069136549 vàclosingproof4b22848/
+  CI38144466141 SUCCESS5jobs, pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL27.4m.
+  Preview3BXy…/Production5aqr… Ready45sin1/3alias;nativecandidate72/alias60/local84/18/0 đạt.
+  Không deploy lại hoặc mutateledger/account/schema/secrets. Checkpoint kếtiếp chưa địnhnghĩa/duyệt.
+  [ReportC98](docs/release-c98/report.md),[closingCI](docs/release-c98/closing-ci.json).
 
 
 - C91 `COMPLETED` ngày 08/10/2026. Bản sửa VND/tab C90 đã phát hành trên Preview,
@@ -176,7 +184,7 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - C97 preservation/diff/artifact/secret PASS:1235trackedbefore/10scopechanged/1225unchanged,
   153websrcfreeze/73financialprotected giữ;17C75exact/15generatedrestored. C20-testlabel/
   DB55322 đúng,sixcounts0; không main54322/push/deploy/remote/schema/RPC/engine/dependency change.
-  Runtime tại thờiđiểmC97 vẫn C91. C98 `COMPLETED`; OWNER phê duyệt ngày10/10/2026 trong hội thoại.
+  Runtime tại thờiđiểmC97 vẫn C91. C98 `IN_PROGRESS` ở finalstatusCI; OWNER phê duyệt ngày10/10/2026 trong hội thoại.
   Phạm vi C98: nghiệm thu chuỗi A/C92–C97 và phát hành Preview/Production/alias theo C91/runbook.
   Source phát hành hiện tại: `211f8e49eee0b78eca4c9723b526604a99780b3d`;
   [CI38069136549](https://github.com/ngotuong/quanlyvay/actions/runs/38069136549) SUCCESS đủ5job:
@@ -207,8 +215,8 @@ không dùng lịch sử để suy quyền thực hiện mới.
   15generatedrestored/guardC20-test55322/sixcounts0 sauteardown; khôngmain54322/remoteledger/accounts/
   schema/secrets/Google/backupmutation. [ReportC98](docs/release-c98/report.md) vàreleaseproofs.
   Closingproof4b22848a35e440eac20877b576ac463abfb48b9b/CI38144466141 SUCCESS5job,
-  pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL27.4m,retries0. C98COMPLETED,blockerkhông;
-  sourceCI211f8e4 đãđạt trướcrelease. Finalstatuschỉdocs cũngkiểmCI exactSHA trước báochốt,
+  pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL27.4m,retries0. Release/hậukiểm đạt; C98IN_PROGRESS sau finalCI38146959473 cả2lần timeout35m;
+  sourceCI211f8e4 đãđạt trướcrelease. Đề xuất deadlinejob45m OWNER đãduyệt vàđãápdụng ngày11/10/2026. Finalstatuschỉdocs cũngkiểmCI exactSHA trước báochốt,
   SHA/run ghi hội thoại. RoadmapdừngC98,chưacómốc kếtiếpđượcđịnhnghĩa/duyệt.
   NOT_TESTED AT/phone thật/softkeyboard/nativeclipboard/nativezoom/authenticatedSafariFirefox/
   OS-theme-live/PWA-beforeHTML/remote save giữ rõ trong report. C91 query_canceled57014 vẫn chưa

@@ -1,6 +1,6 @@
-# Bàn giao — C98 hoàn tất
+# Bàn giao — C98 tiếp tục CI cuối với deadline đã duyệt
 
-C98 COMPLETED ngày11/10/2026; OWNER duyệt10/10/2026 trong hội thoại, cho toànphạmvi nghiệm thuA/C92–C97
+C98 IN_PROGRESS ngày11/10/2026 ở finalstatusCI; OWNER duyệt10/10/2026 trong hội thoại, cho toànphạmvi nghiệm thuA/C92–C97
 vàpháthành Preview/Production/alias theoC91/runbook. Khôngxinlại duyệtC98. Canonicalrepo
 `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`; đọcAGENTS/PROJECT_CONTEXT/roadmapC98/gitstatus.
 Khôngcheckpointmới/Google/backup/automation hoặc côngviệc lịch sử. RoadmapdừngC98.
@@ -38,10 +38,13 @@ injectedexpense giữ, khôngwholeappzeroerror. Phone/AT/nativezoom/softkeyboard
 OSlive/PWAbeforeHTML/remotesave NOT_TESTED; zoomemulation khôngnativecertification.
 
 Closingproof4b22848a35e440eac20877b576ac463abfb48b9b,CI38144466141 SUCCESS5job:
-pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL27.4m,retries0. C98COMPLETED/contextroadmap cậpnhật.
+pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL27.4m,retries0. Release/closingproof đạt; C98IN_PROGRESS finalstatusCI/contextroadmap cậpnhật.
 Finalstatuschỉdocs cũngphảiCI đúngSHA trước báoOWNER; resultSHA/run ghi hội thoại tránhselfreference.
 KhôngdùngsourceCI thayclosingCI. KhôngtựtạoC99,khôngcheckpointkếtiếpđượcđịnhnghĩa/duyệt;
-phiênsau kiểm lời nhắnOWNER mới trước mọithao tác. Blockerkhông. Khônglặpdeploy/gates/remote/
+phiênsau kiểm lời nhắnOWNER mới trước mọithao tác. Blocker: finalCI38146959473/7e130d9 cả2lần CANCELLED vì job35m; lượt2 tới102/102 rồi
+teardownDB, không có summaryE2E. Khôngrerunlần3cùngcấuhình. Đề xuất tăng deadlinejobintegration
+35→45m ở docs/release-c98/ci-budget-proposal.md/.patch, OWNERĐÃDUYỆT/ĐÃÁPDỤNG11/10/2026.
+Giữ timeoutbài/assertion/retries0/skips/reset/teardown/5jobs/gate; metadata final-ci-blocker.json. Khônglặpdeploy/gates/remote/
 Google/backup từlịch sử. GiữNOT_TESTED và rủiroDB57014,khôngtựtuning.
 Proofs docs/release-c98/report.md,deployment-proof/native-auth-candidates/native-auth-aliases/
 native-auth-preview-post/rollback-proof/preservation/validation/verification-history.

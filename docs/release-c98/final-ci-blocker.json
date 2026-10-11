@@ -1,0 +1,76 @@
+{
+  "checkpoint": "C98",
+  "status": "IN_PROGRESS",
+  "headSha": "7e130d9c0a81d342117316a3aed6497c5453250d",
+  "runId": 38146959473,
+  "url": "https://github.com/ngotuong/quanlyvay/actions/runs/38146959473",
+  "attempts": [
+    {
+      "attempt": 1,
+      "conclusion": "cancelled",
+      "integrationJob": 114492235169,
+      "gateConclusion": "failure",
+      "annotation": "The job has exceeded the maximum execution time of 35m0s",
+      "lastStartedE2E": 100,
+      "totalE2E": 102,
+      "e2eCompletedSummary": false
+    },
+    {
+      "attempt": 2,
+      "conclusion": "cancelled",
+      "integrationJob": 114499796684,
+      "gateConclusion": "failure",
+      "annotation": "The job has exceeded the maximum execution time of 35m0s",
+      "lastStartedE2E": 102,
+      "totalE2E": 102,
+      "lastTestStartedAt": "2026-10-11T15:35:12.3804021Z",
+      "globalTeardownStartedAt": "2026-10-11T15:35:19.8898216Z",
+      "cancelledAt": "2026-10-11T15:35:56.6988542Z",
+      "interruptedPhase": "global teardown database reset/restart",
+      "e2eCompletedSummary": false
+    }
+  ],
+  "assessment": "Job execution budget exhausted. Attempt2 reached final test then global teardown; no completed E2E summary, so neither attempt is PASS. No E2E assertion failure observed in captured logs; no global claim that app has zero errors.",
+  "proposal": {
+    "workflow": ".github/workflows/ci.yml",
+    "job": "integration",
+    "timeoutMinutesBefore": 35,
+    "timeoutMinutesProposed": 45,
+    "applied": true,
+    "workflowSha256Before": "5f6b7d6224b66053d83f1e9764cc59e981dcef00e3ea5e97710e85fa11b93060",
+    "scope": "Only job execution deadline; preserve individual test/assertion timeouts, all assertions, retries=0, 102 tests and skips, reset/teardown, five jobs and fail-closed gate.",
+    "approval": "OWNER explicitly approved job deadline45m on2026-10-11 in current conversation",
+    "workflowSha256After": "230c8fa6382a611bb90f1ff8dcddabe79df0677d2d6a24e4b82f674be617c074"
+  },
+  "release": "Existing source211/closing4b22848 CI and release/postcheck evidence remain valid; no new deploy, account or financial/schema/secret mutation.",
+  "rawLogs": "Ignored .cache/c98/final-status-integration.log and final-status-attempt2-all.log",
+  "proposalVerification": {
+    "proposalPolicy": "PASS",
+    "proposalActionlint": "PASS",
+    "ciPolicyRegression": {
+      "pass": 2,
+      "fail": 0
+    },
+    "patchDryRun": "PASS",
+    "jsonParse": "PASS",
+    "gitDiffCheck": "PASS",
+    "workflowApplied": true,
+    "productGatesRepeated": false,
+    "reason": "Only blocker documentation and unapplied CI budget proposal changed; completed product/release proofs retained."
+  },
+  "next": "Validate amended workflow and push; require new exactSHA5jobsSUCCESS. No third rerun of unchanged35m configuration.",
+  "appliedAmendmentValidation": {
+    "pnpmCiValidate": "PASS policy/actionlint",
+    "pnpmTest": {
+      "pass": 121,
+      "fail": 0,
+      "web": 58,
+      "domain": 11,
+      "googleSync": 18,
+      "scripts": 34
+    },
+    "gitDiffCheck": "PASS",
+    "workflowChange": "Exactly one line integration.timeout-minutes35→45",
+    "runtimeTestAssertionTimeoutRetrySkipChanges": 0
+  }
+}

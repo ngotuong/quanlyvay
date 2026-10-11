@@ -1,5 +1,5 @@
 {
-  "status": "COMPLETED",
+  "status": "IN_PROGRESS",
   "sourceSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
   "sourceCiRun": 38069136549,
   "local": {
@@ -153,5 +153,17 @@
     "releaseSourceSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
     "finalStatusShaRun": "Recorded in conversation after exactSHA5jobsSUCCESS to avoid selfreferential commit loop"
   },
-  "finalStatusCI": "Check exactSHA after this docs-only finalstatus commit; result in conversation"
+  "finalStatusCI": {
+    "headSha": "7e130d9c0a81d342117316a3aed6497c5453250d",
+    "runId": 38146959473,
+    "attempts": 2,
+    "conclusion": "cancelled",
+    "gate": "failure",
+    "blocker": "integration job exceeded35m; no complete E2E summary",
+    "proposal": "ci-budget-proposal.md",
+    "proposalApplied": true,
+    "required": "ExactfinalSHA5jobsSUCCESS before reporting completion",
+    "amendment": "OWNER approved integration job deadline35→45m on2026-10-11; waiting new exactSHA5jobsSUCCESS"
+  },
+  "releaseStatus": "COMPLETED"
 }

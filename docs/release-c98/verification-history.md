@@ -87,3 +87,10 @@ log ở ignored.cache/c98, không đưa secret hoặc dữ liệu tài chính th
     phục hồi vàjobPASS; lograw giữcache,khônggiảmtesttimeout/assertions/retry/skip. Scopedsecret26files
     pinnedredactedexit0/JSON56PNGhash/diff/sourcefreeze/C75/C20zero PASS trướcclosingcommit.
     C98COMPLETED; finalstatusdocs-only cònkiểmexactSHA CI trước báoOWNER, khôngtựmởcheckpointmới.
+
+
+## Final status CI 38146959473 — hai lần bị hủy
+
+Commit7e130d9: attempt1 vượt35m lúc E2E100/102; attempt2 vượt35m sau102/102 trong global teardown database reset/restart. GitHub annotation xác nhận deadline35m. Không có summary E2E hoàn chỉnh; không tínhPASS. Policy/quality/securityPASS; integrationCANCELLED/gateFAIL. Rawcachegiữ; metadata final-ci-blocker.json. Khôngrerunlần3cùngcấuhình. Đề xuất deadlinejobintegration35→45m chưa áp dụng/chờduyệt; test/assertion timeouts/retries0/skips/reset/teardown và gate giữ nguyên. Release/source/closingproof đã đạt không bị đổi; không deploy mới hoặc remote financial/account/schema/secret mutation.
+
+OWNER phê duyệt rõ deadlinejob45phút ngày11/10/2026 trong hội thoại. Patch một dòng integration35→45m đã áp dụng; C98IN_PROGRESS chờ CI mới. Timeout từng bài/assertion/retry/skip/reset/teardown/5job gate giữ nguyên. Không rerun cùng cấu hình35m lần3.
