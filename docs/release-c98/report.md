@@ -1,9 +1,11 @@
 # C98 — Nghiệm thu A và phát hành
 
-Trạng thái: IN_PROGRESS ngày11/10/2026, chỉ còn Required CI của commit bằng chứng chốt.
-Chuỗi UI/UX C92–C97 đã phát hành trên Preview, Production và alias mặc định. Local gates,
-CI source và immutable/alias Auth/public/provenance/runtime smoke đạt; chưa gọi COMPLETED
-khi closing CI chưa SUCCESS. OWNER đã phê duyệt toànphạmvi C98 ngày10/10.
+C98 COMPLETED ngày11/10/2026. Chuỗi UI/UX C92–C97 đã phát hành trên Preview,
+Production và alias mặc định; local gates, CI source/closingproof và authenticated rollout/hậukiểm đạt.
+[CI chốt38144466141](https://github.com/ngotuong/quanlyvay/actions/runs/38144466141) của
+`4b22848a35e440eac20877b576ac463abfb48b9b` SUCCESS đủ5job:pgTAP527/Auth6/E2E83PASS19SKIP0FAIL27.4m.
+Commit trạng thái cuối chỉ sửa tài liệu; CI đúngSHA phải đạt trước báo OWNER, SHA/run ghi hội thoại
+để tránh vòng commit tự thamchiếu. Chưa có checkpoint kếtiếp trong roadmap; không tựmởC99.
 
 Thiết kế A giữ B/Inter/KPI trước task; mobile Dashboard cards/desktop table, tên200 có disclosure,
 helper14/ngoại lệ12, notification selected/hover rõ; principal chip+50/+100/+150/+200tr bằng BigInt;
@@ -75,7 +77,7 @@ Bảo toàn1296initialtracked/10allowedchanged/1286unchanged,153runtime/73financ
 17C75exact/15generatedrestored saurootresume. DockerC20-testlabel/DB55322/sixcounts0 sauteardown,
 main54322 khôngdùng. [Preservation](preservation.json),56PNGhash/JSONparse PASS. Localserverlog có
 negativeAuth/injectedexpenseerror/destination-stream-closed-early, giữ raw không gọi toànapp runtime0.
-Closing CI đúngSHA cònchờ; context/roadmap giữ IN_PROGRESS và không mởcheckpoint kếtiếp.
+Closingproof CI đúngSHA SUCCESS5job; [closingproof](closing-ci.json). C98 COMPLETED, không mởcheckpoint kếtiếp.
 
 ## Giới hạn và rủi ro
 

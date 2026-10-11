@@ -1,0 +1,43 @@
+{
+  "headSha": "4b22848a35e440eac20877b576ac463abfb48b9b",
+  "runId": 38144466141,
+  "url": "https://github.com/ngotuong/quanlyvay/actions/runs/38144466141",
+  "status": "completed",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "Workflow policy",
+      "conclusion": "success"
+    },
+    {
+      "name": "Dependency and secret scan",
+      "conclusion": "success"
+    },
+    {
+      "name": "Quality and build",
+      "conclusion": "success"
+    },
+    {
+      "name": "Supabase Auth pgTAP and E2E",
+      "conclusion": "success"
+    },
+    {
+      "name": "Required CI gate",
+      "conclusion": "success"
+    }
+  ],
+  "integration": {
+    "pgTAPFiles": 24,
+    "pgTAPTests": 527,
+    "authPass": 6,
+    "authFail": 0,
+    "e2ePass": 83,
+    "e2eSkip": 19,
+    "e2eFail": 0,
+    "e2eMinutes": 27.4,
+    "e2eRetries": 0
+  },
+  "sourceCI": 38069136549,
+  "releaseSourceSha": "211f8e49eee0b78eca4c9723b526604a99780b3d",
+  "finalStatusShaRun": "Recorded in conversation after exactSHA5jobsSUCCESS to avoid selfreferential commit loop"
+}

@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.321
+roadmap_version: 1.0.322
 last_updated: 2026-10-11
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C98
-current_status: IN_PROGRESS
-last_completed_checkpoint: C97
-next_checkpoint: C98
+current_status: COMPLETED
+last_completed_checkpoint: C98
+next_checkpoint: null
 ---
 
 # Project Context
@@ -19,9 +19,19 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 1. Trạng thái và công việc kế tiếp
 
+- C98 `COMPLETED` ngày11/10/2026; nghiệm thu/pháthànhA/C92–C97 trênPreview/Production/defaultalias
+  đạt. Source211f8e4/CI38069136549 vàclosingproof4b22848/CI38144466141 đềuSUCCESS5jobs.
+  ClosingpgTAP527/24files,Auth6/0,E2E83PASS19SKIP0FAIL27.4m,retries0. Localfull84/18/0,
+  Previewresume84/18/0/20.2m;nativecandidate72/alias60samples/public/runtime/consolePASS.
+  Preview3BXy…/Production5aqr… Ready45sin1; IDs/URLs/region/bằngchứng chi tiết ở C98 phía dưới.
+  Blocker: không. Checkpoint kếtiếp chưa được địnhnghĩa/phêduyệt, dừng;khôngtạoC99.
+  Commitfinalstatuschỉdocs cũngphảiRequiredCI exactSHA trước báochốt; SHA/run cuối ghi hội thoại,
+  tránhselfreferencecommitloop. [ReportC98](docs/release-c98/report.md),[closingCI](docs/release-c98/closing-ci.json).
+
+
 - C91 `COMPLETED` ngày 08/10/2026. Bản sửa VND/tab C90 đã phát hành trên Preview,
   Production và alias mặc định; không thay nghiệp vụ, dữ liệu thật hoặc schema/RPC.
-- Runtime source: `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`.
+- Runtime source tạiC91: `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`.
   Required CI [37644195261](https://github.com/ngotuong/quanlyvay/actions/runs/37644195261)
   thành công cả 5 job. Commit chốt `839d34b348e7dd435688365435cc0336bfcb4eb0` có [Required CI](https://github.com/ngotuong/quanlyvay/actions/runs/37803762628) thành công cả 5 job:
   pgTAP 527/24 files, Auth 6/0, E2E 63 đạt/19 bỏ qua.
@@ -166,7 +176,7 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - C97 preservation/diff/artifact/secret PASS:1235trackedbefore/10scopechanged/1225unchanged,
   153websrcfreeze/73financialprotected giữ;17C75exact/15generatedrestored. C20-testlabel/
   DB55322 đúng,sixcounts0; không main54322/push/deploy/remote/schema/RPC/engine/dependency change.
-  Runtime phát hành vẫn C91. C98 `IN_PROGRESS`; OWNER phê duyệt ngày10/10/2026 trong hội thoại.
+  Runtime tại thờiđiểmC97 vẫn C91. C98 `COMPLETED`; OWNER phê duyệt ngày10/10/2026 trong hội thoại.
   Phạm vi C98: nghiệm thu chuỗi A/C92–C97 và phát hành Preview/Production/alias theo C91/runbook.
   Source phát hành hiện tại: `211f8e49eee0b78eca4c9723b526604a99780b3d`;
   [CI38069136549](https://github.com/ngotuong/quanlyvay/actions/runs/38069136549) SUCCESS đủ5job:
@@ -196,8 +206,10 @@ không dùng lịch sử để suy quyền thực hiện mới.
   khôngactivate.153runtime/73financialfiles exact,1296before10allowed1286unchanged/17C75exact/
   15generatedrestored/guardC20-test55322/sixcounts0 sauteardown; khôngmain54322/remoteledger/accounts/
   schema/secrets/Google/backupmutation. [ReportC98](docs/release-c98/report.md) vàreleaseproofs.
-  C98 vẫnIN_PROGRESS: chỉcònclosingCI exactSHA, sẽcommit/push bằngchứngrồichờ5jobSUCCESS;
-  sourceCI211f8e4 đãđạt trướcrelease. RoadmapdừngC98,chưacómốc kếtiếpđượcđịnhnghĩa/duyệt.
+  Closingproof4b22848a35e440eac20877b576ac463abfb48b9b/CI38144466141 SUCCESS5job,
+  pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL27.4m,retries0. C98COMPLETED,blockerkhông;
+  sourceCI211f8e4 đãđạt trướcrelease. Finalstatuschỉdocs cũngkiểmCI exactSHA trước báochốt,
+  SHA/run ghi hội thoại. RoadmapdừngC98,chưacómốc kếtiếpđượcđịnhnghĩa/duyệt.
   NOT_TESTED AT/phone thật/softkeyboard/nativeclipboard/nativezoom/authenticatedSafariFirefox/
   OS-theme-live/PWA-beforeHTML/remote save giữ rõ trong report. C91 query_canceled57014 vẫn chưa
   xác định nguyên nhân; không mở DB tuning/Google/backup từ lịch sử.
@@ -205,7 +217,7 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 2. Thay đổi local cần bảo toàn
 
-- Branch `main`, runtime source `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`;
+- Branch `main`, runtime source C98 `211f8e49eee0b78eca4c9723b526604a99780b3d`;
   closing proof gốc 705b6da FAIL được giữ; harness C87 đã đạt CI tại 839d34b348e7dd435688365435cc0336bfcb4eb0.
   Initialhandoff b98fe64d332ea31ffee2b2e3adebc5ec7756744a giữ trong report.
 - Đã commit toàn bộ source/docs/harness C89/C90, handoff và historyarchive; không xóa artifacts.
@@ -215,7 +227,7 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - C91 source/closingproof đã push; finalstatus chỉ tài liệu. Candidate source/UID giữ nguyên.
 - C92 local commit `752fd48`, C93 `577d6f4`, C94 `0aa52ac`, C95 `82151b6`; C96 `1b54be1`; C97 local source/docs
   và bằng chứng chốt cùng context/roadmap/handoff. C98 đã push C92–C97 và source CI;
-  C98 đãpháthành vàhậukiểmđạt;closingCI pending.
+  C98 đãpháthành/hậukiểm/closingCI đạt.
 - Các file C75 do test sinh đã trả exact baseline. Không broad reset/cleanup cache/backup;
   cache còn trace/log thất bại để truy vết và có synthetic session cần tiếp tục ignore.
 

@@ -81,3 +81,9 @@ log ở ignored.cache/c98, không đưa secret hoặc dữ liệu tài chính th
     Cua30sbatchkernelreset midclean drawerexcluded; Escapeclosed/focusrestored; finalsamples saved
     individually. DesktopKPIhelper wait strict2sections correcteduniqueprimaryselector, noapp/testchange.
     FinalclosingCI stillpending, noCOMPLETEclaim. PrivateDashboardJPEGcacheonly, noGitfinance/identity.
+
+14. Closingproof4b22848/CI38144466141 SUCCESS5jobs exactSHA; pgTAP527/24files/Auth6/0/
+    E2E83PASS19SKIP0FAIL27.4m/retries0. Supabaseimagepull từngDockerHubtoomanyrequests nhưngCLI
+    phục hồi vàjobPASS; lograw giữcache,khônggiảmtesttimeout/assertions/retry/skip. Scopedsecret26files
+    pinnedredactedexit0/JSON56PNGhash/diff/sourcefreeze/C75/C20zero PASS trướcclosingcommit.
+    C98COMPLETED; finalstatusdocs-only cònkiểmexactSHA CI trước báoOWNER, khôngtựmởcheckpointmới.

@@ -73,7 +73,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C95 | Quick Amount cho nhập VND chính xác, thuận tiện | `COMPLETED` |
 | C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `COMPLETED` |
 | C97 | Loading đúng từng màn và motion có chọn lọc | `COMPLETED` |
-| C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `IN_PROGRESS` |
+| C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `COMPLETED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -2404,7 +2404,7 @@ Phép đo liên tục bổ sung3PASS0FAIL5.4m/53observations (36route/4cold/12dr
 
 ### C98 — Nghiệm thu tổng hợp và phát hành
 
-Trạng thái: `IN_PROGRESS`. OWNER phê duyệt C98 ngày10/10/2026 trong hội thoại;
+Trạng thái: `COMPLETED` ngày11/10/2026. OWNER phê duyệt C98 ngày10/10/2026 trong hội thoại;
 nghiệm thu A/C92–C97 và phát hành Preview/Production/alias theo C91/runbook.
 Source211f8e4/CI38069136549 SUCCESS5job:pgTAP527/Auth6/E2E83PASS19SKIP0FAIL24.9m.
 Localfull/rootPreviewcreate84/18/0/19.4m,rootresume84/18/0/20.2m;matrix100/72stress/4System/
@@ -2412,7 +2412,9 @@ Localfull/rootPreviewcreate84/18/0/19.4m,rootresume84/18/0/20.2m;matrix100/72str
 Public4each/console0/runtime0errors500 trongwindow. Preview3BXy…/Production5aqr… và3alias exactID/
 Ready45sin1;Productionpromote/rootPreviewresumeexit0. C91rollbackverified,khôngactivate. Prefs/
 viewportrestored;C75exact/153runtime/73financial/C20-test55322sixcounts0. Khôngledger/accounts/
-schema/secretsmutation. ChỉcònclosingCI exactSHA;C98IN_PROGRESS,chưamốc kếtiếp. Report docs/release-c98/.
+schema/secretsmutation. Closingproof4b22848/CI38144466141 SUCCESS5job:pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL27.4m.
+C98COMPLETED,blockerkhông,chưamốc kếtiếpđịnhnghĩa/duyệt. Finalstatuschỉdocs cũngkiểmCI exactSHA
+trước báochốt; SHA/run cuối tronghội thoại tránhcommitselfreference. Report docs/release-c98/.
 
 Phạm vi: full lint/typecheck/unit/build/E2E; visual+functional matrix5khổ×2theme, System/
 zoom320/200%/viewportlow/name200/boundaryVND/emptyerrorloading/keyboard/privacy và contrast
