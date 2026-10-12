@@ -1,0 +1,61 @@
+{
+  "status": "IN_PROGRESS",
+  "baselineSource": "8a54ff8b04a657aa11ebb934f0e2ada3e01ec9e1",
+  "local": {
+    "lint": "PASS",
+    "typecheck": "PASS corrected nullable media; initial failure preserved",
+    "unit": {
+      "pass": 121,
+      "fail": 0
+    },
+    "build": "PASS",
+    "policy": "PASS",
+    "audit": "PASS no known vulnerabilities",
+    "scopedSecret": "PASS no leaks",
+    "targetedE2E": {
+      "pass": 9,
+      "skip": 1,
+      "fail": 0,
+      "minutes": 7.2,
+      "retries": 0
+    },
+    "fullE2E": {
+      "pass": 86,
+      "skip": 18,
+      "fail": 0,
+      "minutes": 20.8,
+      "retries": 0
+    },
+    "Auth": {
+      "pass": 6,
+      "fail": 0
+    },
+    "pgTAP": {
+      "pass": 527,
+      "files": 24,
+      "fail": 0
+    },
+    "startupImages": 48,
+    "headStartupLinks": 48,
+    "bodyStartupLinks": 0,
+    "probe": "PASS geometry and console, retained accessibility focus",
+    "newCISetupBranch": {
+      "pass": 2,
+      "fail": 0,
+      "minutes": 1.3,
+      "E2E_DATABASE_PREPARED": "true",
+      "localGuard": "55321/55322"
+    },
+    "supplementalBrowserClock": {
+      "beforePass": 1,
+      "afterPass": 1,
+      "samplesPerPhase": 40,
+      "minutesPerPhase": 1.5,
+      "mainRouteSpeedup": "not demonstrated"
+    }
+  },
+  "sourceCI": "PENDING",
+  "release": "PENDING",
+  "physicalIPhone": "NOT_TESTED",
+  "financialWrites": "none on remote"
+}

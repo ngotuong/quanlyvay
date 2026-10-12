@@ -2,6 +2,7 @@
 
 import { createContext, useCallback, useContext, useLayoutEffect, useRef, useState, useSyncExternalStore, type ReactNode } from "react";
 import { parseTheme, themeColors, themeCookieName } from "@/lib/app/theme.mjs";
+import { startupImageMedia } from "@/lib/app/ios-startup.mjs";
 
 export type ThemePreference = "light" | "dark" | "system";
 const ThemeContext = createContext<{ preference: ThemePreference; setPreference: (value: ThemePreference) => void; storageError: boolean }>({ preference: "system", setPreference: () => {}, storageError: false });
@@ -19,6 +20,12 @@ function applyDocumentTheme(preference: ThemePreference) {
   for (const entry of themeColors(preference)) {
     const meta = document.querySelector<HTMLMetaElement>(`meta[name="theme-color"][media="${entry.media}"]`);
     if (meta && meta.content !== entry.color) meta.content = entry.color;
+  }
+  // iOS uses head links for the next standalone launch. Keep them aligned with a
+  // manual preference, including when cached history restores an older document head.
+  for (const link of document.querySelectorAll<HTMLLinkElement>('link[rel="apple-touch-startup-image"]')) {
+    const media = startupImageMedia(link.href, preference);
+    if (media && link.media !== media) link.media = media;
   }
 }
 

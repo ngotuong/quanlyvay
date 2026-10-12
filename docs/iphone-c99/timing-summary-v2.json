@@ -1,0 +1,245 @@
+{
+  "method": "Browser clock, click/popstate event start, correct visible content marker with loading absent and two animation frames. Not iPhone native, not pixel paint verification, not hydration timing. n5p95=sample maximum.",
+  "rows": [
+    {
+      "kind": "cold-auth-document",
+      "nPerPhase": 5,
+      "before": {
+        "paintReadyMs": {
+          "median": 377.2999999523163,
+          "p95NearestRank": 385
+        },
+        "elapsedMs": {
+          "median": 442,
+          "p95NearestRank": 464
+        },
+        "ttfbMs": {
+          "median": 7.400000035762787,
+          "p95NearestRank": 11.399999976158142
+        },
+        "fcpMs": {
+          "median": 52,
+          "p95NearestRank": 64
+        },
+        "bytes": {
+          "median": 104149,
+          "p95NearestRank": 104149
+        }
+      },
+      "after": {
+        "paintReadyMs": {
+          "median": 394.4000000357628,
+          "p95NearestRank": 419.60000002384186
+        },
+        "elapsedMs": {
+          "median": 432,
+          "p95NearestRank": 473
+        },
+        "ttfbMs": {
+          "median": 8.600000023841858,
+          "p95NearestRank": 17.400000035762787
+        },
+        "fcpMs": {
+          "median": 60,
+          "p95NearestRank": 84
+        },
+        "bytes": {
+          "median": 130702,
+          "p95NearestRank": 130702
+        }
+      }
+    },
+    {
+      "kind": "warm-auth-document",
+      "nPerPhase": 5,
+      "before": {
+        "paintReadyMs": {
+          "median": 361.39999997615814,
+          "p95NearestRank": 376.5999999642372
+        },
+        "elapsedMs": {
+          "median": 415,
+          "p95NearestRank": 415
+        },
+        "ttfbMs": {
+          "median": 6.399999976158142,
+          "p95NearestRank": 11
+        },
+        "fcpMs": {
+          "median": 40,
+          "p95NearestRank": 40
+        }
+      },
+      "after": {
+        "paintReadyMs": {
+          "median": 361.60000002384186,
+          "p95NearestRank": 376.5
+        },
+        "elapsedMs": {
+          "median": 413,
+          "p95NearestRank": 430
+        },
+        "ttfbMs": {
+          "median": 7.799999952316284,
+          "p95NearestRank": 9.5
+        },
+        "fcpMs": {
+          "median": 36,
+          "p95NearestRank": 40
+        }
+      }
+    },
+    {
+      "kind": "route-loans",
+      "nPerPhase": 5,
+      "before": {
+        "paintReadyMs": {
+          "median": 363.7000000476837,
+          "p95NearestRank": 364.10000002384186
+        },
+        "elapsedMs": {
+          "median": 389,
+          "p95NearestRank": 889
+        }
+      },
+      "after": {
+        "paintReadyMs": {
+          "median": 362.5,
+          "p95NearestRank": 365.69999998807907
+        },
+        "elapsedMs": {
+          "median": 402,
+          "p95NearestRank": 891
+        }
+      }
+    },
+    {
+      "kind": "route-counterparties",
+      "nPerPhase": 5,
+      "before": {
+        "paintReadyMs": {
+          "median": 365.10000002384186,
+          "p95NearestRank": 366.0999999642372
+        },
+        "elapsedMs": {
+          "median": 881,
+          "p95NearestRank": 882
+        }
+      },
+      "after": {
+        "paintReadyMs": {
+          "median": 364.30000001192093,
+          "p95NearestRank": 365.5
+        },
+        "elapsedMs": {
+          "median": 380,
+          "p95NearestRank": 406
+        }
+      }
+    },
+    {
+      "kind": "route-dashboard",
+      "nPerPhase": 5,
+      "before": {
+        "paintReadyMs": {
+          "median": 361.30000001192093,
+          "p95NearestRank": 363.5999999642372
+        },
+        "elapsedMs": {
+          "median": 387,
+          "p95NearestRank": 886
+        }
+      },
+      "after": {
+        "paintReadyMs": {
+          "median": 363,
+          "p95NearestRank": 363.89999997615814
+        },
+        "elapsedMs": {
+          "median": 396,
+          "p95NearestRank": 880
+        }
+      }
+    },
+    {
+      "kind": "detail-history-tab",
+      "nPerPhase": 5,
+      "before": {
+        "paintReadyMs": {
+          "median": 97.09999996423721,
+          "p95NearestRank": 130
+        },
+        "elapsedMs": {
+          "median": 149,
+          "p95NearestRank": 166
+        },
+        "feedbackMs": {
+          "median": 31.30000001192093,
+          "p95NearestRank": 31.799999952316284
+        }
+      },
+      "after": {
+        "paintReadyMs": {
+          "median": 97.19999998807907,
+          "p95NearestRank": 112.39999997615814
+        },
+        "elapsedMs": {
+          "median": 147,
+          "p95NearestRank": 148
+        },
+        "feedbackMs": {
+          "median": 30.5,
+          "p95NearestRank": 31.100000023841858
+        }
+      }
+    },
+    {
+      "kind": "history-back",
+      "nPerPhase": 5,
+      "before": {
+        "paintReadyMs": {
+          "median": 35.69999998807907,
+          "p95NearestRank": 36.39999997615814
+        },
+        "elapsedMs": {
+          "median": 40,
+          "p95NearestRank": 40
+        }
+      },
+      "after": {
+        "paintReadyMs": {
+          "median": 36.40000003576279,
+          "p95NearestRank": 48.700000047683716
+        },
+        "elapsedMs": {
+          "median": 40,
+          "p95NearestRank": 41
+        }
+      }
+    },
+    {
+      "kind": "history-forward",
+      "nPerPhase": 5,
+      "before": {
+        "paintReadyMs": {
+          "median": 42.89999997615814,
+          "p95NearestRank": 43.90000003576279
+        },
+        "elapsedMs": {
+          "median": 29,
+          "p95NearestRank": 56
+        }
+      },
+      "after": {
+        "paintReadyMs": {
+          "median": 41.59999996423721,
+          "p95NearestRank": 43.69999998807907
+        },
+        "elapsedMs": {
+          "median": 31,
+          "p95NearestRank": 45
+        }
+      }
+    }
+  ]
+}

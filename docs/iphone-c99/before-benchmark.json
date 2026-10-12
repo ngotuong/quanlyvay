@@ -1,0 +1,200 @@
+{
+  "method": "Local production build, Chromium 390x844, fresh context document and same-context routes; synthetic C20-test API55321 DB55322; not iPhone native/PWA",
+  "samples": [
+    {
+      "round": 0,
+      "kind": "cold-auth-document",
+      "elapsedMs": 448,
+      "ttfbMs": 10,
+      "responseMs": 120.89999997615814,
+      "fcpMs": 48,
+      "bytes": 103553
+    },
+    {
+      "round": 0,
+      "kind": "warm-auth-document",
+      "elapsedMs": 430,
+      "ttfbMs": 7.800000011920929,
+      "fcpMs": 52
+    },
+    {
+      "round": 0,
+      "kind": "route-loans",
+      "elapsedMs": 873,
+      "feedbackMs": 38.39999997615814
+    },
+    {
+      "round": 0,
+      "kind": "route-counterparties",
+      "elapsedMs": 872,
+      "feedbackMs": 38.5
+    },
+    {
+      "round": 0,
+      "kind": "route-dashboard",
+      "elapsedMs": 866,
+      "feedbackMs": 29.69999998807907
+    },
+    {
+      "round": 0,
+      "kind": "detail-history-tab",
+      "elapsedMs": 150
+    },
+    {
+      "round": 1,
+      "kind": "cold-auth-document",
+      "elapsedMs": 441,
+      "ttfbMs": 6.599999964237213,
+      "responseMs": 99.09999996423721,
+      "fcpMs": 56,
+      "bytes": 104149
+    },
+    {
+      "round": 1,
+      "kind": "warm-auth-document",
+      "elapsedMs": 397,
+      "ttfbMs": 5.700000047683716,
+      "fcpMs": 36
+    },
+    {
+      "round": 1,
+      "kind": "route-loans",
+      "elapsedMs": 385,
+      "feedbackMs": 36.299999952316284
+    },
+    {
+      "round": 1,
+      "kind": "route-counterparties",
+      "elapsedMs": 882,
+      "feedbackMs": 47.39999997615814
+    },
+    {
+      "round": 1,
+      "kind": "route-dashboard",
+      "elapsedMs": 373,
+      "feedbackMs": 40.5
+    },
+    {
+      "round": 1,
+      "kind": "detail-history-tab",
+      "elapsedMs": 149
+    },
+    {
+      "round": 2,
+      "kind": "cold-auth-document",
+      "elapsedMs": 438,
+      "ttfbMs": 5.100000023841858,
+      "responseMs": 75.80000001192093,
+      "fcpMs": 88,
+      "bytes": 104149
+    },
+    {
+      "round": 2,
+      "kind": "warm-auth-document",
+      "elapsedMs": 398,
+      "ttfbMs": 4.5,
+      "fcpMs": 20
+    },
+    {
+      "round": 2,
+      "kind": "route-loans",
+      "elapsedMs": 853,
+      "feedbackMs": 36.40000003576279
+    },
+    {
+      "round": 2,
+      "kind": "route-counterparties",
+      "elapsedMs": 876,
+      "feedbackMs": 41.69999998807907
+    },
+    {
+      "round": 2,
+      "kind": "route-dashboard",
+      "elapsedMs": 390,
+      "feedbackMs": 41.19999998807907
+    },
+    {
+      "round": 2,
+      "kind": "detail-history-tab",
+      "elapsedMs": 148
+    },
+    {
+      "round": 3,
+      "kind": "cold-auth-document",
+      "elapsedMs": 403,
+      "ttfbMs": 4.5,
+      "responseMs": 84.20000004768372,
+      "fcpMs": 52,
+      "bytes": 104149
+    },
+    {
+      "round": 3,
+      "kind": "warm-auth-document",
+      "elapsedMs": 398,
+      "ttfbMs": 5.5,
+      "fcpMs": 32
+    },
+    {
+      "round": 3,
+      "kind": "route-loans",
+      "elapsedMs": 851,
+      "feedbackMs": 34.10000002384186
+    },
+    {
+      "round": 3,
+      "kind": "route-counterparties",
+      "elapsedMs": 391,
+      "feedbackMs": 41.30000001192093
+    },
+    {
+      "round": 3,
+      "kind": "route-dashboard",
+      "elapsedMs": 378,
+      "feedbackMs": 45
+    },
+    {
+      "round": 3,
+      "kind": "detail-history-tab",
+      "elapsedMs": 150
+    },
+    {
+      "round": 4,
+      "kind": "cold-auth-document",
+      "elapsedMs": 437,
+      "ttfbMs": 6.400000035762787,
+      "responseMs": 94,
+      "fcpMs": 76,
+      "bytes": 104149
+    },
+    {
+      "round": 4,
+      "kind": "warm-auth-document",
+      "elapsedMs": 396,
+      "ttfbMs": 4.800000011920929,
+      "fcpMs": 36
+    },
+    {
+      "round": 4,
+      "kind": "route-loans",
+      "elapsedMs": 853,
+      "feedbackMs": 35
+    },
+    {
+      "round": 4,
+      "kind": "route-counterparties",
+      "elapsedMs": 373,
+      "feedbackMs": 40
+    },
+    {
+      "round": 4,
+      "kind": "route-dashboard",
+      "elapsedMs": 877,
+      "feedbackMs": 45.10000002384186
+    },
+    {
+      "round": 4,
+      "kind": "detail-history-tab",
+      "elapsedMs": 149
+    }
+  ]
+}

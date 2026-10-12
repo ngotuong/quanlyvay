@@ -1,0 +1,26 @@
+{
+  "applicationServer": "127.0.0.1:3101 production test server",
+  "widths": [
+    375,
+    768,
+    1024,
+    1280,
+    1440,
+    1920
+  ],
+  "sweep": "1440 to375, step20,55 widths each theme",
+  "geometryFailures": 0,
+  "consoleErrors": 0,
+  "focusFindings": {
+    "countPerTheme": 5,
+    "decision": "retain visible keyboard focus for accessibility; reported by style-specific skill rule only"
+  },
+  "visualReview": [
+    "375light",
+    "768light",
+    "1280dark",
+    "native390844portraitdark"
+  ],
+  "offlineTheme": "static screen follows device theme; cannot read a remote cookie while offline",
+  "offlineFont": "Inter if locally available, otherwise system font; no network font dependency"
+}

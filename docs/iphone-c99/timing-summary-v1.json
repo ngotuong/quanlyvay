@@ -1,0 +1,165 @@
+{
+  "method": "n=5 nearest-rank p95 equals sample maximum, not population guarantee; elapsed includes driver/polling; no iPhone measurements",
+  "rows": [
+    {
+      "kind": "cold-auth-document",
+      "nPerPhase": 5,
+      "before": {
+        "elapsedMs": {
+          "median": 438,
+          "p95NearestRank": 448
+        },
+        "ttfbMs": {
+          "median": 6.400000035762787,
+          "p95NearestRank": 10
+        },
+        "fcpMs": {
+          "median": 56,
+          "p95NearestRank": 88
+        },
+        "bytes": {
+          "median": 104149,
+          "p95NearestRank": 104149
+        }
+      },
+      "after": {
+        "elapsedMs": {
+          "median": 417,
+          "p95NearestRank": 449
+        },
+        "ttfbMs": {
+          "median": 7.399999976158142,
+          "p95NearestRank": 10.699999988079071
+        },
+        "fcpMs": {
+          "median": 56,
+          "p95NearestRank": 80
+        },
+        "bytes": {
+          "median": 130702,
+          "p95NearestRank": 130702
+        }
+      }
+    },
+    {
+      "kind": "warm-auth-document",
+      "nPerPhase": 5,
+      "before": {
+        "elapsedMs": {
+          "median": 398,
+          "p95NearestRank": 430
+        },
+        "ttfbMs": {
+          "median": 5.5,
+          "p95NearestRank": 7.800000011920929
+        },
+        "fcpMs": {
+          "median": 36,
+          "p95NearestRank": 52
+        }
+      },
+      "after": {
+        "elapsedMs": {
+          "median": 399,
+          "p95NearestRank": 414
+        },
+        "ttfbMs": {
+          "median": 6,
+          "p95NearestRank": 8.700000047683716
+        },
+        "fcpMs": {
+          "median": 32,
+          "p95NearestRank": 36
+        }
+      }
+    },
+    {
+      "kind": "route-loans",
+      "nPerPhase": 5,
+      "before": {
+        "elapsedMs": {
+          "median": 853,
+          "p95NearestRank": 873
+        },
+        "feedbackMs": {
+          "median": 36.299999952316284,
+          "p95NearestRank": 38.39999997615814
+        }
+      },
+      "after": {
+        "elapsedMs": {
+          "median": 392,
+          "p95NearestRank": 869
+        },
+        "feedbackMs": {
+          "median": 36.69999998807907,
+          "p95NearestRank": 43.69999998807907
+        }
+      }
+    },
+    {
+      "kind": "route-counterparties",
+      "nPerPhase": 5,
+      "before": {
+        "elapsedMs": {
+          "median": 872,
+          "p95NearestRank": 882
+        },
+        "feedbackMs": {
+          "median": 41.30000001192093,
+          "p95NearestRank": 47.39999997615814
+        }
+      },
+      "after": {
+        "elapsedMs": {
+          "median": 381,
+          "p95NearestRank": 880
+        },
+        "feedbackMs": {
+          "median": 45.39999997615814,
+          "p95NearestRank": 47.30000001192093
+        }
+      }
+    },
+    {
+      "kind": "route-dashboard",
+      "nPerPhase": 5,
+      "before": {
+        "elapsedMs": {
+          "median": 390,
+          "p95NearestRank": 877
+        },
+        "feedbackMs": {
+          "median": 41.19999998807907,
+          "p95NearestRank": 45.10000002384186
+        }
+      },
+      "after": {
+        "elapsedMs": {
+          "median": 396,
+          "p95NearestRank": 880
+        },
+        "feedbackMs": {
+          "median": 44.30000001192093,
+          "p95NearestRank": 45.80000001192093
+        }
+      }
+    },
+    {
+      "kind": "detail-history-tab",
+      "nPerPhase": 5,
+      "before": {
+        "elapsedMs": {
+          "median": 149,
+          "p95NearestRank": 150
+        }
+      },
+      "after": {
+        "elapsedMs": {
+          "median": 151,
+          "p95NearestRank": 165
+        }
+      }
+    }
+  ]
+}

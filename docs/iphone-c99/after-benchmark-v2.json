@@ -1,0 +1,305 @@
+{
+  "method": "Local production build, Chromium390x844; browser rAF start from click/popstate and two ready frames; elapsed includes driver/polling; fresh document and same-context routes; synthetic C20-test API55321 DB55322; not iPhone native/PWA",
+  "samples": [
+    {
+      "round": 0,
+      "kind": "cold-auth-document",
+      "elapsedMs": 473,
+      "ttfbMs": 17.400000035762787,
+      "responseMs": 106.69999998807907,
+      "fcpMs": 84,
+      "bytes": 130702,
+      "paintReadyMs": 419.60000002384186
+    },
+    {
+      "round": 0,
+      "kind": "warm-auth-document",
+      "elapsedMs": 414,
+      "ttfbMs": 9.5,
+      "fcpMs": 32,
+      "paintReadyMs": 358.80000001192093
+    },
+    {
+      "round": 0,
+      "kind": "route-loans",
+      "elapsedMs": 891,
+      "paintReadyMs": 365.69999998807907,
+      "feedbackMs": null
+    },
+    {
+      "round": 0,
+      "kind": "route-counterparties",
+      "elapsedMs": 406,
+      "paintReadyMs": 361.5,
+      "feedbackMs": null
+    },
+    {
+      "round": 0,
+      "kind": "route-dashboard",
+      "elapsedMs": 870,
+      "paintReadyMs": 357.2999999523163,
+      "feedbackMs": null
+    },
+    {
+      "round": 0,
+      "kind": "detail-history-tab",
+      "elapsedMs": 147,
+      "paintReadyMs": 112.39999997615814,
+      "feedbackMs": 29.69999998807907
+    },
+    {
+      "round": 0,
+      "kind": "history-back",
+      "elapsedMs": 40,
+      "paintReadyMs": 36.40000003576279,
+      "feedbackMs": null
+    },
+    {
+      "round": 0,
+      "kind": "history-forward",
+      "elapsedMs": 45,
+      "paintReadyMs": 41.59999996423721,
+      "feedbackMs": null
+    },
+    {
+      "round": 1,
+      "kind": "cold-auth-document",
+      "elapsedMs": 432,
+      "ttfbMs": 5.699999988079071,
+      "responseMs": 99.39999997615814,
+      "fcpMs": 44,
+      "bytes": 130702,
+      "paintReadyMs": 379.4000000357628
+    },
+    {
+      "round": 1,
+      "kind": "warm-auth-document",
+      "elapsedMs": 398,
+      "ttfbMs": 6.899999976158142,
+      "fcpMs": 36,
+      "paintReadyMs": 361.60000002384186
+    },
+    {
+      "round": 1,
+      "kind": "route-loans",
+      "elapsedMs": 402,
+      "paintReadyMs": 362.5,
+      "feedbackMs": null
+    },
+    {
+      "round": 1,
+      "kind": "route-counterparties",
+      "elapsedMs": 371,
+      "paintReadyMs": 363.9000000357628,
+      "feedbackMs": null
+    },
+    {
+      "round": 1,
+      "kind": "route-dashboard",
+      "elapsedMs": 379,
+      "paintReadyMs": 363,
+      "feedbackMs": null
+    },
+    {
+      "round": 1,
+      "kind": "detail-history-tab",
+      "elapsedMs": 146,
+      "paintReadyMs": 95.89999997615814,
+      "feedbackMs": 29.69999998807907
+    },
+    {
+      "round": 1,
+      "kind": "history-back",
+      "elapsedMs": 40,
+      "paintReadyMs": 35.30000001192093,
+      "feedbackMs": null
+    },
+    {
+      "round": 1,
+      "kind": "history-forward",
+      "elapsedMs": 45,
+      "paintReadyMs": 40.89999997615814,
+      "feedbackMs": null
+    },
+    {
+      "round": 2,
+      "kind": "cold-auth-document",
+      "elapsedMs": 427,
+      "ttfbMs": 8.600000023841858,
+      "responseMs": 84.80000001192093,
+      "fcpMs": 52,
+      "bytes": 130702,
+      "paintReadyMs": 376.19999998807907
+    },
+    {
+      "round": 2,
+      "kind": "warm-auth-document",
+      "elapsedMs": 413,
+      "ttfbMs": 9,
+      "fcpMs": 32,
+      "paintReadyMs": 360.19999998807907
+    },
+    {
+      "round": 2,
+      "kind": "route-loans",
+      "elapsedMs": 381,
+      "paintReadyMs": 362.4000000357628,
+      "feedbackMs": null
+    },
+    {
+      "round": 2,
+      "kind": "route-counterparties",
+      "elapsedMs": 380,
+      "paintReadyMs": 364.30000001192093,
+      "feedbackMs": null
+    },
+    {
+      "round": 2,
+      "kind": "route-dashboard",
+      "elapsedMs": 376,
+      "paintReadyMs": 363.10000002384186,
+      "feedbackMs": null
+    },
+    {
+      "round": 2,
+      "kind": "detail-history-tab",
+      "elapsedMs": 148,
+      "paintReadyMs": 95.59999996423721,
+      "feedbackMs": 30.5
+    },
+    {
+      "round": 2,
+      "kind": "history-back",
+      "elapsedMs": 39,
+      "paintReadyMs": 36.09999996423721,
+      "feedbackMs": null
+    },
+    {
+      "round": 2,
+      "kind": "history-forward",
+      "elapsedMs": 31,
+      "paintReadyMs": 43.69999998807907,
+      "feedbackMs": null
+    },
+    {
+      "round": 3,
+      "kind": "cold-auth-document",
+      "elapsedMs": 430,
+      "ttfbMs": 5.300000011920929,
+      "responseMs": 88.10000002384186,
+      "fcpMs": 60,
+      "bytes": 130702,
+      "paintReadyMs": 394.4000000357628
+    },
+    {
+      "round": 3,
+      "kind": "warm-auth-document",
+      "elapsedMs": 399,
+      "ttfbMs": 7.799999952316284,
+      "fcpMs": 40,
+      "paintReadyMs": 362.30000001192093
+    },
+    {
+      "round": 3,
+      "kind": "route-loans",
+      "elapsedMs": 403,
+      "paintReadyMs": 363.5999999642372,
+      "feedbackMs": null
+    },
+    {
+      "round": 3,
+      "kind": "route-counterparties",
+      "elapsedMs": 373,
+      "paintReadyMs": 365.10000002384186,
+      "feedbackMs": null
+    },
+    {
+      "round": 3,
+      "kind": "route-dashboard",
+      "elapsedMs": 880,
+      "paintReadyMs": 363.89999997615814,
+      "feedbackMs": null
+    },
+    {
+      "round": 3,
+      "kind": "detail-history-tab",
+      "elapsedMs": 148,
+      "paintReadyMs": 97.30000001192093,
+      "feedbackMs": 31.100000023841858
+    },
+    {
+      "round": 3,
+      "kind": "history-back",
+      "elapsedMs": 38,
+      "paintReadyMs": 48.700000047683716,
+      "feedbackMs": null
+    },
+    {
+      "round": 3,
+      "kind": "history-forward",
+      "elapsedMs": 30,
+      "paintReadyMs": 42,
+      "feedbackMs": null
+    },
+    {
+      "round": 4,
+      "kind": "cold-auth-document",
+      "elapsedMs": 466,
+      "ttfbMs": 16.899999976158142,
+      "responseMs": 92.89999997615814,
+      "fcpMs": 76,
+      "bytes": 130702,
+      "paintReadyMs": 408.10000002384186
+    },
+    {
+      "round": 4,
+      "kind": "warm-auth-document",
+      "elapsedMs": 430,
+      "ttfbMs": 7.200000047683716,
+      "fcpMs": 36,
+      "paintReadyMs": 376.5
+    },
+    {
+      "round": 4,
+      "kind": "route-loans",
+      "elapsedMs": 391,
+      "paintReadyMs": 360,
+      "feedbackMs": null
+    },
+    {
+      "round": 4,
+      "kind": "route-counterparties",
+      "elapsedMs": 386,
+      "paintReadyMs": 365.5,
+      "feedbackMs": null
+    },
+    {
+      "round": 4,
+      "kind": "route-dashboard",
+      "elapsedMs": 396,
+      "paintReadyMs": 363,
+      "feedbackMs": null
+    },
+    {
+      "round": 4,
+      "kind": "detail-history-tab",
+      "elapsedMs": 147,
+      "paintReadyMs": 97.19999998807907,
+      "feedbackMs": 31
+    },
+    {
+      "round": 4,
+      "kind": "history-back",
+      "elapsedMs": 41,
+      "paintReadyMs": 37.09999996423721,
+      "feedbackMs": null
+    },
+    {
+      "round": 4,
+      "kind": "history-forward",
+      "elapsedMs": 27,
+      "paintReadyMs": 40.59999996423721,
+      "feedbackMs": null
+    }
+  ]
+}

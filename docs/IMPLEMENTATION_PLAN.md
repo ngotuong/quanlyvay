@@ -74,6 +74,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `COMPLETED` |
 | C97 | Loading đúng từng màn và motion có chọn lọc | `COMPLETED` |
 | C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `COMPLETED` |
+| C99 | Khởi động standalone và tốc độ điều hướng trên iPhone | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -2437,3 +2438,18 @@ Acceptance criteria:
 3. ExactSHA CI SUCCESS trước release; candidate/aliases/runtime hậukiểm đạt và rollback
    xác minh; context/roadmap/report cậpnhật IDs/URLs/region/source/closing và kếtiếp chờduyệt.
    Không mutate financialdata/account/schema/secrets/Google/backup để smoke UX.
+
+
+### C99 — Khởi động và điều hướng trên iPhone
+
+Trạng thái: `IN_PROGRESS` ngày12/10/2026. OWNER xác nhận mở từ biểu tượng Màn hình chính
+và phê duyệt checkpoint C99 trong hội thoại.
+
+Phạm vi và acceptance criteria: [đề xuất C99 đã duyệt](iphone-startup-performance-proposal.md).
+Đo cold/warm launch, route/tab/Back; sửa feedback/startup iOS và các bước chờ có bằng chứng;
+ít nhất5lượt/hành trình trọng tâm, bảng trước/sau, controlled Auth/data2s/10s, feedback
+≤100ms sau hydration trong môi trường kiểm soát. Giữ freshness/privacy/dirtydraft/Auth.
+Local lint/typecheck/unit/build/E2E, Required CI exactSHA, root Preview và Production theo
+C98/runbook; iPhone thật cần OWNER hỗ trợ và phải báo NOT_TESTED nếu chưa có bằng chứng.
+Không schema/RPC/financial engine/DB timeout/index/dependency/remote ledger/account/secrets/
+Google/backup; nếu bottleneck cần mở rộng phải đề xuất riêng. Không checkpoint kế tiếp đã duyệt.

@@ -1,0 +1,342 @@
+{
+  "method": "static data-free brand assets, PNG signature and physical dimensions verified",
+  "files": [
+    {
+      "file": "apps/web/public/icons/startup/320-568-2-landscape-dark.png",
+      "sha256": "cf708fb85eadcaa4cc67576788706d229fcc53b5d6da56c96bf603a9f906da75",
+      "width": 1136,
+      "height": 640,
+      "bytes": 11697
+    },
+    {
+      "file": "apps/web/public/icons/startup/320-568-2-landscape-light.png",
+      "sha256": "3d6ce4d044a72785a5cafd999b900d66e304bc07007accd0daf1940c82582fbb",
+      "width": 1136,
+      "height": 640,
+      "bytes": 11891
+    },
+    {
+      "file": "apps/web/public/icons/startup/320-568-2-portrait-dark.png",
+      "sha256": "492494f2c90766af3b0a6442e0e3e7a84f88e80e4739cfba902fbafda1528a99",
+      "width": 640,
+      "height": 1136,
+      "bytes": 11469
+    },
+    {
+      "file": "apps/web/public/icons/startup/320-568-2-portrait-light.png",
+      "sha256": "e8c15ff3a2b8b71e671d7b198fa6ae0ffd4674af566993724ac1318d762b7b5f",
+      "width": 640,
+      "height": 1136,
+      "bytes": 11685
+    },
+    {
+      "file": "apps/web/public/icons/startup/375-667-2-landscape-dark.png",
+      "sha256": "a9fdf3d819e873c035a6c6fb855483be662be3c8ab4bb0d11dfc05821ab18c77",
+      "width": 1334,
+      "height": 750,
+      "bytes": 12614
+    },
+    {
+      "file": "apps/web/public/icons/startup/375-667-2-landscape-light.png",
+      "sha256": "3bd7095efa068073822da65a42f097ca63bf7db12b1eede26964ca88ff52d73f",
+      "width": 1334,
+      "height": 750,
+      "bytes": 12281
+    },
+    {
+      "file": "apps/web/public/icons/startup/375-667-2-portrait-dark.png",
+      "sha256": "fa4532fc208d2c8544d91f2c736da2e6716590d2769458da4e3f160595a18269",
+      "width": 750,
+      "height": 1334,
+      "bytes": 12458
+    },
+    {
+      "file": "apps/web/public/icons/startup/375-667-2-portrait-light.png",
+      "sha256": "a083bc00b4fcc779573f2de02438df9d9e88925374a3391dc9070288deef3cbb",
+      "width": 750,
+      "height": 1334,
+      "bytes": 12137
+    },
+    {
+      "file": "apps/web/public/icons/startup/375-812-3-landscape-dark.png",
+      "sha256": "47175eed3574dd59ef77eae0839d93fd6394fd953cce25683d42741a9ebc0c92",
+      "width": 2436,
+      "height": 1125,
+      "bytes": 23309
+    },
+    {
+      "file": "apps/web/public/icons/startup/375-812-3-landscape-light.png",
+      "sha256": "71e3f47a6d8777dc73bf40f92321d69ee38c9481771be9417f46a426d83b9cbe",
+      "width": 2436,
+      "height": 1125,
+      "bytes": 23333
+    },
+    {
+      "file": "apps/web/public/icons/startup/375-812-3-portrait-dark.png",
+      "sha256": "2ff1489a269b2d73e2d226da23a0226ce1014c7c53f1f8a19441e426c8b9e26e",
+      "width": 1125,
+      "height": 2436,
+      "bytes": 22724
+    },
+    {
+      "file": "apps/web/public/icons/startup/375-812-3-portrait-light.png",
+      "sha256": "2e4d5d651d8cc1bb7c5ab59315fabfae3799421b875ed73334011dc1d3004f0b",
+      "width": 1125,
+      "height": 2436,
+      "bytes": 22731
+    },
+    {
+      "file": "apps/web/public/icons/startup/390-844-3-landscape-dark.png",
+      "sha256": "f2aa52487bf8fe5d1b553fe94d5c2e2831bb0d66a1640e1927752e13592e363d",
+      "width": 2532,
+      "height": 1170,
+      "bytes": 23612
+    },
+    {
+      "file": "apps/web/public/icons/startup/390-844-3-landscape-light.png",
+      "sha256": "665c5f39f77a88597619a553cf960726670ce7d45b2e12711605d94c78aaea44",
+      "width": 2532,
+      "height": 1170,
+      "bytes": 24653
+    },
+    {
+      "file": "apps/web/public/icons/startup/390-844-3-portrait-dark.png",
+      "sha256": "a3dd6c4822690979535f781d4feccf9e7cc892db6a7d513f3d5b45dee6291e6a",
+      "width": 1170,
+      "height": 2532,
+      "bytes": 22970
+    },
+    {
+      "file": "apps/web/public/icons/startup/390-844-3-portrait-light.png",
+      "sha256": "e8a82a437b65e6734bede69766bc5ba691ef1e7a28c9d458cd05d5a96f7d4427",
+      "width": 1170,
+      "height": 2532,
+      "bytes": 23963
+    },
+    {
+      "file": "apps/web/public/icons/startup/393-852-3-landscape-dark.png",
+      "sha256": "a4ea3a29024986e3b620f63ec5203071fd3298824a5c2b3e9bee124821e33e54",
+      "width": 2556,
+      "height": 1179,
+      "bytes": 24048
+    },
+    {
+      "file": "apps/web/public/icons/startup/393-852-3-landscape-light.png",
+      "sha256": "d3aee1412ae6e0fc8433c5fefe813fcf94b008cdd7bb253432b02c1d4f3dd5bc",
+      "width": 2556,
+      "height": 1179,
+      "bytes": 23859
+    },
+    {
+      "file": "apps/web/public/icons/startup/393-852-3-portrait-dark.png",
+      "sha256": "fd8d5868e9e6e414415de3f0b54b563f6f640eefb4cc51b391c4fd1da1f5a333",
+      "width": 1179,
+      "height": 2556,
+      "bytes": 23449
+    },
+    {
+      "file": "apps/web/public/icons/startup/393-852-3-portrait-light.png",
+      "sha256": "fcd4445c28ce49858cbb26259868a2761688eee50542cfd55fec979338cd22a7",
+      "width": 1179,
+      "height": 2556,
+      "bytes": 23268
+    },
+    {
+      "file": "apps/web/public/icons/startup/402-874-3-landscape-dark.png",
+      "sha256": "6afaed60146b2340c0f3cbb0dbf741bd624b2e6fb24008c5a9b8028945c73ba3",
+      "width": 2622,
+      "height": 1206,
+      "bytes": 23925
+    },
+    {
+      "file": "apps/web/public/icons/startup/402-874-3-landscape-light.png",
+      "sha256": "1b89246f1bc4e0b3d3e4433b05b763504313c76736905a89262a03b99504ea5f",
+      "width": 2622,
+      "height": 1206,
+      "bytes": 23828
+    },
+    {
+      "file": "apps/web/public/icons/startup/402-874-3-portrait-dark.png",
+      "sha256": "e6807a609a5955881002523ae1d50fc1c7a3b321078b27963eb6428ea38a541c",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 23291
+    },
+    {
+      "file": "apps/web/public/icons/startup/402-874-3-portrait-light.png",
+      "sha256": "7170c3e7a2a605e1a87329446c1f904f8b4828146ce15846550528740ae2680b",
+      "width": 1206,
+      "height": 2622,
+      "bytes": 23222
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-736-3-landscape-dark.png",
+      "sha256": "ba861f99189063afe9ac885e84eb86ac18d3ced3a1d3952bd74f46a7b518e20f",
+      "width": 2208,
+      "height": 1242,
+      "bytes": 23416
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-736-3-landscape-light.png",
+      "sha256": "bda9ea48493a6036dcd80af6903d00675a4699d90e5c6d91a73b9a6b95ca5027",
+      "width": 2208,
+      "height": 1242,
+      "bytes": 23520
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-736-3-portrait-dark.png",
+      "sha256": "ff892eb94f85dc9c421f7e365f6971e4759fcf77dc3a578c5c680574b538f316",
+      "width": 1242,
+      "height": 2208,
+      "bytes": 22983
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-736-3-portrait-light.png",
+      "sha256": "3493631775631c5c86e6693ca535426974a44eb944af9388093a6420a98311fc",
+      "width": 1242,
+      "height": 2208,
+      "bytes": 23048
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-896-2-landscape-dark.png",
+      "sha256": "09e993e1c633edeb59745bc31fef633e672a1916afd4e72b1fb0d9bcbebf819e",
+      "width": 1792,
+      "height": 828,
+      "bytes": 12477
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-896-2-landscape-light.png",
+      "sha256": "e54f4c4e82a990d8105ae75cd834bfbe1c7b949415e36be609166c720daa2c17",
+      "width": 1792,
+      "height": 828,
+      "bytes": 12885
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-896-2-portrait-dark.png",
+      "sha256": "fb2df8d8177797a7c78c6523f45bd244f86738a083d0922abbec49a44b5d3882",
+      "width": 828,
+      "height": 1792,
+      "bytes": 12261
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-896-2-portrait-light.png",
+      "sha256": "0ebd0feab36fe9855e17cab8d16dfc00347e3ca743614e891b8a3c3302a809a7",
+      "width": 828,
+      "height": 1792,
+      "bytes": 12648
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-896-3-landscape-dark.png",
+      "sha256": "1f31b88a1e4ff436246121033dcb39bc04ed6603bca5ad55dfc4a1c79f6d417f",
+      "width": 2688,
+      "height": 1242,
+      "bytes": 23965
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-896-3-landscape-light.png",
+      "sha256": "5c83e48531e5f1f7341acc53657f2765b1ed8cae2aafb61fa5d22c62715b9ade",
+      "width": 2688,
+      "height": 1242,
+      "bytes": 24442
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-896-3-portrait-dark.png",
+      "sha256": "d58f0ae19428ad44b2af77e2d4ba4669c9e618bf5c0486c50fa114f5549ed1c8",
+      "width": 1242,
+      "height": 2688,
+      "bytes": 23413
+    },
+    {
+      "file": "apps/web/public/icons/startup/414-896-3-portrait-light.png",
+      "sha256": "bbb4ef5061e9bea0e0df8b840d939ae2fbb692cfbaa5495b6722028db577d7a6",
+      "width": 1242,
+      "height": 2688,
+      "bytes": 23849
+    },
+    {
+      "file": "apps/web/public/icons/startup/428-926-3-landscape-dark.png",
+      "sha256": "5bdc4f64e06b0883139ef38c4f3ee0f4bde30127b0945cbbf1b62b5f834fd43b",
+      "width": 2778,
+      "height": 1284,
+      "bytes": 23918
+    },
+    {
+      "file": "apps/web/public/icons/startup/428-926-3-landscape-light.png",
+      "sha256": "d49d92f52cb39d8827c226e0a24bc7d8a3dccbc6472c23b183aabf7c43717d83",
+      "width": 2778,
+      "height": 1284,
+      "bytes": 24691
+    },
+    {
+      "file": "apps/web/public/icons/startup/428-926-3-portrait-dark.png",
+      "sha256": "df72809fe17e16e0de28bdf3829ad97cd163290ccfe1cb78400765a99cd21460",
+      "width": 1284,
+      "height": 2778,
+      "bytes": 23407
+    },
+    {
+      "file": "apps/web/public/icons/startup/428-926-3-portrait-light.png",
+      "sha256": "1f00602ab01ac0480308a589fc3e9c4afe586b0ce657f8c4608dfef953743477",
+      "width": 1284,
+      "height": 2778,
+      "bytes": 24108
+    },
+    {
+      "file": "apps/web/public/icons/startup/430-932-3-landscape-dark.png",
+      "sha256": "63ad12d3424365d77747ac19a106e0a8b2b739691f48dd7d517f4da2190e32b4",
+      "width": 2796,
+      "height": 1290,
+      "bytes": 24671
+    },
+    {
+      "file": "apps/web/public/icons/startup/430-932-3-landscape-light.png",
+      "sha256": "317abb6226e67a1725232c4595d7e259a563a02ec03a9ce10ea3829370ba6e0b",
+      "width": 2796,
+      "height": 1290,
+      "bytes": 24837
+    },
+    {
+      "file": "apps/web/public/icons/startup/430-932-3-portrait-dark.png",
+      "sha256": "201b51d5047f198a6fb1291f92c5b2db821d4f9adb6aeef21c2242253525bd7f",
+      "width": 1290,
+      "height": 2796,
+      "bytes": 23981
+    },
+    {
+      "file": "apps/web/public/icons/startup/430-932-3-portrait-light.png",
+      "sha256": "7cf18e99eed772bacb503612510e33945b19257827817ef29ddf2dfa8d42d138",
+      "width": 1290,
+      "height": 2796,
+      "bytes": 24209
+    },
+    {
+      "file": "apps/web/public/icons/startup/440-956-3-landscape-dark.png",
+      "sha256": "7c09ce43906e18bce22ff9c850662bfad2579f2433f1334dfb286b6290adbb58",
+      "width": 2868,
+      "height": 1320,
+      "bytes": 25234
+    },
+    {
+      "file": "apps/web/public/icons/startup/440-956-3-landscape-light.png",
+      "sha256": "e4105dbc9e7b53d6fe6bfc7f88f83552f9f37d4a52db33953c3b1ebe31fe68ab",
+      "width": 2868,
+      "height": 1320,
+      "bytes": 24600
+    },
+    {
+      "file": "apps/web/public/icons/startup/440-956-3-portrait-dark.png",
+      "sha256": "bc7d9eac377f3f10a059d3f6c780bca8fa69a33a30677da582b36d061dd53919",
+      "width": 1320,
+      "height": 2868,
+      "bytes": 24679
+    },
+    {
+      "file": "apps/web/public/icons/startup/440-956-3-portrait-light.png",
+      "sha256": "0b2968b8bec45e57ad0b3404bceee9757b4150356ef96118d1742ff15f1899d4",
+      "width": 1320,
+      "height": 2868,
+      "bytes": 23979
+    }
+  ],
+  "totalBytes": 1003638
+}

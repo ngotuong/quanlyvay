@@ -1,0 +1,58 @@
+{
+  "method": "Chrome user Production tab; CUA click+waitForURL+loading-hidden wall time includes tool transport/polling; not browser Performance API, not iPhone native",
+  "performanceApi": "unavailable in read-only CUA scope; TypeError retained in conversation",
+  "samples": [
+    {
+      "round": 0,
+      "route": "counterparties",
+      "uiWallMs": 1198
+    },
+    {
+      "round": 0,
+      "route": "loans",
+      "uiWallMs": 3098
+    },
+    {
+      "round": 1,
+      "route": "counterparties",
+      "uiWallMs": 3155
+    },
+    {
+      "round": 1,
+      "route": "loans",
+      "uiWallMs": 3089
+    },
+    {
+      "round": 2,
+      "route": "counterparties",
+      "uiWallMs": 3186
+    },
+    {
+      "round": 2,
+      "route": "loans",
+      "uiWallMs": 3102
+    },
+    {
+      "round": 3,
+      "route": "counterparties",
+      "uiWallMs": 3258
+    },
+    {
+      "round": 3,
+      "route": "loans",
+      "uiWallMs": 3148
+    },
+    {
+      "round": 4,
+      "route": "counterparties",
+      "uiWallMs": 3127
+    },
+    {
+      "round": 4,
+      "route": "loans",
+      "uiWallMs": 3101
+    }
+  ],
+  "noRemoteMutation": true,
+  "userTabRestored": "dashboard"
+}

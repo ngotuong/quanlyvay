@@ -13,6 +13,7 @@ import { NetworkStatus } from "@/components/app/network-status";
 import { AppShell } from "@/components/app/app-shell";
 import { getAuthenticatedProfile } from "@/lib/auth/session";
 import { getUnreadNotificationCount } from "@/lib/business/queries";
+import { iosStartupImages } from "@/lib/app/ios-startup.mjs";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -26,7 +27,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
+const baseMetadata: Metadata = {
   title: "Quản lý vay cá nhân",
   description: "Quản lý khoản đi vay, cho vay và dòng tiền cá nhân.",
   manifest: "/manifest.webmanifest",
@@ -41,6 +42,14 @@ export const metadata: Metadata = {
   },
 };
 
+export async function generateMetadata(): Promise<Metadata> {
+  const preference = parseTheme((await cookies()).get(themeCookieName)?.value);
+  return { ...baseMetadata, appleWebApp: {
+    capable: true, statusBarStyle: "default", title: "Quản Lý Vay",
+    startupImage: iosStartupImages(preference),
+  } };
+}
+
 export async function generateViewport(): Promise<Viewport> {
   const cookieStore = await cookies();
   return { themeColor: themeColors(cookieStore.get(themeCookieName)?.value) };
@@ -50,7 +59,7 @@ import { PrivacyProvider } from "@/components/app/privacy-provider";
 
 function InitialApplicationLoading() {
   return <div className="initial-app-loading" id="initial-app-loading" role="status" aria-busy="true" aria-live="polite">
-    <Image className="initial-app-loading-logo" src="/icons/brand-symbol-192.png" width={64} height={64} alt="" priority />
+    <Image className="initial-app-loading-logo" src="/icons/brand-symbol-192.png" width={64} height={64} alt="" priority unoptimized />
     <h1>Quản Lý Vay</h1>
     <strong>Đang mở không gian tài chính…</strong>
     <div className="initial-app-loading-track" aria-hidden="true"><span /></div>
@@ -59,9 +68,13 @@ function InitialApplicationLoading() {
 }
 
 async function ResolvedApplication({ children }: { children: ReactNode }) {
-  const [profile, cookieStore] = await Promise.all([getAuthenticatedProfile(), cookies()]);
+  // The RLS-protected count does not depend on the profile query. Start both together;
+  // neither identity nor badge is rendered until the profile has been validated.
+  const [profile, cookieStore, notificationCount] = await Promise.all([
+    getAuthenticatedProfile(), cookies(), getUnreadNotificationCount(),
+  ]);
   const showAppShell = Boolean(profile && !profile.must_change_password);
-  const unreadCount = showAppShell ? await getUnreadNotificationCount() : 0;
+  const unreadCount = showAppShell ? notificationCount : 0;
 
   return <PrivacyProvider initialPrivacy={cookieStore.get("qlv_privacy_mode")?.value !== "false"}>
     <a className="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>

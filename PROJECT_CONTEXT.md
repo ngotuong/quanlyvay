@@ -1,10 +1,10 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.325
-last_updated: 2026-10-11
+roadmap_version: 1.0.326
+last_updated: 2026-10-12
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C98
-current_status: COMPLETED
+current_checkpoint: C99
+current_status: IN_PROGRESS
 last_completed_checkpoint: C98
 next_checkpoint: null
 ---
@@ -18,6 +18,22 @@ Lịch sử dài đã chuyển nguyên văn sang [bản lưu đến C90](docs/hi
 không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 1. Trạng thái và công việc kế tiếp
+
+- C99 `IN_PROGRESS` ngày12/10/2026: OWNER xác nhận mở bằng biểu tượng Màn hình chính
+  trên iPhone và phê duyệt rõ C99 trong hội thoại. Phạm vi/acceptance tại
+  [đề xuất đã duyệt](docs/iphone-startup-performance-proposal.md): đo trước/sau, sửa startup/
+  navigation, local gates/Required CI và Preview/Production theo runbook. Không schema/RPC/
+  nghiệp vụ/timeout DB/dependency/remote ledger/account/secrets/Google/backup.
+  Baseline nguồn `8a54ff8b04a657aa11ebb934f0e2ada3e01ec9e1`; runtime remote vẫn C98.
+  Đã triển khai local 48 ảnh khởi động tĩnh, partial prefetch bốn mục chính, đọc shell song song/
+  request-scoped client và offline503 chỉ cache màn public. Lint/typecheck/unit121/build/
+  policy/upload guard/audit/secret đạt; targeted9PASS/1SKIP/0FAIL7.2m, full E2E86/18/0
+  trong20.8m/retries0, Auth6/0 vàpgTAP527/24files đạt. Prepared-CI C99targeted2/0 đạt. Media nullable
+  từng làm typecheck/build đầu FAIL, đã sửa và giữ raw. Chưa commit/push/deploy C99.
+  [Bằng chứng](docs/iphone-c99/report.md):40browser-clock samples mỗi phase; main-nav363ms
+  gầnnhư không đổi. V1walltime giảm do polling, không tính speedup. Timing local không là
+  chứng nhận iPhone. Source Required CI vàrollout đang chờ; chưa có checkpoint mới.
+  iPhone thật cần OWNER hỗ trợ kiểm. Blocker: không ở bước local.
 
 - C98 `COMPLETED` ngày11/10/2026: nghiệm thu A/C92–C97 và phát hành Preview/Production/defaultalias đạt.
   Source211f8e4/CI38069136549, closingproof4b22848/CI38144466141 SUCCESS5jobs.
@@ -225,6 +241,11 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 
 ## 2. Thay đổi local cần bảo toàn
+
+- C99 uncommitted local: layout/nav/theme/request-scoped Supabase client/SW, startup mapping và
+  generator, 48PNG/public offline, C99 E2E và proposal/evidence/context/roadmap/handoff.
+  Không thay protected financial73files. Full E2E có thể sinh17C75; chỉ restore đúng baseline
+  sau teardown bằng helper có backup/hash, không broad reset. Raw `.cache/c99` giữ thất bại/timing.
 
 - Branch `main`, runtime source C98 `211f8e49eee0b78eca4c9723b526604a99780b3d`;
   closing proof gốc 705b6da FAIL được giữ; harness C87 đã đạt CI tại 839d34b348e7dd435688365435cc0336bfcb4eb0.

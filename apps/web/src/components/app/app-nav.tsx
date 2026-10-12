@@ -70,7 +70,9 @@ export function AppNav({ isOwner, unreadCount = 0 }: { isOwner: boolean; unreadC
             href={item.href}
             key={item.href}
             aria-current={active ? "page" : undefined}
-            prefetch={false}
+            // Auto prefetch stops at loading.tsx for these dynamic routes. Only the
+            // four main destinations participate; financial page reads remain fresh.
+            prefetch={null}
           >
             <Icon aria-hidden="true" size={20} strokeWidth={1.8} />
             <span>{item.label}</span>

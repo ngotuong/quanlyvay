@@ -2,9 +2,12 @@ import "server-only";
 
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { cache } from "react";
 import { publicSupabaseEnvironment } from "./env";
 
-export async function createClient() {
+// Request-scoped only: share session initialization across concurrent Server Components.
+// React cache does not persist this authenticated client between requests or users.
+export const createClient = cache(async function createClient() {
   const cookieStore = await cookies();
   const { url, publishableKey } = publicSupabaseEnvironment();
 
@@ -26,4 +29,4 @@ export async function createClient() {
       },
     },
   });
-}
+});
