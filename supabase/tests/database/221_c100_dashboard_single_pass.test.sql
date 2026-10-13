@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(13);
+select plan(14);
 
 insert into auth.users (id, email)
 values
@@ -194,6 +194,12 @@ select throws_ok(
   )$$,
   '22023', null,
   'v4 keeps the five-year dashboard range guard'
+);
+
+select is(
+  (select provolatile::text from pg_proc where oid = 'private.dashboard_accrued_through(jsonb,date)'::regprocedure),
+  's',
+  'cutoff helper uses the safe stable volatility classification'
 );
 
 select is(

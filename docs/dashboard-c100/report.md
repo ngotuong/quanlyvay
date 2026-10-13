@@ -1,7 +1,8 @@
 # C100 — Tối ưu lời gọi đọc Tổng quan
 
-Trạng thái: `IN_PROGRESS` ngày 13/10/2026. OWNER đã phê duyệt C100. Source, migration và
-kiểm thử local đã sẵn sàng; chưa push source, chưa áp migration remote và chưa rollout.
+Trạng thái: `IN_PROGRESS` ngày 13/10/2026. OWNER đã phê duyệt C100. Source `1740454` và
+Required CI `38393447554` đã đạt đủ 5 job. Migration v4 đã áp; Production vẫn gọi v3 và chưa
+rollout candidate.
 
 ## Nguyên nhân và thay đổi
 
@@ -19,6 +20,11 @@ interest stop/resume, restructure, overdue và settlement giữ cùng semantics 
 Ứng dụng gọi v4 qua read path hiện có. Retry vẫn chỉ một lần cho gateway failure và danh sách
 RPC read-only được mở rộng đúng một tên. Không có cache giữa request/người dùng, storage mới,
 thay đổi financial write, RLS, role hoặc secret.
+
+Sau lần áp migration đầu, remote `db lint` phát hiện helper cutoff được khai báo `IMMUTABLE`
+trong khi PL/pgSQL chỉ được PostgreSQL phân loại an toàn ở mức `STABLE`. Migration bổ sung
+`20261013192500_c100_dashboard_helper_volatility.sql` hạ đúng volatility; không đổi phép tính,
+input/output, quyền hoặc dữ liệu. Regression test khóa `provolatile = 's'` trước khi rollout.
 
 ## Đo trước và local sau
 
@@ -44,8 +50,9 @@ current period cũng khớp.
 ## Kiểm thử local
 
 - `git diff --check`, lint, typecheck, unit 123 và build 19 route: PASS.
-- Reset database sạch áp đủ 37 migration, gồm C100: PASS.
-- pgTAP 542 test / 25 file: PASS. V4 có budget local 1500 ms trên fixture 40 khoản.
+- Reset database sạch ban đầu áp đủ 37 migration; sau correction áp đủ 38 migration: PASS.
+- pgTAP 542 test / 25 file: PASS; test C100 sau correction 14/14 PASS và database lint sạch.
+  V4 có budget local 1500 ms trên fixture 40 khoản.
 - Full E2E: 87 PASS / 18 SKIP / 0 FAIL, 21,0 phút, retries 0; assertions, test timeout,
   skips và CI job budget 45 phút giữ nguyên.
 - Teardown: đúng `QuanLyVayCaNhan-C20-test`, DB 55322; profiles/loans/transactions/
@@ -60,8 +67,8 @@ Không rollback bằng cách sửa trực tiếp Production hoặc xóa lịch s
 
 ## Việc còn lại
 
-Required CI đúng source SHA phải thành công trước rollout. Sau đó áp migration remote, tạo Preview
-từ root, kiểm immutable Auth/runtime và ít nhất 10 warm RPC; chỉ chuyển alias nếu median ≤1500 ms
+Migration sửa volatility phải đạt test/Required CI và remote lint sạch trước rollout. Sau đó tạo
+Preview từ root, kiểm immutable Auth/runtime và ít nhất 10 warm RPC; chỉ chuyển alias nếu median ≤1500 ms
 và p95 mẫu ≤2500 ms. Production candidate/promote và cả hai alias phải qua cùng gate. Cần OWNER
 đo lại trên iPhone cùng mạng; nếu remote không đạt mục tiêu thì rollback app về v3 và không tuyên bố
 C100 đã sửa xong.

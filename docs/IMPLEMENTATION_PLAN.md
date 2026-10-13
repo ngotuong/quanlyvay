@@ -2458,8 +2458,10 @@ Google/backup; nếu bottleneck cần mở rộng phải đề xuất riêng. Kh
 ### C100 — Tối ưu lời gọi đọc Tổng quan
 
 Trạng thái: `IN_PROGRESS` ngày13/10/2026. OWNER đã phê duyệt rõ C100 trong hội thoại.
-Baseline ae16ed6. RPCv4 single-pass/app read đã triển khai local, giữ v3 rollback. Exact JSON
-parity và local gates đạt; chưa push/CI/migrate remote/rollout. [Báo cáo](dashboard-c100/report.md).
+Baseline ae16ed6. RPCv4 single-pass/app read đã triển khai, giữ v3 rollback. Source1740454/
+RequiredCI38393447554 SUCCESS5jobs. Migration v4 `20261013090000` đã áp; remote lint yêu cầu
+helper cutoff đổi volatility IMMUTABLE→STABLE, migration sửa `20261013192500` đang kiểm trước khi
+áp. Production vẫn gọi v3; chưa rollout. [Báo cáo](dashboard-c100/report.md).
 Loading không nhìn thấy đã xác định là feedback clear trước content ready và warm launch không
 dùng iOS startup image; nằm ngoài C100, [đề xuất riêng](loading-visibility-proposal.md) chưa duyệt.
 
@@ -2476,4 +2478,5 @@ Kết quả local ngày13/10: fixture40loan v3 median889.2/p95942.1ms → v4
 median209.2/p95225.1ms,10warm mỗi phase; complex cutoff/reversal/stop-resume/restructure/
 settled/overdue parity đạt. Production pre-migration 11RPC warm median5319.2/p955489.3ms;
 10client median5811/p956089.7ms. Lint/typecheck/unit123/build19/pgTAP542-25files/
-fullE2E87PASS18SKIP0FAIL21.0m đạt,retries0; C20-test55322 sixcounts0.
+fullE2E87PASS18SKIP0FAIL21.0m đạt,retries0; C20-test55322 sixcounts0. Correction reset
+38migrations/database lint sạch/test C100 14/14 đạt.

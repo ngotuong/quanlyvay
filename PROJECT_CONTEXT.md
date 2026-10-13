@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.329
+roadmap_version: 1.0.330
 last_updated: 2026-10-13
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C100
@@ -35,7 +35,12 @@ không dùng lịch sử để suy quyền thực hiện mới.
   OWNER báo loading không xuất hiện cả mở app/chuyển mục mobile+desktop. Đã tái hiện feedback bị
   clear lúc URL commit trước route content ready; iOS startup image chỉ cold launch. Không sửa UI
   trong C100; [đề xuất checkpoint riêng](docs/loading-visibility-proposal.md) chưa duyệt.
-  Blocker: không. Chưa push/CI, migration remote hoặc phát hành C100.
+  Source `174045436a1f56b83c00e06b022a471d9927b313` đã push; RequiredCI
+  [38393447554](https://github.com/ngotuong/quanlyvay/actions/runs/38393447554) SUCCESS cả5jobs.
+  Migration v4 `20261013090000` đã áp và ledger remote khớp; Production vẫn gọi v3. Remote lint
+  phát hiện helper cutoff cần volatility `STABLE` thay vì `IMMUTABLE`; migration sửa phân loại
+  `20261013192500` đã qua reset sạch38migrations/database lint/testC100 14/14; đang chờ RequiredCI
+  source correction trước khi áp. Blocker: không. Chưa rollout.
 
 - C99 `COMPLETED` ngày13/10/2026, OWNER phê duyệt12/10. Startup48PNG/metadata/theme,
   bounded partial prefetch, shell reads song song/request client dedup, offline public503 và
