@@ -187,6 +187,9 @@ test("settlement and principal restructure share dirty, validation and success l
 
 test("cancelled and long navigation keep progress aligned with the real transition", async ({ page }) => {
   test.setTimeout(45_000);
+  // This case delays a fresh transport. Prevent auto-prefetch from warming the
+  // target before interception; cached-shell navigation is covered separately.
+  await page.route("**/*", route => route.request().headers()["next-router-prefetch"] ? route.abort("aborted") : route.continue());
   await login(page);
   await page.goto("/counterparties");
   const editor = page.locator("details").filter({ hasText: "Chỉnh sửa thông tin" }).first();
@@ -203,6 +206,7 @@ test("cancelled and long navigation keep progress aligned with the real transiti
   await name.fill(originalName);
   await page.goto("/dashboard");
   await page.route("**/*", async route => {
+    if (route.request().headers()["next-router-prefetch"]) { await route.abort("aborted"); return; }
     if (route.request().headers().rsc === "1") await new Promise(resolve => setTimeout(resolve, 10_000));
     await route.continue();
   });

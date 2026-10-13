@@ -1,0 +1,28 @@
+{
+  "sourceSha": "44b769ae2466de190a5bbec78ebed26069abb2ac",
+  "runId": 38263260459,
+  "url": "https://github.com/ngotuong/quanlyvay/actions/runs/38263260459",
+  "result": "failure",
+  "jobs": {
+    "quality": "success",
+    "security": "success",
+    "policy": "success",
+    "integration": "failure",
+    "requiredGate": "failure"
+  },
+  "E2E": {
+    "pass": 83,
+    "skip": 19,
+    "fail": 2,
+    "minutes": 34.8,
+    "retries": 0
+  },
+  "failures": [
+    "C63 cancelled and long navigation: expected Dashboard during10s intercepted transport but cached-prefetch committed Loans",
+    "C87 branded SPA feedback: expected global banner but cached-prefetch committed loading region before delayed network"
+  ],
+  "localFullBefore": "86PASS18SKIP0FAIL20.8m",
+  "fix": "Abort auto-prefetch before login and in delay interception for these controlled uncached-transport cases; all assertions/timeouts/retries/skips/job45m preserved. Cached-shell path remains verified separately in paired10samples/phase controlled diagnostics.",
+  "raw": ".cache/c99/source-ci-failed.log",
+  "remoteRelease": "none"
+}

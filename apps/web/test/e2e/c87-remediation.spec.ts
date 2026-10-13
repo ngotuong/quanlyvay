@@ -82,11 +82,15 @@ test("C87 branded first-paint Auth and visible SPA feedback respect theme and ca
     if(capture&&delay===2000)await cold.screenshot({path:resolve(out,`startup-${theme}.png`)});await nav;
     evidence.checks[`startup-${theme}-${delay}`]={feedbackMs,navigation:await cold.evaluate(()=>{const n=performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming;return {ttfbMs:n.responseStart-n.requestStart,responseEndMs:n.responseEnd,domContentLoadedMs:n.domContentLoadedEventEnd};}),beforeHtmlGuarantee:false};await context.close();
   }
+  // Install before login so the controlled delayed navigation cannot consume a
+  // warmed partial-prefetch shell and commit its URL before the delayed read.
+  await page.route("**/*", r=>r.request().headers()["next-router-prefetch"] ? r.abort("aborted") : r.continue());
   await login(page);
   let delayRsc=true;
   const pendingRoutes=new Set<Promise<void>>();
   await page.route("**/*",r=>{
     const pending=(async()=>{
+      if(r.request().headers()["next-router-prefetch"]) { await r.abort("aborted"); return; }
       if(delayRsc&&r.request().headers().rsc==="1")await new Promise(done=>setTimeout(done,1800));
       await r.continue();
     })();

@@ -1,7 +1,7 @@
 ---
 project: QuanLyVayCaNhan
 roadmap_version: 1.0.326
-last_updated: 2026-10-12
+last_updated: 2026-10-13
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C99
 current_status: IN_PROGRESS
@@ -29,7 +29,14 @@ không dùng lịch sử để suy quyền thực hiện mới.
   request-scoped client và offline503 chỉ cache màn public. Lint/typecheck/unit121/build/
   policy/upload guard/audit/secret đạt; targeted9PASS/1SKIP/0FAIL7.2m, full E2E86/18/0
   trong20.8m/retries0, Auth6/0 vàpgTAP527/24files đạt. Prepared-CI C99targeted2/0 đạt. Media nullable
-  từng làm typecheck/build đầu FAIL, đã sửa và giữ raw. Chưa commit/push/deploy C99.
+  từng làm typecheck/build đầu FAIL, đã sửa và giữ raw. SourceC99 `44b769ae2466de190a5bbec78ebed26069abb2ac` đãcommit/push; RequiredCI
+  [38263260459](https://github.com/ngotuong/quanlyvay/actions/runs/38263260459) đangchạy;
+  chưa deploy C99. CI44b769a FAIL:3jobsSUCCESS/integrationFAIL/gateFAIL, E2E83PASS19SKIP2FAIL34.8m.
+  Hai controlled-transport C63/C87 bị warmed-prefetch làm commitURL trước delay; harness đã
+  chặn prefetch trước login và trong delay handler, targeted2PASS2.6m. Giữ assertions/timeouts/
+  retries/skips45m. Bounded client timing +fixed server read metrics added; sampler3PASS1.8m,
+  lint/typecheck/unit123/build19 đạt; fullupdated105tests87PASS18SKIP0FAIL20.5m; refcleanup targeted3PASS1.9m. Corrected sourceCI chờ. Runtime218freeze/financial73 giữ.
+  OWNER cung cấp iPhone16ProMax/iOS26, mọi tab5–7s; đây là reported baseline, chưa có5lượtđo.
   [Bằng chứng](docs/iphone-c99/report.md):40browser-clock samples mỗi phase; main-nav363ms
   gầnnhư không đổi. V1walltime giảm do polling, không tính speedup. Timing local không là
   chứng nhận iPhone. Source Required CI vàrollout đang chờ; chưa có checkpoint mới.

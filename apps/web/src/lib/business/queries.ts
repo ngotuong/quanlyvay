@@ -1,4 +1,5 @@
 import "server-only";
+import { readWithTiming } from "@/lib/app/read-timing.mjs";
 
 import { fetchAllRows } from "@/lib/export/pagination.mjs";
 import { buildLegacyGeneralExpensesPage } from "./expense-list-pagination.mjs";
@@ -91,11 +92,11 @@ export async function getNotificationCenter(page = 1, unreadOnly = false) {
 
 export async function getUnreadNotificationCount() {
   const supabase = await createClient();
-  const { count, error } = await supabase
+  const { count, error } = await readWithTiming("notifications.count", () => supabase
     .from("notifications")
     .select("id", { count: "exact", head: true })
     .is("superseded_at", null)
-    .is("read_at", null);
+    .is("read_at", null));
   if (error) return 0;
   return count ?? 0;
 }
@@ -130,7 +131,7 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
     p_balance_start: balanceStart,
     p_balance_end: balanceEnd,
   };
-  const result = await readRpcWithGatewayRetry("get_management_dashboard_bundle_v3", () => supabase.rpc("get_management_dashboard_bundle_v3", args));
+  const result = await readWithTiming("dashboard.bundle", () => readRpcWithGatewayRetry("get_management_dashboard_bundle_v3", () => supabase.rpc("get_management_dashboard_bundle_v3", args)));
   let diagnosticResult = result;
   let data = result.data as Record<string, unknown> | null;
   let error = result.error;
@@ -157,11 +158,11 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
 
 export async function listCounterparties() {
   const supabase = await createClient();
-  const { data, error } = await fetchAllRows((from, to) => supabase
+  const { data, error } = await readWithTiming("counterparties.list", () => fetchAllRows((from, to) => supabase
     .from("counterparties")
     .select("id, name, notes, created_at, updated_at")
     .eq("is_test_data", false)
-    .order("name").order("id").range(from, to));
+    .order("name").order("id").range(from, to)));
   if (error) throw new Error("Không thể tải danh sách đối tác.");
   return data as Counterparty[];
 }
@@ -191,7 +192,7 @@ export async function listLoans(filters: LoanListFilters = {}, page = 1) {
     p_page: page,
     p_size: 25,
   };
-  const pageResult = await readRpcWithGatewayRetry("list_loan_summaries_page", () => supabase.rpc("list_loan_summaries_page", args));
+  const pageResult = await readWithTiming("loans.page", () => readRpcWithGatewayRetry("list_loan_summaries_page", () => supabase.rpc("list_loan_summaries_page", args)));
   let data: unknown = pageResult.data;
 
   if (pageResult.error?.code === "PGRST202") {

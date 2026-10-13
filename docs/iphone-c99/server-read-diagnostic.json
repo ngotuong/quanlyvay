@@ -1,0 +1,877 @@
+{
+  "method": "Local-only Node fetch wrapper allowlists host55321 and read categories; headers duration only, no URL/query/body/headers/cookie/token/ID stored. Instrumented after build; not remote/iPhone/SQL execution time or complete critical-path trace.",
+  "summary": [
+    {
+      "category": "auth-jwks",
+      "n": 1,
+      "headersMedianMs": 1.635667000002286,
+      "headersMaxMs": 1.635667000002286
+    },
+    {
+      "category": "auth-user",
+      "n": 41,
+      "headersMedianMs": 37.69433299999946,
+      "headersMaxMs": 67.04974999999831
+    },
+    {
+      "category": "notification-read",
+      "n": 23,
+      "headersMedianMs": 5.7580830000006245,
+      "headersMaxMs": 36.49862499999995
+    },
+    {
+      "category": "profile-read",
+      "n": 42,
+      "headersMedianMs": 2.827645499997743,
+      "headersMaxMs": 8.253166000002238
+    },
+    {
+      "category": "read-rpc:get_loan_management_summary",
+      "n": 5,
+      "headersMedianMs": 11.525332999997772,
+      "headersMaxMs": 20.627957999997307
+    },
+    {
+      "category": "read-rpc:get_loan_schedule_summary",
+      "n": 5,
+      "headersMedianMs": 7.647624999997788,
+      "headersMaxMs": 20.092209000002185
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "n": 21,
+      "headersMedianMs": 10.257707999997365,
+      "headersMaxMs": 16.59216600000218
+    }
+  ],
+  "requests": [
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815549304,
+      "headersMs": 36.49862499999995,
+      "status": 401
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815584495,
+      "headersMs": 10.434417000004032,
+      "status": 401
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815584759,
+      "headersMs": 3.8742920000004233,
+      "status": 200
+    },
+    {
+      "category": "auth-jwks",
+      "startedAtMs": 1791815584772,
+      "headersMs": 1.635667000002286,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815584784,
+      "headersMs": 3.9307499999995343,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815584784,
+      "headersMs": 24.28420900000492,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815584809,
+      "headersMs": 2.403416000001016,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815584837,
+      "headersMs": 16.244708999998693,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815585375,
+      "headersMs": 13.264250000000175,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815585375,
+      "headersMs": 67.04974999999831,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815585444,
+      "headersMs": 7.744375000002037,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815585458,
+      "headersMs": 10.257707999997365,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815585831,
+      "headersMs": 6.390707999998995,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815585831,
+      "headersMs": 35.248790999998164,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815585866,
+      "headersMs": 2.995999999999185,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815585870,
+      "headersMs": 7.994832999997016,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815586354,
+      "headersMs": 26.775166999999783,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815586381,
+      "headersMs": 3.6319579999981215,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815587279,
+      "headersMs": 33.36991599999601,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815587313,
+      "headersMs": 2.8877920000013546,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815587675,
+      "headersMs": 43.43291699999827,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815587719,
+      "headersMs": 3.850208999996539,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815587724,
+      "headersMs": 8.84824999999546,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815588047,
+      "headersMs": 5.7580830000006245,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815588047,
+      "headersMs": 45.12804199999664,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815588093,
+      "headersMs": 3.346957999994629,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_loan_schedule_summary",
+      "startedAtMs": 1791815588098,
+      "headersMs": 20.092209000002185,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_loan_management_summary",
+      "startedAtMs": 1791815588098,
+      "headersMs": 20.627957999997307,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815588488,
+      "headersMs": 39.71412500000588,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815588528,
+      "headersMs": 2.0963340000016615,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815588706,
+      "headersMs": 4.920915999995486,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815588706,
+      "headersMs": 33.690207999999984,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815588740,
+      "headersMs": 2.4172079999989364,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815588743,
+      "headersMs": 14.407666999999492,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815589196,
+      "headersMs": 7.864291999998386,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815589195,
+      "headersMs": 45.94866699999693,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815589242,
+      "headersMs": 5.223082999997132,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815589248,
+      "headersMs": 16.59216600000218,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815589630,
+      "headersMs": 5.059583999995084,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815589629,
+      "headersMs": 46.35179199999402,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815589676,
+      "headersMs": 3.03741699999955,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815589680,
+      "headersMs": 10.565042000001995,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815590137,
+      "headersMs": 39.07662500000151,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815590176,
+      "headersMs": 2.304167000002053,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815590537,
+      "headersMs": 33.51499999999942,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815590571,
+      "headersMs": 3.2119169999932637,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815591441,
+      "headersMs": 37.34233400000085,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815591479,
+      "headersMs": 2.5429169999988517,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815591482,
+      "headersMs": 9.144124999998894,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815591813,
+      "headersMs": 4.8776250000009895,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815591813,
+      "headersMs": 38.46491600000445,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815591852,
+      "headersMs": 2.4664169999959995,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_loan_schedule_summary",
+      "startedAtMs": 1791815591855,
+      "headersMs": 5.139166999993904,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_loan_management_summary",
+      "startedAtMs": 1791815591855,
+      "headersMs": 11.525332999997772,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815592254,
+      "headersMs": 40.385833000000275,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815592295,
+      "headersMs": 2.1874580000003334,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815592472,
+      "headersMs": 5.608208999998169,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815592472,
+      "headersMs": 31.38654200000019,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815592503,
+      "headersMs": 3.1245840000046883,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815592507,
+      "headersMs": 12.319000000003143,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815592970,
+      "headersMs": 7.1698339999929885,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815592970,
+      "headersMs": 46.43829199999891,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815593018,
+      "headersMs": 8.253166000002238,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815593027,
+      "headersMs": 11.782124999997905,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815593375,
+      "headersMs": 6.92870799999946,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815593375,
+      "headersMs": 36.5030409999963,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815593412,
+      "headersMs": 2.017334000003757,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815593414,
+      "headersMs": 8.413708000000042,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815593853,
+      "headersMs": 33.22125000000233,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815593886,
+      "headersMs": 2.4809170000007725,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815594255,
+      "headersMs": 33.92199999999866,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815594289,
+      "headersMs": 2.2346249999973224,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815595158,
+      "headersMs": 37.68229200000496,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815595196,
+      "headersMs": 2.8474159999968833,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815595200,
+      "headersMs": 8.57879099999991,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815595530,
+      "headersMs": 7.521457999995619,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815595530,
+      "headersMs": 42.895207999994454,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815595574,
+      "headersMs": 2.7822919999962323,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_loan_schedule_summary",
+      "startedAtMs": 1791815595579,
+      "headersMs": 7.647624999997788,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_loan_management_summary",
+      "startedAtMs": 1791815595579,
+      "headersMs": 8.13270800000464,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815595968,
+      "headersMs": 35.60225000000355,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815596005,
+      "headersMs": 2.017583000000741,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815596206,
+      "headersMs": 5.240375000001222,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815596206,
+      "headersMs": 32.77212500000314,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815596239,
+      "headersMs": 3.0034579999992275,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815596243,
+      "headersMs": 11.440542000003916,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815596705,
+      "headersMs": 7.774250000002212,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815596705,
+      "headersMs": 51.669083999993745,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815596757,
+      "headersMs": 4.1166250000023865,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815596762,
+      "headersMs": 10.056166000002122,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815597123,
+      "headersMs": 3.3725829999966663,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815597123,
+      "headersMs": 33.107583000004524,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815597156,
+      "headersMs": 2.1622500000012224,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815597159,
+      "headersMs": 7.234166000002006,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815597605,
+      "headersMs": 34.035084000002826,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815597639,
+      "headersMs": 2.2397500000006403,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815598468,
+      "headersMs": 38.77625000000262,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815598508,
+      "headersMs": 2.940999999998894,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815599375,
+      "headersMs": 47.41929199999868,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815599423,
+      "headersMs": 3.0277080000014394,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815599426,
+      "headersMs": 15.059957999998005,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815599751,
+      "headersMs": 14.37541699999565,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815599751,
+      "headersMs": 45.48358300000109,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815599797,
+      "headersMs": 3.2819999999992433,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_loan_schedule_summary",
+      "startedAtMs": 1791815599801,
+      "headersMs": 14.650332999997772,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_loan_management_summary",
+      "startedAtMs": 1791815599801,
+      "headersMs": 18.113041999997222,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815600186,
+      "headersMs": 37.69433299999946,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815600225,
+      "headersMs": 2.146708000000217,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815600408,
+      "headersMs": 4.305958999997529,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815600408,
+      "headersMs": 44.702416000000085,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815600453,
+      "headersMs": 2.2027909999960684,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815600456,
+      "headersMs": 11.533541000004334,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815600912,
+      "headersMs": 6.763916999996582,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815600912,
+      "headersMs": 47.1170839999977,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815600960,
+      "headersMs": 3.326583000001847,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815600964,
+      "headersMs": 16.508958000005805,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815601364,
+      "headersMs": 3.104249999996682,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815601363,
+      "headersMs": 34.000708999999915,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815601398,
+      "headersMs": 2.043707999997423,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815601401,
+      "headersMs": 7.515458000001672,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815601836,
+      "headersMs": 34.045916999995825,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815601871,
+      "headersMs": 1.6593749999956344,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815602740,
+      "headersMs": 35.737583000001905,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815602777,
+      "headersMs": 2.6149159999986296,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815603138,
+      "headersMs": 40.08758400000079,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815603179,
+      "headersMs": 2.850250000003143,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815603183,
+      "headersMs": 8.406791000001249,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815604002,
+      "headersMs": 5.162374999999884,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815604001,
+      "headersMs": 39.370042000002286,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815604041,
+      "headersMs": 2.807874999998603,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_loan_management_summary",
+      "startedAtMs": 1791815604045,
+      "headersMs": 5.846207999995386,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_loan_schedule_summary",
+      "startedAtMs": 1791815604045,
+      "headersMs": 6.316124999997555,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815604436,
+      "headersMs": 28.3426660000041,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815604465,
+      "headersMs": 5.071165999994264,
+      "status": 200
+    },
+    {
+      "category": "notification-read",
+      "startedAtMs": 1791815604656,
+      "headersMs": 5.717583999998169,
+      "status": 200
+    },
+    {
+      "category": "auth-user",
+      "startedAtMs": 1791815604656,
+      "headersMs": 41.93995800000266,
+      "status": 200
+    },
+    {
+      "category": "profile-read",
+      "startedAtMs": 1791815604698,
+      "headersMs": 2.4145839999982854,
+      "status": 200
+    },
+    {
+      "category": "read-rpc:get_management_dashboard_bundle_v3",
+      "startedAtMs": 1791815604701,
+      "headersMs": 7.387415999997756,
+      "status": 200
+    }
+  ]
+}

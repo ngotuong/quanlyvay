@@ -2442,6 +2442,11 @@ Acceptance criteria:
 
 ### C99 — Khởi động và điều hướng trên iPhone
 
+Tiến độ13/10: source44b769a/CI38263260459 FAIL ở controlled transport C63/C87 do warmed prefetch;
+đang sửa setup harness, giữ assertion/testtimeout/retries/skips/job45m. Source chưa deploy.
+OWNER báo iPhone16ProMax/iOS26, tất cả tab5–7s; bổ sung bounded client timing chỉ metadata
+để phân biệt TTFB/body/content trên bản triển khai, không external telemetry/storage/fetch.
+
 Trạng thái: `IN_PROGRESS` ngày12/10/2026. OWNER xác nhận mở từ biểu tượng Màn hình chính
 và phê duyệt checkpoint C99 trong hội thoại.
 

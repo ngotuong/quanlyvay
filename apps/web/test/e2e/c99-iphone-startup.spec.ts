@@ -69,3 +69,27 @@ test("C99 standalone offline navigation shows a public error and never caches fi
   await expect(page.locator(".initial-app-loading,.content-loading")).toHaveCount(0);
   await expect(page.locator(".app-nav").first()).toBeVisible();
 });
+
+
+test("C99 navigation timing is bounded anonymous metadata and tracks a fresh delayed read", async ({ page }) => {
+  test.setTimeout(60000);
+  await login(page);
+  await page.setExtraHTTPHeaders({ "x-e2e-auth-delay-ms": "2000" });
+  await page.getByRole("link", { name: "Khoản vay", exact: true }).filter({ visible: true }).click();
+  await expect(page.locator(".content-loading")).toHaveCount(0);
+  const output = page.locator("output[data-navigation-timing]");
+  await expect.poll(async () => {
+    const rows = JSON.parse((await output.getAttribute("data-navigation-timing")) ?? "[]");
+    return rows.some((r: { kind: string; route: string; durationMs: number }) => r.kind === "content" && r.route === "loans" && r.durationMs >= 2000);
+  }).toBe(true);
+  const samples = JSON.parse((await output.getAttribute("data-navigation-timing"))!);
+  expect(samples.length).toBeLessThanOrEqual(10);
+  for (const sample of samples) {
+    expect(Object.keys(sample).every(key => ["kind", "route", "durationMs", "ttfbMs", "bodyMs", "bytes"].includes(key))).toBe(true);
+    expect(["document", "response", "content"]).toContain(sample.kind);
+    expect(["dashboard", "loans", "counterparties", "notifications", "expenses", "settings", "audit", "loan-detail"]).toContain(sample.route);
+    expect(Number.isFinite(sample.durationMs)).toBe(true);
+    expect(sample.durationMs).toBeGreaterThanOrEqual(0);
+  }
+  await expect(output).toBeHidden();
+});

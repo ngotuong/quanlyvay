@@ -1,0 +1,41 @@
+{
+  "method": "Same five rounds per delay2s/10s, simulated mobile390844DPR3, baseline exact5files8a54 and C99exactrestored; first feedback is loading region OR global status. No actual iPhone/native Safari or causal content speedup.",
+  "rows": [
+    {
+      "phase": "before",
+      "delayMs": 2000,
+      "n": 5,
+      "loadingMedianMs": 30.80000001192093,
+      "firstFeedbackMaxMs": 31.30000001192093,
+      "freshRequestAll": true,
+      "readyMedianMs": 2345.400000035763
+    },
+    {
+      "phase": "before",
+      "delayMs": 10000,
+      "n": 5,
+      "loadingMedianMs": 31,
+      "firstFeedbackMaxMs": 31.69999998807907,
+      "freshRequestAll": true,
+      "readyMedianMs": 10385.399999976158
+    },
+    {
+      "phase": "after",
+      "delayMs": 2000,
+      "n": 5,
+      "loadingMedianMs": 30.700000047683716,
+      "firstFeedbackMaxMs": 31.69999998807907,
+      "freshRequestAll": true,
+      "readyMedianMs": 2350.400000035763
+    },
+    {
+      "phase": "after",
+      "delayMs": 10000,
+      "n": 5,
+      "loadingMedianMs": 30.69999998807907,
+      "firstFeedbackMaxMs": 31.400000035762787,
+      "freshRequestAll": true,
+      "readyMedianMs": 10389.299999952316
+    }
+  ]
+}

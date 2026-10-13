@@ -1,6 +1,7 @@
 import "server-only";
 
 import { cache } from "react";
+import { readWithTiming } from "@/lib/app/read-timing.mjs";
 import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
@@ -17,17 +18,17 @@ export const getAuthenticatedProfile = cache(async (): Promise<AppProfile | null
   const {
     data: { user },
     error: userError,
-  } = await supabase.auth.getUser();
+  } = await readWithTiming("auth.user", () => supabase.auth.getUser());
 
   if (userError || !user) {
     return null;
   }
 
-  const { data, error } = await supabase
+  const { data, error } = await readWithTiming("profile.read", () => supabase
     .from("profiles")
     .select("user_id, username, display_name, role, must_change_password, is_active, notification_delivery_hour")
     .eq("user_id", user.id)
-    .single();
+    .single());
 
   if (error || !data || !data.is_active) {
     return null;

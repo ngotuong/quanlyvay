@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-12",
+  "source": "Human OWNER reply in current conversation before C99 rollout",
+  "model": "iPhone16ProMax",
+  "iOS": "26 (exact minor unknown)",
+  "standalone": true,
+  "reportedTabWaitSeconds": [
+    5,
+    7
+  ],
+  "scope": "All tab switches reported slow; no five per-journey timed samples supplied",
+  "notMeasured": "No per-round cold/native/first-paint/TTFB/hydration numbers; no claim of quantitative paired iPhone speedup",
+  "startupImage": "440-956-3 portrait/landscape variants already generated1320x2868 and2868x1320. Physical resolution matches Apple official https://support.apple.com/en-us/121032; logical media selection needs actual device check."
+}

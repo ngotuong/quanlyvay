@@ -7,6 +7,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/app/theme-provider";
 import { parseTheme, themeColors, themeCookieName } from "@/lib/app/theme.mjs";
 import { PwaRegister } from "@/components/pwa-register";
+import { NavigationTiming } from "@/components/app/navigation-timing";
 import { NavigationFeedback } from "@/components/app/navigation-feedback";
 import { DirtyNavigationGuard } from "@/components/app/dirty-navigation-guard";
 import { NetworkStatus } from "@/components/app/network-status";
@@ -80,7 +81,7 @@ async function ResolvedApplication({ children }: { children: ReactNode }) {
     <a className="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
     <PwaRegister unreadCount={unreadCount} />
     <NetworkStatus />
-    <Suspense fallback={null}><NavigationFeedback /></Suspense>
+    <Suspense fallback={null}><NavigationFeedback /><NavigationTiming /></Suspense>
     {showAppShell && profile ? <AppShell profile={profile} unreadCount={unreadCount}>{children}</AppShell> : children}
   </PrivacyProvider>;
 }

@@ -1,0 +1,95 @@
+{
+  "method": "Hydrated Chromium iPhone screen emulation, synthetic local-only; financial route makes a fresh delayed read; no body/ID/cookie retained",
+  "evidence": [
+    {
+      "round": 0,
+      "delayMs": 2000,
+      "loadingMs": 30.700000047683716,
+      "feedbackMs": null,
+      "readyAfterMs": 2350.400000035763,
+      "freshRequest": true,
+      "prefetchHeaderObserved": true
+    },
+    {
+      "round": 1,
+      "delayMs": 2000,
+      "loadingMs": 29,
+      "feedbackMs": null,
+      "readyAfterMs": 2349.5,
+      "freshRequest": true,
+      "prefetchHeaderObserved": true
+    },
+    {
+      "round": 2,
+      "delayMs": 2000,
+      "loadingMs": 30.899999976158142,
+      "feedbackMs": null,
+      "readyAfterMs": 2351.099999964237,
+      "freshRequest": true,
+      "prefetchHeaderObserved": true
+    },
+    {
+      "round": 3,
+      "delayMs": 2000,
+      "loadingMs": 31.69999998807907,
+      "feedbackMs": null,
+      "readyAfterMs": 2355.699999988079,
+      "freshRequest": true,
+      "prefetchHeaderObserved": true
+    },
+    {
+      "round": 4,
+      "delayMs": 2000,
+      "loadingMs": 30.5,
+      "feedbackMs": null,
+      "readyAfterMs": 2344.900000035763,
+      "freshRequest": true,
+      "prefetchHeaderObserved": true
+    },
+    {
+      "round": 0,
+      "delayMs": 10000,
+      "loadingMs": 30.80000001192093,
+      "feedbackMs": null,
+      "readyAfterMs": 10390.600000023842,
+      "freshRequest": true,
+      "prefetchHeaderObserved": true
+    },
+    {
+      "round": 1,
+      "delayMs": 10000,
+      "loadingMs": 31.400000035762787,
+      "feedbackMs": null,
+      "readyAfterMs": 10384.5,
+      "freshRequest": true,
+      "prefetchHeaderObserved": true
+    },
+    {
+      "round": 2,
+      "delayMs": 10000,
+      "loadingMs": 28.5,
+      "feedbackMs": null,
+      "readyAfterMs": 10389.299999952316,
+      "freshRequest": true,
+      "prefetchHeaderObserved": true
+    },
+    {
+      "round": 3,
+      "delayMs": 10000,
+      "loadingMs": 30.69999998807907,
+      "feedbackMs": null,
+      "readyAfterMs": 10388.699999988079,
+      "freshRequest": true,
+      "prefetchHeaderObserved": true
+    },
+    {
+      "round": 4,
+      "delayMs": 10000,
+      "loadingMs": 30.399999976158142,
+      "feedbackMs": null,
+      "readyAfterMs": 10391.099999964237,
+      "freshRequest": true,
+      "prefetchHeaderObserved": true
+    }
+  ]
+}

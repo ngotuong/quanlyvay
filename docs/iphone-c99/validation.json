@@ -5,7 +5,7 @@
     "lint": "PASS",
     "typecheck": "PASS corrected nullable media; initial failure preserved",
     "unit": {
-      "pass": 121,
+      "pass": 123,
       "fail": 0
     },
     "build": "PASS",
@@ -52,9 +52,29 @@
       "samplesPerPhase": 40,
       "minutesPerPhase": 1.5,
       "mainRouteSpeedup": "not demonstrated"
+    },
+    "diagnostics": {
+      "samplerTargetedPass": 3,
+      "samplerTargetedMinutes": 1.8,
+      "controlledTransportHarnessPass": 2,
+      "harnessMinutes": 2.6,
+      "fullUpdatedSource": "PASS87/18/0 20.5m; final sampler3/0 1.9m"
+    },
+    "readTimingPrivacyUnit": {
+      "pass": 2,
+      "fail": 0,
+      "inUnitTotal": 123
+    },
+    "updatedFullE2E": {
+      "pass": 87,
+      "skip": 18,
+      "fail": 0,
+      "minutes": 20.5,
+      "retries": 0,
+      "note": "Before bounded timing-ref housekeeping; final sampler-targeted3PASS1.9m after clearing completed click refs. Required CI will test final source all105."
     }
   },
-  "sourceCI": "PENDING",
+  "sourceCI": "FAIL initial44b769a/run38263260459; corrected source pending",
   "release": "PENDING",
   "physicalIPhone": "NOT_TESTED",
   "financialWrites": "none on remote"

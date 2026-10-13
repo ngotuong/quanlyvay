@@ -1,6 +1,6 @@
 # C99 — Khởi động và điều hướng iPhone
 
-Trạng thái: IN_PROGRESS. OWNER phê duyệt C99 ngày 12/10/2026 và xác nhận mở từ biểu tượng Màn hình chính. Chưa phát hành C99 hoặc xác nhận trên iPhone thật.
+Trạng thái: IN_PROGRESS. OWNER phê duyệt C99 ngày 12/10/2026 và xác nhận mở từ biểu tượng Màn hình chính. Chưa phát hành C99 hoặc xác nhận trên iPhone thật. OWNER đã cung cấp iPhone16ProMax/iOS26 và báo tất cả tab5–7s; không có năm lượt timing cụ thể. [Reported baseline](owner-iphone-baseline.json). Source44b769a CI38263260459 FAIL ở hai controlled-transport cases C63/C87 vì prefetched shell đã commit URL trước delay; setup đã sửa, giữ mọi assertion/timeouts/retries/skips. Source cập nhật đang kiểm, chưa deploy.
 
 ## Thay đổi và lý do
 
@@ -49,3 +49,11 @@ Lint/typecheck/unit121/build/policy/audit/scoped-secret đạt. Targeted C87/C97
 Evon probe:6 widths và55-width sweep mỗi theme, không geometry/console failure trên app-server. Giữ focus-visible để hỗ trợ bàn phím; rule style báo focus ring có disposition, không xóa focus. Sáu screenshot chỉ màn offline public; không lưu ảnh/danh tính/số tiền thật. [Probe reconciliation](probe-reconciliation.json), [assets](startup-assets.json), [preservation](preservation.json), [validation](validation.json), [raw failures/history](verification-history.md).
 
 iPhone thật/standalone lần đầu và mở lại/expired-session/offline native/OS-cache/AT chưa kiểm. C99 không hoàn tất trước khi nghiệm thu và các gate bắt buộc đạt. Không dùng kết quả mobile viewport làm chứng nhận Safari. C91 DB57014 là rủi ro lịch sử, chưa có trace chứng minh đang xảy ra; không tự tuning DB ngoài phạm vi.
+
+## Chẩn đoán trên bản triển khai đang chuẩn bị
+
+NavigationTiming chỉ giữ tối đa10 bản ghi trong memory/hidden DOM: loại trang cố định, document/RSC/content duration, TTFB/body time và bytes. Không URL/query/loanID/name/body/token/cookie, không storage hoặc network mới. Content là loading hết và hai rAF, không là chứng nhận pixel paint/healthy data; cần đối chiếu smoke và runtime errors. RSC rows có thể bao gồm prefetch, không tự suy mỗi row là thời gian chạm tab.
+
+ReadTiming quan sát đúng một lời gọi hiện có, trả nguyên result/error và giữ retry của caller. Server log chỉ operation cố định/duration/outcome trong Vercel logging hiện có, không serialize result hoặc error message. Auth vẫngetUser→activeprofile/password/role gates; SQL/RPC/validation/action nguyên. Unit bảo vệ privacy/error passthrough; sampler delayed-read E2E3PASS1.8m; lint/typecheck/unit123/build19 đạt. Fullupdated E2E87PASS18SKIP0FAIL20.5m; sau đó timing ref đãclear khi ready để không tái dùng click cũ cho refresh, targeted3PASS1.9m. SourceCIcorrected pending; chưa deploy.
+
+[Paired controlled before](controlled-before.json), [after](controlled-after.json), [summary](controlled-summary.json):5lượt2s/5lượt10s mỗi phase; loading khoảng31ms, fresh read tất cả, dataready khoảng2.35s/10.39s, không speedup. [Local read trace](server-read-diagnostic.json) chỉ headers duration trong fixture, không SQL/remote. [Prefetch](prefetch-diagnostic.json)16readable/75body unavailable, không suy unknown bodies.

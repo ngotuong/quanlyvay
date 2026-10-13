@@ -1,0 +1,493 @@
+{
+  "method": "Local-only synthetic response classified without storing response body/UUID/cookies",
+  "prefetches": [
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "decodedBytes": 25257,
+      "hasLoading": true,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "decodedBytes": 19866,
+      "hasLoading": true,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "decodedBytes": 19681,
+      "hasLoading": true,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "decodedBytes": 269,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "decodedBytes": 265,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "decodedBytes": 274,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "decodedBytes": 273,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "decodedBytes": 265,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "decodedBytes": 274,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "decodedBytes": 273,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "decodedBytes": 16002,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "decodedBytes": 265,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "decodedBytes": 274,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "decodedBytes": 273,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "decodedBytes": 16002,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "decodedBytes": 16002,
+      "hasLoading": false,
+      "hasFixtureName": false
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/dashboard",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/counterparties",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/notifications",
+      "status": 200,
+      "bodyUnavailable": true
+    },
+    {
+      "route": "/loans",
+      "status": 200,
+      "bodyUnavailable": true
+    }
+  ],
+  "limitation": "75/91 bodies unavailable in Playwright; do not infer content from those responses. Readable16 bodies contained no synthetic fixture name; some are small route-tree payloads."
+}
