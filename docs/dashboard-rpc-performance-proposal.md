@@ -1,7 +1,8 @@
 # C100 — Tối ưu lời gọi đọc Tổng quan
 
-Trạng thái: `AWAITING_APPROVAL`. C99 đã hoàn tất trong phạm vi startup/điều hướng và phát hành.
-C100 chưa được phê duyệt; tài liệu này không cấp quyền profilingSQL, sửa hoặc chạy migration remote.
+Trạng thái: `IN_PROGRESS` ngày13/10/2026. OWNER đã phê duyệt rõ C100 trong hội thoại;
+phạm vi dưới đây được phép triển khai. C99 đã hoàn tất; loading visibility được chẩn đoán riêng và
+chưa triển khai trong C100.
 
 ## Bằng chứng và vấn đề
 
@@ -21,7 +22,7 @@ RPC thực tế `get_management_dashboard_bundle_v3`: gọi dashboard đầy đ�
 comparison. C54 flow comparison gọi calculate_loan_json theo từng khoản ở hai mốc ngày. Đây là hướng
 điều tra từ code; chưa có EXPLAIN chứng minh vòng lặp hoặc một index cụ thể là nguyên nhân.
 
-## Phạm vi cần phê duyệt riêng
+## Phạm vi đã được phê duyệt
 
 1. Đo/profile read-only các phần RPC trên fixture tổng hợp và endpoint thực tế trong cùng điều kiện;
    chỉ lưu số đo/count/plan đã khử định danh, không row tài chính/token/body thật. Chọn thay đổi từ trace.
@@ -47,7 +48,10 @@ comparison. C54 flow comparison gọi calculate_loan_json theo từng khoản �
 - Migration rollout có provenance/version/rollback, không thay số dư/nghiệp vụ hoặc dữ liệu thật để test.
   Chỉ COMPLETED sau acceptance và exactclosingCI; checkpoint tiếp theo phải được duyệt riêng.
 
-Đề xuất này mới là tài liệu C99 ghi nhận phạm vi phát sinh theo AGENTS§3. Chưa thực hiện profilingSQL
-remote, migration, sửa RPC/index/timeout hoặc đổi kiến trúc trong C99.
+Kết quả local và baseline Production đang được ghi tại [báo cáo C100](dashboard-c100/report.md).
+RPCv4 single-pass đã triển khai local qua migration, giữ v3 rollback; không thêm index hoặc tăng
+timeout. Chưa push/CI, áp migration remote hoặc rollout.
 
 OWNER sau C99 báo Tổng quan4–5s, logo/loading1–2s, chuyển mục2–3s trên iPhone16ProMax/iOS26. Đây là ước lượng; [kết quả](iphone-c99/owner-iphone-after.json). C100 cần đối chiếu cả backend và thiết bị thật, không lấy loading làm số đo tốc độ.
+Loading không nhìn thấy sau đó được ghi ở [đề xuất checkpoint riêng](loading-visibility-proposal.md);
+không trộn sửa UI vào C100.

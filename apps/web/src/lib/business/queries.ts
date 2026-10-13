@@ -131,7 +131,7 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
     p_balance_start: balanceStart,
     p_balance_end: balanceEnd,
   };
-  const result = await readWithTiming("dashboard.bundle", () => readRpcWithGatewayRetry("get_management_dashboard_bundle_v3", () => supabase.rpc("get_management_dashboard_bundle_v3", args)));
+  const result = await readWithTiming("dashboard.bundle", () => readRpcWithGatewayRetry("get_management_dashboard_bundle_v4", () => supabase.rpc("get_management_dashboard_bundle_v4", args)));
   let diagnosticResult = result;
   let data = result.data as Record<string, unknown> | null;
   let error = result.error;

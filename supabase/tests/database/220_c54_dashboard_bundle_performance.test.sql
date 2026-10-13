@@ -1,7 +1,7 @@
 begin;
 
 create extension if not exists pgtap with schema extensions;
-select plan(13);
+select plan(15);
 
 insert into auth.users (id, email, email_confirmed_at, raw_user_meta_data)
 values (
@@ -56,6 +56,19 @@ select public.get_management_dashboard_bundle_v3(
   '2026-08-01', '2026-08-25',
   '2026-08-31', '2026-08-31'
 ) as value;
+
+create temporary table c100_bundle as
+select public.get_management_dashboard_bundle_v4(
+  '2026-09-01', '2026-09-25',
+  '2026-08-01', '2026-08-25',
+  '2026-08-31', '2026-08-31'
+) as value;
+
+select is(
+  (select value from c100_bundle),
+  (select value from c54_bundle),
+  'single-pass v4 preserves the complete v3 JSON contract for the 40-loan fixture'
+);
 
 select is(
   (select value #>> '{previousDashboard,cashProfitVnd}' from c54_bundle),
@@ -127,6 +140,16 @@ select lives_ok(
     '2026-08-31', '2026-08-31'
   )$$,
   '40-loan dashboard bundle stays below a six-second regression budget'
+);
+
+set local statement_timeout = '1500ms';
+select lives_ok(
+  $$select public.get_management_dashboard_bundle_v4(
+    '2026-09-01', '2026-09-25',
+    '2026-08-01', '2026-08-25',
+    '2026-08-31', '2026-08-31'
+  )$$,
+  '40-loan single-pass bundle stays below the C100 1.5-second local regression budget'
 );
 
 select * from finish();

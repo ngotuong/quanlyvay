@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.327
+roadmap_version: 1.0.329
 last_updated: 2026-10-13
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C100
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 last_completed_checkpoint: C99
-next_checkpoint: C100
+next_checkpoint: null
 ---
 
 # Project Context
@@ -19,11 +19,23 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 1. Trạng thái và công việc kế tiếp
 
-- C100 `AWAITING_APPROVAL`: [đề xuất tối ưu RPC Tổng quan](docs/dashboard-rpc-performance-proposal.md).
-  OWNER chưa duyệt; dừng. Phạm vi dự kiến read-only profiling, tối ưu lặp trong RPC/index có bằng
-  chứng qua migration/rollback, parity tài chính/Auth/RLS, các gate/RequiredCI và rollout theo
-  runbook. Không thực hiện SQLremote/migration/index/timeout hoặc checkpoint này trước phê duyệt.
-  Blocker C99: không; Tổng quan còn4–5s là tồn tại đã đo, ngoài phạm vi C99.
+- C100 `IN_PROGRESS` ngày13/10/2026: OWNER phê duyệt rõ C100 trong hội thoại.
+  [Phạm vi đã duyệt](docs/dashboard-rpc-performance-proposal.md): read-only profiling,
+  tối ưu RPC/index có bằng chứng qua migration/version/rollback, exact financial parity,
+  Auth/RLS, các gate/RequiredCI và root Preview/Production rollout. Không tăng timeout/
+  retries/CIbudget hoặc đổi deps/accounts/secrets/Google/backup/remoteQAfinancial writes.
+  Baseline ae16ed6af828dc4072799c4454c4e4503b172d27; C99 closingCI38350818332
+  SUCCESS cả5jobs/E2E86PASS19SKIP0FAIL36.1m. Stablealiases đang C99.
+  Local source thêm RPCv4 single-pass, giữ v3 rollback; app read đổi v4. Fixture40loan exactJSON,
+  v3 median889.2/p95942.1ms → v4 median209.2/p95225.1ms,10warm mỗi phase. Complex parity gồm
+  cutoff/reversal/stop-resume/restructure/settled/overdue và reversed comparison đạt. Lint/
+  typecheck/unit123/build19/pgTAP542-25files/fullE2E87PASS18SKIP0FAIL21.0m đạt,retries0;
+  reset migration sạch và C20-test55322 sixcounts0. Production pre-migration 11RPC warm
+  median5319.2/p955489.3ms;10client median5811/p956089.7ms. [Report](docs/dashboard-c100/report.md).
+  OWNER báo loading không xuất hiện cả mở app/chuyển mục mobile+desktop. Đã tái hiện feedback bị
+  clear lúc URL commit trước route content ready; iOS startup image chỉ cold launch. Không sửa UI
+  trong C100; [đề xuất checkpoint riêng](docs/loading-visibility-proposal.md) chưa duyệt.
+  Blocker: không. Chưa push/CI, migration remote hoặc phát hành C100.
 
 - C99 `COMPLETED` ngày13/10/2026, OWNER phê duyệt12/10. Startup48PNG/metadata/theme,
   bounded partial prefetch, shell reads song song/request client dedup, offline public503 và

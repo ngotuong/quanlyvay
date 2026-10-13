@@ -2,7 +2,7 @@ import { readFailureDiagnostic } from "./read-failure-diagnostics.mjs";
 
 // Explicit STABLE/read-only RPCs only. Financial mutations must never enter this helper.
 const allowed = new Set([
-  "get_management_dashboard_bundle_v3", "get_management_dashboard_bundle_v2",
+  "get_management_dashboard_bundle_v4", "get_management_dashboard_bundle_v3", "get_management_dashboard_bundle_v2",
   "list_loan_summaries_page", "list_loan_summaries", "calculate_loan",
   "get_loan_term_summary", "get_loan_schedule_summary", "get_loan_management_summary",
 ]);
