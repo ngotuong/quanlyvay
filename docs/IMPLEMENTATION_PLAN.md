@@ -74,7 +74,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C96 | Drawer thu/trả lãi ngay Dashboard với lifecycle đầy đủ | `COMPLETED` |
 | C97 | Loading đúng từng màn và motion có chọn lọc | `COMPLETED` |
 | C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `COMPLETED` |
-| C99 | Khởi động standalone và tốc độ điều hướng trên iPhone | `IN_PROGRESS` |
+| C99 | Khởi động standalone và tốc độ điều hướng trên iPhone | `COMPLETED` |
+| C100 | Tối ưu lời gọi đọc Tổng quan | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -2442,13 +2443,7 @@ Acceptance criteria:
 
 ### C99 — Khởi động và điều hướng trên iPhone
 
-Tiến độ13/10: source44b769a/CI38263260459 FAIL ở controlled transport C63/C87 do warmed prefetch;
-đang sửa setup harness, giữ assertion/testtimeout/retries/skips/job45m. Source chưa deploy.
-OWNER báo iPhone16ProMax/iOS26, tất cả tab5–7s; bổ sung bounded client timing chỉ metadata
-để phân biệt TTFB/body/content trên bản triển khai, không external telemetry/storage/fetch.
-
-Trạng thái: `IN_PROGRESS` ngày12/10/2026. OWNER xác nhận mở từ biểu tượng Màn hình chính
-và phê duyệt checkpoint C99 trong hội thoại.
+Trạng thái: `COMPLETED` ngày13/10/2026; OWNER phê duyệt12/10. Source6d6f1e1/RequiredCI38337230362 SUCCESS5jobs/unit123/pgTAP527/Auth6/E2E86PASS19SKIP0FAIL29.2m. RootPreviewcreate/resume87PASS18SKIP0FAIL20.7m mỗi lượt; PreviewCEwPr3/Production14Vqu Ready45sin1/project đúng/UID240/240, promote/alias/public/Auth/console/runtime hậukiểm đạt. [Report](iphone-c99/report.md), [release](iphone-c99/release-proof.json). OWNER xác nhận logo/loading1–2s, Tổngquan4–5s, chuyểnmục2–3s so với reported5–7s trên iPhone16ProMax/iOS26; không stopwatch/5native samples. Các nativefirstinstall/expired/offline/rotation/OSlivetheme/AT/PNGselection/continuouspixelpaint vẫn NOT_TESTED. RPCread5.33/5.39s còn chậm; C100 đề xuất riêng, chưa thực hiện. Closing docs exactSHA CI5SUCCESS bắt buộc trước báo chốt; SHA/run ghi hội thoại.
 
 Phạm vi và acceptance criteria: [đề xuất C99 đã duyệt](iphone-startup-performance-proposal.md).
 Đo cold/warm launch, route/tab/Back; sửa feedback/startup iOS và các bước chờ có bằng chứng;
@@ -2458,3 +2453,17 @@ Local lint/typecheck/unit/build/E2E, Required CI exactSHA, root Preview và Prod
 C98/runbook; iPhone thật cần OWNER hỗ trợ và phải báo NOT_TESTED nếu chưa có bằng chứng.
 Không schema/RPC/financial engine/DB timeout/index/dependency/remote ledger/account/secrets/
 Google/backup; nếu bottleneck cần mở rộng phải đề xuất riêng. Không checkpoint kế tiếp đã duyệt.
+
+
+### C100 — Tối ưu lời gọi đọc Tổng quan
+
+Trạng thái: `AWAITING_APPROVAL`. Chưa được OWNER phê duyệt; không thực hiện.
+
+Phạm vi và acceptance criteria: [đề xuất C100](dashboard-rpc-performance-proposal.md).
+Read-only profiling có dữ liệu khử định danh; tối ưu repeated RPC calculations/index có bằng
+chứng qua migration/version/rollback; giữ exact financial JSON/VND/date/RLS/Auth/roles/grants,
+không cache số dư giữa requests/users. Mục tiêu cùng dataset: ≥10warm RPC mỗi phase,
+median≤1500ms/p95mẫu≤2500ms; ≥5client comparison và kiểm iPhone cùng mạng, cold riêng.
+Lint/typecheck/unit/build/pgTAP/Auth/fullE2E/RequiredCI exactSHA và rootPreview/Production
+rollout/Auth/log hậu kiểm/rollback. Không tăng timeout/retries/CIbudget, đổi deps/accounts/
+secrets/Google/backup hoặc tạo giao dịchQAremote. Chỉ bắt đầu sau phê duyệt rõ C100.

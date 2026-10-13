@@ -1,0 +1,142 @@
+{
+  "checkedAt": "2026-10-13T04:31:01.258153+00:00",
+  "method": "CUA click-to-URL/loading-detached/DOM-ready; driver transport and conditional polling included. Same IAB account/database/routes, matched Preview phases440x956. Not physical iPhone or pixel paint. N5 p95 is max sample, no causal speedup claim.",
+  "samples": {
+    "C98-preview-matched": {
+      "viewport": [
+        440,
+        956
+      ],
+      "loans": [
+        927,
+        810,
+        1563,
+        805,
+        809
+      ],
+      "counterparties": [
+        598,
+        609,
+        599,
+        590,
+        596
+      ],
+      "dashboard": [
+        5721,
+        5803,
+        5744,
+        5617,
+        5683
+      ]
+    },
+    "C99-preview-matched": {
+      "viewport": [
+        440,
+        956
+      ],
+      "loans": [
+        2909,
+        891,
+        1058,
+        993,
+        1008
+      ],
+      "counterparties": [
+        494,
+        381,
+        825,
+        490,
+        491
+      ],
+      "dashboard": [
+        5803,
+        5908,
+        5920,
+        5800,
+        5789
+      ]
+    },
+    "production-candidate": {
+      "viewport": [
+        319,
+        1026
+      ],
+      "loans": [
+        3175,
+        1337,
+        3085,
+        3128,
+        3102
+      ],
+      "counterparties": [
+        3103,
+        3101,
+        3111,
+        3129,
+        3093
+      ],
+      "dashboard": [
+        5798,
+        5819,
+        5640,
+        5707,
+        5678
+      ]
+    }
+  },
+  "summary": {
+    "C98-preview-matched": {
+      "loans": {
+        "n": 5,
+        "medianMs": 810,
+        "p95NearestRankMs": 1563
+      },
+      "counterparties": {
+        "n": 5,
+        "medianMs": 598,
+        "p95NearestRankMs": 609
+      },
+      "dashboard": {
+        "n": 5,
+        "medianMs": 5721,
+        "p95NearestRankMs": 5803
+      }
+    },
+    "C99-preview-matched": {
+      "loans": {
+        "n": 5,
+        "medianMs": 1008,
+        "p95NearestRankMs": 2909
+      },
+      "counterparties": {
+        "n": 5,
+        "medianMs": 491,
+        "p95NearestRankMs": 825
+      },
+      "dashboard": {
+        "n": 5,
+        "medianMs": 5803,
+        "p95NearestRankMs": 5920
+      }
+    },
+    "production-candidate": {
+      "loans": {
+        "n": 5,
+        "medianMs": 3102,
+        "p95NearestRankMs": 3175
+      },
+      "counterparties": {
+        "n": 5,
+        "medianMs": 3103,
+        "p95NearestRankMs": 3129
+      },
+      "dashboard": {
+        "n": 5,
+        "medianMs": 5707,
+        "p95NearestRankMs": 5819
+      }
+    }
+  },
+  "speedup": "Dashboard read latency remains approximately5.7-5.8s. Driver timing alone cannot prove improvement.",
+  "diagnosticLimits": "Bounded10 client rows can be evicted by prefetch and snapshots can include older rows; selected client content records not treated as exact per-click timings. Resource rows include prefetch. Server logs are aggregate existing reads, no per-user/request identity pairing."
+}

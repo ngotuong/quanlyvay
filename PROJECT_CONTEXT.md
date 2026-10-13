@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.326
+roadmap_version: 1.0.327
 last_updated: 2026-10-13
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C99
-current_status: IN_PROGRESS
-last_completed_checkpoint: C98
-next_checkpoint: null
+current_checkpoint: C100
+current_status: AWAITING_APPROVAL
+last_completed_checkpoint: C99
+next_checkpoint: C100
 ---
 
 # Project Context
@@ -19,28 +19,46 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 1. Trạng thái và công việc kế tiếp
 
-- C99 `IN_PROGRESS` ngày12/10/2026: OWNER xác nhận mở bằng biểu tượng Màn hình chính
-  trên iPhone và phê duyệt rõ C99 trong hội thoại. Phạm vi/acceptance tại
-  [đề xuất đã duyệt](docs/iphone-startup-performance-proposal.md): đo trước/sau, sửa startup/
-  navigation, local gates/Required CI và Preview/Production theo runbook. Không schema/RPC/
-  nghiệp vụ/timeout DB/dependency/remote ledger/account/secrets/Google/backup.
-  Baseline nguồn `8a54ff8b04a657aa11ebb934f0e2ada3e01ec9e1`; runtime remote vẫn C98.
-  Đã triển khai local 48 ảnh khởi động tĩnh, partial prefetch bốn mục chính, đọc shell song song/
-  request-scoped client và offline503 chỉ cache màn public. Lint/typecheck/unit121/build/
-  policy/upload guard/audit/secret đạt; targeted9PASS/1SKIP/0FAIL7.2m, full E2E86/18/0
-  trong20.8m/retries0, Auth6/0 vàpgTAP527/24files đạt. Prepared-CI C99targeted2/0 đạt. Media nullable
-  từng làm typecheck/build đầu FAIL, đã sửa và giữ raw. SourceC99 `44b769ae2466de190a5bbec78ebed26069abb2ac` đãcommit/push; RequiredCI
-  [38263260459](https://github.com/ngotuong/quanlyvay/actions/runs/38263260459) đangchạy;
-  chưa deploy C99. CI44b769a FAIL:3jobsSUCCESS/integrationFAIL/gateFAIL, E2E83PASS19SKIP2FAIL34.8m.
-  Hai controlled-transport C63/C87 bị warmed-prefetch làm commitURL trước delay; harness đã
-  chặn prefetch trước login và trong delay handler, targeted2PASS2.6m. Giữ assertions/timeouts/
-  retries/skips45m. Bounded client timing +fixed server read metrics added; sampler3PASS1.8m,
-  lint/typecheck/unit123/build19 đạt; fullupdated105tests87PASS18SKIP0FAIL20.5m; refcleanup targeted3PASS1.9m. Corrected sourceCI chờ. Runtime218freeze/financial73 giữ.
-  OWNER cung cấp iPhone16ProMax/iOS26, mọi tab5–7s; đây là reported baseline, chưa có5lượtđo.
-  [Bằng chứng](docs/iphone-c99/report.md):40browser-clock samples mỗi phase; main-nav363ms
-  gầnnhư không đổi. V1walltime giảm do polling, không tính speedup. Timing local không là
-  chứng nhận iPhone. Source Required CI vàrollout đang chờ; chưa có checkpoint mới.
-  iPhone thật cần OWNER hỗ trợ kiểm. Blocker: không ở bước local.
+- C100 `AWAITING_APPROVAL`: [đề xuất tối ưu RPC Tổng quan](docs/dashboard-rpc-performance-proposal.md).
+  OWNER chưa duyệt; dừng. Phạm vi dự kiến read-only profiling, tối ưu lặp trong RPC/index có bằng
+  chứng qua migration/rollback, parity tài chính/Auth/RLS, các gate/RequiredCI và rollout theo
+  runbook. Không thực hiện SQLremote/migration/index/timeout hoặc checkpoint này trước phê duyệt.
+  Blocker C99: không; Tổng quan còn4–5s là tồn tại đã đo, ngoài phạm vi C99.
+
+- C99 `COMPLETED` ngày13/10/2026, OWNER phê duyệt12/10. Startup48PNG/metadata/theme,
+  bounded partial prefetch, shell reads song song/request client dedup, offline public503 và
+  diagnostics chỉ metadata. Không schema/RPC/engine/index/DBtimeout/deps/accounts/secrets/
+  Google/backup/remote ledger changes. Baseline8a54ff8; runtime source
+  `6d6f1e182a9c99bffaa3c316818a1c3e4a8c84d7`; [CI38337230362](https://github.com/ngotuong/quanlyvay/actions/runs/38337230362)
+  SUCCESS cả5jobs, unit123/pgTAP527/24files/Auth6/0/E2E86PASS19SKIP0FAIL29.2m,
+  105scheduled/retries0. Source44b769a/CI38263260459 FAIL hai transportC63/C87 do warmed
+  prefetch; harness đã sửa, giữ assertions/timeouts/retries/skips/45mjob. Lint/typecheck/build/
+  policy/audit/secret/upload guard đạt; fullupdated local87/18/0 20.5m; focusedfinal3/0 1.9m.
+  RootPreviewcreate vàresume đều87PASS18SKIP0FAIL20.7m/unit123/build đạt, exit0.
+  Preview `dpl_CEwPr3DtpYcM49GCPMffTK7adf9U`, targetPreview/Ready/45Functions sin1,
+  [immutable](https://quan-ly-vay-ca-nhan-ne1d38vu7-ngotuong2105.vercel.app),
+  [stable](https://tindung-preview.vercel.app).
+  Production `dpl_14VquPhpxUa5yeA8Cb9z7ejcWG4Z`, targetProduction/Ready/45Functions sin1,
+  [immutable](https://quan-ly-vay-ca-nhan-hiu7tkenf-ngotuong2105.vercel.app);
+  root skip-domain create/promote exit0. [Production](https://tindung.vercel.app) và
+  [default](https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app) trỏ đúng14Vqu.
+  Cảhai đúngproject prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F/Git6d6/UID240/240;
+  candidate Auth7routes+4loanDetailtabs mỗi môi trường PASS. Sauchuyểnalias: public4/4,
+  Auth3mainroutes, startup48+diagnosticmarker, console0/runtimeerrors0/HTTP5000 trênbaalias.
+  [Releaseproof](docs/iphone-c99/release-proof.json), [report](docs/iphone-c99/report.md).
+  C98rollbackPreview3BXy…/Production5aqr… freshidentity/public/Auth/runtime đạt trướcrollout,
+  giữ nguyên/chưa kích hoạt. 218runtimefreeze/73financialprotected/17C75exact/sixC20-test55322
+  counts0; main54322 không chạm. Không submit financial/account/settings form trong smoke.
+  OWNER iPhone16ProMax/iOS26, icon tindung.vercel.app: logo/loading1–2s, Tổngquan4–5s,
+  chuyểnmục2–3s, baseline5–7s; [ownerreport](docs/iphone-c99/owner-iphone-after.json).
+  Ước lượng, không5mẫu stopwatch hoặc chứng nhận native toàn diện; firstinstall/expired/
+  offline/rotation/OSlivetheme/AT/PNGselection/continuouspixelpaint NOT_TESTED.
+  Local40browser-clock samples/phase main-nav~363ms gầnnhưkhôngđổi; v1walltime bịpolling,
+  khôngspeedup. Remote45driversamples matchedPreview dashboard5721→5803ms, khôngcải thiện.
+  RPCsuccessfulmedian5.33/5.39s (8mẫu mỗi môi trường), Auth/profile48/47 và65/75ms;
+  gồmnetwork/server/retries, khôngSQL-only/traceghéprequest. C100 chỉđềxuất, chưatriểnkhai.
+  Commit chốt tài liệu phải RequiredCI đúngSHA5SUCCESS trước báohoàntất; SHA/run ghi hội thoại
+  tránh vòng tự tham chiếu. Không deploy lại vì tài liệu chốt không đổi runtime.
 
 - C98 `COMPLETED` ngày11/10/2026: nghiệm thu A/C92–C97 và phát hành Preview/Production/defaultalias đạt.
   Source211f8e4/CI38069136549, closingproof4b22848/CI38144466141 SUCCESS5jobs.
@@ -207,7 +225,7 @@ không dùng lịch sử để suy quyền thực hiện mới.
   DB55322 đúng,sixcounts0; không main54322/push/deploy/remote/schema/RPC/engine/dependency change.
   Runtime tại thờiđiểmC97 vẫn C91. C98 `COMPLETED` sau amendmentCI45m đạt; OWNER phê duyệt ngày10/10/2026 trong hội thoại.
   Phạm vi C98: nghiệm thu chuỗi A/C92–C97 và phát hành Preview/Production/alias theo C91/runbook.
-  Source phát hành hiện tại: `211f8e49eee0b78eca4c9723b526604a99780b3d`;
+  Source phát hành tại C98: `211f8e49eee0b78eca4c9723b526604a99780b3d`;
   [CI38069136549](https://github.com/ngotuong/quanlyvay/actions/runs/38069136549) SUCCESS đủ5job:
   pgTAP527/24files,Auth6/0,E2E83PASS19SKIP0FAIL24.9m. Source83bc0fe/CI38068842563 QualityFAIL
   do ignore-contract drift, overallCANCELLED khi push bản sửa; rawfailure giữ rõ.4testport đổi theo
@@ -249,12 +267,12 @@ không dùng lịch sử để suy quyền thực hiện mới.
 
 ## 2. Thay đổi local cần bảo toàn
 
-- C99 uncommitted local: layout/nav/theme/request-scoped Supabase client/SW, startup mapping và
+- C99 source44b769a/6d6f1e1 đã commit/push/phát hành, cả ba stable alias phục vụ C99: layout/nav/theme/request-scoped Supabase client/SW, startup mapping và
   generator, 48PNG/public offline, C99 E2E và proposal/evidence/context/roadmap/handoff.
   Không thay protected financial73files. Full E2E có thể sinh17C75; chỉ restore đúng baseline
   sau teardown bằng helper có backup/hash, không broad reset. Raw `.cache/c99` giữ thất bại/timing.
 
-- Branch `main`, runtime source C98 `211f8e49eee0b78eca4c9723b526604a99780b3d`;
+- Branch `main`, runtime source C99 `6d6f1e182a9c99bffaa3c316818a1c3e4a8c84d7`;
   closing proof gốc 705b6da FAIL được giữ; harness C87 đã đạt CI tại 839d34b348e7dd435688365435cc0336bfcb4eb0.
   Initialhandoff b98fe64d332ea31ffee2b2e3adebc5ec7756744a giữ trong report.
 - Đã commit toàn bộ source/docs/harness C89/C90, handoff và historyarchive; không xóa artifacts.
@@ -298,11 +316,11 @@ không dùng lịch sử để suy quyền thực hiện mới.
   CI pgTAP527/Auth6/E2E62PASS16SKIP. Chi tiết [release C88](docs/release-c88/report.md).
 - Preview `dpl_DWAs22T33Lt69qo9kdnYbXEs6dov`, immutable URL
   https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app,
-  stable alias tại C88 https://tindung-preview.vercel.app (hiện phục vụ C91).
+  stable alias tại C88 https://tindung-preview.vercel.app (hiện phục vụ C99).
 - Production `dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo`, immutable URL
   https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app,
   aliases tại C88 https://tindung.vercel.app và https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app
-  (hiện phục vụ C91).
+  (hiện phục vụ C99).
 - Candidates/aliases đúngproject/target/Ready,43route Functions sin1; public/Auth/log hậu kiểm
   đạt ở C88. C91 đã inspect và xác minh C88 rollback trước promote; không dùng lịch sử
   Ready làm chứng cứ hiện tại. Không cleanup deployment.
@@ -320,7 +338,7 @@ không dùng lịch sử để suy quyền thực hiện mới.
 - G1: bảng dashboard mobile cần giữ nhận diện dòng; G2: metadata11.2–11.52px; G3: tên200 ký
   tự dài; G4: notification hover và selected chung fill. C89 ghi Gu, không lỗi quyết toán.
   C92 đã chọn A; G1–G4 đã xử lý local tại C94, Quick Amount C95/drawer C96/loading-motion C97
-  đã hoàn tất. C98 đang nghiệm thu/phát hành, không coi đồng ý roadmap là chọn mọi Gu/style.
+  đã hoàn tất. C98 đã nghiệm thu/phát hành, không coi đồng ý roadmap là chọn mọi Gu/style.
 - Token primitives được phép chứa giá trị màu gốc; component dùng semantic token. Không
   mục tiêu giảm50% CSS bằng mọi giá, không đánh đồng di chuyển file với tăng hiệu năng.
 - OWNER chọn A và Quick Amount +50tr/+100tr/+150tr/+200tr ngày09/10/2026; spec tại docs/design-c92/selected-design.md.
@@ -367,5 +385,5 @@ không dùng lịch sử để suy quyền thực hiện mới.
   [Backup](docs/BACKUP_RESTORE.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md).
 - Skill Evon: `/Users/ngotuong/.codex/skills/evondev-ui-ux/SKILL.md`; áp khi công việc UI cần,
   không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
-- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C97 hoàn tất; C98 đã được duyệt/A đã chọn.
-  Chỉ thực hiện C98, không tạo cuộc trò chuyện tự động.
+- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C99 hoàn tất/C100 chờ duyệt.
+  Chỉ tiếp tục C100 sau phê duyệt rõ; không tạo cuộc trò chuyện tự động.

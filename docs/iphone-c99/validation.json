@@ -1,5 +1,5 @@
 {
-  "status": "IN_PROGRESS",
+  "status": "COMPLETED",
   "baselineSource": "8a54ff8b04a657aa11ebb934f0e2ada3e01ec9e1",
   "local": {
     "lint": "PASS",
@@ -71,11 +71,311 @@
       "fail": 0,
       "minutes": 20.5,
       "retries": 0,
-      "note": "Before bounded timing-ref housekeeping; final sampler-targeted3PASS1.9m after clearing completed click refs. Required CI will test final source all105."
+      "note": "Final runtime source all105 tested in Required CI38337230362; root create/resume all105 also pass"
     }
   },
-  "sourceCI": "FAIL initial44b769a/run38263260459; corrected source pending",
-  "release": "PENDING",
-  "physicalIPhone": "NOT_TESTED",
-  "financialWrites": "none on remote"
+  "sourceCI": {
+    "sourceSha": "6d6f1e182a9c99bffaa3c316818a1c3e4a8c84d7",
+    "runId": "38337230362",
+    "status": "SUCCESS",
+    "jobs": 5,
+    "E2E": {
+      "pass": 86,
+      "skip": 19,
+      "fail": 0,
+      "minutes": 29.2,
+      "retries": 0
+    }
+  },
+  "release": {
+    "status": "PASS",
+    "date": "2026-10-13",
+    "sourceSha": "6d6f1e182a9c99bffaa3c316818a1c3e4a8c84d7",
+    "sourceCI": "38337230362 SUCCESS all5",
+    "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+    "candidates": {
+      "preview": {
+        "id": "dpl_CEwPr3DtpYcM49GCPMffTK7adf9U",
+        "url": "https://quan-ly-vay-ca-nhan-ne1d38vu7-ngotuong2105.vercel.app",
+        "target": "preview",
+        "readyState": "READY",
+        "routeFunctions": 45,
+        "region": "sin1",
+        "sourceContentsConfirmedByUID": "PASS240/240",
+        "authenticatedSmoke": "PASS"
+      },
+      "production": {
+        "id": "dpl_14VquPhpxUa5yeA8Cb9z7ejcWG4Z",
+        "url": "https://quan-ly-vay-ca-nhan-hiu7tkenf-ngotuong2105.vercel.app",
+        "target": "production",
+        "readyState": "READY",
+        "routeFunctions": 45,
+        "region": "sin1",
+        "sourceContentsConfirmedByUID": "PASS240/240",
+        "authenticatedSmoke": "PASS"
+      }
+    },
+    "preview": {
+      "create": "root pnpm deploy:preview, exit0",
+      "resume": "root pnpm deploy:preview --candidate immutable --verified-authenticated-smoke, exit0",
+      "createE2E": "87PASS18SKIP0FAIL20.7m retries0",
+      "resumeE2E": "87PASS18SKIP0FAIL20.7m retries0",
+      "otherGates": "diff/lint/typecheck/unit123/build PASS before candidate and alias"
+    },
+    "production": {
+      "create": "repository root --target=production --skip-domain; exit0",
+      "promote": "repository root vercel promote immutable --scope ngotuong2105 --yes; exit0",
+      "prePromote": "Fresh candidate identity/sourceUID/Auth/public/runtime and rollback PASS"
+    },
+    "aliases": {
+      "preview": {
+        "url": "https://tindung-preview.vercel.app",
+        "deploymentId": "dpl_CEwPr3DtpYcM49GCPMffTK7adf9U",
+        "target": "preview",
+        "readyState": "READY",
+        "routeFunctions": 45,
+        "region": "sin1",
+        "publicSmoke": {
+          "label": "preview-post",
+          "url": "https://tindung-preview.vercel.app",
+          "checkedAt": "2026-10-13T04:54:20.840Z",
+          "results": [
+            {
+              "path": "/login",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/manifest.webmanifest",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/api/google-sync/export",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            },
+            {
+              "path": "/api/notifications/run",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            }
+          ],
+          "pass": true,
+          "method": "HTTP status only; no response bodies persisted"
+        },
+        "authenticatedSmoke": {
+          "routes": [
+            "loans",
+            "counterparties",
+            "dashboard"
+          ],
+          "pass": true,
+          "loadingAfterReady": false,
+          "pageAlerts": 0,
+          "consoleErrors": 0,
+          "headStartupLinks": 48,
+          "navigationTimingMarker": true,
+          "method": "Actual authenticated browser navigation after alias switch; route/data/primary nav checked, no financial writes"
+        },
+        "runtimeAfterAuthenticatedSmoke": {
+          "phase": "preview-post-auth",
+          "url": "https://tindung-preview.vercel.app",
+          "checkedAt": "2026-10-13T05:12:29.363044+00:00",
+          "counts": {
+            "errors": 0,
+            "http500": 0
+          },
+          "cliExit": 0,
+          "method": "Runtime CLI, counts only, no private log messages retained"
+        }
+      },
+      "production": {
+        "url": "https://tindung.vercel.app",
+        "deploymentId": "dpl_14VquPhpxUa5yeA8Cb9z7ejcWG4Z",
+        "target": "production",
+        "readyState": "READY",
+        "routeFunctions": 45,
+        "region": "sin1",
+        "publicSmoke": {
+          "label": "production-post",
+          "url": "https://tindung.vercel.app",
+          "checkedAt": "2026-10-13T05:00:46.787Z",
+          "results": [
+            {
+              "path": "/login",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/manifest.webmanifest",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/api/google-sync/export",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            },
+            {
+              "path": "/api/notifications/run",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            }
+          ],
+          "pass": true,
+          "method": "HTTP status only; no response bodies persisted"
+        },
+        "authenticatedSmoke": {
+          "routes": [
+            "loans",
+            "counterparties",
+            "dashboard"
+          ],
+          "pass": true,
+          "loadingAfterReady": false,
+          "pageAlerts": 0,
+          "consoleErrors": 0,
+          "headStartupLinks": 48,
+          "navigationTimingMarker": true,
+          "method": "Actual authenticated browser navigation after alias switch; route/data/primary nav checked, no financial writes"
+        },
+        "runtimeAfterAuthenticatedSmoke": {
+          "phase": "production-post-auth",
+          "url": "https://tindung.vercel.app",
+          "checkedAt": "2026-10-13T05:12:30.282946+00:00",
+          "counts": {
+            "errors": 0,
+            "http500": 0
+          },
+          "cliExit": 0,
+          "method": "Runtime CLI, counts only, no private log messages retained"
+        }
+      },
+      "default": {
+        "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+        "deploymentId": "dpl_14VquPhpxUa5yeA8Cb9z7ejcWG4Z",
+        "target": "production",
+        "readyState": "READY",
+        "routeFunctions": 45,
+        "region": "sin1",
+        "publicSmoke": {
+          "label": "default-post",
+          "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+          "checkedAt": "2026-10-13T05:00:46.896Z",
+          "results": [
+            {
+              "path": "/login",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/manifest.webmanifest",
+              "status": 200,
+              "expected": 200,
+              "pass": true
+            },
+            {
+              "path": "/api/google-sync/export",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            },
+            {
+              "path": "/api/notifications/run",
+              "status": 401,
+              "expected": 401,
+              "pass": true
+            }
+          ],
+          "pass": true,
+          "method": "HTTP status only; no response bodies persisted"
+        },
+        "authenticatedSmoke": {
+          "routes": [
+            "loans",
+            "counterparties",
+            "dashboard"
+          ],
+          "pass": true,
+          "loadingAfterReady": false,
+          "pageAlerts": 0,
+          "consoleErrors": 0,
+          "headStartupLinks": 48,
+          "navigationTimingMarker": true,
+          "method": "Actual authenticated browser navigation after alias switch; route/data/primary nav checked, no financial writes"
+        },
+        "runtimeAfterAuthenticatedSmoke": {
+          "phase": "default-post-auth",
+          "url": "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app",
+          "checkedAt": "2026-10-13T05:12:29.131582+00:00",
+          "counts": {
+            "errors": 0,
+            "http500": 0
+          },
+          "cliExit": 0,
+          "method": "Runtime CLI, counts only, no private log messages retained"
+        }
+      }
+    },
+    "rollback": {
+      "previewId": "dpl_3BXyNm6T6Kp24CmNqz25YtPgVyD1",
+      "productionId": "dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF",
+      "retained": true,
+      "activated": false,
+      "proof": "rollback-baseline.json; Production freshly verified identity/public/Auth/runtime before promote"
+    },
+    "physicalIPhone": "OWNER_REPORTED_PARTIAL, owner-iphone-after.json",
+    "privacy": "No cookies, token, names, financial rows or private body/screenshots retained",
+    "remoteFinancialWrites": false,
+    "runtimeUnchangedAfterSourceCI": true
+  },
+  "physicalIPhone": {
+    "date": "2026-10-13",
+    "source": "Human OWNER reply in current conversation after C99 rollout",
+    "model": "iPhone16ProMax",
+    "iOS": "26 (minor unknown)",
+    "host": "tindung.vercel.app",
+    "standalone": true,
+    "method": "OWNER approximate observation, not stopwatch or five paired samples",
+    "logoLoadingSeconds": [
+      1,
+      2
+    ],
+    "dashboardWaitSeconds": [
+      4,
+      5
+    ],
+    "tabWaitSeconds": [
+      2,
+      3
+    ],
+    "baselineTabWaitSeconds": [
+      5,
+      7
+    ],
+    "result": "OWNER sees logo/loading and reports faster tab switching; Dashboard remains slow",
+    "notCertified": [
+      "native PNG media selection",
+      "continuous pixel paint across startup phases",
+      "first install",
+      "expired-session native launch",
+      "native offline",
+      "rotation",
+      "live OS theme changes",
+      "VoiceOver"
+    ],
+    "limits": "No precise per-route native timing, no general native certification; controlled browser tests recorded separately"
+  },
+  "financialWrites": "none on remote",
+  "closingDocumentationCI": "Exact closing SHA all5 SUCCESS required before final completion report; SHA/run recorded in conversation"
 }

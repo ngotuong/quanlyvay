@@ -1,0 +1,58 @@
+{
+  "sourceSha": "6d6f1e182a9c99bffaa3c316818a1c3e4a8c84d7",
+  "runId": "38337230362",
+  "url": "https://github.com/ngotuong/quanlyvay/actions/runs/38337230362",
+  "conclusion": "success",
+  "jobs": [
+    {
+      "name": "Dependency and secret scan",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Quality and build",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Workflow policy",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Supabase Auth pgTAP and E2E",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "name": "Required CI gate",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ],
+  "runtimeFreezeMatches": true,
+  "guard": "Extra CI guard before original root pipeline invokes unchanged Vercel CLI; local gates may run in parallel with CI",
+  "tests": {
+    "pgTAP": {
+      "pass": 527,
+      "files": 24,
+      "fail": 0
+    },
+    "Auth": {
+      "pass": 6,
+      "fail": 0
+    },
+    "E2E": {
+      "pass": 86,
+      "skip": 19,
+      "fail": 0,
+      "minutes": 29.2,
+      "scheduled": 105,
+      "retries": 0
+    },
+    "unit": {
+      "pass": 123,
+      "fail": 0
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-13",
+  "source": "Human OWNER reply in current conversation after C99 rollout",
+  "model": "iPhone16ProMax",
+  "iOS": "26 (minor unknown)",
+  "host": "tindung.vercel.app",
+  "standalone": true,
+  "method": "OWNER approximate observation, not stopwatch or five paired samples",
+  "logoLoadingSeconds": [
+    1,
+    2
+  ],
+  "dashboardWaitSeconds": [
+    4,
+    5
+  ],
+  "tabWaitSeconds": [
+    2,
+    3
+  ],
+  "baselineTabWaitSeconds": [
+    5,
+    7
+  ],
+  "result": "OWNER sees logo/loading and reports faster tab switching; Dashboard remains slow",
+  "notCertified": [
+    "native PNG media selection",
+    "continuous pixel paint across startup phases",
+    "first install",
+    "expired-session native launch",
+    "native offline",
+    "rotation",
+    "live OS theme changes",
+    "VoiceOver"
+  ],
+  "limits": "No precise per-route native timing, no general native certification; controlled browser tests recorded separately"
+}

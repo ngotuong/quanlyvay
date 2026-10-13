@@ -1,0 +1,548 @@
+{
+  "successfulReadSummary": {
+    "auth.user": {
+      "count": 31,
+      "medianMs": 65.0,
+      "maxMs": 281.7
+    },
+    "counterparties.list": {
+      "count": 7,
+      "medianMs": 50.5,
+      "maxMs": 114.5
+    },
+    "dashboard.bundle": {
+      "count": 8,
+      "medianMs": 5390.3,
+      "maxMs": 6230.2
+    },
+    "loans.page": {
+      "count": 8,
+      "medianMs": 526.45,
+      "maxMs": 568.5
+    },
+    "notifications.count": {
+      "count": 3,
+      "medianMs": 118.0,
+      "maxMs": 252.7
+    },
+    "profile.read": {
+      "count": 31,
+      "medianMs": 74.8,
+      "maxMs": 340.4
+    }
+  },
+  "checkedAt": "2026-10-13T04:28:39.708616+00:00",
+  "sampleScope": "Most recent100 matching log events, no request identity; cannot pair events to a user or claim SQL-only duration",
+  "rows": [
+    {
+      "operation": "auth.user",
+      "durationMs": 37.3,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 39.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "dashboard.bundle",
+      "durationMs": 5441.8,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 29.4,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 37.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 36.7,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 22.8,
+      "outcome": "ok"
+    },
+    {
+      "operation": "counterparties.list",
+      "durationMs": 38,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 48.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 37.6,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 44.6,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 60.3,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 78.8,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 90.2,
+      "outcome": "ok"
+    },
+    {
+      "operation": "loans.page",
+      "durationMs": 568.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 89.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 86.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 45.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 47.9,
+      "outcome": "ok"
+    },
+    {
+      "operation": "loans.page",
+      "durationMs": 509.9,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 71.7,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 57.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "counterparties.list",
+      "durationMs": 48.6,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 281.7,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 68.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "loans.page",
+      "durationMs": 543,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 43.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 34.6,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 46.6,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 47.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 74.9,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 44.6,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 257.3,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 82.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "notifications.count",
+      "durationMs": 118,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 63.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 137.3,
+      "outcome": "ok"
+    },
+    {
+      "operation": "dashboard.bundle",
+      "durationMs": 5312.8,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 65,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 74.9,
+      "outcome": "ok"
+    },
+    {
+      "operation": "counterparties.list",
+      "durationMs": 55.7,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 96.4,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 48.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "loans.page",
+      "durationMs": 488.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 71.4,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 106.3,
+      "outcome": "ok"
+    },
+    {
+      "operation": "dashboard.bundle",
+      "durationMs": 5344.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 64.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 74.8,
+      "outcome": "ok"
+    },
+    {
+      "operation": "counterparties.list",
+      "durationMs": 57.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 79,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 82.2,
+      "outcome": "ok"
+    },
+    {
+      "operation": "loans.page",
+      "durationMs": 551.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 64.2,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 99.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "dashboard.bundle",
+      "durationMs": 5436.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 67.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 340.4,
+      "outcome": "ok"
+    },
+    {
+      "operation": "counterparties.list",
+      "durationMs": 114.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 122.4,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 122.9,
+      "outcome": "ok"
+    },
+    {
+      "operation": "loans.page",
+      "durationMs": 490,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 133,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 68.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "dashboard.bundle",
+      "durationMs": 5321.2,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 46.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 35.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "counterparties.list",
+      "durationMs": 41.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 35.6,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 79.4,
+      "outcome": "ok"
+    },
+    {
+      "operation": "loans.page",
+      "durationMs": 464.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 38.8,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 50.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "dashboard.bundle",
+      "durationMs": 5337.4,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 97.4,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 84.7,
+      "outcome": "ok"
+    },
+    {
+      "operation": "counterparties.list",
+      "durationMs": 50.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 143.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 138.3,
+      "outcome": "ok"
+    },
+    {
+      "operation": "loans.page",
+      "durationMs": 563.6,
+      "outcome": "ok"
+    },
+    {
+      "operation": "notifications.count",
+      "durationMs": 252.7,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 275.6,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 95.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "dashboard.bundle",
+      "durationMs": 5463.7,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 59.5,
+      "outcome": "ok"
+    },
+    {
+      "operation": "notifications.count",
+      "durationMs": 95.7,
+      "outcome": "ok"
+    },
+    {
+      "operation": "profile.read",
+      "durationMs": 93.1,
+      "outcome": "ok"
+    },
+    {
+      "operation": "dashboard.bundle",
+      "durationMs": 6230.2,
+      "outcome": "ok"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 1.8,
+      "outcome": "error"
+    },
+    {
+      "operation": "notifications.count",
+      "durationMs": 320.1,
+      "outcome": "error"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 4.2,
+      "outcome": "error"
+    },
+    {
+      "operation": "notifications.count",
+      "durationMs": 173.5,
+      "outcome": "error"
+    },
+    {
+      "operation": "auth.user",
+      "durationMs": 4.1,
+      "outcome": "error"
+    },
+    {
+      "operation": "notifications.count",
+      "durationMs": 156.5,
+      "outcome": "error"
+    }
+  ],
+  "summary": {
+    "auth.user": {
+      "count": 34,
+      "medianMs": 64.15,
+      "maxMs": 281.7,
+      "errors": 3
+    },
+    "counterparties.list": {
+      "count": 7,
+      "medianMs": 50.5,
+      "maxMs": 114.5,
+      "errors": 0
+    },
+    "dashboard.bundle": {
+      "count": 8,
+      "medianMs": 5390.3,
+      "maxMs": 6230.2,
+      "errors": 0
+    },
+    "loans.page": {
+      "count": 8,
+      "medianMs": 526.45,
+      "maxMs": 568.5,
+      "errors": 0
+    },
+    "notifications.count": {
+      "count": 6,
+      "medianMs": 165.0,
+      "maxMs": 320.1,
+      "errors": 3
+    },
+    "profile.read": {
+      "count": 31,
+      "medianMs": 74.8,
+      "maxMs": 340.4,
+      "errors": 0
+    }
+  },
+  "status": "OBSERVED",
+  "method": "CLI logs read in process; strict operation/duration/outcome only persisted, no raw messages/URL/query/identity/body/error details"
+}

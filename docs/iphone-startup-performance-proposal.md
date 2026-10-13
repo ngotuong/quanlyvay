@@ -1,13 +1,13 @@
 # Đề xuất xử lý màn trắng và tốc độ trên iPhone
 
 Ngày: 12/10/2026. Trạng thái: OWNER đã phê duyệt rõ C99 ngày12/10/2026 và xác nhận mở standalone
-từ Màn hình chính. C99 IN_PROGRESS trong context/roadmap; C98 vẫn COMPLETED.
+từ Màn hình chính. C99 COMPLETED ngày13/10/2026 trong context/roadmap; C100 AWAITING_APPROVAL. Kết quả và giới hạn ở [report](iphone-c99/report.md).
 Checkpoint đã duyệt: **C99 — Khởi động và điều hướng trên iPhone**.
 
 ## Vấn đề OWNER báo
 
 Mở webapp trên iPhone vẫn thấy màn trắng, không thấy loading; mở ứng dụng và chuyển tab chậm.
-OWNER đã xác nhận mở từ Màn hình chính; loại tab chậm và mẫu iPhone/iOS đang chờ thông tin.
+OWNER xác nhận mở từ Màn hình chính trên iPhone16ProMax/iOS26; tất cả tab chậm5–7s. Đây là báo cáo của OWNER, chưa có năm lượt đo trên thiết bị.
 Không coi kết quả C97/C98 trên Chromium/mobile viewport là kiểm thử iPhone thật.
 
 ## Kiểm tra ban đầu chỉ đọc

@@ -1,0 +1,134 @@
+{
+  "status": "Prepared before source CI completes; recheck identities/Auth/runtime immediately before promotion",
+  "productionAuthenticated": "PASS existing Chrome session Dashboard/no loading/openDialogs0/consoleErrors0, read-only13Oct",
+  "proofs": {
+    "baseline-preview-api-provenance": {
+      "id": "dpl_3BXyNm6T6Kp24CmNqz25YtPgVyD1",
+      "name": "quan-ly-vay-ca-nhan",
+      "url": "quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "ownerId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "target": null,
+      "readyState": "READY",
+      "regions": [
+        "sin1"
+      ],
+      "checkedAt": "2026-10-12T13:54:42.950683+00:00",
+      "method": "GET v13/deployments, identity/region metadata only; body/env/log data never persisted",
+      "sourceGitMetadata": {
+        "githubCommitRef": "main",
+        "githubCommitSha": "211f8e49eee0b78eca4c9723b526604a99780b3d"
+      },
+      "pass": true,
+      "previewApiTargetNote": "API uses null for Preview; CLI inspect target is verified separately"
+    },
+    "baseline-production-api-provenance": {
+      "id": "dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF",
+      "name": "quan-ly-vay-ca-nhan",
+      "url": "quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app",
+      "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+      "ownerId": "team_1BMzW3A2mFKTuGEyw1Z868Nx",
+      "target": "production",
+      "readyState": "READY",
+      "regions": [
+        "sin1"
+      ],
+      "checkedAt": "2026-10-12T13:54:42.905062+00:00",
+      "method": "GET v13/deployments, identity/region metadata only; body/env/log data never persisted",
+      "sourceGitMetadata": {
+        "githubCommitRef": "main",
+        "githubCommitSha": "211f8e49eee0b78eca4c9723b526604a99780b3d"
+      },
+      "pass": true,
+      "previewApiTargetNote": "API uses null for Preview; CLI inspect target is verified separately"
+    },
+    "rollback-preview-public-smoke": {
+      "label": "rollback-preview",
+      "url": "https://tindung-preview.vercel.app",
+      "checkedAt": "2026-10-13T02:40:09.171Z",
+      "results": [
+        {
+          "path": "/login",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/manifest.webmanifest",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/api/google-sync/export",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        },
+        {
+          "path": "/api/notifications/run",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "method": "HTTP status only; no response bodies persisted"
+    },
+    "rollback-production-public-smoke": {
+      "label": "rollback-production",
+      "url": "https://tindung.vercel.app",
+      "checkedAt": "2026-10-13T02:40:08.077Z",
+      "results": [
+        {
+          "path": "/login",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/manifest.webmanifest",
+          "status": 200,
+          "expected": 200,
+          "pass": true
+        },
+        {
+          "path": "/api/google-sync/export",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        },
+        {
+          "path": "/api/notifications/run",
+          "status": 401,
+          "expected": 401,
+          "pass": true
+        }
+      ],
+      "pass": true,
+      "method": "HTTP status only; no response bodies persisted"
+    },
+    "rollback-preview-runtime": {
+      "phase": "rollback-preview",
+      "url": "https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app",
+      "checkedAt": "2026-10-13T02:40:10.628571+00:00",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "cliExit": 0,
+      "method": "Runtime CLI, counts only, no private log messages retained"
+    },
+    "rollback-production-runtime": {
+      "phase": "rollback-production",
+      "url": "https://quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app",
+      "checkedAt": "2026-10-13T02:40:10.896571+00:00",
+      "counts": {
+        "errors": 0,
+        "http500": 0
+      },
+      "cliExit": 0,
+      "method": "Runtime CLI, counts only, no private log messages retained"
+    }
+  }
+}

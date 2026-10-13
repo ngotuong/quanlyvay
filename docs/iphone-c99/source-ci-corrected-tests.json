@@ -1,0 +1,23 @@
+{
+  "pgTAP": {
+    "pass": 527,
+    "files": 24,
+    "fail": 0
+  },
+  "Auth": {
+    "pass": 6,
+    "fail": 0
+  },
+  "E2E": {
+    "pass": 86,
+    "skip": 19,
+    "fail": 0,
+    "minutes": 29.2,
+    "scheduled": 105,
+    "retries": 0
+  },
+  "unit": {
+    "pass": 123,
+    "fail": 0
+  }
+}
