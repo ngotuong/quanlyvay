@@ -1,11 +1,13 @@
 "use client";
 
-import { useId, useState, type ReactNode } from "react";
+import { useId, useRef, useState, type ReactNode } from "react";
+import { flushSync } from "react-dom";
 import { Button } from "@/components/ui";
 
 // The server supplies the complete authoritative task set; expanding only changes visibility.
 export function AttentionItems({ items, heading, emptyState }: { items: ReactNode[]; heading: ReactNode; emptyState?: ReactNode }) {
   const [expanded, setExpanded] = useState(false);
+  const expansionOrigin = useRef<{ left: number; top: number } | null>(null);
   const id = useId();
   return <div className="attention-groups">
     <div className="dashboard-section-heading attention-heading">
@@ -18,7 +20,14 @@ export function AttentionItems({ items, heading, emptyState }: { items: ReactNod
       if (event.currentTarget.getBoundingClientRect().bottom > visibleBottom) {
         event.currentTarget.scrollIntoView({ block: "center", behavior: "instant" });
       }
-    }} onClick={() => setExpanded(value => !value)}>
+    }} onClick={() => {
+      const current = { left: window.scrollX, top: window.scrollY };
+      const restore = expanded && expansionOrigin.current ? expansionOrigin.current : current;
+      if (!expanded) expansionOrigin.current = current;
+      flushSync(() => setExpanded(value => !value));
+      window.scrollTo({ ...restore, behavior: "instant" });
+      if (expanded) expansionOrigin.current = null;
+    }}>
       {expanded ? "Thu gọn" : "Xem tất cả"}
     </Button> : null}
     </div>

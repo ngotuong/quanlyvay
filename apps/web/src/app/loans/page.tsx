@@ -3,7 +3,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { Pagination, parsePage } from "@/components/business/pagination";
 import { PrivacyAmount, PrivacyRegion } from "@/components/app/privacy-provider";
 import Link from "next/link";
-import { ArrowLeftRight, CircleAlert, HandCoins, Landmark, Plus, X } from "lucide-react";
+import { ArrowLeftRight, CircleAlert, HandCoins, Landmark, Plus } from "lucide-react";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { LoanFilters } from "@/components/business/loan-filters";
 import { LoanCardLink } from "@/components/business/loan-card-link";
@@ -49,15 +49,6 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
   if (sort !== "newest") currentQuery.set("sort", sort);
   if (page > 1) currentQuery.set("page", String(page));
   const returnTo = currentQuery.size ? `/loans?${currentQuery.toString()}` : "/loans";
-  const withoutFilter = (key: string) => {
-    const url = new URLSearchParams(currentQuery);
-    if (key === "status") url.set("status", "ALL");
-    else url.delete(key);
-    url.delete("page");
-    const queryString = url.toString();
-    return queryString ? `/loans?${queryString}` : "/loans";
-  };
-
   return (
     <>
       <div className="page-heading-row loans-heading">
@@ -66,15 +57,6 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
       </div>
 
       <LoanFilters initial={{ query, direction: direction ?? "", status: showAllStatuses ? "ALL" : status ?? "ACTIVE", disbursedFrom: disbursedFrom ?? "", disbursedTo: disbursedTo ?? "", sort }} resultCount={loanResult.totalCount} hasFilters={hasFilters} />
-
-      {hasFilters ? <div className="filter-pills active-filter-pills" aria-label="Bộ lọc đang áp dụng">
-        {query ? <Link href={withoutFilter("q")}>Tìm: <PrivacyRegion>{query}</PrivacyRegion><X size={14} /></Link> : null}
-        {direction ? <Link href={withoutFilter("direction")}>{direction === "LENDING" ? "Cho vay" : "Đi vay"}<X size={14} /></Link> : null}
-        {status ? <Link href={withoutFilter("status")}>{statusLabels[status]}<X size={14} /></Link> : null}
-        {disbursedFrom ? <Link href={withoutFilter("from")}>Từ {formatDate(disbursedFrom)}<X size={14} /></Link> : null}
-        {disbursedTo ? <Link href={withoutFilter("to")}>Đến {formatDate(disbursedTo)}<X size={14} /></Link> : null}
-        {sort !== "newest" ? <Link href={withoutFilter("sort")}>Đã đổi sắp xếp<X size={14} /></Link> : null}
-      </div> : null}
 
       {loans.length === 0 ? (
         <EmptyState>
@@ -102,8 +84,10 @@ export default async function LoansPage({ searchParams }: { searchParams: Promis
                 <div className="loan-card-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins /> : <Landmark />}</div>
                 <div className="loan-card-main">
                   <div className="loan-card-heading">
-                    <div className="loan-card-title"><h2 data-disclosure-name><PrivacyRegion>{displayName}</PrivacyRegion></h2><p>Gốc ban đầu <span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.original_principal_vnd)} /></span></p></div>
-                    <div className="loan-card-tags"><Badge className="direction-badge" tone={loan.direction === "LENDING" ? "lending" : "borrowing"} data-direction={loan.direction}>{directionText}</Badge><Badge className="status-badge" tone={status === "ACTIVE" ? "success" : status === "SETTLED" ? "neutral" : status === "OVERDUE" ? "warning" : "danger"} data-status={status}>{statusLabels[status]}</Badge></div>
+                    <div className="loan-card-title">
+                      <div className="loan-card-title-line"><h2 data-disclosure-name><PrivacyRegion>{displayName}</PrivacyRegion></h2><div className="loan-card-tags"><Badge className="direction-badge" tone={loan.direction === "LENDING" ? "lending" : "borrowing"} data-direction={loan.direction}>{directionText}</Badge><Badge className="status-badge" tone={status === "ACTIVE" ? "success" : status === "SETTLED" ? "neutral" : status === "OVERDUE" ? "warning" : "danger"} data-status={status}>{statusLabels[status]}</Badge></div></div>
+                      <p>Gốc ban đầu <span className="privacy-amount"><PrivacyAmount value={formatVnd(loan.original_principal_vnd)} /></span></p>
+                    </div>
                   </div>
                   <dl className="loan-card-details">
                     <div><dt>Giải ngân</dt><dd>{formatDate(loan.disbursement_date)}</dd></div>

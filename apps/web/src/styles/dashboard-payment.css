@@ -9,13 +9,16 @@
 .dashboard-payment-drawer .dialog-actions { flex-shrink: 0; padding: 16px 20px; border-top: 1px solid var(--border); background: var(--surface); }
 .dashboard-payment-context { display: grid; gap: 8px; min-width: 0; padding: 16px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface-muted); }
 .dashboard-payment-context p { margin: 0; }
-.dashboard-payment-context > span, .payment-direction { font-size: 14px; color: var(--foreground-muted); overflow-wrap: anywhere; }
-.payment-loan-name { font-size: 16px; overflow-wrap: anywhere; }
-.dashboard-payment-context dl { display: grid; gap: 12px; margin: 8px 0 0; }
+.payment-context-heading { display: flex; min-width: 0; flex-wrap: wrap; align-items: center; gap: 6px 8px; }
+.payment-context-heading > strong { min-width: 0; overflow-wrap: anywhere; font-size: 16px; }
+.dashboard-payment-context dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 4px 0 0; }
 .dashboard-payment-context dl > div { display: grid; gap: 4px; }
+.dashboard-payment-context dl > div + div { border-left: 1px solid var(--border); padding-left: 12px; }
 .dashboard-payment-context dt { font-size: 14px; color: var(--foreground-muted); }
 .dashboard-payment-context dd { margin: 0; font-size: 18px; font-weight: 600; }
 .dashboard-payment-context .field-hint, .dashboard-payment-drawer .field-error { font-size: 14px; }
+.dashboard-payment-context .field-hint { color: var(--foreground-muted); }
+.dashboard-payment-context .payment-balance-slot:not(.payment-balance-loading) { min-height: 0; }
 .payment-balance-suggestion { justify-self: start; margin-top: 4px; }
 .dashboard-payment-loading { padding: 20px; overflow: auto; display: grid; gap: 16px; }
 @media (max-width: 1023px) {

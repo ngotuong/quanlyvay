@@ -150,7 +150,7 @@ test("C72 responsive hierarchy and all audited visible targets, light/dark/text 
       for (const route of ["/dashboard", "/loans", "/counterparties", "/notifications", "/expenses"]) {
         await page.goto(route); await expect(page.locator(".content-loading")).toHaveCount(0);
         const data = await page.evaluate(() => {
-          const controls = [...document.querySelectorAll<HTMLElement>(".edit-details > summary, .filter-pills a, .loan-card-quick-action, .dashboard-custom-trigger")].filter(e => e.getClientRects().length);
+          const controls = [...document.querySelectorAll<HTMLElement>(".edit-details > summary, .filter-pills a, .loan-card-quick-action, .dashboard-preset-control select")].filter(e => e.getClientRects().length);
           return { visibleControls: controls.length, overflow: document.documentElement.scrollWidth > innerWidth, small: controls.filter(e => { const r = e.getBoundingClientRect(); return r.width < 44 || r.height < 44; }).map(e => e.className), taskBottom: document.querySelector(".due-list a")?.getBoundingClientRect().bottom };
         });
         expect(data.overflow).toBe(false); expect(data.small).toEqual([]);
@@ -165,17 +165,19 @@ test("C72 responsive hierarchy and all audited visible targets, light/dark/text 
         }
         if (process.env.C72_EVIDENCE === "true" && [390,1440].includes(width)) { mkdirSync(out,{recursive:true}); await page.screenshot({ path: resolve(out, `${route.slice(1)}-${width}-${colorScheme}.png`), fullPage: true }); }
         await page.keyboard.press("Tab");
-        const target = page.locator(".edit-details > summary:visible, .filter-pills a:visible, .loan-card-quick-action:visible, .dashboard-custom-trigger:visible").first();
+        const target = page.locator(".edit-details > summary:visible, .filter-pills a:visible, .loan-card-quick-action:visible, .dashboard-preset-control select:visible").first();
         let focusVisible = true;
         if (await target.count()) {
           await target.focus(); await expect(target).toBeFocused();
-          focusVisible = await target.evaluate(e => { const s=getComputedStyle(e); return s.outlineStyle !== "none" && parseFloat(s.outlineWidth) > 0 && s.outlineColor !== "rgba(0, 0, 0, 0)"; });
-          expect(focusVisible, `${route} ${width} ${colorScheme} keyboard focus`).toBe(true);
+          const focusState = await target.evaluate(e => { const s=getComputedStyle(e); const parent=getComputedStyle(e.parentElement!); return { tag: e.tagName, className: e.className, outlineStyle: s.outlineStyle, outlineWidth: s.outlineWidth, outlineColor: s.outlineColor, parentBoxShadow: parent.boxShadow }; });
+          const ownOutline = focusState.outlineStyle !== "none" && parseFloat(focusState.outlineWidth) > 0 && focusState.outlineColor !== "rgba(0, 0, 0, 0)";
+          focusVisible = ownOutline || (focusState.parentBoxShadow !== "none" && !focusState.parentBoxShadow.includes("rgba(0, 0, 0, 0)"));
+          expect(focusVisible, `${route} ${width} ${colorScheme} keyboard focus ${JSON.stringify(focusState)}`).toBe(true);
         }
         await page.evaluate(() => scrollTo(0,0));
         measurements.push({ route, width, colorScheme, zoom: 100, focusVisible, ...data });
         await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
-        const zoom = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth > innerWidth, small: [...document.querySelectorAll<HTMLElement>(".edit-details > summary, .filter-pills a, .loan-card-quick-action, .dashboard-custom-trigger")].filter(e => e.getClientRects().length).filter(e => { const r=e.getBoundingClientRect(); return r.width<44 || r.height<44; }).map(e=>e.className) }));
+        const zoom = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth > innerWidth, small: [...document.querySelectorAll<HTMLElement>(".edit-details > summary, .filter-pills a, .loan-card-quick-action, .dashboard-preset-control select")].filter(e => e.getClientRects().length).filter(e => { const r=e.getBoundingClientRect(); return r.width<44 || r.height<44; }).map(e=>e.className) }));
         expect(zoom.overflow, `${route} ${width} ${colorScheme} text200%`).toBe(false); expect(zoom.small).toEqual([]); measurements.push({route,width,colorScheme,zoom:200,...zoom});
         await page.evaluate(() => { document.documentElement.style.fontSize = ""; });
       }

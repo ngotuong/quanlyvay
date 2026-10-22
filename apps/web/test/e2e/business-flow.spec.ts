@@ -67,8 +67,11 @@ test("owner creates a counterparty, loan, payment and bad-debt event", async ({ 
   const loanTabs = page.getByRole("navigation", { name: "Nội dung khoản vay" });
   await expect(page.getByText("Lãi đã thu", { exact: true })).toBeVisible();
   await page.getByRole("button", { name: "Giao dịch", exact: true }).click();
-  await expect(page.getByRole("dialog", { name: "Ghi giao dịch" })).toBeVisible();
-  await page.getByRole("dialog", { name: "Ghi giao dịch" }).getByRole("button", { name: "Hủy" }).click();
+  const paymentDialog = page.getByRole("dialog", { name: "Ghi giao dịch" });
+  await expect(paymentDialog).toBeVisible();
+  await expect(paymentDialog.locator(".ui-date-input-value")).toHaveText(/^\d{2}\/\d{2}\/\d{4}$/);
+  await expect(paymentDialog.getByLabel("Ngày thanh toán")).toHaveCSS("opacity", "0");
+  await paymentDialog.getByRole("button", { name: "Hủy" }).click();
   await expect(page.getByRole("button", { name: "Tất toán", exact: true })).toBeVisible();
   await loanTabs.getByRole("link", { name: "Thiết lập" }).click();
   await expect(page.getByRole("button", { name: "Tất toán", exact: true })).toHaveCount(0);
@@ -556,16 +559,76 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
   await page.getByLabel("Mật khẩu", { exact: true }).fill("123456");
   await page.getByRole("button", { name: "Đăng nhập" }).click();
 
-  await expect(page.getByRole("link", { name: "Tháng này" })).toHaveAttribute("data-active", "true");
-  await page.getByRole("link", { name: "Tháng trước" }).click();
+  const periodFilter = page.locator(".dashboard-period-bar");
+  const preset = page.getByLabel("Khoảng thời gian nhanh");
+  await expect(preset).toHaveValue("this_month");
+  await expect(periodFilter.locator(".dashboard-date-control > span")).toHaveText([/^\d{2}\/\d{2}\/\d{4}$/, /^\d{2}\/\d{2}\/\d{4}$/]);
+  for (const width of [375, 390, 430]) {
+    await page.setViewportSize({ width, height: 844 });
+    const geometry = await periodFilter.evaluate((filter) => {
+      const box = filter.getBoundingClientRect();
+      const controls = [...filter.querySelectorAll<HTMLElement>(".dashboard-date-control, .dashboard-preset-control")].map((control) => control.getBoundingClientRect());
+      return {
+        sameRow: controls.length === 3 && new Set(controls.map((control) => Math.round(control.top))).size === 1,
+        inside: controls.every((control) => control.left >= box.left && control.right <= box.right),
+        heights: controls.map((control) => control.height),
+        presetLabelFits: (() => {
+          const label = filter.querySelector<HTMLElement>(".dashboard-preset-label");
+          return Boolean(label && label.scrollWidth <= label.clientWidth);
+        })(),
+        noPageOverflow: document.documentElement.scrollWidth <= document.documentElement.clientWidth,
+      };
+    });
+    expect(geometry.sameRow).toBe(true);
+    expect(geometry.inside).toBe(true);
+    expect(geometry.heights.every((height) => height >= 44)).toBe(true);
+    expect(geometry.presetLabelFits).toBe(true);
+    expect(geometry.noPageOverflow).toBe(true);
+  }
+  await preset.selectOption("previous_month");
   await expect(page).toHaveURL(/dashboard\?preset=previous_month/);
-  await page.getByRole("button", { name: "Tùy chỉnh" }).click();
+  await expect(preset).toHaveValue("previous_month");
   await expect(page.getByLabel("Từ ngày")).toHaveValue(previousMonth.from);
   await expect(page.getByLabel("Đến ngày")).toHaveValue(previousMonth.to);
   await page.getByLabel("Từ ngày").fill(previousMonth.editedFrom);
   await expect(page).toHaveURL(new RegExp(`from=${previousMonth.editedFrom}&to=${previousMonth.to}`));
+  await expect(preset).toHaveValue("custom");
+  await expect(periodFilter.locator(".dashboard-date-control > span").first()).toHaveText(/^\d{2}\/\d{2}\/\d{4}$/);
   await expect(page.getByRole("button", { name: "Áp dụng", exact: true })).toHaveCount(0);
-  await page.getByRole("button", { name: "Đóng", exact: true }).click();
+  await expect(page.locator(".attention-card")).not.toContainText("Gốc quá hạn và lịch nhắc");
+  const firstTask = page.locator(".attention-card .due-item").first();
+  if (await firstTask.count()) {
+    await expect(firstTask.locator(".due-heading")).toBeVisible();
+    await expect(firstTask.locator(".due-direction")).toHaveText(/^(Cho vay|Đi vay)$/);
+    await expect(firstTask.locator(".due-heading > :first-child")).toHaveClass(/due-counterparty/);
+    await expect(firstTask.locator(".due-heading > :nth-child(2)")).toHaveText("•");
+    await expect(firstTask.locator(".due-heading > :nth-child(3)")).toHaveClass(/due-principal/);
+    await expect(firstTask.locator(".due-principal")).toContainText("₫");
+    const headingGeometry = await firstTask.locator(".due-header-row").evaluate((header) => {
+      const heading = header.querySelector<HTMLElement>(".due-heading")!;
+      const direction = header.querySelector<HTMLElement>(".due-direction")!;
+      const children = [...heading.children].filter((element) => getComputedStyle(element).display !== "none");
+      const boxes = children.map((element) => element.getBoundingClientRect());
+      const headerBox = header.getBoundingClientRect();
+      const directionBox = direction.getBoundingClientRect();
+      return {
+        titleSameLine: Math.max(...boxes.map((box) => box.top)) < Math.min(...boxes.map((box) => box.bottom)),
+        tagAtTopRight: directionBox.top < headerBox.top + directionBox.height && directionBox.right > headerBox.right - 2,
+        tagFontSize: Number.parseFloat(getComputedStyle(direction).fontSize),
+      };
+    });
+    expect(headingGeometry.titleSameLine).toBe(true);
+    expect(headingGeometry.tagAtTopRight).toBe(true);
+    expect(headingGeometry.tagFontSize).toBeGreaterThanOrEqual(12);
+    await expect(firstTask.locator(".due-disbursement time")).toHaveText(/^\d{2}\/\d{2}\/\d{4}$/);
+    await expect(firstTask.locator(".due-task strong")).toContainText("₫");
+    await expect(firstTask.locator(".due-dates time").first()).toHaveText(/^\d{2}\/\d{2}\/\d{4}$/);
+    await expect(page.locator(".attention-heading")).toHaveCSS("border-bottom-style", "solid");
+    const firstDisclosure = page.locator(".attention-card .due-name-disclosure").first();
+    if (await page.locator(".attention-card .due-name-disclosure").count() > 1) {
+      await expect(firstDisclosure).toHaveCSS("border-bottom-style", "solid");
+    }
+  }
   const analysisSummary = page.locator(".dashboard-analysis > summary");
   expect(await analysisSummary.evaluate((element) => getComputedStyle(element, "::after").content)).toContain("+");
   await analysisSummary.click();
@@ -575,10 +638,21 @@ test("dashboard periods and loan filters are deep-linkable", async ({ page }, te
   await page.goto("/loans?status=BAD_DEBT");
   await expect(page.getByLabel("Trạng thái")).toHaveValue("BAD_DEBT");
   await expect(page.getByRole("link", { name: "Xóa lọc" }).first()).toBeVisible();
-  await expect(page.locator(".filter-pills").first()).toHaveCSS("flex-wrap", "nowrap");
+  await expect(page.locator(".active-filter-pills")).toHaveCount(0);
+  await expect(page.locator("#loanDirection option")).toHaveText(["Tất cả", "Cho vay", "Đi vay"]);
+  await expect(page.locator("#loanStatus option")).toHaveText(["Tất cả", "Đang hoạt động", "Nợ xấu", "Quá hạn", "Đã tất toán"]);
 
   await page.getByLabel("Trạng thái").selectOption("ALL");
   await expect(page).toHaveURL(/status=ALL/);
+  await page.getByLabel("Tên khoản vay hoặc đối tác").fill("C16 hoàn tác");
+  await expect(page).toHaveURL(/q=C16/);
+  const clearSearch = page.getByRole("button", { name: "Xóa từ khóa tìm kiếm", exact: true });
+  await expect(clearSearch).toBeVisible();
+  await clearSearch.click();
+  await expect(page.getByLabel("Tên khoản vay hoặc đối tác")).toHaveValue("");
+  await expect(page.getByLabel("Tên khoản vay hoặc đối tác")).toBeFocused();
+  await expect(page).not.toHaveURL(/(?:\?|&)q=/);
+  await expect(page.getByLabel("Trạng thái")).toHaveValue("ALL");
   await page.getByLabel("Tên khoản vay hoặc đối tác").fill("C16 hoàn tác");
   await expect(page).toHaveURL(/q=C16/);
   await expect(page.getByRole("button", { name: "Áp dụng", exact: true })).toHaveCount(0);

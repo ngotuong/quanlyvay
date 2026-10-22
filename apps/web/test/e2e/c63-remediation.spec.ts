@@ -283,7 +283,7 @@ for (const width of [375, 390, 1440]) {
     await amount.fill("20000");
     const date = restructure.getByLabel("Dư gốc mới có hiệu lực từ ngày");
     await date.fill("2026-08-02");
-    await expect(restructure.locator("legend")).toContainText("2/8/2026");
+    await expect(restructure.locator("legend")).toContainText("02/08/2026");
     await restructure.getByLabel(/Tôi xác nhận gốc thực trả/).check();
     await restructure.getByRole("button", { name: "Xác nhận giảm gốc" }).scrollIntoViewIfNeeded();
     await page.screenshot({ path: info.outputPath(`drawer-${width}.png`), fullPage: true });

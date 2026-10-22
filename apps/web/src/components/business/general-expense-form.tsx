@@ -6,6 +6,7 @@ import { initialBusinessActionState } from "@/lib/business/action-state";
 import { todayInVietnam } from "@/lib/business/format";
 import { BusinessForm, ActionMessage, FieldError, FormSubmit, type BusinessFormProps } from "./form-parts";
 import { VndInput } from "./vnd-input";
+import { DateInput } from "@/components/ui";
 
 export function GeneralExpenseForm({ idempotencyKey, ...lifecycle }: { idempotencyKey: string } & Pick<BusinessFormProps, "onDirtyChange" | "onPendingChange" | "onSuccess">) {
   const [state, action] = useBusinessAction(recordExpenseAction, initialBusinessActionState);
@@ -16,7 +17,7 @@ export function GeneralExpenseForm({ idempotencyKey, ...lifecycle }: { idempoten
       <input name="idempotencyKey" type="hidden" value={idempotencyKey} />
       <div className="field-group">
         <label htmlFor="general-expense-date">Ngày chi</label>
-        <input id="general-expense-date" name="transactionDate" type="date" defaultValue={todayInVietnam()} required />
+        <DateInput id="general-expense-date" name="transactionDate" defaultValue={todayInVietnam()} required />
         <FieldError state={state} name="transactionDate" />
       </div>
       <div className="field-group">

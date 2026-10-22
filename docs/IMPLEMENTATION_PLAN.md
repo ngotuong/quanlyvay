@@ -76,6 +76,18 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C98 | Nghiệm thu tổng hợp và phát hành chuỗi UI/UX | `COMPLETED` |
 | C99 | Khởi động standalone và tốc độ điều hướng trên iPhone | `COMPLETED` |
 | C100 | Tối ưu lời gọi đọc Tổng quan | `IN_PROGRESS` |
+| C101 | Làm gọn danh sách và bộ lọc Khoản vay trên mobile | `COMPLETED` |
+| C102 | Nghiệm thu và phát hành bản làm gọn Khoản vay | `COMPLETED` |
+| C103 | Làm rõ Việc cần xử lý và bộ lọc thời gian Tổng quan | `COMPLETED` |
+| C104 | Nghiệm thu và phát hành giao diện Tổng quan C103 | `COMPLETED` |
+| C105 | Làm gọn Việc cần xử lý và chuẩn hóa ngày hiển thị | `COMPLETED` |
+| C106 | Nghiệm thu và phát hành C105 | `COMPLETED` |
+| C107 | Khôi phục phản hồi loading nhất quán khi mở app và chuyển mục | `COMPLETED` |
+| C108 | Nghiệm thu và phát hành C107 | `COMPLETED` |
+| C109 | Tinh giản công việc đến hạn và drawer ghi giao dịch | `COMPLETED` |
+| C110 | Nghiệm thu và phát hành C109 trên nền loading C107 | `COMPLETED` |
+| C111 | Đặt badge hướng ở góc phải của Việc cần xử lý | `COMPLETED` |
+| C112 | Nghiệm thu và phát hành giao diện C111 | `COMPLETED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -2480,3 +2492,415 @@ settled/overdue parity đạt. Production pre-migration 11RPC warm median5319.2/
 10client median5811/p956089.7ms. Lint/typecheck/unit123/build19/pgTAP542-25files/
 fullE2E87PASS18SKIP0FAIL21.0m đạt,retries0; C20-test55322 sixcounts0. Correction reset
 38migrations/database lint sạch/test C100 14/14 đạt.
+
+
+### C101 — Làm gọn danh sách và bộ lọc Khoản vay trên mobile
+
+Trạng thái: `COMPLETED` local ngày16/10/2026. OWNER chỉ dẫn triển khai trước trong khi tiếp tục
+tự kiểm C100. Phạm vi và acceptance tại [đề xuất C101](loan-list-density-proposal.md).
+
+Đưa badge hướng/trạng thái lên cụm tên và giảm ít nhất20% chiều cao card điển hình trên mobile;
+bỏ active-filter pills; thêm × trong ô tìm kiếm để xóa riêng query và trả focus; bỏ tiền tố nhìn
+thấy “Hướng/Trạng thái” khỏi select nhanh nhưng giữ accessible name. Giữ Xóa lọc toàn bộ,
+filter URL/debounce/Back/Forward, bộ lọc nâng cao, desktop, Light/Dark/privacy, dữ liệu và nghiệp vụ.
+Skeleton phải khớp bố cục mới. Kiểm 375/390/430px, tên dài/VND dài/các trạng thái, lint,
+typecheck, unit, build và E2E áp dụng. Không schema/RPC/financial engine/account/secret/Google/backup.
+
+Kết quả: baseline card 393,9px, bản mới không quá315px ở mobile fixture; tiền VND không tràn.
+Lint/typecheck/unit123/build19 đạt. Full E2E 87PASS/18SKIP/0FAIL20,5m, retries0; test C101
+bao gồm Light/Dark, 375/390/430px, tên dài, bốn trạng thái, hai hướng, search clear/focus và URL.
+Chưa deploy Preview/Production.
+
+
+### C102 — Nghiệm thu và phát hành bản làm gọn Khoản vay
+
+Trạng thái: `COMPLETED` ngày16/10/2026. OWNER phê duyệt bằng chỉ dẫn “Hãy tiếp tục checkpoint”
+và phê duyệt giao diện stable Preview trước Production.
+
+Phạm vi: tạo candidate Preview từ repository root bằng `pnpm deploy:preview`, đạt toàn bộ gate
+runbook, đúng project/target/region và smoke immutable trước khi chuyển stable Preview. OWNER xem
+trực tiếp route Khoản vay trên mobile/desktop; chỉ sau xác nhận hình và tương tác mới chuẩn bị
+Production candidate, promote và hậu kiểm alias/runtime. Giữ rollback C100 hiện tại.
+
+Không đổi schema/RPC/financial engine, dữ liệu/tài khoản/secrets/Google/backup; không gộp tối ưu
+C100 hoặc loading visibility. Nếu OWNER chưa duyệt hình Preview thì không phát hành Production.
+
+Tiến độ ngày16/10: root create gate đạt diff/lint/typecheck/unit123/build19 và full E2E
+87PASS/18SKIP/0FAIL20,6m, retries0; upload metadata guard249 đạt. Candidate Preview
+`dpl_HK3NyE9fdgHDtiMcM4WrB3KXToyD` tại
+https://quan-ly-vay-ca-nhan-1sp0xj9bg-ngotuong2105.vercel.app đúng project/target, Ready,
+46 Functions sin1; public smoke đạt và pre-auth runtime error0. Authenticated smoke immutable
+`/dashboard`+`/loans` đạt trên desktop và responsive375/390; bố cục/tương tác C101 đạt, không
+mutate dữ liệu. Root resume gate đạt lại cùng87PASS/18SKIP/0FAIL21,2m, retries0; stable alias
+https://tindung-preview.vercel.app đã trỏ đúng candidate. Post-alias Auth `/loans` đạt,
+`auth.user` outcome ok; cửa sổ 50 log không có error/HTTP500. Không có console exception nguồn
+ứng dụng; Vercel Toolbar CSP và extension Chrome được phân loại ngoài ứng dụng. Tại thời điểm đó
+đang chờ OWNER nghiệm thu trực tiếp stable Preview và Production chưa thay đổi.
+
+OWNER đã phê duyệt giao diện stable Preview ngày16/10. Production preflight đạt
+diff/lint/typecheck/unit123/build19, full E2E87PASS/18SKIP/0FAIL20,5m, retries0 và upload
+guard249. Candidate `dpl_GhWLqqTVyDbMGBedbiZ9mGJi5fgK` tại
+https://quan-ly-vay-ca-nhan-ocphof5x6-ngotuong2105.vercel.app được tạo từ root với
+`--target=production --skip-domain`, đúng project/target, Ready,46Functions có sin1; public4/4 và
+pre-auth error log0. `tindung.vercel.app` vẫn trỏ rollback C100
+`dpl_EGe6nwTAqkZGikDFPzAJT3r85HYf`. Sau khi OWNER đăng nhập hostname mới,
+authenticated smoke candidate sau đó đạt trên login, dashboard, loans, counterparties và
+notifications; `auth.user`/profile/dashboard bundle outcome ok, runtime error/HTTP500=0.
+Prepromote inspect xác minh lại candidate và rollback. `vercel promote` exit0; Production và
+default alias đều trỏ `dpl_GhWLqqTVyDbMGBedbiZ9mGJi5fgK`, targetProduction/Ready/46Functions có
+sin1; public smoke4/4 mỗi alias và runtime error/HTTP500=0. OWNER tiếp tục đăng nhập hai alias để
+hậu kiểm Auth cuối; rollback C100 được giữ, chưa kích hoạt.
+
+OWNER đã đăng nhập hai alias. Hậu kiểm cuối trên từng hostname ghi `/loans`200,
+`auth.user`/profile/loans.page outcome ok và không có runtime error/HTTP500. C102 hoàn tất; rollback
+C100 giữ lại, không kích hoạt. C100 vẫn `IN_PROGRESS` theo phản hồi tốc độ thực tế của OWNER;
+checkpoint loading visibility chỉ là đề xuất `NOT_STARTED`, chưa được phê duyệt và theo tài liệu
+chỉ được xem xét sau khi C100 hoàn tất.
+
+
+### C103 — Làm rõ Việc cần xử lý và bộ lọc thời gian Tổng quan
+
+Trạng thái: `COMPLETED` local ngày17/10/2026. OWNER chỉ dẫn trực tiếp ba thay đổi giao diện và cung
+cấp ảnh tham chiếu; đây là phê duyệt phạm vi C103 trong hội thoại hiện tại.
+
+Phạm vi: sắp lại từng hàng “Việc cần xử lý” theo thứ bậc tên, loại việc, số tiền và mốc thời gian;
+không ghép nhiều loại dữ liệu vào một dòng khó đọc. Thay thanh kỳ báo cáo bằng một cụm liền mạch
+gồm ngày bắt đầu, mũi tên, ngày kết thúc và lựa chọn kỳ nhanh như ảnh tham chiếu. Mọi ngày nhìn thấy
+trong cụm lọc dùng đủ hai chữ số theo `dd/MM/yyyy`, còn URL và dữ liệu nghiệp vụ tiếp tục dùng ISO
+`yyyy-MM-dd`. Giữ preset, khoảng tùy chỉnh, cập nhật tức thời, deep link, Back/Forward, Light/Dark,
+privacy, bàn phím, vùng chạm tối thiểu 44 px và không tràn ngang tại 375/390/430 px.
+
+Acceptance: bố cục việc cần xử lý có thứ bậc rõ trên mobile/desktop; hai ngày lọc luôn hiện dạng
+`17/10/2026`; chọn preset hoặc ngày vẫn tạo đúng query hiện hữu; không đổi tập việc, số tiền hay
+điểm đến thao tác. Lint, typecheck, unit, build và E2E áp dụng phải đạt. Không schema/RPC/financial
+engine, migration, dữ liệu/tài khoản/secrets/Google/backup, deploy hoặc thao tác Git remote.
+
+Kết quả: “Việc cần xử lý” dùng ba tầng tên+hướng, loại việc+số tiền và các mốc ngày; không còn
+ghép hướng, việc và ngày trong một dòng. Bộ lọc kỳ dùng hai ô ngày native phủ trên chuỗi hiển thị
+`dd/MM/yyyy`, mũi tên và select preset trong một hàng tại 375/390/430 px; URL vẫn dùng ISO và
+preset/khoảng tùy chỉnh vẫn cập nhật tức thời. Lint/typecheck đạt; unit123, build19 route và full
+E2E sạch cuối `87 PASS / 18 SKIP / 0 FAIL` trong20,5 phút, retries0; targeted C72 responsive,
+Light/Dark, text zoom và focus `1 PASS` trong1,5 phút. Lượt E2E đầu
+`86 PASS / 18 SKIP / 1 FAIL` chỉ do selector test C96 còn trỏ class presentation cũ; đã đổi sang
+class số tiền mới, targeted C96 `1 PASS`, rồi chạy lại full gate sạch. Database test đã teardown và
+reset baseline; artifacts C75 do E2E sinh đã restore exact. Chưa deploy.
+
+
+### C104 — Nghiệm thu và phát hành giao diện Tổng quan C103
+
+Trạng thái: `COMPLETED` ngày17/10/2026; OWNER đã phê duyệt trong hội thoại hiện tại.
+
+Phạm vi đề xuất: chạy lại preflight phù hợp, tạo Vercel Preview từ repository root bằng
+`pnpm deploy:preview`, xác minh project/target/Ready/Functions `sin1`, smoke immutable rồi mới chuyển
+stable Preview. OWNER nghiệm thu trực tiếp Dashboard trên mobile/desktop; chỉ sau xác nhận mới tạo
+Production candidate, promote và hậu kiểm hai alias theo runbook. Giữ rollback C102/C100 đã xác
+minh. Không đổi schema/RPC/financial engine, dữ liệu/tài khoản/secrets/Google/backup hoặc gộp công
+việc hiệu năng C100/loading visibility. Sau stable Preview, dừng tại cổng OWNER nghiệm thu giao diện
+trước khi tạo Production candidate.
+
+Kết quả: candidate Preview đầu bị loại do nhãn preset bị cắt ở390px và không chuyển alias. Sau sửa,
+root create/resume đạt lint/typecheck/unit123/build19, full E2E lần lượt87PASS18SKIP0FAIL20,7m và
+20,3m, retries0; stable Preview được OWNER phê duyệt. Production preflight đạt cùng gate với full
+E2E87PASS18SKIP0FAIL20,5m, upload guard249. Candidate Production
+`dpl_4W6exy5ENdrbNt9Yq6La5Kz5eGyA` đúng project/targetProduction/Ready/sin1; immutable Auth smoke
+đạt rồi promote exit0. Stable Preview trỏ `dpl_CYu2xrf4q5Av8Cn2VRUjY4FDh9ij`; hai Production alias
+trỏ candidate C104. Public/Auth smoke và runtime error/HTTP500 hậu kiểm đạt trên tất cả hostname;
+rollback C102 giữ nguyên, chưa kích hoạt. Không đổi schema/RPC/financial engine, dữ liệu, tài khoản,
+secret, Google hoặc backup. C100 tiếp tục riêng.
+
+
+### C105 — Làm gọn Việc cần xử lý và chuẩn hóa ngày hiển thị
+
+Trạng thái: `COMPLETED` local ngày18/10/2026; OWNER phê duyệt trực tiếp bằng yêu cầu và ảnh Production
+trong hội thoại hiện tại.
+
+Phạm vi: mỗi hàng “Việc cần xử lý” dùng bốn tầng rõ ràng: tên + số tiền gốc với tag hướng ở cùng
+hàng, ngày giải ngân riêng, loại việc + số tiền, rồi mốc nhắc/kỳ chốt. Thêm separator nhìn thấy giữa
+header card và danh sách cũng như giữa từng mục. Chuẩn hóa mọi ngày chỉ có phần ngày thành
+`dd/MM/yyyy`; các date picker vẫn dùng native picker và giá trị ISO nhưng lớp nhìn thấy không phụ
+thuộc cách iOS diễn đạt “ngày … thg …”. Ngày-giờ audit giữ đủ thời gian và đổi phần ngày sang cùng
+quy ước. Giữ nguyên route, dữ liệu, tập công việc, số tiền, action, privacy, keyboard, Light/Dark,
+responsive và authoritative financial behavior.
+
+Acceptance: ví dụ lãi hiển thị theo thứ tự `Dũng Hùng · 400.000.000 đ`, `Giải ngân: 20/09/2026`,
+`Cần thu lãi: 12.000.000 đ`, `Nhắc 19/10/2026 · Kỳ chốt 19/10/2026`; tag Cho vay/Đi vay ở đầu hàng
+tiêu đề; separator rõ nhưng không tạo card lồng. Mọi ngày hiển thị và mọi date input audit được có
+dạng hai chữ số, vẫn mở native picker và submit ISO đúng. Kiểm mobile 375/390/430, desktop,
+Light/Dark, privacy, tên/VND dài, focus và không tràn ngang; lint, typecheck, unit, build và E2E áp
+dụng phải đạt. Không schema/RPC/financial engine, migration, dữ liệu/tài khoản/secrets/Google/
+backup, deploy hoặc Git remote.
+
+Kết quả: header và từng mục trong “Việc cần xử lý” có separator nhìn thấy nhưng không tạo card
+lồng. Mỗi mục đặt badge hướng ở đầu hàng tiêu đề, tiếp theo là đối tác + gốc; ba hàng dưới lần lượt
+là ngày giải ngân, loại việc + số tiền và nhắc/kỳ chốt. Metadata đối tác/ngày giải ngân được đọc
+qua query RLS nhẹ chạy song song với dashboard bundle, chỉ enrich các khoản đã có trong kết quả và
+không đổi RPC/schema/financial calculation. Formatter chung dùng `dd/MM/yyyy`; audit date-time dùng
+`dd/MM/yyyy HH:mm`; `DateInput` phủ lớp hiển thị ổn định lên native picker trong toàn bộ form nghiệp
+vụ nhưng vẫn submit ISO. `rg type="date"` chỉ còn implementation của `DateInput` và bộ lọc Dashboard
+đã có lớp hiển thị tương đương.
+
+Gate đạt: lint, typecheck, unit `123 PASS`, build `19 route`; full E2E cuối
+`87 PASS / 18 SKIP / 0 FAIL` trong20,6 phút, retries0. Lượt full đầu
+`82 PASS / 18 SKIP / 5 FAIL` chỉ do ba spec còn kỳ vọng ngày một chữ số; sau khi đổi assertion,
+targeted xác nhận các ca ngày liên quan đạt và full gate sạch. Ảnh 390px do E2E tạo xác nhận thứ bậc,
+separator và không tràn ngang; full suite bao phủ 375/390/430, desktop, Light/Dark, privacy, focus,
+native picker và ISO submit. Artifacts C75 đã restore exact, diff-check đạt. Chưa deploy.
+
+
+### C106 — Nghiệm thu và phát hành C105
+
+Trạng thái: `COMPLETED` ngày18/10/2026; OWNER phê duyệt bằng chỉ dẫn “Hãy hoàn thiện checkpoint”.
+
+Phạm vi đề xuất: chạy lại preflight phù hợp, tạo Vercel Preview từ repository root bằng
+`pnpm deploy:preview`, xác minh project/target/Ready/Functions `sin1`, smoke immutable rồi mới chuyển
+stable Preview. OWNER nghiệm thu trực tiếp Dashboard và các date input trên mobile/desktop; chỉ sau
+xác nhận mới tạo Production candidate, promote và hậu kiểm hai alias theo runbook. Giữ rollback
+C104/C102 đã xác minh. Không đổi schema/RPC/financial engine, dữ liệu/tài khoản/secrets/Google/
+backup hoặc gộp công việc hiệu năng C100. Sau stable Preview, dừng tại cổng OWNER nghiệm thu giao
+diện trước khi tạo Production candidate.
+
+Acceptance: root gate và full E2E đạt với retries0; Preview candidate đúng project, target Preview,
+Ready và Functions `sin1`; public/Auth smoke gồm Dashboard, drawer Ghi giao dịch và ít nhất một form
+ngày đạt trên immutable URL. Stable Preview chỉ chuyển sau smoke sạch và phải rollback nếu hậu kiểm
+alias lỗi. OWNER xác nhận trực tiếp bố cục “Việc cần xử lý” và ngày `dd/MM/yyyy`. Production chỉ được
+tạo sau phê duyệt stable Preview; candidate dùng `--skip-domain`, Auth/runtime smoke sạch trước
+promote, hai alias trỏ đúng deployment sau promote và rollback giữ nguyên chưa kích hoạt.
+
+Tiến độ: root create gate đạt diff/lint/typecheck/unit123/build19, full E2E
+`87 PASS / 18 SKIP / 0 FAIL` trong21,4 phút, retries0 và upload guard250. Preview candidate
+`dpl_Hq1YyafLYpdxcazFuskQXAseajrm` đúng project/targetPreview/Ready/46lambda outputs/sin1;
+public4/4 và pre-auth error/HTTP500=0. Stable alias vẫn ở C104 đã inspect lại; candidate đang chờ
+OWNER đăng nhập để authenticated/visual smoke trước khi resume và chuyển alias. OWNER sau đó xác
+nhận candidate đạt; runtime Auth smoke sạch. Root resume gate đạt cùng lint/typecheck/unit123/
+build19 và full E2E `87 PASS / 18 SKIP / 0 FAIL` trong20,6 phút, retries0. Stable Preview đã chuyển
+đúng candidate; post-alias provenance/public/runtime smoke sạch. Đang chờ OWNER phê duyệt stable
+Preview trước Production.
+
+OWNER đã đăng nhập và phê duyệt stable Preview trong hội thoại; Production preflight và candidate
+`--prod --skip-domain` được phép tiếp tục theo phạm vi C106. Production preflight đạt
+diff/lint/typecheck/unit123/build19, full E2E `87 PASS / 18 SKIP / 0 FAIL` trong20,4 phút,
+retries0 và upload guard250. Candidate `dpl_92pT2tjxRvCTEwyEePzJqMpGa8TG` tại
+https://quan-ly-vay-ca-nhan-kt9gxcuu7-ngotuong2105.vercel.app đúng project/targetProduction/Ready/
+46lambda outputs, Server Functions sin1; public4/4, pre-auth error/HTTP500=0. Hai alias vẫn ở
+rollback C104 theo `--skip-domain`. OWNER đăng nhập candidate; POST login và bốn route Auth đều200,
+auth đạt, error/HTTP500=0. Candidate/rollback re-inspect rồi promote thành công. Hai alias hiện cùng
+trỏ candidate, targetProduction/Ready; public mỗi alias4/4 và error/HTTP500=0. OWNER đăng nhập cả
+hai alias; từng hostname ghi Dashboard/Loans/Counterparties/Notifications đều200,
+level-error/HTTP500=0. Rollback C104 giữ nguyên chưa kích hoạt. C106 đạt toàn bộ acceptance; không
+đổi schema/RPC/financial engine, dữ liệu, tài khoản, secrets, Google, backup hoặc Git remote.
+
+### C107 — Khôi phục phản hồi loading nhất quán khi mở app và chuyển mục
+
+Trạng thái: `COMPLETED` local ngày19/10/2026; OWNER phê duyệt trực tiếp bằng chỉ dẫn “Hãy hoàn thành
+checkpoint C107 đi”. Chỉ dẫn mới thay thế điều kiện cũ chờ C100 hoàn tất; phạm vi C107 vẫn tách
+khỏi tối ưu RPC C100.
+
+Phạm vi đề xuất: xử lý feedback loading còn biến mất ở warm launch và khi chuyển mục trên iPhone
+standalone lẫn desktop theo [đề xuất loading](loading-visibility-proposal.md). Đo riêng cold/warm
+launch và chuyển Dashboard/Khoản vay/Đối tác/Thông báo; giữ dữ liệu hiện tại an toàn trong lúc chờ,
+không tạo màn trắng hoặc vùng tương tác stale. Tôn trọng reduced motion, theme và privacy. C107
+tách khỏi tối ưu read/RPC C100 đang `IN_PROGRESS`; không đổi schema/RPC/financial engine, dữ liệu,
+tài khoản, secrets, Google hoặc backup.
+
+Kết quả: một lớp loading thương hiệu tồn tại từ first paint đến khi application/route sẵn sàng và
+được dùng lại cho warm resume; chuyển mục có progress, status và lớp chặn nội dung stale đến khi
+skeleton biến mất + hai frame vẽ. Hủy điều hướng có nháp dừng feedback ngay và giữ nguyên form;
+Back/Forward xử lý đúng cả trường hợp route được khôi phục trước listener `popstate`, kèm watchdog
+15 giây. Light/Dark, 390/1440, reduced-motion và privacy đạt. Đo local: first paint hiện sau
+68–81ms, warm resume 834ms, bốn route giữ feedback 1.518–1.885ms dưới delay RSC 1.100ms. Evon
+sweep 375–1920 không có broken/overlap/overflow. Lint/typecheck/unit123/build19 đạt; full E2E cuối
+`90 PASS / 18 SKIP / 0 FAIL` trong25,9 phút, retries0. Targeted C75 scroll và C84 history/theme đều
+pass; artifacts C75 restore exact; diff-check đạt. Chỉ source local, chưa deploy.
+[Báo cáo và bằng chứng](loading-c107/report.md).
+
+### C108 — Nghiệm thu và phát hành C107
+
+Trạng thái: `COMPLETED` ngày22/10/2026 qua rollout hợp nhất C110/C112; OWNER phê duyệt bằng chỉ dẫn “Hãy deploy C107”.
+
+Phạm vi đề xuất: chạy gate từ repository root và tạo immutable Preview bằng `pnpm deploy:preview`;
+xác minh đúng project/target/Ready/Functions sin1, public smoke, authenticated runtime và error log.
+OWNER kiểm trực tiếp cold/warm launch cùng chuyển Tổng quan/Khoản vay/Đối tác/Thông báo trên iPhone
+standalone và desktop. Chỉ sau khi immutable và stable Preview đều đạt, OWNER phê duyệt stable
+Preview, mới chuẩn bị Production candidate/promote/rollback theo runbook. Không gộp C100, schema/
+RPC/financial engine, dữ liệu, tài khoản, secrets, Google, backup hoặc Git remote.
+
+Acceptance đề xuất: toàn bộ gate root sạch; Preview candidate và stable alias có bằng chứng đầy đủ;
+OWNER xác nhận loading nhìn thấy, không trắng/stale và không treo lớp chặn trên hai thiết bị; nếu
+tiếp tục Production thì hai alias được hậu kiểm Auth/runtime và rollback target được giữ nguyên.
+
+C108 cập nhật20/10: OWNER đã đăng nhập immutable Preview, sau đó làm rõ báo cáo loading nháy/
+trắng ở biểu tượng tindung.vercel.app đang chạy C106. Không coi đó là lỗi đã tái hiện trên C107.
+Preview vẫn chờ nghiệm thu thiết bị; bản gia cố readiness/watchdog đã qua targeted5/5 và đang
+chạy root gate candidate thay thế. Giữ stable Preview/Production C106 trong lúc chờ.
+
+C108 gate candidate thay thế đã đạt92PASS18SKIP0FAIL26,5m, retries0; deployment
+`dpl_KbaqYgwgDw8iDhopneTyPjydQxke` Preview/Ready/sin1. Chờ OWNER đăng nhập/nghiệm thu,
+stable Preview và Production giữ C106. Chi tiết tại [report](release-c108/report.md).
+
+Phần loading C107 sau đó được mang nguyên vẹn qua các candidate C110/C112, được OWNER nghiệm thu
+trên stable Preview và phát hành Production trong C112. Hai alias Production hậu kiểm Auth bốn
+route, runtime error/HTTP500 bằng0; vì vậy phần rollout còn lại của C108 đã hoàn tất, không tạo một
+deployment riêng từ candidate C108 cũ.
+
+### C109 — Tinh giản công việc đến hạn và drawer ghi giao dịch
+
+Trạng thái: `COMPLETED` local ngày20/10/2026; OWNER phê duyệt trực tiếp bằng yêu cầu và hai ảnh giao
+diện Preview trong hội thoại hiện tại. C108 vẫn giữ riêng ở cổng phát hành; không chuyển alias hay
+Production trong C109.
+
+Phạm vi: đổi hàng tiêu đề mỗi việc thành `Tên đối tác · tag hướng · số tiền gốc` trên cùng một
+hàng khi đủ chỗ, vẫn cho phép tên dài xuống dòng an toàn trên màn hình hẹp. Drawer “Ghi giao dịch”
+loại tên khoản vay/kicker/hướng hành động đang lặp lại; chỉ giữ một hàng đối tác + tag, hai số dư
+authoritative và mốc tính số dư. Giữ nguyên tập công việc, link/action, số tiền, ngày, privacy,
+keyboard, lifecycle drawer, form và quyết toán server.
+
+Acceptance: các khoản thông thường như `A.Phúc Hà · Đi vay · 450.000.000 đ` nằm trong một hàng ở
+viewport mục tiêu; tag dùng màu semantic hiện có; tên dài không tràn ngang ở 375/390/430 px.
+Drawer không lặp tên đối tác hoặc chuỗi tên khoản vay, hai số dư đọc rõ và chỉ còn mốc `Tính đến
+dd/MM/yyyy`; Light/Dark, privacy, focus và luồng mở/đóng/ghi giao dịch giữ nguyên. Lint, typecheck,
+unit, build và E2E áp dụng phải đạt. Không schema/RPC/financial engine, migration, dữ liệu/tài
+khoản/secrets/Google/backup, deploy, alias hoặc Git remote.
+
+Kết quả: hàng việc dùng đúng thứ tự `Tên đối tác · tag hướng · số tiền gốc`; khoản mẫu thông thường
+giữ một hàng ở375px, còn tên dài vẫn wrap và không tràn. Drawer chỉ còn đối tác + tag, hai số dư
+chia hai cột có separator và mốc `Tính đến dd/MM/yyyy`; đã bỏ kicker, tên khoản vay và hướng hành
+động lặp, cũng như câu hướng dẫn vốn đã thể hiện bằng form. Ảnh E2E Light 375/1280 xác nhận bố cục;
+ma trận drawer Light/Dark 320–1440px, short viewport, privacy, quyền, nháp, retry, pending, ghi nhận
+và revalidation đạt. Lint/typecheck đạt; unit123, build19 route và full E2E cuối
+`92 PASS / 18 SKIP / 0 FAIL` trong27,1 phút, retries0. Lượt targeted Dashboard chạy rời đầu tiên
+thiếu fixture tuần tự; hai lượt kiểm hình học đầu đo sai baseline chữ của badge/dấu phân cách dù ảnh
+đã cùng hàng, đã đổi assertion sang giao nhau theo trục dọc và targeted đạt. Database teardown/reset
+baseline và artifacts C75 restore exact; diff-check đạt. Chỉ local, chưa deploy.
+
+### C110 — Nghiệm thu và phát hành C109 trên nền loading C107
+
+Trạng thái: `COMPLETED` ngày22/10/2026 qua rollout C112; OWNER phê duyệt trực tiếp trong hội thoại hiện tại.
+
+Phạm vi đề xuất: tạo candidate Preview mới từ root chứa cả bản gia cố loading C107 và giao diện
+C109, vì stable Preview/Production vẫn ở C106 và candidate C108 cũ không chứa C109. Chạy lại root
+gate, xác minh project/target/Ready/Functions sin1, public/Auth/runtime smoke và nghiệm thu trực tiếp
+loading cùng hai vùng giao diện trên mobile/desktop trước khi chuyển stable Preview. Chỉ sau OWNER
+phê duyệt stable Preview mới tạo Production candidate/promote và hậu kiểm hai alias theo runbook.
+Không đổi schema/RPC/financial engine, dữ liệu/tài khoản/secrets/Google/backup hoặc Git remote.
+
+Tiến độ ngày20/10/2026: root create gate đạt diff/lint/typecheck/unit123/build19, full E2E
+`92 PASS / 18 SKIP / 0 FAIL` trong27,0 phút, retries0 và upload guard251. Candidate
+`dpl_EpSRPfcMmPgWABjvTBfjcpULtguh` tại
+https://quan-ly-vay-ca-nhan-bzu57mgrr-ngotuong2105.vercel.app đúng project/targetPreview/Ready/
+Server Functions sin1; public smoke4/4 và pre-auth level-error/HTTP500 bằng0. Stable alias chưa
+đổi; đang chờ OWNER đăng nhập candidate để authenticated/visual/runtime smoke.
+
+OWNER đã đăng nhập, nghiệm thu và phê duyệt candidate. Root resume gate đạt lại
+diff/lint/typecheck/unit123/build19, full E2E `92 PASS / 18 SKIP / 0 FAIL` trong27,0 phút,
+retries0. Runbook chuyển `tindung-preview.vercel.app` sang đúng candidate; hậu kiểm xác nhận
+project/targetPreview/Ready/Functions sin1, public4/4 và runtime level-error/HTTP500 bằng0.
+Rollback C106 giữ nguyên; chờ OWNER đăng nhập/phê duyệt stable Preview trước Production.
+
+Sau khi kiểm stable Preview, OWNER xác nhận lần mở đầu và vòng Khoản vay → Đối tác → Thông báo khá
+tốt nhưng quay lại Tổng quan chậm hơn lặp lại. Log cùng phiên ghi `dashboard.bundle` khoảng
+1.469–1.600ms; một lượt `profile.read` 1.130,7ms và một cụm request prefetch trang chi tiết khoản
+vay khi đi qua danh sách. Trong phạm vi C100/C110 đã duyệt, bản khắc phục tắt prefetch suy đoán ở
+card khoản vay, quick action và link việc quá hạn; giữ điều hướng shell cùng dữ liệu Tổng quan luôn
+đọc mới, không cache số dư hoặc đổi schema/RPC/nghiệp vụ. Phải qua lại root gate, candidate bất
+biến và OWNER kiểm đúng vòng thao tác trước khi thay stable alias hoặc đi Production. Root gate bản
+khắc phục đạt diff/lint/typecheck/unit123/build19, full E2E `92 PASS / 18 SKIP / 0 FAIL` trong26,7
+phút, retries0 và upload guard251. Candidate `dpl_148HdyQj5mLLoxocf5f3hyhjfDut` tại
+https://quan-ly-vay-ca-nhan-6m940n7ty-ngotuong2105.vercel.app đúng project/targetPreview/Ready/
+Functions sin1; public4/4, pre-auth level-error bằng0. Stable alias chưa đổi; chờ OWNER đăng nhập và
+kiểm vòng điều hướng trên immutable URL. OWNER đã đăng nhập và sau lượt kiểm được yêu cầu phản hồi
+Tổng quan khoảng2–3 giây. Runtime ghi POST login cùng bốn route chính đều200; hai lượt
+`dashboard.bundle` đầy đủ1.566,3/1.470,8ms, profile39,5–47,4ms, không còn cụm prefetch chi tiết,
+level-error/HTTP500 bằng0. Candidate đạt authenticated/performance smoke và được phép chạy root
+resume gate để chuyển stable Preview; chưa được phép đi Production trước hậu kiểm alias.
+
+Root resume gate đạt lại diff/lint/typecheck/unit123/build19 và full E2E
+`92 PASS / 18 SKIP / 0 FAIL` trong26,9 phút, retries0. Runbook chuyển
+`tindung-preview.vercel.app` sang đúng `dpl_148HdyQj5mLLoxocf5f3hyhjfDut`; post-alias inspect xác
+nhận đúng project/targetPreview/Ready/Functions sin1, public4/4 và level-error/HTTP500 bằng0.
+Artifacts C75 restore exact, diff-check đạt. Chờ OWNER đăng nhập và xác nhận stable Preview; chưa
+tạo Production candidate.
+
+OWNER đã xác nhận stable Preview; giao diện C109 và nền loading C107 tiếp tục được giữ trong C111/
+C112. Production C112 đã promote và cả hai alias hậu kiểm Dashboard/Khoản vay/Đối tác/Thông báo
+Auth HTTP200, level-error/HTTP500 bằng0. Vì vậy phần Production còn lại của C110 đã hoàn tất qua
+deployment C112; rollback C106 giữ nguyên chưa kích hoạt.
+
+### C111 — Đặt badge hướng ở góc phải của Việc cần xử lý
+
+Trạng thái: `COMPLETED` local ngày21/10/2026; OWNER trực tiếp yêu cầu thay đổi sau khi xác nhận stable
+Preview C110 đạt.
+
+Phạm vi: tiêu đề mỗi việc đổi từ `Tên · tag hướng · gốc` thành `Tên • gốc`, badge `Cho vay/Đi vay`
+đứng độc lập ở góc trên bên phải. Giữ các dòng giải ngân, loại việc+số tiền, nhắc/kỳ chốt, đường
+phân cách, trạng thái hover/focus, privacy, click drawer/chi tiết và toàn bộ nghiệp vụ. Tên dài và
+số tiền dài được phép wrap trong cột tiêu đề nhưng badge phải giữ ở góc phải, không tràn ở
+320/375/390/430px, text zoom và desktop; Light/Dark đều phải rõ. Kiểm lint, typecheck, unit, build,
+full E2E và diff-check. Chỉ local; không deploy/alias, schema/RPC/financial engine, dữ liệu, tài
+khoản, secret, Google, backup hoặc Git remote. Production C110 giữ nguyên trong khi C111 được kiểm.
+
+Kết quả: `.due-header-row` chia hai cột; `Tên • Gốc` ở cột trái và badge hướng semantic ở góc phải.
+Tên hoặc tiền dài được wrap trong cột trái, badge giữ vị trí và không tạo overflow. Ảnh Chromium thật
+375px đã được soi trực quan; Light/Dark, 320–1440px, privacy, focus, drawer và route giữ nguyên qua
+full suite. Lint, typecheck, unit `123 PASS`, build `19 route` đạt. Lượt full E2E đầu
+`91 PASS / 18 SKIP / 1 FAIL` chỉ phát hiện selector C96 cũ còn tìm badge bên trong heading; sau khi
+cập nhật assertion theo DOM mới, targeted C96 `1 PASS` và full E2E cuối
+`92 PASS / 18 SKIP / 0 FAIL` trong30,9 phút, retries0. Database teardown/reset baseline, artifacts
+C75 restore exact và diff-check đạt. Chỉ local; chưa deploy hoặc đổi alias.
+
+### C112 — Nghiệm thu và phát hành giao diện C111
+
+Trạng thái: `COMPLETED` ngày22/10/2026; OWNER phê duyệt trực tiếp trong hội thoại.
+
+Phạm vi đề xuất: chạy lại root gate và tạo immutable Preview bằng `pnpm deploy:preview`; xác minh
+đúng project/target/Ready/Functions sin1, public/Auth/runtime smoke và để OWNER nghiệm thu trực tiếp
+tiêu đề `Tên • Gốc` cùng badge ở góc phải trên mobile/desktop. Chỉ chuyển stable Preview sau khi
+candidate đạt đầy đủ gate; sau khi OWNER phê duyệt stable Preview mới tiếp tục Production candidate,
+promote và hậu kiểm hai alias của chuỗi C110/C111 theo runbook. Giữ rollback C110/C106 đã xác minh.
+Không đổi schema/RPC/financial engine, dữ liệu, tài khoản, secrets, Google, backup hoặc Git remote.
+
+Tiến độ: root create gate đạt `git diff --check`, lint, typecheck, unit `123 PASS`, build `19 route`
+và full E2E `92 PASS / 18 SKIP / 0 FAIL` trong27,2 phút, retries0; upload guard đạt251 file.
+Candidate `dpl_5haoSjVywuPbw8BBz8mVpBFoqB3D` tại
+`https://quan-ly-vay-ca-nhan-gptftby1p-ngotuong2105.vercel.app` đúng project/targetPreview/Ready/
+Functions sin1. Public smoke đạt200/200/200/401/401; pre-auth level-error và HTTP500 bằng0.
+Stable alias chưa đổi; chờ OWNER đăng nhập và nghiệm thu immutable candidate.
+
+OWNER đã đăng nhập candidate. Runtime cùng phiên ghi POST `/login` và Dashboard đều200; Loans,
+Counterparties và Notifications đều có request200; level-error và HTTP500 bằng0. Khi nghiệm thu,
+OWNER yêu cầu tăng nhẹ badge hướng trong danh sách và bỏ dòng phụ `Gốc quá hạn và lịch nhắc`.
+Candidate đầu không được chuyển alias. Hai chỉnh sửa đạt targeted C96 `1 PASS` trong2,4 phút và ảnh
+Chromium375px đã soi. Replacement root gate đạt diff/lint/typecheck/unit123/build19, full E2E
+`92 PASS / 18 SKIP / 0 FAIL` trong26,9 phút, retries0 và upload guard251. Replacement candidate
+`dpl_2a8avNFZHZxcDsZvheXP84dLu8Ri` tại
+`https://quan-ly-vay-ca-nhan-74fc7gb9r-ngotuong2105.vercel.app` đúng project/targetPreview/Ready,
+47 outputs/Functions sin1; public200/200/200/401/401, pre-auth error/HTTP500=0. Stable alias vẫn C110;
+OWNER đã đăng nhập/nghiệm thu replacement candidate và Auth log đủ năm route, error/HTTP500=0.
+Resume runbook đã tạm chuyển stable alias sang C112, nhưng hậu kiểm ghi một `dashboard.bundle` lỗi
+PostgreSQL `57014` sau8991ms trên stable alias. Alias đã rollback ngay về C110
+`dpl_148HdyQj5mLLoxocf5f3hyhjfDut`; rollback đúng project/Preview/Ready/sin1, public smoke
+200/200/200/401/401 và HTTP500=0. Giữ candidate C112; cần Auth Dashboard smoke mới sạch trước khi
+thử resume lại. OWNER đã chạy năm vòng Khoản vay→Tổng quan trên immutable candidate; năm RPC đều
+thành công trong1462,9–1578,6ms, median1478,2ms, không `57014`/runtime error/HTTP500. Resume lần hai
+đạt lint/typecheck/unit123/build19 và full E2E `92 PASS / 18 SKIP / 0 FAIL` trong27,2 phút,
+retries0; stable alias đã chuyển lại C112 đúng deployment/project/Preview/Ready/sin1. Public hậu
+kiểm đạt200/200/200/401/401, cửa sổ mới error/HTTP500=0. OWNER đã phê duyệt stable Preview.
+Production preflight đạt diff/lint/typecheck/unit123/build19, full E2E
+`92 PASS / 18 SKIP / 0 FAIL` trong27,2 phút, retries0 và upload guard251/5.510.970byte. Lượt
+deploy đầu lỗi trước Ready do build cache C106 và không đổi alias; retry duy nhất bằng
+`--force --skip-domain` bỏ cache đã đạt. Candidate `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` tại
+`https://quan-ly-vay-ca-nhan-967no3d6v-ngotuong2105.vercel.app` đúng project/targetProduction/
+Ready, 47 outputs/Functions sin1; public200/200/200/401/401 và pre-auth error/HTTP500=0. Hai alias
+vẫn ở rollback C106 `dpl_92pT2tjxRvCTEwyEePzJqMpGa8TG`. Chờ OWNER đăng nhập candidate để
+authenticated/runtime smoke trước promote.
+
+OWNER đã đăng nhập candidate; POST login và bốn route Auth đều200, console0 warning/error, năm
+`dashboard.bundle` đạt1456,9–1572,6ms với `outcome: ok`, Vercel error/HTTP500=0. Re-inspect
+candidate/rollback đạt rồi promote thành công. Hai alias Production cùng trỏ
+`dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF`, đúng targetProduction/Ready/47outputs/sin1; public mỗi alias
+200/200/200/401/401 và error/HTTP500=0. Alias chính giữ phiên Auth, Dashboard200/bundle1540,5ms;
+ba route còn lại được prefetch HTTP200. Browser control bị tắt trước lượt click nên chưa ghi visual
+smoke ở thời điểm đó. OWNER sau đó xác nhận đã kiểm cả hai alias; log từng hostname ghi Dashboard,
+Khoản vay, Đối tác và Thông báo Auth HTTP200. Dashboard bundle hậu kiểm đạt1486,8–1625,8ms, tất cả
+`outcome: ok`; level-error/HTTP500=0 và không có `57014`. Rollback C106 chưa kích hoạt. C112 đạt
+toàn bộ acceptance; C108/C110 cũng hoàn tất phần rollout còn lại qua deployment này. C100 tiếp tục
+`IN_PROGRESS` độc lập; không mở checkpoint mới.

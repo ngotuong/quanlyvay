@@ -43,6 +43,15 @@
 .ui-input:disabled { cursor: not-allowed; opacity: .5; }
 .ui-textarea { min-height: 112px; resize: vertical; }
 
+.ui-date-input { position: relative; display: block; width: 100%; min-width: 0; max-width: 100%; min-height: 48px; }
+.ui-date-input-value { display: flex; width: 100%; min-height: 48px; align-items: center; border: 1px solid var(--input-border); border-radius: var(--radius-md); background: var(--input-background); padding: 11px 38px 11px 14px; color: var(--input-foreground); font-size: 1rem; font-variant-numeric: tabular-nums; line-height: 1.4; transition: border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard); }
+.ui-date-input[data-empty="true"] .ui-date-input-value { color: var(--foreground-muted); }
+.ui-date-input input[type="date"] { position: absolute; inset: 0; width: 100%; height: 100%; min-height: 0; border: 0; border-radius: inherit; opacity: 0; cursor: pointer; }
+.ui-date-input:hover .ui-date-input-value { border-color: color-mix(in srgb, var(--primary) 48%, var(--border)); }
+.ui-date-input:focus-within .ui-date-input-value { border-color: var(--input-focus-border); background: var(--input-focus-background); box-shadow: 0 0 0 3px color-mix(in srgb, var(--input-focus-border) 20%, transparent); }
+.ui-date-input:has(input[aria-invalid="true"]) .ui-date-input-value { border-color: var(--error); }
+.ui-date-input:has(input:disabled) { cursor: not-allowed; opacity: .5; }
+
 .ui-card { min-width: 0; border: 1px solid var(--card-border); border-radius: var(--radius-lg); background: var(--card-background); box-shadow: var(--shadow-xs); }
 .ui-card--interactive { transition: border-color var(--motion-fast) var(--ease-standard), box-shadow var(--motion-base) var(--ease-standard), transform var(--motion-fast) var(--ease-standard); }
 .ui-card--interactive:hover { border-color: color-mix(in srgb, var(--primary) 52%, var(--border)); box-shadow: var(--shadow-card); transform: translateY(-1px); }
@@ -80,6 +89,9 @@
 .loan-card-quick-action { position: absolute; right: 14px; bottom: 14px; z-index: 2; min-height: 44px; display: inline-flex; align-items: center; gap: 6px; border: 1px solid color-mix(in srgb, var(--primary) 30%, var(--border)); border-radius: 10px; background: var(--primary-soft); padding: 8px 11px; color: var(--primary); font-size: .8125rem; font-weight: 750; text-decoration: none; transition: background var(--motion-fast), transform var(--motion-fast); }
 .loan-card-quick-action:hover { background: color-mix(in srgb, var(--primary) 16%, var(--surface)); transform: translateY(-1px); }
 .loan-card-shell:has(.loan-card-quick-action) .loan-card { padding-bottom: 68px; }
+@media (max-width: 759px) {
+  .loan-card-quick-action { right: 12px; bottom: 10px; }
+}
 .mobile-more-trigger { width: 100%; border: 0; padding: 0; }
 .mobile-more-sheet { width: 100%; max-width: none; margin: auto 0 0; border-radius: 20px 20px 0 0; box-shadow: 0 -20px 60px var(--more-shadow-color); }
 .mobile-more-sheet[open] { animation-name: sheet-enter; }

@@ -16,7 +16,7 @@
 .loan-name-disclosure > .name-disclosure-toggle { margin: 0 16px 8px; }
 .loan-list > .loan-name-disclosure:not(:last-child) { border-bottom: 1px solid var(--border); }
 .due-name-disclosure > .name-disclosure-toggle { margin: 0 9px 8px; }
-.due-main small, .due-value small { white-space: normal; overflow: visible; text-overflow: clip; }
+.due-heading strong, .due-disbursement, .due-task, .due-dates { white-space: normal; overflow: visible; text-overflow: clip; }
 .horizontal-bar-row .name-disclosure [data-disclosure-name] { white-space: normal; }
 .horizontal-bar-row .name-disclosure .name-disclosure-toggle { font-size: .875rem; }
 .loan-list .name-disclosure h2, .compact-record-list .name-disclosure h2 { font-size: 1rem; }

@@ -165,6 +165,8 @@ export type AuditLog = {
 export type DashboardDueLoan = {
   id: string;
   name: string;
+  counterpartyName: string;
+  disbursementDate: string;
   direction: LoanDirection;
   status: "ACTIVE" | "OVERDUE";
   attentionType: "INTEREST_DUE" | "PRINCIPAL_OVERDUE";

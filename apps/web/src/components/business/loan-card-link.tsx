@@ -19,8 +19,8 @@ export function LoanCardLink({ children, direction, href, quickActionHref }: { c
 
   return <>
     <div className="loan-card-shell">
-      <Link className="loan-card ui-card ui-card--interactive" data-direction={direction} href={href} onClick={handleClick}>{children}</Link>
-      {quickActionHref ? <Link className="loan-card-quick-action" href={quickActionHref} aria-label="Ghi giao dịch cho khoản vay"><Banknote size={16} aria-hidden="true" />Ghi giao dịch</Link> : null}
+      <Link className="loan-card ui-card ui-card--interactive" data-direction={direction} href={href} prefetch={false} onClick={handleClick}>{children}</Link>
+      {quickActionHref ? <Link className="loan-card-quick-action" href={quickActionHref} prefetch={false} aria-label="Ghi giao dịch cho khoản vay"><Banknote size={16} aria-hidden="true" />Ghi giao dịch</Link> : null}
     </div>
     {pending ? <div className="content-loading loan-navigation-loading" aria-live="polite" aria-busy="true" role="status">
       <span className="loan-navigation-spinner" aria-hidden="true" />

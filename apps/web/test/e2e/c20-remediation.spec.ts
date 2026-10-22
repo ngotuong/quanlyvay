@@ -263,8 +263,8 @@ test("settlement date preview rejects stale confirmation and can recover", async
   const date=page.getByLabel("Ngày tất toán",{exact:true}), preview=page.locator(".settlement-preview");
   await date.fill("2026-07-31");await expect(page.getByText(/Chưa thể tính tất toán/)).toBeVisible();
   await expect(page.getByRole("button",{name:"Tất toán toàn bộ",exact:true})).toBeDisabled();
-  await date.fill("2026-08-02");await expect(preview).toContainText("2/8/2026");const first=await preview.innerText();
-  await date.fill("2026-08-03");await expect(preview).toContainText("3/8/2026");expect(await preview.innerText()).not.toBe(first);
+  await date.fill("2026-08-02");await expect(preview).toContainText("02/08/2026");const first=await preview.innerText();
+  await date.fill("2026-08-03");await expect(preview).toContainText("03/08/2026");expect(await preview.innerText()).not.toBe(first);
   await page.getByLabel(/Tôi xác nhận hệ thống/).check();
   const paid=await owner.rpc("record_financial_transaction",{p_loan_id:result.data,p_type:"PRINCIPAL_PAYMENT",p_transaction_date:"2026-08-02",p_amount_vnd:"100000",p_idempotency_key:randomUUID(),p_note:null});if(paid.error)throw paid.error;
   const stale=await owner.rpc("settle_loan_confirmed",{p_loan_id:result.data,p_settlement_date:"2026-08-03",p_idempotency_key:randomUUID(),p_expected_principal:"1000000",p_expected_interest:"3000",p_note:null});expect(stale.error?.code).toBe("PT409");
@@ -278,7 +278,7 @@ test("settlement date preview rejects stale confirmation and can recover", async
   await page.goto("/loans?status=SETTLED&q=C20+settlement+race");
   const settledCard=page.locator(".loan-card").filter({hasText:"C20 settlement race"});
   await expect(settledCard.getByText("Ngày tất toán",{exact:true})).toBeVisible();
-  await expect(settledCard.getByText("3/8/2026",{exact:true})).toBeVisible();
+  await expect(settledCard.getByText("03/08/2026",{exact:true})).toBeVisible();
   await expect(settledCard.getByText("Ngày đóng lãi",{exact:true})).toHaveCount(0);
 });
 

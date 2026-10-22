@@ -1,0 +1,87 @@
+{
+  "status": "AWAITING_OWNER_IPHONE",
+  "date": "2026-10-14",
+  "sourceSha": "beb83017eceac7a549b6d7cbf885655d82c8b64a",
+  "sourceCI": "38397792297 SUCCESS all5",
+  "projectId": "prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F",
+  "migrations": {
+    "dashboardV4": "20261013090000",
+    "helperVolatilityCorrection": "20261013192500",
+    "remoteLedgerMatched": true,
+    "remoteDatabaseLint": "PASS"
+  },
+  "preview": {
+    "id": "dpl_4Tu5ARCZ9MNGXy1FK5sknkBGjRYL",
+    "immutableUrl": "https://quan-ly-vay-ca-nhan-g4kxky48s-ngotuong2105.vercel.app",
+    "alias": "https://tindung-preview.vercel.app",
+    "target": "preview",
+    "ready": true,
+    "region": "sin1",
+    "createGate": "87PASS18SKIP0FAIL20.4m retries0",
+    "resumeGate": "87PASS18SKIP0FAIL20.6m retries0",
+    "authenticatedSmoke": "PASS",
+    "consoleWarningsOrErrors": 0,
+    "runtimeErrors": 0,
+    "rpcWarm": {
+      "samples": 18,
+      "medianMs": 1428.3,
+      "p95SampleMs": 1499.1,
+      "minMs": 1403.7,
+      "maxMs": 1555.3
+    },
+    "clientNavigation": {
+      "samples": 10,
+      "medianMs": 2209,
+      "p95SampleMs": 2496.1,
+      "minMs": 2113,
+      "maxMs": 2646
+    }
+  },
+  "production": {
+    "id": "dpl_EGe6nwTAqkZGikDFPzAJT3r85HYf",
+    "immutableUrl": "https://quan-ly-vay-ca-nhan-fexn8r7ef-ngotuong2105.vercel.app",
+    "aliases": [
+      "https://tindung.vercel.app",
+      "https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app"
+    ],
+    "target": "production",
+    "ready": true,
+    "region": "sin1",
+    "authenticatedCandidateSmoke": "PASS",
+    "authenticatedAliasSmoke": "PASS dashboard-loans-counterparties-dashboard",
+    "publicAliasSmoke": "PASS",
+    "consoleWarningsOrErrors": 0,
+    "runtimeErrors": 0,
+    "rpcWarm": {
+      "samples": 13,
+      "medianMs": 1415.9,
+      "p95SampleMs": 1491.5,
+      "minMs": 1406.4,
+      "maxMs": 1536.1
+    },
+    "clientNavigation": {
+      "samples": 10,
+      "medianMs": 3095,
+      "p95SampleMs": 3146.9,
+      "minMs": 3087,
+      "maxMs": 3182
+    }
+  },
+  "baselineProduction": {
+    "rpcWarmSamples": 11,
+    "rpcMedianMs": 5319.2,
+    "rpcP95SampleMs": 5489.3,
+    "clientSamples": 10,
+    "clientMedianMs": 5811,
+    "clientP95SampleMs": 6089.7
+  },
+  "rollback": {
+    "applicationRpc": "get_management_dashboard_bundle_v3",
+    "productionDeploymentId": "dpl_14VquPhpxUa5yeA8Cb9z7ejcWG4Z",
+    "retained": true,
+    "activated": false
+  },
+  "physicalIPhone": "PENDING_OWNER_SAME_DEVICE_AND_NETWORK",
+  "privacy": "No cookies, tokens, names, financial rows, request bodies or private screenshots retained",
+  "remoteFinancialWrites": false
+}

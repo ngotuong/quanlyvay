@@ -6,6 +6,7 @@ import { settleLoanAction } from "@/app/actions/business";
 import { initialBusinessActionState } from "@/lib/business/action-state";
 import { formatDate, formatVnd, todayInVietnam } from "@/lib/business/format";
 import { ActionMessage, BusinessForm, FieldError, FormSubmit } from "./form-parts";
+import { DateInput } from "@/components/ui";
 
 export function SettlementForm({ loanId, idempotencyKey, onDirtyChange, onPendingChange, onSuccess }: {
   loanId: string;
@@ -29,7 +30,7 @@ export function SettlementForm({ loanId, idempotencyKey, onDirtyChange, onPendin
   const preview = result?.preview;
   return <BusinessForm state={state} action={action} className="compact-form" onDirtyChange={onDirtyChange} onPendingChange={onPendingChange} onSuccess={onSuccess}>
     <input name="loanId" type="hidden" value={loanId} /><input name="idempotencyKey" type="hidden" value={idempotencyKey} />
-    <div className="field-group"><label htmlFor="settlementDate">Ngày tất toán</label><input id="settlementDate" name="settlementDate" type="date" value={date} required onChange={event => { setResult(null); setDate(event.target.value); }} /><FieldError state={state} name="settlementDate" /></div>
+    <div className="field-group"><label htmlFor="settlementDate">Ngày tất toán</label><DateInput id="settlementDate" name="settlementDate" value={date} required onChange={event => { setResult(null); setDate(event.target.value); }} /><FieldError state={state} name="settlementDate" /></div>
     {!result ? <p role="status">Đang tính số tiền tất toán…</p> : null}
     {result?.error ? <p role="alert">{result.error}</p> : null}
     {(result?.error || (!state.ok && state.message)) ? <button className="secondary-button" type="button" onClick={() => { reset(); setResult(null); setReload(value => value+1); }}>Tải lại bảng tất toán</button> : null}

@@ -58,7 +58,7 @@ export function BusinessForm({ state, children, action, onDirtyChange, onPending
     if (state.ok) {
       dirty.current = false;
       onDirtyChange?.(false);
-      ref.current?.reset();
+      if (ref.current) { delete ref.current.dataset.navigationDirty; ref.current.reset(); }
       onSuccess?.(state.message);
       return;
     }
@@ -69,8 +69,9 @@ export function BusinessForm({ state, children, action, onDirtyChange, onPending
     else form.querySelector<HTMLElement>(".action-message")?.focus();
   }, [onDirtyChange, onSuccess, state.fieldErrors, state.message, state.ok, state.pending, state.submissionId]);
   useLayoutEffect(() => { onPendingChange?.(Boolean(state.pending)); }, [onPendingChange, state.pending]);
-  useEffect(() => registerNavigationDraft ? registerDraft(() => dirty.current, () => pending.current) : undefined, [registerNavigationDraft]);
-  return <ManagedSuccess.Provider value={Boolean(onSuccess)}><BusinessPending.Provider value={Boolean(state.pending)}><form {...props} ref={ref} aria-busy={Boolean(state.pending)} onChange={event => {
+  useLayoutEffect(() => registerNavigationDraft ? registerDraft(() => dirty.current, () => pending.current) : undefined, [registerNavigationDraft]);
+  return <ManagedSuccess.Provider value={Boolean(onSuccess)}><BusinessPending.Provider value={Boolean(state.pending)}><form {...props} ref={ref} data-navigation-draft={registerNavigationDraft ? "true" : undefined} aria-busy={Boolean(state.pending)} onChange={event => {
+    if (registerNavigationDraft) event.currentTarget.dataset.navigationDirty = "true";
     if (!dirty.current) onDirtyChange?.(true);
     dirty.current = true;
     props.onChange?.(event);

@@ -131,7 +131,16 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
     p_balance_start: balanceStart,
     p_balance_end: balanceEnd,
   };
-  const result = await readWithTiming("dashboard.bundle", () => readRpcWithGatewayRetry("get_management_dashboard_bundle_v4", () => supabase.rpc("get_management_dashboard_bundle_v4", args)));
+  const [result, metadataResult] = await Promise.all([
+    readWithTiming("dashboard.bundle", () => readRpcWithGatewayRetry("get_management_dashboard_bundle_v4", () => supabase.rpc("get_management_dashboard_bundle_v4", args))),
+    readWithTiming("dashboard.attention-metadata", () => fetchAllRows((from, to) => supabase
+      .from("loans")
+      .select("id,disbursement_date,counterparties(name)")
+      .eq("is_test_data", false)
+      .lte("disbursement_date", periodEnd)
+      .order("id")
+      .range(from, to))),
+  ]);
   let diagnosticResult = result;
   let data = result.data as Record<string, unknown> | null;
   let error = result.error;
@@ -149,11 +158,27 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
     } : null;
     error = fallback.error;
   }
-  if (error || !data) {
+  if (error || !data || metadataResult.error) {
     console.error("dashboard.read_failed", readFailureDiagnostic(diagnosticResult));
     throw new Error("Không thể tải số liệu tổng quan.");
   }
-  return data as unknown as { dashboard: DashboardData; analytics: ManagementAnalytics; previousDashboard: DashboardData; previousBalanceDashboard: DashboardData };
+  const bundle = data as unknown as { dashboard: DashboardData; analytics: ManagementAnalytics; previousDashboard: DashboardData; previousBalanceDashboard: DashboardData };
+  const metadataById = new Map((metadataResult.data ?? []).map((row) => {
+    const relation = row.counterparties as unknown as { name: string } | { name: string }[] | null;
+    const counterparty = Array.isArray(relation) ? relation[0] : relation;
+    return [row.id, { counterpartyName: counterparty?.name ?? "", disbursementDate: row.disbursement_date }];
+  }));
+  const enrichAttention = (items: DashboardData["upcoming"]) => items.map((item) => ({
+    ...item,
+    counterpartyName: metadataById.get(item.id)?.counterpartyName || item.name,
+    disbursementDate: metadataById.get(item.id)?.disbursementDate ?? "",
+  }));
+  bundle.dashboard = {
+    ...bundle.dashboard,
+    upcoming: enrichAttention(bundle.dashboard.upcoming),
+    overdue: enrichAttention(bundle.dashboard.overdue),
+  };
+  return bundle;
 }
 
 export async function listCounterparties() {

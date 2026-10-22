@@ -2,7 +2,7 @@ import { NameDisclosure } from "@/components/business/name-disclosure";
 import { ResponsiveTable } from "@/components/ui/responsive-table";
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import { ArrowDownLeft, ArrowUpRight, Banknote, CalendarClock, ChartSpline, CircleAlert, HandCoins, Landmark, Minus, ReceiptText, Scale, ShieldAlert, TrendingDown, TrendingUp, WalletCards } from "lucide-react";
+import { ArrowDownLeft, ArrowUpRight, Banknote, CalendarClock, ChartSpline, CircleAlert, Landmark, Minus, ReceiptText, Scale, ShieldAlert, TrendingDown, TrendingUp, WalletCards } from "lucide-react";
 import { DashboardPeriodFilter } from "@/components/business/dashboard-period-filter";
 import { DashboardPayments, DashboardInterestLink } from "@/components/business/dashboard-payments";
 import { AttentionItems } from "@/components/business/attention-items";
@@ -193,15 +193,34 @@ function AttentionList({ upcoming, overdue, reminderWindow, canWrite }: { upcomi
   ];
   return (
     <Card className="surface-card due-card attention-card" aria-labelledby="schedule-title">
-      <AttentionItems heading={<div className="attention-heading-main"><div><h2 id="schedule-title" tabIndex={-1}>Việc cần xử lý</h2><p className="eyebrow">Gốc quá hạn và lịch nhắc</p></div><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>}
+      <AttentionItems heading={<div className="attention-heading-main"><h2 id="schedule-title" tabIndex={-1}>Việc cần xử lý</h2><span className="count-badge" data-alert={overdue.length > 0}>{total}</span></div>}
         emptyState={<div className="dashboard-empty"><strong>Không có việc đến hạn</strong><span>Không có gốc quá hạn. Lịch thu/trả lãi: {reminderWindow}.</span></div>}
         items={rows.map(({ loan, kind }) => {
+          const directionLabel = loan.direction === "LENDING" ? "Cho vay" : "Đi vay";
+          const taskLabel = kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan);
           const content = <>
-            <span className="due-icon" data-direction={loan.direction}>{loan.direction === "LENDING" ? <HandCoins size={19} /> : <Landmark size={19} />}</span>
-            <span className="due-main"><strong data-disclosure-name><PrivacyRegion>{loan.name}</PrivacyRegion></strong><small>{kind === "overdue" ? `Quá hạn gốc từ ${formatDate(loan.periodEndDate)}` : `Nhắc ${formatDate(loan.reminderDate ?? loan.dueDate)} · Kỳ chốt ${formatDate(loan.periodEndDate)}`}</small></span>
-            <span className="due-value"><strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong><small>{loan.direction === "LENDING" ? "Cho vay" : "Đi vay"} · {kind === "overdue" ? "Dư gốc quá hạn" : interestAction(loan)}</small></span>
+            <span className="due-content">
+              <span className="due-header-row">
+                <span className="due-heading">
+                  <strong className="due-counterparty"><span data-disclosure-name><PrivacyRegion>{loan.counterpartyName}</PrivacyRegion></span></strong>
+                  <span className="due-heading-separator" aria-hidden="true">•</span>
+                  <strong className="due-principal privacy-amount"><PrivacyAmount value={formatVnd(loan.principalVnd)} /></strong>
+                </span>
+                <span className="due-direction" data-direction={loan.direction}>{directionLabel}</span>
+              </span>
+              <span className="due-disbursement">Giải ngân: <time dateTime={loan.disbursementDate}>{formatDate(loan.disbursementDate)}</time></span>
+              <span className="due-task">
+                <span>{taskLabel}:</span>
+                <strong className="privacy-amount"><PrivacyAmount value={formatVnd(kind === "overdue" ? loan.principalVnd : loan.interestVnd)} /></strong>
+              </span>
+              <span className="due-dates">
+                {kind === "overdue"
+                  ? <span>Quá hạn từ <time dateTime={loan.periodEndDate}>{formatDate(loan.periodEndDate)}</time></span>
+                  : <><span>Nhắc <time dateTime={loan.reminderDate ?? loan.dueDate}>{formatDate(loan.reminderDate ?? loan.dueDate)}</time></span><span>Kỳ chốt <time dateTime={loan.periodEndDate}>{formatDate(loan.periodEndDate)}</time></span></>}
+              </span>
+            </span>
           </>;
-          return <NameDisclosure className="due-name-disclosure" key={`${kind}-${loan.id}`}>{kind === "interest" && canWrite ? <DashboardInterestLink loanId={loan.id}>{content}</DashboardInterestLink> : <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} className="due-item">{content}</Link>}</NameDisclosure>;
+          return <NameDisclosure className="due-name-disclosure" key={`${kind}-${loan.id}`}>{kind === "interest" && canWrite ? <DashboardInterestLink loanId={loan.id}>{content}</DashboardInterestLink> : <Link href={`/loans/${loan.id}${kind === "interest" ? "?transaction=interest" : ""}`} prefetch={false} className="due-item">{content}</Link>}</NameDisclosure>;
         })} />
     </Card>
   );

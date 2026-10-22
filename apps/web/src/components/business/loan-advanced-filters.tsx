@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { SlidersHorizontal, X } from "lucide-react";
+import { DateInput } from "@/components/ui";
 
 export function LoanAdvancedFilters({ disbursedFrom, disbursedTo, sort, active, onChange }: { disbursedFrom: string; disbursedTo: string; sort: "newest" | "oldest" | "outstanding_desc" | "name"; active: boolean; onChange: (patch: { disbursedFrom?: string; disbursedTo?: string; sort?: "newest" | "oldest" | "outstanding_desc" | "name" }) => void }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -35,8 +36,8 @@ export function LoanAdvancedFilters({ disbursedFrom, disbursedTo, sort, active, 
     <dialog aria-labelledby="loan-filter-dialog-title" className="transaction-dialog loan-filter-dialog" ref={dialogRef} onCancel={(event) => { event.preventDefault(); closeDialog(); }} onClick={(event) => { if (event.target === event.currentTarget) closeDialog(); }}>
       <div className="dialog-heading"><div><p className="eyebrow">Bộ lọc nâng cao</p><h2 id="loan-filter-dialog-title">Ngày giải ngân và sắp xếp</h2></div><button className="icon-button" type="button" aria-label="Đóng bộ lọc nâng cao" onClick={closeDialog}><X size={20} /></button></div>
       <div className="advanced-filter-grid dialog-form">
-        <div className="field-group advanced-filter-date"><label htmlFor="loanFrom">Từ</label><input id="loanFrom" name="from" type="date" value={disbursedFrom} onChange={(event) => onChange({ disbursedFrom: event.target.value })} /></div>
-        <div className="field-group advanced-filter-date"><label htmlFor="loanTo">Đến</label><input id="loanTo" name="to" type="date" value={disbursedTo} onChange={(event) => onChange({ disbursedTo: event.target.value })} /></div>
+        <div className="field-group advanced-filter-date"><label htmlFor="loanFrom">Từ</label><DateInput id="loanFrom" name="from" value={disbursedFrom} onChange={(event) => onChange({ disbursedFrom: event.target.value })} /></div>
+        <div className="field-group advanced-filter-date"><label htmlFor="loanTo">Đến</label><DateInput id="loanTo" name="to" value={disbursedTo} onChange={(event) => onChange({ disbursedTo: event.target.value })} /></div>
         <div className="field-group advanced-filter-sort"><label htmlFor="loanSort">Sắp xếp</label><select id="loanSort" name="sort" value={sort} onChange={(event) => onChange({ sort: event.target.value as "newest" | "oldest" | "outstanding_desc" | "name" })}><option value="newest">Mới nhất</option><option value="oldest">Cũ nhất</option><option value="outstanding_desc">Dư nợ lớn nhất</option><option value="name">Tên A–Z</option></select></div>
         <div className="advanced-filter-dialog-actions"><p>Kết quả được cập nhật ngay khi bạn thay đổi điều kiện.</p></div>
       </div>

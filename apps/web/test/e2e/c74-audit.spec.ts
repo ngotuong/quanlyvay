@@ -66,7 +66,7 @@ test("C74 journey and viewport observation", async ({ page }) => {
         const metrics = await page.evaluate(() => ({
           overflow: document.documentElement.scrollWidth > innerWidth,
           h1: document.querySelector("h1")?.textContent,
-          clippedTasks: [...document.querySelectorAll<HTMLElement>(".due-main strong,.due-main small,.due-value small")].filter(e => e.scrollWidth > e.clientWidth).map(e => ({ text: e.textContent, client: e.clientWidth, scroll: e.scrollWidth })),
+          clippedTasks: [...document.querySelectorAll<HTMLElement>(".due-heading strong,.due-task,.due-dates")].filter(e => e.scrollWidth > e.clientWidth).map(e => ({ text: e.textContent, client: e.clientWidth, scroll: e.scrollWidth })),
           focus: document.activeElement?.tagName,
         }));
         const label = route.includes(loanId) ? `detail-${route.split("=")[1]}` : route.slice(1).replaceAll("?", "-");

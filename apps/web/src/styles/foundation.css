@@ -75,7 +75,7 @@ button {
   padding: 24px 16px;
   background: var(--background);
 }
-.initial-app-loading {
+.initial-loading-visual {
   min-height: 100dvh;
   display: grid;
   place-content: center;
@@ -86,12 +86,12 @@ button {
   background: var(--background);
   color: var(--foreground);
 }
-.initial-app-loading strong { font-size: 1.05rem; }
+.initial-loading-visual strong { font-size: 1.05rem; }
 .transaction-dialog input[type="date"] { color-scheme: var(--native-color-scheme); }
 @media (max-width: 767px) {
   .transaction-dialog .ui-sheet-grabber { display: flex; }
 }
-.initial-app-loading span { max-width: 34rem; color: var(--foreground-muted); font-size: .875rem; }
+.initial-loading-visual span { max-width: 34rem; color: var(--foreground-muted); font-size: .875rem; }
 .initial-app-loading-mark {
   width: 42px;
   height: 42px;

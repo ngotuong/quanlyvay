@@ -110,17 +110,18 @@
 
 .loading-heading-action { width: 170px; height: 44px; flex-shrink: 0; }
 .loading-filter-actions { grid-column: 1 / -1; height: 44px; }
-.loading-filter-pills { width: 156px; height: 44px; margin: 12px 0 26px; border-radius: 999px !important; }
 .loading-disclosure { width: 50%; height: 44px; margin-top: 16px; }
 .loading-loan-list { display: grid; gap: 12px; }
-.loading-loan-card { display: grid; grid-template-columns: 44px minmax(0, 1fr); gap: 12px; padding: 18px 16px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); min-height: 405px; }
+.loading-loan-card { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 10px; padding: 14px; border: 1px solid var(--border); border-radius: 16px; background: var(--surface); min-height: 270px; }
 .loading-loan-identity { min-width: 0; }
-.loading-loan-tags { display: flex; gap: 8px; margin-top: 12px; }
-.loading-loan-tags > .skeleton { height: 26px; }
-.loading-loan-metadata { margin-top: 16px; }
-.loading-loan-metadata > .skeleton { height: 17px; margin-top: 8px; }
-.loading-loan-values { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; }
-.loading-loan-values > :first-child { grid-column: 1 / -1; }
+.loading-loan-title-row { display: grid; min-width: 0; grid-template-columns: minmax(0, 1fr) auto; align-items: start; gap: 6px 8px; }
+.loading-loan-title-row + .loading-line { margin-top: 6px; }
+.loading-loan-tags { display: flex; gap: 6px; }
+.loading-loan-tags > .skeleton { height: 24px; }
+.loading-loan-metadata { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin-top: 10px; }
+.loading-loan-metadata > .skeleton { height: 30px; margin-top: 0; }
+.loading-loan-values { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, 1.35fr) repeat(2, minmax(0, 1fr)); gap: 1px; padding: 1px; border: 1px solid var(--border); border-radius: 12px; }
+.loading-loan-values > div { padding: 8px; background: var(--surface); }
 .loading-loan-values .loading-line { height: 15px; }
 .loading-loan-values .loading-value { height: 23px; }
 .loading-loan-action { grid-column: 2; justify-self: end; width: 148px; }

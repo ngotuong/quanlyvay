@@ -95,7 +95,7 @@ test("C75 task identity, exact source set, focus and notifications hierarchy", a
       expect(all.slice(0,5)).toEqual(initial);
       const expandedChartHeight = (await chart.boundingBox())!.height;
       if (width === 1440) expect(Math.abs(expandedChartHeight - chartHeight)).toBeLessThan(1);
-      const metrics = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth > innerWidth, clipped: [...document.querySelectorAll<HTMLElement>(".due-main strong,.due-main small,.due-value small")].filter(e => e.scrollWidth > e.clientWidth).length }));
+      const metrics = await page.evaluate(() => ({ overflow: document.documentElement.scrollWidth > innerWidth, clipped: [...document.querySelectorAll<HTMLElement>(".due-heading strong,.due-task,.due-dates")].filter(e => e.scrollWidth > e.clientWidth).length }));
       expect(metrics).toEqual({ overflow: false, clipped: 0 });
       await toggle.click();
       await expect(card.locator(".due-item")).toHaveCount(5);

@@ -7,6 +7,7 @@ import { initialBusinessActionState } from "@/lib/business/action-state";
 import { formatDate } from "@/lib/business/format";
 import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
 import { VndInput } from "./vnd-input";
+import { DateInput } from "@/components/ui";
 
 type PeriodInterestPaymentFormProps = {
   loanId: string;
@@ -55,10 +56,9 @@ export function PeriodInterestPaymentForm({
         <input name="idempotencyKey" type="hidden" value={idempotencyKey} />
         <div className="field-group">
           <label htmlFor={`periodPaymentDate-${inputSuffix}`}>Ngày thanh toán</label>
-          <input
+          <DateInput
             id={`periodPaymentDate-${inputSuffix}`}
             name="transactionDate"
-            type="date"
             value={paymentDate}
             onChange={(event) => setPaymentDate(event.target.value)}
             aria-describedby={`periodPaymentDateHint-${inputSuffix}`}

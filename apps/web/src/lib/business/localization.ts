@@ -1,3 +1,5 @@
+import { formatDate, formatDateTime } from "./format";
+
 const auditTableLabels: Record<string, string> = {
   profiles: "Tài khoản",
   counterparties: "Đối tác",
@@ -137,7 +139,11 @@ export function localizeAuditData(value: unknown): unknown {
         .map(([key, item], index) => [auditFieldLabels[key] ?? `Thông tin khác ${index + 1}`, localizeAuditData(item)]),
     );
   }
-  if (typeof value === "string") return auditValueLabels[value] ?? value;
+  if (typeof value === "string") {
+    if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return formatDate(value);
+    if (/^\d{4}-\d{2}-\d{2}T/.test(value)) return formatDateTime(value);
+    return auditValueLabels[value] ?? value;
+  }
   if (typeof value === "boolean") return value ? "Có" : "Không";
   return value;
 }

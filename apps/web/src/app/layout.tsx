@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
-import Image from "next/image";
 import { Suspense, type ReactNode } from "react";
 import { cookies } from "next/headers";
 import "./globals.css";
@@ -12,6 +11,7 @@ import { NavigationFeedback } from "@/components/app/navigation-feedback";
 import { DirtyNavigationGuard } from "@/components/app/dirty-navigation-guard";
 import { NetworkStatus } from "@/components/app/network-status";
 import { AppShell } from "@/components/app/app-shell";
+import { ApplicationBootLoading, ApplicationReadySignal } from "@/components/app/application-loading";
 import { getAuthenticatedProfile } from "@/lib/auth/session";
 import { getUnreadNotificationCount } from "@/lib/business/queries";
 import { iosStartupImages } from "@/lib/app/ios-startup.mjs";
@@ -58,16 +58,6 @@ export async function generateViewport(): Promise<Viewport> {
 
 import { PrivacyProvider } from "@/components/app/privacy-provider";
 
-function InitialApplicationLoading() {
-  return <div className="initial-app-loading" id="initial-app-loading" role="status" aria-busy="true" aria-live="polite">
-    <Image className="initial-app-loading-logo" src="/icons/brand-symbol-192.png" width={64} height={64} alt="" priority unoptimized />
-    <h1>Quản Lý Vay</h1>
-    <strong>Đang mở không gian tài chính…</strong>
-    <div className="initial-app-loading-track" aria-hidden="true"><span /></div>
-    <span>Đang kiểm tra phiên đăng nhập và chuẩn bị dữ liệu an toàn.</span>
-  </div>;
-}
-
 async function ResolvedApplication({ children }: { children: ReactNode }) {
   // The RLS-protected count does not depend on the profile query. Start both together;
   // neither identity nor badge is rendered until the profile has been validated.
@@ -78,6 +68,7 @@ async function ResolvedApplication({ children }: { children: ReactNode }) {
   const unreadCount = showAppShell ? notificationCount : 0;
 
   return <PrivacyProvider initialPrivacy={cookieStore.get("qlv_privacy_mode")?.value !== "false"}>
+    <ApplicationReadySignal />
     <a className="skip-link" href="#main-content">Bỏ qua đến nội dung chính</a>
     <PwaRegister unreadCount={unreadCount} />
     <NetworkStatus />
@@ -98,7 +89,9 @@ export default async function RootLayout({ children }: Readonly<{ children: Reac
       <body className="min-h-full flex flex-col">
         <ThemeProvider initialPreference={preference}>
         <DirtyNavigationGuard />
-        <Suspense fallback={<InitialApplicationLoading />}><ResolvedApplication>{children}</ResolvedApplication></Suspense>
+        <ApplicationBootLoading />
+        <noscript><style>{`.application-boot-loading{display:none!important}`}</style></noscript>
+        <Suspense fallback={null}><ResolvedApplication>{children}</ResolvedApplication></Suspense>
         </ThemeProvider>
       </body>
     </html>

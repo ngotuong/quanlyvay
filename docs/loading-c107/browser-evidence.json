@@ -1,0 +1,68 @@
+{
+  "initial-390-light": {
+    "visibleAfterMs": 81,
+    "hiddenAfterMs": 1751,
+    "layout": {
+      "position": "fixed",
+      "background": "rgb(234, 240, 248)",
+      "width": 390,
+      "height": 900,
+      "overflow": 0
+    }
+  },
+  "initial-1440-light": {
+    "visibleAfterMs": 75,
+    "hiddenAfterMs": 1431,
+    "layout": {
+      "position": "fixed",
+      "background": "rgb(234, 240, 248)",
+      "width": 1440,
+      "height": 900,
+      "overflow": 0
+    }
+  },
+  "initial-390-dark": {
+    "visibleAfterMs": 68,
+    "hiddenAfterMs": 1430,
+    "layout": {
+      "position": "fixed",
+      "background": "rgb(11, 18, 32)",
+      "width": 390,
+      "height": 900,
+      "overflow": 0
+    }
+  },
+  "initial-1440-dark": {
+    "visibleAfterMs": 74,
+    "hiddenAfterMs": 1443,
+    "layout": {
+      "position": "fixed",
+      "background": "rgb(11, 18, 32)",
+      "width": 1440,
+      "height": 900,
+      "overflow": 0
+    }
+  },
+  "warmResume": {
+    "visibleDurationMs": 834,
+    "reducedMotion": true
+  },
+  "routeTransitions": [
+    {
+      "label": "Khoản vay",
+      "durationMs": 1518
+    },
+    {
+      "label": "Đối tác",
+      "durationMs": 1582
+    },
+    {
+      "label": "Thông báo",
+      "durationMs": 1569
+    },
+    {
+      "label": "Tổng quan",
+      "durationMs": 1885
+    }
+  ]
+}

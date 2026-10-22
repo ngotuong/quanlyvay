@@ -1,4 +1,4 @@
-const operations = new Set(["auth.user", "profile.read", "notifications.count", "dashboard.bundle", "loans.page", "counterparties.list"]);
+const operations = new Set(["auth.user", "profile.read", "notifications.count", "dashboard.bundle", "dashboard.attention-metadata", "loans.page", "counterparties.list"]);
 
 /**
  * Observe an existing read without changing its result, retries or error.

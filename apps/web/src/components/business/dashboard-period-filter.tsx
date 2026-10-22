@@ -1,21 +1,35 @@
 "use client";
 
-import { useEffect, useRef, useState, useTransition } from "react";
-import Link from "next/link";
+import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
-import { CalendarRange, SlidersHorizontal } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import type { DashboardPeriod } from "@/lib/business/dashboard-period";
-import { BottomSheet, Button, Input, TabList, Tabs } from "@/components/ui";
+import { formatDate } from "@/lib/business/format";
+
+const presetLabels: Record<DashboardPeriod["preset"], string> = {
+  this_month: "Tháng này",
+  previous_month: "Tháng trước",
+  year_to_date: "Năm nay",
+  six_months: "6 tháng",
+  custom: "Tùy chỉnh",
+};
+
+function DateControl({ id, label, value, onChange }: {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+}) {
+  return (
+    <label className="dashboard-date-control" htmlFor={id}>
+      <span aria-hidden="true">{formatDate(value)}</span>
+      <input id={id} type="date" value={value} aria-label={label} onChange={(event) => onChange(event.target.value)} />
+    </label>
+  );
+}
 
 export function DashboardPeriodFilter({ period, periodLabel }: { period: DashboardPeriod; periodLabel: string }) {
   const router = useRouter();
-  // Compact the displayed date range only when the shared month/year remains explicit.
-  const endDateLabel = `${Number(period.end.slice(8, 10))}/${Number(period.end.slice(5, 7))}/${period.end.slice(0, 4)}`;
-  const compactPeriodLabel = period.start === period.end ? endDateLabel
-    : period.start.slice(0, 7) === period.end.slice(0, 7)
-      ? `${Number(period.start.slice(8, 10))}–${endDateLabel}` : periodLabel;
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [dates, setDates] = useState({ from: period.start, to: period.end });
   const periodKey = `${period.start}:${period.end}`;
   const [syncedPeriodKey, setSyncedPeriodKey] = useState(periodKey);
@@ -26,25 +40,8 @@ export function DashboardPeriodFilter({ period, periodLabel }: { period: Dashboa
     setDates({ from: period.start, to: period.end });
   }
 
-  useEffect(() => () => { if (closeTimer.current) clearTimeout(closeTimer.current); }, []);
-
-  function openDialog() {
-    const dialog = dialogRef.current;
-    if (!dialog) return;
-    if (closeTimer.current) clearTimeout(closeTimer.current);
-    dialog.classList.remove("is-closing");
-    if (!dialog.open) dialog.showModal();
-  }
-
-  function closeDialog() {
-    const dialog = dialogRef.current;
-    if (!dialog?.open || dialog.classList.contains("is-closing")) return;
-    dialog.classList.add("is-closing");
-    closeTimer.current = setTimeout(() => {
-      dialog.close();
-      dialog.classList.remove("is-closing");
-      closeTimer.current = null;
-    }, 180);
+  function navigate(url: string) {
+    startTransition(() => router.replace(url, { scroll: false }));
   }
 
   function updateDate(key: "from" | "to", value: string) {
@@ -52,26 +49,28 @@ export function DashboardPeriodFilter({ period, periodLabel }: { period: Dashboa
     setDates(next);
     if (!next.from || !next.to || next.from > next.to) return;
     const params = new URLSearchParams({ from: next.from, to: next.to });
-    startTransition(() => router.replace(`/dashboard?${params.toString()}`, { scroll: false }));
+    navigate(`/dashboard?${params.toString()}`);
+  }
+
+  function updatePreset(value: DashboardPeriod["preset"]) {
+    if (value === "custom") return;
+    navigate(`/dashboard?preset=${value}`);
   }
 
   return (
-    <section className="dashboard-period-bar" aria-label="Khoảng báo cáo">
-      <span className="dashboard-period-current"><CalendarRange size={18} aria-hidden="true" /><span><small>Khoảng báo cáo</small><strong title={periodLabel} aria-label={periodLabel}>{compactPeriodLabel}</strong></span></span>
-      <Tabs className="filter-shortcuts dashboard-shortcuts" aria-label="Khoảng thời gian nhanh"><TabList>
-        <Link href="/dashboard?preset=this_month" data-active={period.preset === "this_month"}>Tháng này</Link>
-        <Link href="/dashboard?preset=previous_month" data-active={period.preset === "previous_month"}>Tháng trước</Link>
-        <Link href="/dashboard?preset=year_to_date" data-active={period.preset === "year_to_date"}>Năm nay</Link>
-        <Link href="/dashboard?preset=six_months" data-active={period.preset === "six_months"}>6 tháng</Link>
-      </TabList></Tabs>
-      <Button variant="secondary" className="secondary-button dashboard-custom-trigger" type="button" onClick={openDialog}><SlidersHorizontal size={17} aria-hidden="true" />Tùy chỉnh</Button>
-      <BottomSheet eyebrow="Khoảng báo cáo" title="Chọn ngày tùy chỉnh" titleId="dashboard-period-dialog-title" className="dashboard-period-dialog" ref={dialogRef} onRequestClose={closeDialog}>
-        <div className="filter-form dashboard-date-form dialog-form" aria-busy={pending}>
-          <div className="field-group"><label htmlFor="dashboardFrom">Từ ngày</label><Input id="dashboardFrom" name="from" type="date" value={dates.from} onChange={(event) => updateDate("from", event.target.value)} required /></div>
-          <div className="field-group"><label htmlFor="dashboardTo">Đến ngày</label><Input id="dashboardTo" name="to" type="date" value={dates.to} onChange={(event) => updateDate("to", event.target.value)} required /></div>
-          <div className="instant-filter-status"><span aria-live="polite">{pending ? "Đang cập nhật…" : "Kết quả cập nhật ngay"}</span><Button variant="secondary" className="secondary-button" type="button" onClick={closeDialog}>Đóng</Button></div>
-        </div>
-      </BottomSheet>
+    <section className="dashboard-period-bar" aria-label={`Khoảng báo cáo ${periodLabel}`} aria-busy={pending}>
+      <DateControl id="dashboardFrom" label="Từ ngày" value={dates.from} onChange={(value) => updateDate("from", value)} />
+      <ArrowRight className="dashboard-period-arrow" size={18} aria-hidden="true" />
+      <DateControl id="dashboardTo" label="Đến ngày" value={dates.to} onChange={(value) => updateDate("to", value)} />
+      <label className="dashboard-preset-control">
+        <span className="sr-only">Khoảng thời gian nhanh</span>
+        <span className="dashboard-preset-label" aria-hidden="true">{presetLabels[period.preset]}</span>
+        <ChevronDown size={16} aria-hidden="true" />
+        <select value={period.preset} aria-label="Khoảng thời gian nhanh" onChange={(event) => updatePreset(event.target.value as DashboardPeriod["preset"])}>
+          {Object.entries(presetLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+        </select>
+      </label>
+      <span className="sr-only" aria-live="polite">{pending ? "Đang cập nhật kết quả" : ""}</span>
     </section>
   );
 }

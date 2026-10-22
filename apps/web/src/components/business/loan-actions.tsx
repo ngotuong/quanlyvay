@@ -14,7 +14,7 @@ import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-part
 import { LoanPaymentForm } from "./loan-payment-form";
 import { SettlementForm } from "./settlement-form";
 import { PrincipalRestructureForm } from "./principal-restructure-form";
-import { BottomSheet, Button, VndInput, notifyToast } from "@/components/ui";
+import { BottomSheet, Button, DateInput, VndInput, notifyToast } from "@/components/ui";
 
 type Keys = { payment: string; expense: string; lifecycle: string; settlement: string; restructure: string };
 type DialogActivity = { dirty: boolean; pending: boolean };
@@ -149,7 +149,7 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
         <BusinessForm state={expenseState} action={expenseAction} className="compact-form">
           <input name="loanId" type="hidden" value={loanId} />
           <input name="idempotencyKey" type="hidden" value={keys.expense} />
-          <div className="field-group"><label htmlFor="expenseDate">Ngày chi</label><input id="expenseDate" name="transactionDate" type="date" defaultValue={today} required /><FieldError state={expenseState} name="transactionDate" /></div>
+          <div className="field-group"><label htmlFor="expenseDate">Ngày chi</label><DateInput id="expenseDate" name="transactionDate" defaultValue={today} required /><FieldError state={expenseState} name="transactionDate" /></div>
           <div className="field-group"><label htmlFor="expenseAmount">Số tiền (VND)</label><VndInput id="expenseAmount" name="amountVnd" required /><FieldError state={expenseState} name="amountVnd" /></div>
           <div className="field-group"><label htmlFor="expenseCategory">Nhóm chi phí</label><input id="expenseCategory" name="category" required placeholder="Ví dụ: Đi lại" /><FieldError state={expenseState} name="category" /></div>
           <div className="field-group"><label htmlFor="expenseNote">Ghi chú</label><input id="expenseNote" name="note" maxLength={500} /><FieldError state={expenseState} name="note" /></div>
@@ -163,7 +163,7 @@ export function LoanActions({ loanId, status, interestCycleDays, keys, context, 
           <input name="loanId" type="hidden" value={loanId} />
           <input name="idempotencyKey" type="hidden" value={keys.lifecycle} />
           <div className="field-group"><label htmlFor="eventType">Thao tác</label><select id="eventType" name="eventType" value={eventType} onChange={(event) => setEventType(event.target.value as typeof eventType)}>{status !== "BAD_DEBT" ? <><option value="RATE_CHANGE">Đổi lãi suất</option><option value="BAD_DEBT_START">Chuyển nợ xấu, ngừng lãi</option></> : <option value="INTEREST_RESUME">Bật lại tính lãi</option>}</select><FieldError state={lifecycleState} name="eventType" /></div>
-          <div className="field-group"><label htmlFor="effectiveDate">{eventType === "BAD_DEBT_START" ? "Ngày cuối cùng còn tính lãi" : "Ngày hiệu lực"}</label><input id="effectiveDate" name="effectiveDate" type="date" defaultValue={today} required aria-describedby="effective-date-hint" /><FieldError state={lifecycleState} name="effectiveDate" /><p className="field-hint" id="effective-date-hint">{eventType === "BAD_DEBT_START" ? "Ngày này vẫn được tính lãi; hệ thống ngừng phát sinh lãi từ ngày kế tiếp. Nếu kỳ cuối chưa đóng nhưng vẫn phải thu đủ, hãy chọn ngày kết thúc kỳ đó." : eventType === "INTEREST_RESUME" ? "Hệ thống bắt đầu tính lãi trở lại từ đầu ngày này." : "Lãi suất mới áp dụng từ đầu ngày này. Muốn giữ nguyên kỳ đã đóng, hãy chọn ngày đầu kỳ kế tiếp."}</p></div>
+          <div className="field-group"><label htmlFor="effectiveDate">{eventType === "BAD_DEBT_START" ? "Ngày cuối cùng còn tính lãi" : "Ngày hiệu lực"}</label><DateInput id="effectiveDate" name="effectiveDate" defaultValue={today} required aria-describedby="effective-date-hint" /><FieldError state={lifecycleState} name="effectiveDate" /><p className="field-hint" id="effective-date-hint">{eventType === "BAD_DEBT_START" ? "Ngày này vẫn được tính lãi; hệ thống ngừng phát sinh lãi từ ngày kế tiếp. Nếu kỳ cuối chưa đóng nhưng vẫn phải thu đủ, hãy chọn ngày kết thúc kỳ đó." : eventType === "INTEREST_RESUME" ? "Hệ thống bắt đầu tính lãi trở lại từ đầu ngày này." : "Lãi suất mới áp dụng từ đầu ngày này. Muốn giữ nguyên kỳ đã đóng, hãy chọn ngày đầu kỳ kế tiếp."}</p></div>
           <div className="field-group"><label htmlFor="newRate">Lãi suất mới (%/{interestCycleDays} ngày)</label><input id="newRate" name="periodRatePercent" inputMode="decimal" placeholder="Để trống khi chuyển nợ xấu" aria-describedby="new-rate-hint" /><p className="field-hint" id="new-rate-hint">Nhập phần trăm của cả kỳ {interestCycleDays} ngày.</p><FieldError state={lifecycleState} name="periodRatePercent" /></div>
           <div className="field-group"><label htmlFor="eventNote">Ghi chú</label><input id="eventNote" name="note" maxLength={500} /><FieldError state={lifecycleState} name="note" /></div>
           <ActionMessage state={lifecycleState} /><FormSubmit>Cập nhật</FormSubmit>

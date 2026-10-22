@@ -1,406 +1,92 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.330
-last_updated: 2026-10-13
+roadmap_version: 1.0.363
+last_updated: 2026-10-22
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C100
 current_status: IN_PROGRESS
-last_completed_checkpoint: C99
+last_completed_checkpoint: C112
 next_checkpoint: null
 ---
 
 # Project Context
 
-Tài liệu này chứa trạng thái hiện hành. Quy tắc ổn định nằm ở [AGENTS.md](AGENTS.md),
-phạm vi/acceptance criteria ở [roadmap](docs/IMPLEMENTATION_PLAN.md).
-Hướng dẫn chuyển cuộc trò chuyện: [HANDOFF_NEXT_SESSION.md](docs/HANDOFF_NEXT_SESSION.md).
-Lịch sử dài đã chuyển nguyên văn sang [bản lưu đến C90](docs/history/project-context-through-c90.md);
-không dùng lịch sử để suy quyền thực hiện mới.
+Tệp này chỉ giữ trạng thái hiện hành. Quy tắc làm việc nằm trong [AGENTS.md](AGENTS.md), phạm vi
+và lịch sử checkpoint nằm trong [roadmap](docs/IMPLEMENTATION_PLAN.md), còn bằng chứng chi tiết nằm
+trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
 
-## 1. Trạng thái và công việc kế tiếp
+## 1. Trạng thái hiện hành
 
-- C100 `IN_PROGRESS` ngày13/10/2026: OWNER phê duyệt rõ C100 trong hội thoại.
-  [Phạm vi đã duyệt](docs/dashboard-rpc-performance-proposal.md): read-only profiling,
-  tối ưu RPC/index có bằng chứng qua migration/version/rollback, exact financial parity,
-  Auth/RLS, các gate/RequiredCI và root Preview/Production rollout. Không tăng timeout/
-  retries/CIbudget hoặc đổi deps/accounts/secrets/Google/backup/remoteQAfinancial writes.
-  Baseline ae16ed6af828dc4072799c4454c4e4503b172d27; C99 closingCI38350818332
-  SUCCESS cả5jobs/E2E86PASS19SKIP0FAIL36.1m. Stablealiases đang C99.
-  Local source thêm RPCv4 single-pass, giữ v3 rollback; app read đổi v4. Fixture40loan exactJSON,
-  v3 median889.2/p95942.1ms → v4 median209.2/p95225.1ms,10warm mỗi phase. Complex parity gồm
-  cutoff/reversal/stop-resume/restructure/settled/overdue và reversed comparison đạt. Lint/
-  typecheck/unit123/build19/pgTAP542-25files/fullE2E87PASS18SKIP0FAIL21.0m đạt,retries0;
-  reset migration sạch và C20-test55322 sixcounts0. Production pre-migration 11RPC warm
-  median5319.2/p955489.3ms;10client median5811/p956089.7ms. [Report](docs/dashboard-c100/report.md).
-  OWNER báo loading không xuất hiện cả mở app/chuyển mục mobile+desktop. Đã tái hiện feedback bị
-  clear lúc URL commit trước route content ready; iOS startup image chỉ cold launch. Không sửa UI
-  trong C100; [đề xuất checkpoint riêng](docs/loading-visibility-proposal.md) chưa duyệt.
-  Source `174045436a1f56b83c00e06b022a471d9927b313` đã push; RequiredCI
-  [38393447554](https://github.com/ngotuong/quanlyvay/actions/runs/38393447554) SUCCESS cả5jobs.
-  Migration v4 `20261013090000` đã áp và ledger remote khớp; Production vẫn gọi v3. Remote lint
-  phát hiện helper cutoff cần volatility `STABLE` thay vì `IMMUTABLE`; migration sửa phân loại
-  `20261013192500` đã qua reset sạch38migrations/database lint/testC100 14/14; đang chờ RequiredCI
-  source correction trước khi áp. Blocker: không. Chưa rollout.
+- C100 `IN_PROGRESS`: OWNER đã phê duyệt tối ưu lời gọi đọc Tổng quan. RPC v4 đã phát hành và đạt
+  gate tự động; phần còn lại là nghiệm thu định lượng trên iPhone thật. Không mở checkpoint mới.
+- C112 `COMPLETED` ngày 22/10/2026: giao diện C111 cùng nền loading C107 đã được phát hành. OWNER
+  đã kiểm cả hai Production alias; Dashboard, Khoản vay, Đối tác và Thông báo đều Auth HTTP 200.
+- C101–C112 đều `COMPLETED`. Chi tiết acceptance, test và deployment được giữ trong roadmap và
+  báo cáo phát hành tương ứng.
+- Không có blocker kỹ thuật hoặc rollout đang chờ. C100 chỉ còn thiếu chuỗi số đo thiết bị theo
+  acceptance đã duyệt.
 
-- C99 `COMPLETED` ngày13/10/2026, OWNER phê duyệt12/10. Startup48PNG/metadata/theme,
-  bounded partial prefetch, shell reads song song/request client dedup, offline public503 và
-  diagnostics chỉ metadata. Không schema/RPC/engine/index/DBtimeout/deps/accounts/secrets/
-  Google/backup/remote ledger changes. Baseline8a54ff8; runtime source
-  `6d6f1e182a9c99bffaa3c316818a1c3e4a8c84d7`; [CI38337230362](https://github.com/ngotuong/quanlyvay/actions/runs/38337230362)
-  SUCCESS cả5jobs, unit123/pgTAP527/24files/Auth6/0/E2E86PASS19SKIP0FAIL29.2m,
-  105scheduled/retries0. Source44b769a/CI38263260459 FAIL hai transportC63/C87 do warmed
-  prefetch; harness đã sửa, giữ assertions/timeouts/retries/skips/45mjob. Lint/typecheck/build/
-  policy/audit/secret/upload guard đạt; fullupdated local87/18/0 20.5m; focusedfinal3/0 1.9m.
-  RootPreviewcreate vàresume đều87PASS18SKIP0FAIL20.7m/unit123/build đạt, exit0.
-  Preview `dpl_CEwPr3DtpYcM49GCPMffTK7adf9U`, targetPreview/Ready/45Functions sin1,
-  [immutable](https://quan-ly-vay-ca-nhan-ne1d38vu7-ngotuong2105.vercel.app),
-  [stable](https://tindung-preview.vercel.app).
-  Production `dpl_14VquPhpxUa5yeA8Cb9z7ejcWG4Z`, targetProduction/Ready/45Functions sin1,
-  [immutable](https://quan-ly-vay-ca-nhan-hiu7tkenf-ngotuong2105.vercel.app);
-  root skip-domain create/promote exit0. [Production](https://tindung.vercel.app) và
-  [default](https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app) trỏ đúng14Vqu.
-  Cảhai đúngproject prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F/Git6d6/UID240/240;
-  candidate Auth7routes+4loanDetailtabs mỗi môi trường PASS. Sauchuyểnalias: public4/4,
-  Auth3mainroutes, startup48+diagnosticmarker, console0/runtimeerrors0/HTTP5000 trênbaalias.
-  [Releaseproof](docs/iphone-c99/release-proof.json), [report](docs/iphone-c99/report.md).
-  C98rollbackPreview3BXy…/Production5aqr… freshidentity/public/Auth/runtime đạt trướcrollout,
-  giữ nguyên/chưa kích hoạt. 218runtimefreeze/73financialprotected/17C75exact/sixC20-test55322
-  counts0; main54322 không chạm. Không submit financial/account/settings form trong smoke.
-  OWNER iPhone16ProMax/iOS26, icon tindung.vercel.app: logo/loading1–2s, Tổngquan4–5s,
-  chuyểnmục2–3s, baseline5–7s; [ownerreport](docs/iphone-c99/owner-iphone-after.json).
-  Ước lượng, không5mẫu stopwatch hoặc chứng nhận native toàn diện; firstinstall/expired/
-  offline/rotation/OSlivetheme/AT/PNGselection/continuouspixelpaint NOT_TESTED.
-  Local40browser-clock samples/phase main-nav~363ms gầnnhưkhôngđổi; v1walltime bịpolling,
-  khôngspeedup. Remote45driversamples matchedPreview dashboard5721→5803ms, khôngcải thiện.
-  RPCsuccessfulmedian5.33/5.39s (8mẫu mỗi môi trường), Auth/profile48/47 và65/75ms;
-  gồmnetwork/server/retries, khôngSQL-only/traceghéprequest. C100 chỉđềxuất, chưatriểnkhai.
-  Commit chốt tài liệu phải RequiredCI đúngSHA5SUCCESS trước báohoàntất; SHA/run ghi hội thoại
-  tránh vòng tự tham chiếu. Không deploy lại vì tài liệu chốt không đổi runtime.
+## 2. C100 — Công việc còn lại
 
-- C98 `COMPLETED` ngày11/10/2026: nghiệm thu A/C92–C97 và phát hành Preview/Production/defaultalias đạt.
-  Source211f8e4/CI38069136549, closingproof4b22848/CI38144466141 SUCCESS5jobs.
-  Finalstatus7e130d9/CI38146959473 hai lần CANCELLED do job35m; raw giữ, không tínhPASS.
-  OWNER phê duyệt riêng deadlinejobintegration35→45m ngày11/10; đúng một dòng workflow đã đổi,
-  test/assertiontimeouts/retries0/102bài/skips/reset/teardown/5jobs/fail-closedgate giữ nguyên.
-  Amendment/closingproofeebe68d/CI38152652299 SUCCESS5jobs;pgTAP527/24files/Auth6/0/
-  E2E83PASS19SKIP0FAIL30.0m,retries0. pnpmci:validate/unit121/diff/secretPASS sau amendment.
-  [Bằng chứng amendmentCI](docs/release-c98/amended-closing-ci.json),
-  [lịch sử blocker đã giải quyết](docs/release-c98/final-ci-blocker.json).
-  Preview3BXy…/Production5aqr… Ready45sin1/3alias;nativecandidate72/alias60/local84/18/0 đạt.
-  Runtime153/financial73/C75exact/C20-test55322sixcounts0 giữ; không deploy lại hoặc mutateledger/
-  account/schema/secrets/Google/backup trong amendment. Blocker: không.
-  Commitfinalstatuschỉdocs vẫn phảiRequiredCI exactSHA5SUCCESS trước báo chốt; SHA/run ghi hội thoại
-  tránh vòng tựthamchiếu. [ReportC98](docs/release-c98/report.md). Chưa địnhnghĩa/duyệt checkpoint kếtiếp; dừng.
+Phạm vi: [đề xuất C100](docs/dashboard-rpc-performance-proposal.md) và
+[báo cáo hiện hành](docs/dashboard-c100/report.md).
 
+- `get_management_dashboard_bundle_v4` tính một lần cho mỗi khoản vay; v3 vẫn được giữ làm rollback.
+- Migration `20261013090000_c100_dashboard_bundle_single_pass.sql` và correction
+  `20261013192500` đã áp; remote database lint sạch, parity nghiệp vụ đạt.
+- Gate đã đạt: lint, typecheck, unit 123, build 19 route, pgTAP 542/25 file và full E2E
+  `87 PASS / 18 SKIP / 0 FAIL`, retries 0. Required CI `38397792297` đạt đủ 5 job.
+- Production trước tối ưu: RPC warm median 5319,2 ms; client Khoản vay → Tổng quan median 5811 ms.
+- Sau tối ưu: RPC Production warm median 1415,9 ms; client median 3095 ms. Sau khi bỏ prefetch
+  suy đoán ở C110, runtime ghi `dashboard.bundle` 1470,8–1566,3 ms và không còn burst request chi
+  tiết khoản vay. OWNER ước lượng quay lại Tổng quan khoảng 2–3 giây.
+- Acceptance còn thiếu: trên cùng iPhone 16 Pro Max/iOS 26 và cùng mạng, ghi riêng ít nhất 5 lượt
+  cold launch và 5 lượt chuyển mục/quay lại Tổng quan. Không dùng cảm nhận chung thay chuỗi số đo.
+- Sau khi OWNER cung cấp số đo: cập nhật report/context/roadmap, chạy gate tài liệu, tạo commit chốt
+  và chỉ push/đóng C100 khi có phê duyệt phù hợp trong phiên mới.
 
-- C91 `COMPLETED` ngày 08/10/2026. Bản sửa VND/tab C90 đã phát hành trên Preview,
-  Production và alias mặc định; không thay nghiệp vụ, dữ liệu thật hoặc schema/RPC.
-- Runtime source tạiC91: `ed72b8615e19f2a3e6667014c86da4ac920ed1ba`.
-  Required CI [37644195261](https://github.com/ngotuong/quanlyvay/actions/runs/37644195261)
-  thành công cả 5 job. Commit chốt `839d34b348e7dd435688365435cc0336bfcb4eb0` có [Required CI](https://github.com/ngotuong/quanlyvay/actions/runs/37803762628) thành công cả 5 job:
-  pgTAP 527/24 files, Auth 6/0, E2E 63 đạt/19 bỏ qua.
-  Commit trạng thái cuối chỉ sửa tài liệu; phải kiểm CI đúng SHA trước báo hoàn tất.
-  SHA/run cuối được ghi trong hội thoại để tránh vòng commit tự tham chiếu.
-- Preview: `dpl_CcJW5X4RDoUjCnPyi34t8uWapJCV`, target Preview, Ready, 43 Functions
-  tại `sin1`; [immutable URL](https://quan-ly-vay-ca-nhan-1ypbqdcn7-ngotuong2105.vercel.app),
-  [stable alias](https://tindung-preview.vercel.app). Pipeline tạo và resume chạy từ root
-  bằng `pnpm deploy:preview`; gate trước chuyển và hậu kiểm đạt.
-- Production: `dpl_Bnfe3DmqhkZ2vdKKkgZZJrNosEHu`, target Production, Ready,
-  43 Functions tại `sin1`; [immutable URL](https://quan-ly-vay-ca-nhan-j2j77wuy3-ngotuong2105.vercel.app).
-  Candidate dùng skip-domain; promote exit 0. [Production](https://tindung.vercel.app) và
-  [alias mặc định](https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app) trỏ đúng deployment.
-- Lint/typecheck/unit 117/build 19/policy/actionlint/audit/secret/native compatibility đạt.
-  E2E sau dependency patch: 64 đạt/18 bỏ qua/12,9 phút; root Preview create 64/18/11,8 phút,
-  resume 64/18/12,1 phút. OWNER duyệt riêng source-map-js 1.2.2/sharp 0.35.5; libvips 1.3.4 theo Sharp;
-  audit ban đầu 2 HIGH được giữ, sau bản vá không còn known vulnerabilities.
-- CI chốt đầu 37659616241/705b6da thất bại do race C87 delayed RSC interception.
-  Synthetic transport tái hiện cùng lỗi. Test C87 đã sửa để đợi callback trước khi gỡ
-  bộ chặn: targeted 3/3 đạt/4,3 phút và full E2E 64 đạt/18 bỏ qua/11,5 phút, retries 0.
-  Giữ toàn bộ assertion/timeout/retry/skip; test bị loại khỏi payload Vercel, runtime không đổi.
-- Native trước chuyển: 140 mẫu/32 kiểm tra cuối đạt. Sau chuyển: 54 mẫu Auth trên ba alias,
-  12 kiểm tra interaction, public 4/4 mỗi alias, glyph/tab/B/Inter/KPI/keyboard/privacy đạt;
-  runtime/console của lượt rollout sạch. Preferences/viewport được trả về ban đầu.
-  Inventory 157 UID khớp, forbidden leaves 0. Giữ 274 effective baseline hashes (273 file
-  nguyên bản và ngoại lệ whitespace proposal.css), 17 file C75 đúng hash; sáu bảng C20-test
-  cổng 55322 rỗng. C88 rollback đã xác minh; không kích hoạt hoặc cleanup.
-- Hậu kiểm tiếp tục ngày 08/10 từng thấy Dashboard `query_canceled` 57014. Tải mới hồi phục;
-  khoảng log sau hồi phục không có error/HTTP 500. Nguyên nhân database chưa xác định,
-  giữ rủi ro tái diễn trong [continuation-health](docs/release-c91/continuation-health.json).
-  Không chỉnh schema/RPC/timeout. Giới hạn thiết bị, AT và remote state giữ rõ trong report.
-- C92 `COMPLETED` ngày09/10/2026. OWNER chọn **A**, yêu cầu Quick Amount50tr/100tr/150tr/…;
-  chốt4nút +50tr/+100tr/+150tr/+200tr, cộng dồn theo context/validation, không autosubmit.
-  Giữ B/Inter/KPI trước task; mobile hai bảng Dashboard thành thẻ, desktop giữ bảng;
-  taskdesktopfull-width/cashflowbelow thuộc C94, drawer phải/bottom sheet thuộc C96.
-  [Đặc tả chốt](docs/design-c92/selected-design.md), [brief](docs/design-c92/brief.md),
-  [report](docs/design-c92/report.md), evidence/baseline/prototype-qa/contrast JSON cùng thư mục.
-  Mẫu/32ảnh before đã lưu bền trong docs/design-c92/reference/,9ảnh mẫu A trong screenshots/.
-- C92 gates: baseline32samples/16journeys, localtest1PASS1.6m;50triệu Tiền gốc từ ôtrống đãfocus
-  cần8phím số ở375/1280×900 LightDark, submit0. Mục tiêu C95 mới là1chip +50tr từ cùng state;
-  không giữ điều kiện10triệu/≤2chips trái lựa chọn OWNER. Prototype110samples0fail, keyboard2PASS,
-  labelchips4PASS; contrast10cases text≥4.746/control≥3.860; EvonA rawP0, BrawP1 giữ lịch sử
-  nhưng B không được chọn. Syntax/diff/secret0findings đạt;1063existing hashes bảo toàn.
-  GuardDocker C20-test55322 đúnglabel/port, sixcounts0 sau teardown. Chỉ docs/static đổi;
-  không chạy lại fullgate sản phẩm, không runtime/remote mutation hoặc phát hành.
-- C93 `COMPLETED` ngày09/10/2026, OWNER phê duyệt trong hội thoại hiện tại. Palette→semantic→component
-  tokens, CSS feature tách theo cascade gốc, gỡ13declarations trùng; EmptyState7consumer và
-  ResponsiveTable2consumer giữ semantics/hình hiện tại. Badge/Card/Button tái dùng nguyên trạng.
-  [Report](docs/refactor-c93/report.md), [đối chiếu](docs/refactor-c93/comparison.html), inventory/proof/evidence cùng thư mục.
-- C93 gates: lint/typecheck/unit117/build19 PASS; fullE2E64PASS/18SKIP/0FAIL/12.0m/retries0.
-  Existing E2E assertions/timeout/skip giữ nguyên. Computed160/160 khớp; pixel159full-page +1viewport
-  khớp. Raw stitched full-page mismatch của một bảng dài giữ rõ; viewport375×900 cuối trang khớp.
-  Evon public login Light/Dark fixed+sweep rawP0, không chứng nhận toànapp. Diff/secret/artifact và
-  preservation được chốt trước báo hoàn tất; source trước1132tracked,17C75exact/15generated restored,
-  guardDocker C20-test55322 đúnglabel/port, sixcounts0 sau teardown.
-- CSS nguồn1968→2033dòng, raw143046→152289bytes, gzip24273→26217bytes; file lớn nhất1729→410.
-  Đây là source metrics, không phải transfer/latency; không tuyên bố tăng hiệu năng. Compiled trước NOT_MEASURED.
-- C94 `COMPLETED` local ngày10/10/2026; OWNER duyệt09/10 và tiếp tục trong hội thoại.
-  Thiết kế A: hai bảng Dashboard cards dưới1024px/desktoptable, taskfull-width/cashflowbelow,
-  KPI vẫn trước task. Helper expense/account14px, tablevalues16px/unit≥12px, name200clamp2/
-  disclosure44px ngoài heading/link; fullidentity/keyboard/privacy giữ. Notification hover/selected
-  khác fill/weight/aria-current; shared control-border/error-text theo C92, giữ B/Inter/nativepickers.
-  [Report](docs/readability-c94/report.md), [đối chiếu](docs/readability-c94/comparison.html), evidence cùng thư mục.
-- C94 gates: lint/typecheck/unit117/rootbuild19 PASS; full69PASS/18SKIP/0FAIL13.7m,retries0.
-  Firstfull68PASS18SKIP1FAIL12.5m: C81 ordinaryrow160.171875>160px. Badge14px giữ, line-height1.4;
-  cap/assertions/timeout/retry/skip hiện hữu không đổi. C81+C94targeted8PASS1SKIP2.8m.
-  Matrix trước chỉnh badge cuối80main/84supplement/36bigint/36zoom PASS6.5m; phần Loan/metadata
-  bị tác động kiểm lại targeted/full source cuối, không gọi ảnh matrix là pixel toànsource cuối.
-- DataKPI/detail/drawer/notifications/tableheaders/order/values khớp cùng fixture before;
-  rendered375/390/768/1024/1440LightDark,320/1920/375×667 và root-font200 stress. Zoom emulation
-  viewportCSSphysical/2,DPR2,PNGwidth vàglyphphysical2x đã đo36states; native zoom/device không chứng nhận.
-  Evon8probe rawDashboard2/theme/Expenses1/theme/NotificationsSettings0, giữ raw. Actualpaint/open
-  reconciliation đạt: zero-textvisiblecontrast≥5.556/tooltipopacity0 khôngpainted; reversalopen1line44px.
-- C94 preservation/diff/artifact/secret PASS:1157trackedbefore,12scopechanged/1145unchanged,
-  17C75exact/15generatedrestored,132runtimefreeze; guardC20-testDB55322 đúnglabel/port, sixcounts0.
-  Không push/deploy/remote/schema/RPC/engine change; runtime phát hành vẫn C91.
-- C95 `COMPLETED` local ngày10/10/2026, OWNER phê duyệt trong hội thoại. Quick Amount opt-in
-  chỉ Ghi giao dịch → Tiền gốc: +50tr/+100tr/+150tr/+200tr cộng dồn bằng BigInt/integerstrings.
-  Snapshot dư gốc raw từ server giới hạn nhập nhanh; RPC vẫn authoritative. Không autosubmit,
-  không áp nhóm tiền lớn vào lãi/chi phí hoặc thay drawer/loading ngoài scope.
-  [Report](docs/quick-amount-c95/report.md), [đối chiếu](docs/quick-amount-c95/comparison.html),
-  inventory/goal/regression/component/probe/preservation/manifest cùng thư mục.
-- C95 goal: cùng Minh An1.2845b, principal trống đãfocus375/1280×900LightDark,50triệu8phím số
-  trước→1chip sau;100/150/200triệu cũng1chip từ trống,16samples/submit0. Chọn loại/clear/focus
-  tính riêng, không tuyên bố thời gian hoặc nhanhgấp3.10triệu vẫn gõ/paste;17digit/max helper/
-  component chính xác, vượt trần giữ draft/alert, callback/dirty/focus/caret/reset/pending đạt.
-- C95 gates: lint/typecheck/unit121/rootbuild PASS; full73PASS/18SKIP/0FAIL14.2m,retries0.
-  Visual/draft2PASS2.8m; Evon original7widths/themeLightDark,0mục máy xếp Hỏng, console/contrast/
-  money/overflow/tiny-target0; focus/native picker warnings giữ theo thiết kế. Responsive12states
-  có320px và375×420 mô phỏng keyboard, chip≥44px. Bốn C95E2E đạt submit50triệu/error/retry/
-  idempotency1transaction/reset; không sửa assertions/timeouts/retries/skips hiện hữu.
-- Lịch sử C95 targeted1PASS3FAIL→2PASS2FAIL→3PASS1FAIL giữ rõ trong verification-history:
-  native listener clear lỗi restore draft trước React onChange được bỏ, clear đi qua React change/
-  reset; các lỗi replay note/query/animation/caret harness sửa, không giảm gate. Full server log
-  có destination-stream-closed-early như baselineC94; giữ raw, không gọi toànapp runtimeerrors0.
-- C95 preservation/diff/artifact/secret PASS:1183trackedbefore/8scopechanged/1175unchanged,
-  17C75exact/15generatedrestored,130websrcfreeze;73schema/actions/validation/domainfiles không đổi.
-  GuardDocker C20-test đúnglabel/DB55322, sixcounts0 sau teardown. Không push/deploy/remote/schema/
-  RPC/financialengine change; runtime phát hành vẫn C91.
-- C96 `COMPLETED` local ngày10/10/2026, OWNER phê duyệt trong hội thoại. Một click tác vụ lãi
-  OWNER/EDITOR mở drawer ngay Dashboard,0route transition;480px/right16px desktop, mobileinset12px,
-  bodycuộn/headerfooter giữ vị trí. Dynamic form/context chỉ khoản đang chọn; VIEWER/privacy/
-  deep-link cũ/gốc quá hạn giữ semantics. PaymentForm dùng chung, ServerAction/RPC authoritative.
-  [Report](docs/dashboard-drawer-c96/report.md), [đối chiếu](docs/dashboard-drawer-c96/comparison.html),
-  implementation/budget/performance/targeted+full/probe/preservation/manifests cùng thư mục.
-- C96 lifecycle: dirtyclose/Back một prompt; reject giữdraft, Forward/reload phiên/key mới;
-  abort/stale/date/timeout12s/readretry/rapid/pending và transportmutationretry giữdraft/key.
-  Actualpartial1000VND/advance theo projected task,1POST1row cho operation/replaykhôngtrùng,
-  error giữdraft, serverKPI/task revalidate; successclose/reset/toast/focus trigger hoặc heading.
-  Số dư theo ngày có thể khác projection của task, không frontend settlement/optimistic money.
-- C96 gates: lint/typecheck/unit121/rootbuild19 PASS; full79PASS18SKIP0FAIL15.5m,retries0;
-  targeted+originalprobe7PASS3.5m. Matrixtargeted16/full18states320–1440LightDark,375×420/812;
-  phonekeyboard không chứng nhận. Matched375/1280×900:512865→521176decodedJS (+8311),
-  openadditional57405→11759; budget PASS. Nominalbusinessreads4→2,Auth/layout excluded;
-  elapsedlocal846–869→442–860ms MEASURED_ONLY, không hứa nhanhgấp3/Production latency.
-- C96 rawprobe3mục/theme được giữ:2VNDtooltip ancestoropacity0 khôngpainted và preparedbody
-  scroll1px; actual375×812initial0,clear/focus sauTabchecks188px,header/footer giữ. Nativepicker/
-  focus/density warnings giữ theo C92/outsideC96. Backhash bypass và focus trướcRSC từng FAIL,
-  đã sửa qua guardedpopstate/rAF/boundedfocusrecovery; lịch sử4lượt targeted giữ rõ trong report.
-  Fullserverlog có destination-stream-closed-early/negativeAuth-export cases; không gọi error0 toànapp.
-- C96 preservation/diff/artifact/secret PASS:1207trackedbefore/10scopechanged/1197unchanged,
-  140websrcfreeze/73financialprotectedfiles giữ;17C75exact/15generatedrestored. C20-test đúnglabel/
-  DB55322,sixcounts0; không mainDB54322,push/deploy/remote/schema/RPC/engine change, runtime vẫn C91.
-- C97 `COMPLETED` local ngày10/10/2026; OWNER phê duyệt trong hội thoại.9route skeleton/rootneutral,
-  Dashboardread reservebody/freshbalance/focusHủy; sharedBottomSheet dampingcap180/raw88px,
-  pointercancel/captureloss không dismiss. Enter220/exit150/snapback320/shimmer1.8s, detailsnative/
-  presspaint/reducedstaticstatus; dirty/pending/BackForward/focus/draft giữ.
-  [Report](docs/loading-motion-c97/report.md), [đối chiếu](docs/loading-motion-c97/comparison.html),
-  implementation/budget/baseline/targeted+full/probe/video/PNG/source/preservation/validation cùng thư mục.
-- C97 gates: lint/typecheck/unit121/rootbuild19 PASS; targeted+probe6PASS0FAIL7.0m;
-  full84PASS18SKIP0FAIL19.2m,retries0.55observations mỗi targeted/full,36route2s/4coldAuthfont/
-  12drawer2/10s/errorretrydateabort/gesturepending. CLS≤.1,targetedmax0.032092,drawerbboxkhớp,
-  overflow0; paintedfallback→2RAFcontent/fontready, không zeroCLS/pixelequivalence toànapp.
-  Full1 83PASS18SKIP1FAIL18.7m C78 strictselector skeleton/loaded; tách loadingselector trong
-  runtime, không sửa gateC78. Targeted/harness/FFmpegfailures giữ raw trong verification-history.
-- C97 Evon7fixedwidths×2theme rawP1preparedfocus-scroll/theme giữ; actualready/clearfocus375×900
-  scroll0, Tabexploration cuộn body có chủ ý. Focus/nativepicker/densitywarnings theoC92.
-  Review14ảnh/4video actual+slow4x;25fps,375encoded374×812,không60fps/devicecertification.
-  Fullserverlog destination-stream-closed-early/negativeAuth-export giữ, không error0 toànapp.
-- Phép đo liên tục bổ sung3PASS0FAIL5.4m/53observations (36route/4cold/12drawer+readerror); window từ navigation/actionstart hoặc coldinit đến2RAFcontent/fontready, rawhadRecentInput/sourceRects giữ. MaxrouteCLS0.021980/Authdrawer0.032092≤.1; primaryregion/windowevidence riêng, khôngzeroCLS toànapp.
+## 3. Bản đang phục vụ và rollback
 
-- C97 preservation/diff/artifact/secret PASS:1235trackedbefore/10scopechanged/1225unchanged,
-  153websrcfreeze/73financialprotected giữ;17C75exact/15generatedrestored. C20-testlabel/
-  DB55322 đúng,sixcounts0; không main54322/push/deploy/remote/schema/RPC/engine/dependency change.
-  Runtime tại thờiđiểmC97 vẫn C91. C98 `COMPLETED` sau amendmentCI45m đạt; OWNER phê duyệt ngày10/10/2026 trong hội thoại.
-  Phạm vi C98: nghiệm thu chuỗi A/C92–C97 và phát hành Preview/Production/alias theo C91/runbook.
-  Source phát hành tại C98: `211f8e49eee0b78eca4c9723b526604a99780b3d`;
-  [CI38069136549](https://github.com/ngotuong/quanlyvay/actions/runs/38069136549) SUCCESS đủ5job:
-  pgTAP527/24files,Auth6/0,E2E83PASS19SKIP0FAIL24.9m. Source83bc0fe/CI38068842563 QualityFAIL
-  do ignore-contract drift, overallCANCELLED khi push bản sửa; rawfailure giữ rõ.4testport đổi theo
-  CI54321/local55321, exactfingerprint exception checksumC92tokens.css vàuploadguard đồng bộ;
-  runtime153files không đổi từ C97. Local lint/type/unit121/build19/policy/audit PASS;
-  full84PASS18SKIP0FAIL19.4m vàrootPreviewcreate84/18/0/19.4m/retries0. Matrix100/72stress/4System/
-  10keyboard,36VND/36zoomemulation; contrast supplement1224nodes/min4.8294/0fail.56PNGfake.
-  Previewcandidate `dpl_3BXyNm6T6Kp24CmNqz25YtPgVyD1`, targetPreview/Ready,45routeFunctions sin1,
-  https://quan-ly-vay-ca-nhan-b4oyajmx7-ngotuong2105.vercel.app. Rootpnpm deploy:preview tạo;
-  SourceCI/runtimefreeze shim fail-closed PASS trướcdeploy, public4/4/sourceUID188/188/preauthlogs0.
-  Productioncandidate `dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF`, targetProduction/Ready/skip-domain,
-  45routeFunctions sin1, https://quan-ly-vay-ca-nhan-havdwo649-ngotuong2105.vercel.app;
-  public4/4/sourceUID188/188/preauthlogs0. API projectId/ownerId/regions/SHA vàCLI provenance đạt;
-  middlewarePreview sin1, Production8regions gồm sin1, tách khỏi45routeFunctions.
-  Release/hậukiểm C98 đạtngày11/10: Previewrootresume84PASS18SKIP0FAIL20.2m/retries0, stablealias
-  https://tindung-preview.vercel.app→dpl_3BXyNm6T6Kp24CmNqz25YtPgVyD1. Productionpromoteexit0;
-  https://tindung.vercel.app và https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app→
-  dpl_5aqr2F3aWQJhTZizH1zMyXgEL7hF. Baalias Ready/đúngtarget/45routeFunctions sin1.
-  Nativecandidate72samples9route×3751440×LightDark, alias60samples20mỗialias PASS; Inter/VNDunits/
-  overflow0/KPIbeforetask. Drawer/Tab/Escape/focus/privacy/QuickAmountnháp PASS,noautosubmit;
-  OWNER hỗtrợnativeCancel/discard đãxácminh. Purehelperfailures/providerdeadline/Previewbatch30s
-  interrupted giữ raw/excluded, khônglấy lượt lỗiPASS. PreferencesSystem/privacyẩn candidate/
-  Preview/Production,defaultSystem/hiệntiền/viewportreset. Console0/Public4each/runtime0errors500
-  trongwindowghi deployment-proof, khôngwholeappzeroerror. FreshC91rollbackCcJW/Bnfeverified,
-  khôngactivate.153runtime/73financialfiles exact,1296before10allowed1286unchanged/17C75exact/
-  15generatedrestored/guardC20-test55322/sixcounts0 sauteardown; khôngmain54322/remoteledger/accounts/
-  schema/secrets/Google/backupmutation. [ReportC98](docs/release-c98/report.md) vàreleaseproofs.
-  Closingproof4b22848a35e440eac20877b576ac463abfb48b9b/CI38144466141 SUCCESS5job,
-  pgTAP527/24files/Auth6/0/E2E83PASS19SKIP0FAIL27.4m,retries0. FinalCI7e130d9/38146959473
-  cả2lần CANCELLED vì deadlinejob35m; raw giữ/khôngPASS. OWNER duyệt riêng job35→45m11/10,
-  một dòng workflow/test/assertiontimeouts/retries0/skips/reset/teardown/5jobs/gate giữ nguyên.
-  Amendmentclosingeebe68d/CI38152652299 SUCCESS5job;pgTAP527/24files/Auth6/0/
-  E2E83PASS19SKIP0FAIL30.0m,retries0. C98COMPLETED/blockerkhông; finalstatuschỉdocs phảiCI
-  exactSHA5SUCCESS trước báoOWNER, SHA/run ghi hội thoại. RoadmapdừngC98/chưa có mốc kếtiếp duyệt.
-  NOT_TESTED AT/phone thật/softkeyboard/nativeclipboard/nativezoom/authenticatedSafariFirefox/
-  OS-theme-live/PWA-beforeHTML/remote save giữ rõ trong report. C91 query_canceled57014 vẫn chưa
-  xác định nguyên nhân; không mở DB tuning/Google/backup từ lịch sử.
+| Vai trò | Deployment | Immutable URL / alias | Trạng thái |
+| --- | --- | --- | --- |
+| Stable Preview C112 | `dpl_2a8avNFZHZxcDsZvheXP84dLu8Ri` | `quan-ly-vay-ca-nhan-74fc7gb9r-ngotuong2105.vercel.app` / `tindung-preview.vercel.app` | Preview, Ready, Functions `sin1` |
+| Production C112 | `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` | `quan-ly-vay-ca-nhan-967no3d6v-ngotuong2105.vercel.app` / `tindung.vercel.app` / alias mặc định | Production, Ready, Functions `sin1` |
+| Preview rollback C110 | `dpl_148HdyQj5mLLoxocf5f3hyhjfDut` | `quan-ly-vay-ca-nhan-6m940n7ty-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
+| Production rollback C106 | `dpl_92pT2tjxRvCTEwyEePzJqMpGa8TG` | `quan-ly-vay-ca-nhan-kt9gxcuu7-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 
+C112 đạt lint, typecheck, unit 123, build 19 route và full E2E
+`92 PASS / 18 SKIP / 0 FAIL`, retries 0. Hậu kiểm hai Production alias ghi
+`dashboard.bundle` 1486,8–1625,8 ms, tất cả `outcome: ok`; không có `57014`, level-error hoặc
+HTTP 500. Báo cáo đầy đủ: [release C112](docs/release-c112/report.md).
 
-## 2. Thay đổi local cần bảo toàn
+## 4. Source và workspace
 
-- C99 source44b769a/6d6f1e1 đã commit/push/phát hành, cả ba stable alias phục vụ C99: layout/nav/theme/request-scoped Supabase client/SW, startup mapping và
-  generator, 48PNG/public offline, C99 E2E và proposal/evidence/context/roadmap/handoff.
-  Không thay protected financial73files. Full E2E có thể sinh17C75; chỉ restore đúng baseline
-  sau teardown bằng helper có backup/hash, không broad reset. Raw `.cache/c99` giữ thất bại/timing.
+- Repository chuẩn: `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`.
+- Các thay đổi hoàn tất C101–C112 được gom trong commit local của phiên dọn dẹp; dùng
+  `git log -1 --oneline` để lấy SHA. Chưa push GitHub trong phiên dọn dẹp.
+- Chỉ còn worktree chuẩn. Cache build/test đã xóa; `node_modules`, root `.vercel` và backup được
+  giữ để phiên mới không phải liên kết lại project hoặc cài lại dependency.
+- Không xóa báo cáo checkpoint, migration, test, ảnh bằng chứng đã được source-control quản lý,
+  secret hoặc dữ liệu tài chính.
 
-- Branch `main`, runtime source C99 `6d6f1e182a9c99bffaa3c316818a1c3e4a8c84d7`;
-  closing proof gốc 705b6da FAIL được giữ; harness C87 đã đạt CI tại 839d34b348e7dd435688365435cc0336bfcb4eb0.
-  Initialhandoff b98fe64d332ea31ffee2b2e3adebc5ec7756744a giữ trong report.
-- Đã commit toàn bộ source/docs/harness C89/C90, handoff và historyarchive; không xóa artifacts.
-- C90 runtime chỉ `apps/web/src/app/globals.css` F1/F2 VND/tab. C63 readiness assertion
-  settlement-preview trước grabber, không sửa runtime drawer hoặc nghiệp vụ.
-- Bản vá đã duyệt chỉ pnpm-workspace.yaml/lock cho sharp0.35.5/source-map-js1.2.2 và libvips.
-- C91 source/closingproof đã push; finalstatus chỉ tài liệu. Candidate source/UID giữ nguyên.
-- C92 local commit `752fd48`, C93 `577d6f4`, C94 `0aa52ac`, C95 `82151b6`; C96 `1b54be1`; C97 local source/docs
-  và bằng chứng chốt cùng context/roadmap/handoff. C98 đã push C92–C97 và source CI;
-  C98 đãpháthành/hậukiểm/closingCI đạt.
-- Các file C75 do test sinh đã trả exact baseline. Không broad reset/cleanup cache/backup;
-  cache còn trace/log thất bại để truy vết và có synthetic session cần tiếp tục ignore.
+## 5. Bất biến cần giữ
 
-## 3. C90 — Bằng chứng local trước phát hành C91
+- Supabase PostgreSQL authoritative; Google Sheets chỉ đồng bộ một chiều.
+- Mutation qua Server Action/RPC đã validate; financial calculation authoritative ở PostgreSQL.
+- VND dùng integer, lãi suất decimal; ngày nghiệp vụ theo Asia/Ho_Chi_Minh, audit theo UTC.
+- Giao dịch tài chính dùng append/reversal, không xóa vật lý. Không cache số dư giữa request/user.
+- Preview chỉ chạy từ repository root bằng `pnpm deploy:preview` theo
+  [runbook](docs/VERCEL_PREVIEW_RUNBOOK.md).
+- Project Vercel: `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`; Supabase project dùng chung:
+  `hmfxnstrqfqpvsgfmjmd`. Không tạo dữ liệu QA trên account vận hành.
 
-- F1: number/₫ cùng dòng, đủ chữ số, scope wrapper không lan grid xuống VndText. Long amount
-  dùng ngang đầy đủ, hero≥18px; supporting long-money dùng hàng đầy ngang. F2: tab một dòng,
-  chữ14px, hit target48px. Giữ B/Inter/body16/KPI trước Việc cần xử lý.
-- 40 route samples/50presentation stress tại375/390/768/1024/1440 ×Light/Dark:0fail/overflow;
-  text90rows khớp trước/sau. Max9223372036854775807 và số âm chỉ presentation DOM với
-  VndText/formatter thực, không đưa max/signed vào ledger. Fixture17digit local C20-test.
-- 10keyboard/Back/privacy journeys đạt; Evon2probe/14fixed/55Lightsweep rawP0.36warninggroups
-  ngoàiP có disposition; giữ focus/native picker, không tự sửa Gu G1–G4 trong C90.
-- Lint/typecheck/unit117/build19 PASS. Targeted C63/C67/C72/C75/C84/C87/C90 final3:
-  **24/24 PASS7.5m**, retries0/skip0 ở mốc C90. Gate full E2E/pgTAP/Auth/Required CI
-  phát hành sau đó đã đạt trong C91 (section1); không lấy targeted thay gate đầy đủ.
-- Final2 retained23PASS/1FAIL8.0m: grabber box lấy trước async settlement-preview, sheet
-  đổi chiều cao trước mouseDown. Thêm readiness assertion vào C63; giữ prompts4/draft/focus/
-  timeout/retries. Final3 sạch; trace/log lỗi ở ignored `.cache/c90/`, không gọi lượt lỗi PASS.
-- GuardDocker đúng `QuanLyVayCaNhan-C20-test`, DB55322, sixcounts0 sau teardown.117runtime
-  files khác/C89harness/92C89artifacts/17C75hashes bảo toàn;15C75generated restored exact.
-- Artifact/native-review/secret/diff PASS: [validation](docs/remediation-c90/validation.json),
-  [report](docs/remediation-c90/report.md), [postgate](docs/remediation-c90/postgate.json).
-- Bàn giao ngày06/10: chỉ sửa tài liệu; gate liên kết/status/diff/secret và hash source/test/
-  evidence được kiểm riêng. Không chạy lại test sản phẩm/DB hoặc thao tác tài nguyên remote.
+## 6. Điểm vào phiên mới
 
-## 4. C88 — Bản rollback đã xác minh trong C91
+1. Đọc `AGENTS.md`, tệp này, [handoff](docs/HANDOFF_NEXT_SESSION.md) và phần C100 trong roadmap.
+2. Chạy `git status --short --branch` và `git log -1 --oneline`.
+3. Chỉ tiếp tục C100 sau khi OWNER chỉ dẫn rõ trong cuộc trò chuyện mới.
+4. Không mở lại C101–C112 hoặc suy quyền thao tác remote từ lịch sử đã hoàn tất.
 
-- Source `b2abc255f470cd551595cbfa9978b08242e00847`, Required CI37295262054 SUCCESS5jobs;
-  closing proof `385b7c1fc998adf7b922a0485a8a0e30c6582198`, CI37311126932 attempt2 SUCCESS.
-  CI pgTAP527/Auth6/E2E62PASS16SKIP. Chi tiết [release C88](docs/release-c88/report.md).
-- Preview `dpl_DWAs22T33Lt69qo9kdnYbXEs6dov`, immutable URL
-  https://quan-ly-vay-ca-nhan-fhyaozonj-ngotuong2105.vercel.app,
-  stable alias tại C88 https://tindung-preview.vercel.app (hiện phục vụ C99).
-- Production `dpl_3QFNFMS7hvU7pdocnSsUVLrs27wo`, immutable URL
-  https://quan-ly-vay-ca-nhan-p352oynyb-ngotuong2105.vercel.app,
-  aliases tại C88 https://tindung.vercel.app và https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app
-  (hiện phục vụ C99).
-- Candidates/aliases đúngproject/target/Ready,43route Functions sin1; public/Auth/log hậu kiểm
-  đạt ở C88. C91 đã inspect và xác minh C88 rollback trước promote; không dùng lịch sử
-  Ready làm chứng cứ hiện tại. Không cleanup deployment.
-- C88 closing attempt1 từng FAIL tại C87 delayed RSC interception `Route already handled`;
-  attempt2 đúngSHA PASS, không sửa assertion/rule. Rủi ro tái diễn chưa khẳng định hết;
-  nếu lặp cần evidence/remediation thay vì retry vô hạn.
-
-## 5. Quyết định thiết kế và backlog
-
-- OWNER không hài lòng nền đơn điệu/chữ nhỏ/nút phụ lớn, muốn phân vùng rõ và loading.
-  C87 phương án B đã duyệt: canvas xanh xám/sidebar navy/KPI cobalt, Inter, status có nghĩa.
-  KPI dư nợ/lãi ròng phải ở trên Việc cần xử lý cả DOM/reading order và màn hình.
-- App đã có skeleton shimmer, branded startup, SPA progress và một-click công việc→detail
-  auto-open payment. C96 là mở drawer ngay Dashboard, không mô tả luồng cũ cần nhiều click.
-- G1: bảng dashboard mobile cần giữ nhận diện dòng; G2: metadata11.2–11.52px; G3: tên200 ký
-  tự dài; G4: notification hover và selected chung fill. C89 ghi Gu, không lỗi quyết toán.
-  C92 đã chọn A; G1–G4 đã xử lý local tại C94, Quick Amount C95/drawer C96/loading-motion C97
-  đã hoàn tất. C98 đã nghiệm thu/phát hành, không coi đồng ý roadmap là chọn mọi Gu/style.
-- Token primitives được phép chứa giá trị màu gốc; component dùng semantic token. Không
-  mục tiêu giảm50% CSS bằng mọi giá, không đánh đồng di chuyển file với tăng hiệu năng.
-- OWNER chọn A và Quick Amount +50tr/+100tr/+150tr/+200tr ngày09/10/2026; spec tại docs/design-c92/selected-design.md.
-- Quick Amount dùng chuỗi integer/BigInt, không Number để xử lý tiền lớn; không frontend
-  quyết toán. Tiêu chí thao tác phải nêu trạng thái ban đầu, giá trị, focus/reset/pending.
-- Không ép header≤25% mọi viewport, không hứa nhanhgấp3/60fps mọidevice/zeroCLS toànapp.
-  Chọn mẫu thiết kế và budget đo cụ thể; WCAG2.2AA +tiêu chí bổ sung được chọn rõ.
-- NOT_TESTED: VoiceOver/TalkBack, mobile vật lý/bàn phím mềm, SafariFirefox authenticated,
-  OS-theme change/mạngPWA trướcHTML/remote save. Không yêu cầu OWNER học VoiceOver;
-  không suy local hoặc screenshot PASS thành chứng nhận thiết bị/Production.
-
-## 6. Kiến trúc, tài khoản và vận hành
-
-- Monorepo pnpm: Next PWA `apps/web`, Apps Script `apps/google-sync`, domain-contract,
-  migrations/testsSupabase. PostgreSQL authoritative; Sheet chỉ nhận đồng bộ một chiều.
-- Server Actions/RPC validate mọi mutation; VND integer, rate decimal; dateAsia/Ho_Chi_Minh,
-  auditUTC. Financial transactions append/reversal, không xóa vật lý. Push/sync idempotent.
-- Supabase dùng chung `hmfxnstrqfqpvsgfmjmd`, Singapore. Preview/Production cùng DB;
-  không tạo QAdata trên account vận hành. Một OWNER hoạt động theo hậu kiểm trước.
-  Profile có audit/finance constraint không được xóa/tắt trigger để cleanup.
-- GitHub private https://github.com/ngotuong/quanlyvay.git, `main` theo `origin/main`.
-  OWNER dùng GitHub Free và không nâng gói; compensating control: chỉ phát hành đúngSHA có
-  Required CI SUCCESS, không sửa branch protection/account.
-- Vercel project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, Functions `sin1`.
-  Preview chỉ repository-root `pnpm deploy:preview`, theo [runbook](docs/VERCEL_PREVIEW_RUNBOOK.md).
-- Toolchain hiện hữu Node24.15.0/pnpm11.9.0/Next16.3.8/Supabase CLI2.109.0/Playwright1.62.1.
-  Không upgrade vì CLI báo phiên bản mới trong gate. Nếu pnpm thiếu dùng wrapper đã có:
-  `npm --cache "$PWD/.cache/c87/npm" exec --yes --package=pnpm@11.9.0 -- pnpm <gate>`.
-- Fixture/reset/teardown chỉ local C20-test API55321/DB55322, guard `scripts/test-environment.cjs`;
-  trước SQL/restore xác minh Dockerlabel+hostport. Không chạm DB local chính54322.
-- Apps Script hiện hữu version6/HEAD theo C55/C56, workbook QuanLyVayCaNhanSync.
-  IDs/runbook trong [Google Sync](docs/GOOGLE_SYNC.md) và lịch sử; không mở lại sync/push tự động.
-- Backup C60 đã nghiệm thu LaunchAgent/Keychain/AES-GCM/retention dry-run. Chưa kiểm backup
-  mới ở phiên bàn giao; không mở lại heartbeat/C60, chạy backup hoặc retention-delete từ lịch sử.
-- Secret/env/cookie/owner data/backup/dump không Git/log/artifact. Không tài nguyên anh em,
-  remote mutation hoặc cleanup ngoài checkpoint được duyệt.
-
-## 7. Tài liệu nguồn và điểm vào phiên mới
-
-- Kỹ thuật: [Design System](docs/DESIGN_SYSTEM.md), [Domain](docs/DOMAIN_SPEC.md),
-  [Financial Engine](docs/FINANCIAL_ENGINE.md), [Auth](docs/AUTH.md),
-  [Web Workflows](docs/WEB_WORKFLOWS.md), [Dashboard](docs/DASHBOARD.md),
-  [Notifications](docs/PWA_NOTIFICATIONS.md), [Google Sync](docs/GOOGLE_SYNC.md),
-  [Backup](docs/BACKUP_RESTORE.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md).
-- Skill Evon: `/Users/ngotuong/.codex/skills/evondev-ui-ux/SKILL.md`; áp khi công việc UI cần,
-  không thay AGENTS/OWNER decision hoặc gỡ focus ring để theo Gu.
-- [Handoff](docs/HANDOFF_NEXT_SESSION.md) đã cập nhật C99 hoàn tất/C100 chờ duyệt.
-  Chỉ tiếp tục C100 sau phê duyệt rõ; không tạo cuộc trò chuyện tự động.
+Tài liệu kỹ thuật chính: [Domain](docs/DOMAIN_SPEC.md), [Financial Engine](docs/FINANCIAL_ENGINE.md),
+[Dashboard](docs/DASHBOARD.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md),
+[Backup](docs/BACKUP_RESTORE.md) và [Google Sync](docs/GOOGLE_SYNC.md).

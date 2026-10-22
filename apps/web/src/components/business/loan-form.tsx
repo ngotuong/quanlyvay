@@ -9,6 +9,7 @@ import { todayInVietnam } from "@/lib/business/format";
 import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
 import { CounterpartyPicker } from "./counterparty-picker";
 import { VndInput } from "./vnd-input";
+import { DateInput } from "@/components/ui";
 
 export function LoanForm({
   counterparties,
@@ -51,7 +52,7 @@ export function LoanForm({
             </div>
             <div className="field-group">
               <label htmlFor="disbursementDate">Ngày giải ngân <span aria-hidden="true">*</span></label>
-              <input id="disbursementDate" name="disbursementDate" type="date" defaultValue={todayInVietnam()} required />
+              <DateInput id="disbursementDate" name="disbursementDate" defaultValue={todayInVietnam()} required />
               <FieldError state={state} name="disbursementDate" />
             </div>
             <div className="field-group">

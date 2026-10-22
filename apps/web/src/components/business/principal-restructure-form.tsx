@@ -6,7 +6,7 @@ import { initialBusinessActionState } from "@/lib/business/action-state";
 import { formatDate, formatVnd, todayInVietnam } from "@/lib/business/format";
 import type { PrincipalRestructurePreview } from "@/lib/business/types";
 import { ActionMessage, BusinessForm, FieldError, FormSubmit } from "./form-parts";
-import { VndInput } from "@/components/ui";
+import { DateInput, VndInput } from "@/components/ui";
 import { useBusinessAction } from "./use-business-action";
 
 type PreviewResult = { error: string; preview: PrincipalRestructurePreview | null };
@@ -52,7 +52,7 @@ export function PrincipalRestructureForm({ loanId, idempotencyKey, onDirtyChange
     <input name="idempotencyKey" type="hidden" value={idempotencyKey} />
     <div className="field-group">
       <label htmlFor="restructureEffectiveDate">Dư gốc mới có hiệu lực từ ngày</label>
-      <input id="restructureEffectiveDate" name="effectiveDate" type="date" value={effectiveDate} max={todayInVietnam()} required onChange={event => { setResult(null); setEffectiveDate(event.target.value); }} />
+      <DateInput id="restructureEffectiveDate" name="effectiveDate" value={effectiveDate} max={todayInVietnam()} required onChange={event => { setResult(null); setEffectiveDate(event.target.value); }} />
       <p className="field-hint">Hệ thống tự chốt lãi đến hết ngày liền trước, không tính trùng ngày.</p>
       <FieldError state={state} name="effectiveDate" />
     </div>

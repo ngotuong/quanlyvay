@@ -8,6 +8,7 @@ import { periodRateInput } from "@/lib/business/format";
 import type { Loan } from "@/lib/business/types";
 import { BusinessForm, ActionMessage, FieldError, FormSubmit } from "./form-parts";
 import { VndInput } from "./vnd-input";
+import { DateInput } from "@/components/ui";
 
 export function LoanCorrectionForm({ loan, idempotencyKey }: { loan: Loan; idempotencyKey: string }) {
   const [state, action] = useBusinessAction(correctLoanTermsAction, initialBusinessActionState);
@@ -36,7 +37,7 @@ export function LoanCorrectionForm({ loan, idempotencyKey }: { loan: Loan; idemp
         </div>
         <div className="field-group">
           <label htmlFor="correctionDate">Ngày giải ngân <span aria-hidden="true">*</span></label>
-          <input id="correctionDate" name="disbursementDate" type="date" defaultValue={loan.disbursement_date} required />
+          <DateInput id="correctionDate" name="disbursementDate" defaultValue={loan.disbursement_date} required />
           <FieldError state={state} name="disbursementDate" />
         </div>
         <fieldset className="field-group segmented-field form-span-2">

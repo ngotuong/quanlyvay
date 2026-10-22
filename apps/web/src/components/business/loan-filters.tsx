@@ -21,6 +21,7 @@ export function LoanFilters({ initial, resultCount, hasFilters }: { initial: Loa
   const pathname = usePathname();
   const router = useRouter();
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
   const [values, setValues] = useState(initial);
   const initialKey = [initial.query, initial.direction, initial.status, initial.disbursedFrom, initial.disbursedTo, initial.sort].join("\u0000");
   const [syncedInitialKey, setSyncedInitialKey] = useState(initialKey);
@@ -59,13 +60,18 @@ export function LoanFilters({ initial, resultCount, hasFilters }: { initial: Loa
     navigate(next, delay);
   }
 
+  function clearQuery() {
+    update({ query: "" });
+    searchInputRef.current?.focus();
+  }
+
   return <section className="management-filters loan-filters" aria-labelledby="loan-filter-title" aria-busy={pending}>
     <h2 id="loan-filter-title" className="sr-only">Tìm và lọc khoản vay</h2>
     <div className="filter-form loan-filter-form">
       <div className="loan-filter-primary">
-        <div className="field-group filter-search"><PrivacyForm><label className="sr-only" htmlFor="loanSearch">Tên khoản vay hoặc đối tác</label><span className="input-with-icon"><Search size={18} aria-hidden="true" /><input id="loanSearch" name="q" type="search" value={values.query} onChange={(event) => update({ query: event.target.value }, 300)} placeholder="Tìm tên khoản vay hoặc đối tác..." /></span></PrivacyForm></div>
-        <div className="field-group"><label className="sr-only" htmlFor="loanDirection">Hướng</label><select id="loanDirection" name="direction" value={values.direction} onChange={(event) => update({ direction: event.target.value as LoanFilterValues["direction"] })}><option value="">Hướng: Tất cả</option><option value="LENDING">Cho vay</option><option value="BORROWING">Đi vay</option></select></div>
-        <div className="field-group"><label className="sr-only" htmlFor="loanStatus">Trạng thái</label><select id="loanStatus" name="status" value={values.status} onChange={(event) => update({ status: event.target.value as LoanFilterValues["status"] })}><option value="ALL">Trạng thái: Tất cả</option><option value="ACTIVE">Đang hoạt động</option><option value="BAD_DEBT">Nợ xấu</option><option value="OVERDUE">Quá hạn</option><option value="SETTLED">Đã tất toán</option></select></div>
+        <div className="field-group filter-search"><PrivacyForm><label className="sr-only" htmlFor="loanSearch">Tên khoản vay hoặc đối tác</label><span className="input-with-icon"><Search className="search-leading-icon" size={18} aria-hidden="true" /><input ref={searchInputRef} className="loan-search-input" id="loanSearch" name="q" type="search" value={values.query} onChange={(event) => update({ query: event.target.value }, 300)} placeholder="Tìm tên khoản vay hoặc đối tác..." />{values.query ? <button className="loan-search-clear" type="button" aria-label="Xóa từ khóa tìm kiếm" onClick={clearQuery}><X size={16} aria-hidden="true" /></button> : null}</span></PrivacyForm></div>
+        <div className="field-group"><label className="sr-only" htmlFor="loanDirection">Hướng</label><select id="loanDirection" name="direction" value={values.direction} onChange={(event) => update({ direction: event.target.value as LoanFilterValues["direction"] })}><option value="">Tất cả</option><option value="LENDING">Cho vay</option><option value="BORROWING">Đi vay</option></select></div>
+        <div className="field-group"><label className="sr-only" htmlFor="loanStatus">Trạng thái</label><select id="loanStatus" name="status" value={values.status} onChange={(event) => update({ status: event.target.value as LoanFilterValues["status"] })}><option value="ALL">Tất cả</option><option value="ACTIVE">Đang hoạt động</option><option value="BAD_DEBT">Nợ xấu</option><option value="OVERDUE">Quá hạn</option><option value="SETTLED">Đã tất toán</option></select></div>
       </div>
       <div className="filter-actions"><span aria-live="polite">{pending ? "Đang cập nhật…" : `${resultCount} kết quả`}</span><div><LoanAdvancedFilters disbursedFrom={values.disbursedFrom} disbursedTo={values.disbursedTo} sort={values.sort} active={Boolean(values.disbursedFrom || values.disbursedTo || values.sort !== "newest")} onChange={update} />{hasFilters ? <Link className="clear-filter-link" href="/loans?status=ALL"><X size={17} /> Xóa lọc</Link> : null}</div></div>
     </div>

@@ -1,23 +1,51 @@
-# Bàn giao — C99 hoàn tất, C100 chờ duyệt
+# Bàn giao cho cuộc trò chuyện mới
 
-Canonical repository `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`. Đọc toàn bộ AGENTS/context, checkpoint trong roadmap và git status trước tiếp tục; không sửa worktree ambient. C99 COMPLETED, OWNER phê duyệt rõ12/10/2026. C100 AWAITING_APPROVAL; chưa được duyệt, dừng. Không thực hiện lịch sử như yêu cầu mới.
+Cập nhật ngày 22/10/2026 sau khi hoàn tất C112 và dọn workspace.
 
-## C99 đã phát hành
+## Trạng thái cần nhớ
 
-Runtime source `6d6f1e182a9c99bffaa3c316818a1c3e4a8c84d7`, [RequiredCI38337230362](https://github.com/ngotuong/quanlyvay/actions/runs/38337230362) SUCCESS5jobs/unit123/pgTAP527/24files/Auth6/0/E2E86PASS19SKIP0FAIL29.2m, retries0/all105scheduled. Lượt44b769a/CI38263260459 FAIL hai controlled transport do warmed partial prefetch, harness đã sửa; giữ assertions/timeouts/retries/skips/45mjob. Không che lượt lỗi.
+- Checkpoint đang mở: C100 `IN_PROGRESS` — tối ưu lời gọi đọc Tổng quan.
+- Checkpoint hoàn tất gần nhất: C112 `COMPLETED`.
+- C101–C112 đều đã hoàn tất; không có rollout hoặc alias nào đang chờ.
+- Chưa mở checkpoint kế tiếp.
 
-RootPreviewcreate/resume đều87PASS18SKIP0FAIL20.7m/unit123/build, exit0. Preview `dpl_CEwPr3DtpYcM49GCPMffTK7adf9U`, immutable https://quan-ly-vay-ca-nhan-ne1d38vu7-ngotuong2105.vercel.app, stable https://tindung-preview.vercel.app. Production root skip-domain candidate/promote exit0: `dpl_14VquPhpxUa5yeA8Cb9z7ejcWG4Z`, immutable https://quan-ly-vay-ca-nhan-hiu7tkenf-ngotuong2105.vercel.app, aliases https://tindung.vercel.app và https://quan-ly-vay-ca-nhan-ngotuong2105.vercel.app. Cảhai project prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F/Ready/45Functions sin1/Git6d6/UID240/240. Git link false không autodeploy.
+Cuộc trò chuyện mới phải đọc `AGENTS.md`, `PROJECT_CONTEXT.md` và phần C100 trong
+`docs/IMPLEMENTATION_PLAN.md`, rồi chạy `git status --short --branch`. Theo cổng phê duyệt của
+repository, chỉ tiếp tục thay đổi C100 khi OWNER nói rõ “tiếp tục C100” trong cuộc trò chuyện mới.
 
-Actual Auth candidate7routes+4loanDetailtabs mỗi môi trường PASS, baalias hậu kiểm public4/4/Auth3mainroutes/console0/runtimeerror0/HTTP5000. Không submit financial/account/settings form. C98rollbackPreview3BXy/Production5aqr freshidentity/public/Auth/runtime đạt, giữ nguyên/chưa kích hoạt. [Releaseproof](iphone-c99/release-proof.json), [report](iphone-c99/report.md), [validation](iphone-c99/validation.json).
+## C100 còn thiếu gì
 
-48startupPNG/headtheme, partialprefetch4mục, shell reads song song/requestclient dedup, offline503 chỉ cache public, diagnostics boundedmetadata. Không schema/RPC/engine/index/DBtimeout/deps/accounts/secrets/Google/backup/remoteledger changes. 218runtimefreeze/73protectedfinancial/17C75exact, disposable C20-test API55321/DB55322sixcounts0; main54322 không chạm. Raw caches ignored có synthetic sessions; không commit/cleanup diện rộng. Commit chốt chỉ tài liệu cần RequiredCI exactSHA5SUCCESS trước báo hoàn tất; finalSHA/run ghi hội thoại tránh tự tham chiếu. Không redeploy vì runtime đã freeze6d6.
+RPC v4 và hai migration C100 đã phát hành, giữ v3 làm rollback. Automated gate, Required CI,
+Preview/Production, Auth smoke và runtime hậu kiểm đều đạt. Backend hiện khoảng 1,5 giây; OWNER
+ước lượng quay lại Tổng quan khoảng 2–3 giây sau khi bỏ prefetch suy đoán.
 
-## Kết quả iPhone và phần còn chậm
+Acceptance còn thiếu là bằng chứng trên iPhone 16 Pro Max/iOS 26, cùng mạng:
 
-OWNER iPhone16ProMax/iOS26, HomeScreenhost tindung.vercel.app, saurollout thấy logo/loading1–2s, Tổngquan4–5s, chuyểnmục2–3s; baseline5–7s. [Ownerreport](iphone-c99/owner-iphone-after.json). Ước lượng, không stopwatch hoặc5pairednative samples. Firstinstall/expired/nativeoffline/rotation/OSlivetheme/AT/PNGmedia selection/continuouspixelpaint NOT_TESTED. Không suy Chromium là chứng nhận Safari.
+1. Ít nhất 5 số đo cold launch riêng biệt.
+2. Ít nhất 5 số đo vòng Khoản vay → Đối tác → Thông báo → Tổng quan.
+3. Ghi từng số đo, không thay bằng một khoảng ước lượng chung.
 
-Local40browser-clock samples mỗi phase main-nav~363ms không cải thiện đáng kể; v1walltime giảm do polling, khôngspeedup. Remote45driversamples có transport/polling; matchedPreview Tổngquan5721→5803ms. Successful RPC median5329.05ms Production/5390.3ms Preview (8mẫu), Auth48/65ms/profile47/75ms. RPCtime gồmnetwork/server/retries, khôngSQL-only/ghéprequest; bounded10DOMrows cóprefetch/eviction/rowcũ. Không kết luận index/vònglặp là nguyên nhân nếu chưa profile.
+Sau khi có dữ liệu, cập nhật `docs/dashboard-c100/report.md`, `PROJECT_CONTEXT.md` và roadmap;
+chạy gate tài liệu rồi mới chốt C100. Phạm vi chi tiết:
+`docs/dashboard-rpc-performance-proposal.md`.
 
-## C100 chỉ đề xuất
+## Môi trường đang phục vụ
 
-[Phạm vi/acceptance](dashboard-rpc-performance-proposal.md): read-only profiling khử định danh, tối ưu tính/đọc lặp hoặc index có chứng cứ qua migration/version/rollback, exactJSONfinancial parity/Auth/RLS. ≥10warmRPC mỗiphase cùngdataset median≤1500ms/p95mẫu≤2500ms, ≥5client comparison và iPhone cùngmạng; các gate/RequiredCI/rootrelease đầy đủ. Không timeout/retry/CIbudget/deps/accounts/secrets/Google/backup/remoteQAfinancial mutations. Chưa SQLprofile/migrate/index/tune trongC99. Chỉ tiếp tục khi OWNER phê duyệt rõ C100.
+- Stable Preview C112: `dpl_2a8avNFZHZxcDsZvheXP84dLu8Ri` → `tindung-preview.vercel.app`.
+- Production C112: `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` → `tindung.vercel.app` và
+  `quan-ly-vay-ca-nhan-ngotuong2105.vercel.app`.
+- Preview rollback C110: `dpl_148HdyQj5mLLoxocf5f3hyhjfDut`, chưa kích hoạt.
+- Production rollback C106: `dpl_92pT2tjxRvCTEwyEePzJqMpGa8TG`, chưa kích hoạt.
+
+OWNER đã kiểm cả hai Production alias. Bốn route chính đều Auth HTTP 200; runtime không có
+`57014`, level-error hoặc HTTP 500. Chi tiết: `docs/release-c112/report.md`.
+
+## Workspace sau dọn dẹp
+
+- Repository chuẩn: `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`.
+- Chỉ còn worktree chuẩn; cache build/test đã xóa.
+- Dependency, root `.vercel`, backup, report checkpoint và bằng chứng source-controlled được giữ.
+- Thay đổi C101–C112 đã được gom vào commit local; chưa push GitHub. Kiểm SHA bằng
+  `git log -1 --oneline`.
+
+Không chạy migration, deploy, đổi alias, push Git hoặc sửa dữ liệu chỉ vì đọc tài liệu bàn giao.

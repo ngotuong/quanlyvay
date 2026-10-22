@@ -4,7 +4,7 @@ import { useState, type ReactNode } from "react";
 import { recordPaymentAction } from "@/app/actions/business";
 import { initialBusinessActionState } from "@/lib/business/action-state";
 import { todayInVietnam } from "@/lib/business/format";
-import { Button, Input, Select, VndInput } from "@/components/ui";
+import { Button, DateInput, Input, Select, VndInput } from "@/components/ui";
 import { ActionMessage, BusinessForm, FieldError, FormSubmit } from "./form-parts";
 import { useBusinessAction } from "./use-business-action";
 
@@ -38,7 +38,7 @@ export function LoanPaymentForm({ loanId, idempotencyKey, context, initialPaymen
       <input name="loanId" type="hidden" value={loanId} />
       <input name="idempotencyKey" type="hidden" value={idempotencyKey} />
       <div className="field-group"><label htmlFor="paymentType">Loại tiền</label><Select id="paymentType" name="type" value={paymentType} onChange={event => setPaymentType(event.target.value as PaymentType)}><option value="INTEREST_PAYMENT">Tiền lãi</option><option value="PRINCIPAL_PAYMENT">Tiền gốc</option></Select><FieldError state={state} name="type" /></div>
-      <div className="field-group"><label htmlFor="paymentDate">Ngày thanh toán</label><Input id="paymentDate" name="transactionDate" type="date" defaultValue={todayInVietnam()} required onChange={event => onDateChange?.(event.target.value)} /><FieldError state={state} name="transactionDate" /></div>
+      <div className="field-group"><label htmlFor="paymentDate">Ngày thanh toán</label><DateInput id="paymentDate" name="transactionDate" defaultValue={todayInVietnam()} required onChange={event => onDateChange?.(event.target.value)} /><FieldError state={state} name="transactionDate" /></div>
       <div className="field-group"><label htmlFor="paymentAmount">Số tiền (VND)</label><VndInput id="paymentAmount" name="amountVnd" required placeholder="1.000.000" defaultValue={initialPayment?.amountVnd} quickAmounts={paymentType === "PRINCIPAL_PAYMENT" ? { maximumVnd: principalOutstandingVnd } : undefined} suggestedAmountVnd={paymentType === "INTEREST_PAYMENT" ? suggestedInterestVnd : undefined} /><FieldError state={state} name="amountVnd" /></div>
       <div className="field-group"><label htmlFor="paymentNote">Ghi chú</label><Input id="paymentNote" name="note" maxLength={500} /><FieldError state={state} name="note" /></div>
       <ActionMessage state={state} />

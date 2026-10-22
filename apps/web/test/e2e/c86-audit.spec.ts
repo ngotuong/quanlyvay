@@ -23,7 +23,7 @@ async function ready(page: Page, route: string) {
 async function metrics(page: Page) {
   return page.evaluate(() => {
     const visible = (e: Element) => { const r=e.getBoundingClientRect(); return r.width>0 && r.height>0 && getComputedStyle(e).visibility!=="hidden" && !e.closest('details:not([open]) > :not(summary)'); };
-    const selectors=["body",".dashboard-metric p",".dashboard-metric strong",".dashboard-custom-trigger",".attention-toggle",".advanced-filter-trigger",".loan-card-heading h2",".due-main small",".nav-link",".surface-card"];
+    const selectors=["body",".dashboard-metric p",".dashboard-metric strong",".dashboard-preset-control select",".attention-toggle",".advanced-filter-trigger",".loan-card-heading h2",".due-dates",".nav-link",".surface-card"];
     return { width:innerWidth, theme:document.documentElement.dataset.theme, overflow:Math.max(0,document.documentElement.scrollWidth-innerWidth),
       measurements:selectors.map(selector=>{const e=document.querySelector(selector);if(!e||!visible(e))return {selector,missing:true};const r=e.getBoundingClientRect(),s=getComputedStyle(e);return {selector,width:r.width,height:r.height,top:r.top,font:s.fontSize,weight:s.fontWeight,background:s.backgroundColor,color:s.color,border:s.borderColor};}),
       smallText:[...document.querySelectorAll("main p,main small,main strong,main h2,.nav-link")].filter(visible).map(e=>parseFloat(getComputedStyle(e).fontSize)).filter(n=>n<14),

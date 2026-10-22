@@ -93,7 +93,7 @@ test("C81 compact dashboard reference, privacy restoration and record headings",
     expect(metrics.kpis.bottom).toBeLessThanOrEqual(metrics.tasks.top);
     if (width === 1440) expect(metrics.tasks.top).toBeLessThanOrEqual(460);
     if (width === 390) expect(metrics.tasks.top).toBeLessThanOrEqual(700);
-    await expect(page.locator(".action-hero-banner")).toContainText("3/10/2026–2/11/2026");
+    await expect(page.locator(".action-hero-banner")).toContainText("03/10/2026–02/11/2026");
     await expect(page.locator(".action-hero-banner")).not.toContainText("giao dịch trong tháng");
     evidence.matrix.push({ route: "dashboard-reference", theme, ...metrics });
     if (capture && [375, 390, 1440].includes(width)) await page.screenshot({ path: resolve(out, `dashboard-${width}-${theme}.png`), fullPage: true });
@@ -153,7 +153,7 @@ test("C81 compact rows preserve statuses, money, metadata, filtering and navigat
   await createLoan(longName, "BORROWING", 1284500000, null, "long");
   for (let i = 0; i < 26; i++) await createLoan(`C81 trang ${String(i).padStart(2, "0")}`, i % 2 ? "BORROWING" : "LENDING", 1284500, null, `page-${i}`);
   await login(page);
-  for (const theme of ["light", "dark"] as const) for (const width of [375, 390, 768, 1024, 1280, 1440]) {
+  for (const theme of ["light", "dark"] as const) for (const width of [375, 390, 430, 768, 1024, 1280, 1440]) {
     await page.emulateMedia({ colorScheme: theme });
     await page.setViewportSize({ width, height: 900 });
     await page.goto("/loans?q=C81&status=ALL&sort=name");
@@ -162,9 +162,18 @@ test("C81 compact rows preserve statuses, money, metadata, filtering and navigat
     for (const label of ["Gốc ban đầu", "Dư nợ gốc", "Lãi phải thu", "Lãi đã thu", "Giải ngân", "Lãi suất", "Ngày đóng lãi"]) await expect(short).toContainText(label);
     if (width === 1440) expect((await short.boundingBox())!.height).toBeLessThanOrEqual(160);
     if (width < 600) {
+      const cardHeight = (await short.boundingBox())!.height;
+      expect(cardHeight, `mobile loan card height at ${width}px`).toBeLessThanOrEqual(315);
       const money = short.locator(".loan-card-values .privacy-amount").first();
       expect(await money.evaluate(el => getComputedStyle(el).whiteSpace)).toBe("nowrap");
-      expect(await money.evaluate(el => el.scrollWidth <= el.clientWidth + 1)).toBe(true);
+      const moneyWidth = await money.evaluate(el => ({ client: el.clientWidth, scroll: el.scrollWidth }));
+      expect(moneyWidth.scroll, `money width at ${width}px: ${JSON.stringify(moneyWidth)}`).toBeLessThanOrEqual(moneyWidth.client + 1);
+      const header = await short.locator(".loan-card-title-line").evaluate((line) => {
+        const title = line.querySelector("h2")!.getBoundingClientRect();
+        const tags = line.querySelector(".loan-card-tags")!.getBoundingClientRect();
+        return { sameRow: Math.abs(title.top - tags.top) < 4 };
+      });
+      expect(header.sameRow).toBe(true);
     }
     await expect(page.getByRole("heading", { name: longName, exact: true })).toBeVisible();
     const zero = page.locator(".loan-card").filter({ has: page.getByRole("heading", { name: "C81 tất toán", exact: true }) });

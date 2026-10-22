@@ -53,7 +53,7 @@ async function measure(page: Page) {
       kpis: rect(".dashboard-primary-metrics"), tasks: rect(".attention-card"), banner: rect(".action-hero-banner"), heading: rect(".page-heading-row"), firstLoan: rect(".loan-card"),
       tinyTargets: [...document.querySelectorAll("main a,main button,main input,main select,main summary")].filter(visible).filter(e => { const r = e.getBoundingClientRect(); return r.width < 24 || r.height < 24; }).map(e => ({ tag: e.tagName, class: e.className })),
       unlabelledFields: [...document.querySelectorAll<HTMLInputElement>("main input,main select,main textarea")].filter(visible).filter(e => !e.labels?.length && !e.getAttribute("aria-label") && !e.getAttribute("aria-labelledby")).length,
-      clippedTaskText: [...document.querySelectorAll<HTMLElement>(".due-main strong,.due-main small,.due-value small")].filter(visible).filter(e => e.scrollWidth > e.clientWidth + 1).length,
+      clippedTaskText: [...document.querySelectorAll<HTMLElement>(".due-heading strong,.due-task,.due-dates")].filter(visible).filter(e => e.scrollWidth > e.clientWidth + 1).length,
       fontLoaded: document.fonts.check('14px "Inter"'),
     };
   });
@@ -85,12 +85,12 @@ test("C80 complete route and privacy observation matrix", async ({ page }) => {
   }
   await page.setViewportSize({ width: 390, height: 900 });
   await ready(page, "/dashboard");
-  const custom = page.getByRole("button", { name: "Tùy chỉnh", exact: true });
-  await custom.click();
-  const range = page.getByRole("dialog");
-  observations.rangeDialog = { opened: await range.isVisible(), overflow: await page.evaluate(() => document.documentElement.scrollWidth > innerWidth) };
-  await page.keyboard.press("Escape");
-  await expect(range).toBeHidden();
+  const range = page.locator(".dashboard-period-bar");
+  observations.rangeDialog = {
+    opened: await range.isVisible(),
+    overflow: await page.evaluate(() => document.documentElement.scrollWidth > innerWidth),
+    displayedDates: await range.locator(".dashboard-date-control > span").allTextContents(),
+  };
   observations.pageErrorCount = errors.length;
   observations.observedCompletion = true;
 });

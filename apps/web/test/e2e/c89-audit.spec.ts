@@ -34,9 +34,9 @@ async function metrics(page: Page) {
       const r = e.getBoundingClientRect(), s = getComputedStyle(e);
       return { width: r.width, height: r.height, top: r.top, font: s.fontSize, weight: s.fontWeight, color: s.color, background: s.backgroundColor };
     };
-    const samples = ["body", ".dashboard-metric p", ".dashboard-metric strong", ".dashboard-custom-trigger", ".attention-toggle", ".advanced-filter-trigger", ".loan-card-heading h2", ".expense-pagination-top", ".page-description"]
+    const samples = ["body", ".dashboard-metric p", ".dashboard-metric strong", ".dashboard-preset-control select", ".attention-toggle", ".advanced-filter-trigger", ".loan-card-heading h2", ".expense-pagination-top", ".page-description"]
       .map(selector => { const e = [...document.querySelectorAll(selector)].find(painted); return e ? { selector, ...geometry(e) } : { selector, missing: true }; });
-    const amounts = [...document.querySelectorAll<HTMLElement>(".dashboard-primary-metrics strong,.loan-card-values dd,.expense-budget-total,.due-value strong,.expense-card .counterparty-card-heading>strong")].filter(painted);
+    const amounts = [...document.querySelectorAll<HTMLElement>(".dashboard-primary-metrics strong,.loan-card-values dd,.expense-budget-total,.due-task strong,.expense-card .counterparty-card-heading>strong")].filter(painted);
     const clippedAmounts = amounts.filter(e => { const range = document.createRange(); range.selectNodeContents(e); return range.getBoundingClientRect().width > e.clientWidth + 1; }).map(e => e.className);
     const kpi = document.querySelector(".dashboard-primary-metrics")?.getBoundingClientRect(), task = document.querySelector(".attention-card")?.getBoundingClientRect();
     return { width: innerWidth, theme: document.documentElement.dataset.theme, overflow: Math.max(0, document.documentElement.scrollWidth - innerWidth), visibleH1: [...document.querySelectorAll("h1")].filter(painted).length, fontLoaded: document.fonts.status, scrollY, bodyHeight: document.body.scrollHeight, samples, clippedAmounts, kpiBeforeTask: kpi && task ? kpi.bottom <= task.top : null };
