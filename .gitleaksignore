@@ -2,3 +2,8 @@
 # A filename containing "tokens" caused generic-api-key to match this checksum.
 # Exact historical commit/file/rule/line only; no secret or path-wide exception.
 752fd481777574a564e5b80d9805bf6b818199bc:docs/design-c92/reference-manifest.json:generic-api-key:6
+
+# Synthetic passwords used only by the isolated C114 Auth E2E fixture.
+# Exact historical commit/file/rule/line only; no secret or path-wide exception.
+d8a4154ecd867737c4eec836170f9c2da138c8b3:apps/web/test/e2e/c114-security-hardening.spec.ts:generic-api-key:7
+d8a4154ecd867737c4eec836170f9c2da138c8b3:apps/web/test/e2e/c114-security-hardening.spec.ts:generic-api-key:8

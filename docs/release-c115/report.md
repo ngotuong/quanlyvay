@@ -59,3 +59,8 @@ Functions ở `sin1`.
    promote. Hậu kiểm cả `tindung.vercel.app` và alias mặc định; nếu fail trả alias về C112.
 4. Cập nhật deployment Production, kết quả từng smoke, source/final documentation SHA và Required
    CI trước khi chuyển C115 thành `COMPLETED`.
+
+Lượt Required CI đầu của source commit `d8a4154` dừng ở Gitleaks do hai mật khẩu fixture tổng hợp
+trong E2E bị nhận nhầm là generic API key; workflow policy và quality/build đạt. Bản khắc phục chỉ
+allow đúng hai fingerprint lịch sử và đánh dấu inline fixture, không bỏ rule hoặc ignore theo file;
+phải chạy lại full-history scan và Required CI trên SHA kế tiếp.

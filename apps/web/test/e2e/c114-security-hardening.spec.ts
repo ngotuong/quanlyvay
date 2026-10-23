@@ -4,8 +4,8 @@ import { localSupabaseEnvironment } from "./helpers";
 
 const username = "c114_recovery_e2e";
 const email = `${username}@auth.local`;
-const temporaryPassword = "C114Temporary123";
-const firstPassword = "C114PrivatePass123";
+const temporaryPassword = "C114Temporary123"; // gitleaks:allow -- synthetic local fixture
+const firstPassword = "C114PrivatePass123"; // gitleaks:allow -- synthetic local fixture
 const resetPassword = "C114ResetPass123";
 const finalPassword = "C114FinalPass123";
 let admin: SupabaseClient;
