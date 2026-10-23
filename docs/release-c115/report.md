@@ -64,3 +64,11 @@ Lượt Required CI đầu của source commit `d8a4154` dừng ở Gitleaks do 
 trong E2E bị nhận nhầm là generic API key; workflow policy và quality/build đạt. Bản khắc phục chỉ
 allow đúng hai fingerprint lịch sử và đánh dấu inline fixture, không bỏ rule hoặc ignore theo file;
 phải chạy lại full-history scan và Required CI trên SHA kế tiếp.
+
+Lượt CI kế tiếp xác nhận full-history secret scan sạch nhưng dependency audit phát hiện ba advisory
+Next.js mới công bố cho dải `16.0.0–16.4.0` (hai critical, một high). C115 nâng bản vá tối thiểu
+`next` và `eslint-config-next` từ `16.3.8` lên `16.4.1`, đồng thời port nguyên patch lint C76 và
+minimum-release-age exclusions sang đúng version. `pnpm install --frozen-lockfile` bằng pnpm 11.9.0
+đạt; `pnpm audit --audit-level high` còn 0 vulnerability. Lint, typecheck, unit `138 PASS`, build
+`19 route` và full E2E `94 PASS / 18 SKIP / 0 FAIL` trong 27,3 phút dưới Next.js 16.4.1 đều đạt.
+Required CI phải chạy lại trên commit chứa hotfix này trước Production.

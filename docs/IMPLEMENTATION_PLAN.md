@@ -3033,3 +3033,10 @@ lint/typecheck/unit138/build19 và full E2E `94 PASS / 18 SKIP / 0 FAIL`; candid
 alias đều đạt public/Auth/CSP/service-worker/browser/runtime smoke; `tindung-preview.vercel.app`
 đã trỏ candidate, error/HTTP500 bằng0, rollback C112 còn sẵn sàng. Chờ Required CI đúng source SHA
 và nghiệm thu Web Push trên Safari/iPhone thật trước khi tạo Production candidate.
+
+Required CI source đầu ghi false positive Gitleaks ở hai mật khẩu fixture E2E; allowlist đã giới
+hạn đúng hai fingerprint lịch sử và full-history scan local sạch. Run kế tiếp qua secret scan nhưng
+dependency audit phát hiện advisory Next.js mới công bố cho `16.0.0–16.4.0`; bản vá tối thiểu
+16.4.1 đã được áp cho Next/eslint-config và patch lint C76 được port. Frozen install pnpm11.9.0,
+audit0 vulnerability, lint/typecheck/unit138/build19 và full E2E `94 PASS / 18 SKIP / 0 FAIL`
+trong27,3 phút đạt. Cần Required CI mới của đúng hotfix SHA trước Production.
