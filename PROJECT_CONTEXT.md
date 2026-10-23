@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.369
+roadmap_version: 1.0.370
 last_updated: 2026-10-23
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C115
@@ -31,8 +31,9 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   [security C114](docs/security-c114/report.md).
 - C115 `IN_PROGRESS` ngày 23/10/2026 theo phê duyệt trực tiếp của OWNER: rollout migration/web C114
   lên Preview/Production, kiểm provider thực, Safari/iPhone Web Push, Auth/session và CSP qua
-  Vercel edge. Migration remote và stable Preview đã đạt; đang chờ Required CI cùng nghiệm thu
-  Web Push trên iPhone thật trước Production. Báo cáo: [release C115](docs/release-c115/report.md).
+  Vercel edge. Migration remote, Required CI, stable Preview trên bản vá Next.js 16.4.1 và Web Push
+  trên iPhone thật đã đạt; đang chuẩn bị Production candidate. Báo cáo:
+  [release C115](docs/release-c115/report.md).
 - C100 `IN_PROGRESS`: OWNER đã phê duyệt tối ưu lời gọi đọc Tổng quan. RPC v4 đã phát hành và đạt
   gate tự động; phần còn lại là nghiệm thu định lượng trên iPhone thật. C113 không thay đổi phạm vi
   hay acceptance còn thiếu của C100.
@@ -66,7 +67,8 @@ Phạm vi: [đề xuất C100](docs/dashboard-rpc-performance-proposal.md) và
 
 | Vai trò | Deployment | Immutable URL / alias | Trạng thái |
 | --- | --- | --- | --- |
-| Stable Preview C115 | `dpl_8pxn5Ze87nbvdNbaF5CQeQ1oan9b` | `quan-ly-vay-ca-nhan-97arw9mvp-ngotuong2105.vercel.app` / `tindung-preview.vercel.app` | Preview, Ready, Functions `sin1` |
+| Stable Preview C115 | `dpl_BRfVm4hf5jfk5FJe2mXPxmrt3hC4` | `quan-ly-vay-ca-nhan-5ydpf15dp-ngotuong2105.vercel.app` / `tindung-preview.vercel.app` | Preview, Ready, Functions `sin1` |
+| Preview rollback C115 trước hotfix | `dpl_8pxn5Ze87nbvdNbaF5CQeQ1oan9b` | `quan-ly-vay-ca-nhan-97arw9mvp-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Production C112 | `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` | `quan-ly-vay-ca-nhan-967no3d6v-ngotuong2105.vercel.app` / `tindung.vercel.app` / alias mặc định | Production, Ready, Functions `sin1` |
 | Preview rollback C112 | `dpl_2a8avNFZHZxcDsZvheXP84dLu8Ri` | `quan-ly-vay-ca-nhan-74fc7gb9r-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Preview rollback C110 | `dpl_148HdyQj5mLLoxocf5f3hyhjfDut` | `quan-ly-vay-ca-nhan-6m940n7ty-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
@@ -80,9 +82,9 @@ HTTP 500. Báo cáo đầy đủ: [release C112](docs/release-c112/report.md).
 ## 4. Source và workspace
 
 - Repository chuẩn: `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`.
-- C101–C112 kết thúc tại commit `c139a5a`; C113/C114 hiện là diff chưa commit trong managed
-  worktree `/Users/ngotuong/.codex/worktrees/8dc1/QuanLyVayCaNhan`; C115 đang chuẩn bị commit/push
-  fast-forward theo phạm vi đã duyệt.
+- Source C113–C115 và hotfix Next.js 16.4.1 đã fast-forward tới `origin/main` tại
+  `aa7be6c8b4e1ef62645b2f27bb0241dcada4feec`; Required CI `39906882151` đạt đủ 5 job.
+  Managed worktree hiện ở đúng SHA này; tài liệu tiến độ C115 là thay đổi tiếp theo chưa chốt.
 - Dependency và local Supabase test stack được giữ để review/chạy lại gate; không suy quyền thao tác
   remote từ trạng thái local này.
 - Không xóa báo cáo checkpoint, migration, test, ảnh bằng chứng đã được source-control quản lý,

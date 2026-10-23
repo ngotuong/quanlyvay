@@ -3028,15 +3028,18 @@ alias, target, region và từng smoke. Không dùng dữ liệu/tài khoản v�
 Tiến độ ngày 23/10/2026: backup mã hóa `qlv-prod-20261022T233437Z` đạt checksum/SQL-shape; migration
 `20261022100000_c114_security_hardening.sql` đã áp đúng project và remote lint sạch. Inventory
 sanitize có 1 FCM và 4 Apple endpoint, đều thuộc provider policy. Root Preview create/resume đạt
-lint/typecheck/unit138/build19 và full E2E `94 PASS / 18 SKIP / 0 FAIL`; candidate
-`dpl_8pxn5Ze87nbvdNbaF5CQeQ1oan9b` đúng project/Preview/Ready/Functions sin1. Immutable và stable
+lint/typecheck/unit138/build19 và full E2E `94 PASS / 18 SKIP / 0 FAIL`; candidate cuối sau hotfix
+`dpl_BRfVm4hf5jfk5FJe2mXPxmrt3hC4` đúng project/Preview/Ready/Functions sin1. Immutable và stable
 alias đều đạt public/Auth/CSP/service-worker/browser/runtime smoke; `tindung-preview.vercel.app`
-đã trỏ candidate, error/HTTP500 bằng0, rollback C112 còn sẵn sàng. Chờ Required CI đúng source SHA
-và nghiệm thu Web Push trên Safari/iPhone thật trước khi tạo Production candidate.
+đã trỏ candidate, error/HTTP500 bằng0, rollback trước hotfix và C112 còn sẵn sàng.
 
 Required CI source đầu ghi false positive Gitleaks ở hai mật khẩu fixture E2E; allowlist đã giới
 hạn đúng hai fingerprint lịch sử và full-history scan local sạch. Run kế tiếp qua secret scan nhưng
 dependency audit phát hiện advisory Next.js mới công bố cho `16.0.0–16.4.0`; bản vá tối thiểu
 16.4.1 đã được áp cho Next/eslint-config và patch lint C76 được port. Frozen install pnpm11.9.0,
 audit0 vulnerability, lint/typecheck/unit138/build19 và full E2E `94 PASS / 18 SKIP / 0 FAIL`
-trong27,3 phút đạt. Cần Required CI mới của đúng hotfix SHA trước Production.
+trong27,3 phút đạt. Source `aa7be6c8b4e1ef62645b2f27bb0241dcada4feec` đã fast-forward lên
+`origin/main`; Required CI `39906882151` của đúng SHA đạt đủ 5 job. Root Preview create/resume trên
+hotfix lần lượt đạt `94 PASS / 18 SKIP / 0 FAIL` trong 27,1 và 27,2 phút. OWNER đã nghiệm thu Web
+Push trên iPhone thật: bật/đăng ký thành công, nhận notification và chạm notification mở đúng app.
+Đủ điều kiện chuyển sang Production candidate theo runbook C115.

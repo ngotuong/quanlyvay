@@ -1,8 +1,7 @@
 # C115 — Rollout C114 và hậu kiểm
 
 Trạng thái: `IN_PROGRESS` ngày 23/10/2026. OWNER đã phê duyệt checkpoint C115 trong hội thoại
-hiện tại. Báo cáo này chỉ ghi bằng chứng đã hoàn tất; Web Push trên Safari/iPhone thật và
-Production vẫn là cổng đang chờ.
+hiện tại. Báo cáo này chỉ ghi bằng chứng đã hoàn tất; Production vẫn là cổng đang chờ.
 
 ## 1. Supabase migration-first
 
@@ -25,7 +24,8 @@ Production vẫn là cổng đang chờ.
 
 | Vai trò | Deployment | URL | Target / trạng thái / region |
 | --- | --- | --- | --- |
-| Candidate và stable Preview C115 | `dpl_8pxn5Ze87nbvdNbaF5CQeQ1oan9b` | `https://quan-ly-vay-ca-nhan-97arw9mvp-ngotuong2105.vercel.app` / `https://tindung-preview.vercel.app` | Preview / Ready / Functions `sin1` |
+| Candidate và stable Preview C115 | `dpl_BRfVm4hf5jfk5FJe2mXPxmrt3hC4` | `https://quan-ly-vay-ca-nhan-5ydpf15dp-ngotuong2105.vercel.app` / `https://tindung-preview.vercel.app` | Preview / Ready / Functions `sin1` |
+| Rollback Preview C115 trước hotfix | `dpl_8pxn5Ze87nbvdNbaF5CQeQ1oan9b` | `https://quan-ly-vay-ca-nhan-97arw9mvp-ngotuong2105.vercel.app` | Preview / Ready / Functions `sin1` |
 | Rollback Preview C112 | `dpl_2a8avNFZHZxcDsZvheXP84dLu8Ri` | `https://quan-ly-vay-ca-nhan-74fc7gb9r-ngotuong2105.vercel.app` | Preview / Ready / Functions `sin1` |
 
 Candidate thuộc đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`. Vercel CLI không trả mảng
@@ -34,8 +34,9 @@ Functions ở `sin1`.
 
 ### Gate và smoke
 
-- Root create/resume đều đạt `git diff --check`, lint, typecheck, unit `138 PASS`, build `19 route`
-  và full E2E `94 PASS / 18 SKIP / 0 FAIL`; lượt resume cuối chạy 27,5 phút.
+- Root create/resume trên candidate cuối đều đạt `git diff --check`, lint, typecheck, unit
+  `138 PASS`, build `19 route` và full E2E `94 PASS / 18 SKIP / 0 FAIL`; hai lượt lần lượt chạy
+  27,1 và 27,2 phút.
 - Upload metadata guard đạt 248 tệp, 5.473.036 byte. Guard được sửa để hiểu chính xác tệp `.git`
   dạng managed-worktree và vẫn fail-closed với secret, dump, symlink hoặc ignore drift.
 - Immutable candidate: `/login` và `/sw.js` HTTP 200; CSP có nonce khác nhau giữa hai request,
@@ -49,15 +50,19 @@ Functions ở `sin1`.
 - Stable alias authenticated smoke đạt trên sáu route như candidate; browser console sạch.
 - Cửa sổ candidate và post-alias đều có Vercel `level:error = 0`, HTTP 500 = 0.
 
+### Nghiệm thu iPhone thật
+
+- OWNER xác nhận ngày 23/10/2026 trên iPhone thật: đã bật và đăng ký Web Push, thiết bị nhận được
+  notification, chạm notification mở đúng webapp. Nút thử Preview không ghi dữ liệu Supabase.
+- Bằng chứng này chứng nhận permission/subscription, hiển thị notification và deep-link trên thiết
+  bị thật; delivery provider vận hành tiếp tục được hậu kiểm cùng Production runtime sau rollout.
+
 ## 3. Công việc còn lại
 
-1. OWNER nghiệm thu Web Push trên Safari/iPhone thật ở stable Preview: permission/subscription,
-   gửi notification vận hành hợp lệ và mở notification về đúng app; không tạo dữ liệu QA phá hủy.
-2. Commit/push fast-forward source C113–C115 và xác nhận Required CI của đúng SHA.
-3. Chỉ sau hai cổng trên mới tạo Production candidate từ repository root, giữ alias hiện hành,
+1. Tạo Production candidate từ repository root, giữ alias hiện hành,
    chạy public/Auth/CSP/service-worker/runtime smoke, re-inspect candidate cùng rollback C112 rồi
    promote. Hậu kiểm cả `tindung.vercel.app` và alias mặc định; nếu fail trả alias về C112.
-4. Cập nhật deployment Production, kết quả từng smoke, source/final documentation SHA và Required
+2. Cập nhật deployment Production, kết quả từng smoke, source/final documentation SHA và Required
    CI trước khi chuyển C115 thành `COMPLETED`.
 
 Lượt Required CI đầu của source commit `d8a4154` dừng ở Gitleaks do hai mật khẩu fixture tổng hợp
@@ -71,4 +76,6 @@ Next.js mới công bố cho dải `16.0.0–16.4.0` (hai critical, một high).
 minimum-release-age exclusions sang đúng version. `pnpm install --frozen-lockfile` bằng pnpm 11.9.0
 đạt; `pnpm audit --audit-level high` còn 0 vulnerability. Lint, typecheck, unit `138 PASS`, build
 `19 route` và full E2E `94 PASS / 18 SKIP / 0 FAIL` trong 27,3 phút dưới Next.js 16.4.1 đều đạt.
-Required CI phải chạy lại trên commit chứa hotfix này trước Production.
+Source hotfix `aa7be6c8b4e1ef62645b2f27bb0241dcada4feec` đã fast-forward lên `origin/main`.
+Required CI `39906882151` của đúng SHA đạt đủ 5 job: quality/build, workflow policy,
+dependency/secret scan, Supabase Auth pgTAP/E2E và Required CI gate.
