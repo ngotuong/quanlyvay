@@ -9,6 +9,7 @@ import { AttentionItems } from "@/components/business/attention-items";
 import { CashFlowBars } from "@/components/business/cash-flow-bars";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatVnd } from "@/lib/business/format";
+import { barPercentage } from "@/lib/business/percentage.mjs";
 import { dashboardComparisonPeriods, dashboardReminderWindow, resolveDashboardPeriod } from "@/lib/business/dashboard-period";
 import { getManagementDashboardBundle } from "@/lib/business/queries";
 import type { CounterpartyExposure, DashboardCashFlow, DashboardDueLoan } from "@/lib/business/types";
@@ -22,11 +23,6 @@ function monthLabel(value: string) {
 function comparisonPeriodLabel(start: string, end: string) {
   if (start.slice(0, 7) === end.slice(0, 7)) return `${start.slice(8, 10)}–${formatDate(end)}`;
   return `${formatDate(start)}–${formatDate(end)}`;
-}
-
-function ratio(value: string, maximum: bigint) {
-  if (maximum === BigInt(0)) return "0%";
-  return `${Math.max(2, Number((BigInt(value) * BigInt(100)) / maximum))}%`;
 }
 
 function compactVnd(value: bigint) {
@@ -123,7 +119,7 @@ function HorizontalBarChart({ title, eyebrow, rows }: { title: string; eyebrow: 
       <div className="dashboard-section-heading"><div><p className="eyebrow">{eyebrow}</p><h2>{title}</h2></div></div>
       <div className="horizontal-bars" role="list">{rows.map((row) => <div className="horizontal-bar-row" role="listitem" key={row.label}>
         <div><span>{row.label}</span><strong className="privacy-amount"><PrivacyAmount value={formatVnd(row.value)} /></strong></div>
-        <span className="horizontal-bar-track" aria-hidden="true"><span data-tone={row.tone} style={{ "--bar-size": ratio(row.value, maximum) } as CSSProperties} /></span>
+        <span className="horizontal-bar-track" aria-hidden="true"><span data-tone={row.tone} style={{ "--bar-size": barPercentage(row.value, maximum) } as CSSProperties} /></span>
       </div>)}</div>
     </Card>
   );

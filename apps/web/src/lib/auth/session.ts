@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
 import type { AppProfile } from "./types";
+import { reconcileCompletedPasswordChange } from "./password-change-recovery";
 
 export const getAuthenticatedProfile = cache(async (): Promise<AppProfile | null> => {
   if (process.env.E2E_AUTH_DELAY_ENABLED === "true" && ["http://127.0.0.1:55321", "http://127.0.0.1:54321"].includes(process.env.NEXT_PUBLIC_SUPABASE_URL ?? "")) {
@@ -26,7 +27,7 @@ export const getAuthenticatedProfile = cache(async (): Promise<AppProfile | null
 
   const { data, error } = await readWithTiming("profile.read", () => supabase
     .from("profiles")
-    .select("user_id, username, display_name, role, must_change_password, is_active, notification_delivery_hour")
+    .select("user_id, username, display_name, role, must_change_password, password_reset_generation, is_active, notification_delivery_hour")
     .eq("user_id", user.id)
     .single());
 
@@ -34,7 +35,7 @@ export const getAuthenticatedProfile = cache(async (): Promise<AppProfile | null
     return null;
   }
 
-  return data as AppProfile;
+  return reconcileCompletedPasswordChange(user, data as AppProfile);
 });
 
 export async function requireAuthenticatedProfile(options?: { allowPasswordChange?: boolean }) {

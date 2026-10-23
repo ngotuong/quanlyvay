@@ -3,16 +3,12 @@
 import { useState, type CSSProperties } from "react";
 import { PrivacyAmount, PrivacyRegion } from "@/components/app/privacy-provider";
 import { formatVnd } from "@/lib/business/format";
+import { barPercentage } from "@/lib/business/percentage.mjs";
 import type { DashboardCashFlow } from "@/lib/business/types";
 
 function monthLabel(value: string) {
   const [year, month] = value.split("-");
   return `T${Number(month)}/${year}`;
-}
-
-function ratio(value: string, maximum: bigint) {
-  if (maximum === BigInt(0)) return "0%";
-  return `${Math.max(2, Number((BigInt(value) * BigInt(100)) / maximum))}%`;
 }
 
 export function CashFlowBars(props: { rows: DashboardCashFlow[]; maximum: string }) {
@@ -44,7 +40,7 @@ function CashFlowBarContent({ rows, maximum }: { rows: DashboardCashFlow[]; maxi
               const key = `${row.month}-${series}`;
               const tooltipId = `cash-flow-${key}`;
               const active = activeBar === key;
-              const barSize = ratio(value, maximumValue);
+              const barSize = barPercentage(value, maximumValue);
 
               return (
                 <button
@@ -58,7 +54,7 @@ function CashFlowBarContent({ rows, maximum }: { rows: DashboardCashFlow[]; maxi
                   style={{ "--bar-size": barSize } as CSSProperties}
                   onClick={() => setActiveBar((current) => current === key ? null : key)}
                 >
-                  <span className="cash-bar" data-series={series} />
+                  <span className="cash-bar" data-series={series} data-zero={BigInt(value) === BigInt(0)} />
                   <span id={tooltipId} className="chart-tooltip privacy-amount" role="tooltip" aria-hidden={!active}>
                     <PrivacyAmount value={formatVnd(value)} />
                   </span>

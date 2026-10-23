@@ -4,6 +4,7 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { z } from "zod";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
+import { parseAllowedPushEndpoint } from "@/lib/notifications/push-endpoint.mjs";
 import { createClient } from "@/lib/supabase/server";
 
 const subscriptionSchema = z.object({
@@ -15,7 +16,9 @@ const subscriptionSchema = z.object({
 export async function registerPushSubscriptionAction(input: unknown) {
   await requireAuthenticatedProfile();
   const parsed = subscriptionSchema.safeParse(input);
-  if (!parsed.success) return { ok: false, message: "Thông tin đăng ký nhận thông báo không hợp lệ." };
+  if (!parsed.success || !parseAllowedPushEndpoint(parsed.data.endpoint)) {
+    return { ok: false, message: "Thông tin đăng ký nhận thông báo không hợp lệ." };
+  }
   const supabase = await createClient();
   const { error } = await supabase.rpc("register_push_subscription", {
     p_endpoint: parsed.data.endpoint,

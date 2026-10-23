@@ -23,6 +23,7 @@ test("local inventory skips excluded directories and detects stray dump and syml
   const root = mkdtempSync(resolve(".cache/c78-upload-fixture-"));
   try {
     writeFileSync(join(root, ".vercelignore"), ignore);
+    writeFileSync(join(root, ".git"), "gitdir: /synthetic-managed-worktree");
     mkdirSync(join(root, ".backups")); writeFileSync(join(root, ".backups/a.qlvbak"), "FAKE EXCLUDED FIXTURE");
     for (const path of ["apps/web/.cache", "apps/web/.backups", "apps/web/.tmp", "scripts"]) {
       mkdirSync(join(root, path), { recursive: true });

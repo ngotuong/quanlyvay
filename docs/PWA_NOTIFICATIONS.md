@@ -56,6 +56,24 @@ khác.
 
 Subscription trả về HTTP 404/410 sẽ bị xóa. Secret và khóa riêng không được lưu trong Git.
 
+## Chính sách egress Web Push
+
+Endpoint subscription là dữ liệu không tin cậy. Trước khi lưu qua Server Action và trước từng lần
+gửi, ứng dụng yêu cầu HTTPS, port mặc định hoặc `443`, không có userinfo và hostname thuộc policy
+provider. Policy mặc định gồm `fcm.googleapis.com`, `push.services.mozilla.com`,
+`updates.push.services.mozilla.com` và subdomain của `push.apple.com`. Provider riêng chỉ được thêm
+có chủ đích bằng danh sách hostname phân cách bởi dấu phẩy trong `WEB_PUSH_ALLOWED_HOSTS`; không
+dùng URL, IP literal hoặc wildcard nằm giữa hostname.
+
+Worker resolve toàn bộ A/AAAA một lần. Nếu không có kết quả, có kết quả malformed, hoặc bất kỳ kết
+quả nào thuộc loopback, private, shared, link-local, documentation, benchmarking, multicast,
+reserved IPv4/IPv6 thì lượt gửi bị từ chối. HTTPS Agent của chính request được gắn lookup đã ghim
+đúng một địa chỉ public vừa kiểm; TLS SNI và hostname verification vẫn dùng hostname provider. Cách
+này loại khoảng TOCTOU/DNS rebinding giữa validation và socket connect. Agent không reuse sau lượt
+gửi. `web-push` coi mọi status ngoài 2xx là lỗi và không theo redirect, nên provider không thể đổi
+đích egress qua 3xx. Cả bước DNS lẫn socket gửi đều bị chặn theo timeout 5 giây của delivery; lease,
+retry, idempotency và redaction hiện hữu không đổi.
+
 ## Badge trên biểu tượng ứng dụng
 
 Badge trong navigation là trạng thái giao diện của webapp. Badge ngoài biểu tượng PWA là khả năng
@@ -93,6 +111,8 @@ Sao chép giá trị vào `apps/web/.env.local` theo `apps/web/.env.example`:
 NEXT_PUBLIC_WEB_PUSH_PUBLIC_KEY=...
 WEB_PUSH_PRIVATE_KEY=...
 WEB_PUSH_SUBJECT=mailto:dia-chi-quan-tri@example.com
+# Chỉ thêm khi vận hành có provider Web Push khác đã được review.
+WEB_PUSH_ALLOWED_HOSTS=
 CRON_SECRET=...
 ```
 

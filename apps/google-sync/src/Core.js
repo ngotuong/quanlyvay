@@ -23,8 +23,24 @@ function buildSheetRows_(definition, records) {
 
 /** @param {*} payload */
 function validatePayload_(payload) {
-  if (!payload || payload.schemaVersion !== 3 || typeof payload.sourceVersion !== "string") throw new Error("Payload đồng bộ không hợp lệ.");
-  if (!payload.unchanged && (!payload.tables || typeof payload.tables !== "object")) throw new Error("Payload thiếu dữ liệu bảng.");
+  if (!payload || payload.schemaVersion !== 3 || typeof payload.sourceVersion !== "string" || !payload.sourceVersion.trim()) {
+    throw new Error("Payload đồng bộ không hợp lệ.");
+  }
+  if (payload.unchanged) return payload;
+  if (!payload.tables || typeof payload.tables !== "object" || Array.isArray(payload.tables)) {
+    throw new Error("Payload thiếu dữ liệu bảng.");
+  }
+  if (typeof payload.generatedAt !== "string" || !payload.generatedAt || Number.isNaN(Date.parse(payload.generatedAt))) {
+    throw new Error("Payload có thời điểm xuất không hợp lệ.");
+  }
+  SYNC_SHEETS.forEach(function (definition) {
+    const records = payload.tables[definition.table];
+    if (!Array.isArray(records) || records.some(function (record) {
+      return !record || typeof record !== "object" || Array.isArray(record);
+    })) {
+      throw new Error("Payload bảng " + definition.table + " không hợp lệ.");
+    }
+  });
   return payload;
 }
 

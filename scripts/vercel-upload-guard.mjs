@@ -8,7 +8,7 @@ const rules = [
   "/apps/google-sync/", "/packages/", "/supabase/", "/docs/", "/scripts/",
   "/apps/web/test/", "/apps/web/playwright.config.ts",
   "/AGENTS.md", "/PROJECT_CONTEXT.md", "/README.md", "**/.clasp.json", "**/*.tsbuildinfo",
-  "/.backups/", "/.cache/", "**/.backups/", "**/.cache/", "**/.tmp/", "**/test-results/", "**/playwright-report/", "**/coverage/",
+  "/.git", "/.backups/", "/.cache/", "**/.backups/", "**/.cache/", "**/.tmp/", "**/test-results/", "**/playwright-report/", "**/coverage/",
   "**/*.log", "**/.env", "**/.env.*", "!**/.env.example", "**/*.pem", "**/*.key",
   "/.tmp/", "/.c55-remote-head/", "/.gitleaksignore",
 ];

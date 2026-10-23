@@ -1,5 +1,6 @@
 import webpush from "web-push";
 import { drainPushQueue } from "@/lib/notifications/worker.mjs";
+import { createPinnedPushAgent } from "@/lib/notifications/push-endpoint.mjs";
 import { NextResponse, type NextRequest } from "next/server";
 import { todayInVietnam } from "@/lib/business/format";
 import { createAdminClient } from "@/lib/supabase/admin";
@@ -27,18 +28,6 @@ function currentHourInVietnam() {
     hourCycle: "h23",
   }).format(new Date());
   return Number(hour);
-}
-
-function isAllowedPushEndpoint(value: string) {
-  try {
-    const url = new URL(value);
-    return url.protocol === "https:" && url.username === "" && url.password === ""
-      && (url.port === "" || url.port === "443")
-      && !["localhost", "127.0.0.1", "::1"].includes(url.hostname)
-      && !/^(10\.|127\.|169\.254\.|192\.168\.|172\.(1[6-9]|2\d|3[0-1])\.)/.test(url.hostname);
-  } catch {
-    return false;
-  }
 }
 
 function required(name: string) {
@@ -74,13 +63,17 @@ async function runNotifications(request: NextRequest) {
         if (error) throw new Error("claim failed");
         return (data ?? []) as ClaimedDelivery[];
       },
-      send: (delivery: ClaimedDelivery, options: { timeout: number }) => {
-        if (!isAllowedPushEndpoint(delivery.endpoint)) throw Object.assign(new Error("Push endpoint rejected"), { statusCode: 400 });
-        return webpush.sendNotification(
-        { endpoint: delivery.endpoint, keys: { p256dh: delivery.p256dh, auth: delivery.auth_secret } },
-        JSON.stringify({ title: delivery.title, body: delivery.body, url: delivery.loan_id ? `/loans/${delivery.loan_id}?tab=overview${delivery.notification_type === "INTEREST_DUE" ? "&transaction=interest" : ""}` : "/notifications", tag: delivery.idempotency_key, badgeCount: delivery.unread_count }),
-        options,
-        );
+      send: async (delivery: ClaimedDelivery, options: { timeout: number }) => {
+        const { agent } = await createPinnedPushAgent(delivery.endpoint, { timeoutMs: options.timeout });
+        try {
+          return await webpush.sendNotification(
+            { endpoint: delivery.endpoint, keys: { p256dh: delivery.p256dh, auth: delivery.auth_secret } },
+            JSON.stringify({ title: delivery.title, body: delivery.body, url: delivery.loan_id ? `/loans/${delivery.loan_id}?tab=overview${delivery.notification_type === "INTEREST_DUE" ? "&transaction=interest" : ""}` : "/notifications", tag: delivery.idempotency_key, badgeCount: delivery.unread_count }),
+            { ...options, agent },
+          );
+        } finally {
+          agent.destroy();
+        }
       },
       complete: async (delivery: ClaimedDelivery, succeeded: boolean, errorMessage: string | null) => {
         const { error } = await supabase.rpc("complete_push_delivery", { p_delivery_id: delivery.delivery_id, p_succeeded: succeeded, p_error: errorMessage });

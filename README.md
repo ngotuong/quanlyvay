@@ -5,14 +5,19 @@ Google Apps Script.
 
 ## Trạng thái
 
-- C0–C37 và C39–C45 đã hoàn tất.
-- C38 đang `AWAITING_APPROVAL`: hậu kiểm read-only chu kỳ nhắc lãi Production theo lịch thực tế.
+- C114 `COMPLETED` local: đã harden Web Push egress/DNS, recovery đổi mật khẩu và CSP nonce; báo
+  cáo tại `docs/security-c114/report.md`. C115 rollout remote đang `AWAITING_APPROVAL`.
+- C113 `COMPLETED`: audit toàn diện local đã sửa lỗi toàn vẹn Google Sync, cách vẽ giá trị 0 trên
+  biểu đồ và side effect ghi evidence của E2E; báo cáo nằm tại `docs/audit-c113/report.md`.
+- C100 vẫn `IN_PROGRESS`: backend tối ưu đã phát hành, chỉ còn nghiệm thu định lượng trên iPhone
+  thật theo acceptance hiện hành.
 - Production: <https://tindung.vercel.app>.
 - Stable Preview: <https://tindung-preview.vercel.app>.
 - GitHub private, Supabase Singapore, Google/Clasp và Vercel đã được liên kết.
 
-Trạng thái hiện hành luôn lấy từ `PROJECT_CONTEXT.md`. Roadmap tóm tắt nằm trong
-`docs/IMPLEMENTATION_PLAN.md`; tài liệu checkpoint đã hoàn tất được lưu trong Git history.
+Trạng thái hiện hành luôn lấy từ `PROJECT_CONTEXT.md`; danh sách trên chỉ là ảnh chụp tại thời điểm
+cập nhật README. Roadmap tóm tắt nằm trong `docs/IMPLEMENTATION_PLAN.md`; tài liệu checkpoint đã
+hoàn tất được lưu trong Git history.
 
 ## Kiến trúc
 

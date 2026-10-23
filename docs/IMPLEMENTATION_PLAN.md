@@ -88,6 +88,9 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C110 | Nghiệm thu và phát hành C109 trên nền loading C107 | `COMPLETED` |
 | C111 | Đặt badge hướng ở góc phải của Việc cần xử lý | `COMPLETED` |
 | C112 | Nghiệm thu và phát hành giao diện C111 | `COMPLETED` |
+| C113 | Audit toàn diện, remediation local và đề xuất cải tiến | `COMPLETED` |
+| C114 | Hardening Web Push, recovery đổi mật khẩu và CSP | `COMPLETED` |
+| C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -2903,4 +2906,130 @@ smoke ở thời điểm đó. OWNER sau đó xác nhận đã kiểm cả hai a
 Khoản vay, Đối tác và Thông báo Auth HTTP200. Dashboard bundle hậu kiểm đạt1486,8–1625,8ms, tất cả
 `outcome: ok`; level-error/HTTP500=0 và không có `57014`. Rollback C106 chưa kích hoạt. C112 đạt
 toàn bộ acceptance; C108/C110 cũng hoàn tất phần rollout còn lại qua deployment này. C100 tiếp tục
-`IN_PROGRESS` độc lập; không mở checkpoint mới.
+`IN_PROGRESS` độc lập; chỉ dẫn C113 mới của OWNER thay thế giới hạn không mở checkpoint mới.
+
+### C113 — Audit toàn diện, remediation local và đề xuất cải tiến
+
+Trạng thái: `COMPLETED` ngày 22/10/2026; OWNER phê duyệt trực tiếp bằng nhiệm vụ audit toàn diện,
+khắc phục lỗi có đủ căn cứ, kiểm thử hồi quy và đề xuất cải tiến trong hội thoại hiện tại. Chỉ dẫn
+mới cho phép mở checkpoint local này song song với phần nghiệm thu thiết bị còn thiếu của C100.
+
+Phạm vi: lập bản đồ kiến trúc và luồng dữ liệu; rà soát logic/nghiệp vụ, mã nguồn, dữ liệu/hiệu
+năng, UI/UX, bảo mật/độ tin cậy, TODO/FIXME và test hiện có. Phân loại P0–P3; chủ động sửa nguyên
+nhân gốc của lỗi có thể tái hiện hoặc chứng minh từ code/test mà không đổi quy tắc nghiệp vụ. Bổ
+sung test phù hợp, chạy gate áp dụng, review lại diff độc lập và ghi báo cáo audit tại
+`docs/audit-c113/report.md`. Tính năng mới chỉ được đề xuất, không triển khai.
+
+Acceptance criteria:
+
+1. Có inventory module, luồng dữ liệu, bề mặt tấn công, test/gate và danh sách phát hiện phân biệt
+   rõ lỗi xác nhận, nguy cơ có bằng chứng và nội dung chưa kiểm chứng.
+2. Mỗi lỗi được sửa có tái hiện hoặc căn cứ tĩnh đủ mạnh, nguyên nhân gốc, phạm vi ảnh hưởng, test
+   chống hồi quy và trạng thái xác minh; không refactor diện rộng chỉ để làm đẹp.
+3. Giữ nguyên Supabase authoritative, phép tính tài chính authoritative ở PostgreSQL, append/reversal,
+   VND integer, date Asia/Ho_Chi_Minh, RLS/Auth, idempotency và đồng bộ Google một chiều.
+4. Chạy lint, typecheck, unit, build, E2E và pgTAP khi áp dụng; ghi chính xác phần đã chạy/chưa chạy,
+   `git diff --check` và trạng thái worktree. Không tuyên bố hoàn tất nếu gate bắt buộc chưa đạt.
+5. Báo cáo cuối nêu phát hiện P0–P3, bản sửa/file/test, tồn đọng cần OWNER duyệt, đề xuất tính năng
+   theo lợi ích/ưu tiên/độ phức tạp/tác động/rủi ro và đánh giá độ tin cậy còn lại.
+
+Giới hạn: không migration hoặc thay đổi dữ liệu/secret/tài khoản remote, không deploy/alias,
+`clasp push`, commit, push GitHub hay mở PR. Thay đổi có thể ảnh hưởng dữ liệu thực, kết quả tài
+chính, tương thích ngược hoặc kiến trúc quan trọng chỉ dừng ở phân tích và phương án chờ duyệt.
+
+Kết quả: không phát hiện P0/P1. P2 Google Sync từng chấp nhận full snapshot thiếu dataset, từ đó có
+thể clear tab vắng mặt và vẫn tiến cursor; validation giờ fail-closed với đủ 13 bảng, row object,
+`sourceVersion` và `generatedAt` trước mọi thao tác Sheet. P3 presentation từng vẽ giá trị 0 thành
+cột dương do minimum bar/CSS; helper BigInt dùng chung giờ trả `0%` và CSS zero không còn
+min-height/shadow. Regression test bao phủ payload thiếu trước clear, boundary bar, source/CSS và
+chart privacy. README/handoff đã đồng bộ nguồn trạng thái hiện hành.
+
+P3 test tooling cũng được sửa: case C75 trước đây luôn ghi lại 15 artifact evidence đã quản lý bằng
+Git, làm full E2E bình thường gây dirty worktree. Capture nay chỉ bật khi đặt
+`C75_EVIDENCE=true`; assertion regression mặc định vẫn chạy đầy đủ và không đổi evidence lịch sử.
+
+Gate cuối đạt `git diff --check`, lint, typecheck, unit `126 PASS`, build `19 route`, auth integration
+`6 PASS`, pgTAP `543 PASS / 25 file`, product schema lint sạch và full E2E
+`92 PASS / 18 SKIP / 0 FAIL` trong 27,7 phút. Dependency audit không có vulnerability đã biết ở
+ngưỡng high; CI policy/actionlint đạt. Không đổi schema/RPC tài chính, migration, dữ liệu, remote,
+dependency hoặc release. Báo cáo đầy đủ: `docs/audit-c113/report.md`.
+
+Tồn đọng chỉ ở mức phương án chờ OWNER duyệt checkpoint riêng: hardening Web Push egress trước
+DNS rebinding/private IPv6/provider drift, recovery cho Auth password + profile flag không nguyên
+tử và CSP nonce/hash. Tính năng ưu tiên đề xuất là trung tâm sức khỏe đối soát Google Sync ở chế độ
+read-only. C100 tiếp tục `IN_PROGRESS` độc lập với nghiệm thu iPhone còn thiếu; C113 không tự mở
+checkpoint tiếp theo.
+
+### C114 — Hardening Web Push, recovery đổi mật khẩu và CSP
+
+Trạng thái: `COMPLETED` ngày 22/10/2026; OWNER phê duyệt trực tiếp một checkpoint riêng bao gồm
+cả ba hạng mục tồn đọng kỹ thuật của C113.
+
+Phạm vi:
+
+1. Web Push: bảo đảm endpoint gửi ra ngoài chỉ dùng HTTPS/443, hostname/provider được phép và địa
+   chỉ kết nối thực tế không thuộc private, loopback, link-local, multicast hoặc reserved IPv4/IPv6;
+   chống khoảng trống DNS rebinding/TOCTOU ở mức transport, giữ timeout, queue/idempotency và
+   redaction hiện có.
+2. Đổi mật khẩu: thêm trạng thái/recovery bền vững và idempotent để một lỗi sau khi Supabase Auth
+   đã đổi password không giữ user trong vòng lặp bắt buộc đổi mật khẩu. Không lưu password, không
+   hạ quyền auth và không cho client tự xóa cờ profile.
+3. CSP: bỏ `unsafe-inline` khỏi `script-src` bằng nonce theo request, tương thích Next.js streaming,
+   App Router, PWA/service worker, SSR theme bootstrap và các route public/Auth hiện có. Style inline
+   chỉ thay đổi nếu có đủ bằng chứng tương thích; không mở rộng source ngoài nhu cầu thực tế.
+
+Acceptance criteria:
+
+1. Có threat model/contract rõ cho provider hostname, DNS A/AAAA, redirect và IP range; test chặn
+   literal/private IPv4, private/reserved IPv6, hostname ngoài policy, DNS trả private/mixed result
+   và xác minh request sử dụng đúng địa chỉ public đã kiểm.
+2. Đổi mật khẩu thành công hoàn tất profile; nếu profile update tạm lỗi thì lần request/session kế
+   tiếp tự đối soát an toàn dựa trên bằng chứng server-side, không yêu cầu nhập/lưu lại password và
+   không cho user khác hoàn tất hộ. Retry không tạo trạng thái mâu thuẫn.
+3. Header CSP trên response thật không còn `script-src 'unsafe-inline'`; nonce đủ ngẫu nhiên theo
+   request và được truyền đúng cho Next.js. Login, cold/warm startup, theme, Auth redirect, route
+   transition và service worker tiếp tục hoạt động trong production build.
+4. Mọi schema change chỉ ở migration local có pgTAP và rollback/compatibility analysis; không chạy
+   migration remote, không thay secret/account, deploy, alias, `clasp`, commit hoặc push.
+5. Gate áp dụng đạt diff-check, lint, typecheck, unit, build, auth integration, pgTAP và full E2E;
+   báo cáo ghi chính xác phần đã kiểm, residual risk và bước rollout riêng chờ OWNER duyệt.
+
+Giới hạn: không thay quy tắc nghiệp vụ/tài chính, dữ liệu Production, Supabase/Vercel/Google remote
+hoặc tính năng mới. Nếu provider allowlist hay CSP yêu cầu quyết định tương thích vượt contract hiện
+có, ghi rõ phương án và dừng phần đó thay vì nới policy âm thầm.
+
+Kết quả: Web Push áp allowlist Apple/Google/Mozilla (có cấu hình mở rộng explicit), resolve toàn bộ
+A/AAAA fail-closed và dùng HTTPS Agent ghim IP public đã kiểm; redirect không được follow. Đổi mật
+khẩu dùng `password_reset_generation` và Auth `app_metadata` protected để reconcile đúng user/đúng
+generation sau partial failure; Admin reset tăng generation trước nên proof cũ vô hiệu. CSP chuyển
+sang nonce 144-bit từng request, Production `script-src` không còn `'unsafe-inline'`; service worker
+có policy riêng. Migration chỉ áp trên Supabase local.
+
+Gate đạt diff-check, lint, typecheck, unit `138 PASS`, build `19 route`, Auth `6 PASS`, schema lint
+sạch, pgTAP `552 PASS / 26 file` và full E2E `94 PASS / 18 SKIP / 0 FAIL` trong 27,7 phút. Không
+remote mutation/deploy/commit/push. Báo cáo: `docs/security-c114/report.md`.
+
+### C115 — Rollout C114 và hậu kiểm
+
+Trạng thái: `IN_PROGRESS` ngày 23/10/2026 theo phê duyệt trực tiếp của OWNER.
+
+Phạm vi đề xuất: inventory hostname provider đã sanitize; áp migration C114 remote theo thứ tự
+migration-first; tạo candidate Preview từ repository root bằng `pnpm deploy:preview`; kiểm project/
+target/Ready/sin1, immutable smoke, CSP nonce, Auth/session, service worker, Safari/iPhone Web Push
+và runtime log. Chỉ chuyển stable alias sau khi candidate đạt gate và OWNER nghiệm thu; Production
+phải có preflight/candidate/Auth smoke/promote/hậu kiểm/rollback theo runbook. Đồng bộ Git chỉ khi
+được phê duyệt trong checkpoint.
+
+Acceptance đề xuất: provider thực tế nằm trong policy hoặc được review rõ; migration/lint remote
+sạch; Preview và Production không có CSP violation/Auth loop/push regression; mọi public/Auth smoke
+và runtime error log đạt; rollback alias C112 còn khả dụng; report/context ghi deployment IDs, URL,
+alias, target, region và từng smoke. Không dùng dữ liệu/tài khoản vận hành làm QA phá hủy.
+
+Tiến độ ngày 23/10/2026: backup mã hóa `qlv-prod-20261022T233437Z` đạt checksum/SQL-shape; migration
+`20261022100000_c114_security_hardening.sql` đã áp đúng project và remote lint sạch. Inventory
+sanitize có 1 FCM và 4 Apple endpoint, đều thuộc provider policy. Root Preview create/resume đạt
+lint/typecheck/unit138/build19 và full E2E `94 PASS / 18 SKIP / 0 FAIL`; candidate
+`dpl_8pxn5Ze87nbvdNbaF5CQeQ1oan9b` đúng project/Preview/Ready/Functions sin1. Immutable và stable
+alias đều đạt public/Auth/CSP/service-worker/browser/runtime smoke; `tindung-preview.vercel.app`
+đã trỏ candidate, error/HTTP500 bằng0, rollback C112 còn sẵn sàng. Chờ Required CI đúng source SHA
+và nghiệm thu Web Push trên Safari/iPhone thật trước khi tạo Production candidate.

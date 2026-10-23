@@ -6,6 +6,7 @@ import { localSupabaseEnvironment } from "./helpers";
 
 // Regression uses only the guarded disposable local database.
 const out = resolve(process.cwd(), "../../docs/remediation-c75");
+const capture = process.env.C75_EVIDENCE === "true";
 const evidence: Record<string, unknown> = { method: "Headless Chrome, local production build, synthetic isolated DB :55321", matrix: [], observations: {} };
 const matrix: unknown[] = [];
 const observations: Record<string, unknown> = {};
@@ -34,6 +35,7 @@ test.beforeAll(async () => {
   }
 });
 test.afterAll(() => {
+  if (!capture) return;
   // A targeted friction rerun retains the separately captured matrix; it does not claim to recapture it.
   const prior = !matrix.length && existsSync(resolve(out, "evidence.json")) ? JSON.parse(readFileSync(resolve(out, "evidence.json"), "utf8")) : {};
   writeFileSync(resolve(out, "evidence.json"), JSON.stringify({ ...evidence, matrix: matrix.length ? matrix : prior.matrix ?? [], observations: { ...prior.observations, ...observations } }, null, 2));
@@ -51,7 +53,9 @@ async function ready(page: Page, route: string) {
   await page.locator("#main-content").waitFor();
   await expect(page.locator(".content-loading")).toHaveCount(0);
 }
-async function capture(page: Page, name: string) { await page.screenshot({ path: resolve(out, name), fullPage: true }); }
+async function captureEvidence(page: Page, name: string) {
+  if (capture) await page.screenshot({ path: resolve(out, name), fullPage: true });
+}
 
 
 test("C75 task identity, exact source set, focus and notifications hierarchy", async ({ page }) => {
@@ -104,7 +108,7 @@ test("C75 task identity, exact source set, focus and notifications hierarchy", a
       const collapsedChartHeight = (await chart.boundingBox())!.height;
       if (width === 1440) expect(Math.abs(collapsedChartHeight - chartHeight)).toBeLessThan(1);
       // Chrome full-page capture may scroll the page; keep it outside functional scroll checks.
-      await capture(page, `dashboard-${width}-${theme}.png`);
+      await captureEvidence(page, `dashboard-${width}-${theme}.png`);
       await ready(page, "/notifications");
       const list = page.locator(".notification-list");
       const disclosure = page.locator(".push-settings-disclosure");
@@ -118,7 +122,7 @@ test("C75 task identity, exact source set, focus and notifications hierarchy", a
       await expect(page.getByRole("switch")).toHaveAttribute("aria-checked", /true|false/);
       await page.keyboard.press("Enter");
       await expect(page.getByLabel("Giờ nhận thông báo")).not.toBeVisible();
-      await capture(page, `notifications-${width}-${theme}.png`);
+      await captureEvidence(page, `notifications-${width}-${theme}.png`);
       expect(await page.evaluate(() => (window as Window & { __permissionRequests?: number }).__permissionRequests)).toBe(0);
       matrix.push({ width, theme, taskCount: count, chartHeight, expandedChartHeight, collapsedChartHeight, ...metrics });
     }
@@ -134,7 +138,7 @@ test("C75 privacy metadata and distinct unread empty state", async ({ page }) =>
     await expect(page.locator(".loan-detail-heading")).not.toContainText("Đối tác synthetic C75");
     const attributes = await page.locator("[aria-label],[title]").evaluateAll(es => es.map(e => `${e.getAttribute("aria-label")} ${e.getAttribute("title")}`).join("\n"));
     expect(attributes).not.toContain("Đối tác synthetic C75");
-    await capture(page, `privacy-${label}.png`);
+    await captureEvidence(page, `privacy-${label}.png`);
     await page.getByRole("button", { name: "Hiển thị số tiền" }).click();
   }
   await ready(page, "/notifications?unread=true");

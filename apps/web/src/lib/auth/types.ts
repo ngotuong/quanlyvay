@@ -7,6 +7,7 @@ export type AppProfile = {
   display_name: string;
   role: AppRole;
   must_change_password: boolean;
+  password_reset_generation: number;
   is_active: boolean;
   notification_delivery_hour: number;
 };

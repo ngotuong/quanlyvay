@@ -40,6 +40,24 @@ function makeContext(overrides = {}) {
   return context;
 }
 function call(context, expression) { return vm.runInContext(expression, context); }
+function emptyTables(overrides = {}) {
+  return {
+    counterparties: [],
+    loans: [],
+    transactions: [],
+    lifecycleEvents: [],
+    loanTermCorrections: [],
+    settlementReversals: [],
+    principalRestructures: [],
+    principalRestructureReversals: [],
+    legacyLoanOnboardings: [],
+    interestPeriods: [],
+    expenses: [],
+    notifications: [],
+    auditLogs: [],
+    ...overrides,
+  };
+}
 
 test("owner menu exposes incremental, full and snapshot operations", () => {
   const items = [];
@@ -77,7 +95,7 @@ test("partial sheet failure preserves last success and blocks snapshots until fu
     LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() { released++; } }) },
     PropertiesService: { getScriptProperties: () => properties },
     SpreadsheetApp: { getActive: () => spreadsheet },
-    UrlFetchApp: { fetch: () => ({ getResponseCode: () => 200, getContentText: () => JSON.stringify({schemaVersion:3,sourceVersion:"new",generatedAt:"2026-09-07T00:00:00Z",tables:{}}) }) },
+    UrlFetchApp: { fetch: () => ({ getResponseCode: () => 200, getContentText: () => JSON.stringify({schemaVersion:3,sourceVersion:"new",generatedAt:"2026-09-07T00:00:00Z",tables:emptyTables()}) }) },
   });
   assert.throws(() => call(context, "runGoogleSheetSync()"), /sheet write failure/);
   assert.equal(values.get("LAST_SYNC_AT"), "prior-success");
@@ -87,7 +105,7 @@ test("partial sheet failure preserves last success and blocks snapshots until fu
   broken.clear = MockSheet.prototype.clear;
   context.UrlFetchApp.fetch = url => {
     assert.equal(url, "https://sync.test/api/google-sync/export");
-    return {getResponseCode: () => 200,getContentText: () => JSON.stringify({schemaVersion:3,sourceVersion:"new",generatedAt:"2026-09-07T00:00:00Z",tables:{}})};
+    return {getResponseCode: () => 200,getContentText: () => JSON.stringify({schemaVersion:3,sourceVersion:"new",generatedAt:"2026-09-07T00:00:00Z",tables:emptyTables()})};
   };
   call(context, "runGoogleSheetSync()");
   assert.equal(values.get("SYNC_WRITE_STATE"), "COMPLETED");
@@ -134,6 +152,57 @@ test("payload validation rejects wrong schema", () => {
   assert.throws(() => call(context, `validatePayload_({schemaVersion:1,sourceVersion:"x"})`), /không hợp lệ/);
 });
 
+test("payload validation rejects an incomplete or malformed full snapshot", () => {
+  const context = makeContext();
+  context.missingTablePayload = {
+    schemaVersion: 3,
+    sourceVersion: "v1",
+    generatedAt: "2026-10-22T00:00:00Z",
+    tables: emptyTables(),
+  };
+  delete context.missingTablePayload.tables.auditLogs;
+  assert.throws(() => call(context, "validatePayload_(missingTablePayload)"), /auditLogs/);
+
+  context.malformedTablePayload = {
+    schemaVersion: 3,
+    sourceVersion: "v1",
+    generatedAt: "2026-10-22T00:00:00Z",
+    tables: emptyTables({ loans: {} }),
+  };
+  assert.throws(() => call(context, "validatePayload_(malformedTablePayload)"), /loans/);
+
+  context.malformedRowPayload = {
+    schemaVersion: 3,
+    sourceVersion: "v1",
+    generatedAt: "2026-10-22T00:00:00Z",
+    tables: emptyTables({ loans: [null] }),
+  };
+  assert.throws(() => call(context, "validatePayload_(malformedRowPayload)"), /loans/);
+});
+
+test("incomplete full snapshots are rejected before any sheet is cleared", () => {
+  const spreadsheet = new MockSpreadsheet();
+  const counterparties = new MockSheet("Đối tác");
+  counterparties.cells["2,1"] = "existing-row";
+  spreadsheet.sheets.push(counterparties);
+  const tables = emptyTables();
+  delete tables.auditLogs;
+  const context = makeContext({
+    LockService: { getScriptLock: () => ({ waitLock() {}, releaseLock() {} }) },
+    PropertiesService: { getScriptProperties: () => ({
+      getProperty: (key) => key === "SYNC_API_URL" ? "https://sync.test" : key === "SYNC_API_SECRET" ? "secret" : "",
+    }) },
+    SpreadsheetApp: { getActive: () => spreadsheet },
+    UrlFetchApp: { fetch: () => ({
+      getResponseCode: () => 200,
+      getContentText: () => JSON.stringify({ schemaVersion: 3, sourceVersion: "v1", generatedAt: "2026-10-22T00:00:00Z", tables }),
+    }) },
+  });
+  assert.throws(() => call(context, "runGoogleSheetSync()"), /auditLogs/);
+  assert.equal(counterparties.clearCount, 0);
+  assert.equal(counterparties.cells["2,1"], "existing-row");
+});
+
 test("production sync configuration removes an obsolete Vercel protection bypass", () => {
   const values = new Map([["VERCEL_PROTECTION_BYPASS_SECRET", "old-preview-bypass"]]);
   const properties = {
@@ -158,7 +227,7 @@ test("retention keeps newest 12 weekly snapshots", () => {
 test("full snapshot writes overview and all data tabs idempotently", () => {
   const spreadsheet = new MockSpreadsheet();
   const context = makeContext(); context.spreadsheet = spreadsheet;
-  context.payload = { schemaVersion: 3, sourceVersion: "v1", generatedAt: "2026-08-01T00:00:00Z", tables: { counterparties: [{ id: "c1", name: "A" }], loans: [], transactions: [], lifecycleEvents: [], loanTermCorrections: [], settlementReversals: [], interestPeriods: [], expenses: [], notifications: [], auditLogs: [] } };
+  context.payload = { schemaVersion: 3, sourceVersion: "v1", generatedAt: "2026-08-01T00:00:00Z", tables: emptyTables({ counterparties: [{ id: "c1", name: "A" }] }) };
   call(context, "applyPayloadToSpreadsheet_(spreadsheet, payload)");
   call(context, "applyPayloadToSpreadsheet_(spreadsheet, payload)");
   assert.equal(spreadsheet.sheets.length, 14);
@@ -171,7 +240,7 @@ test("full snapshot writes overview and all data tabs idempotently", () => {
 test("sync stores source cursor then skips unchanged payload", () => {
   const spreadsheet = new MockSpreadsheet(); const values = new Map(); let fetchCount = 0;
   const payloads = [
-    { schemaVersion: 3, sourceVersion: "v1", generatedAt: "2026-08-01T00:00:00Z", unchanged: false, tables: { counterparties: [], loans: [], transactions: [], lifecycleEvents: [], loanTermCorrections: [], settlementReversals: [], interestPeriods: [], expenses: [], notifications: [], auditLogs: [] } },
+    { schemaVersion: 3, sourceVersion: "v1", generatedAt: "2026-08-01T00:00:00Z", unchanged: false, tables: emptyTables() },
     { schemaVersion: 3, sourceVersion: "v1", unchanged: true },
   ];
   const context = makeContext({
@@ -214,7 +283,7 @@ test("full sync clears only the source cursor before fetching canonical data", (
     }) },
     UrlFetchApp: { fetch: (url) => {
       assert.equal(url, "https://sync.test/api/google-sync/export");
-      return { getResponseCode: () => 200, getContentText: () => JSON.stringify({ schemaVersion: 3, sourceVersion: "fresh", generatedAt: "2026-08-04T00:00:00Z", tables: {} }) };
+      return { getResponseCode: () => 200, getContentText: () => JSON.stringify({ schemaVersion: 3, sourceVersion: "fresh", generatedAt: "2026-08-04T00:00:00Z", tables: emptyTables() }) };
     } },
   });
   assert.equal(call(context, "runGoogleSheetFullSync()").unchanged, false);

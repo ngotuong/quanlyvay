@@ -16,6 +16,7 @@
 **/*.tsbuildinfo
 
 # Git ignore is not a substitute for Vercel upload exclusions.
+/.git
 /.backups/
 /.cache/
 **/.backups/

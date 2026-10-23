@@ -20,6 +20,7 @@ const load = (path, imports) => compile(readFileSync(resolve(base, path), "utf8"
 const privacy = load("components/app/privacy-provider.tsx", { "@/components/ui/vnd-text": load("components/ui/vnd-text.tsx") });
 const ui = load("components/ui/card.tsx", { "./utils": load("components/ui/utils.ts") });
 const format = load("lib/business/format.ts");
+const percentage = load("lib/business/percentage.mjs");
 const emptyState = load("components/ui/empty-state.tsx", { "./utils": load("components/ui/utils.ts") });
 const responsiveTable = load("components/ui/responsive-table.tsx", { "./utils": load("components/ui/utils.ts") });
 const nameDisclosure = load("components/business/name-disclosure.tsx", { "@/components/app/privacy-provider": privacy, "@/components/ui/button": load("components/ui/button.tsx", { "./utils": load("components/ui/utils.ts") }) });
@@ -35,7 +36,7 @@ const source = readFileSync(resolve(base, "app/loans/[id]/page.tsx"), "utf8");
 const parsed = ts.createSourceFile("page.tsx", source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
 const chart = parsed.statements.find(node => ts.isFunctionDeclaration(node) && node.name?.text === "PeriodInterestChart");
 assert.ok(chart, "test must render the real production chart function");
-const { Chart } = compile(`${chart.getText(parsed)}\nexports.Chart=PeriodInterestChart;`, { Card: ui.Card, PrivacyAmount: privacy.PrivacyAmount, ...format });
+const { Chart } = compile(`${chart.getText(parsed)}\nexports.Chart=PeriodInterestChart;`, { Card: ui.Card, PrivacyAmount: privacy.PrivacyAmount, ...format, ...percentage });
 
 for (const count of [0, 1, 2, 3, 12]) test(`loan chart privacy covers ${count} period presentation branch`, () => {
   const periods = Array.from({ length: count }, (_, i) => ({ id: `synthetic-${i}`, end_date: "2026-09-30", accrued_interest_vnd: "1234567", interest_payments_vnd: "765432", closing_interest_balance_vnd: "469135" }));
@@ -50,7 +51,11 @@ for (const count of [0, 1, 2, 3, 12]) test(`loan chart privacy covers ${count} p
   assert.doesNotMatch(hidden, /1\.234\.567|765\.432|469\.135|title=|period-chart/);
 });
 
-const bars = load("components/business/cash-flow-bars.tsx", { "@/components/app/privacy-provider": privacy, "@/lib/business/format": format });
+const bars = load("components/business/cash-flow-bars.tsx", {
+  "@/components/app/privacy-provider": privacy,
+  "@/lib/business/format": format,
+  "@/lib/business/percentage.mjs": percentage,
+});
 const dashboardSource = readFileSync(resolve(base, "app/dashboard/page.tsx"), "utf8");
 const dashboard = ts.createSourceFile("dashboard.tsx", dashboardSource, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX);
 const functions = ["CashFlowChart", "compactVnd", "monthLabel"].map(name => {
@@ -58,7 +63,7 @@ const functions = ["CashFlowChart", "compactVnd", "monthLabel"].map(name => {
   assert.ok(node, `missing production function ${name}`);
   return node.getText(dashboard);
 });
-const { CashChart } = compile(`${functions.join("\n")}\nexports.CashChart=CashFlowChart;`, { Card: ui.Card, ResponsiveTable: responsiveTable.ResponsiveTable, PrivacyAmount: privacy.PrivacyAmount, CashFlowBars: bars.CashFlowBars, ...format });
+const { CashChart } = compile(`${functions.join("\n")}\nexports.CashChart=CashFlowChart;`, { Card: ui.Card, ResponsiveTable: responsiveTable.ResponsiveTable, PrivacyAmount: privacy.PrivacyAmount, CashFlowBars: bars.CashFlowBars, ...format, ...percentage });
 for (const [name, rows] of [
   ["empty", []],
   ["zero", [{ month: "2026-09", inflowVnd: "0", outflowVnd: "0", netVnd: "0" }]],

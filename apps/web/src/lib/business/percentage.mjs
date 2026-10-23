@@ -8,3 +8,12 @@ export function expensePercentage(amount, total) {
   const fraction = (scaled % 100n).toString().padStart(2, "0").replace(/0+$/, "");
   return `${whole}${fraction ? `.${fraction}` : ""}`;
 }
+
+/** Presentation only: keep a positive bar visible without depicting zero as non-zero. */
+export function barPercentage(value, maximum, minimum = 2) {
+  const amount = BigInt(value);
+  const upperBound = BigInt(maximum);
+  if (amount <= 0n || upperBound <= 0n) return "0%";
+  const wholePercent = Number((amount * 100n) / upperBound);
+  return `${Math.max(minimum, wholePercent)}%`;
+}

@@ -339,6 +339,7 @@ details[open] > summary::after { content: "−"; }
 .period-chart-column { display: grid; gap: 8px; color: var(--foreground-muted); font-size: .8125rem; text-align: center; }
 .period-bar-group { display: flex; height: 202px; align-items: flex-end; justify-content: center; gap: 3px; }
 .period-bar-group > span { width: min(15px, 30%); height: var(--bar-size); min-height: 2px; border-radius: 5px 5px 2px 2px; background: var(--primary); }
+.period-bar-group > span[data-zero="true"] { min-height: 0; }
 .period-bar-group > span[data-series="paid"] { background: var(--chart-paid-color); }
 .period-bar-group > span[data-series="remaining"] { background: var(--chart-remaining-color); }
 .route-loading { display: grid; min-height: 100dvh; grid-template-columns: 1fr; }

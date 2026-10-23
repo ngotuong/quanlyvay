@@ -23,6 +23,13 @@
   thái hoạt động và cấp lại mật khẩu tạm. Mật khẩu tạm luôn buộc đổi ở lần đăng nhập kế tiếp.
   Cờ `must_change_password` chỉ được xóa bởi Server Action sau khi Supabase Auth xác nhận đổi mật khẩu;
   RPC tương ứng không cấp quyền cho client `authenticated`.
+- Mỗi lần OWNER yêu cầu reset, database tăng `password_reset_generation` trước khi cài mật khẩu tạm.
+  Khi người dùng hoàn tất, cùng thao tác Auth cập nhật password và ghi generation hiện tại vào
+  `app_metadata` được bảo vệ phía server; password không được lưu trong profile, metadata hoặc log.
+  Profile chỉ được clear với đúng user và đúng generation. Nếu Auth đã thành công nhưng update
+  profile tạm lỗi, lần đăng nhập/request sau tự đối soát marker server-side và hoàn tất idempotent.
+  Marker của lần cũ không thể hoàn tất hộ một reset mới; client không có quyền tự sửa generation
+  hoặc clear cờ.
 - Mật khẩu cần tối thiểu 6 ký tự và chỉ gồm chữ cái ASCII hoặc chữ số; không bắt buộc chữ hoa,
   chữ thường hay phối hợp cả chữ và số.
 - Supabase Auth local/remote phải đặt minimum length bằng 6 và không cấu hình required-character

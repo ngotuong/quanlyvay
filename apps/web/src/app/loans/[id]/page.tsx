@@ -15,6 +15,7 @@ import { ReversalForm } from "@/components/business/reversal-form";
 import { SettlementReversalForm } from "@/components/business/settlement-reversal-form";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate, formatPercent, formatPeriodRate, formatVnd } from "@/lib/business/format";
+import { barPercentage } from "@/lib/business/percentage.mjs";
 import { getLoanWorkspace, listCounterparties } from "@/lib/business/queries";
 import type { InterestPeriod, LoanStatus } from "@/lib/business/types";
 import { Badge, Card, TabList, Tabs } from "@/components/ui";
@@ -45,7 +46,7 @@ function PeriodInterestChart({ periods }: { periods: InterestPeriod[] }) {
     const rowMaximum = accrued > paid ? (accrued > remaining ? accrued : remaining) : (paid > remaining ? paid : remaining);
     return rowMaximum > current ? rowMaximum : current;
   }, BigInt(0));
-  const height = (value: string) => maximum === BigInt(0) ? "0%" : `${Math.max(2, Number((BigInt(value) * BigInt(100)) / maximum))}%`;
+  const height = (value: string) => barPercentage(value, maximum);
 
   return (
     <Card className="surface-card period-chart-card" aria-labelledby="period-chart-title">
@@ -60,9 +61,9 @@ function PeriodInterestChart({ periods }: { periods: InterestPeriod[] }) {
       </div> : <div className="period-chart-scroll"><div className="period-chart" style={{ "--period-count": rows.length } as CSSProperties} role="img" aria-label="Biểu đồ đối chiếu lãi theo kỳ">
         {rows.map((period) => <div className="period-chart-column" key={period.id}>
           <div className="period-bar-group">
-            <span data-series="accrued" style={{ "--bar-size": height(period.accrued_interest_vnd) } as CSSProperties} title={`Phát sinh: ${formatVnd(period.accrued_interest_vnd)}`} />
-            <span data-series="paid" style={{ "--bar-size": height(period.interest_payments_vnd) } as CSSProperties} title={`Đã đóng: ${formatVnd(period.interest_payments_vnd)}`} />
-            <span data-series="remaining" style={{ "--bar-size": height(period.closing_interest_balance_vnd) } as CSSProperties} title={`Còn thiếu: ${formatVnd(period.closing_interest_balance_vnd)}`} />
+            <span data-series="accrued" data-zero={BigInt(period.accrued_interest_vnd) === BigInt(0)} style={{ "--bar-size": height(period.accrued_interest_vnd) } as CSSProperties} title={`Phát sinh: ${formatVnd(period.accrued_interest_vnd)}`} />
+            <span data-series="paid" data-zero={BigInt(period.interest_payments_vnd) === BigInt(0)} style={{ "--bar-size": height(period.interest_payments_vnd) } as CSSProperties} title={`Đã đóng: ${formatVnd(period.interest_payments_vnd)}`} />
+            <span data-series="remaining" data-zero={BigInt(period.closing_interest_balance_vnd) === BigInt(0)} style={{ "--bar-size": height(period.closing_interest_balance_vnd) } as CSSProperties} title={`Còn thiếu: ${formatVnd(period.closing_interest_balance_vnd)}`} />
           </div>
           <small>{formatDate(period.end_date)}</small>
         </div>)}

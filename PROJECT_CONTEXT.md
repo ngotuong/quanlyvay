@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.363
-last_updated: 2026-10-22
+roadmap_version: 1.0.369
+last_updated: 2026-10-23
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C100
+current_checkpoint: C115
 current_status: IN_PROGRESS
-last_completed_checkpoint: C112
-next_checkpoint: null
+last_completed_checkpoint: C114
+next_checkpoint: C115
 ---
 
 # Project Context
@@ -17,14 +17,31 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
 
 ## 1. Trạng thái hiện hành
 
+- C113 `COMPLETED` ngày 22/10/2026: audit toàn diện local không phát hiện P0/P1; đã sửa P2 Google
+  Sync có thể clear tab khi full snapshot thiếu bảng, P3 biểu đồ vẽ giá trị 0 thành cột dương và
+  P3 full E2E C75 tự ghi đè evidence lịch sử.
+  Gate đạt lint, typecheck, unit 126, build 19 route, auth 6, pgTAP 543/25 file và full E2E
+  `92 PASS / 18 SKIP / 0 FAIL`. Không migration/deploy/commit/push. Báo cáo:
+  [audit C113](docs/audit-c113/report.md).
+- C114 `COMPLETED` ngày 22/10/2026: Web Push chỉ egress HTTPS/443 tới provider policy qua DNS
+  A/AAAA fail-closed và HTTPS Agent ghim IP public; đổi mật khẩu dùng generation + Auth marker để
+  recovery partial failure đúng user; CSP Production dùng nonce theo request và bỏ
+  `script-src 'unsafe-inline'`. Migration chỉ chạy local. Gate đạt unit 138, build 19 route, Auth 6,
+  pgTAP 552/26 file và full E2E `94 PASS / 18 SKIP / 0 FAIL`. Báo cáo:
+  [security C114](docs/security-c114/report.md).
+- C115 `IN_PROGRESS` ngày 23/10/2026 theo phê duyệt trực tiếp của OWNER: rollout migration/web C114
+  lên Preview/Production, kiểm provider thực, Safari/iPhone Web Push, Auth/session và CSP qua
+  Vercel edge. Migration remote và stable Preview đã đạt; đang chờ Required CI cùng nghiệm thu
+  Web Push trên iPhone thật trước Production. Báo cáo: [release C115](docs/release-c115/report.md).
 - C100 `IN_PROGRESS`: OWNER đã phê duyệt tối ưu lời gọi đọc Tổng quan. RPC v4 đã phát hành và đạt
-  gate tự động; phần còn lại là nghiệm thu định lượng trên iPhone thật. Không mở checkpoint mới.
+  gate tự động; phần còn lại là nghiệm thu định lượng trên iPhone thật. C113 không thay đổi phạm vi
+  hay acceptance còn thiếu của C100.
 - C112 `COMPLETED` ngày 22/10/2026: giao diện C111 cùng nền loading C107 đã được phát hành. OWNER
   đã kiểm cả hai Production alias; Dashboard, Khoản vay, Đối tác và Thông báo đều Auth HTTP 200.
-- C101–C112 đều `COMPLETED`. Chi tiết acceptance, test và deployment được giữ trong roadmap và
+- C101–C114 đều `COMPLETED` trừ C100 vẫn độc lập `IN_PROGRESS`. Chi tiết acceptance, test và deployment được giữ trong roadmap và
   báo cáo phát hành tương ứng.
-- Không có blocker kỹ thuật hoặc rollout đang chờ. C100 chỉ còn thiếu chuỗi số đo thiết bị theo
-  acceptance đã duyệt.
+- C115 đang thực hiện theo cổng migration-first và runbook Preview/Production. C100 chỉ còn thiếu
+  chuỗi số đo thiết bị theo acceptance đã duyệt. Các tính năng mới đề xuất C113 vẫn chưa được duyệt.
 
 ## 2. C100 — Công việc còn lại
 
@@ -49,8 +66,9 @@ Phạm vi: [đề xuất C100](docs/dashboard-rpc-performance-proposal.md) và
 
 | Vai trò | Deployment | Immutable URL / alias | Trạng thái |
 | --- | --- | --- | --- |
-| Stable Preview C112 | `dpl_2a8avNFZHZxcDsZvheXP84dLu8Ri` | `quan-ly-vay-ca-nhan-74fc7gb9r-ngotuong2105.vercel.app` / `tindung-preview.vercel.app` | Preview, Ready, Functions `sin1` |
+| Stable Preview C115 | `dpl_8pxn5Ze87nbvdNbaF5CQeQ1oan9b` | `quan-ly-vay-ca-nhan-97arw9mvp-ngotuong2105.vercel.app` / `tindung-preview.vercel.app` | Preview, Ready, Functions `sin1` |
 | Production C112 | `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` | `quan-ly-vay-ca-nhan-967no3d6v-ngotuong2105.vercel.app` / `tindung.vercel.app` / alias mặc định | Production, Ready, Functions `sin1` |
+| Preview rollback C112 | `dpl_2a8avNFZHZxcDsZvheXP84dLu8Ri` | `quan-ly-vay-ca-nhan-74fc7gb9r-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Preview rollback C110 | `dpl_148HdyQj5mLLoxocf5f3hyhjfDut` | `quan-ly-vay-ca-nhan-6m940n7ty-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Production rollback C106 | `dpl_92pT2tjxRvCTEwyEePzJqMpGa8TG` | `quan-ly-vay-ca-nhan-kt9gxcuu7-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 
@@ -62,10 +80,11 @@ HTTP 500. Báo cáo đầy đủ: [release C112](docs/release-c112/report.md).
 ## 4. Source và workspace
 
 - Repository chuẩn: `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`.
-- Các thay đổi hoàn tất C101–C112 được gom trong commit local của phiên dọn dẹp; dùng
-  `git log -1 --oneline` để lấy SHA. Chưa push GitHub trong phiên dọn dẹp.
-- Chỉ còn worktree chuẩn. Cache build/test đã xóa; `node_modules`, root `.vercel` và backup được
-  giữ để phiên mới không phải liên kết lại project hoặc cài lại dependency.
+- C101–C112 kết thúc tại commit `c139a5a`; C113/C114 hiện là diff chưa commit trong managed
+  worktree `/Users/ngotuong/.codex/worktrees/8dc1/QuanLyVayCaNhan`; C115 đang chuẩn bị commit/push
+  fast-forward theo phạm vi đã duyệt.
+- Dependency và local Supabase test stack được giữ để review/chạy lại gate; không suy quyền thao tác
+  remote từ trạng thái local này.
 - Không xóa báo cáo checkpoint, migration, test, ảnh bằng chứng đã được source-control quản lý,
   secret hoặc dữ liệu tài chính.
 
@@ -84,8 +103,10 @@ HTTP 500. Báo cáo đầy đủ: [release C112](docs/release-c112/report.md).
 
 1. Đọc `AGENTS.md`, tệp này, [handoff](docs/HANDOFF_NEXT_SESSION.md) và phần C100 trong roadmap.
 2. Chạy `git status --short --branch` và `git log -1 --oneline`.
-3. Chỉ tiếp tục C100 sau khi OWNER chỉ dẫn rõ trong cuộc trò chuyện mới.
-4. Không mở lại C101–C112 hoặc suy quyền thao tác remote từ lịch sử đã hoàn tất.
+3. Hoàn tất C115 theo acceptance đã duyệt; chỉ tiếp tục phần nghiệm thu thiết bị của C100 khi OWNER
+   cung cấp số đo hoặc chỉ dẫn rõ.
+4. Không tự triển khai tính năng mới C113, commit/push/deploy hoặc suy quyền thao tác remote từ lịch
+   sử đã hoàn tất.
 
 Tài liệu kỹ thuật chính: [Domain](docs/DOMAIN_SPEC.md), [Financial Engine](docs/FINANCIAL_ENGINE.md),
 [Dashboard](docs/DASHBOARD.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md),
