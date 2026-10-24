@@ -1,15 +1,14 @@
 # Bàn giao cho cuộc trò chuyện mới
 
-Cập nhật ngày 24/10/2026 sau khi hoàn tất rollout C115.
+Cập nhật ngày 24/10/2026 trong lúc hoàn tất hotfix release C115.
 
 ## Trạng thái cần nhớ
 
-- C115 `COMPLETED` — migration, Preview/Production, provider/Auth/CSP/service worker và iPhone Web
-  Push đã đạt toàn bộ gate.
+- C115 `IN_PROGRESS` — rollout đầu đạt nhưng Required CI tài liệu phát hiện advisory Zod mới; bản
+  vá 4.6.7 đã qua local gate, còn CI và redeploy Production.
 - C100 vẫn `IN_PROGRESS` độc lập — chỉ còn nghiệm thu định lượng trên iPhone thật.
-- Checkpoint hoàn tất gần nhất: C115 `COMPLETED`.
-- C101–C115 đều đã hoàn tất trừ C100 vẫn độc lập `IN_PROGRESS`; không có checkpoint tiếp theo đang
-  chờ duyệt.
+- Checkpoint hoàn tất gần nhất: C114 `COMPLETED`.
+- C100 và C115 đang `IN_PROGRESS`; không mở checkpoint mới trước khi C115 hoàn tất.
 
 Cuộc trò chuyện mới phải đọc `AGENTS.md`, `PROJECT_CONTEXT.md` và phần C100 trong
 `docs/IMPLEMENTATION_PLAN.md`, rồi chạy `git status --short --branch`. Theo cổng phê duyệt của

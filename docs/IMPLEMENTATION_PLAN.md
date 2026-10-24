@@ -90,7 +90,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C112 | Nghiệm thu và phát hành giao diện C111 | `COMPLETED` |
 | C113 | Audit toàn diện, remediation local và đề xuất cải tiến | `COMPLETED` |
 | C114 | Hardening Web Push, recovery đổi mật khẩu và CSP | `COMPLETED` |
-| C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `COMPLETED` |
+| C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3011,7 +3011,7 @@ remote mutation/deploy/commit/push. Báo cáo: `docs/security-c114/report.md`.
 
 ### C115 — Rollout C114 và hậu kiểm
 
-Trạng thái: `COMPLETED` ngày 24/10/2026 theo phê duyệt trực tiếp của OWNER.
+Trạng thái: `IN_PROGRESS` ngày 24/10/2026 theo phê duyệt trực tiếp của OWNER.
 
 Phạm vi đề xuất: inventory hostname provider đã sanitize; áp migration C114 remote theo thứ tự
 migration-first; tạo candidate Preview từ repository root bằng `pnpm deploy:preview`; kiểm project/
@@ -3057,5 +3057,11 @@ Candidate và rollback C112 `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` đã re-inspect n
 Promote thành công. `tindung.vercel.app` và alias mặc định cùng trỏ candidate, đúng Production/
 Ready/sin1. Public/CSP/service-worker và Auth smoke sáu route đạt trên cả hai alias, browser console
 sạch; hậu kiểm ghi HTTP200, `dashboard.bundle` 1652,6ms `outcome: ok`, level-error/HTTP500=0.
-Rollback C112 giữ nguyên, chưa kích hoạt. C115 đạt toàn bộ acceptance; C100 tiếp tục `IN_PROGRESS`
-độc lập và không có checkpoint mới được tự mở.
+Rollback C112 giữ nguyên, chưa kích hoạt. Rollout ban đầu đạt các smoke; C100 tiếp tục
+`IN_PROGRESS` độc lập và không có checkpoint mới được tự mở.
+
+Required CI tài liệu `40063036588` sau rollout phát hiện advisory mới `GHSA-mrhx-c7xc-m3w5` đối
+với Zod `<4.6.6`; secret scan, workflow policy và quality/build đều sạch. Bản vá trực tiếp tối thiểu
+nâng Zod `4.4.3` lên `4.6.7`; audit còn 0 vulnerability, lint/typecheck/unit138/build19 và full E2E
+`94 PASS / 18 SKIP / 0 FAIL` trong 28,0 phút đạt. C115 tạm giữ `IN_PROGRESS` cho đến khi Required
+CI trên SHA hotfix đạt và Production được redeploy/smoke lại.

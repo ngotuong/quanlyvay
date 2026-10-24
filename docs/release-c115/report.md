@@ -1,7 +1,8 @@
 # C115 — Rollout C114 và hậu kiểm
 
-Trạng thái: `COMPLETED` ngày 24/10/2026. OWNER đã phê duyệt checkpoint C115 trong hội thoại
-hiện tại; toàn bộ cổng migration, Preview, thiết bị thật, Production và hậu kiểm đã đạt.
+Trạng thái: `IN_PROGRESS` ngày 24/10/2026. OWNER đã phê duyệt checkpoint C115 trong hội thoại
+hiện tại; rollout đầu đã đạt nhưng Required CI tài liệu phát hiện advisory Zod mới cần hotfix và
+redeploy trước khi đóng checkpoint.
 
 ## 1. Supabase migration-first
 
@@ -118,8 +119,16 @@ Source hotfix `aa7be6c8b4e1ef62645b2f27bb0241dcada4feec` đã fast-forward lên 
 Required CI `39906882151` của đúng SHA đạt đủ 5 job: quality/build, workflow policy,
 dependency/secret scan, Supabase Auth pgTAP/E2E và Required CI gate.
 
+Required CI `40063036588` của commit tài liệu `eea79641dab1956531bbd8601bc9797f711aee38`
+phát hiện advisory high `GHSA-mrhx-c7xc-m3w5` với Zod `<4.6.6`; secret scan, workflow policy và
+quality/build đạt. C115 nâng dependency trực tiếp từ Zod 4.4.3 lên 4.6.7. Local audit còn 0
+vulnerability; lint, typecheck, unit `138 PASS`, build `19 route` và full E2E
+`94 PASS / 18 SKIP / 0 FAIL` trong 28,0 phút đạt. Production hiện hành vẫn là deployment trên;
+hotfix chưa được deploy và checkpoint chưa hoàn tất cho đến khi SHA mới có Required CI xanh,
+candidate thay thế qua smoke và hai alias được hậu kiểm.
+
 ## 4. Kết luận
 
-C115 đạt toàn bộ acceptance. Migration remote, provider policy, Preview, iPhone Web Push,
-Production, Auth/session, CSP nonce, service worker và runtime đều có bằng chứng đạt. C100 tiếp tục
-`IN_PROGRESS` độc lập; không có checkpoint kế tiếp được tự mở.
+C115 đã đạt các cổng migration, provider policy, Preview, iPhone Web Push và rollout Production
+ban đầu. Còn Required CI và redeploy bản vá Zod 4.6.7 trước khi chuyển lại `COMPLETED`. C100 tiếp
+tục `IN_PROGRESS` độc lập; không tự mở checkpoint mới.
