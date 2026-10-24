@@ -3095,3 +3095,9 @@ thứ hai sau `await navigation`. Assertion đầu cùng progress/`aria-busy` đ
 quyết định: giữ transport đúng 1,1 giây, kiểm feedback ở đầu và cuối cửa sổ pending, sau đó nhả
 request và kiểm teardown. Targeted mới đạt `10 PASS / 0 FAIL` trong 2,8 phút; không đổi code
 Production, timeout, retries hoặc skip.
+
+Revision harness quyết định đã push tại `fda2481b763a5e3f87285ff8b1995e5804dd3103`; local lint,
+typecheck, unit 139, build 19 route, audit, policy, upload guard và targeted C107 đều đạt. Required
+CI `40100211560` không chạy bước checkout nào: cả năm job bị GitHub từ chối khởi động với annotation
+account payment thất bại hoặc spending limit cần tăng. Đây là blocker tài khoản ngoài source; không
+được bỏ qua Required CI hoặc deploy trước khi OWNER xử lý Billing & plans và run đúng SHA đạt.

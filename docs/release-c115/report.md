@@ -163,6 +163,12 @@ hợp lệ sau completion. Harness nay giữ trực tiếp RSC transport 1,1 gi�
 và cuối cửa sổ pending, rồi mới nhả request và kiểm teardown. Targeted mới đạt
 `10 PASS / 0 FAIL` trong 2,8 phút; code Production, timeout, retries và skip không đổi.
 
+Revision harness quyết định đã push tại `fda2481b763a5e3f87285ff8b1995e5804dd3103`; local lint,
+typecheck, unit 139, build 19 route, audit, policy, upload guard và targeted C107 đều đạt. Required
+CI `40100211560` không chạy bước checkout nào: cả năm job bị GitHub từ chối khởi động với annotation
+account payment thất bại hoặc spending limit cần tăng. Đây là blocker tài khoản ngoài source; C115
+không bỏ qua Required CI và không tạo Production candidate cho đến khi OWNER xử lý Billing & plans.
+
 ## 4. Kết luận
 
 C115 đã đạt các cổng migration, provider policy, Preview, iPhone Web Push và rollout Production

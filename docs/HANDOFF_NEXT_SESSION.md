@@ -9,7 +9,9 @@ Cập nhật ngày 24/10/2026 trong lúc hoàn tất hotfix release C115.
   45 phút ở ca 108/112 nên CI đã chia hai shard đủ 112 test. Lượt shard đầu phát hiện C107 quan sát
   feedback sau khi await navigation. Lượt kế tiếp xác nhận assertion đầu đạt nhưng assertion sau
   completion race với teardown hợp lệ; harness nay giữ RSC 1,1 giây và quan sát suốt lúc pending,
-  targeted đạt 10/10. Còn Required CI xanh và redeploy.
+  targeted đạt 10/10. Required CI `40100211560` không khởi động job nào vì GitHub báo account
+  payment thất bại hoặc spending limit cần tăng. Còn OWNER xử lý Billing & plans, Required CI xanh
+  trên đúng source và redeploy.
 - C100 vẫn `IN_PROGRESS` độc lập — chỉ còn nghiệm thu định lượng trên iPhone thật.
 - Checkpoint hoàn tất gần nhất: C114 `COMPLETED`.
 - C100 và C115 đang `IN_PROGRESS`; không mở checkpoint mới trước khi C115 hoàn tất.
