@@ -3079,3 +3079,11 @@ assertion failure nhưng E2E tuần tự bị hủy ở budget 45 phút tại ca
 được chia matrix hai shard, `fail-fast: false`; shard 1 giữ database lint/pgTAP/Auth và 57 E2E,
 shard 2 chạy 55 E2E còn lại gồm C99. Tổng danh sách vẫn đủ 112 test; timeout 45 phút, retries 0,
 skip và assertions không đổi. CI policy khóa cấu hình shard, policy/actionlint đều đạt.
+
+Required CI hai shard `40091133558` trên SHA `2f8ae6b533f8d752b805d2fcbaf3828c8b1e2d35`
+đạt dependency/secret scan, workflow policy và quality/build. Shard 1 đạt database lint, pgTAP,
+Auth và 50 E2E trước khi thất bại duy nhất ở C107: test `await click()` rồi mới tìm feedback nên
+trên runner tải cao Playwright có thể trả promise sau lúc feedback đã teardown. Harness nay khởi
+động click, quan sát toàn bộ feedback/progress/`aria-busy` trong lúc navigation promise còn chạy,
+rồi mới await promise; không đổi delay, assertion, timeout, retry/skip hoặc code Production.
+Targeted C107 lặp đạt `10 PASS / 0 FAIL` trong 2,5 phút; Required CI mới vẫn là gate trước redeploy.

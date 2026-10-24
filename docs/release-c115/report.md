@@ -145,6 +145,16 @@ database lint/pgTAP/Auth và chạy 57 E2E, shard 2 chạy 55 E2E còn lại g�
 bắt buộc cả hai shard có kết luận; CI policy khóa cấu hình này. Actionlint/policy đạt và Playwright
 `--list` xác nhận `57 + 55 = 112` test, không thiếu ca nào.
 
+Required CI hai shard `40091133558` trên source
+`2f8ae6b533f8d752b805d2fcbaf3828c8b1e2d35` đạt dependency/secret scan, workflow policy và
+quality/build. Shard 1 đạt database lint, pgTAP, Auth và 50 E2E trước khi thất bại duy nhất ở C107:
+harness đã `await click()` trước khi kiểm tra `.navigation-feedback-message`, nên trên runner tải
+cao Playwright có thể hoàn tất navigation promise sau khi feedback đã teardown đúng thiết kế.
+Bản sửa khởi động click, quan sát feedback/progress/`aria-busy` khi promise điều hướng còn chạy rồi
+mới await promise; giữ nguyên delay 1,1 giây, toàn bộ assertions, timeout, retries 0 và skip.
+Targeted C107 lặp đạt `10 PASS / 0 FAIL` trong 2,5 phút. Không có code Production nào thay đổi;
+Required CI trên source mới vẫn bắt buộc trước redeploy.
+
 ## 4. Kết luận
 
 C115 đã đạt các cổng migration, provider policy, Preview, iPhone Web Push và rollout Production

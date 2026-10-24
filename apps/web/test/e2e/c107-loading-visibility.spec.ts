@@ -148,7 +148,10 @@ test("C107 route feedback persists through streamed loading and guards replaced 
   const measurements: Array<Record<string, unknown>> = [];
   for (const [label, href, destination] of routes) {
     const startedAt = Date.now();
-    await page.locator(`a[href="${href}"]`).filter({ visible: true }).click();
+    // Observe the pending UI while Playwright is still waiting for the SPA
+    // navigation it initiated. Awaiting click() first can race with the
+    // feedback's intentional teardown on a loaded CI runner.
+    const navigation = page.locator(`a[href="${href}"]`).filter({ visible: true }).click();
     const feedback = page.locator(".navigation-feedback-message");
     await expect(feedback).toBeVisible();
     await expect(page.locator(".global-route-progress")).toHaveAttribute("data-visible", "true");
@@ -156,6 +159,7 @@ test("C107 route feedback persists through streamed loading and guards replaced 
     await expect(page.locator("#main-content")).toHaveAttribute("aria-busy", "true");
     await expect(page.locator(".navigation-feedback-blocker")).toBeVisible();
     await expect(page).toHaveURL(destination);
+    await navigation;
     await expect(feedback).toBeVisible();
     if (capture && label === "Khoản vay") await page.screenshot({ path: resolve(evidenceDirectory, "route-feedback-390-light.png") });
     await expect(page.locator(".content-loading")).toHaveCount(0);

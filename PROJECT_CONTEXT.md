@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.373
+roadmap_version: 1.0.374
 last_updated: 2026-10-24
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C115
@@ -35,7 +35,9 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   rollback đã re-inspect và chưa kích hoạt. Required CI tài liệu sau rollout phát hiện advisory Zod
   mới; bản vá 4.6.7 đã đạt local gate. Harness C99 đã chặn partial prefetch và đạt targeted 3/3;
   run kế tiếp không còn assertion fail nhưng suite tuần tự chạm budget 45 phút ở ca 108/112. CI
-  đang được chia hai shard bao phủ đủ 112 test, không tăng timeout/retry/skip, trước khi redeploy.
+  đã được chia hai shard bao phủ đủ 112 test, không tăng timeout/retry/skip. Lượt shard đầu phát
+  hiện C107 đợi `click()` xong mới quan sát feedback nên có thể race với teardown trên runner tải
+  cao; harness nay quan sát trong lúc navigation promise đang chạy và targeted đạt 10/10.
   Báo cáo:
   [release C115](docs/release-c115/report.md).
 - C100 `IN_PROGRESS`: OWNER đã phê duyệt tối ưu lời gọi đọc Tổng quan. RPC v4 đã phát hành và đạt
@@ -110,8 +112,8 @@ HTTP 500 bằng 0. Báo cáo đầy đủ: [release C115](docs/release-c115/repo
 
 1. Đọc `AGENTS.md`, tệp này, [handoff](docs/HANDOFF_NEXT_SESSION.md) và phần C100 trong roadmap.
 2. Chạy `git status --short --branch` và `git log -1 --oneline`.
-3. Hoàn tất Required CI/redeploy Zod 4.6.7 cùng bản vá race C99 của C115; chỉ tiếp tục phần nghiệm thu thiết bị C100 khi
-   OWNER cung cấp chuỗi số đo hoặc chỉ dẫn rõ.
+3. Hoàn tất Required CI/redeploy Zod 4.6.7 cùng các bản vá race harness C99/C107 của C115; chỉ tiếp
+   tục phần nghiệm thu thiết bị C100 khi OWNER cung cấp chuỗi số đo hoặc chỉ dẫn rõ.
 4. Không tự triển khai tính năng mới C113, commit/push/deploy hoặc suy quyền thao tác remote từ lịch
    sử đã hoàn tất.
 

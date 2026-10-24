@@ -6,7 +6,9 @@ Cập nhật ngày 24/10/2026 trong lúc hoàn tất hotfix release C115.
 
 - C115 `IN_PROGRESS` — rollout đầu đạt nhưng Required CI tài liệu phát hiện advisory Zod mới; bản
   vá 4.6.7 đã qua local gate. Harness C99 đã sửa race và targeted đạt 3/3; run kế tiếp chạm budget
-  45 phút ở ca 108/112 nên CI đã chia hai shard đủ 112 test, còn Required CI xanh và redeploy.
+  45 phút ở ca 108/112 nên CI đã chia hai shard đủ 112 test. Lượt shard đầu phát hiện C107 quan sát
+  feedback sau khi await navigation; harness đã đổi thứ tự quan sát và targeted đạt 10/10. Còn
+  Required CI xanh và redeploy.
 - C100 vẫn `IN_PROGRESS` độc lập — chỉ còn nghiệm thu định lượng trên iPhone thật.
 - Checkpoint hoàn tất gần nhất: C114 `COMPLETED`.
 - C100 và C115 đang `IN_PROGRESS`; không mở checkpoint mới trước khi C115 hoàn tất.
