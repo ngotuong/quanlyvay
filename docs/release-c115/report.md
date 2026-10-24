@@ -155,6 +155,14 @@ mới await promise; giữ nguyên delay 1,1 giây, toàn bộ assertions, timeo
 Targeted C107 lặp đạt `10 PASS / 0 FAIL` trong 2,5 phút. Không có code Production nào thay đổi;
 Required CI trên source mới vẫn bắt buộc trước redeploy.
 
+Required CI `40093387898` trên source
+`f5ad811a897bb0b1589e611a132f22254887ce40` có shard 2 đạt đủ 55 E2E; shard 1 đạt database lint,
+pgTAP, Auth và 50 E2E nhưng C107 thất bại ở assertion thứ hai sau `await navigation`. Assertion đầu,
+progress và `aria-busy` đều đạt, nên feedback đã xuất hiện đúng lúc; phần còn lại race với teardown
+hợp lệ sau completion. Harness nay giữ trực tiếp RSC transport 1,1 giây, xác nhận feedback ở đầu
+và cuối cửa sổ pending, rồi mới nhả request và kiểm teardown. Targeted mới đạt
+`10 PASS / 0 FAIL` trong 2,8 phút; code Production, timeout, retries và skip không đổi.
+
 ## 4. Kết luận
 
 C115 đã đạt các cổng migration, provider policy, Preview, iPhone Web Push và rollout Production

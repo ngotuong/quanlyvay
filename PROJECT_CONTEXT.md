@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.374
+roadmap_version: 1.0.375
 last_updated: 2026-10-24
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C115
@@ -36,8 +36,9 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   mới; bản vá 4.6.7 đã đạt local gate. Harness C99 đã chặn partial prefetch và đạt targeted 3/3;
   run kế tiếp không còn assertion fail nhưng suite tuần tự chạm budget 45 phút ở ca 108/112. CI
   đã được chia hai shard bao phủ đủ 112 test, không tăng timeout/retry/skip. Lượt shard đầu phát
-  hiện C107 đợi `click()` xong mới quan sát feedback nên có thể race với teardown trên runner tải
-  cao; harness nay quan sát trong lúc navigation promise đang chạy và targeted đạt 10/10.
+  hiện C107 còn kiểm feedback lần hai sau khi navigation promise đã hoàn tất nên race với teardown
+  hợp lệ trên runner tải cao. Harness nay giữ trực tiếp RSC transport 1,1 giây, kiểm feedback trong
+  toàn bộ cửa sổ pending rồi mới nhả request; targeted đạt 10/10.
   Báo cáo:
   [release C115](docs/release-c115/report.md).
 - C100 `IN_PROGRESS`: OWNER đã phê duyệt tối ưu lời gọi đọc Tổng quan. RPC v4 đã phát hành và đạt

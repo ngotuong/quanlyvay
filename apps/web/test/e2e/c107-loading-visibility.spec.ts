@@ -122,7 +122,7 @@ test("C107 warm resume restores visible feedback without motion", async ({ page 
 
 test("C107 route feedback persists through streamed loading and guards replaced content", async ({ page }) => {
   test.setTimeout(120_000);
-  let delayRsc = false;
+  let delayedRsc: { started: () => void; release: Promise<void> } | null = null;
   const pendingRoutes = new Set<Promise<void>>();
   await page.route("**/*", (route) => {
     const pending = (async () => {
@@ -130,7 +130,11 @@ test("C107 route feedback persists through streamed loading and guards replaced 
         await route.abort("aborted");
         return;
       }
-      if (delayRsc && route.request().headers().rsc === "1") await new Promise((resolveDelay) => setTimeout(resolveDelay, 1100));
+      const activeRscDelay = delayedRsc;
+      if (activeRscDelay && route.request().headers().rsc === "1") {
+        activeRscDelay.started();
+        await activeRscDelay.release;
+      }
       await route.continue();
     })();
     pendingRoutes.add(pending);
@@ -138,7 +142,6 @@ test("C107 route feedback persists through streamed loading and guards replaced 
   });
   await page.setViewportSize({ width: 390, height: 900 });
   await login(page);
-  delayRsc = true;
   const routes = [
     ["Khoản vay", "/loans", /\/loans$/],
     ["Đối tác", "/counterparties", /\/counterparties$/],
@@ -147,20 +150,25 @@ test("C107 route feedback persists through streamed loading and guards replaced 
   ] as const;
   const measurements: Array<Record<string, unknown>> = [];
   for (const [label, href, destination] of routes) {
+    let markRscStarted!: () => void;
+    let releaseRsc!: () => void;
+    const rscStarted = new Promise<void>((resolveStarted) => { markRscStarted = resolveStarted; });
+    const release = new Promise<void>((resolveRelease) => { releaseRsc = resolveRelease; });
+    delayedRsc = { started: markRscStarted, release };
     const startedAt = Date.now();
-    // Observe the pending UI while Playwright is still waiting for the SPA
-    // navigation it initiated. Awaiting click() first can race with the
-    // feedback's intentional teardown on a loaded CI runner.
     const navigation = page.locator(`a[href="${href}"]`).filter({ visible: true }).click();
+    await rscStarted;
     const feedback = page.locator(".navigation-feedback-message");
     await expect(feedback).toBeVisible();
     await expect(page.locator(".global-route-progress")).toHaveAttribute("data-visible", "true");
     await expect(page.locator("html")).toHaveAttribute("data-navigation-pending", "true");
     await expect(page.locator("#main-content")).toHaveAttribute("aria-busy", "true");
     await expect(page.locator(".navigation-feedback-blocker")).toBeVisible();
-    await expect(page).toHaveURL(destination);
-    await navigation;
+    await page.waitForTimeout(1100);
     await expect(feedback).toBeVisible();
+    releaseRsc();
+    await navigation;
+    await expect(page).toHaveURL(destination);
     if (capture && label === "Khoản vay") await page.screenshot({ path: resolve(evidenceDirectory, "route-feedback-390-light.png") });
     await expect(page.locator(".content-loading")).toHaveCount(0);
     await expect(feedback).toHaveCount(0);
@@ -171,7 +179,7 @@ test("C107 route feedback persists through streamed loading and guards replaced 
     expect(durationMs).toBeGreaterThanOrEqual(1000);
     measurements.push({ label, durationMs });
   }
-  delayRsc = false;
+  delayedRsc = null;
   while (pendingRoutes.size) await Promise.all(pendingRoutes);
   await page.unrouteAll({ behavior: "wait" });
   evidence.routeTransitions = measurements;

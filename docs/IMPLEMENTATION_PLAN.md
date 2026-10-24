@@ -3087,3 +3087,11 @@ trên runner tải cao Playwright có thể trả promise sau lúc feedback đã
 động click, quan sát toàn bộ feedback/progress/`aria-busy` trong lúc navigation promise còn chạy,
 rồi mới await promise; không đổi delay, assertion, timeout, retry/skip hoặc code Production.
 Targeted C107 lặp đạt `10 PASS / 0 FAIL` trong 2,5 phút; Required CI mới vẫn là gate trước redeploy.
+
+Required CI `40093387898` trên SHA `f5ad811a897bb0b1589e611a132f22254887ce40` có shard 2
+đạt đủ 55 E2E; shard 1 đạt database lint, pgTAP, Auth và 50 E2E nhưng C107 thất bại ở assertion
+thứ hai sau `await navigation`. Assertion đầu cùng progress/`aria-busy` đều đạt, chứng minh feedback
+đã xuất hiện; assertion sau completion race với teardown hợp lệ. Harness được chuyển sang cổng RSC
+quyết định: giữ transport đúng 1,1 giây, kiểm feedback ở đầu và cuối cửa sổ pending, sau đó nhả
+request và kiểm teardown. Targeted mới đạt `10 PASS / 0 FAIL` trong 2,8 phút; không đổi code
+Production, timeout, retries hoặc skip.
