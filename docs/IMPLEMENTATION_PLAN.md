@@ -90,7 +90,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C112 | Nghiệm thu và phát hành giao diện C111 | `COMPLETED` |
 | C113 | Audit toàn diện, remediation local và đề xuất cải tiến | `COMPLETED` |
 | C114 | Hardening Web Push, recovery đổi mật khẩu và CSP | `COMPLETED` |
-| C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `IN_PROGRESS` |
+| C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `COMPLETED` |
+| C116 | Đổi tên hiển thị Supabase thành Tín Dụng | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3011,7 +3012,7 @@ remote mutation/deploy/commit/push. Báo cáo: `docs/security-c114/report.md`.
 
 ### C115 — Rollout C114 và hậu kiểm
 
-Trạng thái: `IN_PROGRESS` ngày 24/10/2026 theo phê duyệt trực tiếp của OWNER.
+Trạng thái: `COMPLETED` ngày 24/10/2026 theo phê duyệt trực tiếp của OWNER.
 
 Phạm vi đề xuất: inventory hostname provider đã sanitize; áp migration C114 remote theo thứ tự
 migration-first; tạo candidate Preview từ repository root bằng `pnpm deploy:preview`; kiểm project/
@@ -3101,3 +3102,40 @@ typecheck, unit 139, build 19 route, audit, policy, upload guard và targeted C1
 CI `40100211560` không chạy bước checkout nào: cả năm job bị GitHub từ chối khởi động với annotation
 account payment thất bại hoặc spending limit cần tăng. Đây là blocker tài khoản ngoài source; không
 được bỏ qua Required CI hoặc deploy trước khi OWNER xử lý Billing & plans và run đúng SHA đạt.
+
+OWNER chọn chuyển repository sang public để tiếp tục GitHub Actions sau khi hết 2.000 phút private.
+Preflight visibility xác nhận repository không có fork, star, watcher, Actions artifact, repository
+secret hay repository variable; full clone đọc đủ 195 commit và Gitleaks với ba allowlist fixture
+hẹp của repository trả `no leaks found`. Sau đổi visibility, fork/star/watcher vẫn bằng 0. Required
+CI `40100298387` attempt 2 trên source `031197fc78e54ebbe15ab302b643b32187856fa6` đạt đủ sáu job:
+dependency/secret scan, quality/build, workflow policy, hai shard Supabase Auth pgTAP/E2E và Required
+CI gate. pgTAP đạt `552 PASS / 26 file`; hai shard E2E tổng `93 PASS / 19 SKIP / 0 FAIL`.
+
+Production replacement candidate `dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx` tại
+`https://quan-ly-vay-ca-nhan-hfp6yuep3-ngotuong2105.vercel.app` được tạo từ repository root bằng
+`--prod --skip-domain`; đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, target Production,
+`Ready`, đủ 19 route và Functions `sin1`. Build dùng Next.js 16.4.1 và Zod 4.6.7. Public smoke đạt
+200 cho `/`, login, manifest, service worker; hai API bảo vệ trả 401; CSP có nonce khác nhau theo
+request, `script-src` không có `unsafe-inline`. OWNER đăng nhập candidate; Auth smoke sáu route đạt
+HTTP 200, `auth.user/profile` và các read chính đều `outcome: ok`, `dashboard.bundle` 1569,6 ms.
+Không có level-error hay HTTP 500.
+
+Ngay trước promote, candidate và rollback gần nhất `dpl_GndhsLryK5D15xkut2aHPdeFKGWX` được
+re-inspect: cùng đúng project, Production, `Ready`, Functions `sin1`; hai alias vẫn trỏ rollback.
+Promote thành công. `tindung.vercel.app` và alias mặc định cùng trỏ
+`dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx`. Hậu kiểm từng alias đạt public/CSP/service-worker smoke và
+Auth HTTP 200 cho Dashboard, Khoản vay, Đối tác, Thông báo, Cài đặt, Đổi mật khẩu; mọi read ghi
+`outcome: ok`, `dashboard.bundle` lần lượt 2527,5 và 2169,8 ms. Cửa sổ hậu kiểm không có level-error
+hay HTTP 500; không cần rollback. URL `quan-ly-vay-ca-nhan-hfp6yuep3-ngotuong2105.vercel.app` là
+immutable URL do Vercel sinh cho deployment này, không phải domain vận hành bổ sung; người dùng tiếp
+tục dùng alias ngắn `tindung.vercel.app`.
+
+### C116 — Đổi tên hiển thị Supabase thành Tín Dụng
+
+Trạng thái: `AWAITING_APPROVAL` ngày 24/10/2026 theo đề xuất của OWNER; chưa thực hiện remote.
+
+Phạm vi đề xuất: đổi duy nhất tên hiển thị của project Supabase hiện hữu thành `Tín Dụng`. Giữ
+nguyên project ref `hmfxnstrqfqpvsgfmjmd`, API URL, khóa/secret, database, Auth, schema, migration,
+region và toàn bộ dữ liệu. Trước thay đổi phải đọc lại đúng project/ref và chụp cấu hình định danh;
+sau thay đổi phải xác nhận ref/API URL không đổi, ứng dụng Preview/Production vẫn đăng nhập và đọc
+được dữ liệu, runtime không có lỗi mới. Không đổi tên Vercel project, GitHub repository hay alias.

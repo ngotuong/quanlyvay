@@ -1,8 +1,7 @@
 # C115 — Rollout C114 và hậu kiểm
 
-Trạng thái: `IN_PROGRESS` ngày 24/10/2026. OWNER đã phê duyệt checkpoint C115 trong hội thoại
-hiện tại; rollout đầu đã đạt nhưng Required CI tài liệu phát hiện advisory Zod mới cần hotfix và
-redeploy trước khi đóng checkpoint.
+Trạng thái: `COMPLETED` ngày 24/10/2026. OWNER đã phê duyệt checkpoint C115 trong hội thoại;
+rollout đầu, remediation Zod/CI harness và Production replacement đều đạt acceptance.
 
 ## 1. Supabase migration-first
 
@@ -169,8 +168,52 @@ CI `40100211560` không chạy bước checkout nào: cả năm job bị GitHub 
 account payment thất bại hoặc spending limit cần tăng. Đây là blocker tài khoản ngoài source; C115
 không bỏ qua Required CI và không tạo Production candidate cho đến khi OWNER xử lý Billing & plans.
 
+### Required CI sau khi chuyển repository public
+
+OWNER chọn repository public để tiếp tục GitHub Actions sau khi hết quota 2.000 phút private.
+Preflight xác nhận 0 fork, 0 star, 0 watcher, không Actions artifact, repository secret hay repository
+variable. Gitleaks chạy trên full clone đọc đủ 195 commit; khi dùng đúng `.gitleaksignore` gồm ba
+fixture tổng hợp đã review, kết quả `no leaks found`. Sau đổi visibility, các số đếm vẫn bằng 0.
+
+Required CI `40100298387` attempt 2 trên đúng SHA
+`031197fc78e54ebbe15ab302b643b32187856fa6` đạt đủ sáu job. Dependency/secret scan, workflow
+policy, lint, typecheck, unit `139 PASS`, build 19 route đều đạt; pgTAP đạt
+`552 PASS / 26 file`, hai shard E2E tổng `93 PASS / 19 SKIP / 0 FAIL`. Không nới timeout, retry,
+skip hay assertion để đạt kết quả này.
+
+### Production replacement Zod 4.6.7
+
+| Vai trò | Deployment | URL | Target / trạng thái / region |
+| --- | --- | --- | --- |
+| Production C115 cuối | `dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx` | `https://quan-ly-vay-ca-nhan-hfp6yuep3-ngotuong2105.vercel.app` | Production / Ready / Functions `sin1` |
+| Rollback C115 trước Zod 4.6.7 | `dpl_GndhsLryK5D15xkut2aHPdeFKGWX` | `https://quan-ly-vay-ca-nhan-j07u4c057-ngotuong2105.vercel.app` | Production / Ready / Functions `sin1` |
+| Rollback Production C112 | `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` | `https://quan-ly-vay-ca-nhan-967no3d6v-ngotuong2105.vercel.app` | Production / Ready / Functions `sin1` |
+
+Preflight xác nhận worktree sạch, HEAD bằng `origin/main` tại SHA Required CI ở trên; upload guard
+đạt 248 tệp / 5.473.763 byte. Candidate được tạo từ repository root bằng
+`vercel deploy --prod --skip-domain`, đúng project `prj_F9OEZuPZx9mXyUfHi3cU1cYDxq7F`, đủ
+19 route; build dùng Next.js 16.4.1 và Zod 4.6.7. Hai alias tiếp tục trỏ rollback trong lúc smoke.
+
+Public candidate đạt HTTP 200 cho `/`, `/login`, manifest, service worker và 401 cho hai API bảo
+vệ. Hai response login có nonce khác nhau; `script-src` không có `unsafe-inline`; `/sw.js` trả
+`application/javascript; charset=utf-8`. OWNER đăng nhập candidate. Auth smoke đạt HTTP 200 trên
+Dashboard, Khoản vay, Đối tác, Thông báo, Cài đặt và Đổi mật khẩu; các read Auth/Profile/nghiệp vụ
+ghi `outcome: ok`, `dashboard.bundle` 1569,6 ms. Không có level-error hay HTTP 500.
+
+Candidate và rollback gần nhất được re-inspect ngay trước promote; cả hai đều đúng project,
+Production, `Ready`, Functions `sin1`, và aliases vẫn ở rollback. `vercel promote` thành công;
+`tindung.vercel.app` cùng `quan-ly-vay-ca-nhan-ngotuong2105.vercel.app` chuyển sang candidate.
+Hậu kiểm từng alias đạt cùng bộ public/CSP/service-worker smoke và sáu route Auth HTTP 200; các
+read đều `outcome: ok`, `dashboard.bundle` lần lượt 2527,5 và 2169,8 ms. Log mới không có
+level-error hay HTTP 500; không cần rollback.
+
+URL chứa chuỗi ngẫu nhiên là immutable deployment URL Vercel tự sinh cho từng lần deploy, dùng để
+smoke đúng artifact và rollback/truy vết. Đây không phải project hoặc domain vận hành bổ sung;
+người dùng tiếp tục truy cập Production qua `https://tindung.vercel.app`.
+
 ## 4. Kết luận
 
-C115 đã đạt các cổng migration, provider policy, Preview, iPhone Web Push và rollout Production
-ban đầu. Còn Required CI hai shard và redeploy Zod 4.6.7 trước khi chuyển lại `COMPLETED`. C100 tiếp
-tục `IN_PROGRESS` độc lập; không tự mở checkpoint mới.
+C115 đã đạt toàn bộ cổng migration, provider policy, Preview, iPhone Web Push, Required CI và
+Production replacement Zod 4.6.7; checkpoint chuyển `COMPLETED`. C100 tiếp tục `IN_PROGRESS` độc
+lập. Đề xuất đổi duy nhất tên hiển thị Supabase thành `Tín Dụng` được tách thành C116
+`AWAITING_APPROVAL`; không thực hiện trong C115.

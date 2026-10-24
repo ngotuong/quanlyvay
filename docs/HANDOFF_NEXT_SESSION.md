@@ -1,20 +1,17 @@
 # Bàn giao cho cuộc trò chuyện mới
 
-Cập nhật ngày 24/10/2026 trong lúc hoàn tất hotfix release C115.
+Cập nhật ngày 24/10/2026 sau khi hoàn tất hotfix release C115.
 
 ## Trạng thái cần nhớ
 
-- C115 `IN_PROGRESS` — rollout đầu đạt nhưng Required CI tài liệu phát hiện advisory Zod mới; bản
-  vá 4.6.7 đã qua local gate. Harness C99 đã sửa race và targeted đạt 3/3; run kế tiếp chạm budget
-  45 phút ở ca 108/112 nên CI đã chia hai shard đủ 112 test. Lượt shard đầu phát hiện C107 quan sát
-  feedback sau khi await navigation. Lượt kế tiếp xác nhận assertion đầu đạt nhưng assertion sau
-  completion race với teardown hợp lệ; harness nay giữ RSC 1,1 giây và quan sát suốt lúc pending,
-  targeted đạt 10/10. Required CI `40100211560` không khởi động job nào vì GitHub báo account
-  payment thất bại hoặc spending limit cần tăng. Còn OWNER xử lý Billing & plans, Required CI xanh
-  trên đúng source và redeploy.
+- C115 `COMPLETED` — Zod đã nâng lên 4.6.7, harness C99/C107 deterministic và CI chia hai shard đủ
+  112 test. Repository chuyển public sau khi full-history Gitleaks sạch; Required CI
+  `40100298387` attempt 2 trên source `031197fc78e54ebbe15ab302b643b32187856fa6` đạt đủ sáu job.
+  Production replacement `dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx` đã promote và hậu kiểm đầy đủ trên
+  hai alias, không có level-error/HTTP 500.
 - C100 vẫn `IN_PROGRESS` độc lập — chỉ còn nghiệm thu định lượng trên iPhone thật.
-- Checkpoint hoàn tất gần nhất: C114 `COMPLETED`.
-- C100 và C115 đang `IN_PROGRESS`; không mở checkpoint mới trước khi C115 hoàn tất.
+- Checkpoint hoàn tất gần nhất: C115 `COMPLETED`.
+- C116 đổi tên hiển thị Supabase thành `Tín Dụng` đang `AWAITING_APPROVAL`; chưa thao tác remote.
 
 Cuộc trò chuyện mới phải đọc `AGENTS.md`, `PROJECT_CONTEXT.md` và phần C100 trong
 `docs/IMPLEMENTATION_PLAN.md`, rồi chạy `git status --short --branch`. Theo cổng phê duyệt của
@@ -65,20 +62,27 @@ chạy gate tài liệu rồi mới chốt C100. Phạm vi chi tiết:
 ## Môi trường đang phục vụ
 
 - Stable Preview C115: `dpl_BRfVm4hf5jfk5FJe2mXPxmrt3hC4` → `tindung-preview.vercel.app`.
-- Production C115: `dpl_GndhsLryK5D15xkut2aHPdeFKGWX` → `tindung.vercel.app` và
+- Production C115: `dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx` → `tindung.vercel.app` và
   `quan-ly-vay-ca-nhan-ngotuong2105.vercel.app`.
+- Production rollback C115 trước Zod 4.6.7: `dpl_GndhsLryK5D15xkut2aHPdeFKGWX`, chưa kích hoạt.
 - Production rollback C112: `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF`, chưa kích hoạt.
 
 Public/Auth smoke sáu route đạt trên cả hai Production alias; CSP nonce và service worker đạt,
-browser console sạch, runtime không có level-error hoặc HTTP 500. Chi tiết:
+các read Auth/Profile/nghiệp vụ đều `outcome: ok`, runtime không có level-error hoặc HTTP 500. Chi tiết:
 `docs/release-c115/report.md`.
 
 ## Workspace sau C115
 
-- Repository chuẩn vẫn là `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`; release source
-  C115 là `9f9f526fed34a39ecfbe4a3b54cd811af4f976d2`, Required CI `39963662481` đạt đủ 5 job.
+- Repository chuẩn vẫn là `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`; code source
+  C115 cuối là `031197fc78e54ebbe15ab302b643b32187856fa6`, Required CI `40100298387` attempt 2
+  đạt đủ sáu job. Repository GitHub hiện `PUBLIC`; trước đổi visibility đã xác nhận full-history
+  Gitleaks sạch và không có repository secret/variable/artifact, fork/star/watcher đều bằng 0.
 - Dependency, root `.vercel`, backup, report checkpoint và bằng chứng source-controlled được giữ.
 - Khi nhận bàn giao, chạy `git status --short --branch` và xác minh source/documentation đã đồng bộ
   trước mọi thao tác khác.
+
+C116 nếu được OWNER phê duyệt chỉ đổi tên hiển thị project Supabase hiện hữu thành `Tín Dụng`;
+phải giữ nguyên ref `hmfxnstrqfqpvsgfmjmd`, API URL, secret, schema, Auth và dữ liệu rồi hậu kiểm
+Preview/Production. Không suy phê duyệt từ đề xuất này.
 
 Không chạy migration, deploy, đổi alias, push Git hoặc sửa dữ liệu chỉ vì đọc tài liệu bàn giao.
