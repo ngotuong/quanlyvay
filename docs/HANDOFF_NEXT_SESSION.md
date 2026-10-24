@@ -10,8 +10,9 @@ Cập nhật ngày 24/10/2026 sau khi hoàn tất hotfix release C115.
   Production replacement `dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx` đã promote và hậu kiểm đầy đủ trên
   hai alias, không có level-error/HTTP 500.
 - C100 vẫn `IN_PROGRESS` độc lập — chỉ còn nghiệm thu định lượng trên iPhone thật.
-- Checkpoint hoàn tất gần nhất: C115 `COMPLETED`.
-- C116 đổi tên hiển thị Supabase thành `Tín Dụng` đang `AWAITING_APPROVAL`; chưa thao tác remote.
+- Checkpoint hoàn tất gần nhất: C116 `COMPLETED`.
+- Supabase project `hmfxnstrqfqpvsgfmjmd` hiện có tên hiển thị `Tín Dụng`; ref, API URL, secret,
+  Auth, schema và dữ liệu không đổi. Không có checkpoint mới đang chờ phê duyệt.
 
 Cuộc trò chuyện mới phải đọc `AGENTS.md`, `PROJECT_CONTEXT.md` và phần C100 trong
 `docs/IMPLEMENTATION_PLAN.md`, rồi chạy `git status --short --branch`. Theo cổng phê duyệt của
@@ -81,8 +82,8 @@ các read Auth/Profile/nghiệp vụ đều `outcome: ok`, runtime không có le
 - Khi nhận bàn giao, chạy `git status --short --branch` và xác minh source/documentation đã đồng bộ
   trước mọi thao tác khác.
 
-C116 nếu được OWNER phê duyệt chỉ đổi tên hiển thị project Supabase hiện hữu thành `Tín Dụng`;
-phải giữ nguyên ref `hmfxnstrqfqpvsgfmjmd`, API URL, secret, schema, Auth và dữ liệu rồi hậu kiểm
-Preview/Production. Không suy phê duyệt từ đề xuất này.
+C116 đã đổi tên hiển thị project Supabase hiện hữu thành `Tín Dụng`; CLI và Management API hậu kiểm
+đều xác nhận ref `hmfxnstrqfqpvsgfmjmd`, region, database host và trạng thái `ACTIVE_HEALTHY` giữ
+nguyên. Preview/Production public/Auth/runtime smoke đạt, không có level-error hoặc HTTP 500.
 
 Không chạy migration, deploy, đổi alias, push Git hoặc sửa dữ liệu chỉ vì đọc tài liệu bàn giao.

@@ -91,7 +91,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C113 | Audit toàn diện, remediation local và đề xuất cải tiến | `COMPLETED` |
 | C114 | Hardening Web Push, recovery đổi mật khẩu và CSP | `COMPLETED` |
 | C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `COMPLETED` |
-| C116 | Đổi tên hiển thị Supabase thành Tín Dụng | `AWAITING_APPROVAL` |
+| C116 | Đổi tên hiển thị Supabase thành Tín Dụng | `COMPLETED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3132,10 +3132,23 @@ tục dùng alias ngắn `tindung.vercel.app`.
 
 ### C116 — Đổi tên hiển thị Supabase thành Tín Dụng
 
-Trạng thái: `AWAITING_APPROVAL` ngày 24/10/2026 theo đề xuất của OWNER; chưa thực hiện remote.
+Trạng thái: `COMPLETED` ngày 25/10/2026 theo phê duyệt trực tiếp của OWNER.
 
 Phạm vi đề xuất: đổi duy nhất tên hiển thị của project Supabase hiện hữu thành `Tín Dụng`. Giữ
 nguyên project ref `hmfxnstrqfqpvsgfmjmd`, API URL, khóa/secret, database, Auth, schema, migration,
 region và toàn bộ dữ liệu. Trước thay đổi phải đọc lại đúng project/ref và chụp cấu hình định danh;
 sau thay đổi phải xác nhận ref/API URL không đổi, ứng dụng Preview/Production vẫn đăng nhập và đọc
 được dữ liệu, runtime không có lỗi mới. Không đổi tên Vercel project, GitHub repository hay alias.
+
+Kết quả: preflight CLI và Management API cùng xác nhận project `hmfxnstrqfqpvsgfmjmd` có tên cũ
+`quan-ly-vay-ca-nhan`, organization `wdjcthekulcbiccikhmr`, region `ap-southeast-1`, database host
+`db.hmfxnstrqfqpvsgfmjmd.supabase.co` và trạng thái `ACTIVE_HEALTHY`. Request PATCH chỉ chứa trường
+`name: "Tín Dụng"`; response và hai lượt đọc hậu kiểm cùng trả tên mới, đúng ref/organization/
+region/database host và vẫn `ACTIVE_HEALTHY`. Không migration, deploy, đổi secret hay mutation dữ
+liệu nào được thực hiện.
+
+Public smoke trên `tindung-preview.vercel.app` và `tindung.vercel.app` đạt HTTP 200 cho `/`, login,
+manifest, service worker và 401 đúng kỳ vọng cho hai API bảo vệ. Auth smoke thật đạt Dashboard và
+Cài đặt trên Preview/Production; `auth.user`, `profile.read`, notification count và
+`dashboard.bundle` đều `outcome: ok`. Runtime window hậu kiểm của cả hai deployment có level-error
+0 và HTTP 500 bằng 0. C116 đạt toàn bộ acceptance và không mở checkpoint mới.

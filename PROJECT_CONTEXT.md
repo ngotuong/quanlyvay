@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.377
-last_updated: 2026-10-24
+roadmap_version: 1.0.379
+last_updated: 2026-10-25
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C100
 current_status: IN_PROGRESS
-last_completed_checkpoint: C115
-next_checkpoint: C116
+last_completed_checkpoint: C116
+next_checkpoint: null
 ---
 
 # Project Context
@@ -38,15 +38,21 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   `93 PASS / 19 SKIP / 0 FAIL`. Candidate thay thế `dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx` đã qua
   public/Auth/CSP/service-worker/runtime smoke, được promote và hậu kiểm trên cả hai alias; không
   có level-error hay HTTP 500. Báo cáo: [release C115](docs/release-c115/report.md).
+- C116 `COMPLETED` ngày 25/10/2026: tên hiển thị project Supabase hiện hữu đã đổi từ
+  `quan-ly-vay-ca-nhan` thành `Tín Dụng` qua Management API chính thức. Project ref
+  `hmfxnstrqfqpvsgfmjmd`, organization, region `ap-southeast-1`, database host, API URL và trạng
+  thái `ACTIVE_HEALTHY` giữ nguyên; không đổi secret, Auth, schema, migration hoặc dữ liệu. Public
+  smoke Preview/Production đạt; Auth smoke Dashboard/Cài đặt đọc profile và dữ liệu thành công,
+  runtime không có level-error hay HTTP 500.
 - C100 `IN_PROGRESS`: OWNER đã phê duyệt tối ưu lời gọi đọc Tổng quan. RPC v4 đã phát hành và đạt
   gate tự động; phần còn lại là nghiệm thu định lượng trên iPhone thật. C113 không thay đổi phạm vi
   hay acceptance còn thiếu của C100.
 - C112 `COMPLETED` ngày 22/10/2026: giao diện C111 cùng nền loading C107 đã được phát hành. OWNER
   đã kiểm cả hai Production alias; Dashboard, Khoản vay, Đối tác và Thông báo đều Auth HTTP 200.
-- C101–C115 đều `COMPLETED`; C100 đang `IN_PROGRESS`. Chi tiết acceptance, test và deployment được
+- C101–C116 đều `COMPLETED`; C100 đang `IN_PROGRESS`. Chi tiết acceptance, test và deployment được
   giữ trong roadmap và báo cáo phát hành tương ứng.
-- C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C116 đổi tên hiển thị Supabase thành
-  `Tín Dụng` đang `AWAITING_APPROVAL`; không đổi project ref, API URL, secret hay dữ liệu.
+- C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. Không có checkpoint mới đang chờ
+  phê duyệt sau C116.
 
 ## 2. C100 — Công việc còn lại
 
@@ -114,8 +120,7 @@ Báo cáo đầy đủ: [release C115](docs/release-c115/report.md).
 1. Đọc `AGENTS.md`, tệp này, [handoff](docs/HANDOFF_NEXT_SESSION.md) và phần C100 trong roadmap.
 2. Chạy `git status --short --branch` và `git log -1 --oneline`.
 3. Chỉ tiếp tục C100 khi OWNER cung cấp chuỗi số đo thiết bị theo acceptance đã duyệt.
-4. C116 chỉ đổi **tên hiển thị** Supabase thành `Tín Dụng`; đang chờ phê duyệt checkpoint. Không đổi
-   project ref `hmfxnstrqfqpvsgfmjmd`, API URL, secret, schema hoặc dữ liệu.
+4. C116 đã hoàn tất; Supabase hiện có tên hiển thị `Tín Dụng`, ref/API URL và dữ liệu giữ nguyên.
 5. Không tự triển khai tính năng mới C113, commit/push/deploy hoặc suy quyền thao tác remote từ lịch
    sử đã hoàn tất.
 
