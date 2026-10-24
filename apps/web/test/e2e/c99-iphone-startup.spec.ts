@@ -73,6 +73,9 @@ test("C99 standalone offline navigation shows a public error and never caches fi
 
 test("C99 navigation timing is bounded anonymous metadata and tracks a fresh delayed read", async ({ page }) => {
   test.setTimeout(60000);
+  // Install before login so the controlled delayed navigation cannot consume a
+  // warmed partial-prefetch shell instead of performing the fresh 2s read.
+  await page.route("**/*", route => route.request().headers()["next-router-prefetch"] ? route.abort("aborted") : route.continue());
   await login(page);
   await page.setExtraHTTPHeaders({ "x-e2e-auth-delay-ms": "2000" });
   await page.getByRole("link", { name: "Khoản vay", exact: true }).filter({ visible: true }).click();

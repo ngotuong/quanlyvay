@@ -5,7 +5,8 @@ Cập nhật ngày 24/10/2026 trong lúc hoàn tất hotfix release C115.
 ## Trạng thái cần nhớ
 
 - C115 `IN_PROGRESS` — rollout đầu đạt nhưng Required CI tài liệu phát hiện advisory Zod mới; bản
-  vá 4.6.7 đã qua local gate, còn CI và redeploy Production.
+  vá 4.6.7 đã qua local gate. CI hotfix đầu bị hủy do race C99 partial prefetch; harness đã sửa và
+  targeted đạt 3/3, còn Required CI đầy đủ và redeploy Production.
 - C100 vẫn `IN_PROGRESS` độc lập — chỉ còn nghiệm thu định lượng trên iPhone thật.
 - Checkpoint hoàn tất gần nhất: C114 `COMPLETED`.
 - C100 và C115 đang `IN_PROGRESS`; không mở checkpoint mới trước khi C115 hoàn tất.

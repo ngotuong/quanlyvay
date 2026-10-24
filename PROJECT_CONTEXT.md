@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.371
+roadmap_version: 1.0.372
 last_updated: 2026-10-24
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C115
@@ -33,7 +33,9 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   provider inventory, stable Preview/Production, Safari/iPhone Web Push, Auth/session, CSP nonce,
   service worker và runtime log đều đạt. Production C115 đang phục vụ trên cả hai alias; C112 là
   rollback đã re-inspect và chưa kích hoạt. Required CI tài liệu sau rollout phát hiện advisory Zod
-  mới; bản vá 4.6.7 đã đạt local gate và đang chờ CI/redeploy thay thế. Báo cáo:
+  mới; bản vá 4.6.7 đã đạt local gate. Required CI hotfix đầu bị hủy sau khi ca C99 cuối gặp race
+  với partial prefetch; harness đã chặn prefetch trước login và đạt targeted 3/3, đang chờ CI/redeploy
+  thay thế. Báo cáo:
   [release C115](docs/release-c115/report.md).
 - C100 `IN_PROGRESS`: OWNER đã phê duyệt tối ưu lời gọi đọc Tổng quan. RPC v4 đã phát hành và đạt
   gate tự động; phần còn lại là nghiệm thu định lượng trên iPhone thật. C113 không thay đổi phạm vi
@@ -42,7 +44,7 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   đã kiểm cả hai Production alias; Dashboard, Khoản vay, Đối tác và Thông báo đều Auth HTTP 200.
 - C101–C114 đều `COMPLETED`; C100 và C115 đang `IN_PROGRESS`. Chi tiết acceptance, test và deployment được giữ trong roadmap và
   báo cáo phát hành tương ứng.
-- C115 chỉ còn Required CI và redeploy bản vá Zod 4.6.7; C100 chỉ còn chuỗi số đo thiết bị theo
+- C115 chỉ còn Required CI trên bản vá race và redeploy Zod 4.6.7; C100 chỉ còn chuỗi số đo thiết bị theo
   acceptance đã duyệt. Các tính năng mới đề xuất C113 vẫn chưa được duyệt.
 
 ## 2. C100 — Công việc còn lại
@@ -107,7 +109,7 @@ HTTP 500 bằng 0. Báo cáo đầy đủ: [release C115](docs/release-c115/repo
 
 1. Đọc `AGENTS.md`, tệp này, [handoff](docs/HANDOFF_NEXT_SESSION.md) và phần C100 trong roadmap.
 2. Chạy `git status --short --branch` và `git log -1 --oneline`.
-3. Hoàn tất Required CI/redeploy Zod 4.6.7 của C115; chỉ tiếp tục phần nghiệm thu thiết bị C100 khi
+3. Hoàn tất Required CI/redeploy Zod 4.6.7 cùng bản vá race C99 của C115; chỉ tiếp tục phần nghiệm thu thiết bị C100 khi
    OWNER cung cấp chuỗi số đo hoặc chỉ dẫn rõ.
 4. Không tự triển khai tính năng mới C113, commit/push/deploy hoặc suy quyền thao tác remote từ lịch
    sử đã hoàn tất.

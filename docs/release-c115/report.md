@@ -127,8 +127,18 @@ vulnerability; lint, typecheck, unit `138 PASS`, build `19 route` và full E2E
 hotfix chưa được deploy và checkpoint chưa hoàn tất cho đến khi SHA mới có Required CI xanh,
 candidate thay thế qua smoke và hai alias được hậu kiểm.
 
+Required CI hotfix `40083393933` trên source
+`e42cd6ced2a8fe62a1c079ecdba522bf0992eb61` đạt workflow policy, quality/build và dependency/
+secret scan; pgTAP và Auth integration cũng đạt. Job E2E bị hủy ở giới hạn 45 phút sau khi ca cuối
+`C99 navigation timing ... fresh delayed read` chờ 15 giây mà không thấy content sample `loans`
+ít nhất 2 giây. Log xác nhận target đã có lúc dùng partial-prefetch shell được làm nóng trước khi
+header delay được bật; đây là race của harness, không phải bằng chứng test đạt. Bản khắc phục cài
+interception chặn `next-router-prefetch` từ trước login, giống tiền lệ C63/C87; giữ nguyên route
+`/loans`, delay/assertion 2 giây, timeout, retries 0, skip và budget CI 45 phút. Targeted chạy lặp
+đạt `3 PASS / 0 FAIL` trong 2,8 phút; Required CI đầy đủ trên source kế tiếp vẫn bắt buộc trước deploy.
+
 ## 4. Kết luận
 
 C115 đã đạt các cổng migration, provider policy, Preview, iPhone Web Push và rollout Production
-ban đầu. Còn Required CI và redeploy bản vá Zod 4.6.7 trước khi chuyển lại `COMPLETED`. C100 tiếp
+ban đầu. Còn Required CI của bản vá race và redeploy Zod 4.6.7 trước khi chuyển lại `COMPLETED`. C100 tiếp
 tục `IN_PROGRESS` độc lập; không tự mở checkpoint mới.

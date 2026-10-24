@@ -3065,3 +3065,11 @@ với Zod `<4.6.6`; secret scan, workflow policy và quality/build đều sạch
 nâng Zod `4.4.3` lên `4.6.7`; audit còn 0 vulnerability, lint/typecheck/unit138/build19 và full E2E
 `94 PASS / 18 SKIP / 0 FAIL` trong 28,0 phút đạt. C115 tạm giữ `IN_PROGRESS` cho đến khi Required
 CI trên SHA hotfix đạt và Production được redeploy/smoke lại.
+
+Required CI hotfix `40083393933` trên SHA
+`e42cd6ced2a8fe62a1c079ecdba522bf0992eb61` đạt policy, quality/build, dependency/secret scan,
+pgTAP và Auth integration nhưng E2E bị hủy ở giới hạn 45 phút: ca C99 cuối không quan sát được
+content timing `loans >= 2000ms` vì partial prefetch có thể làm nóng target trước khi header delay
+được bật. Harness đã chặn request `next-router-prefetch` từ trước login theo cùng mẫu C63/C87;
+không đổi assertion 2 giây, timeout, retry/skip hay budget 45 phút. Targeted lặp đạt
+`3 PASS / 0 FAIL` trong 2,8 phút; full Required CI trên source sửa vẫn là gate trước redeploy.
