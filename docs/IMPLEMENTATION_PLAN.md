@@ -3073,3 +3073,9 @@ content timing `loans >= 2000ms` vì partial prefetch có thể làm nóng targe
 được bật. Harness đã chặn request `next-router-prefetch` từ trước login theo cùng mẫu C63/C87;
 không đổi assertion 2 giây, timeout, retry/skip hay budget 45 phút. Targeted lặp đạt
 `3 PASS / 0 FAIL` trong 2,8 phút; full Required CI trên source sửa vẫn là gate trước redeploy.
+
+Required CI `40086919496` trên SHA `cb82104a4b94e5ee55c833e1ce0afb0d71127f61` không còn
+assertion failure nhưng E2E tuần tự bị hủy ở budget 45 phút tại ca 108/112. Workflow integration
+được chia matrix hai shard, `fail-fast: false`; shard 1 giữ database lint/pgTAP/Auth và 57 E2E,
+shard 2 chạy 55 E2E còn lại gồm C99. Tổng danh sách vẫn đủ 112 test; timeout 45 phút, retries 0,
+skip và assertions không đổi. CI policy khóa cấu hình shard, policy/actionlint đều đạt.

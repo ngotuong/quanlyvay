@@ -102,9 +102,13 @@ jobs:
         run: pnpm audit --audit-level high
 
   integration:
-    name: Supabase Auth pgTAP and E2E
+    name: Supabase Auth pgTAP and E2E (${{ matrix.shard }}/2)
     runs-on: ubuntu-24.04
     timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -129,10 +133,13 @@ jobs:
       - name: Reset database
         run: supabase db reset
       - name: Database lint
+        if: matrix.shard == 1
         run: supabase db lint --level warning
       - name: pgTAP
+        if: matrix.shard == 1
         run: supabase test db
       - name: Auth integration
+        if: matrix.shard == 1
         run: pnpm test:auth
         env:
           AUTH_DATABASE_PREPARED: "true"
@@ -141,7 +148,7 @@ jobs:
           test "$(pnpm --filter @quan-ly-vay-ca-nhan/web exec playwright --version)" = "Version ${PLAYWRIGHT_VERSION}"
           pnpm --filter @quan-ly-vay-ca-nhan/web exec playwright install --with-deps chrome
       - name: Playwright E2E
-        run: pnpm test:e2e
+        run: pnpm --filter @quan-ly-vay-ca-nhan/web exec playwright test --shard="${{ matrix.shard }}/2"
         env:
           E2E_DATABASE_PREPARED: "true"
       - name: Stop local Supabase

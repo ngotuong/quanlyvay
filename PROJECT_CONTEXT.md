@@ -1,6 +1,6 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.372
+roadmap_version: 1.0.373
 last_updated: 2026-10-24
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C115
@@ -33,9 +33,10 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   provider inventory, stable Preview/Production, Safari/iPhone Web Push, Auth/session, CSP nonce,
   service worker và runtime log đều đạt. Production C115 đang phục vụ trên cả hai alias; C112 là
   rollback đã re-inspect và chưa kích hoạt. Required CI tài liệu sau rollout phát hiện advisory Zod
-  mới; bản vá 4.6.7 đã đạt local gate. Required CI hotfix đầu bị hủy sau khi ca C99 cuối gặp race
-  với partial prefetch; harness đã chặn prefetch trước login và đạt targeted 3/3, đang chờ CI/redeploy
-  thay thế. Báo cáo:
+  mới; bản vá 4.6.7 đã đạt local gate. Harness C99 đã chặn partial prefetch và đạt targeted 3/3;
+  run kế tiếp không còn assertion fail nhưng suite tuần tự chạm budget 45 phút ở ca 108/112. CI
+  đang được chia hai shard bao phủ đủ 112 test, không tăng timeout/retry/skip, trước khi redeploy.
+  Báo cáo:
   [release C115](docs/release-c115/report.md).
 - C100 `IN_PROGRESS`: OWNER đã phê duyệt tối ưu lời gọi đọc Tổng quan. RPC v4 đã phát hành và đạt
   gate tự động; phần còn lại là nghiệm thu định lượng trên iPhone thật. C113 không thay đổi phạm vi
@@ -44,7 +45,7 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   đã kiểm cả hai Production alias; Dashboard, Khoản vay, Đối tác và Thông báo đều Auth HTTP 200.
 - C101–C114 đều `COMPLETED`; C100 và C115 đang `IN_PROGRESS`. Chi tiết acceptance, test và deployment được giữ trong roadmap và
   báo cáo phát hành tương ứng.
-- C115 chỉ còn Required CI trên bản vá race và redeploy Zod 4.6.7; C100 chỉ còn chuỗi số đo thiết bị theo
+- C115 chỉ còn Required CI hai shard và redeploy Zod 4.6.7; C100 chỉ còn chuỗi số đo thiết bị theo
   acceptance đã duyệt. Các tính năng mới đề xuất C113 vẫn chưa được duyệt.
 
 ## 2. C100 — Công việc còn lại

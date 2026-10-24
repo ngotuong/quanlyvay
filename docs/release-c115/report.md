@@ -137,8 +137,16 @@ interception chặn `next-router-prefetch` từ trước login, giống tiền l
 `/loans`, delay/assertion 2 giây, timeout, retries 0, skip và budget CI 45 phút. Targeted chạy lặp
 đạt `3 PASS / 0 FAIL` trong 2,8 phút; Required CI đầy đủ trên source kế tiếp vẫn bắt buộc trước deploy.
 
+Required CI kế tiếp `40086919496` trên source
+`cb82104a4b94e5ee55c833e1ce0afb0d71127f61` không còn assertion failure: E2E đi qua ca 107 rồi
+bị GitHub hủy thuần ở giới hạn 45 phút khi đang chạy ca 108/112. Để giữ nguyên budget 45 phút và
+không bỏ test, retry hoặc nới assertion, job integration dùng matrix hai shard độc lập; shard 1 giữ
+database lint/pgTAP/Auth và chạy 57 E2E, shard 2 chạy 55 E2E còn lại gồm C99. `fail-fast: false`
+bắt buộc cả hai shard có kết luận; CI policy khóa cấu hình này. Actionlint/policy đạt và Playwright
+`--list` xác nhận `57 + 55 = 112` test, không thiếu ca nào.
+
 ## 4. Kết luận
 
 C115 đã đạt các cổng migration, provider policy, Preview, iPhone Web Push và rollout Production
-ban đầu. Còn Required CI của bản vá race và redeploy Zod 4.6.7 trước khi chuyển lại `COMPLETED`. C100 tiếp
+ban đầu. Còn Required CI hai shard và redeploy Zod 4.6.7 trước khi chuyển lại `COMPLETED`. C100 tiếp
 tục `IN_PROGRESS` độc lập; không tự mở checkpoint mới.
