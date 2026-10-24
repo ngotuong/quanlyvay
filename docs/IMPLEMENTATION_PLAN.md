@@ -90,7 +90,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C112 | Nghiệm thu và phát hành giao diện C111 | `COMPLETED` |
 | C113 | Audit toàn diện, remediation local và đề xuất cải tiến | `COMPLETED` |
 | C114 | Hardening Web Push, recovery đổi mật khẩu và CSP | `COMPLETED` |
-| C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `IN_PROGRESS` |
+| C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `COMPLETED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3011,7 +3011,7 @@ remote mutation/deploy/commit/push. Báo cáo: `docs/security-c114/report.md`.
 
 ### C115 — Rollout C114 và hậu kiểm
 
-Trạng thái: `IN_PROGRESS` ngày 23/10/2026 theo phê duyệt trực tiếp của OWNER.
+Trạng thái: `COMPLETED` ngày 24/10/2026 theo phê duyệt trực tiếp của OWNER.
 
 Phạm vi đề xuất: inventory hostname provider đã sanitize; áp migration C114 remote theo thứ tự
 migration-first; tạo candidate Preview từ repository root bằng `pnpm deploy:preview`; kiểm project/
@@ -3042,4 +3042,20 @@ trong27,3 phút đạt. Source `aa7be6c8b4e1ef62645b2f27bb0241dcada4feec` đã f
 `origin/main`; Required CI `39906882151` của đúng SHA đạt đủ 5 job. Root Preview create/resume trên
 hotfix lần lượt đạt `94 PASS / 18 SKIP / 0 FAIL` trong 27,1 và 27,2 phút. OWNER đã nghiệm thu Web
 Push trên iPhone thật: bật/đăng ký thành công, nhận notification và chạm notification mở đúng app.
-Đủ điều kiện chuyển sang Production candidate theo runbook C115.
+Production preflight trên source `9f9f526fed34a39ecfbe4a3b54cd811af4f976d2` đạt diff-check,
+lint, typecheck, unit138, build19 và local E2E không lỗi; upload guard đạt248 file/5.473.498byte.
+Required CI `39963662481` của đúng SHA đạt đủ5 job, trong đó CI E2E `93 PASS / 19 SKIP / 0 FAIL`.
+
+Candidate Production `dpl_GndhsLryK5D15xkut2aHPdeFKGWX` tại
+`https://quan-ly-vay-ca-nhan-j07u4c057-ngotuong2105.vercel.app` được tạo bằng `--skip-domain`, đúng
+project/Production/Ready/Functions sin1; hai alias vẫn ở C112 trong lúc smoke. Public smoke đạt
+200 cho `/`, login, manifest, service worker và401 cho hai API bảo vệ; nonce khác nhau theo request,
+`script-src` không có `unsafe-inline`. Auth smoke đạt Dashboard, Khoản vay, Đối tác, Thông báo,
+Cài đặt và Đổi mật khẩu; console sạch, `dashboard.bundle` 1505,3ms `outcome: ok`, error/HTTP500=0.
+Candidate và rollback C112 `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` đã re-inspect ngay trước promote.
+
+Promote thành công. `tindung.vercel.app` và alias mặc định cùng trỏ candidate, đúng Production/
+Ready/sin1. Public/CSP/service-worker và Auth smoke sáu route đạt trên cả hai alias, browser console
+sạch; hậu kiểm ghi HTTP200, `dashboard.bundle` 1652,6ms `outcome: ok`, level-error/HTTP500=0.
+Rollback C112 giữ nguyên, chưa kích hoạt. C115 đạt toàn bộ acceptance; C100 tiếp tục `IN_PROGRESS`
+độc lập và không có checkpoint mới được tự mở.

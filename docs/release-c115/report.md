@@ -1,7 +1,7 @@
 # C115 — Rollout C114 và hậu kiểm
 
-Trạng thái: `IN_PROGRESS` ngày 23/10/2026. OWNER đã phê duyệt checkpoint C115 trong hội thoại
-hiện tại. Báo cáo này chỉ ghi bằng chứng đã hoàn tất; Production vẫn là cổng đang chờ.
+Trạng thái: `COMPLETED` ngày 24/10/2026. OWNER đã phê duyệt checkpoint C115 trong hội thoại
+hiện tại; toàn bộ cổng migration, Preview, thiết bị thật, Production và hậu kiểm đã đạt.
 
 ## 1. Supabase migration-first
 
@@ -57,13 +57,51 @@ Functions ở `sin1`.
 - Bằng chứng này chứng nhận permission/subscription, hiển thị notification và deep-link trên thiết
   bị thật; delivery provider vận hành tiếp tục được hậu kiểm cùng Production runtime sau rollout.
 
-## 3. Công việc còn lại
+## 3. Production C115
 
-1. Tạo Production candidate từ repository root, giữ alias hiện hành,
-   chạy public/Auth/CSP/service-worker/runtime smoke, re-inspect candidate cùng rollback C112 rồi
-   promote. Hậu kiểm cả `tindung.vercel.app` và alias mặc định; nếu fail trả alias về C112.
-2. Cập nhật deployment Production, kết quả từng smoke, source/final documentation SHA và Required
-   CI trước khi chuyển C115 thành `COMPLETED`.
+### Preflight và provenance
+
+- Release source: `9f9f526fed34a39ecfbe4a3b54cd811af4f976d2`, đã fast-forward tới
+  `origin/main`; worktree sạch và HEAD bằng `origin/main` trước deploy.
+- `git diff --check`, lint, typecheck, unit `138 PASS` và build `19 route` đạt. Local Playwright
+  artifact kết thúc `passed`, không có failed test; Required CI chạy độc lập ghi
+  `93 PASS / 19 SKIP / 0 FAIL` trong 33,4 phút.
+- Upload metadata guard đạt 248 tệp / 5.473.498 byte.
+- Required CI `39963662481` trên đúng release source đạt đủ 5 job: workflow policy,
+  quality/build, dependency/secret scan, Supabase Auth pgTAP/E2E và Required CI gate.
+
+### Candidate, smoke và rollback
+
+| Vai trò | Deployment | URL | Target / trạng thái / region |
+| --- | --- | --- | --- |
+| Production C115 | `dpl_GndhsLryK5D15xkut2aHPdeFKGWX` | `https://quan-ly-vay-ca-nhan-j07u4c057-ngotuong2105.vercel.app` | Production / Ready / Functions `sin1` |
+| Rollback Production C112 | `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` | `https://quan-ly-vay-ca-nhan-967no3d6v-ngotuong2105.vercel.app` | Production / Ready / Functions `sin1` |
+
+- Candidate được tạo từ repository root bằng `vercel deploy --prod --skip-domain`; build dùng
+  Next.js 16.4.1 và sinh đủ 19 route. Trong lúc smoke, cả hai alias vẫn trỏ C112.
+- Public candidate đạt HTTP 200 cho `/`, `/login`, manifest và `/sw.js`; hai API bảo vệ trả 401.
+  CSP có một script nonce mỗi response, nonce khác nhau giữa hai request và `script-src` không có
+  `'unsafe-inline'`.
+- Authenticated candidate đạt Dashboard, Khoản vay, Đối tác, Thông báo, Cài đặt và Đổi mật khẩu;
+  không route nào quay về login, browser console không warning/error. Runtime ghi sáu route HTTP
+  200, `dashboard.bundle` 1505,3 ms với `outcome: ok`; level-error và HTTP 500 bằng 0.
+- Candidate và rollback C112 được re-inspect ngay trước promote: cùng đúng project, target
+  Production, `Ready`, Functions `sin1`. Rollback C112 chưa kích hoạt.
+
+### Promote và hậu kiểm
+
+- `vercel promote` thành công. `tindung.vercel.app` và
+  `quan-ly-vay-ca-nhan-ngotuong2105.vercel.app` cùng trỏ Production C115, target Production,
+  `Ready`, Functions `sin1`.
+- Public smoke trên từng alias đạt 200 cho `/`, login, manifest, service worker và 401 cho hai API
+  bảo vệ. CSP trên từng alias có nonce khác nhau theo request, không có `script-src 'unsafe-inline'`.
+- Auth smoke sáu route đạt trên cả hai alias, không Auth loop; browser console của từng alias sạch.
+  Runtime hậu kiểm ghi HTTP 200, `dashboard.bundle` 1652,6 ms với `outcome: ok`; cửa sổ mới có
+  level-error 0 và HTTP 500 bằng 0. Không cần rollback.
+- C112 tiếp tục là rollback Production đã xác minh; C115 không thay đổi dữ liệu tài chính trong
+  smoke và không tạo tài khoản/secret mới.
+
+### Lịch sử remediation CI trước release source
 
 Lượt Required CI đầu của source commit `d8a4154` dừng ở Gitleaks do hai mật khẩu fixture tổng hợp
 trong E2E bị nhận nhầm là generic API key; workflow policy và quality/build đạt. Bản khắc phục chỉ
@@ -79,3 +117,9 @@ minimum-release-age exclusions sang đúng version. `pnpm install --frozen-lockf
 Source hotfix `aa7be6c8b4e1ef62645b2f27bb0241dcada4feec` đã fast-forward lên `origin/main`.
 Required CI `39906882151` của đúng SHA đạt đủ 5 job: quality/build, workflow policy,
 dependency/secret scan, Supabase Auth pgTAP/E2E và Required CI gate.
+
+## 4. Kết luận
+
+C115 đạt toàn bộ acceptance. Migration remote, provider policy, Preview, iPhone Web Push,
+Production, Auth/session, CSP nonce, service worker và runtime đều có bằng chứng đạt. C100 tiếp tục
+`IN_PROGRESS` độc lập; không có checkpoint kế tiếp được tự mở.

@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.370
-last_updated: 2026-10-23
+roadmap_version: 1.0.371
+last_updated: 2026-10-24
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C115
+current_checkpoint: C100
 current_status: IN_PROGRESS
-last_completed_checkpoint: C114
-next_checkpoint: C115
+last_completed_checkpoint: C115
+next_checkpoint: null
 ---
 
 # Project Context
@@ -29,20 +29,20 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   `script-src 'unsafe-inline'`. Migration chỉ chạy local. Gate đạt unit 138, build 19 route, Auth 6,
   pgTAP 552/26 file và full E2E `94 PASS / 18 SKIP / 0 FAIL`. Báo cáo:
   [security C114](docs/security-c114/report.md).
-- C115 `IN_PROGRESS` ngày 23/10/2026 theo phê duyệt trực tiếp của OWNER: rollout migration/web C114
-  lên Preview/Production, kiểm provider thực, Safari/iPhone Web Push, Auth/session và CSP qua
-  Vercel edge. Migration remote, Required CI, stable Preview trên bản vá Next.js 16.4.1 và Web Push
-  trên iPhone thật đã đạt; đang chuẩn bị Production candidate. Báo cáo:
+- C115 `COMPLETED` ngày 24/10/2026 theo phê duyệt trực tiếp của OWNER: migration C114 đã áp remote;
+  provider inventory, stable Preview/Production, Safari/iPhone Web Push, Auth/session, CSP nonce,
+  service worker và runtime log đều đạt. Production C115 đang phục vụ trên cả hai alias; C112 là
+  rollback đã re-inspect và chưa kích hoạt. Báo cáo:
   [release C115](docs/release-c115/report.md).
 - C100 `IN_PROGRESS`: OWNER đã phê duyệt tối ưu lời gọi đọc Tổng quan. RPC v4 đã phát hành và đạt
   gate tự động; phần còn lại là nghiệm thu định lượng trên iPhone thật. C113 không thay đổi phạm vi
   hay acceptance còn thiếu của C100.
 - C112 `COMPLETED` ngày 22/10/2026: giao diện C111 cùng nền loading C107 đã được phát hành. OWNER
   đã kiểm cả hai Production alias; Dashboard, Khoản vay, Đối tác và Thông báo đều Auth HTTP 200.
-- C101–C114 đều `COMPLETED` trừ C100 vẫn độc lập `IN_PROGRESS`. Chi tiết acceptance, test và deployment được giữ trong roadmap và
+- C101–C115 đều `COMPLETED` trừ C100 vẫn độc lập `IN_PROGRESS`. Chi tiết acceptance, test và deployment được giữ trong roadmap và
   báo cáo phát hành tương ứng.
-- C115 đang thực hiện theo cổng migration-first và runbook Preview/Production. C100 chỉ còn thiếu
-  chuỗi số đo thiết bị theo acceptance đã duyệt. Các tính năng mới đề xuất C113 vẫn chưa được duyệt.
+- C100 chỉ còn thiếu chuỗi số đo thiết bị theo acceptance đã duyệt. Không có checkpoint tiếp theo
+  đang chờ duyệt; các tính năng mới đề xuất C113 vẫn chưa được duyệt.
 
 ## 2. C100 — Công việc còn lại
 
@@ -69,22 +69,23 @@ Phạm vi: [đề xuất C100](docs/dashboard-rpc-performance-proposal.md) và
 | --- | --- | --- | --- |
 | Stable Preview C115 | `dpl_BRfVm4hf5jfk5FJe2mXPxmrt3hC4` | `quan-ly-vay-ca-nhan-5ydpf15dp-ngotuong2105.vercel.app` / `tindung-preview.vercel.app` | Preview, Ready, Functions `sin1` |
 | Preview rollback C115 trước hotfix | `dpl_8pxn5Ze87nbvdNbaF5CQeQ1oan9b` | `quan-ly-vay-ca-nhan-97arw9mvp-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
-| Production C112 | `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` | `quan-ly-vay-ca-nhan-967no3d6v-ngotuong2105.vercel.app` / `tindung.vercel.app` / alias mặc định | Production, Ready, Functions `sin1` |
+| Production C115 | `dpl_GndhsLryK5D15xkut2aHPdeFKGWX` | `quan-ly-vay-ca-nhan-j07u4c057-ngotuong2105.vercel.app` / `tindung.vercel.app` / alias mặc định | Production, Ready, Functions `sin1` |
+| Production rollback C112 | `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` | `quan-ly-vay-ca-nhan-967no3d6v-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Preview rollback C112 | `dpl_2a8avNFZHZxcDsZvheXP84dLu8Ri` | `quan-ly-vay-ca-nhan-74fc7gb9r-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Preview rollback C110 | `dpl_148HdyQj5mLLoxocf5f3hyhjfDut` | `quan-ly-vay-ca-nhan-6m940n7ty-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Production rollback C106 | `dpl_92pT2tjxRvCTEwyEePzJqMpGa8TG` | `quan-ly-vay-ca-nhan-kt9gxcuu7-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 
-C112 đạt lint, typecheck, unit 123, build 19 route và full E2E
-`92 PASS / 18 SKIP / 0 FAIL`, retries 0. Hậu kiểm hai Production alias ghi
-`dashboard.bundle` 1486,8–1625,8 ms, tất cả `outcome: ok`; không có `57014`, level-error hoặc
-HTTP 500. Báo cáo đầy đủ: [release C112](docs/release-c112/report.md).
+C115 đạt lint, typecheck, unit 138, build 19 route, local E2E không lỗi và Required CI đủ 5 job.
+Public/Auth/CSP/service-worker smoke đạt trên immutable Production candidate và cả hai alias;
+browser console sạch, `dashboard.bundle` hậu kiểm 1652,6 ms với `outcome: ok`, level-error và
+HTTP 500 bằng 0. Báo cáo đầy đủ: [release C115](docs/release-c115/report.md).
 
 ## 4. Source và workspace
 
 - Repository chuẩn: `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`.
-- Source C113–C115 và hotfix Next.js 16.4.1 đã fast-forward tới `origin/main` tại
-  `aa7be6c8b4e1ef62645b2f27bb0241dcada4feec`; Required CI `39906882151` đạt đủ 5 job.
-  Managed worktree hiện ở đúng SHA này; tài liệu tiến độ C115 là thay đổi tiếp theo chưa chốt.
+- Source C113–C115, hotfix Next.js 16.4.1 và bằng chứng Preview/iPhone đã fast-forward tới
+  `origin/main` tại `9f9f526fed34a39ecfbe4a3b54cd811af4f976d2`; Required CI `39963662481`
+  của đúng SHA đạt đủ 5 job. Tài liệu hoàn tất Production C115 là thay đổi chốt hiện tại.
 - Dependency và local Supabase test stack được giữ để review/chạy lại gate; không suy quyền thao tác
   remote từ trạng thái local này.
 - Không xóa báo cáo checkpoint, migration, test, ảnh bằng chứng đã được source-control quản lý,
@@ -105,8 +106,7 @@ HTTP 500. Báo cáo đầy đủ: [release C112](docs/release-c112/report.md).
 
 1. Đọc `AGENTS.md`, tệp này, [handoff](docs/HANDOFF_NEXT_SESSION.md) và phần C100 trong roadmap.
 2. Chạy `git status --short --branch` và `git log -1 --oneline`.
-3. Hoàn tất C115 theo acceptance đã duyệt; chỉ tiếp tục phần nghiệm thu thiết bị của C100 khi OWNER
-   cung cấp số đo hoặc chỉ dẫn rõ.
+3. Chỉ tiếp tục phần nghiệm thu thiết bị của C100 khi OWNER cung cấp chuỗi số đo hoặc chỉ dẫn rõ.
 4. Không tự triển khai tính năng mới C113, commit/push/deploy hoặc suy quyền thao tác remote từ lịch
    sử đã hoàn tất.
 

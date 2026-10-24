@@ -1,22 +1,19 @@
 # Bàn giao cho cuộc trò chuyện mới
 
-Cập nhật ngày 22/10/2026 sau khi hoàn tất hardening local C114.
+Cập nhật ngày 24/10/2026 sau khi hoàn tất rollout C115.
 
 ## Trạng thái cần nhớ
 
-- C114 `COMPLETED` local — ba hạng mục Web Push egress/DNS, recovery đổi mật khẩu và CSP nonce đã
-  đạt toàn bộ gate.
-- C115 `AWAITING_APPROVAL` — rollout migration/web và hậu kiểm provider/Auth/CSP; chưa được phép
-  thực hiện.
+- C115 `COMPLETED` — migration, Preview/Production, provider/Auth/CSP/service worker và iPhone Web
+  Push đã đạt toàn bộ gate.
 - C100 vẫn `IN_PROGRESS` độc lập — chỉ còn nghiệm thu định lượng trên iPhone thật.
-- Checkpoint hoàn tất gần nhất: C113 `COMPLETED`.
-- C101–C114 đều đã hoàn tất trừ C100 vẫn độc lập `IN_PROGRESS`; stable alias vẫn là C112.
-- C113/C114 là diff local chưa commit. C114 không cấp quyền cho migration remote, deploy,
-  secret/account change, commit hoặc push.
+- Checkpoint hoàn tất gần nhất: C115 `COMPLETED`.
+- C101–C115 đều đã hoàn tất trừ C100 vẫn độc lập `IN_PROGRESS`; không có checkpoint tiếp theo đang
+  chờ duyệt.
 
 Cuộc trò chuyện mới phải đọc `AGENTS.md`, `PROJECT_CONTEXT.md` và phần C100 trong
 `docs/IMPLEMENTATION_PLAN.md`, rồi chạy `git status --short --branch`. Theo cổng phê duyệt của
-repository, không thực hiện C115 hoặc checkpoint mới khi chưa có phê duyệt rõ.
+repository, không mở checkpoint mới khi chưa có phê duyệt rõ.
 
 ## Kết quả C114
 
@@ -62,20 +59,21 @@ chạy gate tài liệu rồi mới chốt C100. Phạm vi chi tiết:
 
 ## Môi trường đang phục vụ
 
-- Stable Preview C112: `dpl_2a8avNFZHZxcDsZvheXP84dLu8Ri` → `tindung-preview.vercel.app`.
-- Production C112: `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` → `tindung.vercel.app` và
+- Stable Preview C115: `dpl_BRfVm4hf5jfk5FJe2mXPxmrt3hC4` → `tindung-preview.vercel.app`.
+- Production C115: `dpl_GndhsLryK5D15xkut2aHPdeFKGWX` → `tindung.vercel.app` và
   `quan-ly-vay-ca-nhan-ngotuong2105.vercel.app`.
-- Preview rollback C110: `dpl_148HdyQj5mLLoxocf5f3hyhjfDut`, chưa kích hoạt.
-- Production rollback C106: `dpl_92pT2tjxRvCTEwyEePzJqMpGa8TG`, chưa kích hoạt.
+- Production rollback C112: `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF`, chưa kích hoạt.
 
-OWNER đã kiểm cả hai Production alias. Bốn route chính đều Auth HTTP 200; runtime không có
-`57014`, level-error hoặc HTTP 500. Chi tiết: `docs/release-c112/report.md`.
+Public/Auth smoke sáu route đạt trên cả hai Production alias; CSP nonce và service worker đạt,
+browser console sạch, runtime không có level-error hoặc HTTP 500. Chi tiết:
+`docs/release-c115/report.md`.
 
-## Workspace sau C113
+## Workspace sau C115
 
-- Repository chuẩn vẫn là `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`; C113 được làm
-  trong managed worktree của Codex và chưa commit.
+- Repository chuẩn vẫn là `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`; release source
+  C115 là `9f9f526fed34a39ecfbe4a3b54cd811af4f976d2`, Required CI `39963662481` đạt đủ 5 job.
 - Dependency, root `.vercel`, backup, report checkpoint và bằng chứng source-controlled được giữ.
-- Khi nhận bàn giao, chạy `git status --short --branch` và review diff C113 trước mọi thao tác khác.
+- Khi nhận bàn giao, chạy `git status --short --branch` và xác minh source/documentation đã đồng bộ
+  trước mọi thao tác khác.
 
 Không chạy migration, deploy, đổi alias, push Git hoặc sửa dữ liệu chỉ vì đọc tài liệu bàn giao.
