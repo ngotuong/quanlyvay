@@ -92,6 +92,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C114 | Hardening Web Push, recovery đổi mật khẩu và CSP | `COMPLETED` |
 | C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `COMPLETED` |
 | C116 | Đổi tên hiển thị Supabase thành Tín Dụng | `COMPLETED` |
+| C117 | Lịch nhắc lãi theo tháng và tổng hợp tài chính theo đối tác | `COMPLETED` |
+| C118 | Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3152,3 +3154,72 @@ manifest, service worker và 401 đúng kỳ vọng cho hai API bảo vệ. Auth
 Cài đặt trên Preview/Production; `auth.user`, `profile.read`, notification count và
 `dashboard.bundle` đều `outcome: ok`. Runtime window hậu kiểm của cả hai deployment có level-error
 0 và HTTP 500 bằng 0. C116 đạt toàn bộ acceptance và không mở checkpoint mới.
+
+### C117 — Lịch nhắc lãi theo tháng và tổng hợp tài chính theo đối tác
+
+Trạng thái: `COMPLETED` local ngày 05/11/2026 theo phê duyệt trực tiếp của OWNER.
+
+Phạm vi đã duyệt:
+
+1. Tách lịch nhắc thu/trả lãi khỏi khoảng lọc báo cáo trên Dashboard. Danh sách nhắc phải dùng toàn
+   bộ tháng dương lịch hiện tại theo `Asia/Ho_Chi_Minh`, không dùng cửa sổ 30 ngày kể từ cuối kỳ báo
+   cáo và không kéo nhắc của tháng kế tiếp vào tháng hiện tại.
+2. Khi tìm kiếm và xem danh sách Đối tác, hiển thị bốn số tổng hợp cho từng đối tác: dư gốc đang cho
+   vay, dư gốc đang đi vay, tổng lãi đã thu và tổng lãi đã trả. Dư gốc được tính authoritative tại
+   ngày nghiệp vụ hiện tại; lãi đã thu/trả là giao dịch thực tế hợp lệ từ trước đến nay, loại giao
+   dịch đã đảo và dữ liệu onboarding không phải dòng tiền thật.
+3. Giữ luồng chi phí chung hiện hữu cho khoản chi 6 triệu đồng hàng tháng; checkpoint này không tự
+   tạo giao dịch định kỳ hoặc gắn chi phí đó vào một khoản vay giả.
+4. Thay đổi schema/RPC chỉ qua migration local có pgTAP; giữ Supabase authoritative, số tiền VND là
+   số nguyên và không quyết toán bằng floating-point JavaScript.
+
+Acceptance criteria:
+
+1. Dashboard hiển thị đúng các lịch nhắc thuộc ngày 01 đến ngày cuối tháng hiện tại, độc lập với bộ
+   lọc `Tháng này`, khoảng tùy chỉnh hoặc kỳ báo cáo khác; ca qua ranh giới tháng và lịch 15/30 ngày
+   có kiểm thử hồi quy.
+2. Trang Đối tác chỉ cần một lượt đọc tổng hợp, không phát sinh N+1 query; bốn số tiền đúng theo
+   hướng khoản vay, trạng thái/giao dịch đảo và được che theo chế độ riêng tư hiện có.
+3. Giao diện dùng component/token sẵn có, lưới số liệu đọc được ở 375px, có trạng thái rỗng/tìm kiếm
+   và không làm mất thao tác sửa/xóa hiện hữu.
+4. Đạt `git diff --check`, lint, typecheck, unit, build, pgTAP và full E2E áp dụng. Chỉ triển khai
+   local trong C117; không chạy migration remote, deploy Preview/Production, đổi alias, commit/push
+   remote hoặc thay dữ liệu vận hành. Rollout sẽ là checkpoint riêng chờ OWNER phê duyệt.
+
+Kết quả:
+
+1. Thêm RPC dashboard v5 nhận riêng tháng nhắc và ngày nghiệp vụ; lịch 15/30 ngày được duyệt trong
+   đúng ngày 01 đến cuối tháng hiện tại, mỗi khoản chỉ trả về nghĩa vụ đầu tiên còn phải xử lý. Kỳ
+   báo cáo, so sánh, biểu đồ và số dư vẫn dùng bộ lọc độc lập; v4/v2 được giữ làm fallback khi code
+   chạy trước migration.
+2. Thêm RPC `list_counterparties_with_financials(date)` trả danh sách cùng bốn số tổng hợp trong một
+   lượt đọc. Dư gốc dùng trạng thái authoritative; lãi chỉ tính giao dịch thực tế hiệu lực, bỏ dòng
+   đã đảo và opening legacy. Trang Đối tác dùng lưới 2 cột ở mobile, 4 cột ở desktop và che cả bốn
+   số theo chế độ riêng tư; aria-label không chứa tên/số nhạy cảm.
+3. Giữ nguyên luồng Chi phí chung cho khoản chi không gắn khoản vay; không thêm tự động định kỳ hay
+   khoản vay giả. Harness C81 được đổi từ kỳ vọng rolling-window cũ sang tháng hiện tại, C94 dùng kỳ
+   dữ liệu cố định để không phụ thuộc ngày chạy, và fixture C117 không reset database giữa full suite.
+4. Gate đạt: `git diff --check`, lint, typecheck, unit, production build 19 route, Supabase db lint,
+   pgTAP `574 PASS / 27 file`, full E2E `96 PASS / 18 SKIP / 0 FAIL` trên 114 test. Targeted C117,
+   privacy C20, C81 và C94 đều đạt. Visual probe thật trên Dashboard/Đối tác ở 375/768/1024/1440,
+   sáng/tối và sweep 55 bước không phát hiện overflow, cắt số hoặc lỗi bố cục của phần mới.
+5. Migration `20261104090000_c117_calendar_reminders_counterparty_financials.sql` chỉ áp trên local
+   Supabase. Không migration remote, deploy Preview/Production, đổi alias, push hoặc mutation dữ liệu
+   vận hành trong C117.
+
+### C118 — Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác
+
+Trạng thái: `AWAITING_APPROVAL` từ ngày 05/11/2026. Chưa được phép bắt đầu.
+
+Phạm vi đề xuất:
+
+1. Xác minh source/commit sạch, tạo backup và kiểm tra khả năng rollback trước khi áp migration C117
+   lên Supabase remote; chạy db lint và smoke RPC có quyền đúng sau migration.
+2. Tạo candidate Preview từ repository root bằng `pnpm deploy:preview` theo runbook, đạt đúng project,
+   target Preview, region `sin1`, immutable smoke công khai/Auth và runtime log trước khi chuyển stable
+   alias `tindung-preview.vercel.app`.
+3. OWNER nghiệm thu Dashboard và Đối tác trên Preview. Chỉ sau nghiệm thu mới tạo/promote Production
+   candidate, hậu kiểm `tindung.vercel.app`, alias mặc định, Auth, console/runtime errors và giữ sẵn
+   rollback deployment trước đó.
+4. Cập nhật context/roadmap/evidence với migration, deployment ID/URL/alias/region và kết quả từng
+   smoke. Không tự bắt đầu C118 nếu chưa có phê duyệt trực tiếp mới của OWNER.

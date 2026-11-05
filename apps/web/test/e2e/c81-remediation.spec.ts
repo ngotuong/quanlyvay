@@ -6,6 +6,8 @@ import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import { localSupabaseEnvironment, resetLocalDatabase } from "./helpers";
 import globalSetup from "./global-setup";
+import { dashboardReminderWindow } from "../../src/lib/business/dashboard-period";
+import { formatDate } from "../../src/lib/business/format";
 
 const capture = process.env.C81_EVIDENCE === "true";
 const out = resolve(process.cwd(), "../../docs/remediation-c81");
@@ -80,6 +82,8 @@ async function geometry(page: Page) {
 test("C81 compact dashboard reference, privacy restoration and record headings", async ({ page }) => {
   test.setTimeout(240000);
   await login(page);
+  const reminderDates = dashboardReminderWindow();
+  const reminderLabel = `${formatDate(reminderDates.start)}–${formatDate(reminderDates.end)}`;
   const errors: string[] = [];
   page.on("pageerror", e => errors.push(e.name));
   for (const theme of ["light", "dark"] as const) for (const width of [375, 390, 768, 1024, 1280, 1440]) {
@@ -93,7 +97,7 @@ test("C81 compact dashboard reference, privacy restoration and record headings",
     expect(metrics.kpis.bottom).toBeLessThanOrEqual(metrics.tasks.top);
     if (width === 1440) expect(metrics.tasks.top).toBeLessThanOrEqual(460);
     if (width === 390) expect(metrics.tasks.top).toBeLessThanOrEqual(700);
-    await expect(page.locator(".action-hero-banner")).toContainText("03/10/2026–02/11/2026");
+    await expect(page.locator(".action-hero-banner")).toContainText(reminderLabel);
     await expect(page.locator(".action-hero-banner")).not.toContainText("giao dịch trong tháng");
     evidence.matrix.push({ route: "dashboard-reference", theme, ...metrics });
     if (capture && [375, 390, 1440].includes(width)) await page.screenshot({ path: resolve(out, `dashboard-${width}-${theme}.png`), fullPage: true });

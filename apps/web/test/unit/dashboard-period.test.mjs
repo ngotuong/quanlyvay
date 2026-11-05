@@ -18,9 +18,9 @@ vm.runInNewContext(`(function (exports, require, module) { ${compiled}\n})(compi
 });
 const { dashboardComparisonPeriods, dashboardReminderWindow } = compiledModule.exports;
 
-test("reminder copy window is inclusive D through D+30 across months and leap years", () => {
-  for (const [start, end] of [["2026-10-03", "2026-11-02"], ["2026-12-15", "2027-01-14"], ["2024-02-01", "2024-03-02"]]) {
-    assert.deepEqual(structuredClone(dashboardReminderWindow(start)), { start, end });
+test("lịch nhắc luôn phủ trọn tháng dương lịch chứa ngày nghiệp vụ", () => {
+  for (const [asOf, start, end] of [["2026-10-03", "2026-10-01", "2026-10-31"], ["2026-12-15", "2026-12-01", "2026-12-31"], ["2024-02-10", "2024-02-01", "2024-02-29"]]) {
+    assert.deepEqual(structuredClone(dashboardReminderWindow(asOf)), { start, end, asOf });
   }
 });
 

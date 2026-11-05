@@ -62,7 +62,7 @@ function ActionHeroBanner({ upcoming, overdue, reminderWindow }: { upcoming: Das
         <div className="hero-banner-content">
           <span className="hero-banner-badge" data-status="clean">Lịch nhắc</span>
           <div>
-            <h2>Không có gốc quá hạn hoặc lịch nhắc trong khoảng đã chọn</h2>
+            <h2>Không có gốc quá hạn trong kỳ báo cáo hoặc lịch nhắc trong tháng hiện tại</h2>
             <p>Lịch thu/trả lãi: {reminderWindow}.</p>
           </div>
         </div>
@@ -226,6 +226,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
   const profile = await requireAuthenticatedProfile();
   const period = resolveDashboardPeriod(await searchParams);
   const comparison = dashboardComparisonPeriods(period);
+  const reminderDates = dashboardReminderWindow();
   const { dashboard, analytics, previousDashboard, previousBalanceDashboard } = await getManagementDashboardBundle(
     period.start,
     period.end,
@@ -233,9 +234,11 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     comparison.flow.end,
     comparison.balance.start,
     comparison.balance.end,
+    reminderDates.start,
+    reminderDates.end,
+    reminderDates.asOf,
   );
   const periodLabel = `${formatDate(dashboard.periodStartDate)}–${formatDate(dashboard.periodEndDate)}`;
-  const reminderDates = dashboardReminderWindow(dashboard.periodEndDate);
   const reminderWindow = `${formatDate(reminderDates.start)}–${formatDate(reminderDates.end)}`;
   const flowComparisonLabel = comparisonPeriodLabel(comparison.flow.start, comparison.flow.end);
   const balanceComparisonLabel = formatDate(comparison.balance.end);

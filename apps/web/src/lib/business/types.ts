@@ -31,6 +31,10 @@ export type Counterparty = {
   notes: string | null;
   created_at: string;
   updated_at: string;
+  lendingOutstandingVnd: string;
+  borrowingOutstandingVnd: string;
+  interestCollectedVnd: string;
+  interestPaidVnd: string;
 };
 
 export type Loan = {

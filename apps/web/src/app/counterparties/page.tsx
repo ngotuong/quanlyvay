@@ -4,13 +4,14 @@ import { redirect } from "next/navigation";
 import { clampPage, pageHref } from "@/lib/business/list-page.mjs";
 import { RenderRevision } from "@/components/app/render-revision";
 import { Pagination, parsePage } from "@/components/business/pagination";
-import { PrivacyRegion } from "@/components/app/privacy-provider";
+import { PrivacyAmount, PrivacyRegion } from "@/components/app/privacy-provider";
 import { ContactRound, Search, UserRound, X } from "lucide-react";
 import { DeleteCounterpartyButton } from "@/components/business/delete-counterparty-button";
 import { CounterpartyCreateSheet } from "@/components/business/counterparty-create-sheet";
 import { CounterpartyEditor } from "@/components/business/counterparty-editor";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { listCounterparties } from "@/lib/business/queries";
+import { formatVnd } from "@/lib/business/format";
 import { Card } from "@/components/ui";
 
 export default async function CounterpartiesPage({ searchParams }: { searchParams: Promise<{ page?: string; deleted?: string; q?: string }> }) {
@@ -37,10 +38,17 @@ export default async function CounterpartiesPage({ searchParams }: { searchParam
         <button className="secondary-button" type="submit">Tìm kiếm</button>
         {query ? <a className="secondary-link" href="/counterparties"><X size={17} /> Xóa tìm kiếm</a> : null}
       </form>
+      <p className="counterparty-financial-note">Dư gốc tại ngày hiện tại; lãi là tổng giao dịch thực tế từ trước đến nay.</p>
       <section className="counterparty-list compact-record-list" aria-label="Danh sách đối tác" aria-live="polite">
           {filtered.length === 0 ? <EmptyState as="div" className="compact"><UserRound size={26} /><h2>{query ? "Không tìm thấy đối tác" : "Chưa có đối tác"}</h2><p>{query ? "Thử tên hoặc ghi chú khác." : "Dùng nút Thêm đối tác để tạo liên hệ đầu tiên."}</p>{query ? <a className="secondary-link" href="/counterparties">Xem toàn bộ đối tác</a> : null}</EmptyState> : filtered.slice((page-1)*25, page*25).map((item) => (
             <Card as="article" variant="interactive" className="surface-card counterparty-card" key={item.id}>
               <div className="counterparty-card-heading"><div><NameDisclosure><h2 data-disclosure-name><PrivacyRegion>{item.name}</PrivacyRegion></h2></NameDisclosure><p className="notes-copy"><PrivacyRegion>{item.notes || "Không có ghi chú."}</PrivacyRegion></p></div>{profile.role === "OWNER" ? <PrivacyRegion><DeleteCounterpartyButton menu id={item.id} name={item.name} /></PrivacyRegion> : null}</div>
+              <dl className="counterparty-financial-grid" aria-label="Tổng hợp tài chính đối tác">
+                <div><dt>Đang cho vay</dt><dd><PrivacyAmount value={formatVnd(item.lendingOutstandingVnd)} /></dd></div>
+                <div><dt>Đang đi vay</dt><dd><PrivacyAmount value={formatVnd(item.borrowingOutstandingVnd)} /></dd></div>
+                <div><dt>Lãi đã thu</dt><dd><PrivacyAmount value={formatVnd(item.interestCollectedVnd)} /></dd></div>
+                <div><dt>Lãi đã trả</dt><dd><PrivacyAmount value={formatVnd(item.interestPaidVnd)} /></dd></div>
+              </dl>
               {canWrite ? <CounterpartyEditor counterparty={item} /> : null}
             </Card>
           ))}

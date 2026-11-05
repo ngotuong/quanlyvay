@@ -143,7 +143,7 @@ test("C94 reflow320, short viewport and root text200 retain data and usable name
 test("C94 probe candidates are reconciled against painted money and open reversal controls", async ({ page }) => {
   test.setTimeout(120000); await login(page);
   for (const colorScheme of ["light", "dark"] as const) {
-    await page.emulateMedia({ colorScheme }); await page.setViewportSize({ width: 1440, height: 900 }); await ready(page, "/dashboard");
+    await page.emulateMedia({ colorScheme }); await page.setViewportSize({ width: 1440, height: 900 }); await ready(page, "/dashboard?from=2026-09-01&to=2026-10-31&preset=custom");
     const zeros = await page.locator(".vnd-number").evaluateAll(es => es.filter(e => e.textContent === "0").map(e => {
       const pixel = (color: string) => { const canvas = document.createElement("canvas"); canvas.width = canvas.height = 1; const c = canvas.getContext("2d")!; c.fillStyle = color; c.fillRect(0, 0, 1, 1); return [...c.getImageData(0, 0, 1, 1).data]; };
       let opacity = 1, painted = true, background: number[] | undefined;

@@ -143,6 +143,7 @@ input::placeholder, textarea::placeholder { color: var(--foreground-muted); opac
   .compact-record-list { gap: 0; border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); }
   .compact-record-list .counterparty-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 20px; row-gap: 4px; padding: 12px 16px; border: 0; border-bottom: 1px solid var(--border); border-radius: 0; box-shadow: none; }
   .compact-record-list .counterparty-card-heading { grid-column: 1; }
+  .compact-record-list .counterparty-financial-grid { grid-column: 1 / -1; grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .compact-record-list .edit-details { grid-column: 2; grid-row: 1; align-self: start; margin: 0; padding: 0; border-top: 0; }
   .compact-record-list .edit-details[open] { grid-column: 1 / -1; grid-row: auto; }
   .compact-record-list .inline-reversal { grid-column: 2; grid-row: 1; align-self: start; margin: 0; }

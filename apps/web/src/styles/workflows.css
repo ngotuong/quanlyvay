@@ -96,9 +96,14 @@
 .surface-card > h2 { margin: 0 0 18px; font-size: 1.15rem; }
 .two-panel-layout, .detail-grid { display: grid; gap: 16px; }
 .counterparty-list { display: grid; align-content: start; gap: 12px; }
+.counterparty-financial-note { margin: -6px 0 14px; color: var(--foreground-muted); font-size: .875rem; line-height: 1.5; }
 .counterparty-card-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .counterparty-card-heading h2 { margin: 0; font-size: 1.05rem; }
 .counterparty-card-heading p { margin: 5px 0 0; color: var(--foreground-muted); font-size: .875rem; }
+.counterparty-financial-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; overflow: hidden; margin: 14px 0 0; border: 1px solid var(--border); border-radius: 12px; background: var(--border); }
+.counterparty-financial-grid > div { min-width: 0; background: var(--surface); padding: 10px 12px; }
+.counterparty-financial-grid dt { color: var(--foreground-muted); font-size: .75rem; line-height: 1.35; }
+.counterparty-financial-grid dd { min-width: 0; margin: 4px 0 0; overflow-wrap: anywhere; font-size: .875rem; font-variant-numeric: tabular-nums; font-weight: 700; line-height: 1.35; }
 .counterparty-create-trigger { flex: 0 0 auto; }
 .counterparty-search { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 8px; margin: 0 0 16px; }
 .counterparty-search input { width: 100%; min-width: 0; height: 46px; border: 1px solid var(--border-strong); border-radius: 12px; outline: none; background: var(--surface); color: var(--foreground); padding: 10px 13px 10px 40px; font: inherit; }

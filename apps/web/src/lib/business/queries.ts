@@ -121,9 +121,19 @@ export async function getManagementAnalytics(periodStart: string, periodEnd: str
   return data as ManagementAnalytics;
 }
 
-export async function getManagementDashboardBundle(periodStart: string, periodEnd: string, previousStart: string, previousEnd: string, balanceStart: string, balanceEnd: string) {
+export async function getManagementDashboardBundle(
+  periodStart: string,
+  periodEnd: string,
+  previousStart: string,
+  previousEnd: string,
+  balanceStart: string,
+  balanceEnd: string,
+  reminderStart: string,
+  reminderEnd: string,
+  reminderAsOf: string,
+) {
   const supabase = await createClient();
-  const args = {
+  const baseArgs = {
     p_period_start: periodStart,
     p_period_end: periodEnd,
     p_previous_start: previousStart,
@@ -131,13 +141,19 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
     p_balance_start: balanceStart,
     p_balance_end: balanceEnd,
   };
+  const args = {
+    ...baseArgs,
+    p_reminder_start: reminderStart,
+    p_reminder_end: reminderEnd,
+    p_reminder_as_of: reminderAsOf,
+  };
   const [result, metadataResult] = await Promise.all([
-    readWithTiming("dashboard.bundle", () => readRpcWithGatewayRetry("get_management_dashboard_bundle_v4", () => supabase.rpc("get_management_dashboard_bundle_v4", args))),
+    readWithTiming("dashboard.bundle", () => readRpcWithGatewayRetry("get_management_dashboard_bundle_v5", () => supabase.rpc("get_management_dashboard_bundle_v5", args))),
     readWithTiming("dashboard.attention-metadata", () => fetchAllRows((from, to) => supabase
       .from("loans")
       .select("id,disbursement_date,counterparties(name)")
       .eq("is_test_data", false)
-      .lte("disbursement_date", periodEnd)
+      .lte("disbursement_date", [periodEnd, reminderEnd].sort().at(-1)!)
       .order("id")
       .range(from, to))),
   ]);
@@ -145,18 +161,24 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
   let data = result.data as Record<string, unknown> | null;
   let error = result.error;
   if (error?.code === "PGRST202") {
-    const fallback = await readRpcWithGatewayRetry("get_management_dashboard_bundle_v2", () => supabase.rpc("get_management_dashboard_bundle_v2", {
-      p_period_start: periodStart,
-      p_period_end: periodEnd,
-      p_previous_start: previousStart,
-      p_previous_end: previousEnd,
-    }));
-    diagnosticResult = fallback;
-    data = fallback.data ? {
-      ...fallback.data as Record<string, unknown>,
-      previousBalanceDashboard: (fallback.data as Record<string, unknown>).previousDashboard,
-    } : null;
-    error = fallback.error;
+    const v4Fallback = await readRpcWithGatewayRetry("get_management_dashboard_bundle_v4", () => supabase.rpc("get_management_dashboard_bundle_v4", baseArgs));
+    diagnosticResult = v4Fallback;
+    data = v4Fallback.data as Record<string, unknown> | null;
+    error = v4Fallback.error;
+    if (error?.code === "PGRST202") {
+      const v2Fallback = await readRpcWithGatewayRetry("get_management_dashboard_bundle_v2", () => supabase.rpc("get_management_dashboard_bundle_v2", {
+        p_period_start: periodStart,
+        p_period_end: periodEnd,
+        p_previous_start: previousStart,
+        p_previous_end: previousEnd,
+      }));
+      diagnosticResult = v2Fallback;
+      data = v2Fallback.data ? {
+        ...v2Fallback.data as Record<string, unknown>,
+        previousBalanceDashboard: (v2Fallback.data as Record<string, unknown>).previousDashboard,
+      } : null;
+      error = v2Fallback.error;
+    }
   }
   if (error || !data || metadataResult.error) {
     console.error("dashboard.read_failed", readFailureDiagnostic(diagnosticResult));
@@ -183,13 +205,28 @@ export async function getManagementDashboardBundle(periodStart: string, periodEn
 
 export async function listCounterparties() {
   const supabase = await createClient();
-  const { data, error } = await readWithTiming("counterparties.list", () => fetchAllRows((from, to) => supabase
-    .from("counterparties")
-    .select("id, name, notes, created_at, updated_at")
-    .eq("is_test_data", false)
-    .order("name").order("id").range(from, to)));
-  if (error) throw new Error("Không thể tải danh sách đối tác.");
-  return data as Counterparty[];
+  const result = await readWithTiming("counterparties.list", () => readRpcWithGatewayRetry(
+    "list_counterparties_with_financials",
+    () => supabase.rpc("list_counterparties_with_financials", { p_as_of_date: todayInVietnam() }),
+  ));
+  if (!result.error && result.data) return result.data as Counterparty[];
+
+  if (result.error?.code === "PGRST202") {
+    const legacy = await fetchAllRows((from, to) => supabase
+      .from("counterparties")
+      .select("id, name, notes, created_at, updated_at")
+      .eq("is_test_data", false)
+      .order("name").order("id").range(from, to));
+    if (!legacy.error) return (legacy.data ?? []).map((counterparty) => ({
+      ...counterparty,
+      lendingOutstandingVnd: "0",
+      borrowingOutstandingVnd: "0",
+      interestCollectedVnd: "0",
+      interestPaidVnd: "0",
+    })) as Counterparty[];
+  }
+
+  throw new Error("Không thể tải danh sách đối tác.");
 }
 
 export type LoanListFilters = {
