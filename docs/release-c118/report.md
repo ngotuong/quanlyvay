@@ -1,7 +1,7 @@
 # C118 — Rollout lịch nhắc theo tháng và tổng hợp Đối tác
 
-Trạng thái: `IN_PROGRESS` ngày 12/11/2026. Supabase remote và stable Preview đã đạt; đang chờ OWNER
-nghiệm thu Preview trước khi tạo Production candidate.
+Trạng thái: `COMPLETED` ngày 12/11/2026. Supabase remote, stable Preview và Production đều đạt;
+rollback C115 được giữ nguyên, chưa kích hoạt.
 
 ## 1. Backup và migration
 
@@ -16,9 +16,10 @@ nghiệm thu Preview trước khi tạo Production candidate.
 
 ## 2. Source và CI
 
-- Release source hiện tại: `0cb155a0d9d2950f973a734bae59e0c6f2418ce9`.
+- Release source ứng dụng: `0cb155a0d9d2950f973a734bae59e0c6f2418ce9`; source bằng chứng
+  trước Production: `0476ae53a1f54a393df2aa07796fff0775fc6cc4`.
 - Push là fast-forward `662573f..0cb155a`, không force push.
-- Required CI `43132326300` trên đúng SHA kết luận `success`.
+- Required CI `43140849695` trên đúng SHA `0476ae5` kết luận `success`; đủ sáu job, gồm hai shard E2E.
 
 ## 3. Stable Preview
 
@@ -40,13 +41,27 @@ nghiệm thu Preview trước khi tạo Production candidate.
   deployment C118, target Preview, Ready, Functions `sin1`; Dashboard/Đối tác Auth smoke và privacy
   đạt, console sạch. Runtime post-alias level-error 0, fatal 0, HTTP 500 bằng 0.
 
-## 4. Cổng còn lại
+## 4. Production
 
-OWNER cần nghiệm thu trực tiếp trên `https://tindung-preview.vercel.app`:
+OWNER đã nghiệm thu stable Preview trong hội thoại trước khi tạo Production candidate.
 
-1. Dashboard: lịch nhắc phủ đúng toàn bộ tháng hiện tại và thao tác xem khoản vay phù hợp.
-2. Đối tác: tìm kiếm, bốn số tổng hợp và chế độ riêng tư phù hợp với nhu cầu sử dụng thật.
+| Vai trò | Deployment | URL | Target / trạng thái / region |
+| --- | --- | --- | --- |
+| Production C118 | `dpl_9stGwkm8nA4bhiKcDXZySmrukhtr` | `https://quan-ly-vay-ca-nhan-leq38ew90-ngotuong2105.vercel.app` / `https://tindung.vercel.app` / alias mặc định | Production / Ready / Functions `sin1` |
+| Rollback Production C115 | `dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx` | `https://quan-ly-vay-ca-nhan-hfp6yuep3-ngotuong2105.vercel.app` | Production / Ready / Functions `sin1`, chưa kích hoạt |
 
-Chỉ sau xác nhận này mới tạo Production candidate, chạy public/Auth/runtime smoke, promote và hậu
-kiểm các Production alias. Production hiện vẫn là C115; chưa có Production deployment/alias mutation
-trong C118.
+- Candidate được tạo từ repository root bằng `vercel deploy --prod --skip-domain`; upload guard đạt
+  248 tệp. Trước promote, hai alias vẫn trỏ rollback C115 và cả candidate/rollback đều được re-inspect.
+- Public immutable smoke đạt: `/`, `/login`, manifest và service worker trả 200; hai API bảo vệ trả
+  401. CSP có nonce riêng từng request, `script-src` không có `unsafe-inline`.
+- Auth immutable smoke đạt: Dashboard hiển thị kỳ báo cáo 01–12/11 và lịch nhắc 01–30/11; Đối tác
+  tải 18 bản ghi, đủ bốn tổng hợp, privacy hoạt động; console error/warning bằng 0.
+- Runtime candidate trước promote: level-error 0, fatal 0, HTTP 500 bằng 0. `vercel promote` thành công.
+- Hậu kiểm xác nhận `tindung.vercel.app` và alias mặc định cùng trỏ deployment C118, target Production,
+  Ready, Functions `sin1`. Public status/CSP giữ nguyên; Auth Dashboard/Đối tác đạt, console sạch;
+  privacy được bật trên cả hai origin. Runtime post-promote level-error/fatal/HTTP 500 bằng 0.
+
+## 5. Kết luận
+
+C118 đạt toàn bộ acceptance. Không rollback vì hậu kiểm sạch; nếu cần quay lui, deployment C115 ở
+trên đã được xác minh Ready và chưa bị thay đổi.

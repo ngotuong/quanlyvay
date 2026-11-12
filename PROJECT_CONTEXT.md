@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.383
+roadmap_version: 1.0.384
 last_updated: 2026-11-12
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C118
+current_checkpoint: C100
 current_status: IN_PROGRESS
-last_completed_checkpoint: C117
+last_completed_checkpoint: C118
 next_checkpoint: null
 ---
 
@@ -24,15 +24,18 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   typecheck, unit, build 19 route, db lint, pgTAP `574 PASS / 27 file`, full E2E
   `96 PASS / 18 SKIP / 0 FAIL` trên 114 test và visual probe sáng/tối/sweep không có overflow hay
   số bị cắt. Khoản chi 6 triệu đồng hàng tháng tiếp tục ghi bằng luồng Chi phí chung hiện hữu.
-- C118 `IN_PROGRESS` từ ngày 12/11/2026 theo phê duyệt trực tiếp của OWNER. Backup mã hóa
+- C118 `COMPLETED` ngày 12/11/2026 theo phê duyệt trực tiếp của OWNER. Backup mã hóa
   `qlv-prod-20261112T010655Z` đạt đủ 6 tệp/checksum/GCM/SQL-shape; migration C117 đã áp đúng project
   `hmfxnstrqfqpvsgfmjmd`, remote history khớp và db lint sạch. Source `0cb155a` đã fast-forward lên
-  `origin/main`, Required CI `43132326300` đạt. Stable Preview hiện là
+  `origin/main`; source bằng chứng `0476ae5` đạt Required CI `43140849695`. Stable Preview hiện là
   `dpl_J28Soq2TRk2wFpDNBu3YrCkZQaRL`, immutable URL
   `quan-ly-vay-ca-nhan-7mtj0t1n7-ngotuong2105.vercel.app`, target Preview, Ready, Functions `sin1`.
   Hai lượt root gate đều đạt full E2E `96 PASS / 18 SKIP / 0 FAIL`; immutable và stable alias đều
   đạt public/Auth smoke Dashboard/Đối tác, privacy, console sạch, runtime level-error/fatal/HTTP 500
-  bằng 0. Đang dừng ở cổng OWNER nghiệm thu stable Preview trước khi tạo Production candidate.
+  bằng 0. OWNER đã nghiệm thu Preview; Production `dpl_9stGwkm8nA4bhiKcDXZySmrukhtr` được tạo
+  bằng `--prod --skip-domain`, đạt public/Auth/CSP/runtime smoke rồi promote. Hai alias Production
+  cùng trỏ deployment mới, target Production, Ready, Functions `sin1`; Dashboard/Đối tác đăng nhập
+  đạt, console sạch và runtime level-error/fatal/HTTP 500 bằng 0. Rollback C115 giữ nguyên, chưa kích hoạt.
   Báo cáo hiện hành: [release C118](docs/release-c118/report.md).
 - C113 `COMPLETED` ngày 22/10/2026: audit toàn diện local không phát hiện P0/P1; đã sửa P2 Google
   Sync có thể clear tab khi full snapshot thiếu bảng, P3 biểu đồ vẽ giá trị 0 thành cột dương và
@@ -66,10 +69,10 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   hay acceptance còn thiếu của C100.
 - C112 `COMPLETED` ngày 22/10/2026: giao diện C111 cùng nền loading C107 đã được phát hành. OWNER
   đã kiểm cả hai Production alias; Dashboard, Khoản vay, Đối tác và Thông báo đều Auth HTTP 200.
-- C101–C117 đều `COMPLETED`; C100 và C118 đang `IN_PROGRESS`. Chi tiết acceptance, test
+- C101–C118 đều `COMPLETED`; C100 đang `IN_PROGRESS`. Chi tiết acceptance, test
   và deployment được giữ trong roadmap và báo cáo phát hành tương ứng.
-- C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C117 đã hoàn tất local; C118 đang rollout
-  theo phê duyệt ngày 12/11/2026 và phải dừng chờ OWNER nghiệm thu sau stable Preview.
+- C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C118 đã hoàn tất rollout ngày
+  12/11/2026; không có checkpoint mới được tự động bắt đầu.
 
 ## 2. C100 — Công việc còn lại
 
@@ -97,21 +100,24 @@ Phạm vi: [đề xuất C100](docs/dashboard-rpc-performance-proposal.md) và
 | Stable Preview C118 | `dpl_J28Soq2TRk2wFpDNBu3YrCkZQaRL` | `quan-ly-vay-ca-nhan-7mtj0t1n7-ngotuong2105.vercel.app` / `tindung-preview.vercel.app` | Preview, Ready, Functions `sin1` |
 | Preview rollback C115 | `dpl_BRfVm4hf5jfk5FJe2mXPxmrt3hC4` | `quan-ly-vay-ca-nhan-5ydpf15dp-ngotuong2105.vercel.app` | Preview, Ready, Functions `sin1` |
 | Preview rollback C115 trước hotfix | `dpl_8pxn5Ze87nbvdNbaF5CQeQ1oan9b` | `quan-ly-vay-ca-nhan-97arw9mvp-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
-| Production C115 | `dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx` | `quan-ly-vay-ca-nhan-hfp6yuep3-ngotuong2105.vercel.app` / `tindung.vercel.app` / alias mặc định | Production, Ready, Functions `sin1` |
+| Production C118 | `dpl_9stGwkm8nA4bhiKcDXZySmrukhtr` | `quan-ly-vay-ca-nhan-leq38ew90-ngotuong2105.vercel.app` / `tindung.vercel.app` / alias mặc định | Production, Ready, Functions `sin1` |
+| Production rollback C115 | `dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx` | `quan-ly-vay-ca-nhan-hfp6yuep3-ngotuong2105.vercel.app` | Production, Ready, Functions `sin1`, chưa kích hoạt |
 | Production rollback C115 trước Zod 4.6.7 | `dpl_GndhsLryK5D15xkut2aHPdeFKGWX` | `quan-ly-vay-ca-nhan-j07u4c057-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Production rollback C112 | `dpl_75xKhFuJ4wgspCmGdN4txdtNwyVF` | `quan-ly-vay-ca-nhan-967no3d6v-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Preview rollback C112 | `dpl_2a8avNFZHZxcDsZvheXP84dLu8Ri` | `quan-ly-vay-ca-nhan-74fc7gb9r-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Preview rollback C110 | `dpl_148HdyQj5mLLoxocf5f3hyhjfDut` | `quan-ly-vay-ca-nhan-6m940n7ty-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Production rollback C106 | `dpl_92pT2tjxRvCTEwyEePzJqMpGa8TG` | `quan-ly-vay-ca-nhan-kt9gxcuu7-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 
-C115 đạt lint, typecheck, unit 139, build 19 route, targeted C107 10/10 và Required CI đủ sáu job.
-Public/Auth/CSP/service-worker smoke đạt trên immutable Production candidate và cả hai alias;
-`dashboard.bundle` hậu kiểm 2169,8–2527,5 ms với `outcome: ok`, level-error và HTTP 500 bằng 0.
-Báo cáo đầy đủ: [release C115](docs/release-c115/report.md).
+C118 đạt gate exact-source/Required CI, hai lượt root Preview full E2E `96 PASS / 18 SKIP / 0 FAIL`,
+public/Auth/CSP/service-worker smoke trên immutable Production candidate và cả hai alias. Hậu kiểm
+không có browser console error/warning, runtime level-error/fatal/HTTP 500 bằng 0. Báo cáo đầy đủ:
+[release C118](docs/release-c118/report.md).
 
 ## 4. Source và workspace
 
 - Repository chuẩn: `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`.
+- Source ứng dụng C118 là `0cb155a0d9d2950f973a734bae59e0c6f2418ce9`; commit bằng chứng stable
+  Preview `0476ae53a1f54a393df2aa07796fff0775fc6cc4` đã đạt Required CI `43140849695` đủ sáu job.
 - Source C113–C115, hotfix Next.js 16.4.1/Zod 4.6.7 và harness CI deterministic đã fast-forward
   tới `origin/main` tại `031197fc78e54ebbe15ab302b643b32187856fa6`; Required CI
   `40100298387` attempt 2 của đúng SHA đạt đủ sáu job. Repository đã chuyển `PUBLIC` để Required CI
@@ -139,8 +145,8 @@ Báo cáo đầy đủ: [release C115](docs/release-c115/report.md).
 2. Chạy `git status --short --branch` và `git log -1 --oneline`.
 3. Chỉ tiếp tục C100 khi OWNER cung cấp chuỗi số đo thiết bị theo acceptance đã duyệt.
 4. C116 đã hoàn tất; Supabase hiện có tên hiển thị `Tín Dụng`, ref/API URL và dữ liệu giữ nguyên.
-5. C118 đã tới stable Preview và đạt smoke tự động/Auth. Dừng để OWNER nghiệm thu trực tiếp Dashboard
-   và Đối tác trên `tindung-preview.vercel.app`; chỉ sau xác nhận mới tạo/promote Production candidate.
+5. C118 đã hoàn tất Preview/Production; hai alias Production đang phục vụ deployment C118 và
+   rollback C115 vẫn sẵn sàng. Không tiếp tục checkpoint mới nếu chưa có phê duyệt trực tiếp.
 
 Tài liệu kỹ thuật chính: [Domain](docs/DOMAIN_SPEC.md), [Financial Engine](docs/FINANCIAL_ENGINE.md),
 [Dashboard](docs/DASHBOARD.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md),

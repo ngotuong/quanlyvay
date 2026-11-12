@@ -93,7 +93,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `COMPLETED` |
 | C116 | Đổi tên hiển thị Supabase thành Tín Dụng | `COMPLETED` |
 | C117 | Lịch nhắc lãi theo tháng và tổng hợp tài chính theo đối tác | `COMPLETED` |
-| C118 | Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác | `IN_PROGRESS` |
+| C118 | Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác | `COMPLETED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3209,7 +3209,7 @@ Kết quả:
 
 ### C118 — Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác
 
-Trạng thái: `IN_PROGRESS` từ ngày 12/11/2026 theo phê duyệt trực tiếp của OWNER.
+Trạng thái: `COMPLETED` ngày 12/11/2026 theo phê duyệt trực tiếp của OWNER.
 
 Tiến độ ngày 12/11/2026:
 
@@ -3223,8 +3223,13 @@ Tiến độ ngày 12/11/2026:
 3. Immutable và stable `tindung-preview.vercel.app` đã qua public/Auth smoke Dashboard/Đối tác;
    lịch nhắc hiển thị đúng 01–30/11 độc lập kỳ báo cáo, 18 Đối tác có đủ bốn tổng hợp, privacy hoạt
    động, browser console sạch. Runtime candidate/post-alias có level-error/fatal/HTTP 500 bằng 0.
-4. C118 đang dừng đúng cổng OWNER nghiệm thu stable Preview. Chưa tạo Production candidate, chưa
-   promote hoặc đổi bất kỳ Production alias nào. Báo cáo: `docs/release-c118/report.md`.
+4. OWNER đã nghiệm thu stable Preview. Source bằng chứng `0476ae5` đạt Required CI `43140849695`.
+   Production candidate `dpl_9stGwkm8nA4bhiKcDXZySmrukhtr` đúng project, target Production, Ready,
+   Functions `sin1`; immutable public/Auth/CSP/runtime smoke đạt trước promote.
+5. Promote thành công; `tindung.vercel.app` và alias mặc định cùng trỏ candidate. Hậu kiểm public/Auth,
+   privacy, console và runtime level-error/fatal/HTTP 500 đều đạt. Rollback C115
+   `dpl_4L1ayzFPjaaAJjUtXms3gB3v1HEx` giữ nguyên Ready, chưa kích hoạt. Báo cáo:
+   `docs/release-c118/report.md`.
 
 Phạm vi đề xuất:
 
