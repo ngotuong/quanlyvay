@@ -3211,6 +3211,21 @@ Kết quả:
 
 Trạng thái: `IN_PROGRESS` từ ngày 12/11/2026 theo phê duyệt trực tiếp của OWNER.
 
+Tiến độ ngày 12/11/2026:
+
+1. Backup Production mã hóa `qlv-prod-20261112T010655Z` đạt 6 tệp, checksum, GCM, SQL-shape và
+   manifest; retention dry-run không có candidate cần xóa. Dry-run migration chỉ liệt kê C117;
+   migration `20261104090000` đã áp remote, history khớp và db lint `public,private` sạch.
+2. Source `0cb155a` đã fast-forward lên `origin/main`; Required CI `43132326300` trên đúng SHA đạt.
+   Candidate `dpl_J28Soq2TRk2wFpDNBu3YrCkZQaRL` đúng project, target Preview, Ready và Functions
+   `sin1`. Hai lượt root create/resume đều đạt lint, typecheck, unit, build 19 route và full E2E
+   `96 PASS / 18 SKIP / 0 FAIL` trên 114 test.
+3. Immutable và stable `tindung-preview.vercel.app` đã qua public/Auth smoke Dashboard/Đối tác;
+   lịch nhắc hiển thị đúng 01–30/11 độc lập kỳ báo cáo, 18 Đối tác có đủ bốn tổng hợp, privacy hoạt
+   động, browser console sạch. Runtime candidate/post-alias có level-error/fatal/HTTP 500 bằng 0.
+4. C118 đang dừng đúng cổng OWNER nghiệm thu stable Preview. Chưa tạo Production candidate, chưa
+   promote hoặc đổi bất kỳ Production alias nào. Báo cáo: `docs/release-c118/report.md`.
+
 Phạm vi đề xuất:
 
 1. Xác minh source/commit sạch, tạo backup và kiểm tra khả năng rollback trước khi áp migration C117
