@@ -81,7 +81,7 @@ begin
     select * into strict existing from public.loan_lifecycle_events where id = prior.lifecycle_event_id;
     if prior.loan_id <> p_loan_id or prior.effective_date <> p_effective_date
       or existing.event_type <> p_event_type
-      or existing.daily_rate_percent <> p_period_rate_percent / loan.interest_cycle_days then
+      or existing.daily_rate_percent <> (p_period_rate_percent / loan.interest_cycle_days)::numeric(18,10) then
       raise exception 'Idempotency key input mismatch' using errcode = '23505';
     end if;
     return existing.id;
@@ -100,7 +100,7 @@ begin
   select * into existing from public.loan_lifecycle_events
     where loan_id = p_loan_id and effective_date = p_effective_date and event_type = p_event_type;
   if found then
-    if existing.daily_rate_percent <> p_period_rate_percent / loan.interest_cycle_days then
+    if existing.daily_rate_percent <> (p_period_rate_percent / loan.interest_cycle_days)::numeric(18,10) then
       raise exception 'Existing rate differs from requested rate' using errcode = '23514';
     end if;
     event_id := existing.id;

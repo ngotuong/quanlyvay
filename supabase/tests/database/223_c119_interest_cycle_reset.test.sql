@@ -1,6 +1,6 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(13);
+select plan(15);
 insert into auth.users(id,email) values('10000000-0000-0000-0000-000000000119','c119@example.test');
 insert into public.profiles(user_id,username,display_name,role,is_active)
 values('10000000-0000-0000-0000-000000000119','c119_owner','C119 Owner','OWNER',true);
@@ -27,5 +27,8 @@ select throws_ok($$update public.loan_interest_cycle_resets set effective_date='
 reset role;
 select ok(exists(select 1 from public.audit_logs where table_name='loan_interest_cycle_resets'),'reset audited');
 select is((select count(*) from public.loan_interest_cycle_resets where loan_id='30000000-0000-0000-0000-000000000119'),1::bigint,'one reset only');
+set local role authenticated;
+select lives_ok($$select public.record_lifecycle_event_v3('30000000-0000-0000-0000-000000000119','RATE_CHANGE','2026-11-10','c119-recurring-rate',1.616,null,true)$$,'reset supports recurring decimal daily rates');
+select lives_ok($$select public.record_lifecycle_event_v3('30000000-0000-0000-0000-000000000119','RATE_CHANGE','2026-11-10','c119-recurring-rate',1.616,null,true)$$,'retry compares daily rate at persisted precision');
 select * from finish();
 rollback;
