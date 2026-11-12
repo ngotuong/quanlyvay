@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.381
-last_updated: 2026-11-05
+roadmap_version: 1.0.382
+last_updated: 2026-11-12
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C100
+current_checkpoint: C118
 current_status: IN_PROGRESS
 last_completed_checkpoint: C117
-next_checkpoint: C118
+next_checkpoint: null
 ---
 
 # Project Context
@@ -24,8 +24,9 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   typecheck, unit, build 19 route, db lint, pgTAP `574 PASS / 27 file`, full E2E
   `96 PASS / 18 SKIP / 0 FAIL` trên 114 test và visual probe sáng/tối/sweep không có overflow hay
   số bị cắt. Khoản chi 6 triệu đồng hàng tháng tiếp tục ghi bằng luồng Chi phí chung hiện hữu.
-- C118 `AWAITING_APPROVAL`: rollout C117 qua backup/migration remote, stable Preview, Auth smoke và
-  Production theo runbook. Chưa chạy migration remote, deploy, alias, push hoặc thay dữ liệu vận hành.
+- C118 `IN_PROGRESS` từ ngày 12/11/2026 theo phê duyệt trực tiếp của OWNER: rollout C117 qua
+  backup/migration remote, stable Preview, Auth smoke và Production theo runbook. Production chỉ
+  được thực hiện sau khi OWNER nghiệm thu Preview theo acceptance đã duyệt.
 - C113 `COMPLETED` ngày 22/10/2026: audit toàn diện local không phát hiện P0/P1; đã sửa P2 Google
   Sync có thể clear tab khi full snapshot thiếu bảng, P3 biểu đồ vẽ giá trị 0 thành cột dương và
   P3 full E2E C75 tự ghi đè evidence lịch sử.
@@ -58,10 +59,10 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   hay acceptance còn thiếu của C100.
 - C112 `COMPLETED` ngày 22/10/2026: giao diện C111 cùng nền loading C107 đã được phát hành. OWNER
   đã kiểm cả hai Production alias; Dashboard, Khoản vay, Đối tác và Thông báo đều Auth HTTP 200.
-- C101–C117 đều `COMPLETED`; C100 đang `IN_PROGRESS`, C118 chờ phê duyệt. Chi tiết acceptance, test
+- C101–C117 đều `COMPLETED`; C100 và C118 đang `IN_PROGRESS`. Chi tiết acceptance, test
   và deployment được giữ trong roadmap và báo cáo phát hành tương ứng.
-- C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C117 đã hoàn tất local; C118 là rollout
-  riêng và chưa được phép bắt đầu trước khi OWNER phê duyệt.
+- C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C117 đã hoàn tất local; C118 đang rollout
+  theo phê duyệt ngày 12/11/2026 và phải dừng chờ OWNER nghiệm thu sau stable Preview.
 
 ## 2. C100 — Công việc còn lại
 
@@ -130,8 +131,8 @@ Báo cáo đầy đủ: [release C115](docs/release-c115/report.md).
 2. Chạy `git status --short --branch` và `git log -1 --oneline`.
 3. Chỉ tiếp tục C100 khi OWNER cung cấp chuỗi số đo thiết bị theo acceptance đã duyệt.
 4. C116 đã hoàn tất; Supabase hiện có tên hiển thị `Tín Dụng`, ref/API URL và dữ liệu giữ nguyên.
-5. C117 đã hoàn tất local. Chỉ bắt đầu C118 (migration/deploy/push và nghiệm thu remote) khi OWNER
-   phê duyệt rõ checkpoint đó.
+5. C118 đã được OWNER phê duyệt ngày 12/11/2026. Tiếp tục đến stable Preview và dừng để OWNER nghiệm
+   thu trước khi tạo/promote Production candidate.
 
 Tài liệu kỹ thuật chính: [Domain](docs/DOMAIN_SPEC.md), [Financial Engine](docs/FINANCIAL_ENGINE.md),
 [Dashboard](docs/DASHBOARD.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md),

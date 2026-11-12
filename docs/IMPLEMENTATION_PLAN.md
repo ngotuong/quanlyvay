@@ -93,7 +93,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C115 | Rollout C114 lên Preview/Production và hậu kiểm provider/Auth/CSP | `COMPLETED` |
 | C116 | Đổi tên hiển thị Supabase thành Tín Dụng | `COMPLETED` |
 | C117 | Lịch nhắc lãi theo tháng và tổng hợp tài chính theo đối tác | `COMPLETED` |
-| C118 | Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác | `AWAITING_APPROVAL` |
+| C118 | Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3209,7 +3209,7 @@ Kết quả:
 
 ### C118 — Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác
 
-Trạng thái: `AWAITING_APPROVAL` từ ngày 05/11/2026. Chưa được phép bắt đầu.
+Trạng thái: `IN_PROGRESS` từ ngày 12/11/2026 theo phê duyệt trực tiếp của OWNER.
 
 Phạm vi đề xuất:
 
