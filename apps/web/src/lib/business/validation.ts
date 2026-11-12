@@ -156,6 +156,7 @@ export const expenseSchema = z.object({
 
 export const lifecycleSchema = z.object({
   loanId: uuid,
+  resetCycle: z.enum(["on", ""]).optional().transform((value) => value === "on"),
   eventType: z.enum(["RATE_CHANGE", "BAD_DEBT_START", "INTEREST_RESUME"]),
   effectiveDate: businessDate,
   periodRatePercent: z
@@ -164,6 +165,9 @@ export const lifecycleSchema = z.object({
   note: optionalText,
   idempotencyKey: uuid,
 }).superRefine((value, context) => {
+  if (value.resetCycle && (value.eventType === "BAD_DEBT_START" || value.periodRatePercent === null || Number(value.periodRatePercent) <= 0)) {
+    context.addIssue({ code: "custom", path: ["resetCycle"], message: "Mở kỳ mới cần thao tác đổi/bật lại lãi và mức lãi lớn hơn 0." });
+  }
   if (value.eventType === "RATE_CHANGE" && value.periodRatePercent === null) {
     context.addIssue({ code: "custom", path: ["periodRatePercent"], message: "Đổi lãi suất cần nhập mức lãi mới." });
   }

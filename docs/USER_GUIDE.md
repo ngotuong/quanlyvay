@@ -116,6 +116,11 @@ Khi giảm hoặc đổi lãi suất, các ngày trước ngày hiệu lực v�
 đã đóng, chọn ngày hiệu lực là ngày đầu tiên của kỳ kế tiếp; nếu chọn một ngày nằm trong kỳ cũ thì
 phần từ ngày đó trở đi sẽ được tính lại theo mức mới.
 
+Nếu muốn ngày hiệu lực đồng thời là ngày đầu kỳ mới, chọn **Lấy ngày hiệu lực làm ngày đầu chu kỳ
+mới** trong biểu mẫu đổi/bật lại lãi. Ví dụ chu kỳ 15 ngày từ 07/11 sẽ kết thúc 21/11, kỳ tiếp từ
+22/11 đến 06/12; khoản nhắc sớm một ngày sẽ nhắc 20/11 và 05/12. Có thể dùng khi đã ghi đúng mức
+lãi cùng ngày; hệ thống giữ sự kiện đó và bổ sung mốc kỳ, không ghi thêm tiền đã thu/trả.
+
 Với khoản theo sổ cũ, nhập **Nhắc thu lãi sớm hơn** bằng `1` nếu vẫn thu đủ tiền của kỳ 30 ngày nhưng
 nhắc trước ngày cuối kỳ một ngày; khoản mới để `0`. Trang chi tiết hiển thị riêng ngày nhắc và ngày
 kết thúc kỳ, nên không đổi chu kỳ thành 29 ngày.

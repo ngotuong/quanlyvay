@@ -44,6 +44,9 @@ period_(n+1).start = period_n.end + 1
   tổng lãi đã thu và ngày chuyển nợ xấu. Bản ghi mở đầu là bất biến.
 - Khoản có đáo hạn có kỳ cuối ngắn hơn 15/30 ngày nếu gặp ngày đáo hạn.
 - Thanh toán trễ không làm dịch chuyển lịch kỳ lãi.
+- Khi chọn mở chu kỳ mới trong thao tác đổi/bật lại lãi, ngày hiệu lực là ngày đầu kỳ mới;
+  kỳ trước kết thúc ngày liền trước. Mức lãi đã ghi cùng ngày được giữ nguyên nếu khớp đầu vào.
+  Sự kiện đổi mốc có audit riêng, không tạo giao dịch gốc/lãi; độ lệch nhắc thu được giữ nguyên.
 - Sau ngày đáo hạn, nếu chưa tất toán/ngừng lãi, hệ thống tạo kỳ `OVERDUE` mở từ ngày kế tiếp đến ngày tính toán. Không có lãi phạt và không đổi lãi suất chỉ vì quá hạn.
 
 ## 3. Công thức và làm tròn

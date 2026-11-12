@@ -245,13 +245,14 @@ export async function recordLifecycleAction(
   const parsed = lifecycleSchema.safeParse(values(formData));
   if (!parsed.success) return validationFailure(parsed.error);
   const supabase = await createClient();
-  const { error } = await supabase.rpc("record_lifecycle_event_v2", {
+  const { error } = await supabase.rpc("record_lifecycle_event_v3", {
     p_loan_id: parsed.data.loanId,
     p_event_type: parsed.data.eventType,
     p_effective_date: parsed.data.effectiveDate,
     p_idempotency_key: parsed.data.idempotencyKey,
     p_period_rate_percent: parsed.data.periodRatePercent,
     p_note: parsed.data.note,
+    p_reset_cycle: parsed.data.resetCycle,
   });
   if (error) return databaseFailure("Không thể cập nhật trạng thái hoặc lãi suất tại ngày đã chọn.");
   revalidatePath(`/loans/${parsed.data.loanId}`);

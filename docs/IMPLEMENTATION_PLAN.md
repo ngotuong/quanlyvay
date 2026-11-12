@@ -94,6 +94,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C116 | Đổi tên hiển thị Supabase thành Tín Dụng | `COMPLETED` |
 | C117 | Lịch nhắc lãi theo tháng và tổng hợp tài chính theo đối tác | `COMPLETED` |
 | C118 | Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác | `COMPLETED` |
+| C119 | Tính lại lãi với mốc chu kỳ mới và áp dụng khoản vay đã chỉ định | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3206,6 +3207,24 @@ Kết quả:
 5. Migration `20261104090000_c117_calendar_reminders_counterparty_financials.sql` chỉ áp trên local
    Supabase. Không migration remote, deploy Preview/Production, đổi alias, push hoặc mutation dữ liệu
    vận hành trong C117.
+
+### C119 — Tính lại lãi với mốc chu kỳ mới
+
+Trạng thái: `IN_PROGRESS`; OWNER phê duyệt trực tiếp bổ sung nghiệp vụ và thực hiện trên khoản
+vay đã chỉ định trong hội thoại.
+
+Phạm vi/acceptance:
+
+1. Cho phép chọn mở chu kỳ mới từ ngày hiệu lực khi đổi/bật lại lãi, kể cả trường hợp đã có sự kiện
+   đổi lãi cùng ngày. Giữ lịch sử, số dư gốc, lãi trước ngày hiệu lực và giao dịch đã thu; không ghi
+   dòng tiền giả. RPC validate quyền, idempotency, ngày, trạng thái và chống xung đột.
+2. Lịch kỳ, nhắc thu, Dashboard và thông báo cùng dùng mốc mới; dữ liệu cũ không chọn reset giữ
+   nguyên. Kiểm tra kỳ 15 ngày từ 07/11 kết thúc 21/11, kỳ tiếp từ 22/11; offset nhắc giữ nguyên.
+3. Gate diff-check/lint/typecheck/unit/build/pgTAP/Auth/full E2E và CI đúng SHA; backup trước migration
+   remote, Preview root pipeline, immutable/Auth/runtime smoke rồi Production và hậu kiểm/rollback.
+4. Sau phát hành, đối chiếu đúng khoản vay được OWNER chỉ định và ghi nghiệp vụ có audit, xác minh
+   lại lịch sử/lãi/ngày thu. Không commit dữ liệu tài chính thật. Dừng nếu dữ liệu xung đột cần OWNER
+   quyết định; không tự sửa giao dịch đã thu.
 
 ### C118 — Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác
 

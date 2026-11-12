@@ -5,6 +5,7 @@ const auditTableLabels: Record<string, string> = {
   counterparties: "Đối tác",
   loans: "Khoản vay",
   loan_lifecycle_events: "Trạng thái khoản vay",
+  loan_interest_cycle_resets: "Mốc chu kỳ lãi mới",
   transactions: "Giao dịch",
   expenses: "Chi phí",
   interest_periods: "Kỳ lãi",

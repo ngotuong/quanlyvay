@@ -323,7 +323,7 @@ export async function getLoanWorkspace(id: string, section: LoanWorkspaceSection
       .order("created_at", { ascending: false }).order("id").range(from, to)) : Promise.resolve({ data: [], error: null }),
     loadEvents ? fetchAllRows((from, to) => supabase
       .from("loan_lifecycle_events")
-      .select("id, event_type, effective_date, daily_rate_percent::text, note, idempotency_key, created_at")
+      .select("id, event_type, effective_date, daily_rate_percent::text, note, idempotency_key, created_at, loan_interest_cycle_resets(effective_date)")
       .eq("loan_id", id)
       .order("effective_date", { ascending: false }).order("id").range(from, to)) : Promise.resolve({ data: [], error: null }),
     section === "history" ? fetchAllRows((from, to) => supabase

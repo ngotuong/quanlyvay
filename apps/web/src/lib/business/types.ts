@@ -111,6 +111,7 @@ export type LoanTransaction = {
 };
 
 export type LifecycleEvent = {
+  loan_interest_cycle_resets?: { effective_date: string }[];
   id: string;
   event_type: "RATE_CHANGE" | "BAD_DEBT_START" | "INTEREST_RESUME" | "SETTLEMENT";
   effective_date: string;

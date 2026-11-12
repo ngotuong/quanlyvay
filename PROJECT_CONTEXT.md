@@ -3,7 +3,7 @@ project: QuanLyVayCaNhan
 roadmap_version: 1.0.384
 last_updated: 2026-11-12
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C100
+current_checkpoint: C119
 current_status: IN_PROGRESS
 last_completed_checkpoint: C118
 next_checkpoint: null
@@ -17,6 +17,13 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
 
 ## 1. Trạng thái hiện hành
 
+- C119 `IN_PROGRESS`: OWNER yêu cầu bổ sung mở chu kỳ mới khi tính lại lãi và áp dụng cho khoản
+  đã chỉ định sau kiểm thử/phát hành. Phạm vi gồm migration, Server Action/form, lịch thu/nhắc,
+  kiểm thử local/CI, backup, Preview/Production và đối chiếu trước/sau thao tác thật. Không lưu
+  định danh hoặc số liệu khoản vay vận hành trong source control. C100 giữ nguyên phần chờ số đo.
+  Local đã có migration/ledger/RPC, checkbox mở kỳ và dòng lịch sử. pgTAP 587/28 tệp, targeted E2E
+  C119 1/1 đạt; root release gate/CI/rollout còn lại. Backup mới `qlv-prod-20261112T130014Z` đạt
+  6 tệp mã hóa/checksum/GCM/SQL-shape. Chưa mutate khoản vay vận hành. [Báo cáo](docs/release-c119/report.md).
 - C117 `COMPLETED` local ngày 05/11/2026: Dashboard dùng toàn bộ tháng dương lịch hiện tại cho lịch
   nhắc lãi, độc lập kỳ báo cáo; Đối tác hiển thị dư gốc cho vay/đi vay và lãi đã thu/đã trả từ một
   RPC tổng hợp authoritative. Lưới 2 cột mobile/4 cột desktop, chế độ riêng tư và accessibility đều
