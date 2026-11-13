@@ -94,7 +94,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C116 | Đổi tên hiển thị Supabase thành Tín Dụng | `COMPLETED` |
 | C117 | Lịch nhắc lãi theo tháng và tổng hợp tài chính theo đối tác | `COMPLETED` |
 | C118 | Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác | `COMPLETED` |
-| C119 | Tính lại lãi với mốc chu kỳ mới và áp dụng khoản vay đã chỉ định | `IN_PROGRESS` |
+| C119 | Tính lại lãi với mốc chu kỳ mới và áp dụng khoản vay đã chỉ định | `COMPLETED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3210,8 +3210,22 @@ Kết quả:
 
 ### C119 — Tính lại lãi với mốc chu kỳ mới
 
-Trạng thái: `IN_PROGRESS`; OWNER phê duyệt trực tiếp bổ sung nghiệp vụ và thực hiện trên khoản
+Trạng thái: `COMPLETED` ngày 13/11/2026; OWNER phê duyệt trực tiếp bổ sung nghiệp vụ và thực hiện trên khoản
 vay đã chỉ định trong hội thoại.
+
+Tiến độ 12/11/2026: source `effa212` đã lên `main`, Required CI `43257277803` đủ 6 job thành công;
+pgTAP 589/28 tệp, root Preview full E2E `97 PASS / 18 SKIP / 0 FAIL` (115 test, 27,3 phút).
+Backup `qlv-prod-20261112T130014Z` đạt; migration `20261112130000` đã áp remote, history khớp và
+db lint sạch. Candidate `dpl_7R496718rvagozh2HVr4VJxSbtWc` đúng project/Preview/Ready/sin1,
+public/CSP/Auth smoke và runtime error/fatal/HTTP500 bằng 0. Root resume đạt full E2E
+`97 PASS / 18 SKIP / 0 FAIL` trong 27,4 phút; stable Preview đã chuyển và hậu kiểm đạt.
+Production candidate `dpl_9max1ga7TvFsS36kSd9sTrWtx6TW` đúng Production/Ready/sin1,
+public/CSP/Auth/runtime đạt trước promote. Đã promote và hậu kiểm hai alias Production cùng trỏ
+candidate, public/Auth/console/CSP/runtime đạt. Khoản được OWNER chỉ định đã gắn mốc chu kỳ qua
+form vào sự kiện đổi lãi hiện hữu, đặt offset nhắc 0; lịch sử không lặp sự kiện, không tạo dòng tiền,
+miễn lãi trước mốc mới và số dư/đã thu giữ nguyên. Đối chiếu ngày nhắc và kỳ mới đạt. Rollback C118
+giữ nguyên, không kích hoạt; không có blocker hoặc checkpoint mới chờ duyệt. C100 vẫn chờ số đo.
+[Report](release-c119/report.md).
 
 Phạm vi/acceptance:
 
@@ -3219,7 +3233,8 @@ Phạm vi/acceptance:
    đổi lãi cùng ngày. Giữ lịch sử, số dư gốc, lãi trước ngày hiệu lực và giao dịch đã thu; không ghi
    dòng tiền giả. RPC validate quyền, idempotency, ngày, trạng thái và chống xung đột.
 2. Lịch kỳ, nhắc thu, Dashboard và thông báo cùng dùng mốc mới; dữ liệu cũ không chọn reset giữ
-   nguyên. Kiểm tra kỳ 15 ngày từ 07/11 kết thúc 21/11, kỳ tiếp từ 22/11; offset nhắc giữ nguyên.
+   nguyên. Kiểm tra kỳ 15 ngày từ 07/11 kết thúc 21/11, kỳ tiếp từ 22/11; offset nhắc giữ nguyên
+   trừ yêu cầu riêng của OWNER. OWNER đã yêu cầu khoản được chỉ định không nhắc sớm ở kỳ mới.
 3. Gate diff-check/lint/typecheck/unit/build/pgTAP/Auth/full E2E và CI đúng SHA; backup trước migration
    remote, Preview root pipeline, immutable/Auth/runtime smoke rồi Production và hậu kiểm/rollback.
 4. Sau phát hành, đối chiếu đúng khoản vay được OWNER chỉ định và ghi nghiệp vụ có audit, xác minh
