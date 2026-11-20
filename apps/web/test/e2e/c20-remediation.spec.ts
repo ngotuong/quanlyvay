@@ -289,6 +289,9 @@ test("DB errors differ from missing records, retry recovers and offline is expli
   const database=process.env.CI==="true"?"supabase_db_QuanLyVayCaNhan":"supabase_db_QuanLyVayCaNhan-C20-test";
   const sql=(statement:string)=>execFileSync("docker",["exec",database,"psql","-U","postgres","-d","postgres","-v","ON_ERROR_STOP=1","-c",statement],{stdio:"pipe"});
   await login(page);
+  // This recovery assertion needs a non-empty list even when this case runs alone.
+  const expense = await owner.rpc("record_expense", { p_loan_id: null, p_transaction_date: "2026-09-07", p_amount_vnd: "1000", p_category: "C20 recovery fixture", p_idempotency_key: randomUUID(), p_note: null });
+  expect(expense.error).toBeNull();
   const anonymousPreview=await request.get(`/api/loans/${loanId}/settlement-preview?date=2026-09-07`);expect(anonymousPreview.status()).toBe(401);
   try{
     sql("revoke execute on function public.get_general_expenses_page(integer,integer) from authenticated;");
@@ -303,8 +306,8 @@ test("DB errors differ from missing records, retry recovers and offline is expli
     const response=await request.get("/api/google-sync/export",{headers:{"x-sync-secret":"e2e-sync-secret"}});expect(response.status()).toBe(500);expect(await response.text()).not.toContain('"tables"');
   } finally {sql("grant execute on function public.get_google_sync_snapshot() to service_role;");}
   await page.goto(`/loans/${randomUUID()}`);await expect(page.getByRole("heading",{name:"Không tìm thấy nội dung"})).toBeVisible();
-  await page.goto("/settings");await context.setOffline(true);await expect(page.getByText(/Đang mất kết nối/)).toBeVisible();
-  await context.setOffline(false);await expect(page.getByText(/Đang mất kết nối/)).toHaveCount(0);
+  await page.goto("/settings");await context.setOffline(true);await expect(page.locator(".network-notice")).toBeVisible();
+  await context.setOffline(false);await expect(page.locator(".network-notice")).toHaveCount(0);
 });
 
 test("large lists, exact text and concurrent export remain complete", async ({page,request}) => {

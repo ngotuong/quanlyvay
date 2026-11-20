@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.387
-last_updated: 2026-11-13
+roadmap_version: 1.0.389
+last_updated: 2026-11-20
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C119
+current_checkpoint: C120
 current_status: COMPLETED
-last_completed_checkpoint: C119
-next_checkpoint: null
+last_completed_checkpoint: C120
+next_checkpoint: C121
 ---
 
 # Project Context
@@ -17,6 +17,21 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
 
 ## 1. Trạng thái hiện hành
 
+- C120 `COMPLETED` local ngày 20/11/2026 theo yêu cầu trực tiếp của OWNER: NetworkStatus xác minh
+  GET `/api/connectivity` cùng origin, 204 + marker, no-store/omit credentials/error-on-redirect.
+  Endpoint không gọi Auth/database, không trả dữ liệu. Browser báo offline sai nhưng probe đạt sẽ
+  không hiện cảnh báo; lỗi/timeout 5 giây thì hiện lời nhắc trung tính và tự thử lại sau 15 giây,
+  kể cả thiếu online event. Dọn timer/abort khi ẩn hoặc unmount, bỏ kết quả request cũ; phiên online
+  bình thường không polling. Không đổi dữ liệu nghiệp vụ hoặc mạng máy người dùng.
+  Gate đạt lint/typecheck/unit/build và targeted E2E `10 PASS / 0 FAIL / 0 SKIP` trong 2,1 phút:
+  8 ca C120, C20 phục hồi lỗi/offline, C99 service-worker offline/cache privacy. Ảnh synthetic được
+  xem, không còn boot overlay hoặc cảnh báo sai. Diff-check sạch. Không chạy lại pgTAP vì không đổi DB.
+  Lượt đầu có 9 PASS/1 FAIL: C20 thiếu fixture chi phí khi chạy riêng; đã thêm fixture giả tại đúng
+  test, giữ assertion và chạy lại đạt. Không đổi timeout/retry/skip. Hai lượt E2E khởi động bị build
+  guard Next.js chặn một lần trước khi chạy lại; build cuối đạt nhưng vẫn có security advisory.
+  `pnpm audit --prod` xác nhận 7 moderate từ Next.js 16.4.1, 0 high/critical, patched >=16.4.5;
+  không tự nâng dependency ngoài phạm vi C120. C121 `AWAITING_APPROVAL`: đề xuất vá Next.js cùng
+  phát hành Preview/Production qua đủ gate. Chưa push/deploy; Production vẫn C119. C100 giữ chờ số đo.
 - C119 `COMPLETED` ngày 13/11/2026: OWNER yêu cầu bổ sung mở chu kỳ mới khi tính lại lãi và áp dụng cho khoản
   đã chỉ định sau kiểm thử/phát hành. Phạm vi gồm migration, Server Action/form, lịch thu/nhắc,
   kiểm thử local/CI, backup, Preview/Production và đối chiếu trước/sau thao tác thật. Không lưu
@@ -92,10 +107,10 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   hay acceptance còn thiếu của C100.
 - C112 `COMPLETED` ngày 22/10/2026: giao diện C111 cùng nền loading C107 đã được phát hành. OWNER
   đã kiểm cả hai Production alias; Dashboard, Khoản vay, Đối tác và Thông báo đều Auth HTTP 200.
-- C101–C119 đều `COMPLETED`; C100 đang `IN_PROGRESS`. Chi tiết acceptance, test
+- C101–C119 đều `COMPLETED`; C120 hoàn tất local, C121 chờ duyệt; C100 đang `IN_PROGRESS`. Chi tiết acceptance, test
   và deployment được giữ trong roadmap và báo cáo phát hành tương ứng.
-- C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C119 đã hoàn tất rollout và thao tác
-  nghiệp vụ được chỉ định ngày 13/11/2026; không tự mở checkpoint mới.
+- C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C120 hoàn tất local theo yêu cầu sửa
+  cảnh báo kết nối; C121 là đề xuất phát hành mới, không tự tiếp tục nếu chưa có phê duyệt.
 
 ## 2. C100 — Công việc còn lại
 
@@ -168,12 +183,16 @@ runtime level-error/fatal/HTTP500 bằng 0. Báo cáo đầy đủ: [release C11
 
 ## 6. Điểm vào phiên mới
 
-1. Đọc `AGENTS.md`, tệp này, phần C119 trong roadmap và [release C119](docs/release-c119/report.md).
+1. Đọc `AGENTS.md`, tệp này, phần C120/C121 trong roadmap; [release C119](docs/release-c119/report.md)
+   mô tả Production hiện vẫn đang phục vụ.
 2. Chạy `git status --short --branch` và `git log -1 --oneline`.
 3. Chỉ tiếp tục C100 khi OWNER cung cấp chuỗi số đo thiết bị theo acceptance đã duyệt.
 4. C116 đã hoàn tất; Supabase hiện có tên hiển thị `Tín Dụng`, ref/API URL và dữ liệu giữ nguyên.
 5. C119 đã hoàn tất cả stable Preview/Production và thao tác khoản vay được chỉ định, gồm offset
    nhắc 0 theo yêu cầu riêng. Không lặp lại thao tác hoặc tiếp tục rollout từ bằng chứng lịch sử.
+6. C120 đã sửa và kiểm thử local; C121 chờ OWNER duyệt vá Next.js/phát hành. Phải chạy đủ gate
+   exact-source/Required CI/root Preview/Auth/runtime trước Production, không dùng gate targeted
+   C120 thay full E2E phát hành. Giữ rollback C119; không thay đổi dữ liệu nghiệp vụ.
 
 Tài liệu kỹ thuật chính: [Domain](docs/DOMAIN_SPEC.md), [Financial Engine](docs/FINANCIAL_ENGINE.md),
 [Dashboard](docs/DASHBOARD.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md),

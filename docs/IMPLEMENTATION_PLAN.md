@@ -95,6 +95,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C117 | Lịch nhắc lãi theo tháng và tổng hợp tài chính theo đối tác | `COMPLETED` |
 | C118 | Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác | `COMPLETED` |
 | C119 | Tính lại lãi với mốc chu kỳ mới và áp dụng khoản vay đã chỉ định | `COMPLETED` |
+| C120 | Sửa cảnh báo mất kết nối sai và tự phục hồi theo kết nối thực tế | `COMPLETED` |
+| C121 | Vá Next.js và phát hành bản sửa cảnh báo qua Preview/Production | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3207,6 +3209,36 @@ Kết quả:
 5. Migration `20261104090000_c117_calendar_reminders_counterparty_financials.sql` chỉ áp trên local
    Supabase. Không migration remote, deploy Preview/Production, đổi alias, push hoặc mutation dữ liệu
    vận hành trong C117.
+
+### C120 — Cảnh báo kết nối thực tế
+
+Trạng thái: `COMPLETED` local ngày 20/11/2026 theo yêu cầu trực tiếp “Hãy tiến hành chỉnh sửa”.
+
+Đã đạt diff-check, lint/typecheck/unit/build và targeted E2E `10 PASS / 0 FAIL / 0 SKIP` (2,1 phút),
+gồm 8 ca C120 cùng C20 phục hồi lỗi/offline và C99 offline/cache privacy. Bổ sung fixture chi phí
+giả trong C20 để ca chạy độc lập không phụ thuộc dữ liệu từ file trước; giữ assertion. Không đổi
+retry/timeout/skip. Endpoint 204 không cache, không Auth/DB/cookie; probe timeout 5 giây, retry 15
+giây khi cần, dừng khi tab ẩn, chống kết quả cũ. Không có thay đổi remote/dữ liệu nghiệp vụ.
+Build có advisory Next.js 16.4.1; audit prod 7 moderate, không high/critical, patched >=16.4.5.
+Đề xuất nâng dependency được đưa sang C121 chờ OWNER phê duyệt, không âm thầm triển khai ở C120.
+
+1. Không hiện cảnh báo chỉ vì navigator.onLine false; xác minh endpoint cùng origin không cache,
+   không truy vấn Auth/database hoặc trả dữ liệu riêng tư. Không coi HTML từ cache/redirect là thành công.
+2. Khi probe thất bại có cảnh báo, tự kiểm tra lại sau khi mạng phục hồi kể cả không có online event;
+   timeout hữu hạn, không request chồng hoặc cập nhật từ request cũ, dọn timer khi ẩn/unmount.
+3. E2E chứng minh false-offline, mất mạng thật, phục hồi, timeout/lỗi server và vòng đời ẩn/hiện.
+   Gate local diff-check/lint/typecheck/unit/build và E2E liên quan. Không migration hoặc ghi dữ liệu thật.
+4. Khi local đạt, chốt C120 và đặt C121 AWAITING_APPROVAL rồi dừng theo AGENTS.md.
+
+### C121 — Vá Next.js và phát hành sửa cảnh báo kết nối
+
+Trạng thái: `AWAITING_APPROVAL`; chỉ bắt đầu khi OWNER phê duyệt sau C120.
+
+Phạm vi đề xuất: nâng Next.js 16.4.1 lên bản vá tương thích >=16.4.5, đồng bộ dependency liên quan
+nếu bắt buộc và xác minh advisory đã hết; chạy gate đủ trên source cuối, không đổi nghiệp vụ.
+Push/Required CI đúng source, root Preview pipeline, immutable/Auth/runtime smoke, stable alias;
+Production candidate/Auth/promote/hậu kiểm hai alias và giữ rollback. Kiểm chứng trên Chrome đã
+báo offline sai. Không thay đổi dữ liệu nghiệp vụ hoặc cấu hình mạng của máy người dùng.
 
 ### C119 — Tính lại lãi với mốc chu kỳ mới
 
