@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.389
+roadmap_version: 1.0.390
 last_updated: 2026-11-20
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C120
-current_status: COMPLETED
+current_checkpoint: C121
+current_status: IN_PROGRESS
 last_completed_checkpoint: C120
-next_checkpoint: C121
+next_checkpoint: null
 ---
 
 # Project Context
@@ -17,6 +17,14 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
 
 ## 1. Trạng thái hiện hành
 
+- C121 `IN_PROGRESS`: OWNER đã phê duyệt trực tiếp vá Next.js và phát hành C120 qua Preview rồi
+  Production, gồm push/CI, full gate, authenticated/runtime smoke và rollback. Không migration hoặc
+  đổi dữ liệu nghiệp vụ. Next.js/eslint-config-next 16.4.6 đã cài, port nguyên patch C76 và pin
+  tương ứng. Lint/typecheck/unit/build/CI policy/audit high đạt; prod audit 0 advisory, full audit
+  còn 1 moderate minimatch trong dev tooling, 0 high/critical. Full local E2E đạt
+  `105 PASS / 18 SKIP / 0 FAIL` trên 123 test, 27,6 phút, retries 0. Rollback C119 đã re-inspect
+  Ready/đúng target/Functions sin1. Tiếp tục push/CI rồi root Preview; chưa đổi alias.
+  [Báo cáo](docs/release-c121/report.md).
 - C120 `COMPLETED` local ngày 20/11/2026 theo yêu cầu trực tiếp của OWNER: NetworkStatus xác minh
   GET `/api/connectivity` cùng origin, 204 + marker, no-store/omit credentials/error-on-redirect.
   Endpoint không gọi Auth/database, không trả dữ liệu. Browser báo offline sai nhưng probe đạt sẽ

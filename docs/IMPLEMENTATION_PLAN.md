@@ -96,7 +96,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C118 | Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác | `COMPLETED` |
 | C119 | Tính lại lãi với mốc chu kỳ mới và áp dụng khoản vay đã chỉ định | `COMPLETED` |
 | C120 | Sửa cảnh báo mất kết nối sai và tự phục hồi theo kết nối thực tế | `COMPLETED` |
-| C121 | Vá Next.js và phát hành bản sửa cảnh báo qua Preview/Production | `AWAITING_APPROVAL` |
+| C121 | Vá Next.js và phát hành bản sửa cảnh báo qua Preview/Production | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3232,7 +3232,13 @@ Build có advisory Next.js 16.4.1; audit prod 7 moderate, không high/critical, 
 
 ### C121 — Vá Next.js và phát hành sửa cảnh báo kết nối
 
-Trạng thái: `AWAITING_APPROVAL`; chỉ bắt đầu khi OWNER phê duyệt sau C120.
+Trạng thái: `IN_PROGRESS` ngày 20/11/2026; OWNER đã phê duyệt trực tiếp sau C120.
+
+Tiến độ: Next.js/eslint-config-next 16.4.6, patch C76 được port nguyên; prod audit sạch, full audit
+còn 1 moderate dev minimatch, 0 high/critical. Lint/typecheck/unit/build/CI policy/audit high đạt;
+full local E2E `105 PASS / 18 SKIP / 0 FAIL` trên 123 test, 27,6 phút. C119 rollback Preview và
+Production Ready/đúng target/sin1. Chưa đổi alias; tiếp tục push/Required CI rồi root Preview.
+[Report](release-c121/report.md).
 
 Phạm vi đề xuất: nâng Next.js 16.4.1 lên bản vá tương thích >=16.4.5, đồng bộ dependency liên quan
 nếu bắt buộc và xác minh advisory đã hết; chạy gate đủ trên source cuối, không đổi nghiệp vụ.
