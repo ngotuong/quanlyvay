@@ -1,11 +1,11 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.390
+roadmap_version: 1.0.392
 last_updated: 2026-11-20
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C121
-current_status: IN_PROGRESS
-last_completed_checkpoint: C120
+current_status: COMPLETED
+last_completed_checkpoint: C121
 next_checkpoint: null
 ---
 
@@ -17,13 +17,34 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
 
 ## 1. Trạng thái hiện hành
 
-- C121 `IN_PROGRESS`: OWNER đã phê duyệt trực tiếp vá Next.js và phát hành C120 qua Preview rồi
+- C121 `COMPLETED` ngày 20/11/2026: OWNER đã phê duyệt trực tiếp vá Next.js và phát hành C120 qua Preview rồi
   Production, gồm push/CI, full gate, authenticated/runtime smoke và rollback. Không migration hoặc
   đổi dữ liệu nghiệp vụ. Next.js/eslint-config-next 16.4.6 đã cài, port nguyên patch C76 và pin
   tương ứng. Lint/typecheck/unit/build/CI policy/audit high đạt; prod audit 0 advisory, full audit
   còn 1 moderate minimatch trong dev tooling, 0 high/critical. Full local E2E đạt
   `105 PASS / 18 SKIP / 0 FAIL` trên 123 test, 27,6 phút, retries 0. Rollback C119 đã re-inspect
-  Ready/đúng target/Functions sin1. Tiếp tục push/CI rồi root Preview; chưa đổi alias.
+  Ready/đúng target/Functions sin1. Source `7cc61c8350c74155465c156f4b1f4d8cfec9485b` đã push
+  fast-forward lên origin/main; Required CI `44685677028` đạt đủ 6 job, đúng SHA. Root Preview
+  create gate đạt `105 PASS / 18 SKIP / 0 FAIL` (27,6 phút), upload guard 249 tệp.
+  Candidate Preview `dpl_FKFHCRhT4czN6pfi9Bpb2NqFu7MV` tại
+  `quan-ly-vay-ca-nhan-3lozqou67-ngotuong2105.vercel.app` đúng project/Preview/Ready/Functions sin1;
+  public/CSP và connectivity 204/marker/no-store/no-cookie đạt; runtime pre-Auth error/fatal/HTTP500
+  bằng 0. OWNER đã đăng nhập candidate trong IAB; Auth Tổng quan/Khoản vay/Đối tác đạt, không có
+  network notice hay loading còn treo, console error/warning và runtime error/fatal/HTTP500 bằng 0.
+  Root resume đạt `105 PASS / 18 SKIP / 0 FAIL` (27,8 phút), đã chuyển stable Preview sang C121;
+  hậu kiểm public/CSP/connectivity và runtime error/fatal/HTTP500 bằng 0. Stable origin chưa có
+  phiên đăng nhập: kiểm tra browser dừng ở login hợp lệ, console sạch; Auth đã đạt trên immutable.
+  Production `dpl_DHfobW9VBsc4BacejizJ1MkDkE8z` tại
+  `quan-ly-vay-ca-nhan-1fl65m53k-ngotuong2105.vercel.app` tạo bằng --prod --skip-domain, đúng
+  project/Production/Ready/Functions sin1. OWNER đã đăng nhập đúng origin; Auth smoke Tổng quan,
+  Khoản vay và Đối tác đạt, không notice/loading treo, console và runtime sạch trước promote.
+  Đã promote; hai alias Production cùng trỏ C121, public/CSP/connectivity đạt, runtime
+  error/fatal/HTTP500 bằng 0 sau promote. Chrome thật trên Mac tải lại Tổng quan thành công,
+  không còn network notice và console 0 message; navigator.onLine hiện true. Không mô phỏng lại
+  false-offline trên máy người dùng; ca false-offline được chứng minh trong E2E. Alias mặc định
+  chưa có session nên browser login hợp lệ, không coi là Auth smoke tại alias này.
+  Rollback C119 giữ nguyên, không kích hoạt. Không thay đổi cấu hình mạng, tài khoản hoặc dữ liệu
+  nghiệp vụ. Không còn blocker; chưa có checkpoint kế tiếp chờ duyệt, C100 giữ chờ số đo.
   [Báo cáo](docs/release-c121/report.md).
 - C120 `COMPLETED` local ngày 20/11/2026 theo yêu cầu trực tiếp của OWNER: NetworkStatus xác minh
   GET `/api/connectivity` cùng origin, 204 + marker, no-store/omit credentials/error-on-redirect.
@@ -38,8 +59,8 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   test, giữ assertion và chạy lại đạt. Không đổi timeout/retry/skip. Hai lượt E2E khởi động bị build
   guard Next.js chặn một lần trước khi chạy lại; build cuối đạt nhưng vẫn có security advisory.
   `pnpm audit --prod` xác nhận 7 moderate từ Next.js 16.4.1, 0 high/critical, patched >=16.4.5;
-  không tự nâng dependency ngoài phạm vi C120. C121 `AWAITING_APPROVAL`: đề xuất vá Next.js cùng
-  phát hành Preview/Production qua đủ gate. Chưa push/deploy; Production vẫn C119. C100 giữ chờ số đo.
+  không tự nâng dependency ngoài phạm vi C120. Phần nâng bản vá và phát hành đã hoàn tất trong C121;
+  C100 giữ chờ số đo.
 - C119 `COMPLETED` ngày 13/11/2026: OWNER yêu cầu bổ sung mở chu kỳ mới khi tính lại lãi và áp dụng cho khoản
   đã chỉ định sau kiểm thử/phát hành. Phạm vi gồm migration, Server Action/form, lịch thu/nhắc,
   kiểm thử local/CI, backup, Preview/Production và đối chiếu trước/sau thao tác thật. Không lưu
@@ -115,10 +136,10 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   hay acceptance còn thiếu của C100.
 - C112 `COMPLETED` ngày 22/10/2026: giao diện C111 cùng nền loading C107 đã được phát hành. OWNER
   đã kiểm cả hai Production alias; Dashboard, Khoản vay, Đối tác và Thông báo đều Auth HTTP 200.
-- C101–C119 đều `COMPLETED`; C120 hoàn tất local, C121 chờ duyệt; C100 đang `IN_PROGRESS`. Chi tiết acceptance, test
+- C101–C121 đều `COMPLETED`; C100 đang `IN_PROGRESS`. Chi tiết acceptance, test
   và deployment được giữ trong roadmap và báo cáo phát hành tương ứng.
-- C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C120 hoàn tất local theo yêu cầu sửa
-  cảnh báo kết nối; C121 là đề xuất phát hành mới, không tự tiếp tục nếu chưa có phê duyệt.
+- C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C120/C121 đã hoàn tất theo phê duyệt
+  trực tiếp của OWNER, không tự mở checkpoint mới.
 
 ## 2. C100 — Công việc còn lại
 
@@ -143,9 +164,11 @@ Phạm vi: [đề xuất C100](docs/dashboard-rpc-performance-proposal.md) và
 
 | Vai trò | Deployment | Immutable URL / alias | Trạng thái |
 | --- | --- | --- | --- |
-| Stable Preview C119 | `dpl_7R496718rvagozh2HVr4VJxSbtWc` | `quan-ly-vay-ca-nhan-66me5s2gb-ngotuong2105.vercel.app` / `tindung-preview.vercel.app` | Preview, Ready, Functions `sin1`, public/Auth/console/runtime đạt |
+| Production C121 | `dpl_DHfobW9VBsc4BacejizJ1MkDkE8z` | `quan-ly-vay-ca-nhan-1fl65m53k-ngotuong2105.vercel.app` / `tindung.vercel.app` / alias mặc định | Production, Ready, Functions `sin1`, public/Auth/console/runtime đạt |
+| Stable Preview C121 | `dpl_FKFHCRhT4czN6pfi9Bpb2NqFu7MV` | `quan-ly-vay-ca-nhan-3lozqou67-ngotuong2105.vercel.app` / `tindung-preview.vercel.app` | Preview, Ready, Functions `sin1`, immutable Auth và stable public/runtime đạt |
+| Preview rollback C119 | `dpl_7R496718rvagozh2HVr4VJxSbtWc` | `quan-ly-vay-ca-nhan-66me5s2gb-ngotuong2105.vercel.app` | Preview, Ready, Functions `sin1` |
 | Preview rollback C118 | `dpl_J28Soq2TRk2wFpDNBu3YrCkZQaRL` | `quan-ly-vay-ca-nhan-7mtj0t1n7-ngotuong2105.vercel.app` | Preview, Ready, Functions `sin1` |
-| Production C119 | `dpl_9max1ga7TvFsS36kSd9sTrWtx6TW` | `quan-ly-vay-ca-nhan-6tqp7bep4-ngotuong2105.vercel.app` / `tindung.vercel.app` / alias mặc định | Production, Ready, Functions `sin1`, public/Auth/console/runtime đạt |
+| Production rollback C119 | `dpl_9max1ga7TvFsS36kSd9sTrWtx6TW` | `quan-ly-vay-ca-nhan-6tqp7bep4-ngotuong2105.vercel.app` | Production, Ready, Functions `sin1`, chưa kích hoạt |
 | Preview rollback C115 | `dpl_BRfVm4hf5jfk5FJe2mXPxmrt3hC4` | `quan-ly-vay-ca-nhan-5ydpf15dp-ngotuong2105.vercel.app` | Preview, Ready, Functions `sin1` |
 | Preview rollback C115 trước hotfix | `dpl_8pxn5Ze87nbvdNbaF5CQeQ1oan9b` | `quan-ly-vay-ca-nhan-97arw9mvp-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Production rollback C118 | `dpl_9stGwkm8nA4bhiKcDXZySmrukhtr` | `quan-ly-vay-ca-nhan-leq38ew90-ngotuong2105.vercel.app` | Production, Ready, Functions `sin1`, chưa kích hoạt |
@@ -156,14 +179,16 @@ Phạm vi: [đề xuất C100](docs/dashboard-rpc-performance-proposal.md) và
 | Preview rollback C110 | `dpl_148HdyQj5mLLoxocf5f3hyhjfDut` | `quan-ly-vay-ca-nhan-6m940n7ty-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 | Production rollback C106 | `dpl_92pT2tjxRvCTEwyEePzJqMpGa8TG` | `quan-ly-vay-ca-nhan-kt9gxcuu7-ngotuong2105.vercel.app` | Ready, chưa kích hoạt |
 
-C119 đạt Required CI trên source ứng dụng `effa212`, hai lượt root Preview full E2E
-`97 PASS / 18 SKIP / 0 FAIL`, public/Auth/CSP/service-worker smoke trên immutable Production
-candidate và cả hai alias. Hậu kiểm và thao tác nghiệp vụ không có browser console error/warning,
-runtime level-error/fatal/HTTP500 bằng 0. Báo cáo đầy đủ: [release C119](docs/release-c119/report.md).
+C121 source `7cc61c8` đạt Required CI `44685677028` đủ sáu job và hai root Preview full gate
+105 PASS/18 SKIP/0 FAIL; public/Auth/CSP/connectivity đạt trên immutable trước promote và hậu kiểm
+Production. Runtime level-error/fatal/HTTP500 bằng 0, Chrome Mac tải lại không còn cảnh báo sai.
+Chi tiết và giới hạn Auth từng origin: [release C121](docs/release-c121/report.md).
 
 ## 4. Source và workspace
 
 - Repository chuẩn: `/Users/ngotuong/AppsScript/QuanLyVayCaNhan`, branch `main`.
+- Source ứng dụng C121: `7cc61c8350c74155465c156f4b1f4d8cfec9485b` trên origin/main, Required CI
+  `44685677028` đạt. Thay đổi chốt phát hành chỉ cập nhật hồ sơ, không đổi runtime đã kiểm thử.
 - Source ứng dụng C119: `effa212d64f010e23e4b3bbc576b63ae5aa5bbe5` trên `origin/main`, Required CI
   `43257277803` đủ sáu job đạt. Hồ sơ hoàn tất chỉ cập nhật tài liệu, không đổi runtime đã phát hành.
 - Source ứng dụng C118 là `0cb155a0d9d2950f973a734bae59e0c6f2418ce9`; commit bằng chứng stable
@@ -191,16 +216,14 @@ runtime level-error/fatal/HTTP500 bằng 0. Báo cáo đầy đủ: [release C11
 
 ## 6. Điểm vào phiên mới
 
-1. Đọc `AGENTS.md`, tệp này, phần C120/C121 trong roadmap; [release C119](docs/release-c119/report.md)
-   mô tả Production hiện vẫn đang phục vụ.
+1. Đọc `AGENTS.md`, tệp này, phần C120/C121 trong roadmap và [release C121](docs/release-c121/report.md).
 2. Chạy `git status --short --branch` và `git log -1 --oneline`.
 3. Chỉ tiếp tục C100 khi OWNER cung cấp chuỗi số đo thiết bị theo acceptance đã duyệt.
 4. C116 đã hoàn tất; Supabase hiện có tên hiển thị `Tín Dụng`, ref/API URL và dữ liệu giữ nguyên.
 5. C119 đã hoàn tất cả stable Preview/Production và thao tác khoản vay được chỉ định, gồm offset
    nhắc 0 theo yêu cầu riêng. Không lặp lại thao tác hoặc tiếp tục rollout từ bằng chứng lịch sử.
-6. C120 đã sửa và kiểm thử local; C121 chờ OWNER duyệt vá Next.js/phát hành. Phải chạy đủ gate
-   exact-source/Required CI/root Preview/Auth/runtime trước Production, không dùng gate targeted
-   C120 thay full E2E phát hành. Giữ rollback C119; không thay đổi dữ liệu nghiệp vụ.
+6. C121 đã hoàn tất. Không lặp lại deploy/promote hoặc coi ghi nhận moderate dev tooling là yêu cầu
+   mới đã duyệt. Giữ rollback C119 và chờ yêu cầu mới; C100 chỉ tiếp tục khi có chuỗi số đo thiết bị.
 
 Tài liệu kỹ thuật chính: [Domain](docs/DOMAIN_SPEC.md), [Financial Engine](docs/FINANCIAL_ENGINE.md),
 [Dashboard](docs/DASHBOARD.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md),

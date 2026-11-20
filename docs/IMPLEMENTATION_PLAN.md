@@ -96,7 +96,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C118 | Rollout lịch nhắc theo tháng và tổng hợp tài chính đối tác | `COMPLETED` |
 | C119 | Tính lại lãi với mốc chu kỳ mới và áp dụng khoản vay đã chỉ định | `COMPLETED` |
 | C120 | Sửa cảnh báo mất kết nối sai và tự phục hồi theo kết nối thực tế | `COMPLETED` |
-| C121 | Vá Next.js và phát hành bản sửa cảnh báo qua Preview/Production | `IN_PROGRESS` |
+| C121 | Vá Next.js và phát hành bản sửa cảnh báo qua Preview/Production | `COMPLETED` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3232,13 +3232,29 @@ Build có advisory Next.js 16.4.1; audit prod 7 moderate, không high/critical, 
 
 ### C121 — Vá Next.js và phát hành sửa cảnh báo kết nối
 
-Trạng thái: `IN_PROGRESS` ngày 20/11/2026; OWNER đã phê duyệt trực tiếp sau C120.
+Trạng thái: `COMPLETED` ngày 20/11/2026; OWNER đã phê duyệt trực tiếp sau C120.
 
 Tiến độ: Next.js/eslint-config-next 16.4.6, patch C76 được port nguyên; prod audit sạch, full audit
 còn 1 moderate dev minimatch, 0 high/critical. Lint/typecheck/unit/build/CI policy/audit high đạt;
 full local E2E `105 PASS / 18 SKIP / 0 FAIL` trên 123 test, 27,6 phút. C119 rollback Preview và
-Production Ready/đúng target/sin1. Chưa đổi alias; tiếp tục push/Required CI rồi root Preview.
+Production Ready/đúng target/sin1. Tiến độ remote được ghi ngay bên dưới.
 [Report](release-c121/report.md).
+
+Source `7cc61c8` đã push, CI `44685677028` đạt đủ 6 job, pgTAP 589/28 tệp PASS; E2E CI
+104 PASS/19 SKIP (thêm ca C72 chỉ chạy local theo cấu hình sẵn). Root create gate đạt
+105 PASS/18 SKIP/0 FAIL (27,6 phút), candidate `dpl_FKFHCRhT4czN6pfi9Bpb2NqFu7MV` Preview/Ready/sin1,
+public/CSP/connectivity smoke đạt. OWNER đã đăng nhập IAB, Auth Tổng quan/Khoản vay/Đối tác đạt;
+không network notice/loading treo, console/runtime sạch. Root resume đạt 105 PASS/18 SKIP/0 FAIL
+(27,8 phút), chuyển stable Preview và hậu kiểm public/CSP/connectivity/runtime đạt. Browser stable
+chưa có session, login hợp lệ/console sạch; Auth đã kiểm immutable. Production candidate
+`dpl_DHfobW9VBsc4BacejizJ1MkDkE8z` Ready/Production/sin1, public/CSP/connectivity đạt,
+OWNER đã đăng nhập đúng origin; Auth Tổng quan/Khoản vay/Đối tác và console/runtime sạch trước
+promote. Đã promote/hậu kiểm hai alias cùng trỏ C121, public/CSP/connectivity đạt, runtime
+error/fatal/HTTP500 bằng 0. Chrome Mac thực tế mở Tổng quan sau reload không còn notice, console
+0 message; navigator.onLine hiện true. False-offline đã chứng minh bằng E2E, không can thiệp mạng
+máy người dùng. Alias mặc định browser chưa có session, login hợp lệ; Auth đã kiểm immutable và
+alias chính Chrome. Rollback C119 giữ nguyên; không migration/ghi dữ liệu thật, không có blocker.
+Chưa có checkpoint kế tiếp để duyệt; C100 tiếp tục chờ số đo theo phạm vi riêng.
 
 Phạm vi đề xuất: nâng Next.js 16.4.1 lên bản vá tương thích >=16.4.5, đồng bộ dependency liên quan
 nếu bắt buộc và xác minh advisory đã hết; chạy gate đủ trên source cuối, không đổi nghiệp vụ.
