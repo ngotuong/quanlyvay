@@ -97,6 +97,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C119 | Tính lại lãi với mốc chu kỳ mới và áp dụng khoản vay đã chỉ định | `COMPLETED` |
 | C120 | Sửa cảnh báo mất kết nối sai và tự phục hồi theo kết nối thực tế | `COMPLETED` |
 | C121 | Vá Next.js và phát hành bản sửa cảnh báo qua Preview/Production | `COMPLETED` |
+| C122 | Tăng độ tin cậy Push/badge iPhone và phân biệt gửi với xử lý trên thiết bị | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3229,6 +3230,23 @@ Build có advisory Next.js 16.4.1; audit prod 7 moderate, không high/critical, 
 3. E2E chứng minh false-offline, mất mạng thật, phục hồi, timeout/lỗi server và vòng đời ẩn/hiện.
    Gate local diff-check/lint/typecheck/unit/build và E2E liên quan. Không migration hoặc ghi dữ liệu thật.
 4. Khi local đạt, chốt C120 và đặt C121 AWAITING_APPROVAL rồi dừng theo AGENTS.md.
+
+### C122 — Push và badge iPhone khi app đóng
+
+Trạng thái: `IN_PROGRESS` ngày 24/11/2026; OWNER đã phê duyệt trực tiếp phạm vi đề xuất, gồm
+triển khai, kiểm thử, migration nếu cần và phát hành Preview/Production sau nghiệm thu thiết bị.
+
+Đối chiếu Production: scheduler gọi thành công, Apple chấp nhận Push vào giờ đã chọn nhưng OWNER
+không thấy thông báo hoặc badge; mở app sau đó mới đồng bộ số chưa đọc. Chưa có bằng chứng xác
+định nguyên nhân cuối ở thiết bị. Không quy lỗi chắc chắn cho iOS hoặc service worker.
+
+Phạm vi đề xuất và acceptance tại [đề xuất C122](push-c122/proposal.md): bổ sung Declarative Web
+Push kèm app badge/deep link trên nền tảng hỗ trợ, giữ tương thích SW/payload cũ và Chrome; thêm
+receipt tối thiểu có xác thực/phân quyền để phân biệt provider accepted với xử lý trên thiết bị.
+Không coi receipt hoặc thiếu receipt là bằng chứng tuyệt đối đã/không hiển thị. Không gửi lại mù
+hoặc thay giờ nhận. Chạy gate local/DB/E2E/CI, backup trước migration nếu có, root Preview pipeline,
+nghiệm thu iPhone thật lúc app đóng/khóa màn hình trước Production; giữ rollback và hậu kiểm.
+Không đổi nghĩa vụ tài chính, dữ liệu khoản vay, tài khoản hoặc scheduler ngoài phạm vi đã duyệt.
 
 ### C121 — Vá Next.js và phát hành sửa cảnh báo kết nối
 

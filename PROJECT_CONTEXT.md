@@ -1,12 +1,12 @@
 ---
 project: QuanLyVayCaNhan
-roadmap_version: 1.0.392
-last_updated: 2026-11-20
+roadmap_version: 1.0.394
+last_updated: 2026-11-24
 timezone: Asia/Ho_Chi_Minh
-current_checkpoint: C121
-current_status: COMPLETED
+current_checkpoint: C122
+current_status: IN_PROGRESS
 last_completed_checkpoint: C121
-next_checkpoint: null
+next_checkpoint: C122
 ---
 
 # Project Context
@@ -17,6 +17,21 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
 
 ## 1. Trạng thái hiện hành
 
+- C122 `IN_PROGRESS`: OWNER phê duyệt trực tiếp ngày 24/11/2026 toàn bộ phạm vi đề xuất.
+  OWNER báo iPhone Home Screen không hiện banner/Notification Center
+  hoặc badge lúc 12:00; mở app khoảng 14:30 mới thấy một thông báo và badge cập nhật. Kiểm tra
+  read-only xác nhận scheduler hoạt động, thông báo đã có từ đầu ngày và Apple chấp nhận Push
+  đúng giờ; chưa có receipt phía thiết bị nên chưa xác định lỗi ở giao nhận hay xử lý nền.
+  SW Production khớp local, có gọi Badging API nhưng payload chưa có fallback declarative.
+  Đề xuất bổ sung fallback iOS, tương thích payload/SW cũ, receipt tối thiểu có bảo vệ và nghiệm thu
+  iPhone đóng app/khóa màn hình. Phạm vi đầy đủ và test gate: [đề xuất C122](docs/push-c122/proposal.md).
+  Đang triển khai local; chưa phát hành hoặc gửi thử. Chỉ chuyển Production sau nghiệm thu Preview
+  và iPhone thật theo phạm vi đã duyệt.
+  Local đạt lint/typecheck/build, 145 unit, pgTAP 617/29 tệp, db lint sạch và targeted browser 2/2.
+  Full E2E source cuối đạt `107 PASS / 18 SKIP / 0 FAIL` trên 125 ca trong 27,5 phút, retries 0.
+  Prod audit sạch, full audit giữ 1 moderate dev tooling.
+  Backup `qlv-prod-20261124T100208Z` đạt 6 tệp/GCM/SQL-shape/checksum; C121 rollback đã re-inspect.
+  Chi tiết và giới hạn: [bằng chứng C122](docs/push-c122/report.md).
 - C121 `COMPLETED` ngày 20/11/2026: OWNER đã phê duyệt trực tiếp vá Next.js và phát hành C120 qua Preview rồi
   Production, gồm push/CI, full gate, authenticated/runtime smoke và rollback. Không migration hoặc
   đổi dữ liệu nghiệp vụ. Next.js/eslint-config-next 16.4.6 đã cài, port nguyên patch C76 và pin
@@ -139,7 +154,7 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
 - C101–C121 đều `COMPLETED`; C100 đang `IN_PROGRESS`. Chi tiết acceptance, test
   và deployment được giữ trong roadmap và báo cáo phát hành tương ứng.
 - C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C120/C121 đã hoàn tất theo phê duyệt
-  trực tiếp của OWNER, không tự mở checkpoint mới.
+  trực tiếp của OWNER. C122 đã được OWNER phê duyệt trực tiếp ngày 24/11/2026.
 
 ## 2. C100 — Công việc còn lại
 
@@ -216,14 +231,15 @@ Chi tiết và giới hạn Auth từng origin: [release C121](docs/release-c121
 
 ## 6. Điểm vào phiên mới
 
-1. Đọc `AGENTS.md`, tệp này, phần C120/C121 trong roadmap và [release C121](docs/release-c121/report.md).
+1. Đọc `AGENTS.md`, tệp này, phần C122 trong roadmap và [đề xuất C122](docs/push-c122/proposal.md).
 2. Chạy `git status --short --branch` và `git log -1 --oneline`.
 3. Chỉ tiếp tục C100 khi OWNER cung cấp chuỗi số đo thiết bị theo acceptance đã duyệt.
 4. C116 đã hoàn tất; Supabase hiện có tên hiển thị `Tín Dụng`, ref/API URL và dữ liệu giữ nguyên.
 5. C119 đã hoàn tất cả stable Preview/Production và thao tác khoản vay được chỉ định, gồm offset
    nhắc 0 theo yêu cầu riêng. Không lặp lại thao tác hoặc tiếp tục rollout từ bằng chứng lịch sử.
 6. C121 đã hoàn tất. Không lặp lại deploy/promote hoặc coi ghi nhận moderate dev tooling là yêu cầu
-   mới đã duyệt. Giữ rollback C119 và chờ yêu cầu mới; C100 chỉ tiếp tục khi có chuỗi số đo thiết bị.
+   mới đã duyệt. Giữ rollback C119. C122 đã được phê duyệt, đang triển khai; C100 chỉ tiếp tục
+   khi có chuỗi số đo thiết bị.
 
 Tài liệu kỹ thuật chính: [Domain](docs/DOMAIN_SPEC.md), [Financial Engine](docs/FINANCIAL_ENGINE.md),
 [Dashboard](docs/DASHBOARD.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md),

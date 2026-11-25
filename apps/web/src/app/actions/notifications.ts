@@ -6,6 +6,7 @@ import { z } from "zod";
 import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { parseAllowedPushEndpoint } from "@/lib/notifications/push-endpoint.mjs";
 import { createClient } from "@/lib/supabase/server";
+import { pushAppOrigin } from "@/lib/notifications/origin";
 
 const subscriptionSchema = z.object({
   endpoint: z.string().url().max(2048),
@@ -26,6 +27,11 @@ export async function registerPushSubscriptionAction(input: unknown) {
     p_auth_secret: parsed.data.auth,
   });
   if (error) return { ok: false, message: "Chưa thể lưu đăng ký nhận thông báo. Hãy thử lại." };
+  const origin = await pushAppOrigin();
+  const { data: subscription } = await supabase.from("push_subscriptions").select("id").eq("endpoint", parsed.data.endpoint).maybeSingle();
+  if (!subscription) return { ok: false, message: "Chưa thể xác nhận thiết bị nhận thông báo." };
+  const { error: originError } = await supabase.rpc("set_push_subscription_origin", { p_subscription_id: subscription.id, p_origin: origin });
+  if (originError) return { ok: false, message: "Chưa thể lưu địa chỉ nhận thông báo. Hãy thử lại." };
   revalidatePath("/notifications");
   return { ok: true, message: "Đã bật thông báo trên thiết bị này." };
 }

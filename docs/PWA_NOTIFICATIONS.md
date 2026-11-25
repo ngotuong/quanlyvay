@@ -76,6 +76,37 @@ retry, idempotency và redaction hiện hữu không đổi.
 
 ## Badge trên biểu tượng ứng dụng
 
+### C122 — Đang triển khai, chưa phát hành
+
+Payload mới giữ title/body/url/tag/badgeCount cũ và thêm `web_push:8030`, notification/navigate/
+app_badge theo WebKit. Nhắc thông thường dùng `mutable:false`: iOS hỗ trợ declarative tự hiển thị
+và cập nhật badge, không cần chạy SW cũ. Chrome/nền tảng không hỗ trợ vẫn dùng SW. Lượt kiểm tra
+trên thiết bị dùng `mutable:true` sau khi xác nhận active SW phiên bản 122. WebKit truyền
+`event.notification` với `event.data=null`; SW để hệ điều hành hiển thị đề xuất thay vì thay bằng
+nội dung mặc định. `DEFERRED` là giao việc hiển thị cho hệ điều hành, không phải chứng nhận hiển thị.
+Không có receipt trong nhánh declarative trực tiếp là điều dự kiến, không kích hoạt gửi lại.
+
+`push_receipts` chỉ lưu ID mục tiêu/lần thử/revision, hash token, mốc thời gian và kết quả enum.
+Token ngẫu nhiên 256 bit, hạn 48 giờ, gửi trong body mã hóa Push/body POST, không ở URL hoặc log;
+không chứa CRON_SECRET/service-role/endpoint/khóa thiết bị. Receipt chỉ ghi được đúng target còn
+tồn tại/active và đúng revision. Mỗi giai đoạn chỉ nhận kết quả lần đầu; replay không ghi đè.
+Endpoint POST không dùng cookie/Auth session, nhận JSON tối đa 512 byte và đọc body tối đa 3 giây;
+token hết hạn/sai/đã dùng cùng trả 204 để không tiết lộ sự tồn tại. RPC chỉ cấp service_role.
+Received/completed độc lập, lỗi/timeout chẩn đoán không chặn showNotification hoặc Badging API.
+Kết quả chỉ là lời báo từ handler, không phải bằng chứng mật mã OS đã hiển thị hay người dùng đã đọc.
+
+Metadata chẩn đoán được xóa sau 30 ngày, tối đa 1000 hàng/lượt maintenance hourly hoặc chuẩn bị
+Push. Không xóa notifications, giao dịch hay lịch sử push_deliveries. Bản cũ không đọc bảng mới nên
+có thể rollback source C121 và giữ migration mở rộng. Không đổi secret hoặc scheduler.
+
+Nút `Kiểm tra thông báo nền` gửi một Push có nhãn riêng sau 20 giây chỉ tới subscription của
+người dùng hiện tại trên browser đang dùng; không tạo notification tài chính hoặc thay trạng thái
+đã đọc. Tối đa một probe/phút/subscription, sử dụng cùng số chưa đọc authoritative (0 vẫn là 0).
+OWNER phải về Home Screen/khóa máy trước lượt gửi. Nút xem kết quả không tự chứng nhận banner.
+App origin của subscription được ghi qua RPC có quyền chính chủ lúc đăng ký/lượt kiểm tra;
+subscription cũ chưa rõ origin dùng Production canonical `https://tindung.vercel.app`. Phải đối
+chiếu origin thực tế trên iPhone, không suy origin từ provider Apple. Không tự bật/tắt Push.
+
 Badge trong navigation là trạng thái giao diện của webapp. Badge ngoài biểu tượng PWA là khả năng
 riêng của hệ điều hành/trình duyệt và chỉ được đồng bộ khi nền tảng có Badging API. Khi app đang mở,
 layout đặt badge bằng tổng notification chưa đọc; khi nhận Push trong nền, payload mang cùng

@@ -11,6 +11,8 @@ import { requireAuthenticatedProfile } from "@/lib/auth/session";
 import { formatDate } from "@/lib/business/format";
 import { getNotificationCenter, getUnreadNotificationCount } from "@/lib/business/queries";
 
+export const maxDuration = 60;
+
 export default async function NotificationsPage({ searchParams }: { searchParams: Promise<{ page?: string; unread?: string }> }) {
   const profile = await requireAuthenticatedProfile();
   const params = await searchParams;

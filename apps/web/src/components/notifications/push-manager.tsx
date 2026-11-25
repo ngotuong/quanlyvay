@@ -3,6 +3,7 @@
 import { useEffect, useState, useTransition } from "react";
 import { BellRing, BellOff, FlaskConical, LoaderCircle } from "lucide-react";
 import { registerPushSubscriptionAction, removePushSubscriptionAction, updateNotificationDeliveryHourAction } from "@/app/actions/notifications";
+import { schedulePushDiagnosticAction, getPushDiagnosticAction } from "@/app/actions/push-diagnostics";
 
 function urlBase64ToUint8Array(value: string) {
   const padding = "=".repeat((4 - (value.length % 4)) % 4);
@@ -27,6 +28,7 @@ export function PushManager({ publicKey, initialDeliveryHour, showTestButton = f
   const [checking, setChecking] = useState(true);
   const [message, setMessage] = useState("");
   const [testing, setTesting] = useState(false);
+  const [probeId, setProbeId] = useState<string | null>(null);
   const [pending, startTransition] = useTransition();
 
   useEffect(() => {
@@ -37,7 +39,12 @@ export function PushManager({ publicKey, initialDeliveryHour, showTestButton = f
     }
     navigator.serviceWorker.ready
       .then((registration) => registration.pushManager.getSubscription())
-      .then((subscription) => { if (active) setEnabled(Boolean(subscription)); })
+      .then((subscription) => {
+        if (active) {
+          setEnabled(Boolean(subscription));
+          try { setProbeId(sessionStorage.getItem("qlv_push_probe")); } catch { /* Optional local handle. */ }
+        }
+      })
       .catch(() => { if (active) setMessage("Chưa thể kiểm tra trạng thái thông báo trên thiết bị này."); })
       .finally(() => { if (active) setChecking(false); });
     return () => { active = false; };
@@ -78,6 +85,44 @@ export function PushManager({ publicKey, initialDeliveryHour, showTestButton = f
       if (result.ok) setSavedDeliveryHour(nextHour);
       else setDeliveryHour(savedDeliveryHour);
       setMessage(result.message);
+    });
+  }
+
+  function checkBackgroundPush() {
+    startTransition(async () => {
+      try {
+        const registration = await navigator.serviceWorker.ready;
+        await registration.update();
+        const version = await new Promise<number>(resolve => {
+          const channel = new MessageChannel();
+          const timer = setTimeout(() => { channel.port1.close(); resolve(0); }, 2000);
+          channel.port1.onmessage = event => { clearTimeout(timer); channel.port1.close(); resolve(event.data?.version ?? 0); };
+          registration.active?.postMessage({ type: "QLV_PUSH_VERSION" }, [channel.port2]);
+        });
+        if (version !== 122) return setMessage("App đang cập nhật phần nhận thông báo. Hãy đóng, mở lại app và thử kiểm tra lần nữa.");
+        const subscription = await registration.pushManager.getSubscription();
+        if (!subscription) return setMessage("Thiết bị này chưa đăng ký nhận thông báo.");
+        const result = await schedulePushDiagnosticAction(subscription.endpoint);
+        if (result.ok && result.probeId) {
+          setProbeId(result.probeId);
+          try { sessionStorage.setItem("qlv_push_probe", result.probeId); } catch { /* Optional. */ }
+        }
+        setMessage(result.message);
+      } catch { setMessage("Chưa thể kiểm tra thông báo nền. Hãy thử lại."); }
+    });
+  }
+
+  function readBackgroundPushResult() {
+    startTransition(async () => {
+      try {
+        const result = probeId ? await getPushDiagnosticAction(probeId) : null;
+        if (!result) return setMessage("Không còn kết quả lượt kiểm tra này. Bạn có thể gửi một lượt mới.");
+        const sent = result.sent === "ACCEPTED" ? "Dịch vụ Push đã chấp nhận." : result.sent === "FAILED" ? "Chưa gửi được tới dịch vụ Push." : "Đang chờ gửi.";
+        const received = result.received ? "Thiết bị đã chạy xử lý nền." : "Chưa có xác nhận xử lý nền; thông báo dự phòng vẫn có thể đã hiển thị.";
+        const badge = result.badge === "SUCCEEDED" ? "Đã gọi cập nhật số trên icon thành công." : result.badge === "FAILED" ? "Cập nhật số trên icon gặp lỗi." : "";
+        const display = result.notification === "DEFERRED" ? "Đã để hệ điều hành hiển thị thông báo và số trên icon." : result.notification === "FAILED" ? "Phần hiển thị thông báo gặp lỗi." : "";
+        setMessage(`${sent} ${received} ${display} ${badge} Kết quả này không xác nhận bạn đã nhìn thấy thông báo.`);
+      } catch { setMessage("Chưa tải được kết quả. Hãy thử lại."); }
     });
   }
 
@@ -128,6 +173,10 @@ export function PushManager({ publicKey, initialDeliveryHour, showTestButton = f
         {Array.from({ length: 24 }, (_, hour) => <option value={hour} key={hour}>{String(hour).padStart(2, "0")}:00</option>)}
       </select>
     </div>
+    <button className="secondary-button push-test-button" type="button" onClick={checkBackgroundPush} disabled={pending || checking || !enabled}>
+      Kiểm tra thông báo nền
+    </button>
+    {probeId ? <button className="secondary-button push-test-button" type="button" onClick={readBackgroundPushResult} disabled={pending}>Xem kết quả kiểm tra</button> : null}
     {showTestButton ? <button className="secondary-button push-test-button" type="button" onClick={testNotification} disabled={testing}>
       {testing ? <LoaderCircle className="spinner-icon" size={18} /> : <FlaskConical size={18} />}
       {testing ? "Đang gửi thử" : "Gửi thông báo thử"}

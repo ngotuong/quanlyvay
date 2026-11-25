@@ -4,6 +4,7 @@ import { createPinnedPushAgent } from "@/lib/notifications/push-endpoint.mjs";
 import { NextResponse, type NextRequest } from "next/server";
 import { todayInVietnam } from "@/lib/business/format";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { buildPushPayload, deliveryPath } from "@/lib/notifications/payload.mjs";
 
 type ClaimedDelivery = {
   delivery_id: string;
@@ -48,6 +49,7 @@ async function runNotifications(request: NextRequest) {
 
   const startedAt = Date.now();
   const supabase = createAdminClient();
+  try { await supabase.rpc("prune_push_receipts").abortSignal(AbortSignal.timeout(1000)); } catch { /* Diagnostic maintenance cannot block reminders. */ }
   const date = todayInVietnam();
   const deliveryHour = currentHourInVietnam();
   const { data: generated, error: generationError } = await supabase.rpc("generate_due_notifications", { p_notification_date: date });
@@ -64,15 +66,39 @@ async function runNotifications(request: NextRequest) {
         return (data ?? []) as ClaimedDelivery[];
       },
       send: async (delivery: ClaimedDelivery, options: { timeout: number }) => {
-        const { agent } = await createPinnedPushAgent(delivery.endpoint, { timeoutMs: options.timeout });
+        let receiptData: { id: string; token: string; origin?: string } | undefined;
         try {
-          return await webpush.sendNotification(
+          const receipt = await supabase.rpc("prepare_push_receipt", { p_delivery_id: delivery.delivery_id }).abortSignal(AbortSignal.timeout(1000));
+          if (!receipt.error) receiptData = receipt.data;
+        } catch { /* Send the reminder even if optional diagnostics are unavailable. */ }
+        const providerResult = async (result: string) => {
+          try {
+            if (receiptData?.id) await supabase.rpc("complete_push_receipt_provider", { p_receipt_id: receiptData.id, p_result: result }).abortSignal(AbortSignal.timeout(1000));
+          } catch { /* A diagnostic write must not turn an accepted Push into a retry. */ }
+        };
+        // Missing diagnostics must not suppress the reminder (e.g. during a rolling deployment).
+        const receiptToken = receiptData?.token;
+        const payload = buildPushPayload({
+          title: delivery.title, body: delivery.body, path: deliveryPath(delivery),
+          tag: delivery.idempotency_key, unreadCount: delivery.unread_count,
+          origin: receiptData?.origin || (process.env.VERCEL_ENV === "production" ? "https://tindung.vercel.app" : request.nextUrl.origin),
+          receiptToken,
+        });
+        let agent: Awaited<ReturnType<typeof createPinnedPushAgent>>["agent"] | undefined;
+        try {
+          ({ agent } = await createPinnedPushAgent(delivery.endpoint, { timeoutMs: options.timeout }));
+          const result = await webpush.sendNotification(
             { endpoint: delivery.endpoint, keys: { p256dh: delivery.p256dh, auth: delivery.auth_secret } },
-            JSON.stringify({ title: delivery.title, body: delivery.body, url: delivery.loan_id ? `/loans/${delivery.loan_id}?tab=overview${delivery.notification_type === "INTEREST_DUE" ? "&transaction=interest" : ""}` : "/notifications", tag: delivery.idempotency_key, badgeCount: delivery.unread_count }),
-            { ...options, agent },
+            JSON.stringify(payload),
+            { ...options, agent, TTL: 86400, urgency: "high" },
           );
+          await providerResult("ACCEPTED");
+          return result;
+        } catch (error) {
+          await providerResult("FAILED");
+          throw error;
         } finally {
-          agent.destroy();
+          agent?.destroy();
         }
       },
       complete: async (delivery: ClaimedDelivery, succeeded: boolean, errorMessage: string | null) => {

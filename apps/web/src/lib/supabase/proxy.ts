@@ -4,7 +4,7 @@ import { publicSupabaseEnvironment } from "./env";
 
 export async function updateSupabaseSession(request: NextRequest, requestHeaders = new Headers(request.headers)) {
   let response = NextResponse.next({ request: { headers: requestHeaders } });
-  if (request.nextUrl.pathname === "/api/connectivity") return response;
+  if (["/api/connectivity", "/api/notifications/receipt"].includes(request.nextUrl.pathname)) return response;
   const { url, publishableKey } = publicSupabaseEnvironment();
 
   const supabase = createServerClient(url, publishableKey, {

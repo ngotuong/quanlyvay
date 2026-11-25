@@ -732,6 +732,10 @@ test("PWA manifest, service worker and notification center are available", async
   await expect(page.getByRole("heading", { name: "Thông báo trên thiết bị" })).toBeVisible();
   const pushToggle = page.getByRole("switch", { name: /thông báo trên thiết bị/i });
   await expect(pushToggle).toHaveAttribute("aria-checked", /true|false/);
+  const backgroundCheck = page.getByRole("button", { name: "Kiểm tra thông báo nền", exact: true });
+  await expect(backgroundCheck).toBeVisible();
+  await expect(backgroundCheck).toBeDisabled();
+  expect((await backgroundCheck.boundingBox())!.width).toBeGreaterThan(180);
   expect((await pushToggle.boundingBox())!.height).toBeGreaterThanOrEqual(44);
   await expect(page.getByLabel("Giờ nhận thông báo")).toHaveValue("7");
   const [timeLabelBox, timeSelectBox] = await Promise.all([
