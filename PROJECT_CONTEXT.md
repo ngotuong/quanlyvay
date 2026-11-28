@@ -4,7 +4,7 @@ roadmap_version: 1.0.395
 last_updated: 2026-11-28
 timezone: Asia/Ho_Chi_Minh
 current_checkpoint: C123
-current_status: AWAITING_APPROVAL
+current_status: IN_PROGRESS
 last_completed_checkpoint: C122
 next_checkpoint: C123
 ---
@@ -47,8 +47,13 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
   đóng/màn hình khóa và chạm thông báo mở đúng app/trang Thông báo. C122 đạt acceptance thiết bị;
   không suy rộng thành cam kết Push luôn đúng giờ hoặc receipt luôn chứng minh người dùng đã thấy.
   Chi tiết và giới hạn: [bằng chứng C122](docs/push-c122/report.md).
-- C123 `AWAITING_APPROVAL`: checkpoint khắc phục ưu tiên kế tiếp từ audit, siết quyền bảng bất biến
-  và làm idempotency tuyến tính dưới request đồng thời. Chưa triển khai migration/code/test/remote.
+- C123 `IN_PROGRESS` ngày 28/11/2026: OWNER đã phê duyệt trực tiếp. Migration ACL/idempotency đã
+  áp local; permission catalog sạch và test hai database session đạt cho tạo khoản vay, sửa điều
+  khoản, onboarding, chi phí và đảo chi phí. Gate đạt lint/typecheck/build, 145 unit,
+  Auth 6/6, pgTAP 651/30 tệp, db lint sạch và full E2E `107 PASS / 18 SKIP / 0 FAIL`.
+  Backup `qlv-prod-20261128T123003Z` đạt 6 tệp/GCM/SQL-shape/checksum; remote trước rollout khớp
+  đến migration `20261124100000` và đúng permission matrix. Chưa áp C123 remote; đang chuẩn bị
+  source/CI/Preview/Production. [Báo cáo](docs/integrity-c123/report.md).
 - C121 `COMPLETED` ngày 20/11/2026: OWNER đã phê duyệt trực tiếp vá Next.js và phát hành C120 qua Preview rồi
   Production, gồm push/CI, full gate, authenticated/runtime smoke và rollback. Không migration hoặc
   đổi dữ liệu nghiệp vụ. Next.js/eslint-config-next 16.4.6 đã cài, port nguyên patch C76 và pin
@@ -171,7 +176,7 @@ trong các thư mục `docs/*-cXX` và `docs/release-cXX`.
 - C101–C122 đều `COMPLETED`; C100 đang `IN_PROGRESS`. Chi tiết acceptance, test
   và deployment được giữ trong roadmap và báo cáo phát hành tương ứng.
 - C100 chỉ còn chuỗi số đo thiết bị theo acceptance đã duyệt. C120–C122 đã hoàn tất theo phê duyệt
-  trực tiếp của OWNER. C123 chờ phê duyệt riêng theo cổng checkpoint.
+  trực tiếp của OWNER. C123 đã được OWNER phê duyệt trực tiếp ngày 28/11/2026.
 
 ## 2. C100 — Công việc còn lại
 
@@ -255,7 +260,7 @@ Chi tiết và giới hạn Auth từng origin: [release C121](docs/release-c121
 5. C119 đã hoàn tất cả stable Preview/Production và thao tác khoản vay được chỉ định, gồm offset
    nhắc 0 theo yêu cầu riêng. Không lặp lại thao tác hoặc tiếp tục rollout từ bằng chứng lịch sử.
 6. C121/C122 đã hoàn tất. Không lặp lại deploy/promote, migration hoặc probe thiết bị. Giữ rollback
-   C119. C123 chỉ bắt đầu sau phê duyệt checkpoint; C100 chỉ tiếp tục khi có chuỗi số đo thiết bị.
+   C119. C123 đã được phê duyệt và đang triển khai; C100 chỉ tiếp tục khi có chuỗi số đo thiết bị.
 
 Tài liệu kỹ thuật chính: [Domain](docs/DOMAIN_SPEC.md), [Financial Engine](docs/FINANCIAL_ENGINE.md),
 [Dashboard](docs/DASHBOARD.md), [CI](docs/CI.md), [Preview](docs/VERCEL_PREVIEW_RUNBOOK.md),

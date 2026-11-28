@@ -98,7 +98,7 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C120 | Sửa cảnh báo mất kết nối sai và tự phục hồi theo kết nối thực tế | `COMPLETED` |
 | C121 | Vá Next.js và phát hành bản sửa cảnh báo qua Preview/Production | `COMPLETED` |
 | C122 | Tăng độ tin cậy Push/badge iPhone và phân biệt gửi với xử lý trên thiết bị | `COMPLETED` |
-| C123 | Siết quyền bảng bất biến và idempotency dưới request đồng thời | `AWAITING_APPROVAL` |
+| C123 | Siết quyền bảng bất biến và idempotency dưới request đồng thời | `IN_PROGRESS` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3263,7 +3263,9 @@ thành bằng chứng người dùng đã thấy trong mọi lần gửi.
 
 ### C123 — Quyền bảng bất biến và idempotency đồng thời
 
-Trạng thái: `AWAITING_APPROVAL` ngày 28/11/2026. Chưa triển khai.
+Trạng thái: `IN_PROGRESS` ngày 28/11/2026; OWNER đã phê duyệt trực tiếp. Migration đã áp local,
+permission/two-session test và toàn bộ local gate đạt; backup mới và remote preflight đạt. Chưa áp
+C123 remote; đang thực hiện source/CI/Preview/Production. [Report](integrity-c123/report.md).
 
 Phạm vi/acceptance đề xuất:
 
