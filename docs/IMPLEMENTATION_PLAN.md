@@ -97,7 +97,8 @@ không dùng lịch sử đó làm yêu cầu đang chờ.
 | C119 | Tính lại lãi với mốc chu kỳ mới và áp dụng khoản vay đã chỉ định | `COMPLETED` |
 | C120 | Sửa cảnh báo mất kết nối sai và tự phục hồi theo kết nối thực tế | `COMPLETED` |
 | C121 | Vá Next.js và phát hành bản sửa cảnh báo qua Preview/Production | `COMPLETED` |
-| C122 | Tăng độ tin cậy Push/badge iPhone và phân biệt gửi với xử lý trên thiết bị | `IN_PROGRESS` |
+| C122 | Tăng độ tin cậy Push/badge iPhone và phân biệt gửi với xử lý trên thiết bị | `COMPLETED` |
+| C123 | Siết quyền bảng bất biến và idempotency dưới request đồng thời | `AWAITING_APPROVAL` |
 
 ## 3. Checkpoint đã hoàn tất: C47
 
@@ -3233,7 +3234,7 @@ Build có advisory Next.js 16.4.1; audit prod 7 moderate, không high/critical, 
 
 ### C122 — Push và badge iPhone khi app đóng
 
-Trạng thái: `IN_PROGRESS` ngày 24/11/2026; OWNER đã phê duyệt trực tiếp phạm vi đề xuất, gồm
+Trạng thái: `COMPLETED` ngày 28/11/2026; OWNER đã phê duyệt trực tiếp phạm vi đề xuất, gồm
 triển khai, kiểm thử, migration nếu cần và phát hành Preview/Production sau nghiệm thu thiết bị.
 
 Đối chiếu Production: scheduler gọi thành công, Apple chấp nhận Push vào giờ đã chọn nhưng OWNER
@@ -3247,6 +3248,38 @@ Không coi receipt hoặc thiếu receipt là bằng chứng tuyệt đối đã
 hoặc thay giờ nhận. Chạy gate local/DB/E2E/CI, backup trước migration nếu có, root Preview pipeline,
 nghiệm thu iPhone thật lúc app đóng/khóa màn hình trước Production; giữ rollback và hậu kiểm.
 Không đổi nghĩa vụ tài chính, dữ liệu khoản vay, tài khoản hoặc scheduler ngoài phạm vi đã duyệt.
+
+Tiến độ đối chiếu 28/11/2026: source `ca88440`/Required CI `45569166930` đạt; backup mới
+`qlv-prod-20261128T091217Z` đạt và remote đã có migration/schema C122, db lint sạch. Stable Preview
+`dpl_4L4iJP2y8EvdsP5cS57vDYknk4iS` và Production `dpl_5YNAdxrxHVuNkgHMuxF8deBFKmxW` đều
+Ready/đúng target/Functions `sin1`; public/CSP/connectivity/SW/receipt và runtime smoke đạt. Root
+Preview gate chạy lại đạt `107 PASS / 18 SKIP / 0 FAIL`. Không deploy/promote trùng khi phát hiện
+remote mới hơn context. Auth browser smoke và nghiệm thu iPhone app đóng/khóa màn hình vẫn
+phải do OWNER hỗ trợ vì computer-use browser không khả dụng. Ngày 28/11 OWNER đã chạy probe; app
+xác nhận provider accepted, handler nền chạy và declarative notification/badge đã giao cho hệ điều
+hành. OWNER xác nhận thấy banner/Notification Center, badge khi app đóng/màn hình khóa và deep link
+mở đúng app/trang Thông báo. C122 đạt acceptance; không cam kết Push luôn đúng giờ hoặc suy receipt
+thành bằng chứng người dùng đã thấy trong mọi lần gửi.
+
+### C123 — Quyền bảng bất biến và idempotency đồng thời
+
+Trạng thái: `AWAITING_APPROVAL` ngày 28/11/2026. Chưa triển khai.
+
+Phạm vi/acceptance đề xuất:
+
+1. Lập permission matrix từ catalog cho toàn bộ bảng tài chính/audit/append-only; migration thu hồi
+   `TRUNCATE`, `TRIGGER`, `REFERENCES`, `MAINTAIN` và default grants không cần thiết khỏi `anon` và
+   `authenticated`, sau đó cấp lại tối thiểu đúng luồng hiện hữu. Không xóa/sửa dữ liệu vận hành.
+2. Làm idempotency tuyến tính cho RPC ghi tài chính khi hai request cùng key chạy đồng thời: một
+   mutation duy nhất, request còn lại replay đúng kết quả thay vì unique violation. Giữ row lock,
+   append/reversal, authoritative calculation và lỗi conflict thật.
+3. Thêm pgTAP permission assertions và test hai database session cho giao dịch, sửa điều khoản và
+   onboarding liên quan; giữ test tuần tự hiện hữu. Đối chiếu số dư/lãi/audit trước-sau bằng dữ liệu giả.
+4. Gate diff-check, lint, typecheck, unit, build, full E2E, `supabase test db` và db lint. Nếu có
+   rollout remote: backup mã hóa mới, migration history/parity, Preview theo runbook, Auth/runtime
+   smoke, Production/rollback và hậu kiểm. Dừng nếu catalog remote khác giả định hoặc cần đổi kiến trúc.
+5. Khi C123 hoàn tất, cập nhật context/roadmap/report và đặt checkpoint auth hardening kế tiếp
+   `AWAITING_APPROVAL`; không tự chuyển checkpoint.
 
 ### C121 — Vá Next.js và phát hành sửa cảnh báo kết nối
 
